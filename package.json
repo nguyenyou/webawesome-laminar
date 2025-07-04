@@ -1,0 +1,16 @@
+{
+  "name": "mill-vite",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "packageManager": "yarn@4.9.2",
+  "devDependencies": {
+    "jsdom": "^26.1.0",
+    "vite": "npm:rolldown-vite@latest"
+  }
+}
