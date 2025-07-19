@@ -3,6 +3,7 @@ package io.github.nguyenyou.webawesome.laminar
 import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
 import com.raquo.laminar.api.L
 import com.raquo.laminar.nodes.Slot
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -33,10 +34,12 @@ object CopyButton extends WebComponent("wa-copy-button") {
   /** Emitted when the data could not be copied. */
   lazy val onError: EventProp[dom.Event] = eventProp("wa-error")
 
-  // -- Attributes --
+  // -- Props --
 
   /** The text value to copy. */
-  lazy val value: HtmlAttr[String] = stringAttr("value")
+  lazy val value: HtmlProp[String, ?] = L.value
+
+  // -- Attributes --
 
   /** An id that references an element in the same document from which data will be copied. If both this and `value` are
   present, this value will take precedence. By default, the target element's `textContent` will be copied. To copy an
@@ -61,11 +64,6 @@ object CopyButton extends WebComponent("wa-copy-button") {
 
   /** The preferred placement of the tooltip. Valid values: "top", "right", "bottom", "left". */
   lazy val tooltipPlacement: HtmlAttr[TooltipPlacement] = unionAttr("tooltip-placement")
-
-  // -- Props --
-
-  /** The value of the component. */
-  lazy val valueProp: HtmlProp[String, ?] = L.value
 
   // -- Slots --
 
@@ -115,9 +113,6 @@ object CopyButton extends WebComponent("wa-copy-button") {
 
   @js.native trait WaCopyButtonComponent extends js.Object {
     this: dom.HTMLElement =>
-
-    /** The text value to copy. */
-    var value: String
 
     /** An id that references an element in the same document from which data will be copied. If both this and `value` are
     present, this value will take precedence. By default, the target element's `textContent` will be copied. To copy an

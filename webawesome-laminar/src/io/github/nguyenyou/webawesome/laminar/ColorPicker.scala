@@ -3,6 +3,7 @@ package io.github.nguyenyou.webawesome.laminar
 import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
 import com.raquo.laminar.api.L
 import com.raquo.laminar.nodes.Slot
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -24,6 +25,12 @@ object ColorPicker extends WebComponent("wa-color-picker") {
   type Self = ColorPicker.type
 
   type Ref = WaColorPickerComponent & dom.HTMLElement
+
+  // -- Controlled Component --
+
+  override protected lazy val tag: CustomHtmlTag[Ref] = {
+    tagWithControlledInput(value, initial = "", input)
+  }
 
   // -- Events --
 
@@ -50,10 +57,12 @@ object ColorPicker extends WebComponent("wa-color-picker") {
   /** Emitted when the form control has been checked for validity and its constraints aren't satisfied. */
   lazy val onInvalid: EventProp[dom.Event] = eventProp("wa-invalid")
 
-  // -- Attributes --
+  // -- Props --
 
   /** The default value of the form control. Primarily used for resetting the form control. */
-  lazy val value: HtmlAttr[String] = stringAttr("value")
+  lazy val value: HtmlProp[String, ?] = L.value
+
+  // -- Attributes --
 
   lazy val withLabel: HtmlAttr[Boolean] = boolAttr("with-label")
 
@@ -104,11 +113,6 @@ object ColorPicker extends WebComponent("wa-color-picker") {
 
   /** Makes the color picker a required field. */
   lazy val required: HtmlAttr[Boolean] = boolAttr("required")
-
-  // -- Props --
-
-  /** The value of the component. */
-  lazy val valueProp: HtmlProp[String, ?] = L.value
 
   // -- Slots --
 
@@ -230,9 +234,6 @@ object ColorPicker extends WebComponent("wa-color-picker") {
 
   @js.native trait WaColorPickerComponent extends js.Object {
     this: dom.HTMLElement =>
-
-    /** The default value of the form control. Primarily used for resetting the form control. */
-    var defaultValue: String
 
     var withLabel: Boolean
 

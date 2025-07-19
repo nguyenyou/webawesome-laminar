@@ -3,6 +3,7 @@ package io.github.nguyenyou.webawesome.laminar
 import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
 import com.raquo.laminar.api.L
 import com.raquo.laminar.nodes.Slot
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -24,6 +25,12 @@ object Select extends WebComponent("wa-select") {
   type Self = Select.type
 
   type Ref = WaSelectComponent & dom.HTMLElement
+
+  // -- Controlled Component --
+
+  override protected lazy val tag: CustomHtmlTag[Ref] = {
+    tagWithControlledInput(value, initial = "", input)
+  }
 
   // -- Events --
 
@@ -57,13 +64,15 @@ object Select extends WebComponent("wa-select") {
   /** Emitted when the form control has been checked for validity and its constraints aren't satisfied. */
   lazy val onInvalid: EventProp[dom.Event] = eventProp("wa-invalid")
 
+  // -- Props --
+
+  /** The select's value. This will be a string for single select or an array for multi-select. */
+  lazy val value: HtmlProp[String, ?] = L.value
+
   // -- Attributes --
 
   /** The name of the select, submitted as a name/value pair with form data. */
   lazy val name: HtmlAttr[String] = stringAttr("name")
-
-  /** The select's value. This will be a string for single select or an array for multi-select. */
-  lazy val value: HtmlAttr[String] = stringAttr("value")
 
   /** The select's size. Valid values: "small", "medium", "large". */
   lazy val size: HtmlAttr[ComponentSize] = unionAttr("size")
@@ -117,11 +126,6 @@ object Select extends WebComponent("wa-select") {
 
   /** The select's required attribute. */
   lazy val required: HtmlAttr[Boolean] = boolAttr("required")
-
-  // -- Props --
-
-  /** The value of the component. */
-  lazy val valueProp: HtmlProp[String, ?] = L.value
 
   // -- Slots --
 
@@ -219,9 +223,6 @@ object Select extends WebComponent("wa-select") {
 
     /** The name of the select, submitted as a name/value pair with form data. */
     var name: String
-
-    /** The select's value. This will be a string for single select or an array for multi-select. */
-    var value: String
 
     /** The select's size. Valid values: "small", "medium", "large". */
     var size: ComponentSize

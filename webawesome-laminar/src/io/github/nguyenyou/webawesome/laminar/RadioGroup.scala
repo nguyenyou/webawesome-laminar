@@ -3,6 +3,7 @@ package io.github.nguyenyou.webawesome.laminar
 import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
 import com.raquo.laminar.api.L
 import com.raquo.laminar.nodes.Slot
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -25,6 +26,12 @@ object RadioGroup extends WebComponent("wa-radio-group") {
 
   type Ref = WaRadioGroupComponent & dom.HTMLElement
 
+  // -- Controlled Component --
+
+  override protected lazy val tag: CustomHtmlTag[Ref] = {
+    tagWithControlledInput(value, initial = "", input)
+  }
+
   // -- Events --
 
   /** Emitted when the radio group receives user input. */
@@ -35,6 +42,11 @@ object RadioGroup extends WebComponent("wa-radio-group") {
 
   /** Emitted when the form control has been checked for validity and its constraints aren't satisfied. */
   lazy val onInvalid: EventProp[dom.Event] = eventProp("wa-invalid")
+
+  // -- Props --
+
+  /** The default value of the form control. Primarily used for resetting the form control. */
+  lazy val value: HtmlProp[String, ?] = L.value
 
   // -- Attributes --
 
@@ -54,9 +66,6 @@ object RadioGroup extends WebComponent("wa-radio-group") {
   /** The orientation in which to show radio items. Valid values: "horizontal", "vertical". */
   lazy val orientation: HtmlAttr[Orientation] = unionAttr("orientation")
 
-  /** The default value of the form control. Primarily used for resetting the form control. */
-  lazy val value: HtmlAttr[String] = stringAttr("value")
-
   /** The radio group's size. This size will be applied to all child radios and radio buttons, except when explicitly overridden. Valid values: "small", "medium", "large". */
   lazy val size: HtmlAttr[ComponentSize] = unionAttr("size")
 
@@ -68,11 +77,6 @@ object RadioGroup extends WebComponent("wa-radio-group") {
 
   /** Used for SSR. if true, will show slotted hint on initial render. */
   lazy val withHint: HtmlAttr[Boolean] = boolAttr("with-hint")
-
-  // -- Props --
-
-  /** The value of the component. */
-  lazy val valueProp: HtmlProp[String, ?] = L.value
 
   // -- Slots --
 
@@ -129,9 +133,6 @@ object RadioGroup extends WebComponent("wa-radio-group") {
 
     /** The orientation in which to show radio items. Valid values: "horizontal", "vertical". */
     var orientation: Orientation
-
-    /** The default value of the form control. Primarily used for resetting the form control. */
-    var defaultValue: String
 
     /** The radio group's size. This size will be applied to all child radios and radio buttons, except when explicitly overridden. Valid values: "small", "medium", "large". */
     var size: ComponentSize

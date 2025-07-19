@@ -3,6 +3,7 @@ package io.github.nguyenyou.webawesome.laminar
 import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
 import com.raquo.laminar.api.L
 import com.raquo.laminar.nodes.Slot
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -25,18 +26,15 @@ object ProgressRing extends WebComponent("wa-progress-ring") {
 
   type Ref = WaProgressRingComponent & dom.HTMLElement
 
-  // -- Attributes --
+  // -- Props --
 
   /** The current progress as a percentage, 0 to 100. */
-  lazy val value: HtmlAttr[Double] = doubleAttr("value")
+  lazy val value: HtmlProp[String, ?] = L.value
+
+  // -- Attributes --
 
   /** A custom label for assistive devices. */
   lazy val label: HtmlAttr[String] = stringAttr("label")
-
-  // -- Props --
-
-  /** The value of the component. */
-  lazy val valueProp: HtmlProp[String, ?] = L.value
 
   // -- Slots --
 
@@ -86,9 +84,6 @@ object ProgressRing extends WebComponent("wa-progress-ring") {
 
   @js.native trait WaProgressRingComponent extends js.Object {
     this: dom.HTMLElement =>
-
-    /** The current progress as a percentage, 0 to 100. */
-    var value: Double
 
     /** A custom label for assistive devices. */
     var label: String

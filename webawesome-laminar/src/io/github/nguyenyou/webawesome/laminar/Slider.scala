@@ -3,6 +3,7 @@ package io.github.nguyenyou.webawesome.laminar
 import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
 import com.raquo.laminar.api.L
 import com.raquo.laminar.nodes.Slot
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -42,6 +43,11 @@ object Slider extends WebComponent("wa-slider") {
   /** Emitted when the form control has been checked for validity and its constraints aren't satisfied. */
   lazy val onInvalid: EventProp[dom.Event] = eventProp("wa-invalid")
 
+  // -- Props --
+
+  /** The default value of the form control. Primarily used for resetting the form control. */
+  lazy val value: HtmlProp[String, ?] = L.value
+
   // -- Attributes --
 
   /** The slider's label. If you need to provide HTML in the label, use the `label` slot instead. */
@@ -58,9 +64,6 @@ object Slider extends WebComponent("wa-slider") {
 
   /** The maximum value of a range selection. Used only when range attribute is set. */
   lazy val maxValue: HtmlAttr[Double] = doubleAttr("max-value")
-
-  /** The default value of the form control. Primarily used for resetting the form control. */
-  lazy val value: HtmlAttr[Double] = doubleAttr("value")
 
   /** Converts the slider to a range slider with two thumbs. */
   lazy val range: HtmlAttr[Boolean] = boolAttr("range")
@@ -110,11 +113,6 @@ object Slider extends WebComponent("wa-slider") {
 
   /** Draws a tooltip above the thumb when the control has focus or is dragged. */
   lazy val withTooltip: HtmlAttr[Boolean] = boolAttr("with-tooltip")
-
-  // -- Props --
-
-  /** The value of the component. */
-  lazy val valueProp: HtmlProp[String, ?] = L.value
 
   // -- Slots --
 
@@ -221,9 +219,6 @@ object Slider extends WebComponent("wa-slider") {
 
     /** The maximum value of a range selection. Used only when range attribute is set. */
     var maxValue: Double
-
-    /** The default value of the form control. Primarily used for resetting the form control. */
-    var defaultValue: Double
 
     /** Converts the slider to a range slider with two thumbs. */
     var range: Boolean

@@ -3,6 +3,7 @@ package io.github.nguyenyou.webawesome.laminar
 import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
 import com.raquo.laminar.api.L
 import com.raquo.laminar.nodes.Slot
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -25,10 +26,12 @@ object QrCode extends WebComponent("wa-qr-code") {
 
   type Ref = WaQrCodeComponent & dom.HTMLElement
 
-  // -- Attributes --
+  // -- Props --
 
   /** The QR code's value. */
-  lazy val value: HtmlAttr[String] = stringAttr("value")
+  lazy val value: HtmlProp[String, ?] = L.value
+
+  // -- Attributes --
 
   /** The label for assistive devices to announce. If unspecified, the value will be used instead. */
   lazy val label: HtmlAttr[String] = stringAttr("label")
@@ -48,11 +51,6 @@ object QrCode extends WebComponent("wa-qr-code") {
   /** The level of error correction to use. [Learn more](https://www.qrcode.com/en/about/error_correction.html) Valid values: "L", "M", "Q", "H". */
   lazy val errorCorrection: HtmlAttr[QrCodeErrorCorrection] = unionAttr("error-correction")
 
-  // -- Props --
-
-  /** The value of the component. */
-  lazy val valueProp: HtmlProp[String, ?] = L.value
-
   // -- CSS Parts --
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
@@ -66,9 +64,6 @@ object QrCode extends WebComponent("wa-qr-code") {
 
   @js.native trait WaQrCodeComponent extends js.Object {
     this: dom.HTMLElement =>
-
-    /** The QR code's value. */
-    var value: String
 
     /** The label for assistive devices to announce. If unspecified, the value will be used instead. */
     var label: String

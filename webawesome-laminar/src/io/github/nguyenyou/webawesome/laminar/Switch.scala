@@ -3,6 +3,7 @@ package io.github.nguyenyou.webawesome.laminar
 import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
 import com.raquo.laminar.api.L
 import com.raquo.laminar.nodes.Slot
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -25,6 +26,12 @@ object Switch extends WebComponent("wa-switch") {
 
   type Ref = WaSwitchComponent & dom.HTMLElement
 
+  // -- Controlled Component --
+
+  override protected lazy val tag: CustomHtmlTag[Ref] = {
+    tagWithControlledInput(checked, initial = false, input)
+  }
+
   // -- Events --
 
   /** Emitted when the control's checked state changes. */
@@ -42,6 +49,14 @@ object Switch extends WebComponent("wa-switch") {
   /** Emitted when the form control has been checked for validity and its constraints aren't satisfied. */
   lazy val onInvalid: EventProp[dom.Event] = eventProp("wa-invalid")
 
+  // -- Props --
+
+  /** The default value of the form control. Primarily used for resetting the form control. */
+  lazy val checked: HtmlProp[Boolean, ?] = L.checked
+
+  /** The value of the switch, submitted as a name/value pair with form data. */
+  lazy val value: HtmlProp[String, ?] = L.value
+
   // -- Attributes --
 
   lazy val title: HtmlAttr[String] = stringAttr("title")
@@ -49,17 +64,11 @@ object Switch extends WebComponent("wa-switch") {
   /** The name of the switch, submitted as a name/value pair with form data. */
   lazy val name: HtmlAttr[String] = stringAttr("name")
 
-  /** The value of the switch, submitted as a name/value pair with form data. */
-  lazy val value: HtmlAttr[String] = stringAttr("value")
-
   /** The switch's size. Valid values: "small", "medium", "large". */
   lazy val size: HtmlAttr[ComponentSize] = unionAttr("size")
 
   /** Disables the switch. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
-
-  /** The default value of the form control. Primarily used for resetting the form control. */
-  lazy val checked: HtmlAttr[Boolean] = boolAttr("checked")
 
   /** By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
   to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
@@ -74,11 +83,6 @@ object Switch extends WebComponent("wa-switch") {
 
   /** Used for SSR. If you slot in hint, make sure to add `with-hint` to your component to get it to properly render with SSR. */
   lazy val withHint: HtmlAttr[Boolean] = boolAttr("with-hint")
-
-  // -- Props --
-
-  /** The value of the component. */
-  lazy val valueProp: HtmlProp[String, ?] = L.value
 
   // -- Slots --
 
@@ -137,17 +141,11 @@ object Switch extends WebComponent("wa-switch") {
     /** The name of the switch, submitted as a name/value pair with form data. */
     var name: String
 
-    /** The value of the switch, submitted as a name/value pair with form data. */
-    var value: String
-
     /** The switch's size. Valid values: "small", "medium", "large". */
     var size: ComponentSize
 
     /** Disables the switch. */
     var disabled: Boolean
-
-    /** The default value of the form control. Primarily used for resetting the form control. */
-    var defaultChecked: Boolean
 
     /** By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
     to place the form control outside of a form and associate it with the form that has this `id`. The form must be in

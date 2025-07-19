@@ -3,6 +3,7 @@ package io.github.nguyenyou.webawesome.laminar
 import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
 import com.raquo.laminar.api.L
 import com.raquo.laminar.nodes.Slot
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -33,13 +34,15 @@ object Radio extends WebComponent("wa-radio") {
   /** Emitted when the control gains focus. */
   lazy val focus: EventProp[dom.Event] = eventProp("focus")
 
+  // -- Props --
+
+  /** The radio's value. When selected, the radio group will receive this value. */
+  lazy val value: HtmlProp[String, ?] = L.value
+
   // -- Attributes --
 
   /** The string pointing to a form's id. */
   lazy val form: HtmlAttr[String] = stringAttr("form")
-
-  /** The radio's value. When selected, the radio group will receive this value. */
-  lazy val value: HtmlAttr[String] = stringAttr("value")
 
   /** The radio's value. When selected, the radio group will receive this value. Valid values: "default", "button". */
   lazy val appearance: HtmlAttr[RadioAppearance] = unionAttr("appearance")
@@ -50,11 +53,6 @@ object Radio extends WebComponent("wa-radio") {
 
   /** Disables the radio. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
-
-  // -- Props --
-
-  /** The value of the component. */
-  lazy val valueProp: HtmlProp[String, ?] = L.value
 
   // -- Slots --
 
@@ -98,9 +96,6 @@ object Radio extends WebComponent("wa-radio") {
 
     /** The string pointing to a form's id. */
     var form: String
-
-    /** The radio's value. When selected, the radio group will receive this value. */
-    var value: String
 
     /** The radio's value. When selected, the radio group will receive this value. Valid values: "default", "button". */
     var appearance: RadioAppearance

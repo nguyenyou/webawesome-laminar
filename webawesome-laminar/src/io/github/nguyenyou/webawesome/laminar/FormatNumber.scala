@@ -3,6 +3,7 @@ package io.github.nguyenyou.webawesome.laminar
 import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
 import com.raquo.laminar.api.L
 import com.raquo.laminar.nodes.Slot
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -25,10 +26,12 @@ object FormatNumber extends WebComponent("wa-format-number") {
 
   type Ref = WaFormatNumberComponent & dom.HTMLElement
 
-  // -- Attributes --
+  // -- Props --
 
   /** The number to format. */
-  lazy val value: HtmlAttr[Double] = doubleAttr("value")
+  lazy val value: HtmlProp[String, ?] = L.value
+
+  // -- Attributes --
 
   /** The formatting style to use. Valid values: "currency", "decimal", "percent". */
   lazy val `type`: HtmlAttr[FormatNumberElementType] = unionAttr("type")
@@ -61,18 +64,10 @@ object FormatNumber extends WebComponent("wa-format-number") {
   /** The maximum number of significant digits to use,. Possible values are 1-21. */
   lazy val maximumSignificantDigits: HtmlAttr[Double] = doubleAttr("maximum-significant-digits")
 
-  // -- Props --
-
-  /** The value of the component. */
-  lazy val valueProp: HtmlProp[String, ?] = L.value
-
   // -- Element type --
 
   @js.native trait WaFormatNumberComponent extends js.Object {
     this: dom.HTMLElement =>
-
-    /** The number to format. */
-    var value: Double
 
     /** The formatting style to use. Valid values: "currency", "decimal", "percent". */
     var `type`: FormatNumberElementType

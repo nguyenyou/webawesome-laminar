@@ -3,6 +3,7 @@ package io.github.nguyenyou.webawesome.laminar
 import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
 import com.raquo.laminar.api.L
 import com.raquo.laminar.nodes.Slot
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -33,13 +34,15 @@ object Rating extends WebComponent("wa-rating") {
   /** Emitted when the user hovers over a value. The `phase` property indicates when hovering starts, moves to a new value, or ends. The `value` property tells what the rating's value would be if the user were to commit to the hovered value. */
   lazy val onHover: EventProp[dom.Event] = eventProp("wa-hover")
 
+  // -- Props --
+
+  /** The current rating. */
+  lazy val value: HtmlProp[String, ?] = L.value
+
   // -- Attributes --
 
   /** A label that describes the rating to assistive devices. */
   lazy val label: HtmlAttr[String] = stringAttr("label")
-
-  /** The current rating. */
-  lazy val value: HtmlAttr[Double] = doubleAttr("value")
 
   /** The highest rating to show. */
   lazy val max: HtmlAttr[Double] = doubleAttr("max")
@@ -61,11 +64,6 @@ object Rating extends WebComponent("wa-rating") {
 
   /** The component's size. Valid values: "small", "medium", "large". */
   lazy val size: HtmlAttr[ComponentSize] = unionAttr("size")
-
-  // -- Props --
-
-  /** The value of the component. */
-  lazy val valueProp: HtmlProp[String, ?] = L.value
 
   // -- CSS Vars --
 
@@ -98,9 +96,6 @@ object Rating extends WebComponent("wa-rating") {
 
     /** A label that describes the rating to assistive devices. */
     var label: String
-
-    /** The current rating. */
-    var value: Double
 
     /** The highest rating to show. */
     var max: Double

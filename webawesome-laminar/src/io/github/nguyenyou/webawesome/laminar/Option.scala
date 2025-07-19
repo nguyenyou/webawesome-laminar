@@ -3,6 +3,7 @@ package io.github.nguyenyou.webawesome.laminar
 import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
 import com.raquo.laminar.api.L
 import com.raquo.laminar.nodes.Slot
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -25,12 +26,14 @@ object Option extends WebComponent("wa-option") {
 
   type Ref = WaOptionComponent & dom.HTMLElement
 
-  // -- Attributes --
+  // -- Props --
 
   /** The option's value. When selected, the containing form control will receive this value. The value must be unique
   from other options in the same group. Values may not contain spaces, as spaces are used as delimiters when listing
   multiple values. */
-  lazy val value: HtmlAttr[String] = stringAttr("value")
+  lazy val value: HtmlProp[String, ?] = L.value
+
+  // -- Attributes --
 
   /** Draws the option in a disabled state, preventing selection. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
@@ -41,11 +44,6 @@ object Option extends WebComponent("wa-option") {
   /** The option’s plain text label.
   Usually automatically generated, but can be useful to provide manually for cases involving complex content. */
   lazy val label: HtmlAttr[String] = stringAttr("label")
-
-  // -- Props --
-
-  /** The value of the component. */
-  lazy val valueProp: HtmlProp[String, ?] = L.value
 
   // -- Slots --
 
@@ -83,11 +81,6 @@ object Option extends WebComponent("wa-option") {
 
   @js.native trait WaOptionComponent extends js.Object {
     this: dom.HTMLElement =>
-
-    /** The option's value. When selected, the containing form control will receive this value. The value must be unique
-    from other options in the same group. Values may not contain spaces, as spaces are used as delimiters when listing
-    multiple values. */
-    var value: String
 
     /** Draws the option in a disabled state, preventing selection. */
     var disabled: Boolean

@@ -3,6 +3,7 @@ package io.github.nguyenyou.webawesome.laminar
 import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
 import com.raquo.laminar.api.L
 import com.raquo.laminar.nodes.Slot
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -25,10 +26,12 @@ object FormatBytes extends WebComponent("wa-format-bytes") {
 
   type Ref = WaFormatBytesComponent & dom.HTMLElement
 
-  // -- Attributes --
+  // -- Props --
 
   /** The number to format in bytes. */
-  lazy val value: HtmlAttr[Double] = doubleAttr("value")
+  lazy val value: HtmlProp[String, ?] = L.value
+
+  // -- Attributes --
 
   /** The type of unit to display. Valid values: "byte", "bit". */
   lazy val unit: HtmlAttr[FormatBytesUnit] = unionAttr("unit")
@@ -36,18 +39,10 @@ object FormatBytes extends WebComponent("wa-format-bytes") {
   /** Determines how to display the result, e.g. "100 bytes", "100 b", or "100b". Valid values: "long", "short", "narrow". */
   lazy val display: HtmlAttr[DisplayFormat] = unionAttr("display")
 
-  // -- Props --
-
-  /** The value of the component. */
-  lazy val valueProp: HtmlProp[String, ?] = L.value
-
   // -- Element type --
 
   @js.native trait WaFormatBytesComponent extends js.Object {
     this: dom.HTMLElement =>
-
-    /** The number to format in bytes. */
-    var value: Double
 
     /** The type of unit to display. Valid values: "byte", "bit". */
     var unit: FormatBytesUnit

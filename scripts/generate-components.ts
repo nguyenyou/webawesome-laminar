@@ -287,6 +287,22 @@ function escapeScalaKeyword(name: string): string {
   return name;
 }
 
+function getAllowedControlKeys(tagName: string): { propName: string; eventPropName: string; initialValueRepr: string } | null {
+  const falseRepr = "false";
+  const emptyStringRepr = '""';
+  
+  switch (tagName) {
+    case "wa-checkbox": return { propName: "checked", eventPropName: "input", initialValueRepr: falseRepr };
+    case "wa-color-picker": return { propName: "value", eventPropName: "input", initialValueRepr: emptyStringRepr };
+    case "wa-input": return { propName: "value", eventPropName: "input", initialValueRepr: emptyStringRepr };
+    case "wa-radio-group": return { propName: "value", eventPropName: "input", initialValueRepr: emptyStringRepr };
+    case "wa-select": return { propName: "value", eventPropName: "input", initialValueRepr: emptyStringRepr };
+    case "wa-switch": return { propName: "checked", eventPropName: "input", initialValueRepr: falseRepr };
+    case "wa-textarea": return { propName: "value", eventPropName: "input", initialValueRepr: emptyStringRepr };
+    default: return null;
+  }
+}
+
 function generateScalaDoc(description?: string, documentation?: string): string {
   if (!description && !documentation) return '';
   
@@ -328,6 +344,7 @@ async function generateComponent(component: ComponentIR): Promise<string> {
   writer.writeLine('import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}');
   writer.writeLine('import com.raquo.laminar.api.L');
   writer.writeLine('import com.raquo.laminar.nodes.Slot');
+  writer.writeLine('import com.raquo.laminar.tags.CustomHtmlTag');
   writer.writeLine('import org.scalajs.dom');
   writer.blankLine();
   writer.writeLine('import scala.scalajs.js');
@@ -367,6 +384,17 @@ async function generateComponent(component: ComponentIR): Promise<string> {
 
     // All union types are now in SharedTypes.scala - no component-specific types needed
 
+    // Tag override for controlled components
+    const allowedControlKeys = getAllowedControlKeys(component.tagName);
+    if (allowedControlKeys) {
+      writer.writeLine('// -- Controlled Component --');
+      writer.blankLine();
+      writer.write('override protected lazy val tag: CustomHtmlTag[Ref] = ').block(() => {
+        writer.writeLine(`tagWithControlledInput(${allowedControlKeys.propName}, initial = ${allowedControlKeys.initialValueRepr}, ${allowedControlKeys.eventPropName})`);
+      });
+      writer.blankLine();
+    }
+
     // Events section
     if (component.events.length > 0) {
       writer.writeLine('// -- Events --');
@@ -384,12 +412,38 @@ async function generateComponent(component: ComponentIR): Promise<string> {
       });
     }
 
+    // Props section (for checked and value)
+    const checkedAttr = component.attributes.find(attr => attr.name === 'checked');
+    const valueAttr = component.attributes.find(attr => attr.name === 'value');
+    
+    if (checkedAttr || valueAttr) {
+      writer.writeLine('// -- Props --');
+      writer.blankLine();
+      
+      if (checkedAttr) {
+        if (checkedAttr.description) {
+          writer.writeLine(`/** ${checkedAttr.description} */`);
+        }
+        writer.writeLine('lazy val checked: HtmlProp[Boolean, ?] = L.checked');
+        writer.blankLine();
+      }
+      
+      if (valueAttr) {
+        if (valueAttr.description) {
+          writer.writeLine(`/** ${valueAttr.description} */`);
+        }
+        writer.writeLine('lazy val value: HtmlProp[String, ?] = L.value');
+        writer.blankLine();
+      }
+    }
+
     // Attributes section
-    if (component.attributes.length > 0) {
+    const regularAttributes = component.attributes.filter(attr => attr.name !== 'checked' && attr.name !== 'value');
+    if (regularAttributes.length > 0) {
       writer.writeLine('// -- Attributes --');
       writer.blankLine();
 
-      component.attributes.forEach(attr => {
+      regularAttributes.forEach(attr => {
         // Generate enhanced documentation for union types
         let documentation = attr.description || '';
         if (shouldUseUnionType(attr)) {
@@ -420,16 +474,6 @@ async function generateComponent(component: ComponentIR): Promise<string> {
           writer.blankLine();
         }
       });
-    }
-
-    // Props section (for special cases like value) - but only if value is not already defined as attribute
-    const hasValueAttr = component.attributes.some(attr => attr.name === 'value');
-    if (hasValueAttr) {
-      writer.writeLine('// -- Props --');
-      writer.blankLine();
-      writer.writeLine('/** The value of the component. */');
-      writer.writeLine('lazy val valueProp: HtmlProp[String, ?] = L.value');
-      writer.blankLine();
     }
 
     // Slots section
@@ -503,8 +547,9 @@ async function generateComponent(component: ComponentIR): Promise<string> {
       writer.writeLine('this: dom.HTMLElement =>');
       writer.blankLine();
 
-      // Add component-specific properties
-      component.attributes.forEach(attr => {
+      // Add component-specific properties (excluding checked and value which are handled as props)
+      const jsAttributes = component.attributes.filter(attr => attr.name !== 'checked' && attr.name !== 'value');
+      jsAttributes.forEach(attr => {
         // Generate enhanced documentation for union types in JS facade
         let documentation = attr.description || '';
         if (shouldUseUnionType(attr)) {

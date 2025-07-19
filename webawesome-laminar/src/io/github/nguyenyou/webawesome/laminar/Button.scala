@@ -3,6 +3,7 @@ package io.github.nguyenyou.webawesome.laminar
 import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
 import com.raquo.laminar.api.L
 import com.raquo.laminar.nodes.Slot
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -35,6 +36,12 @@ object Button extends WebComponent("wa-button") {
 
   /** Emitted when the form control has been checked for validity and its constraints aren't satisfied. */
   lazy val onInvalid: EventProp[dom.Event] = eventProp("wa-invalid")
+
+  // -- Props --
+
+  /** The value of the button, submitted as a pair with the button's name as part of the form data, but only when this
+  button is the submitter. This attribute is ignored when `href` is present. */
+  lazy val value: HtmlProp[String, ?] = L.value
 
   // -- Attributes --
 
@@ -73,10 +80,6 @@ object Button extends WebComponent("wa-button") {
   This attribute is ignored when `href` is present. */
   lazy val name: HtmlAttr[String] = stringAttr("name")
 
-  /** The value of the button, submitted as a pair with the button's name as part of the form data, but only when this
-  button is the submitter. This attribute is ignored when `href` is present. */
-  lazy val value: HtmlAttr[String] = stringAttr("value")
-
   /** When set, the underlying button will be rendered as an `<a>` with this `href` instead of a `<button>`. */
   lazy val href: HtmlAttr[String] = stringAttr("href")
 
@@ -107,11 +110,6 @@ object Button extends WebComponent("wa-button") {
 
   /** Used to override the form owner's `target` attribute. */
   lazy val formtarget: HtmlAttr[String] = stringAttr("formtarget")
-
-  // -- Props --
-
-  /** The value of the component. */
-  lazy val valueProp: HtmlProp[String, ?] = L.value
 
   // -- Slots --
 
@@ -186,10 +184,6 @@ object Button extends WebComponent("wa-button") {
     /** The name of the button, submitted as a name/value pair with form data, but only when this button is the submitter.
     This attribute is ignored when `href` is present. */
     var name: String
-
-    /** The value of the button, submitted as a pair with the button's name as part of the form data, but only when this
-    button is the submitter. This attribute is ignored when `href` is present. */
-    var value: String
 
     /** When set, the underlying button will be rendered as an `<a>` with this `href` instead of a `<button>`. */
     var href: String
