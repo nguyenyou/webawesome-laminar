@@ -10,7 +10,12 @@ case class App() {
       div(
         h2("Basic Components"),
         Button(
-          _.variant := "success"
+          _.variant := "success",
+          _.slots.start(
+            Icon(
+              _.name := "check"
+            )()
+          )
         )(
           "Click me"
         )
