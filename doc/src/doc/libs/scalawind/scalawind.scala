@@ -427,4 +427,7 @@ case class Tailwind() {
   def bgWhite                         = this
   def bgBackground                    = this
   def underline                       = this
+  def py3                             = this
+  def pl3                             = this
+  def pr5                             = this
 }
