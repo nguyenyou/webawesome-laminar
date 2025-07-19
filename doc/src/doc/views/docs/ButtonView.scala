@@ -8,13 +8,13 @@ import org.scalajs.dom
 import io.github.nguyenyou.webawesome.laminar.*
 import doc.components.Locator.withLocator
 
-
 case class ButtonView() extends ExampleView("Button") {
   def component: HtmlElement = {
     div(
       Demo(
         title = "Variants",
-        description = "Use the `variant` attribute to set the button's semantic variant.",
+        description =
+          "Use the `variant` attribute to set the button's semantic variant.",
         content = Source.annotate {
           div(
             tw.flex.flexWrap.gap2,
@@ -34,14 +34,16 @@ case class ButtonView() extends ExampleView("Button") {
           div(
             tw.flex.flexWrap.gap2,
             // <show>
-            Button(_.appearance := "accent"  , _.variant := "neutral")("Accent"),
-            Button(_.appearance := "filled"  , _.variant := "neutral")("Filled"),
-            Button(_.appearance := "outlined"  , _.variant := "neutral")("Outlined"),
-            Button(_.appearance := "plain"  , _.variant := "neutral")("Plain")
+            Button(_.appearance := "accent", _.variant := "neutral")("Accent"),
+            Button(_.appearance := "filled", _.variant := "neutral")("Filled"),
+            Button(_.appearance := "outlined", _.variant := "neutral")(
+              "Outlined"
+            ),
+            Button(_.appearance := "plain", _.variant := "neutral")("Plain")
             // </show>
           )
         }
-      )(),
+      )().withLocator,
       Demo(
         title = "Sizes",
         description = "Use the `size` attribute to change a button's size.",
@@ -69,7 +71,7 @@ case class ButtonView() extends ExampleView("Button") {
             // </show>
           )
         }
-      )(),
+      )().withLocator,
       Demo(
         title = "Link Buttons",
         description = """
@@ -82,12 +84,39 @@ case class ButtonView() extends ExampleView("Button") {
             tw.flex.flexWrap.gap2,
             // <show>
             Button(_.href := "https://example.com/")("Link"),
-            Button(_.href := "https://example.com/", _.target := "_blank")("Link with target"),
-            Button(_.href := "/assets/images/logo.svg", _.download := "shoelace.svg")("Download")
+            Button(_.href := "https://example.com/", _.target := "_blank")(
+              "Link with target"
+            ),
+            Button(
+              _.href := "/assets/images/logo.svg",
+              _.download := "shoelace.svg"
+            )("Download")
             // </show>
           )
         }
-      )(),
+      )().withLocator,
+      Demo(
+        title = "Icon Buttons",
+        content = Source.annotate {
+          div(
+            tw.flex.flexWrap.gap2,
+            // <show>
+            Button(_.appearance := "accent", _.variant := "neutral")(
+              Icon(_.name := "house", _.label := "Home")()
+            ),
+            Button(_.appearance := "filled", _.variant := "neutral")(
+              Icon(_.name := "house", _.label := "Home")()
+            ),
+            Button(_.appearance := "outlined", _.variant := "neutral")(
+              Icon(_.name := "house", _.label := "Home")()
+            ),
+            Button(_.appearance := "plain", _.variant := "neutral")(
+              Icon(_.name := "house", _.label := "Home")()
+            )
+            // </show>
+          )
+        }
+      )().withLocator,
       Demo(
         title = "Setting a Custom Width",
         content = Source.annotate {
@@ -95,12 +124,12 @@ case class ButtonView() extends ExampleView("Button") {
             tw.flex.flexWrap.gap2,
             // <show>
             Button(_.size := "small")(tw.wFull, "Small"),
-            Button(_.size := "medium")(tw.wFull,"Medium"),
+            Button(_.size := "medium")(tw.wFull, "Medium"),
             Button(_.size := "large")(tw.wFull, "Large")
             // </show>
           )
         }
-      )(),
+      )().withLocator,
       Demo(
         title = "Start & End Decorations ",
         description = """
@@ -108,39 +137,127 @@ case class ButtonView() extends ExampleView("Button") {
         """.stripMargin,
         content = Source.annotate {
           div(
-            tw.flex.flexWrap.gap2,
-            // <show>
-            Button(
-              _.size := "small",
-              _.slots.start(Icon(_.name := "gear", _.label := "Settings")())
-            )("Settings"),
-            // </show>
+            tw.spaceY4,
+            div(
+              tw.flex.flexWrap.gap2,
+              // <show>
+              Button(
+                _.size := "small",
+                _.slots.start(Icon(_.name := "gear", _.label := "Settings")())
+              )("Settings"),
+              Button(
+                _.size := "small",
+                _.slots.end(Icon(_.name := "undo", _.label := "Refresh")())
+              )("Refresh"),
+              Button(
+                _.size := "small",
+                _.slots.start(Icon(_.name := "link", _.label := "Link")()),
+                _.slots.end(
+                  Icon(
+                    _.name := "arrow-up-right-from-square",
+                    _.label := "Open in new tab"
+                  )()
+                )
+              )("Open")
+              // </show>
+            ),
+            div(
+              tw.flex.flexWrap.gap2,
+              // <show>
+              Button(
+                _.size := "medium",
+                _.slots.start(Icon(_.name := "gear", _.label := "Settings")())
+              )("Settings"),
+              Button(
+                _.size := "medium",
+                _.slots.end(Icon(_.name := "undo", _.label := "Refresh")())
+              )("Refresh"),
+              Button(
+                _.size := "medium",
+                _.slots.start(Icon(_.name := "link", _.label := "Link")()),
+                _.slots.end(
+                  Icon(
+                    _.name := "arrow-up-right-from-square",
+                    _.label := "Open in new tab"
+                  )()
+                )
+              )("Open")
+              // </show>
+            ),
+            div(
+              tw.flex.flexWrap.gap2,
+              // <show>
+              Button(
+                _.size := "large",
+                _.slots.start(Icon(_.name := "gear", _.label := "Settings")())
+              )("Settings"),
+              Button(
+                _.size := "large",
+                _.slots.end(Icon(_.name := "undo", _.label := "Refresh")())
+              )("Refresh"),
+              Button(
+                _.size := "large",
+                _.slots.start(Icon(_.name := "link", _.label := "Link")()),
+                _.slots.end(
+                  Icon(
+                    _.name := "arrow-up-right-from-square",
+                    _.label := "Open in new tab"
+                  )()
+                )
+              )("Open")
+              // </show>
+            )
           )
         }
-      )(),
+      )().withLocator,
       Demo(
-        title = "Icon Buttons",
+        title = "Caret",
+        description =
+          "Use the `with-caret` attribute to add a dropdown indicator when a button will trigger a dropdown, menu, or popover.",
         content = Source.annotate {
           div(
             tw.flex.flexWrap.gap2,
             // <show>
-            Button(_.appearance := "accent"  , _.variant := "neutral")(
-              Icon(_.name := "house", _.label := "Home")()
-            ),
-            Button(_.appearance := "filled"  , _.variant := "neutral")(
-              Icon(_.name := "house", _.label := "Home")()
-            ),
-            Button(_.appearance := "outlined"  , _.variant := "neutral")(
-              Icon(_.name := "house", _.label := "Home")()
-            ),
-            Button(_.appearance := "plain"  , _.variant := "neutral")(
-              Icon(_.name := "house", _.label := "Home")()
-            )
+            Button(_.size := "small", _.withCaret := true)("Small"),
+            Button(_.size := "medium", _.withCaret := true)("Medium"),
+            Button(_.size := "large", _.withCaret := true)("Large")
             // </show>
           )
         }
-      )(),
-      
+      )().withLocator,
+      Demo(
+        title = "Loading",
+        description =
+          "Use the `loading` attribute to make a button busy. The width will remain the same as before, preventing adjacent elements from moving around.",
+        content = Source.annotate {
+          div(
+            tw.flex.flexWrap.gap2,
+            // <show>
+            Button(_.variant := "brand", _.loading := true)("Brand"),
+            Button(_.variant := "danger", _.loading := true)("Danger"),
+            Button(_.variant := "neutral", _.loading := true)("Neutral"),
+            Button(_.variant := "success", _.loading := true)("Success"),
+            Button(_.variant := "warning", _.loading := true)("Warning")
+            // </show>
+          )
+        }
+      )().withLocator,
+      Demo(
+        title = "Disabled",
+        description = "Use the `disabled` attribute to disable a button.",
+        content = Source.annotate {
+          div(
+            tw.flex.flexWrap.gap2,
+            // <show>
+            Button(_.variant := "brand", _.disabled := true)("Brand"),
+            Button(_.variant := "danger", _.disabled := true)("Danger"),
+            Button(_.variant := "neutral", _.disabled := true)("Neutral"),
+            Button(_.variant := "success", _.disabled := true)("Success"),
+            Button(_.variant := "warning", _.disabled := true)("Warning")
+            // </show>
+          )
+        }
+      )().withLocator
     )
   }
 
