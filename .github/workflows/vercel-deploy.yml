@@ -32,6 +32,14 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
           
+      - name: Cache Mill build artifacts
+        uses: actions/cache@v4
+        with:
+          path: out/
+          key: ${{ runner.os }}-mill-${{ hashFiles('build.mill') }}
+          restore-keys: |
+            ${{ runner.os }}-mill-
+          
       - name: Build ScalaJS
         run: ./mill doc.fullLinkJS
         
