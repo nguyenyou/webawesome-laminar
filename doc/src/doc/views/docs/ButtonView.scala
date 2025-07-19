@@ -89,6 +89,19 @@ object ButtonView
         }
       ),
       Demo(
+        title = "Setting a Custom Width",
+        content = Source.annotate {
+          div(
+            tw.flex.flexWrap.gap2,
+            // <show>
+            Button(_.size := "small")(tw.wFull, "Small"),
+            Button(_.size := "medium")(tw.wFull,"Medium"),
+            Button(_.size := "large")(tw.wFull, "Large")
+            // </show>
+          )
+        }
+      ),
+      Demo(
         title = "Icon Buttons",
         content = Source.annotate {
           div(
