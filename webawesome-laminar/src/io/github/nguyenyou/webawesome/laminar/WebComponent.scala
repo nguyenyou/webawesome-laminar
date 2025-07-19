@@ -28,7 +28,8 @@ abstract class WebComponent(tagName: String) extends CommonTypes { this: Self =>
 
   type ModFunction = Self => Modifier[Element]
 
-  type ComponentMod = Modifier[Element] | ModFunction
+  type ComponentMod = Self => Modifier[Element]
+  type LaminarMod   = Modifier[Element]
 
   // Note: this is overriden for components that have controlled inputs – see `tagWithControlledInputs` 
   protected lazy val tag: CustomHtmlTag[Ref] = new CustomHtmlTag(tagName)
@@ -58,27 +59,10 @@ abstract class WebComponent(tagName: String) extends CommonTypes { this: Self =>
     * IntelliJ is unable to provide autocompletion when using this method, so I suggest using [[of]] too.
     * Upvote https://youtrack.jetbrains.com/issue/SCL-21713/Method-accepting-a-union-of-types-that-includes-a-Function-type-problems-with-go-to-definition-type-hints-and-autocomplete-Scala
     */
-  final def apply(mods: ComponentMod*): Element = {
+  final def apply(componentMods: ComponentMod*)(laminarMods: LaminarMod*): Element = {
     val el = tag()
-    mods.foreach {
-      case mod: Modifier[_ >: Element] =>
-        mod(el)
-      case modFn: Function[_ >: this.type, _ <: Modifier[Element]] =>
-        modFn(this)(el)
-    }
-    el
-  }
-
-  /** Instantiate this component with the specified modifiers.
-    *
-    * To pass standard Laminar modifiers with this method,
-    * use `_ => onDblClick --> observer`.
-    *
-    * Same as [[apply]], but only accepts scoped functions for modifiers.
-    */
-  final def of(mods: ModFunction*): Element = {
-    val el = tag()
-    mods.foreach(_(this)(el))
+    componentMods.foreach(_(this)(el))
+    laminarMods.foreach(_(el))
     el
   }
 

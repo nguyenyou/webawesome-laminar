@@ -10,8 +10,9 @@ case class App() {
       div(
         h2("Basic Components"),
         Button(
-          "Click me",
           _.variant := "success"
+        )(
+          "Click me"
         )
       )
     )
