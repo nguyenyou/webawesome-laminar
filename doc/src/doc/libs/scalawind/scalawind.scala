@@ -253,12 +253,6 @@ case class Tailwind() {
   def border_all                      = this
   def size10                          = this
   def relative                        = this
-  def bgSapBrand                      = this
-  def bgSapBackground                 = this
-  def bgSapNeutral                    = this
-  def textSapText                     = this
-  def textSapBrand                    = this
-  def borderSapNeutral                = this
   def borderGrid                      = this
   def borderBorder                    = this
   def containerWrapper                = this
@@ -431,4 +425,5 @@ case class Tailwind() {
   def py2                             = this
   def bgBlack                         = this
   def bgWhite                         = this
+  def bgBackground                    = this
 }

@@ -75,6 +75,7 @@ object Preview {
         )
       ),
       div(
+        tw.mb4,
         cls("typography"),
         onMountCallback { ctx =>
           ctx.thisNode.ref.innerHTML = Marked.parse(description)
@@ -93,7 +94,7 @@ object Preview {
         div(
           div(
             tw.relative.roundedXl.overflowHidden.flex.flexCol.gap1.p1,
-            cls("bg-gray-950/5 inset-ring inset-ring-gray-950/5"),
+            cls("bg-gray-800/20 inset-ring inset-ring-gray-800/20"),
             tw.hidden <-- activeTabSignal.map(_ == "Preview").not,
             PreviewContainer(
               resizable = resizable,
@@ -101,7 +102,8 @@ object Preview {
             )(preview),
           ),
           div(
-            tw.relative.shadowMd.roundedXl.overflowHidden.bgBlack.p1,
+            tw.relative.shadowMd.roundedXl.overflowHidden.p1,
+            cls("bg-gray-800/60"),
             tw.hidden <-- activeTabSignal.map(_ == "Code").not,
             Codeblock(source = sourceCode, fullSource = fullSourceCode)
           )

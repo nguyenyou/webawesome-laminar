@@ -7,6 +7,7 @@ import doc.libs.scalawind.*
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.util.Failure
 import scala.util.Success
+import io.github.nguyenyou.webawesome.laminar.*
 
 object Codeblock {
 
@@ -60,13 +61,13 @@ object Codeblock {
         div(
           tw.flex.gap2.itemsCenter,
           if (source != fullSource) {
-            button(
-              width.px(130),
-              tw.h8.gap2.fontMedium.roundedMd.textWhite.inlineFlex.itemsCenter.justifyCenter.cursorPointer.bgNeutral800.borderNone.outlineNone
-                .hover(tw.bgBlack),
-              onClick --> { _ =>
+            Button(
+              _.size := "small",
+              _.onClick --> { _ =>
                 showFullSourceVar.invert()
               },
+              _.appearance := "filled"
+            )(
               text <-- showFullSourceSignal.map {
                 case true  => "Collapse code"
                 case false => "Expand code"
@@ -78,12 +79,18 @@ object Codeblock {
           Copy(
             content = Val(source.trim),
             renderChildren = renderer => {
-              button(
-                tw.inlineFlex.itemsCenter.justifyCenter.cursorPointer.w8.h8.roundedMd.bgNeutral800.borderNone.outlineNone
-                  .hover(tw.bgBlack),
-                onClick --> { _ =>
+              Button(
+                _.onClick --> { _ =>
                   renderer.copy.onNext(())
-                }
+                },
+                _.size := "small",
+                _.appearance := "filled"
+              )(
+                Icon(
+                  _.name <-- renderer.isCopied.map {
+                    if (_) "check" else "copy"
+                  }
+                )()
               )
             }
           )()

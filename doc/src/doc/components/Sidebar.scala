@@ -37,8 +37,8 @@ case class Sidebar() {
     val isActiveSignal = currentPageSignal.map(_ == page).distinct
     tag
       .amend(
-        tw.group.relative.flex.h8.wFull.itemsCenter.roundedLg.px3.textSapText,
-        tw.fontSemibold.sidebarItemHover.textSapBrand <-- isActiveSignal,
+        tw.group.relative.flex.h8.wFull.itemsCenter.roundedLg.px3.textBase,
+        tw.fontSemibold.sidebarItemHover <-- isActiveSignal,
         tw.fontMedium,
         navigateTo(page),
         title.getOrElse(page.title),

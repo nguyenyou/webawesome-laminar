@@ -21,7 +21,7 @@ case class PreviewContainer(
   def apply(preview: => Node): HtmlElement = {
     container.amend(
       tw.relative.z10.p3.roundedLg.overflowHidden.min_h_("118px"),
-      tw.textSapText.bgWhite,
+      tw.bgBackground,
       onMountBind(ctx => {
         val containerWidth = ctx.thisNode.ref.getBoundingClientRect().width
         Var.set(

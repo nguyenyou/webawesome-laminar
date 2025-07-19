@@ -255,10 +255,10 @@ code {
 .shiki code {
   background-color: color-mix(
     in oklab,
-    var(--color-slate-500) 20%,
+    var(--color-slate-900) 20%,
     transparent
   );
-  border: 1px solid color-mix(in oklab, var(--color-slate-500) 20%, transparent);
+  border: 1px solid color-mix(in oklab, var(--color-slate-900) 20%, transparent);
   border-radius: 8px;
 }
 
@@ -362,14 +362,14 @@ code {
   cursor: ew-resize;
   background-color: color-mix(
     in oklab,
-    var(--color-slate-950) 20%,
+    var(--color-background) 20%,
     transparent
   );
 }
 .resize-handle:hover {
   background-color: color-mix(
     in oklab,
-    var(--color-slate-950) 40%,
+    var(--color-background) 40%,
     transparent
   );
 }

@@ -129,7 +129,7 @@ case class TableOfContents() extends UIComponent {
 
   def render(): HtmlElement = {
     div(
-      tw.hFull.noScrollbar.overflowYAuto.textSapText.px1,
+      tw.hFull.noScrollbar.overflowYAuto.px1,
       div(
         tw.spaceY2,
         div(
