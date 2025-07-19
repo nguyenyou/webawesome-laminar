@@ -36,7 +36,7 @@ jobs:
         run: ./mill doc.fullLinkJS
         
       - name: Build Vite
-        run: yarn workspace www build:vercel
+        run: yarn build
           
       - name: Install and use Vercel CLI
         run: yarn dlx vercel@latest pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
