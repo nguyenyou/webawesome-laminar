@@ -39,7 +39,7 @@ jobs:
             ${{ runner.os }}-mill-${{ hashFiles('build.mill') }}-
 
       - name: Build ScalaJS
-        run: ./mill www.fullLinkJS
+        run: ./mill doc.fullLinkJS
 
       - name: Build Vite
         run: yarn build
