@@ -566,7 +566,7 @@ async function generateComponent(component: ComponentIR): Promise<string> {
   return writer.toString();
 }
 
-async function generateAllComponents() {
+export async function generateAllComponents(): Promise<{ componentsGenerated: number }> {
   console.log('=== WebAwesome Laminar Component Generation ===');
   
   // Load the generated IR
@@ -616,7 +616,11 @@ async function generateAllComponents() {
   
   await writeFile('scripts/generation-summary.json', JSON.stringify(summary, null, 2));
   console.log('Generation summary saved to: scripts/generation-summary.json');
+
+  return { componentsGenerated: generatedCount };
 }
 
-// Run the generator
-generateAllComponents().catch(console.error); 
+// Run the generator when called directly
+if (import.meta.url === `file://${process.argv[1]}`) {
+  generateAllComponents().catch(console.error);
+} 

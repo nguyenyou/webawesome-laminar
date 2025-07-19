@@ -6,13 +6,21 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate": "npx tsx scripts/generate.ts",
+    "generate:force": "npx tsx scripts/generate.ts --force",
+    "generate:verbose": "npx tsx scripts/generate.ts --verbose",
+    "generate:validate": "npx tsx scripts/generate.ts --validate",
+    "generate:ir": "tsx scripts/gen-ir.ts",
+    "generate:types": "tsx scripts/extract-shared-types.ts",
+    "generate:components": "tsx scripts/generate-components.ts"
   },
   "packageManager": "yarn@4.9.2",
   "devDependencies": {
     "@types/node": "^24.0.15",
     "code-block-writer": "^13.0.3",
     "jsdom": "^26.1.0",
+    "tsx": "^4.20.3",
     "typescript": "^5.8.3",
     "vite": "^7.0.5"
   },

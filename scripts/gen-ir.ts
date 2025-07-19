@@ -1,5 +1,5 @@
-// import manifest from '@awesome.me/webawesome/dist/custom-elements.json'  with { type: "json" };
-import manifest from './custom-elements.json' with { type: "json" };
+// Import from node_modules to use the version specified in package.json
+import manifest from '../node_modules/@awesome.me/webawesome/dist/custom-elements.json' with { type: "json" };
 import { writeFile } from './utils.js';
 
 console.log('Processing manifest with', manifest.modules.length, 'modules');
@@ -270,7 +270,7 @@ async function processModule(module: Module): Promise<ComponentIR | null> {
   return component;
 }
 
-async function main() {
+export async function generateIR(): Promise<{ components: number }> {
   console.log('=== WebAwesome Laminar IR Generation ===');
   
   const promises = manifest.modules.map(processModule);
@@ -320,6 +320,15 @@ async function main() {
   components.slice(0, 5).forEach(comp => {
     console.log(`  - ${comp.name} (${comp.tagName})`);
   });
+
+  return { components: components.length };
 }
 
-main().catch(console.error)
+async function main() {
+  await generateIR();
+}
+
+// Run if called directly
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main().catch(console.error);
+}

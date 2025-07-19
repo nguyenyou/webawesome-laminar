@@ -115,8 +115,12 @@ function generateSemanticName(attributeName: string, values: string[], frequency
   return baseName;
 }
 
-async function extractSharedTypes() {
+export async function extractSharedTypes(): Promise<void> {
   console.log('=== Extracting Shared Union Types ===');
+  
+  // Clear previous state
+  unionTypeMap.clear();
+  sharedTypes.length = 0;
   
   // Load the IR
   const irData = JSON.parse(await readFile('scripts/webawesome-laminar-ir.json'));
@@ -237,5 +241,7 @@ async function saveSharedTypesMapping() {
 // Export shared types for use in component generation
 export { SharedType, sharedTypes };
 
-// Run the extraction
-extractSharedTypes().catch(console.error); 
+// Run the extraction when called directly
+if (import.meta.url === `file://${process.argv[1]}`) {
+  extractSharedTypes().catch(console.error);
+} 
