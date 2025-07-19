@@ -426,4 +426,5 @@ case class Tailwind() {
   def bgBlack                         = this
   def bgWhite                         = this
   def bgBackground                    = this
+  def underline                       = this
 }

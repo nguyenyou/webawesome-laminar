@@ -8,7 +8,7 @@ import org.scalajs.dom
 import io.github.nguyenyou.webawesome.laminar.*
 import doc.components.Locator.withLocator
 
-case class ButtonView() extends ExampleView("Button") {
+case class ButtonView() extends ExampleView("Button", Some("https://webawesome.com/docs/components/button/")) {
   def component: HtmlElement = {
     div(
       Demo(

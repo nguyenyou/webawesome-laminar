@@ -3,11 +3,11 @@ package doc.views.docs
 import com.raquo.laminar.api.L.*
 import doc.libs.scalawind.*
 import doc.components.Locator
+import io.github.nguyenyou.webawesome.laminar.*
 
 trait ExampleView(
     val name: String,
-    val ui5Link: Option[String] = None,
-    val designLink: Option[String] = None
+    val webawesomeLink: Option[String] = None
 ) extends Locator {
   def component: HtmlElement
 
@@ -31,6 +31,22 @@ trait ExampleView(
           "References"
         ),
         div(
+          div(
+            webawesomeLink.map(l =>
+              div(
+                tw.flex.itemsCenter.gap2.hover(tw.underline),
+                Icon(
+                  _.name := "arrow-up-right-from-square",
+                  _.label := "Open in new tab"
+                )(),
+                a(
+                  href := l,
+                  target := "_blank",
+                  "WebAwesome Documentation"
+                )
+              )
+            )
+          )
         )
       )
     )
