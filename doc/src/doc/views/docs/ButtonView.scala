@@ -34,11 +34,10 @@ object ButtonView
           div(
             tw.flex.flexWrap.gap2,
             // <show>
-            Button(_.variant := "brand")("Brand"),
-            Button(_.variant := "danger")("Danger"),
-            Button(_.variant := "neutral")("Neutral"),
-            Button(_.variant := "success")("Success"),
-            Button(_.variant := "warning")("Warning")
+            Button(_.appearance := "accent"  , _.variant := "neutral")("Accent"),
+            Button(_.appearance := "filled"  , _.variant := "neutral")("Filled"),
+            Button(_.appearance := "outlined"  , _.variant := "neutral")("Outlined"),
+            Button(_.appearance := "plain"  , _.variant := "neutral")("Plain")
             // </show>
           )
         }

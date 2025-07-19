@@ -1,11 +1,12 @@
-//| mill-version: 1.0.0
+//| mill-version: 1.0.0-38-9bceb6
 //| mvnDeps: ["com.lihaoyi::mill-contrib-buildinfo:$MILL_VERSION"]
 
 package build
 
-import mill._, scalalib._, scalajslib._
+import mill._, scalalib._, scalajslib._, publish._
 import mill.scalajslib.api._
 import mill.api.Task.Simple
+import mill.scalalib.SonatypeCentralPublishModule
 
 import mill.contrib.buildinfo.BuildInfo
 
@@ -17,7 +18,30 @@ object Versions {
     val waypoint = "10.0.0-M1"
     val borer = "1.16.1"
     val scalajsdom = "2.8.0"
+    val `webawesome-laminar` = "0.0.1"
 }
+
+object Constants {
+  val repoUrl = "https://github.com/nguyenyou/webawesome-laminar"
+  val githubUsername = "nguyenyou"
+  val githubProfile = s"https://github.com/$githubUsername"
+  val author = "Tu Nguyen"
+  val organization = "io.github.nguyenyou"
+  val description = "Laminar wrappers for WebAwesome"
+}
+
+trait NoDoc extends ScalaModule {
+  override def docJar = Task {
+    val outPath = Task.dest / "empty-doc.jar"
+    os.write(outPath, Array.emptyByteArray)
+    PathRef(outPath)
+  }
+}
+
+trait CommonPublish extends SonatypeCentralPublishModule {
+
+}
+
 
 object Deps {
   val laminar = Seq(
@@ -39,7 +63,7 @@ object Deps {
 }
 
 
-trait WebModule extends ScalaJSModule {
+trait WebModule extends ScalaJSModule with NoDoc {
   def moduleKind = ModuleKind.ESModule
   def moduleSplitStyle = ModuleSplitStyle.FewestModules
 
@@ -79,6 +103,17 @@ object doc extends WebModule, BuildInfo {
   )
 }
 
-object `webawesome-laminar` extends WebModule {
-  override def artifactName: Simple[String] = "webawesome-laminar"
+object `webawesome-laminar` extends WebModule, CommonPublish {
+  override def artifactName = "webawesome-laminar"
+
+  def publishVersion = Versions.`webawesome-laminar`
+
+   def pomSettings = PomSettings(
+    description = Constants.description,
+    organization = Constants.organization,
+    url = Constants.repoUrl,
+    licenses = Seq(License.MIT),
+    versionControl = VersionControl.github(Constants.githubUsername, "webawesome-laminar"),
+    developers = Seq(Developer(Constants.githubUsername, Constants.author, Constants.githubProfile)),
+  )
 }
