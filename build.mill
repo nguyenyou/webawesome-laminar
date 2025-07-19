@@ -21,6 +21,7 @@ object Versions {
     val borer = "1.16.1"
     val scalajsdom = "2.8.0"
     val `webawesome-laminar` = "0.0.1"
+    val sourcecode = "0.4.3-M5"
 }
 
 object Constants {
@@ -62,6 +63,10 @@ object Deps {
     mvn"io.bullet::borer-core::${Versions.borer}",
     mvn"io.bullet::borer-derivation::${Versions.borer}",
   )
+
+  val sourcecode = Seq(
+    mvn"com.lihaoyi::sourcecode::${Versions.sourcecode}"
+  )
 }
 
 
@@ -92,7 +97,7 @@ object doc extends WebModule, BuildInfo {
     `webawesome-laminar`
   )
 
-  def mvnDeps = super.mvnDeps() ++ Deps.waypoint ++ Deps.borer
+  def mvnDeps = super.mvnDeps() ++ Deps.waypoint ++ Deps.borer ++ Deps.sourcecode
 
   val buildInfoPackageName = "doc"
 

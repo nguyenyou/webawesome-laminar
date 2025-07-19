@@ -2,16 +2,18 @@ package doc.components
 
 import com.raquo.laminar.api.L.*
 import doc.macros.Source.AnnotationType
+import doc.components.UIComponent
+import doc.components.Locator.withLocator
 
-object Demo {
+case class Demo(
+    title: String = "",
+    description: String = "",
+    content: AnnotationType,
+    resizable: Boolean = PreviewContainer.defaultResizable,
+    containerMinWidth: Double = PreviewContainer.defaultContainerMinWidth
+) {
 
-  def apply(
-      title: => String = "",
-      description: => String = "",
-      content: => AnnotationType,
-      resizable: => Boolean = PreviewContainer.defaultResizable,
-      containerMinWidth: => Double = PreviewContainer.defaultContainerMinWidth
-  ): HtmlElement = {
+  def apply(): HtmlElement = {
     Preview(
       title = title,
       description = description,

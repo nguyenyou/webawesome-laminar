@@ -12,7 +12,7 @@ import org.scalajs.dom.IntersectionObserverEntry
 import scala.scalajs.js
 import scala.util.Random
 
-case class TableOfContents() {
+case class TableOfContents() extends UIComponent {
 
   private case class Heading(
       id: String,
@@ -127,7 +127,7 @@ case class TableOfContents() {
     )
   }
 
-  def apply(): HtmlElement = {
+  def render(): HtmlElement = {
     div(
       tw.hFull.noScrollbar.overflowYAuto.textSapText.px1,
       div(

@@ -6,11 +6,11 @@ import doc.libs.scalawind.*
 import doc.macros.Source
 import org.scalajs.dom
 import io.github.nguyenyou.webawesome.laminar.*
+import doc.components.Locator.withLocator
 
-object ButtonView
-    extends ExampleView("Button") {
 
-  override def component: HtmlElement = {
+case class ButtonView() extends ExampleView("Button") {
+  def component: HtmlElement = {
     div(
       Demo(
         title = "Variants",
@@ -27,7 +27,7 @@ object ButtonView
             // </show>
           )
         }
-      ),
+      )().withLocator,
       Demo(
         title = "Appearance",
         content = Source.annotate {
@@ -41,7 +41,7 @@ object ButtonView
             // </show>
           )
         }
-      ),
+      )(),
       Demo(
         title = "Sizes",
         description = "Use the `size` attribute to change a button's size.",
@@ -55,7 +55,7 @@ object ButtonView
             // </show>
           )
         }
-      ),
+      )(),
       Demo(
         title = "Pill Buttons",
         description = "Use the `pill` attribute to give buttons rounded edges.",
@@ -69,7 +69,7 @@ object ButtonView
             // </show>
           )
         }
-      ),
+      )(),
       Demo(
         title = "Link Buttons",
         description = """
@@ -87,7 +87,7 @@ object ButtonView
             // </show>
           )
         }
-      ),
+      )(),
       Demo(
         title = "Setting a Custom Width",
         content = Source.annotate {
@@ -100,7 +100,7 @@ object ButtonView
             // </show>
           )
         }
-      ),
+      )(),
       Demo(
         title = "Start & End Decorations ",
         description = """
@@ -117,7 +117,7 @@ object ButtonView
             // </show>
           )
         }
-      ),
+      )(),
       Demo(
         title = "Icon Buttons",
         content = Source.annotate {
@@ -139,7 +139,7 @@ object ButtonView
             // </show>
           )
         }
-      ),
+      )(),
       
     )
   }

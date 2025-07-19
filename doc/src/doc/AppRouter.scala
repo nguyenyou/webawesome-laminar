@@ -88,7 +88,7 @@ object Pages {
 // Step 2: Map Page to View
 val pageViews: Signal[HtmlElement] = AppRouter.currentPageSignal.splitMatchOne
   .handleValue(HomePage)(HomeView())
-  .handleValue(ButtonPage)(ButtonView())
+  .handleValue(ButtonPage)(ButtonView()())
   .handleValue(NotFoundPage)(div("Not Found"))
   .toSignal
 
