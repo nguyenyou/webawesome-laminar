@@ -42,6 +42,28 @@ object ButtonView
           )
         }
       ),
+      Demo(
+        title = "Icon Buttons",
+        content = Source.annotate {
+          div(
+            tw.flex.flexWrap.gap2,
+            // <show>
+            Button(_.appearance := "accent"  , _.variant := "neutral")(
+              Icon(_.name := "house", _.label := "Home")()
+            ),
+            Button(_.appearance := "filled"  , _.variant := "neutral")(
+              Icon(_.name := "house", _.label := "Home")()
+            ),
+            Button(_.appearance := "outlined"  , _.variant := "neutral")(
+              Icon(_.name := "house", _.label := "Home")()
+            ),
+            Button(_.appearance := "plain"  , _.variant := "neutral")(
+              Icon(_.name := "house", _.label := "Home")()
+            )
+            // </show>
+          )
+        }
+      ),
       
     )
   }
