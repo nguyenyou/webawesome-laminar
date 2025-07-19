@@ -110,8 +110,7 @@ object `webawesome-laminar` extends WebModule, CommonPublish {
 
   def publishVersion = VcsVersion.vcsState().format()
 
-
-   def pomSettings = PomSettings(
+  def pomSettings = PomSettings(
     description = Constants.description,
     organization = Constants.organization,
     url = Constants.repoUrl,
