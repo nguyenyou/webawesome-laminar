@@ -1,0 +1,313 @@
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@source "./out/doc/fullLinkJS.dest";
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 3.9%;
+  --primary: 240 5.9% 10%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 240 4.8% 95.9%;
+  --secondary-foreground: 240 5.9% 10%;
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+  --accent: 240 4.8% 95.9%;
+  --accent-foreground: 240 5.9% 10%;
+  --destructive: 0 72.22% 50.59%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 5.9% 90%;
+  --input: 240 5.9% 90%;
+  --ring: 240 5% 64.9%;
+  --radius: 0.5rem;
+  --chart-1: 12 76% 61%;
+  --chart-2: 173 58% 39%;
+  --chart-3: 197 37% 24%;
+  --chart-4: 43 74% 66%;
+  --chart-5: 27 87% 67%;
+  --sidebar-background: 0 0% 98%;
+  --sidebar-foreground: 240 5.3% 26.1%;
+  --sidebar-primary: 240 5.9% 10%;
+  --sidebar-primary-foreground: 0 0% 98%;
+  --sidebar-accent: 240 4.8% 95.9%;
+  --sidebar-accent-foreground: 240 5.9% 10%;
+  --sidebar-border: 220 13% 91%;
+  --sidebar-ring: 240 5% 64.9%;
+}
+
+html {
+  @apply scroll-smooth;
+}
+body {
+  @apply overscroll-none;
+  /* font-feature-settings: "rlig" 1, "calt" 1; */
+  background-color: var(--background);
+  color: var(--foreground);
+  font-synthesis-weight: none;
+  text-rendering: optimizeLegibility;
+}
+
+@supports (font: -apple-system-body) and (-webkit-appearance: none) {
+  [data-wrapper] {
+    @apply min-[1800px]:border-t;
+  }
+}
+
+/* Custom scrollbar styling. Thanks @pranathiperii. */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 5px;
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--border)) transparent;
+}
+
+@theme {
+  --font-sans: "Geist", "sans-serif";
+  --font-mono: "Geist Mono", "monospace";
+  --color-primary: rgb(205, 37, 41);
+}
+
+a {
+  color: inherit;
+  -webkit-text-decoration: inherit;
+  text-decoration: inherit;
+}
+
+pre {
+  padding: 0;
+}
+pre,
+code {
+  @apply font-mono;
+}
+
+.shiki {
+  @apply m-0 text-sm rounded-md overflow-x-auto leading-6;
+  text-wrap-mode: nowrap;
+  white-space-collapse: preserve;
+}
+
+.shiki code {
+  @apply px-8 py-6 block;
+}
+
+.shiki code {
+  counter-reset: step;
+  counter-increment: step 0;
+  min-width: 100%;
+  transition: color 0.5s;
+  width: fit-content;
+}
+
+.shiki code .line::before {
+  content: counter(step);
+  counter-increment: step;
+  width: 1rem;
+  margin-right: 1.5rem;
+  display: inline-block;
+  text-align: right;
+  color: rgba(115, 138, 148, 0.4);
+}
+
+.shiki code .diff.remove {
+  background-color: rgba(244, 63, 94, 0.16);
+  opacity: 0.7;
+}
+
+.shiki code .diff.add {
+  background-color: rgba(16, 185, 129, 0.16);
+}
+
+.shiki code .diff {
+  width: calc(100% + 64px);
+  display: inline-block;
+  transition: background-color 0.5s;
+  margin: 0px -32px;
+  padding: 0px 32px;
+}
+
+.shiki code .highlighted {
+  background-color: color-mix(in oklab, var(--color-sky-300) 15%, transparent);
+  width: calc(100% + 64px);
+  display: inline-block;
+  transition: background-color 0.5s;
+  margin: 0px -32px;
+  padding: 0px 32px 0px 28px;
+  border-left: 2px solid var(--doc-primary-color);
+}
+
+.shiki code {
+  background-color: color-mix(
+    in oklab,
+    var(--color-slate-500) 20%,
+    transparent
+  );
+  border: 1px solid color-mix(in oklab, var(--color-slate-500) 20%, transparent);
+  border-radius: 8px;
+}
+
+.shiki.has-focused .line:not(.focused) {
+  filter: blur(0.095rem);
+  opacity: 0.4;
+  transition: filter 0.35s, opacity 0.35s;
+}
+
+.shiki.has-focused .line:not(.focused) {
+  opacity: 0.7;
+  transition: filter 0.35s, opacity 0.35s;
+}
+
+.shiki.has-focused:hover .line:not(.focused) {
+  filter: blur(0);
+  opacity: 1;
+}
+
+.shiki .highlighted-word {
+  background-color: color-mix(
+    in oklab,
+    var(--color-slate-950) 20%,
+    transparent
+  );
+  padding: 0.5px 4px;
+  border-radius: 6px;
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.border-grid {
+  border-style: dashed;
+  border-color: color-mix(in oklab, var(--color-slate-950) 20%, transparent);
+}
+
+.sidebar-item-hover {
+  background-color: color-mix(
+    in oklab,
+    var(--primary) 10%,
+    transparent
+  );
+}
+
+.hover\:sidebar-item-hover:hover {
+  background-color: color-mix(
+    in oklab,
+    var(--primary) 10%,
+    transparent
+  );
+}
+
+.container-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 1400px;
+  /* border-style: dashed; */
+  border-color: color-mix(in oklab, var(--color-slate-950) 20%, transparent);
+}
+
+.container-wrapper:is(.dark *) {
+  border-color: color-mix(in oklab, var(--color-slate-950) 20%, transparent);
+}
+
+@media (min-width: 1400px) {
+  .container-wrapper {
+    border-left-width: 1px;
+    border-right-width: 1px;
+  }
+}
+
+@media (min-width: 1800px) {
+  .container-wrapper {
+    max-width: 1536px;
+  }
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1536px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 1280px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+.resize-handle {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 48px;
+  border-radius: 9999px;
+  cursor: ew-resize;
+  background-color: color-mix(
+    in oklab,
+    var(--color-slate-950) 20%,
+    transparent
+  );
+}
+.resize-handle:hover {
+  background-color: color-mix(
+    in oklab,
+    var(--color-slate-950) 40%,
+    transparent
+  );
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@layer components {
+  .typography {
+    p {
+      font-size: 0.875rem;
+    }
+
+    h2 {
+      @apply font-semibold text-xl;
+    }
+
+    h3 {
+      @apply font-semibold text-lg;
+    }
+
+    p {
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+    code {
+      @apply font-mono;
+      background-color: color-mix(
+        in oklab,
+        var(--color-slate-950) 20%,
+        transparent
+      );
+      padding: 0.5px 4px;
+      border-radius: 6px;
+      border-bottom: 2px solid var(--primary);
+    }
+  }
+}

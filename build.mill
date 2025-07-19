@@ -9,7 +9,30 @@ object Versions {
     val sjs = "1.19.0"
     val sjsdom = "2.8.0"
     val laminar = "17.2.1"
+    val waypoint = "10.0.0-M1"
+    val borer = "1.16.1"
+    val scalajsdom = "2.8.0"
 }
+
+object Deps {
+  val laminar = Seq(
+    mvn"com.raquo::laminar::${Versions.laminar}"
+  )
+
+  val scalajsDom = Seq(
+    mvn"org.scala-js::scalajs-dom::${Versions.scalajsdom}"
+  )
+
+  val waypoint = Seq(
+    mvn"com.raquo::waypoint::${Versions.waypoint}"
+  )
+
+  val borer = Seq(
+    mvn"io.bullet::borer-core::${Versions.borer}",
+    mvn"io.bullet::borer-derivation::${Versions.borer}",
+  )
+}
+
 
 trait WebModule extends ScalaJSModule {
   def moduleKind = ModuleKind.ESModule
@@ -33,10 +56,12 @@ trait WebModule extends ScalaJSModule {
   }
 }
 
-object www extends WebModule {
+object doc extends WebModule {
   def moduleDeps = Seq(
     `webawesome-laminar`
   )
+
+  def mvnDeps = super.mvnDeps() ++ Deps.waypoint ++ Deps.borer
 }
 
 object `webawesome-laminar` extends WebModule {
