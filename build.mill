@@ -1,8 +1,13 @@
+//| mill-version: 1.0.0
+//| mvnDeps: ["com.lihaoyi::mill-contrib-buildinfo:$MILL_VERSION"]
+
 package build
 
 import mill._, scalalib._, scalajslib._
 import mill.scalajslib.api._
 import mill.api.Task.Simple
+
+import mill.contrib.buildinfo.BuildInfo
 
 object Versions {
     val scala3 = "3.7.0"
@@ -56,12 +61,22 @@ trait WebModule extends ScalaJSModule {
   }
 }
 
-object doc extends WebModule {
+object doc extends WebModule, BuildInfo {
   def moduleDeps = Seq(
     `webawesome-laminar`
   )
 
   def mvnDeps = super.mvnDeps() ++ Deps.waypoint ++ Deps.borer
+
+  val buildInfoPackageName = "doc"
+
+  def baseUrlInput = Task.Input {
+    Task.env.getOrElse("PAGES_BASE_PATH", "")
+  }
+
+  def buildInfoMembers = Seq(
+    BuildInfo.Value("baseUrl", baseUrlInput())
+  )
 }
 
 object `webawesome-laminar` extends WebModule {

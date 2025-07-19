@@ -1,0 +1,46 @@
+name: Vercel Deployment
+
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  NODE_OPTIONS: --max_old_space_size=4096
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: "vercel-deploy"
+  cancel-in-progress: true
+
+jobs:
+  deploy-to-vercel:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 23
+          
+      - name: Setup Node.js environment
+        run: |
+          corepack enable
+          yarn install
+          
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+          
+      - name: Build ScalaJS
+        run: ./mill doc.fullLinkJS
+        
+      - name: Build Vite
+        run: yarn workspace www build:vercel
+          
+      - name: Install and use Vercel CLI
+        run: yarn dlx vercel@latest pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Build Project Artifacts
+        run: yarn dlx vercel@latest build --prod --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Deploy Project Artifacts to Vercel
+        run: yarn dlx vercel@latest deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}

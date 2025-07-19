@@ -12,6 +12,7 @@ import Pages.*
 import AppRouter.*
 import views.docs.*
 import views.HomeView
+
 // Step 1: Define Pages
 object Pages {
 
@@ -117,6 +118,7 @@ val fioriPages: List[Page] = List(
 
 val aiPages: List[Page] = List(
 ).sortBy(_.getClass.getSimpleName)
+
 
 // Step 4: Map URL to Page
 object AppRouter
@@ -486,7 +488,7 @@ object AppRouter
         Route
           .static(IconsPage, root / "icons" / endOfSegments)
       ),
-      getPageTitle = page => s"${page.title} | Anduin Design V4", // displayed in the browser tab next to favicon
+      getPageTitle = page => s"${page.title} | WebAwesome Laminar", // displayed in the browser tab next to favicon
       serializePage = page =>
         Json
           .encode(page)
