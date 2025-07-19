@@ -452,7 +452,7 @@
     const PREFER_IDE_KEY = "devtools_prefer_ide_protocol";
   
     /** @type {string} Currently preferred IDE protocol */
-    const PREFER_IDE_PROTOCOL = PersistentStorage.getString(PREFER_IDE_KEY, "idea");
+    const PREFER_IDE_PROTOCOL = PersistentStorage.getString(PREFER_IDE_KEY, "github");
   
     /** @type {string} Local storage key for viewport visibility filter setting */
     const VIEWPORT_VISIBILITY_FILTER_KEY = "devtools_viewport_visibility_filter";
@@ -470,7 +470,13 @@
       "vscode": "vscode://file/",
       "cursor": "cursor://file/",
       "windsurf": "windsurf://file/",
+      "github": "https://github.com/",
     };
+
+    /*
+    idea://open?file=/home/runner/work/webawesome-laminar/webawesome-laminar/doc/src/doc/views/docs/ButtonView.scala&line=15
+    https://github.com/nguyenyou/webawesome-laminar/blob/main/doc/src/doc/views/docs/ButtonView.scala#L15
+    */
   
     /** @type {number} Throttle delay for mouse move events in milliseconds */
     const MOUSEMOVE_THROTTLE_DELAY = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--devtools-throttle-delay')) || 50;
@@ -4779,7 +4785,8 @@
           { value: 'idea', label: 'IntelliJ IDEA' },
           { value: 'vscode', label: 'VS Code' },
           { value: 'cursor', label: 'Cursor' },
-          { value: 'windsurf', label: 'Windsurf' }
+          { value: 'windsurf', label: 'Windsurf' },
+          { value: 'github', label: 'GitHub' }
         ];
   
         ideOptions.forEach(option => {
@@ -5307,13 +5314,26 @@
      */
     function openFileAtSourcePath(sourcePath, sourceLine) {
       // Get current IDE preference dynamically
-      const currentIDE = PersistentStorage.getString(PREFER_IDE_KEY, "idea");
-      let uri = `${EDITOR_PROTOCOL[/** @type {keyof typeof EDITOR_PROTOCOL} */ (currentIDE)]}${sourcePath}`;
-      if(sourceLine) {
-        if(currentIDE === "idea") {
-          uri += `&line=${sourceLine}`;
-        } else {
-          uri += `:${sourceLine}`;
+      const currentIDE = PersistentStorage.getString(PREFER_IDE_KEY, "github");
+      
+      let uri;
+      if (currentIDE === "github") {
+        // Handle GitHub transformation
+        // Remove the prefix path and construct GitHub URL
+        const relativePath = sourcePath.replace('/home/runner/work/webawesome-laminar/webawesome-laminar/', '');
+        uri = `https://github.com/nguyenyou/webawesome-laminar/blob/main/${relativePath}`;
+        if (sourceLine) {
+          uri += `#L${sourceLine}`;
+        }
+      } else {
+        // Handle other IDEs
+        uri = `${EDITOR_PROTOCOL[/** @type {keyof typeof EDITOR_PROTOCOL} */ (currentIDE)]}${sourcePath}`;
+        if(sourceLine) {
+          if(currentIDE === "idea") {
+            uri += `&line=${sourceLine}`;
+          } else {
+            uri += `:${sourceLine}`;
+          }
         }
       }
       window.open(uri, "_blank");
