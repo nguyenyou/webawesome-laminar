@@ -87,6 +87,7 @@ object Codeblock {
                 _.appearance := "filled"
               )(
                 Icon(
+                  _.label := "Copy code",
                   _.name <-- renderer.isCopied.map {
                     if (_) "check" else "copy"
                   }

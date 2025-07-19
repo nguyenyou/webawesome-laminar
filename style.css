@@ -405,12 +405,11 @@ code {
       @apply font-mono;
       background-color: color-mix(
         in oklab,
-        var(--color-slate-950) 20%,
+        var(--color-slate-400) 20%,
         transparent
-      );
-      padding: 0.5px 4px;
+      ) !important;
+      padding: 2px 6px !important;
       border-radius: 6px;
-      border-bottom: 2px solid var(--primary);
     }
   }
 }

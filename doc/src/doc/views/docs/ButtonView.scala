@@ -112,7 +112,7 @@ case class ButtonView() extends ExampleView("Button") {
             // <show>
             Button(
               _.size := "small",
-              _.slots.start(Icon(_.name := "gear")())
+              _.slots.start(Icon(_.name := "gear", _.label := "Settings")())
             )("Settings"),
             // </show>
           )
