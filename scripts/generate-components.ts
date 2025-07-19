@@ -331,7 +331,6 @@ async function generateComponent(component: ComponentIR): Promise<string> {
   writer.writeLine('import org.scalajs.dom');
   writer.blankLine();
   writer.writeLine('import scala.scalajs.js');
-  writer.writeLine('import scala.scalajs.js.|');
   writer.writeLine('import scala.scalajs.js.annotation.JSImport');
   
   // Import SharedTypes if needed (always import since we're moving all union types there)
