@@ -27,16 +27,7 @@ jobs:
       - uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version: '21'
-
-      - name: Restore cache
-        uses: actions/cache@v4
-        with:
-          path: |
-              out
-          key: ${{ runner.os }}-mill-${{ hashFiles('build.mill') }}-${{ hashFiles('**/*.scala') }}
-          restore-keys: |
-            ${{ runner.os }}-mill-${{ hashFiles('build.mill') }}-
+          java-version: '24'
 
       - name: Build ScalaJS
         run: ./mill doc.fullLinkJS
