@@ -49,16 +49,6 @@ abstract class WebComponent(tagName: String) extends CommonTypes { this: Self =>
   /** Optional syntax for using built-in Laminar events: `_.on(onDblClick.preventDefault) --> ...` */
   def on[Ev <: dom.Event, V](ev: EventProcessor[Ev, V]): EventProcessor[Ev, V] = ev
 
-  /** Instantiate this component using the specified modifiers.
-    *
-    * Modifiers can be the usual Laminar modifiers (e.g. onDblClick --> observer),
-    * or they can be functions from this component to a modifier (e.g. _.onClick --> observer)
-    *
-    * Scala 2 does not support union types, so use the [[of]] method instead.
-    *
-    * IntelliJ is unable to provide autocompletion when using this method, so I suggest using [[of]] too.
-    * Upvote https://youtrack.jetbrains.com/issue/SCL-21713/Method-accepting-a-union-of-types-that-includes-a-Function-type-problems-with-go-to-definition-type-hints-and-autocomplete-Scala
-    */
   final def apply(componentMods: ComponentMod*)(laminarMods: LaminarMod*): Element = {
     val el = tag()
     componentMods.foreach(_(this)(el))
