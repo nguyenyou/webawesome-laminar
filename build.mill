@@ -1,4 +1,6 @@
 //| mill-version: 1.0.0-38-9bceb6
+//| mill-jvm-version: temurin:23.0.1
+//| mill-jvm-opts: ["-Xss10m", "-Xmx10G"]
 //| mvnDeps: ["com.lihaoyi::mill-contrib-buildinfo:$MILL_VERSION"]
 
 package build
@@ -7,7 +9,7 @@ import mill._, scalalib._, scalajslib._, publish._
 import mill.scalajslib.api._
 import mill.api.Task.Simple
 import mill.scalalib.SonatypeCentralPublishModule
-
+import mill.util.VcsVersion
 import mill.contrib.buildinfo.BuildInfo
 
 object Versions {
@@ -106,7 +108,8 @@ object doc extends WebModule, BuildInfo {
 object `webawesome-laminar` extends WebModule, CommonPublish {
   override def artifactName = "webawesome-laminar"
 
-  def publishVersion = Versions.`webawesome-laminar`
+  def publishVersion = VcsVersion.vcsState().format()
+
 
    def pomSettings = PomSettings(
     description = Constants.description,
