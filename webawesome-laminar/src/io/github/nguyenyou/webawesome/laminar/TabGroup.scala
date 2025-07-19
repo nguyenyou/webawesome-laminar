@@ -25,6 +25,12 @@ object TabGroup extends WebComponent("wa-tab-group") {
 
   type Ref = WaTabGroupComponent & dom.HTMLElement
 
+  // -- Union Types --
+
+  type TabGroupPlacement = "top" | "bottom" | "start" | "end"
+
+  type TabGroupActivation = "auto" | "manual"
+
   // -- Events --
 
   /** Emitted when a tab is shown. */
@@ -39,11 +45,11 @@ object TabGroup extends WebComponent("wa-tab-group") {
   lazy val active: HtmlAttr[String] = stringAttr("active")
 
   /** The placement of the tabs. Valid values: "top", "bottom", "start", "end". */
-  lazy val placement: HtmlAttr[String] = stringAttr("placement")
+  lazy val placement: HtmlAttr[TabGroupPlacement] = unionAttr("placement")
 
   /** When set to auto, navigating tabs with the arrow keys will instantly show the corresponding tab panel. When set to
   manual, the tab will receive focus but will not show until the user presses spacebar or enter. Valid values: "auto", "manual". */
-  lazy val activation: HtmlAttr[String] = stringAttr("activation")
+  lazy val activation: HtmlAttr[TabGroupActivation] = unionAttr("activation")
 
   /** Disables the scroll arrows that appear when tabs overflow. */
   lazy val withoutScrollControls: HtmlAttr[Boolean] = boolAttr("without-scroll-controls")

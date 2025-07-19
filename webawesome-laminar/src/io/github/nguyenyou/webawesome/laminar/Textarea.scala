@@ -25,6 +25,20 @@ object Textarea extends WebComponent("wa-textarea") {
 
   type Ref = WaTextareaComponent & dom.HTMLElement
 
+  // -- Union Types --
+
+  type TextareaSize = "small" | "medium" | "large"
+
+  type TextareaAppearance = "filled" | "outlined"
+
+  type TextareaResize = "none" | "vertical" | "horizontal" | "both" | "auto"
+
+  type TextareaAutocapitalize = "off" | "none" | "on" | "sentences" | "words" | "characters"
+
+  type TextareaEnterkeyhint = "enter" | "done" | "go" | "next" | "previous" | "search" | "send"
+
+  type TextareaInputmode = "none" | "text" | "decimal" | "numeric" | "tel" | "search" | "email" | "url"
+
   // -- Events --
 
   /** Emitted when the control loses focus. */
@@ -53,10 +67,10 @@ object Textarea extends WebComponent("wa-textarea") {
   lazy val value: HtmlAttr[String] = stringAttr("value")
 
   /** The textarea's size. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[String] = stringAttr("size")
+  lazy val size: HtmlAttr[TextareaSize] = unionAttr("size")
 
   /** The textarea's visual appearance. Valid values: "filled", "outlined". */
-  lazy val appearance: HtmlAttr[String] = stringAttr("appearance")
+  lazy val appearance: HtmlAttr[TextareaAppearance] = unionAttr("appearance")
 
   /** The textarea's label. If you need to display HTML, use the `label` slot instead. */
   lazy val label: HtmlAttr[String] = stringAttr("label")
@@ -71,7 +85,7 @@ object Textarea extends WebComponent("wa-textarea") {
   lazy val rows: HtmlAttr[Double] = doubleAttr("rows")
 
   /** Controls how the textarea can be resized. Valid values: "none", "vertical", "horizontal", "both", "auto". */
-  lazy val resize: HtmlAttr[String] = stringAttr("resize")
+  lazy val resize: HtmlAttr[TextareaResize] = unionAttr("resize")
 
   /** Disables the textarea. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
@@ -94,7 +108,7 @@ object Textarea extends WebComponent("wa-textarea") {
   lazy val maxlength: HtmlAttr[Double] = doubleAttr("maxlength")
 
   /** Controls whether and how text input is automatically capitalized as it is entered by the user. Valid values: "off", "none", "on", "sentences", "words", "characters". */
-  lazy val autocapitalize: HtmlAttr[String] = stringAttr("autocapitalize")
+  lazy val autocapitalize: HtmlAttr[TextareaAutocapitalize] = unionAttr("autocapitalize")
 
   /** Indicates whether the browser's autocorrect feature is on or off. */
   lazy val autocorrect: HtmlAttr[String] = stringAttr("autocorrect")
@@ -107,14 +121,14 @@ object Textarea extends WebComponent("wa-textarea") {
   lazy val autofocus: HtmlAttr[Boolean] = boolAttr("autofocus")
 
   /** Used to customize the label or icon of the Enter key on virtual keyboards. Valid values: "enter", "done", "go", "next", "previous", "search", "send". */
-  lazy val enterkeyhint: HtmlAttr[String] = stringAttr("enterkeyhint")
+  lazy val enterkeyhint: HtmlAttr[TextareaEnterkeyhint] = unionAttr("enterkeyhint")
 
   /** Enables spell checking on the textarea. */
   lazy val spellcheck: HtmlAttr[Boolean] = boolAttr("spellcheck")
 
   /** Tells the browser what type of data will be entered by the user, allowing it to display the appropriate virtual
   keyboard on supportive devices. Valid values: "none", "text", "decimal", "numeric", "tel", "search", "email", "url". */
-  lazy val inputmode: HtmlAttr[String] = stringAttr("inputmode")
+  lazy val inputmode: HtmlAttr[TextareaInputmode] = unionAttr("inputmode")
 
   /** Used for SSR. If you're slotting in a `label` element, make sure to set this to `true`. */
   lazy val withLabel: HtmlAttr[Boolean] = boolAttr("with-label")

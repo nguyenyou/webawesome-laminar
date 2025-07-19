@@ -25,10 +25,14 @@ object Card extends WebComponent("wa-card") {
 
   type Ref = WaCardComponent & dom.HTMLElement
 
+  // -- Union Types --
+
+  type CardAppearance = "accent" | "filled" | "outlined" | "plain"
+
   // -- Attributes --
 
   /** The card's visual appearance. Valid values: "accent", "filled", "outlined", "plain". */
-  lazy val appearance: HtmlAttr[String] = stringAttr("appearance")
+  lazy val appearance: HtmlAttr[CardAppearance] = unionAttr("appearance")
 
   /** Renders the card with a header. Only needed for SSR, otherwise is automatically added. */
   lazy val withHeader: HtmlAttr[Boolean] = boolAttr("with-header")

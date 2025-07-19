@@ -25,13 +25,19 @@ object Page extends WebComponent("wa-page") {
 
   type Ref = WaPageComponent & dom.HTMLElement
 
+  // -- Union Types --
+
+  type PageView = "mobile" | "desktop"
+
+  type PageNavigationPlacement = "start" | "end"
+
   // -- Attributes --
 
   /** The view is a reflection of the "mobileBreakpoint", when the page is larger than the `mobile-breakpoint` (768px by
   default), it is considered to be a "desktop" view. The view is merely a way to distinguish when to show/hide the
   navigation. You can use additional media queries to make other adjustments to content as necessary.
   The default is "desktop" because the "mobile navigation drawer" isn't accessible via SSR due to drawer requiring JS. Valid values: "mobile", "desktop". */
-  lazy val view: HtmlAttr[String] = stringAttr("view")
+  lazy val view: HtmlAttr[PageView] = unionAttr("view")
 
   /** Whether or not the navigation drawer is open. Note, the navigation drawer is only "open" on mobile views. */
   lazy val navOpen: HtmlAttr[Boolean] = boolAttr("nav-open")
@@ -41,7 +47,7 @@ object Page extends WebComponent("wa-page") {
   lazy val mobileBreakpoint: HtmlAttr[String] = stringAttr("mobile-breakpoint")
 
   /** Where to place the navigation when in the mobile viewport. Valid values: "start", "end". */
-  lazy val navigationPlacement: HtmlAttr[String] = stringAttr("navigation-placement")
+  lazy val navigationPlacement: HtmlAttr[PageNavigationPlacement] = unionAttr("navigation-placement")
 
   /** Determines whether or not to hide the default hamburger button.
   This will automatically flip to "true" if you add an element with `data-toggle-nav` anywhere in the element light DOM.

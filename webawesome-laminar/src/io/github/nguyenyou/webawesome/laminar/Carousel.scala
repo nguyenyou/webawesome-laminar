@@ -24,6 +24,10 @@ object Carousel extends WebComponent("wa-carousel") {
 
   type Ref = WaCarouselComponent & dom.HTMLElement
 
+  // -- Union Types --
+
+  type CarouselOrientation = "horizontal" | "vertical"
+
   // -- Events --
 
   /** Emitted when the active slide changes. */
@@ -58,7 +62,7 @@ object Carousel extends WebComponent("wa-carousel") {
   lazy val slidesPerMove: HtmlAttr[Double] = doubleAttr("slides-per-move")
 
   /** Specifies the orientation in which the carousel will lay out. Valid values: "horizontal", "vertical". */
-  lazy val orientation: HtmlAttr[String] = stringAttr("orientation")
+  lazy val orientation: HtmlAttr[CarouselOrientation] = unionAttr("orientation")
 
   /** When set, it is possible to scroll through the slides by dragging them with the mouse. */
   lazy val mouseDragging: HtmlAttr[Boolean] = boolAttr("mouse-dragging")

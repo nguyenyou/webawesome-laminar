@@ -25,6 +25,10 @@ object Switch extends WebComponent("wa-switch") {
 
   type Ref = WaSwitchComponent & dom.HTMLElement
 
+  // -- Union Types --
+
+  type SwitchSize = "small" | "medium" | "large"
+
   // -- Events --
 
   /** Emitted when the control's checked state changes. */
@@ -53,7 +57,7 @@ object Switch extends WebComponent("wa-switch") {
   lazy val value: HtmlAttr[String] = stringAttr("value")
 
   /** The switch's size. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[String] = stringAttr("size")
+  lazy val size: HtmlAttr[SwitchSize] = unionAttr("size")
 
   /** Disables the switch. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")

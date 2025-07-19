@@ -25,6 +25,10 @@ object Rating extends WebComponent("wa-rating") {
 
   type Ref = WaRatingComponent & dom.HTMLElement
 
+  // -- Union Types --
+
+  type RatingSize = "small" | "medium" | "large"
+
   // -- Events --
 
   /** Emitted when the rating's value changes. */
@@ -60,7 +64,7 @@ object Rating extends WebComponent("wa-rating") {
   lazy val getSymbol: HtmlAttr[String] = stringAttr("getSymbol")
 
   /** The component's size. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[String] = stringAttr("size")
+  lazy val size: HtmlAttr[RatingSize] = unionAttr("size")
 
   // -- Props --
 

@@ -5,6 +5,7 @@ import com.raquo.laminar.keys.{EventProcessor, EventProp, HtmlProp, HtmlAttr}
 import com.raquo.laminar.modifiers.Modifier
 import com.raquo.laminar.nodes.ReactiveHtmlElement
 import com.raquo.laminar.tags.CustomHtmlTag
+import com.raquo.laminar.codecs.Codec
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -47,6 +48,16 @@ abstract class WebComponent(tagName: String) { this: Self =>
   protected def stringAttr(name: String): HtmlAttr[String] = new HtmlAttr(name, com.raquo.laminar.codecs.StringAsIsCodec)
   protected def boolAttr(name: String): HtmlAttr[Boolean] = new HtmlAttr(name, com.raquo.laminar.codecs.BooleanAsAttrPresenceCodec)
   protected def doubleAttr(name: String): HtmlAttr[Double] = new HtmlAttr(name, com.raquo.laminar.codecs.DoubleAsStringCodec)
+  
+  // Custom codec for union types - accepts any union type but encodes as string
+  private object UnionAsStringCodec extends Codec[Any, String] {
+    override def encode(scalaValue: Any): String = scalaValue.toString
+    override def decode(domValue: String): Any = domValue
+  }
+  
+  // Custom attribute constructor for union types
+  protected def unionAttr[T](name: String): HtmlAttr[T] = new HtmlAttr(name, UnionAsStringCodec.asInstanceOf[Codec[T, String]])
+  
   protected def eventProp(name: String): EventProp[dom.Event] = new EventProp(name)
 
   /** Optional syntax for using built-in Laminar events: `_.on(onDblClick.preventDefault) --> ...` */

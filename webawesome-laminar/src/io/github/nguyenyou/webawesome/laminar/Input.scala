@@ -25,6 +25,20 @@ object Input extends WebComponent("wa-input") {
 
   type Ref = WaInputComponent & dom.HTMLElement
 
+  // -- Union Types --
+
+  type InputSize = "small" | "medium" | "large"
+
+  type InputAppearance = "filled" | "outlined"
+
+  type InputAutocapitalize = "off" | "none" | "on" | "sentences" | "words" | "characters"
+
+  type InputAutocorrect = "off" | "on"
+
+  type InputEnterkeyhint = "enter" | "done" | "go" | "next" | "previous" | "search" | "send"
+
+  type InputInputmode = "none" | "text" | "decimal" | "numeric" | "tel" | "search" | "email" | "url"
+
   // -- Events --
 
   /** Emitted when the control receives input. */
@@ -61,10 +75,10 @@ object Input extends WebComponent("wa-input") {
   lazy val value: HtmlAttr[String] = stringAttr("value")
 
   /** The input's size. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[String] = stringAttr("size")
+  lazy val size: HtmlAttr[InputSize] = unionAttr("size")
 
   /** The input's visual appearance. Valid values: "filled", "outlined". */
-  lazy val appearance: HtmlAttr[String] = stringAttr("appearance")
+  lazy val appearance: HtmlAttr[InputAppearance] = unionAttr("appearance")
 
   /** Draws a pill-style input with rounded edges. */
   lazy val pill: HtmlAttr[Boolean] = boolAttr("pill")
@@ -121,10 +135,10 @@ object Input extends WebComponent("wa-input") {
   lazy val step: HtmlAttr[String] = stringAttr("step")
 
   /** Controls whether and how text input is automatically capitalized as it is entered by the user. Valid values: "off", "none", "on", "sentences", "words", "characters". */
-  lazy val autocapitalize: HtmlAttr[String] = stringAttr("autocapitalize")
+  lazy val autocapitalize: HtmlAttr[InputAutocapitalize] = unionAttr("autocapitalize")
 
   /** Indicates whether the browser's autocorrect feature is on or off. Valid values: "off", "on". */
-  lazy val autocorrect: HtmlAttr[String] = stringAttr("autocorrect")
+  lazy val autocorrect: HtmlAttr[InputAutocorrect] = unionAttr("autocorrect")
 
   /** Specifies what permission the browser has to provide assistance in filling out form field values. Refer to
   [this page on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) for available values. */
@@ -134,14 +148,14 @@ object Input extends WebComponent("wa-input") {
   lazy val autofocus: HtmlAttr[Boolean] = boolAttr("autofocus")
 
   /** Used to customize the label or icon of the Enter key on virtual keyboards. Valid values: "enter", "done", "go", "next", "previous", "search", "send". */
-  lazy val enterkeyhint: HtmlAttr[String] = stringAttr("enterkeyhint")
+  lazy val enterkeyhint: HtmlAttr[InputEnterkeyhint] = unionAttr("enterkeyhint")
 
   /** Enables spell checking on the input. */
   lazy val spellcheck: HtmlAttr[Boolean] = boolAttr("spellcheck")
 
   /** Tells the browser what type of data will be entered by the user, allowing it to display the appropriate virtual
   keyboard on supportive devices. Valid values: "none", "text", "decimal", "numeric", "tel", "search", "email", "url". */
-  lazy val inputmode: HtmlAttr[String] = stringAttr("inputmode")
+  lazy val inputmode: HtmlAttr[InputInputmode] = unionAttr("inputmode")
 
   /** Used for SSR. Will determine if the SSRed component will have the label slot rendered on initial paint. */
   lazy val withLabel: HtmlAttr[Boolean] = boolAttr("with-label")

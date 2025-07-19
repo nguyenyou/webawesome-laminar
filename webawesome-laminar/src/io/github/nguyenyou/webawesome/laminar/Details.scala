@@ -25,6 +25,10 @@ object Details extends WebComponent("wa-details") {
 
   type Ref = WaDetailsComponent & dom.HTMLElement
 
+  // -- Union Types --
+
+  type DetailsAppearance = "filled" | "outlined" | "plain"
+
   // -- Events --
 
   /** Emitted when the details opens. */
@@ -55,7 +59,7 @@ object Details extends WebComponent("wa-details") {
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
 
   /** The element's visual appearance. Valid values: "filled", "outlined", "plain". */
-  lazy val appearance: HtmlAttr[String] = stringAttr("appearance")
+  lazy val appearance: HtmlAttr[DetailsAppearance] = unionAttr("appearance")
 
   // -- Slots --
 

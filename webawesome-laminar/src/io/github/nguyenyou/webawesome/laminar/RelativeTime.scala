@@ -25,6 +25,12 @@ object RelativeTime extends WebComponent("wa-relative-time") {
 
   type Ref = WaRelativeTimeComponent & dom.HTMLElement
 
+  // -- Union Types --
+
+  type RelativeTimeFormat = "long" | "short" | "narrow"
+
+  type RelativeTimeNumeric = "always" | "auto"
+
   // -- Attributes --
 
   /** The date from which to calculate time from. If not set, the current date and time will be used. When passing a
@@ -33,11 +39,11 @@ object RelativeTime extends WebComponent("wa-relative-time") {
   lazy val date: HtmlAttr[String] = stringAttr("date")
 
   /** The formatting style to use. Valid values: "long", "short", "narrow". */
-  lazy val format: HtmlAttr[String] = stringAttr("format")
+  lazy val format: HtmlAttr[RelativeTimeFormat] = unionAttr("format")
 
   /** When `auto`, values such as "yesterday" and "tomorrow" will be shown when possible. When `always`, values such as
   "1 day ago" and "in 1 day" will be shown. Valid values: "always", "auto". */
-  lazy val numeric: HtmlAttr[String] = stringAttr("numeric")
+  lazy val numeric: HtmlAttr[RelativeTimeNumeric] = unionAttr("numeric")
 
   /** Keep the displayed value up to date as time passes. */
   lazy val sync: HtmlAttr[Boolean] = boolAttr("sync")

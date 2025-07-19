@@ -25,6 +25,22 @@ object Button extends WebComponent("wa-button") {
 
   type Ref = WaButtonComponent & dom.HTMLElement
 
+  // -- Union Types --
+
+  type ButtonVariant = "neutral" | "brand" | "success" | "warning" | "danger"
+
+  type ButtonAppearance = "accent" | "filled" | "outlined" | "plain"
+
+  type ButtonSize = "small" | "medium" | "large"
+
+  type ButtonType = "button" | "submit" | "reset"
+
+  type ButtonTarget = "_blank" | "_parent" | "_self" | "_top"
+
+  type ButtonFormenctype = "application/x-www-form-urlencoded" | "multipart/form-data" | "text/plain"
+
+  type ButtonFormmethod = "post" | "get"
+
   // -- Events --
 
   /** Emitted when the button loses focus. */
@@ -41,13 +57,13 @@ object Button extends WebComponent("wa-button") {
   lazy val title: HtmlAttr[String] = stringAttr("title")
 
   /** The button's theme variant. Defaults to `neutral` if not within another element with a variant. Valid values: "neutral", "brand", "success", "warning", "danger". */
-  lazy val variant: HtmlAttr[String] = stringAttr("variant")
+  lazy val variant: HtmlAttr[ButtonVariant] = unionAttr("variant")
 
   /** The button's visual appearance. Valid values: "accent", "filled", "outlined", "plain". */
-  lazy val appearance: HtmlAttr[String] = stringAttr("appearance")
+  lazy val appearance: HtmlAttr[ButtonAppearance] = unionAttr("appearance")
 
   /** The button's size. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[String] = stringAttr("size")
+  lazy val size: HtmlAttr[ButtonSize] = unionAttr("size")
 
   /** Draws the button with a caret. Used to indicate that the button triggers a dropdown menu or similar behavior. */
   lazy val withCaret: HtmlAttr[Boolean] = boolAttr("with-caret")
@@ -63,11 +79,11 @@ object Button extends WebComponent("wa-button") {
 
   /** The type of button. Note that the default value is `button` instead of `submit`, which is opposite of how native
   `<button>` elements behave. When the type is `submit`, the button will submit the surrounding form. Valid values: "button", "submit", "reset". */
-  lazy val `type`: HtmlAttr[String] = stringAttr("type")
+  lazy val `type`: HtmlAttr[ButtonType] = unionAttr("type")
 
-  lazy val typ: HtmlAttr[String] = `type`
+  lazy val typ: HtmlAttr[ButtonType] = `type`
 
-  lazy val tpe: HtmlAttr[String] = `type`
+  lazy val tpe: HtmlAttr[ButtonType] = `type`
 
   /** The name of the button, submitted as a name/value pair with form data, but only when this button is the submitter.
   This attribute is ignored when `href` is present. */
@@ -81,7 +97,7 @@ object Button extends WebComponent("wa-button") {
   lazy val href: HtmlAttr[String] = stringAttr("href")
 
   /** Tells the browser where to open the link. Only used when `href` is present. Valid values: "_blank", "_parent", "_self", "_top". */
-  lazy val target: HtmlAttr[String] = stringAttr("target")
+  lazy val target: HtmlAttr[ButtonTarget] = unionAttr("target")
 
   /** When using `href`, this attribute will map to the underlying link's `rel` attribute. */
   lazy val rel: HtmlAttr[String] = stringAttr("rel")
@@ -97,10 +113,10 @@ object Button extends WebComponent("wa-button") {
   lazy val formaction: HtmlAttr[String] = stringAttr("formaction")
 
   /** Used to override the form owner's `enctype` attribute. Valid values: "application/x-www-form-urlencoded", "multipart/form-data", "text/plain". */
-  lazy val formenctype: HtmlAttr[String] = stringAttr("formenctype")
+  lazy val formenctype: HtmlAttr[ButtonFormenctype] = unionAttr("formenctype")
 
   /** Used to override the form owner's `method` attribute. Valid values: "post", "get". */
-  lazy val formmethod: HtmlAttr[String] = stringAttr("formmethod")
+  lazy val formmethod: HtmlAttr[ButtonFormmethod] = unionAttr("formmethod")
 
   /** Used to override the form owner's `novalidate` attribute. */
   lazy val formnovalidate: HtmlAttr[Boolean] = boolAttr("formnovalidate")

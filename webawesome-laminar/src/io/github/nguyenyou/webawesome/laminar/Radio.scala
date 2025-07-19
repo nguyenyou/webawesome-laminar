@@ -25,6 +25,12 @@ object Radio extends WebComponent("wa-radio") {
 
   type Ref = WaRadioComponent & dom.HTMLElement
 
+  // -- Union Types --
+
+  type RadioAppearance = "default" | "button"
+
+  type RadioSize = "small" | "medium" | "large"
+
   // -- Events --
 
   /** Emitted when the control loses focus. */
@@ -42,11 +48,11 @@ object Radio extends WebComponent("wa-radio") {
   lazy val value: HtmlAttr[String] = stringAttr("value")
 
   /** The radio's value. When selected, the radio group will receive this value. Valid values: "default", "button". */
-  lazy val appearance: HtmlAttr[String] = stringAttr("appearance")
+  lazy val appearance: HtmlAttr[RadioAppearance] = unionAttr("appearance")
 
   /** The radio's size. When used inside a radio group, the size will be determined by the radio group's size so this
   attribute can typically be omitted. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[String] = stringAttr("size")
+  lazy val size: HtmlAttr[RadioSize] = unionAttr("size")
 
   /** Disables the radio. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")

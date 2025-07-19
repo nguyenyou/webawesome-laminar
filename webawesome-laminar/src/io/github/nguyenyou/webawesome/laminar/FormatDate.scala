@@ -25,6 +25,28 @@ object FormatDate extends WebComponent("wa-format-date") {
 
   type Ref = WaFormatDateComponent & dom.HTMLElement
 
+  // -- Union Types --
+
+  type FormatDateWeekday = "narrow" | "short" | "long"
+
+  type FormatDateEra = "narrow" | "short" | "long"
+
+  type FormatDateYear = "numeric" | "2-digit"
+
+  type FormatDateMonth = "numeric" | "2-digit" | "narrow" | "short" | "long"
+
+  type FormatDateDay = "numeric" | "2-digit"
+
+  type FormatDateHour = "numeric" | "2-digit"
+
+  type FormatDateMinute = "numeric" | "2-digit"
+
+  type FormatDateSecond = "numeric" | "2-digit"
+
+  type FormatDateTimeZoneName = "short" | "long"
+
+  type FormatDateHourFormat = "auto" | "12" | "24"
+
   // -- Attributes --
 
   /** The date/time to format. If not set, the current date and time will be used. When passing a string, it's strongly
@@ -33,37 +55,37 @@ object FormatDate extends WebComponent("wa-format-date") {
   lazy val date: HtmlAttr[String] = stringAttr("date")
 
   /** The format for displaying the weekday. Valid values: "narrow", "short", "long". */
-  lazy val weekday: HtmlAttr[String] = stringAttr("weekday")
+  lazy val weekday: HtmlAttr[FormatDateWeekday] = unionAttr("weekday")
 
   /** The format for displaying the era. Valid values: "narrow", "short", "long". */
-  lazy val era: HtmlAttr[String] = stringAttr("era")
+  lazy val era: HtmlAttr[FormatDateEra] = unionAttr("era")
 
   /** The format for displaying the year. Valid values: "numeric", "2-digit". */
-  lazy val year: HtmlAttr[String] = stringAttr("year")
+  lazy val year: HtmlAttr[FormatDateYear] = unionAttr("year")
 
   /** The format for displaying the month. Valid values: "numeric", "2-digit", "narrow", "short", "long". */
-  lazy val month: HtmlAttr[String] = stringAttr("month")
+  lazy val month: HtmlAttr[FormatDateMonth] = unionAttr("month")
 
   /** The format for displaying the day. Valid values: "numeric", "2-digit". */
-  lazy val day: HtmlAttr[String] = stringAttr("day")
+  lazy val day: HtmlAttr[FormatDateDay] = unionAttr("day")
 
   /** The format for displaying the hour. Valid values: "numeric", "2-digit". */
-  lazy val hour: HtmlAttr[String] = stringAttr("hour")
+  lazy val hour: HtmlAttr[FormatDateHour] = unionAttr("hour")
 
   /** The format for displaying the minute. Valid values: "numeric", "2-digit". */
-  lazy val minute: HtmlAttr[String] = stringAttr("minute")
+  lazy val minute: HtmlAttr[FormatDateMinute] = unionAttr("minute")
 
   /** The format for displaying the second. Valid values: "numeric", "2-digit". */
-  lazy val second: HtmlAttr[String] = stringAttr("second")
+  lazy val second: HtmlAttr[FormatDateSecond] = unionAttr("second")
 
   /** The format for displaying the time. Valid values: "short", "long". */
-  lazy val timeZoneName: HtmlAttr[String] = stringAttr("time-zone-name")
+  lazy val timeZoneName: HtmlAttr[FormatDateTimeZoneName] = unionAttr("time-zone-name")
 
   /** The time zone to express the time in. */
   lazy val timeZone: HtmlAttr[String] = stringAttr("time-zone")
 
   /** The format for displaying the hour. Valid values: "auto", "12", "24". */
-  lazy val hourFormat: HtmlAttr[String] = stringAttr("hour-format")
+  lazy val hourFormat: HtmlAttr[FormatDateHourFormat] = unionAttr("hour-format")
 
   // -- Element type --
 

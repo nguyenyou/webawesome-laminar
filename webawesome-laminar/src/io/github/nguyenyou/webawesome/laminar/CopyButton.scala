@@ -25,6 +25,10 @@ object CopyButton extends WebComponent("wa-copy-button") {
 
   type Ref = WaCopyButtonComponent & dom.HTMLElement
 
+  // -- Union Types --
+
+  type CopyButtonTooltipPlacement = "top" | "right" | "bottom" | "left"
+
   // -- Events --
 
   /** Emitted when the data has been copied. */
@@ -60,7 +64,7 @@ object CopyButton extends WebComponent("wa-copy-button") {
   lazy val feedbackDuration: HtmlAttr[Double] = doubleAttr("feedback-duration")
 
   /** The preferred placement of the tooltip. Valid values: "top", "right", "bottom", "left". */
-  lazy val tooltipPlacement: HtmlAttr[String] = stringAttr("tooltip-placement")
+  lazy val tooltipPlacement: HtmlAttr[CopyButtonTooltipPlacement] = unionAttr("tooltip-placement")
 
   // -- Props --
 

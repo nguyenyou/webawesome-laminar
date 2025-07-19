@@ -25,6 +25,14 @@ object Select extends WebComponent("wa-select") {
 
   type Ref = WaSelectComponent & dom.HTMLElement
 
+  // -- Union Types --
+
+  type SelectSize = "small" | "medium" | "large"
+
+  type SelectAppearance = "filled" | "outlined"
+
+  type SelectPlacement = "top" | "bottom"
+
   // -- Events --
 
   /** Emitted when the control receives input. */
@@ -66,7 +74,7 @@ object Select extends WebComponent("wa-select") {
   lazy val value: HtmlAttr[String] = stringAttr("value")
 
   /** The select's size. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[String] = stringAttr("size")
+  lazy val size: HtmlAttr[SelectSize] = unionAttr("size")
 
   /** Placeholder text to show as a hint when the select is empty. */
   lazy val placeholder: HtmlAttr[String] = stringAttr("placeholder")
@@ -89,7 +97,7 @@ object Select extends WebComponent("wa-select") {
   lazy val open: HtmlAttr[Boolean] = boolAttr("open")
 
   /** The select's visual appearance. Valid values: "filled", "outlined". */
-  lazy val appearance: HtmlAttr[String] = stringAttr("appearance")
+  lazy val appearance: HtmlAttr[SelectAppearance] = unionAttr("appearance")
 
   /** Draws a pill-style select with rounded edges. */
   lazy val pill: HtmlAttr[Boolean] = boolAttr("pill")
@@ -99,7 +107,7 @@ object Select extends WebComponent("wa-select") {
 
   /** The preferred placement of the select's menu. Note that the actual placement may vary as needed to keep the listbox
   inside of the viewport. Valid values: "top", "bottom". */
-  lazy val placement: HtmlAttr[String] = stringAttr("placement")
+  lazy val placement: HtmlAttr[SelectPlacement] = unionAttr("placement")
 
   /** The select's hint. If you need to display HTML, use the `hint` slot instead. */
   lazy val hint: HtmlAttr[String] = stringAttr("hint")

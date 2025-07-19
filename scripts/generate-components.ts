@@ -200,9 +200,14 @@ function getJSFacadeType(irType: string, unionValues?: string[]): string {
   }
 }
 
-function getScalaAttributeType(type: string, unionValues?: string[]): string {
-  // For union types, we still use HtmlAttr[String] since HTML attributes are strings
-  // The type safety comes from the JS facade with union types
+function getScalaAttributeType(type: string, unionValues?: string[], componentName?: string, attributeName?: string): string {
+  // For union types, use the specific union type
+  if (unionValues && unionValues.length > 0 && type === 'String' && componentName && attributeName) {
+    const unionTypeName = getUnionTypeName(attributeName, componentName);
+    return `HtmlAttr[${unionTypeName}]`;
+  }
+  
+  // For regular types, use standard attribute types
   switch (type) {
     case 'Boolean': return 'HtmlAttr[Boolean]';
     case 'String': return 'HtmlAttr[String]';
@@ -212,6 +217,11 @@ function getScalaAttributeType(type: string, unionValues?: string[]): string {
 }
 
 function getScalaAttributeConstructor(type: string, unionValues?: string[]): string {
+  // For union types, use the unionAttr constructor
+  if (unionValues && unionValues.length > 0 && type === 'String') {
+    return 'unionAttr';
+  }
+  
   switch (type) {
     case 'Boolean': return 'boolAttr';
     case 'String': return 'stringAttr';
@@ -298,6 +308,20 @@ function generateComponent(component: ComponentIR): string {
     writer.writeLine(`type Ref = ${componentRef} & dom.HTMLElement`);
     writer.blankLine();
 
+    // Union type aliases for attributes
+    const unionAttributes = component.attributes.filter(shouldUseUnionType);
+    if (unionAttributes.length > 0) {
+      writer.writeLine('// -- Union Types --');
+      writer.blankLine();
+      
+      unionAttributes.forEach(attr => {
+        const unionTypeName = getUnionTypeName(attr.name, className);
+        const unionTypeDefinition = generateUnionType(attr.unionValues!);
+        writer.writeLine(`type ${unionTypeName} = ${unionTypeDefinition}`);
+        writer.blankLine();
+      });
+    }
+
     // Events section
     if (component.events.length > 0) {
       writer.writeLine('// -- Events --');
@@ -337,7 +361,7 @@ function generateComponent(component: ComponentIR): string {
         }
         
         const attrName = escapeScalaKeyword(toCamelCase(attr.name));
-        const scalaType = getScalaAttributeType(attr.type, attr.unionValues);
+        const scalaType = getScalaAttributeType(attr.type, attr.unionValues, className, attr.name);
         const constructor = getScalaAttributeConstructor(attr.type, attr.unionValues);
         
         writer.writeLine(`lazy val ${attrName}: ${scalaType} = ${constructor}("${attr.name}")`);

@@ -25,6 +25,10 @@ object Include extends WebComponent("wa-include") {
 
   type Ref = WaIncludeComponent & dom.HTMLElement
 
+  // -- Union Types --
+
+  type IncludeMode = "cors" | "no-cors" | "same-origin"
+
   // -- Events --
 
   /** Emitted when the included file is loaded. */
@@ -40,7 +44,7 @@ object Include extends WebComponent("wa-include") {
   lazy val src: HtmlAttr[String] = stringAttr("src")
 
   /** The fetch mode to use. Valid values: "cors", "no-cors", "same-origin". */
-  lazy val mode: HtmlAttr[String] = stringAttr("mode")
+  lazy val mode: HtmlAttr[IncludeMode] = unionAttr("mode")
 
   /** Allows included scripts to be executed. Be sure you trust the content you are including as it will be executed as
   code and can result in XSS attacks. */

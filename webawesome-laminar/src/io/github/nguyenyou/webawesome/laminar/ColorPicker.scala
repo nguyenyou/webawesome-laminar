@@ -25,6 +25,12 @@ object ColorPicker extends WebComponent("wa-color-picker") {
 
   type Ref = WaColorPickerComponent & dom.HTMLElement
 
+  // -- Union Types --
+
+  type ColorPickerFormat = "hex" | "rgb" | "hsl" | "hsv"
+
+  type ColorPickerSize = "small" | "medium" | "large"
+
   // -- Events --
 
   /** Emitted when the color picker's value changes. */
@@ -68,10 +74,10 @@ object ColorPicker extends WebComponent("wa-color-picker") {
 
   /** The format to use. If opacity is enabled, these will translate to HEXA, RGBA, HSLA, and HSVA respectively. The color
   picker will accept user input in any format (including CSS color names) and convert it to the desired format. Valid values: "hex", "rgb", "hsl", "hsv". */
-  lazy val format: HtmlAttr[String] = stringAttr("format")
+  lazy val format: HtmlAttr[ColorPickerFormat] = unionAttr("format")
 
   /** Determines the size of the color picker's trigger Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[String] = stringAttr("size")
+  lazy val size: HtmlAttr[ColorPickerSize] = unionAttr("size")
 
   /** Removes the button that lets users toggle between format. */
   lazy val withoutFormatToggle: HtmlAttr[Boolean] = boolAttr("without-format-toggle")

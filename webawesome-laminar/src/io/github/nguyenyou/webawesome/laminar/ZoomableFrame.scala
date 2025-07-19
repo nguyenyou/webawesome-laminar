@@ -25,6 +25,10 @@ object ZoomableFrame extends WebComponent("wa-zoomable-frame") {
 
   type Ref = WaZoomableFrameComponent & dom.HTMLElement
 
+  // -- Union Types --
+
+  type ZoomableFrameLoading = "eager" | "lazy"
+
   // -- Events --
 
   /** Emitted when the internal iframe when it finishes loading. */
@@ -45,7 +49,7 @@ object ZoomableFrame extends WebComponent("wa-zoomable-frame") {
   lazy val allowfullscreen: HtmlAttr[Boolean] = boolAttr("allowfullscreen")
 
   /** Controls iframe loading behavior. Valid values: "eager", "lazy". */
-  lazy val loading: HtmlAttr[String] = stringAttr("loading")
+  lazy val loading: HtmlAttr[ZoomableFrameLoading] = unionAttr("loading")
 
   /** Controls referrer information. */
   lazy val referrerpolicy: HtmlAttr[String] = stringAttr("referrerpolicy")

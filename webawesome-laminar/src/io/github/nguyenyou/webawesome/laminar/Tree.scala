@@ -25,6 +25,10 @@ object Tree extends WebComponent("wa-tree") {
 
   type Ref = WaTreeComponent & dom.HTMLElement
 
+  // -- Union Types --
+
+  type TreeSelection = "single" | "multiple" | "leaf"
+
   // -- Events --
 
   /** Emitted when a tree item is selected or deselected. */
@@ -34,7 +38,7 @@ object Tree extends WebComponent("wa-tree") {
 
   /** The selection behavior of the tree. Single selection allows only one node to be selected at a time. Multiple
   displays checkboxes and allows more than one node to be selected. Leaf allows only leaf nodes to be selected. Valid values: "single", "multiple", "leaf". */
-  lazy val selection: HtmlAttr[String] = stringAttr("selection")
+  lazy val selection: HtmlAttr[TreeSelection] = unionAttr("selection")
 
   // -- Slots --
 

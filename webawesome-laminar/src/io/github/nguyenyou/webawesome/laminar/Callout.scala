@@ -25,16 +25,22 @@ object Callout extends WebComponent("wa-callout") {
 
   type Ref = WaCalloutComponent & dom.HTMLElement
 
+  // -- Union Types --
+
+  type CalloutVariant = "brand" | "neutral" | "success" | "warning" | "danger"
+
+  type CalloutSize = "small" | "medium" | "large"
+
   // -- Attributes --
 
   /** The callout's theme variant. Defaults to `brand` if not within another element with a variant. Valid values: "brand", "neutral", "success", "warning", "danger". */
-  lazy val variant: HtmlAttr[String] = stringAttr("variant")
+  lazy val variant: HtmlAttr[CalloutVariant] = unionAttr("variant")
 
   /** The callout's visual appearance. */
   lazy val appearance: HtmlAttr[String] = stringAttr("appearance")
 
   /** The callout's size. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[String] = stringAttr("size")
+  lazy val size: HtmlAttr[CalloutSize] = unionAttr("size")
 
   // -- Slots --
 

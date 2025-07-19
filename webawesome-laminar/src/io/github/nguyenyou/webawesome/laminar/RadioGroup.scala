@@ -25,6 +25,12 @@ object RadioGroup extends WebComponent("wa-radio-group") {
 
   type Ref = WaRadioGroupComponent & dom.HTMLElement
 
+  // -- Union Types --
+
+  type RadioGroupOrientation = "horizontal" | "vertical"
+
+  type RadioGroupSize = "small" | "medium" | "large"
+
   // -- Events --
 
   /** Emitted when the radio group receives user input. */
@@ -52,13 +58,13 @@ object RadioGroup extends WebComponent("wa-radio-group") {
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
 
   /** The orientation in which to show radio items. Valid values: "horizontal", "vertical". */
-  lazy val orientation: HtmlAttr[String] = stringAttr("orientation")
+  lazy val orientation: HtmlAttr[RadioGroupOrientation] = unionAttr("orientation")
 
   /** The default value of the form control. Primarily used for resetting the form control. */
   lazy val value: HtmlAttr[String] = stringAttr("value")
 
   /** The radio group's size. This size will be applied to all child radios and radio buttons, except when explicitly overridden. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[String] = stringAttr("size")
+  lazy val size: HtmlAttr[RadioGroupSize] = unionAttr("size")
 
   /** Ensures a child radio is checked before allowing the containing form to submit. */
   lazy val required: HtmlAttr[Boolean] = boolAttr("required")

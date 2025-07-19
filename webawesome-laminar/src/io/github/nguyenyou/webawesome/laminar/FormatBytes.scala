@@ -25,16 +25,22 @@ object FormatBytes extends WebComponent("wa-format-bytes") {
 
   type Ref = WaFormatBytesComponent & dom.HTMLElement
 
+  // -- Union Types --
+
+  type FormatBytesUnit = "byte" | "bit"
+
+  type FormatBytesDisplay = "long" | "short" | "narrow"
+
   // -- Attributes --
 
   /** The number to format in bytes. */
   lazy val value: HtmlAttr[Double] = doubleAttr("value")
 
   /** The type of unit to display. Valid values: "byte", "bit". */
-  lazy val unit: HtmlAttr[String] = stringAttr("unit")
+  lazy val unit: HtmlAttr[FormatBytesUnit] = unionAttr("unit")
 
   /** Determines how to display the result, e.g. "100 bytes", "100 b", or "100b". Valid values: "long", "short", "narrow". */
-  lazy val display: HtmlAttr[String] = stringAttr("display")
+  lazy val display: HtmlAttr[FormatBytesDisplay] = unionAttr("display")
 
   // -- Props --
 

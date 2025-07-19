@@ -25,17 +25,23 @@ object FormatNumber extends WebComponent("wa-format-number") {
 
   type Ref = WaFormatNumberComponent & dom.HTMLElement
 
+  // -- Union Types --
+
+  type FormatNumberType = "currency" | "decimal" | "percent"
+
+  type FormatNumberCurrencyDisplay = "symbol" | "narrowSymbol" | "code" | "name"
+
   // -- Attributes --
 
   /** The number to format. */
   lazy val value: HtmlAttr[Double] = doubleAttr("value")
 
   /** The formatting style to use. Valid values: "currency", "decimal", "percent". */
-  lazy val `type`: HtmlAttr[String] = stringAttr("type")
+  lazy val `type`: HtmlAttr[FormatNumberType] = unionAttr("type")
 
-  lazy val typ: HtmlAttr[String] = `type`
+  lazy val typ: HtmlAttr[FormatNumberType] = `type`
 
-  lazy val tpe: HtmlAttr[String] = `type`
+  lazy val tpe: HtmlAttr[FormatNumberType] = `type`
 
   /** Turns off grouping separators. */
   lazy val withoutGrouping: HtmlAttr[Boolean] = boolAttr("without-grouping")
@@ -44,7 +50,7 @@ object FormatNumber extends WebComponent("wa-format-number") {
   lazy val currency: HtmlAttr[String] = stringAttr("currency")
 
   /** How to display the currency. Valid values: "symbol", "narrowSymbol", "code", "name". */
-  lazy val currencyDisplay: HtmlAttr[String] = stringAttr("currency-display")
+  lazy val currencyDisplay: HtmlAttr[FormatNumberCurrencyDisplay] = unionAttr("currency-display")
 
   /** The minimum number of integer digits to use. Possible values are 1-21. */
   lazy val minimumIntegerDigits: HtmlAttr[Double] = doubleAttr("minimum-integer-digits")

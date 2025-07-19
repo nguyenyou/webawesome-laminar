@@ -25,10 +25,14 @@ object Skeleton extends WebComponent("wa-skeleton") {
 
   type Ref = WaSkeletonComponent & dom.HTMLElement
 
+  // -- Union Types --
+
+  type SkeletonEffect = "pulse" | "sheen" | "none"
+
   // -- Attributes --
 
   /** Determines which effect the skeleton will use. Valid values: "pulse", "sheen", "none". */
-  lazy val effect: HtmlAttr[String] = stringAttr("effect")
+  lazy val effect: HtmlAttr[SkeletonEffect] = unionAttr("effect")
 
   // -- CSS Vars --
 

@@ -25,6 +25,12 @@ object DropdownItem extends WebComponent("wa-dropdown-item") {
 
   type Ref = WaDropdownItemComponent & dom.HTMLElement
 
+  // -- Union Types --
+
+  type DropdownItemVariant = "danger" | "default"
+
+  type DropdownItemType = "normal" | "checkbox"
+
   // -- Events --
 
   /** Emitted when the dropdown item loses focus. */
@@ -36,18 +42,18 @@ object DropdownItem extends WebComponent("wa-dropdown-item") {
   // -- Attributes --
 
   /** The type of menu item to render. Valid values: "danger", "default". */
-  lazy val variant: HtmlAttr[String] = stringAttr("variant")
+  lazy val variant: HtmlAttr[DropdownItemVariant] = unionAttr("variant")
 
   /** An optional value for the menu item. This is useful for determining which item was selected when listening to the
   dropdown's `wa-select` event. */
   lazy val value: HtmlAttr[String] = stringAttr("value")
 
   /** Set to `checkbox` to make the item a checkbox. Valid values: "normal", "checkbox". */
-  lazy val `type`: HtmlAttr[String] = stringAttr("type")
+  lazy val `type`: HtmlAttr[DropdownItemType] = unionAttr("type")
 
-  lazy val typ: HtmlAttr[String] = `type`
+  lazy val typ: HtmlAttr[DropdownItemType] = `type`
 
-  lazy val tpe: HtmlAttr[String] = `type`
+  lazy val tpe: HtmlAttr[DropdownItemType] = `type`
 
   /** Set to true to check the dropdown item. Only valid when `type` is `checkbox`. */
   lazy val checked: HtmlAttr[Boolean] = boolAttr("checked")

@@ -25,6 +25,10 @@ object QrCode extends WebComponent("wa-qr-code") {
 
   type Ref = WaQrCodeComponent & dom.HTMLElement
 
+  // -- Union Types --
+
+  type QrCodeErrorCorrection = "L" | "M" | "Q" | "H"
+
   // -- Attributes --
 
   /** The QR code's value. */
@@ -46,7 +50,7 @@ object QrCode extends WebComponent("wa-qr-code") {
   lazy val radius: HtmlAttr[Double] = doubleAttr("radius")
 
   /** The level of error correction to use. [Learn more](https://www.qrcode.com/en/about/error_correction.html) Valid values: "L", "M", "Q", "H". */
-  lazy val errorCorrection: HtmlAttr[String] = stringAttr("error-correction")
+  lazy val errorCorrection: HtmlAttr[QrCodeErrorCorrection] = unionAttr("error-correction")
 
   // -- Props --
 

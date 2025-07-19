@@ -25,6 +25,10 @@ object Drawer extends WebComponent("wa-drawer") {
 
   type Ref = WaDrawerComponent & dom.HTMLElement
 
+  // -- Union Types --
+
+  type DrawerPlacement = "top" | "end" | "bottom" | "start"
+
   // -- Events --
 
   /** Emitted when the drawer opens. */
@@ -49,7 +53,7 @@ object Drawer extends WebComponent("wa-drawer") {
   lazy val label: HtmlAttr[String] = stringAttr("label")
 
   /** The direction from which the drawer will open. Valid values: "top", "end", "bottom", "start". */
-  lazy val placement: HtmlAttr[String] = stringAttr("placement")
+  lazy val placement: HtmlAttr[DrawerPlacement] = unionAttr("placement")
 
   /** Disables the header. This will also remove the default close button. */
   lazy val withoutHeader: HtmlAttr[Boolean] = boolAttr("without-header")

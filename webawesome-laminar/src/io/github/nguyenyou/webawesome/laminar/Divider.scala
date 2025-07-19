@@ -25,10 +25,14 @@ object Divider extends WebComponent("wa-divider") {
 
   type Ref = WaDividerComponent & dom.HTMLElement
 
+  // -- Union Types --
+
+  type DividerOrientation = "horizontal" | "vertical"
+
   // -- Attributes --
 
   /** Sets the divider's orientation. Valid values: "horizontal", "vertical". */
-  lazy val orientation: HtmlAttr[String] = stringAttr("orientation")
+  lazy val orientation: HtmlAttr[DividerOrientation] = unionAttr("orientation")
 
   // -- CSS Vars --
 

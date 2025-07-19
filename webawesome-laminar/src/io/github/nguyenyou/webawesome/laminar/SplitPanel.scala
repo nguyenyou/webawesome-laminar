@@ -25,6 +25,10 @@ object SplitPanel extends WebComponent("wa-split-panel") {
 
   type Ref = WaSplitPanelComponent & dom.HTMLElement
 
+  // -- Union Types --
+
+  type SplitPanelOrientation = "horizontal" | "vertical"
+
   // -- Events --
 
   /** Emitted when the divider's position changes. */
@@ -40,7 +44,7 @@ object SplitPanel extends WebComponent("wa-split-panel") {
   lazy val positionInPixels: HtmlAttr[Double] = doubleAttr("position-in-pixels")
 
   /** Sets the split panel's orientation. Valid values: "horizontal", "vertical". */
-  lazy val orientation: HtmlAttr[String] = stringAttr("orientation")
+  lazy val orientation: HtmlAttr[SplitPanelOrientation] = unionAttr("orientation")
 
   /** Disables resizing. Note that the position may still change as a result of resizing the host element. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")

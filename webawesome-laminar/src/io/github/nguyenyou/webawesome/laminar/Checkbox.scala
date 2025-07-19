@@ -25,6 +25,10 @@ object Checkbox extends WebComponent("wa-checkbox") {
 
   type Ref = WaCheckboxComponent & dom.HTMLElement
 
+  // -- Union Types --
+
+  type CheckboxSize = "small" | "medium" | "large"
+
   // -- Events --
 
   /** Emitted when the checked state changes. */
@@ -53,7 +57,7 @@ object Checkbox extends WebComponent("wa-checkbox") {
   lazy val value: HtmlAttr[String] = stringAttr("value")
 
   /** The checkbox's size. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[String] = stringAttr("size")
+  lazy val size: HtmlAttr[CheckboxSize] = unionAttr("size")
 
   /** Disables the checkbox. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")

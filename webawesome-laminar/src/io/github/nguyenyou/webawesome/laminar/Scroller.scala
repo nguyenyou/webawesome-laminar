@@ -26,10 +26,14 @@ object Scroller extends WebComponent("wa-scroller") {
 
   type Ref = WaScrollerComponent & dom.HTMLElement
 
+  // -- Union Types --
+
+  type ScrollerOrientation = "horizontal" | "vertical"
+
   // -- Attributes --
 
   /** The scroller's orientation. Valid values: "horizontal", "vertical". */
-  lazy val orientation: HtmlAttr[String] = stringAttr("orientation")
+  lazy val orientation: HtmlAttr[ScrollerOrientation] = unionAttr("orientation")
 
   /** Removes the visible scrollbar. */
   lazy val withoutScrollbar: HtmlAttr[Boolean] = boolAttr("without-scrollbar")

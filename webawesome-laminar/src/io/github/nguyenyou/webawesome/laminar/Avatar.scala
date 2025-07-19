@@ -25,6 +25,12 @@ object Avatar extends WebComponent("wa-avatar") {
 
   type Ref = WaAvatarComponent & dom.HTMLElement
 
+  // -- Union Types --
+
+  type AvatarLoading = "eager" | "lazy"
+
+  type AvatarShape = "circle" | "square" | "rounded"
+
   // -- Events --
 
   /** The image could not be loaded. This may because of an invalid URL, a temporary network condition, or some unknown cause. */
@@ -42,10 +48,10 @@ object Avatar extends WebComponent("wa-avatar") {
   lazy val initials: HtmlAttr[String] = stringAttr("initials")
 
   /** Indicates how the browser should load the image. Valid values: "eager", "lazy". */
-  lazy val loading: HtmlAttr[String] = stringAttr("loading")
+  lazy val loading: HtmlAttr[AvatarLoading] = unionAttr("loading")
 
   /** The shape of the avatar. Valid values: "circle", "square", "rounded". */
-  lazy val shape: HtmlAttr[String] = stringAttr("shape")
+  lazy val shape: HtmlAttr[AvatarShape] = unionAttr("shape")
 
   // -- Slots --
 

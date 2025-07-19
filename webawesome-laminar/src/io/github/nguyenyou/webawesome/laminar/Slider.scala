@@ -25,6 +25,14 @@ object Slider extends WebComponent("wa-slider") {
 
   type Ref = WaSliderComponent & dom.HTMLElement
 
+  // -- Union Types --
+
+  type SliderOrientation = "horizontal" | "vertical"
+
+  type SliderSize = "small" | "medium" | "large"
+
+  type SliderTooltipPlacement = "top" | "right" | "bottom" | "left"
+
   // -- Events --
 
   /** Emitted when an alteration to the control's value is committed by the user. */
@@ -72,10 +80,10 @@ object Slider extends WebComponent("wa-slider") {
   lazy val readonly: HtmlAttr[Boolean] = boolAttr("readonly")
 
   /** The orientation of the slider. Valid values: "horizontal", "vertical". */
-  lazy val orientation: HtmlAttr[String] = stringAttr("orientation")
+  lazy val orientation: HtmlAttr[SliderOrientation] = unionAttr("orientation")
 
   /** The slider's size. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[String] = stringAttr("size")
+  lazy val size: HtmlAttr[SliderSize] = unionAttr("size")
 
   /** The starting value from which to draw the slider's fill, which is based on its current value. */
   lazy val indicatorOffset: HtmlAttr[Double] = doubleAttr("indicator-offset")
@@ -103,7 +111,7 @@ object Slider extends WebComponent("wa-slider") {
   lazy val tooltipDistance: HtmlAttr[Double] = doubleAttr("tooltip-distance")
 
   /** The placement of the tooltip in reference to the slider's thumb. Valid values: "top", "right", "bottom", "left". */
-  lazy val tooltipPlacement: HtmlAttr[String] = stringAttr("tooltip-placement")
+  lazy val tooltipPlacement: HtmlAttr[SliderTooltipPlacement] = unionAttr("tooltip-placement")
 
   /** Draws markers at each step along the slider. */
   lazy val withMarkers: HtmlAttr[Boolean] = boolAttr("with-markers")

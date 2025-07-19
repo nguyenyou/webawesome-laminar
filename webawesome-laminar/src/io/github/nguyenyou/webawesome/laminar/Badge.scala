@@ -25,19 +25,27 @@ object Badge extends WebComponent("wa-badge") {
 
   type Ref = WaBadgeComponent & dom.HTMLElement
 
+  // -- Union Types --
+
+  type BadgeVariant = "brand" | "neutral" | "success" | "warning" | "danger"
+
+  type BadgeAppearance = "accent" | "filled" | "outlined"
+
+  type BadgeAttention = "none" | "pulse"
+
   // -- Attributes --
 
   /** The badge's theme variant. Defaults to `brand` if not within another element with a variant. Valid values: "brand", "neutral", "success", "warning", "danger". */
-  lazy val variant: HtmlAttr[String] = stringAttr("variant")
+  lazy val variant: HtmlAttr[BadgeVariant] = unionAttr("variant")
 
   /** The badge's visual appearance. Valid values: "accent", "filled", "outlined". */
-  lazy val appearance: HtmlAttr[String] = stringAttr("appearance")
+  lazy val appearance: HtmlAttr[BadgeAppearance] = unionAttr("appearance")
 
   /** Draws a pill-style badge with rounded edges. */
   lazy val pill: HtmlAttr[Boolean] = boolAttr("pill")
 
   /** Makes the badge pulsate to draw attention. Valid values: "none", "pulse". */
-  lazy val attention: HtmlAttr[String] = stringAttr("attention")
+  lazy val attention: HtmlAttr[BadgeAttention] = unionAttr("attention")
 
   // -- Slots --
 
