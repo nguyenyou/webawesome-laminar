@@ -48,7 +48,7 @@ object Drawer extends WebComponent("wa-drawer") {
   proper accessibility. If you need to display HTML, use the `label` slot instead. */
   lazy val label: HtmlAttr[String] = stringAttr("label")
 
-  /** The direction from which the drawer will open. */
+  /** The direction from which the drawer will open. Valid values: "top", "end", "bottom", "start". */
   lazy val placement: HtmlAttr[String] = stringAttr("placement")
 
   /** Disables the header. This will also remove the default close button. */
@@ -131,8 +131,8 @@ object Drawer extends WebComponent("wa-drawer") {
     proper accessibility. If you need to display HTML, use the `label` slot instead. */
     var label: String
 
-    /** The direction from which the drawer will open. */
-    var placement: String
+    /** The direction from which the drawer will open. Valid values: "top", "end", "bottom", "start". */
+    var placement: "top" | "end" | "bottom" | "start"
 
     /** Disables the header. This will also remove the default close button. */
     var withoutHeader: Boolean

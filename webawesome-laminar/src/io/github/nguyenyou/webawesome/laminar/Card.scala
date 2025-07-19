@@ -27,7 +27,7 @@ object Card extends WebComponent("wa-card") {
 
   // -- Attributes --
 
-  /** The card's visual appearance. */
+  /** The card's visual appearance. Valid values: "accent", "filled", "outlined", "plain". */
   lazy val appearance: HtmlAttr[String] = stringAttr("appearance")
 
   /** Renders the card with a header. Only needed for SSR, otherwise is automatically added. */
@@ -88,8 +88,8 @@ object Card extends WebComponent("wa-card") {
   @js.native trait WaCardComponent extends js.Object {
     this: dom.HTMLElement =>
 
-    /** The card's visual appearance. */
-    var appearance: String
+    /** The card's visual appearance. Valid values: "accent", "filled", "outlined", "plain". */
+    var appearance: "accent" | "filled" | "outlined" | "plain"
 
     /** Renders the card with a header. Only needed for SSR, otherwise is automatically added. */
     var withHeader: Boolean

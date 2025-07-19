@@ -41,10 +41,10 @@ object Avatar extends WebComponent("wa-avatar") {
   /** Initials to use as a fallback when no image is available (1-2 characters max recommended). */
   lazy val initials: HtmlAttr[String] = stringAttr("initials")
 
-  /** Indicates how the browser should load the image. */
+  /** Indicates how the browser should load the image. Valid values: "eager", "lazy". */
   lazy val loading: HtmlAttr[String] = stringAttr("loading")
 
-  /** The shape of the avatar. */
+  /** The shape of the avatar. Valid values: "circle", "square", "rounded". */
   lazy val shape: HtmlAttr[String] = stringAttr("shape")
 
   // -- Slots --
@@ -93,11 +93,11 @@ object Avatar extends WebComponent("wa-avatar") {
     /** Initials to use as a fallback when no image is available (1-2 characters max recommended). */
     var initials: String
 
-    /** Indicates how the browser should load the image. */
-    var loading: String
+    /** Indicates how the browser should load the image. Valid values: "eager", "lazy". */
+    var loading: "eager" | "lazy"
 
-    /** The shape of the avatar. */
-    var shape: String
+    /** The shape of the avatar. Valid values: "circle", "square", "rounded". */
+    var shape: "circle" | "square" | "rounded"
 
     def handleImageChange(): js.Any = js.native
 

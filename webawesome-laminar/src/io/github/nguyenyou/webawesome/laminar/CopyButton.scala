@@ -59,7 +59,7 @@ object CopyButton extends WebComponent("wa-copy-button") {
   /** The length of time to show feedback before restoring the default trigger. */
   lazy val feedbackDuration: HtmlAttr[Double] = doubleAttr("feedback-duration")
 
-  /** The preferred placement of the tooltip. */
+  /** The preferred placement of the tooltip. Valid values: "top", "right", "bottom", "left". */
   lazy val tooltipPlacement: HtmlAttr[String] = stringAttr("tooltip-placement")
 
   // -- Props --
@@ -140,8 +140,8 @@ object CopyButton extends WebComponent("wa-copy-button") {
     /** The length of time to show feedback before restoring the default trigger. */
     var feedbackDuration: Double
 
-    /** The preferred placement of the tooltip. */
-    var tooltipPlacement: String
+    /** The preferred placement of the tooltip. Valid values: "top", "right", "bottom", "left". */
+    var tooltipPlacement: "top" | "right" | "bottom" | "left"
 
   }
 }

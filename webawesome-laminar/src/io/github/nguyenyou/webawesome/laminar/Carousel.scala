@@ -57,7 +57,7 @@ object Carousel extends WebComponent("wa-carousel") {
   greater than one. It can't be higher than `slides-per-page`. */
   lazy val slidesPerMove: HtmlAttr[Double] = doubleAttr("slides-per-move")
 
-  /** Specifies the orientation in which the carousel will lay out. */
+  /** Specifies the orientation in which the carousel will lay out. Valid values: "horizontal", "vertical". */
   lazy val orientation: HtmlAttr[String] = stringAttr("orientation")
 
   /** When set, it is possible to scroll through the slides by dragging them with the mouse. */
@@ -156,8 +156,8 @@ object Carousel extends WebComponent("wa-carousel") {
     greater than one. It can't be higher than `slides-per-page`. */
     var slidesPerMove: Double
 
-    /** Specifies the orientation in which the carousel will lay out. */
-    var orientation: String
+    /** Specifies the orientation in which the carousel will lay out. Valid values: "horizontal", "vertical". */
+    var orientation: "horizontal" | "vertical"
 
     /** When set, it is possible to scroll through the slides by dragging them with the mouse. */
     var mouseDragging: Boolean

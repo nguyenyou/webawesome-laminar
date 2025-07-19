@@ -60,10 +60,10 @@ object Input extends WebComponent("wa-input") {
   /** The default value of the form control. Primarily used for resetting the form control. */
   lazy val value: HtmlAttr[String] = stringAttr("value")
 
-  /** The input's size. */
+  /** The input's size. Valid values: "small", "medium", "large". */
   lazy val size: HtmlAttr[String] = stringAttr("size")
 
-  /** The input's visual appearance. */
+  /** The input's visual appearance. Valid values: "filled", "outlined". */
   lazy val appearance: HtmlAttr[String] = stringAttr("appearance")
 
   /** Draws a pill-style input with rounded edges. */
@@ -120,10 +120,10 @@ object Input extends WebComponent("wa-input") {
   implied, allowing any numeric value. Only applies to date and number input types. */
   lazy val step: HtmlAttr[String] = stringAttr("step")
 
-  /** Controls whether and how text input is automatically capitalized as it is entered by the user. */
+  /** Controls whether and how text input is automatically capitalized as it is entered by the user. Valid values: "off", "none", "on", "sentences", "words", "characters". */
   lazy val autocapitalize: HtmlAttr[String] = stringAttr("autocapitalize")
 
-  /** Indicates whether the browser's autocorrect feature is on or off. */
+  /** Indicates whether the browser's autocorrect feature is on or off. Valid values: "off", "on". */
   lazy val autocorrect: HtmlAttr[String] = stringAttr("autocorrect")
 
   /** Specifies what permission the browser has to provide assistance in filling out form field values. Refer to
@@ -133,14 +133,14 @@ object Input extends WebComponent("wa-input") {
   /** Indicates that the input should receive focus on page load. */
   lazy val autofocus: HtmlAttr[Boolean] = boolAttr("autofocus")
 
-  /** Used to customize the label or icon of the Enter key on virtual keyboards. */
+  /** Used to customize the label or icon of the Enter key on virtual keyboards. Valid values: "enter", "done", "go", "next", "previous", "search", "send". */
   lazy val enterkeyhint: HtmlAttr[String] = stringAttr("enterkeyhint")
 
   /** Enables spell checking on the input. */
   lazy val spellcheck: HtmlAttr[Boolean] = boolAttr("spellcheck")
 
   /** Tells the browser what type of data will be entered by the user, allowing it to display the appropriate virtual
-  keyboard on supportive devices. */
+  keyboard on supportive devices. Valid values: "none", "text", "decimal", "numeric", "tel", "search", "email", "url". */
   lazy val inputmode: HtmlAttr[String] = stringAttr("inputmode")
 
   /** Used for SSR. Will determine if the SSRed component will have the label slot rendered on initial paint. */
@@ -224,11 +224,11 @@ object Input extends WebComponent("wa-input") {
     /** The default value of the form control. Primarily used for resetting the form control. */
     var defaultValue: String
 
-    /** The input's size. */
-    var size: String
+    /** The input's size. Valid values: "small", "medium", "large". */
+    var size: "small" | "medium" | "large"
 
-    /** The input's visual appearance. */
-    var appearance: String
+    /** The input's visual appearance. Valid values: "filled", "outlined". */
+    var appearance: "filled" | "outlined"
 
     /** Draws a pill-style input with rounded edges. */
     var pill: Boolean
@@ -284,11 +284,11 @@ object Input extends WebComponent("wa-input") {
     implied, allowing any numeric value. Only applies to date and number input types. */
     var step: Double
 
-    /** Controls whether and how text input is automatically capitalized as it is entered by the user. */
-    var autocapitalize: String
+    /** Controls whether and how text input is automatically capitalized as it is entered by the user. Valid values: "off", "none", "on", "sentences", "words", "characters". */
+    var autocapitalize: "off" | "none" | "on" | "sentences" | "words" | "characters"
 
-    /** Indicates whether the browser's autocorrect feature is on or off. */
-    var autocorrect: String
+    /** Indicates whether the browser's autocorrect feature is on or off. Valid values: "off", "on". */
+    var autocorrect: "off" | "on"
 
     /** Specifies what permission the browser has to provide assistance in filling out form field values. Refer to
     [this page on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) for available values. */
@@ -297,15 +297,15 @@ object Input extends WebComponent("wa-input") {
     /** Indicates that the input should receive focus on page load. */
     var autofocus: Boolean
 
-    /** Used to customize the label or icon of the Enter key on virtual keyboards. */
-    var enterkeyhint: String
+    /** Used to customize the label or icon of the Enter key on virtual keyboards. Valid values: "enter", "done", "go", "next", "previous", "search", "send". */
+    var enterkeyhint: "enter" | "done" | "go" | "next" | "previous" | "search" | "send"
 
     /** Enables spell checking on the input. */
     var spellcheck: Boolean
 
     /** Tells the browser what type of data will be entered by the user, allowing it to display the appropriate virtual
-    keyboard on supportive devices. */
-    var inputmode: String
+    keyboard on supportive devices. Valid values: "none", "text", "decimal", "numeric", "tel", "search", "email", "url". */
+    var inputmode: "none" | "text" | "decimal" | "numeric" | "tel" | "search" | "email" | "url"
 
     /** Used for SSR. Will determine if the SSRed component will have the label slot rendered on initial paint. */
     var withLabel: Boolean

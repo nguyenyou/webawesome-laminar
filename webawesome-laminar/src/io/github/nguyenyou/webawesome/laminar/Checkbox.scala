@@ -52,7 +52,7 @@ object Checkbox extends WebComponent("wa-checkbox") {
   /** The value of the checkbox, submitted as a name/value pair with form data. */
   lazy val value: HtmlAttr[String] = stringAttr("value")
 
-  /** The checkbox's size. */
+  /** The checkbox's size. Valid values: "small", "medium", "large". */
   lazy val size: HtmlAttr[String] = stringAttr("size")
 
   /** Disables the checkbox. */
@@ -141,8 +141,8 @@ object Checkbox extends WebComponent("wa-checkbox") {
     /** The value of the checkbox, submitted as a name/value pair with form data. */
     var value: String
 
-    /** The checkbox's size. */
-    var size: String
+    /** The checkbox's size. Valid values: "small", "medium", "large". */
+    var size: "small" | "medium" | "large"
 
     /** Disables the checkbox. */
     var disabled: Boolean

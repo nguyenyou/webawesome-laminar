@@ -33,7 +33,7 @@ object Tree extends WebComponent("wa-tree") {
   // -- Attributes --
 
   /** The selection behavior of the tree. Single selection allows only one node to be selected at a time. Multiple
-  displays checkboxes and allows more than one node to be selected. Leaf allows only leaf nodes to be selected. */
+  displays checkboxes and allows more than one node to be selected. Leaf allows only leaf nodes to be selected. Valid values: "single", "multiple", "leaf". */
   lazy val selection: HtmlAttr[String] = stringAttr("selection")
 
   // -- Slots --
@@ -86,8 +86,8 @@ object Tree extends WebComponent("wa-tree") {
     this: dom.HTMLElement =>
 
     /** The selection behavior of the tree. Single selection allows only one node to be selected at a time. Multiple
-    displays checkboxes and allows more than one node to be selected. Leaf allows only leaf nodes to be selected. */
-    var selection: String
+    displays checkboxes and allows more than one node to be selected. Leaf allows only leaf nodes to be selected. Valid values: "single", "multiple", "leaf". */
+    var selection: "single" | "multiple" | "leaf"
 
     def handleMouseDown(event: js.Any): js.Any = js.native
 

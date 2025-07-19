@@ -27,7 +27,7 @@ object Divider extends WebComponent("wa-divider") {
 
   // -- Attributes --
 
-  /** Sets the divider's orientation. */
+  /** Sets the divider's orientation. Valid values: "horizontal", "vertical". */
   lazy val orientation: HtmlAttr[String] = stringAttr("orientation")
 
   // -- CSS Vars --
@@ -50,8 +50,8 @@ object Divider extends WebComponent("wa-divider") {
   @js.native trait WaDividerComponent extends js.Object {
     this: dom.HTMLElement =>
 
-    /** Sets the divider's orientation. */
-    var orientation: String
+    /** Sets the divider's orientation. Valid values: "horizontal", "vertical". */
+    var orientation: "horizontal" | "vertical"
 
     def handleVerticalChange(): js.Any = js.native
 

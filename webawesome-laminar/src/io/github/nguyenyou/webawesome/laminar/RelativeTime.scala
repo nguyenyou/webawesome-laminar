@@ -32,11 +32,11 @@ object RelativeTime extends WebComponent("wa-relative-time") {
   a date to this format in JavaScript, use [`date.toISOString()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString). */
   lazy val date: HtmlAttr[String] = stringAttr("date")
 
-  /** The formatting style to use. */
+  /** The formatting style to use. Valid values: "long", "short", "narrow". */
   lazy val format: HtmlAttr[String] = stringAttr("format")
 
   /** When `auto`, values such as "yesterday" and "tomorrow" will be shown when possible. When `always`, values such as
-  "1 day ago" and "in 1 day" will be shown. */
+  "1 day ago" and "in 1 day" will be shown. Valid values: "always", "auto". */
   lazy val numeric: HtmlAttr[String] = stringAttr("numeric")
 
   /** Keep the displayed value up to date as time passes. */
@@ -52,12 +52,12 @@ object RelativeTime extends WebComponent("wa-relative-time") {
     a date to this format in JavaScript, use [`date.toISOString()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString). */
     var date: String
 
-    /** The formatting style to use. */
-    var format: String
+    /** The formatting style to use. Valid values: "long", "short", "narrow". */
+    var format: "long" | "short" | "narrow"
 
     /** When `auto`, values such as "yesterday" and "tomorrow" will be shown when possible. When `always`, values such as
-    "1 day ago" and "in 1 day" will be shown. */
-    var numeric: String
+    "1 day ago" and "in 1 day" will be shown. Valid values: "always", "auto". */
+    var numeric: "always" | "auto"
 
     /** Keep the displayed value up to date as time passes. */
     var sync: Boolean

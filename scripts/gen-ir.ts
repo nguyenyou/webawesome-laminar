@@ -30,6 +30,7 @@ interface AttributeIR {
   name: string;              // HTML attribute name (e.g., "disabled")
   fieldName?: string;        // JS field name if different (e.g., "withCaret" for "with-caret")
   type: string;              // TypeScript/Scala type
+  unionValues?: string[];    // Union type values if type is a union (e.g., ["neutral", "brand", "success"])
   description?: string;
   default?: string;
   required?: boolean;
@@ -78,7 +79,19 @@ type Module = typeof manifest.modules[number];
 type Declaration = Module['declarations'][number];
 
 // Helper functions for type mapping
-function mapTypeScriptToScala(tsType: string): string {
+function extractUnionValues(tsType: string): string[] | undefined {
+  // Handle union types like 'small' | 'medium' | 'large'
+  if (tsType.includes(' | ')) {
+    const unionTypes = tsType.split(' | ').map(t => t.trim());
+    // For string literal unions, extract the literal values
+    if (unionTypes.every(t => (t.startsWith("'") && t.endsWith("'")) || (t.startsWith('"') && t.endsWith('"')))) {
+      return unionTypes.map(t => t.slice(1, -1)); // Remove quotes
+    }
+  }
+  return undefined;
+}
+
+function mapTypeScriptToScala(tsType: string, unionValues?: string[]): string {
   const typeMap: Record<string, string> = {
     'string': 'String',
     'boolean': 'Boolean',
@@ -100,9 +113,9 @@ function mapTypeScriptToScala(tsType: string): string {
   // Handle union types like 'small' | 'medium' | 'large'
   if (tsType.includes(' | ')) {
     const unionTypes = tsType.split(' | ').map(t => t.trim().replace(/'/g, '"'));
-    // For string literal unions, we'll use String in Scala with validation
+    // For string literal unions, we'll use String in Scala but preserve union info
     if (unionTypes.every(t => t.startsWith('"') && t.endsWith('"'))) {
-      return 'String';
+      return 'String'; // Still return String, but unionValues will contain the actual values
     }
   }
 
@@ -135,16 +148,22 @@ function generatePackagePath(tagName: string): string {
 function parseAttributes(declaration: any): AttributeIR[] {
   if (!declaration.attributes) return [];
   
-  return declaration.attributes.map((attr: any): AttributeIR => ({
-    name: attr.name,
-    fieldName: attr.fieldName,
-    type: mapTypeScriptToScala(attr.type?.text || 'String'),
-    description: attr.description,
-    default: attr.default,
-    reflects: declaration.members?.find((m: any) => 
-      m.name === attr.fieldName && m.reflects
-    )?.reflects
-  }));
+  return declaration.attributes.map((attr: any): AttributeIR => {
+    const typeText = attr.type?.text || 'String';
+    const unionValues = extractUnionValues(typeText);
+    
+    return {
+      name: attr.name,
+      fieldName: attr.fieldName,
+      type: mapTypeScriptToScala(typeText, unionValues),
+      unionValues: unionValues,
+      description: attr.description,
+      default: attr.default,
+      reflects: declaration.members?.find((m: any) => 
+        m.name === attr.fieldName && m.reflects
+      )?.reflects
+    };
+  });
 }
 
 function parseEvents(declaration: any): EventIR[] {

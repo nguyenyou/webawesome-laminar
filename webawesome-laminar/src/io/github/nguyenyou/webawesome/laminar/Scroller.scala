@@ -28,7 +28,7 @@ object Scroller extends WebComponent("wa-scroller") {
 
   // -- Attributes --
 
-  /** The scroller's orientation. */
+  /** The scroller's orientation. Valid values: "horizontal", "vertical". */
   lazy val orientation: HtmlAttr[String] = stringAttr("orientation")
 
   /** Removes the visible scrollbar. */
@@ -71,8 +71,8 @@ object Scroller extends WebComponent("wa-scroller") {
   @js.native trait WaScrollerComponent extends js.Object {
     this: dom.HTMLElement =>
 
-    /** The scroller's orientation. */
-    var orientation: String
+    /** The scroller's orientation. Valid values: "horizontal", "vertical". */
+    var orientation: "horizontal" | "vertical"
 
     /** Removes the visible scrollbar. */
     var withoutScrollbar: Boolean

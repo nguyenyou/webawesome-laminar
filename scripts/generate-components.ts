@@ -23,6 +23,7 @@ interface AttributeIR {
   name: string;
   fieldName?: string;
   type: string;
+  unionValues?: string[];    // Union type values if type is a union (e.g., ["neutral", "brand", "success"])
   description?: string;
   default?: string;
   required?: boolean;
@@ -80,6 +81,23 @@ function toPascalCase(str: string): string {
 function getComponentClassName(tagName: string): string {
   // Convert wa-button-group to ButtonGroup
   return toPascalCase(tagName.replace('wa-', ''));
+}
+
+function generateUnionType(values: string[]): string {
+  // Convert array of string values to Scala union type
+  // e.g., ["neutral", "brand", "success"] -> "\"neutral\" | \"brand\" | \"success\""
+  return values.map(value => `"${value}"`).join(' | ');
+}
+
+function getUnionTypeName(attributeName: string, componentName: string): string {
+  // Generate a type alias name for union types
+  // e.g., variant for Button -> ButtonVariant
+  return `${componentName}${toPascalCase(attributeName)}`;
+}
+
+function shouldUseUnionType(attr: AttributeIR): boolean {
+  // Use union type if we have unionValues and the base type is String
+  return !!(attr.unionValues && attr.unionValues.length > 0 && attr.type === 'String');
 }
 
 function mapTypeScriptToScala(tsType: string): string {
@@ -142,7 +160,12 @@ function mapTypeScriptToScala(tsType: string): string {
   return typeMap[tsType] || 'js.Any';
 }
 
-function getJSFacadeType(irType: string): string {
+function getJSFacadeType(irType: string, unionValues?: string[]): string {
+  // If we have union values, use union type syntax
+  if (unionValues && unionValues.length > 0 && irType === 'String') {
+    return generateUnionType(unionValues);
+  }
+  
   // Map IR types to proper Scala.js facade types
   switch (irType) {
     case 'String': return 'String';
@@ -177,8 +200,9 @@ function getJSFacadeType(irType: string): string {
   }
 }
 
-function getScalaAttributeType(type: string): string {
-  // Map IR types to Laminar attribute types
+function getScalaAttributeType(type: string, unionValues?: string[]): string {
+  // For union types, we still use HtmlAttr[String] since HTML attributes are strings
+  // The type safety comes from the JS facade with union types
   switch (type) {
     case 'Boolean': return 'HtmlAttr[Boolean]';
     case 'String': return 'HtmlAttr[String]';
@@ -187,7 +211,7 @@ function getScalaAttributeType(type: string): string {
   }
 }
 
-function getScalaAttributeConstructor(type: string): string {
+function getScalaAttributeConstructor(type: string, unionValues?: string[]): string {
   switch (type) {
     case 'Boolean': return 'boolAttr';
     case 'String': return 'stringAttr';
@@ -297,13 +321,24 @@ function generateComponent(component: ComponentIR): string {
       writer.blankLine();
 
       component.attributes.forEach(attr => {
-        if (attr.description) {
-          writer.writeLine(`/** ${attr.description} */`);
+        // Generate enhanced documentation for union types
+        let documentation = attr.description || '';
+        if (shouldUseUnionType(attr)) {
+          const validValues = attr.unionValues!.map(v => `"${v}"`).join(', ');
+          if (documentation) {
+            documentation += ` Valid values: ${validValues}.`;
+          } else {
+            documentation = `Valid values: ${validValues}.`;
+          }
+        }
+        
+        if (documentation) {
+          writer.writeLine(`/** ${documentation} */`);
         }
         
         const attrName = escapeScalaKeyword(toCamelCase(attr.name));
-        const scalaType = getScalaAttributeType(attr.type);
-        const constructor = getScalaAttributeConstructor(attr.type);
+        const scalaType = getScalaAttributeType(attr.type, attr.unionValues);
+        const constructor = getScalaAttributeConstructor(attr.type, attr.unionValues);
         
         writer.writeLine(`lazy val ${attrName}: ${scalaType} = ${constructor}("${attr.name}")`);
         writer.blankLine();
@@ -401,13 +436,24 @@ function generateComponent(component: ComponentIR): string {
 
       // Add component-specific properties
       component.attributes.forEach(attr => {
-        if (attr.description) {
-          writer.writeLine(`/** ${attr.description} */`);
+        // Generate enhanced documentation for union types in JS facade
+        let documentation = attr.description || '';
+        if (shouldUseUnionType(attr)) {
+          const validValues = attr.unionValues!.map(v => `"${v}"`).join(', ');
+          if (documentation) {
+            documentation += ` Valid values: ${validValues}.`;
+          } else {
+            documentation = `Valid values: ${validValues}.`;
+          }
+        }
+        
+        if (documentation) {
+          writer.writeLine(`/** ${documentation} */`);
         }
         
         const fieldName = attr.fieldName || toCamelCase(attr.name);
         // Use the proper type from IR instead of mapping everything to js.Any
-        const jsType = getJSFacadeType(attr.type);
+        const jsType = getJSFacadeType(attr.type, attr.unionValues);
         
         writer.writeLine(`var ${escapeScalaKeyword(fieldName)}: ${jsType}`);
         writer.blankLine();

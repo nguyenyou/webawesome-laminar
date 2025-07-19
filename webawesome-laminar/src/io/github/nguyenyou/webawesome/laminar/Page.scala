@@ -30,7 +30,7 @@ object Page extends WebComponent("wa-page") {
   /** The view is a reflection of the "mobileBreakpoint", when the page is larger than the `mobile-breakpoint` (768px by
   default), it is considered to be a "desktop" view. The view is merely a way to distinguish when to show/hide the
   navigation. You can use additional media queries to make other adjustments to content as necessary.
-  The default is "desktop" because the "mobile navigation drawer" isn't accessible via SSR due to drawer requiring JS. */
+  The default is "desktop" because the "mobile navigation drawer" isn't accessible via SSR due to drawer requiring JS. Valid values: "mobile", "desktop". */
   lazy val view: HtmlAttr[String] = stringAttr("view")
 
   /** Whether or not the navigation drawer is open. Note, the navigation drawer is only "open" on mobile views. */
@@ -40,7 +40,7 @@ object Page extends WebComponent("wa-page") {
   Accepts both numbers (interpreted as px) and CSS lengths (e.g. `50em`), which are resolved based on the root element. */
   lazy val mobileBreakpoint: HtmlAttr[String] = stringAttr("mobile-breakpoint")
 
-  /** Where to place the navigation when in the mobile viewport. */
+  /** Where to place the navigation when in the mobile viewport. Valid values: "start", "end". */
   lazy val navigationPlacement: HtmlAttr[String] = stringAttr("navigation-placement")
 
   /** Determines whether or not to hide the default hamburger button.
@@ -193,8 +193,8 @@ object Page extends WebComponent("wa-page") {
     /** The view is a reflection of the "mobileBreakpoint", when the page is larger than the `mobile-breakpoint` (768px by
     default), it is considered to be a "desktop" view. The view is merely a way to distinguish when to show/hide the
     navigation. You can use additional media queries to make other adjustments to content as necessary.
-    The default is "desktop" because the "mobile navigation drawer" isn't accessible via SSR due to drawer requiring JS. */
-    var view: String
+    The default is "desktop" because the "mobile navigation drawer" isn't accessible via SSR due to drawer requiring JS. Valid values: "mobile", "desktop". */
+    var view: "mobile" | "desktop"
 
     /** Whether or not the navigation drawer is open. Note, the navigation drawer is only "open" on mobile views. */
     var navOpen: Boolean
@@ -203,8 +203,8 @@ object Page extends WebComponent("wa-page") {
     Accepts both numbers (interpreted as px) and CSS lengths (e.g. `50em`), which are resolved based on the root element. */
     var mobileBreakpoint: String
 
-    /** Where to place the navigation when in the mobile viewport. */
-    var navigationPlacement: String
+    /** Where to place the navigation when in the mobile viewport. Valid values: "start", "end". */
+    var navigationPlacement: "start" | "end"
 
     /** Determines whether or not to hide the default hamburger button.
     This will automatically flip to "true" if you add an element with `data-toggle-nav` anywhere in the element light DOM.

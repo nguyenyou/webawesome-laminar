@@ -39,7 +39,7 @@ object Include extends WebComponent("wa-include") {
   code and can result in XSS attacks. */
   lazy val src: HtmlAttr[String] = stringAttr("src")
 
-  /** The fetch mode to use. */
+  /** The fetch mode to use. Valid values: "cors", "no-cors", "same-origin". */
   lazy val mode: HtmlAttr[String] = stringAttr("mode")
 
   /** Allows included scripts to be executed. Be sure you trust the content you are including as it will be executed as
@@ -55,8 +55,8 @@ object Include extends WebComponent("wa-include") {
     code and can result in XSS attacks. */
     var src: String
 
-    /** The fetch mode to use. */
-    var mode: String
+    /** The fetch mode to use. Valid values: "cors", "no-cors", "same-origin". */
+    var mode: "cors" | "no-cors" | "same-origin"
 
     /** Allows included scripts to be executed. Be sure you trust the content you are including as it will be executed as
     code and can result in XSS attacks. */

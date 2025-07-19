@@ -30,7 +30,7 @@ object FormatNumber extends WebComponent("wa-format-number") {
   /** The number to format. */
   lazy val value: HtmlAttr[Double] = doubleAttr("value")
 
-  /** The formatting style to use. */
+  /** The formatting style to use. Valid values: "currency", "decimal", "percent". */
   lazy val `type`: HtmlAttr[String] = stringAttr("type")
 
   lazy val typ: HtmlAttr[String] = `type`
@@ -43,7 +43,7 @@ object FormatNumber extends WebComponent("wa-format-number") {
   /** The [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code to use when formatting. */
   lazy val currency: HtmlAttr[String] = stringAttr("currency")
 
-  /** How to display the currency. */
+  /** How to display the currency. Valid values: "symbol", "narrowSymbol", "code", "name". */
   lazy val currencyDisplay: HtmlAttr[String] = stringAttr("currency-display")
 
   /** The minimum number of integer digits to use. Possible values are 1-21. */
@@ -74,8 +74,8 @@ object FormatNumber extends WebComponent("wa-format-number") {
     /** The number to format. */
     var value: Double
 
-    /** The formatting style to use. */
-    var `type`: String
+    /** The formatting style to use. Valid values: "currency", "decimal", "percent". */
+    var `type`: "currency" | "decimal" | "percent"
 
     /** Turns off grouping separators. */
     var withoutGrouping: Boolean
@@ -83,8 +83,8 @@ object FormatNumber extends WebComponent("wa-format-number") {
     /** The [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code to use when formatting. */
     var currency: String
 
-    /** How to display the currency. */
-    var currencyDisplay: String
+    /** How to display the currency. Valid values: "symbol", "narrowSymbol", "code", "name". */
+    var currencyDisplay: "symbol" | "narrowSymbol" | "code" | "name"
 
     /** The minimum number of integer digits to use. Possible values are 1-21. */
     var minimumIntegerDigits: Double

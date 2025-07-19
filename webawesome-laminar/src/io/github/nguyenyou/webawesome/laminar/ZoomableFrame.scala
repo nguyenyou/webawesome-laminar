@@ -44,7 +44,7 @@ object ZoomableFrame extends WebComponent("wa-zoomable-frame") {
   /** Allows fullscreen mode. */
   lazy val allowfullscreen: HtmlAttr[Boolean] = boolAttr("allowfullscreen")
 
-  /** Controls iframe loading behavior. */
+  /** Controls iframe loading behavior. Valid values: "eager", "lazy". */
   lazy val loading: HtmlAttr[String] = stringAttr("loading")
 
   /** Controls referrer information. */
@@ -108,8 +108,8 @@ object ZoomableFrame extends WebComponent("wa-zoomable-frame") {
     /** Allows fullscreen mode. */
     var allowfullscreen: Boolean
 
-    /** Controls iframe loading behavior. */
-    var loading: String
+    /** Controls iframe loading behavior. Valid values: "eager", "lazy". */
+    var loading: "eager" | "lazy"
 
     /** Controls referrer information. */
     var referrerpolicy: String

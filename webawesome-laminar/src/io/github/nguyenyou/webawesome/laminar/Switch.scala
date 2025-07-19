@@ -52,7 +52,7 @@ object Switch extends WebComponent("wa-switch") {
   /** The value of the switch, submitted as a name/value pair with form data. */
   lazy val value: HtmlAttr[String] = stringAttr("value")
 
-  /** The switch's size. */
+  /** The switch's size. Valid values: "small", "medium", "large". */
   lazy val size: HtmlAttr[String] = stringAttr("size")
 
   /** Disables the switch. */
@@ -140,8 +140,8 @@ object Switch extends WebComponent("wa-switch") {
     /** The value of the switch, submitted as a name/value pair with form data. */
     var value: String
 
-    /** The switch's size. */
-    var size: String
+    /** The switch's size. Valid values: "small", "medium", "large". */
+    var size: "small" | "medium" | "large"
 
     /** Disables the switch. */
     var disabled: Boolean

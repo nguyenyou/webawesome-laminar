@@ -54,7 +54,7 @@ object Details extends WebComponent("wa-details") {
   /** Disables the details so it can't be toggled. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
 
-  /** The element's visual appearance. */
+  /** The element's visual appearance. Valid values: "filled", "outlined", "plain". */
   lazy val appearance: HtmlAttr[String] = stringAttr("appearance")
 
   // -- Slots --
@@ -128,8 +128,8 @@ object Details extends WebComponent("wa-details") {
     /** Disables the details so it can't be toggled. */
     var disabled: Boolean
 
-    /** The element's visual appearance. */
-    var appearance: String
+    /** The element's visual appearance. Valid values: "filled", "outlined", "plain". */
+    var appearance: "filled" | "outlined" | "plain"
 
     def handleOpenChange(): js.Any = js.native
 

@@ -39,7 +39,7 @@ object SplitPanel extends WebComponent("wa-split-panel") {
   /** The current position of the divider from the primary panel's edge in pixels. */
   lazy val positionInPixels: HtmlAttr[Double] = doubleAttr("position-in-pixels")
 
-  /** Sets the split panel's orientation. */
+  /** Sets the split panel's orientation. Valid values: "horizontal", "vertical". */
   lazy val orientation: HtmlAttr[String] = stringAttr("orientation")
 
   /** Disables resizing. Note that the position may still change as a result of resizing the host element. */
@@ -119,8 +119,8 @@ object SplitPanel extends WebComponent("wa-split-panel") {
     /** The current position of the divider from the primary panel's edge in pixels. */
     var positionInPixels: Double
 
-    /** Sets the split panel's orientation. */
-    var orientation: String
+    /** Sets the split panel's orientation. Valid values: "horizontal", "vertical". */
+    var orientation: "horizontal" | "vertical"
 
     /** Disables resizing. Note that the position may still change as a result of resizing the host element. */
     var disabled: Boolean

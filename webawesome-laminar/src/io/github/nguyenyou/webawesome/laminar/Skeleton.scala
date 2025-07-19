@@ -27,7 +27,7 @@ object Skeleton extends WebComponent("wa-skeleton") {
 
   // -- Attributes --
 
-  /** Determines which effect the skeleton will use. */
+  /** Determines which effect the skeleton will use. Valid values: "pulse", "sheen", "none". */
   lazy val effect: HtmlAttr[String] = stringAttr("effect")
 
   // -- CSS Vars --
@@ -56,8 +56,8 @@ object Skeleton extends WebComponent("wa-skeleton") {
   @js.native trait WaSkeletonComponent extends js.Object {
     this: dom.HTMLElement =>
 
-    /** Determines which effect the skeleton will use. */
-    var effect: String
+    /** Determines which effect the skeleton will use. Valid values: "pulse", "sheen", "none". */
+    var effect: "pulse" | "sheen" | "none"
 
   }
 }

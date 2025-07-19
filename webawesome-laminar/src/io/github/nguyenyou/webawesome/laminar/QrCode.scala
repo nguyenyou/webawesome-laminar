@@ -45,7 +45,7 @@ object QrCode extends WebComponent("wa-qr-code") {
   /** The edge radius of each module. Must be between 0 and 0.5. */
   lazy val radius: HtmlAttr[Double] = doubleAttr("radius")
 
-  /** The level of error correction to use. [Learn more](https://www.qrcode.com/en/about/error_correction.html) */
+  /** The level of error correction to use. [Learn more](https://www.qrcode.com/en/about/error_correction.html) Valid values: "L", "M", "Q", "H". */
   lazy val errorCorrection: HtmlAttr[String] = stringAttr("error-correction")
 
   // -- Props --
@@ -85,8 +85,8 @@ object QrCode extends WebComponent("wa-qr-code") {
     /** The edge radius of each module. Must be between 0 and 0.5. */
     var radius: Double
 
-    /** The level of error correction to use. [Learn more](https://www.qrcode.com/en/about/error_correction.html) */
-    var errorCorrection: String
+    /** The level of error correction to use. [Learn more](https://www.qrcode.com/en/about/error_correction.html) Valid values: "L", "M", "Q", "H". */
+    var errorCorrection: "L" | "M" | "Q" | "H"
 
     def generate(): js.Any = js.native
 

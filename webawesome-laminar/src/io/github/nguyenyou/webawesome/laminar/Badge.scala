@@ -27,16 +27,16 @@ object Badge extends WebComponent("wa-badge") {
 
   // -- Attributes --
 
-  /** The badge's theme variant. Defaults to `brand` if not within another element with a variant. */
+  /** The badge's theme variant. Defaults to `brand` if not within another element with a variant. Valid values: "brand", "neutral", "success", "warning", "danger". */
   lazy val variant: HtmlAttr[String] = stringAttr("variant")
 
-  /** The badge's visual appearance. */
+  /** The badge's visual appearance. Valid values: "accent", "filled", "outlined". */
   lazy val appearance: HtmlAttr[String] = stringAttr("appearance")
 
   /** Draws a pill-style badge with rounded edges. */
   lazy val pill: HtmlAttr[Boolean] = boolAttr("pill")
 
-  /** Makes the badge pulsate to draw attention. */
+  /** Makes the badge pulsate to draw attention. Valid values: "none", "pulse". */
   lazy val attention: HtmlAttr[String] = stringAttr("attention")
 
   // -- Slots --
@@ -61,17 +61,17 @@ object Badge extends WebComponent("wa-badge") {
   @js.native trait WaBadgeComponent extends js.Object {
     this: dom.HTMLElement =>
 
-    /** The badge's theme variant. Defaults to `brand` if not within another element with a variant. */
-    var variant: String
+    /** The badge's theme variant. Defaults to `brand` if not within another element with a variant. Valid values: "brand", "neutral", "success", "warning", "danger". */
+    var variant: "brand" | "neutral" | "success" | "warning" | "danger"
 
-    /** The badge's visual appearance. */
-    var appearance: String
+    /** The badge's visual appearance. Valid values: "accent", "filled", "outlined". */
+    var appearance: "accent" | "filled" | "outlined"
 
     /** Draws a pill-style badge with rounded edges. */
     var pill: Boolean
 
-    /** Makes the badge pulsate to draw attention. */
-    var attention: String
+    /** Makes the badge pulsate to draw attention. Valid values: "none", "pulse". */
+    var attention: "none" | "pulse"
 
   }
 }

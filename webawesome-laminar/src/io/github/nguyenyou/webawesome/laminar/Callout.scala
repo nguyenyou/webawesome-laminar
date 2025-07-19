@@ -27,13 +27,13 @@ object Callout extends WebComponent("wa-callout") {
 
   // -- Attributes --
 
-  /** The callout's theme variant. Defaults to `brand` if not within another element with a variant. */
+  /** The callout's theme variant. Defaults to `brand` if not within another element with a variant. Valid values: "brand", "neutral", "success", "warning", "danger". */
   lazy val variant: HtmlAttr[String] = stringAttr("variant")
 
   /** The callout's visual appearance. */
   lazy val appearance: HtmlAttr[String] = stringAttr("appearance")
 
-  /** The callout's size. */
+  /** The callout's size. Valid values: "small", "medium", "large". */
   lazy val size: HtmlAttr[String] = stringAttr("size")
 
   // -- Slots --
@@ -64,14 +64,14 @@ object Callout extends WebComponent("wa-callout") {
   @js.native trait WaCalloutComponent extends js.Object {
     this: dom.HTMLElement =>
 
-    /** The callout's theme variant. Defaults to `brand` if not within another element with a variant. */
-    var variant: String
+    /** The callout's theme variant. Defaults to `brand` if not within another element with a variant. Valid values: "brand", "neutral", "success", "warning", "danger". */
+    var variant: "brand" | "neutral" | "success" | "warning" | "danger"
 
     /** The callout's visual appearance. */
     var appearance: js.Any
 
-    /** The callout's size. */
-    var size: String
+    /** The callout's size. Valid values: "small", "medium", "large". */
+    var size: "small" | "medium" | "large"
 
   }
 }

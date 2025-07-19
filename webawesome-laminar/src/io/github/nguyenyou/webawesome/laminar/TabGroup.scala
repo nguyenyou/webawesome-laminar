@@ -38,11 +38,11 @@ object TabGroup extends WebComponent("wa-tab-group") {
   /** Sets the active tab. */
   lazy val active: HtmlAttr[String] = stringAttr("active")
 
-  /** The placement of the tabs. */
+  /** The placement of the tabs. Valid values: "top", "bottom", "start", "end". */
   lazy val placement: HtmlAttr[String] = stringAttr("placement")
 
   /** When set to auto, navigating tabs with the arrow keys will instantly show the corresponding tab panel. When set to
-  manual, the tab will receive focus but will not show until the user presses spacebar or enter. */
+  manual, the tab will receive focus but will not show until the user presses spacebar or enter. Valid values: "auto", "manual". */
   lazy val activation: HtmlAttr[String] = stringAttr("activation")
 
   /** Disables the scroll arrows that appear when tabs overflow. */
@@ -112,12 +112,12 @@ object TabGroup extends WebComponent("wa-tab-group") {
     /** Sets the active tab. */
     var active: String
 
-    /** The placement of the tabs. */
-    var placement: String
+    /** The placement of the tabs. Valid values: "top", "bottom", "start", "end". */
+    var placement: "top" | "bottom" | "start" | "end"
 
     /** When set to auto, navigating tabs with the arrow keys will instantly show the corresponding tab panel. When set to
-    manual, the tab will receive focus but will not show until the user presses spacebar or enter. */
-    var activation: String
+    manual, the tab will receive focus but will not show until the user presses spacebar or enter. Valid values: "auto", "manual". */
+    var activation: "auto" | "manual"
 
     /** Disables the scroll arrows that appear when tabs overflow. */
     var withoutScrollControls: Boolean

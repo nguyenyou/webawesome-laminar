@@ -35,14 +35,14 @@ object DropdownItem extends WebComponent("wa-dropdown-item") {
 
   // -- Attributes --
 
-  /** The type of menu item to render. */
+  /** The type of menu item to render. Valid values: "danger", "default". */
   lazy val variant: HtmlAttr[String] = stringAttr("variant")
 
   /** An optional value for the menu item. This is useful for determining which item was selected when listening to the
   dropdown's `wa-select` event. */
   lazy val value: HtmlAttr[String] = stringAttr("value")
 
-  /** Set to `checkbox` to make the item a checkbox. */
+  /** Set to `checkbox` to make the item a checkbox. Valid values: "normal", "checkbox". */
   lazy val `type`: HtmlAttr[String] = stringAttr("type")
 
   lazy val typ: HtmlAttr[String] = `type`
@@ -109,15 +109,15 @@ object DropdownItem extends WebComponent("wa-dropdown-item") {
   @js.native trait WaDropdownItemComponent extends js.Object {
     this: dom.HTMLElement =>
 
-    /** The type of menu item to render. */
-    var variant: String
+    /** The type of menu item to render. Valid values: "danger", "default". */
+    var variant: "danger" | "default"
 
     /** An optional value for the menu item. This is useful for determining which item was selected when listening to the
     dropdown's `wa-select` event. */
     var value: String
 
-    /** Set to `checkbox` to make the item a checkbox. */
-    var `type`: String
+    /** Set to `checkbox` to make the item a checkbox. Valid values: "normal", "checkbox". */
+    var `type`: "normal" | "checkbox"
 
     /** Set to true to check the dropdown item. Only valid when `type` is `checkbox`. */
     var checked: Boolean

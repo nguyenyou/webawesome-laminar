@@ -40,13 +40,13 @@ object Button extends WebComponent("wa-button") {
 
   lazy val title: HtmlAttr[String] = stringAttr("title")
 
-  /** The button's theme variant. Defaults to `neutral` if not within another element with a variant. */
+  /** The button's theme variant. Defaults to `neutral` if not within another element with a variant. Valid values: "neutral", "brand", "success", "warning", "danger". */
   lazy val variant: HtmlAttr[String] = stringAttr("variant")
 
-  /** The button's visual appearance. */
+  /** The button's visual appearance. Valid values: "accent", "filled", "outlined", "plain". */
   lazy val appearance: HtmlAttr[String] = stringAttr("appearance")
 
-  /** The button's size. */
+  /** The button's size. Valid values: "small", "medium", "large". */
   lazy val size: HtmlAttr[String] = stringAttr("size")
 
   /** Draws the button with a caret. Used to indicate that the button triggers a dropdown menu or similar behavior. */
@@ -62,7 +62,7 @@ object Button extends WebComponent("wa-button") {
   lazy val pill: HtmlAttr[Boolean] = boolAttr("pill")
 
   /** The type of button. Note that the default value is `button` instead of `submit`, which is opposite of how native
-  `<button>` elements behave. When the type is `submit`, the button will submit the surrounding form. */
+  `<button>` elements behave. When the type is `submit`, the button will submit the surrounding form. Valid values: "button", "submit", "reset". */
   lazy val `type`: HtmlAttr[String] = stringAttr("type")
 
   lazy val typ: HtmlAttr[String] = `type`
@@ -80,7 +80,7 @@ object Button extends WebComponent("wa-button") {
   /** When set, the underlying button will be rendered as an `<a>` with this `href` instead of a `<button>`. */
   lazy val href: HtmlAttr[String] = stringAttr("href")
 
-  /** Tells the browser where to open the link. Only used when `href` is present. */
+  /** Tells the browser where to open the link. Only used when `href` is present. Valid values: "_blank", "_parent", "_self", "_top". */
   lazy val target: HtmlAttr[String] = stringAttr("target")
 
   /** When using `href`, this attribute will map to the underlying link's `rel` attribute. */
@@ -96,10 +96,10 @@ object Button extends WebComponent("wa-button") {
   /** Used to override the form owner's `action` attribute. */
   lazy val formaction: HtmlAttr[String] = stringAttr("formaction")
 
-  /** Used to override the form owner's `enctype` attribute. */
+  /** Used to override the form owner's `enctype` attribute. Valid values: "application/x-www-form-urlencoded", "multipart/form-data", "text/plain". */
   lazy val formenctype: HtmlAttr[String] = stringAttr("formenctype")
 
-  /** Used to override the form owner's `method` attribute. */
+  /** Used to override the form owner's `method` attribute. Valid values: "post", "get". */
   lazy val formmethod: HtmlAttr[String] = stringAttr("formmethod")
 
   /** Used to override the form owner's `novalidate` attribute. */
@@ -158,14 +158,14 @@ object Button extends WebComponent("wa-button") {
 
     var title: String
 
-    /** The button's theme variant. Defaults to `neutral` if not within another element with a variant. */
-    var variant: String
+    /** The button's theme variant. Defaults to `neutral` if not within another element with a variant. Valid values: "neutral", "brand", "success", "warning", "danger". */
+    var variant: "neutral" | "brand" | "success" | "warning" | "danger"
 
-    /** The button's visual appearance. */
-    var appearance: String
+    /** The button's visual appearance. Valid values: "accent", "filled", "outlined", "plain". */
+    var appearance: "accent" | "filled" | "outlined" | "plain"
 
-    /** The button's size. */
-    var size: String
+    /** The button's size. Valid values: "small", "medium", "large". */
+    var size: "small" | "medium" | "large"
 
     /** Draws the button with a caret. Used to indicate that the button triggers a dropdown menu or similar behavior. */
     var withCaret: Boolean
@@ -180,8 +180,8 @@ object Button extends WebComponent("wa-button") {
     var pill: Boolean
 
     /** The type of button. Note that the default value is `button` instead of `submit`, which is opposite of how native
-    `<button>` elements behave. When the type is `submit`, the button will submit the surrounding form. */
-    var `type`: String
+    `<button>` elements behave. When the type is `submit`, the button will submit the surrounding form. Valid values: "button", "submit", "reset". */
+    var `type`: "button" | "submit" | "reset"
 
     /** The name of the button, submitted as a name/value pair with form data, but only when this button is the submitter.
     This attribute is ignored when `href` is present. */
@@ -194,8 +194,8 @@ object Button extends WebComponent("wa-button") {
     /** When set, the underlying button will be rendered as an `<a>` with this `href` instead of a `<button>`. */
     var href: String
 
-    /** Tells the browser where to open the link. Only used when `href` is present. */
-    var target: String
+    /** Tells the browser where to open the link. Only used when `href` is present. Valid values: "_blank", "_parent", "_self", "_top". */
+    var target: "_blank" | "_parent" | "_self" | "_top"
 
     /** When using `href`, this attribute will map to the underlying link's `rel` attribute. */
     var rel: String
@@ -210,11 +210,11 @@ object Button extends WebComponent("wa-button") {
     /** Used to override the form owner's `action` attribute. */
     var formAction: String
 
-    /** Used to override the form owner's `enctype` attribute. */
-    var formEnctype: String
+    /** Used to override the form owner's `enctype` attribute. Valid values: "application/x-www-form-urlencoded", "multipart/form-data", "text/plain". */
+    var formEnctype: "application/x-www-form-urlencoded" | "multipart/form-data" | "text/plain"
 
-    /** Used to override the form owner's `method` attribute. */
-    var formMethod: String
+    /** Used to override the form owner's `method` attribute. Valid values: "post", "get". */
+    var formMethod: "post" | "get"
 
     /** Used to override the form owner's `novalidate` attribute. */
     var formNoValidate: Boolean

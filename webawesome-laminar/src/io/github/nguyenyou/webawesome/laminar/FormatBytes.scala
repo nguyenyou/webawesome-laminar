@@ -30,10 +30,10 @@ object FormatBytes extends WebComponent("wa-format-bytes") {
   /** The number to format in bytes. */
   lazy val value: HtmlAttr[Double] = doubleAttr("value")
 
-  /** The type of unit to display. */
+  /** The type of unit to display. Valid values: "byte", "bit". */
   lazy val unit: HtmlAttr[String] = stringAttr("unit")
 
-  /** Determines how to display the result, e.g. "100 bytes", "100 b", or "100b". */
+  /** Determines how to display the result, e.g. "100 bytes", "100 b", or "100b". Valid values: "long", "short", "narrow". */
   lazy val display: HtmlAttr[String] = stringAttr("display")
 
   // -- Props --
@@ -49,11 +49,11 @@ object FormatBytes extends WebComponent("wa-format-bytes") {
     /** The number to format in bytes. */
     var value: Double
 
-    /** The type of unit to display. */
-    var unit: String
+    /** The type of unit to display. Valid values: "byte", "bit". */
+    var unit: "byte" | "bit"
 
-    /** Determines how to display the result, e.g. "100 bytes", "100 b", or "100b". */
-    var display: String
+    /** Determines how to display the result, e.g. "100 bytes", "100 b", or "100b". Valid values: "long", "short", "narrow". */
+    var display: "long" | "short" | "narrow"
 
   }
 }

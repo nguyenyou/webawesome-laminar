@@ -59,7 +59,7 @@ object Rating extends WebComponent("wa-rating") {
   well with `<wa-icon>` elements. */
   lazy val getSymbol: HtmlAttr[String] = stringAttr("getSymbol")
 
-  /** The component's size. */
+  /** The component's size. Valid values: "small", "medium", "large". */
   lazy val size: HtmlAttr[String] = stringAttr("size")
 
   // -- Props --
@@ -120,8 +120,8 @@ object Rating extends WebComponent("wa-rating") {
     well with `<wa-icon>` elements. */
     var getSymbol: String
 
-    /** The component's size. */
-    var size: String
+    /** The component's size. Valid values: "small", "medium", "large". */
+    var size: "small" | "medium" | "large"
 
     def handleHoverValueChange(): js.Any = js.native
 

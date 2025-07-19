@@ -41,11 +41,11 @@ object Radio extends WebComponent("wa-radio") {
   /** The radio's value. When selected, the radio group will receive this value. */
   lazy val value: HtmlAttr[String] = stringAttr("value")
 
-  /** The radio's value. When selected, the radio group will receive this value. */
+  /** The radio's value. When selected, the radio group will receive this value. Valid values: "default", "button". */
   lazy val appearance: HtmlAttr[String] = stringAttr("appearance")
 
   /** The radio's size. When used inside a radio group, the size will be determined by the radio group's size so this
-  attribute can typically be omitted. */
+  attribute can typically be omitted. Valid values: "small", "medium", "large". */
   lazy val size: HtmlAttr[String] = stringAttr("size")
 
   /** Disables the radio. */
@@ -102,12 +102,12 @@ object Radio extends WebComponent("wa-radio") {
     /** The radio's value. When selected, the radio group will receive this value. */
     var value: String
 
-    /** The radio's value. When selected, the radio group will receive this value. */
-    var appearance: String
+    /** The radio's value. When selected, the radio group will receive this value. Valid values: "default", "button". */
+    var appearance: "default" | "button"
 
     /** The radio's size. When used inside a radio group, the size will be determined by the radio group's size so this
-    attribute can typically be omitted. */
-    var size: String
+    attribute can typically be omitted. Valid values: "small", "medium", "large". */
+    var size: "small" | "medium" | "large"
 
     /** Disables the radio. */
     var disabled: Boolean

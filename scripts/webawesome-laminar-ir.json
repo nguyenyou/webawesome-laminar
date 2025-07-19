@@ -4,7 +4,7 @@
     "schemaVersion": "1.0.0",
     "modulesCount": 64
   },
-  "generated": "2025-07-19T03:00:17.809Z",
+  "generated": "2025-07-19T03:41:12.773Z",
   "components": [
     {
       "name": "WaAnimatedImage",
@@ -282,6 +282,10 @@
           "name": "loading",
           "fieldName": "loading",
           "type": "String",
+          "unionValues": [
+            "eager",
+            "lazy"
+          ],
           "description": "Indicates how the browser should load the image.",
           "default": "'eager'"
         },
@@ -289,6 +293,11 @@
           "name": "shape",
           "fieldName": "shape",
           "type": "String",
+          "unionValues": [
+            "circle",
+            "square",
+            "rounded"
+          ],
           "description": "The shape of the avatar.",
           "default": "'circle'",
           "reflects": true
@@ -355,6 +364,13 @@
           "name": "variant",
           "fieldName": "variant",
           "type": "String",
+          "unionValues": [
+            "brand",
+            "neutral",
+            "success",
+            "warning",
+            "danger"
+          ],
           "description": "The badge's theme variant. Defaults to `brand` if not within another element with a variant.",
           "default": "'brand'",
           "reflects": true
@@ -363,6 +379,11 @@
           "name": "appearance",
           "fieldName": "appearance",
           "type": "String",
+          "unionValues": [
+            "accent",
+            "filled",
+            "outlined"
+          ],
           "description": "The badge's visual appearance.",
           "default": "'accent'",
           "reflects": true
@@ -379,6 +400,10 @@
           "name": "attention",
           "fieldName": "attention",
           "type": "String",
+          "unionValues": [
+            "none",
+            "pulse"
+          ],
           "description": "Makes the badge pulsate to draw attention.",
           "default": "'none'",
           "reflects": true
@@ -419,6 +444,13 @@
           "name": "variant",
           "fieldName": "variant",
           "type": "String",
+          "unionValues": [
+            "neutral",
+            "brand",
+            "success",
+            "warning",
+            "danger"
+          ],
           "description": "The button's theme variant. Defaults to `neutral` if not within another element with a variant.",
           "default": "'neutral'",
           "reflects": true
@@ -427,6 +459,12 @@
           "name": "appearance",
           "fieldName": "appearance",
           "type": "String",
+          "unionValues": [
+            "accent",
+            "filled",
+            "outlined",
+            "plain"
+          ],
           "description": "The button's visual appearance.",
           "default": "'accent'",
           "reflects": true
@@ -435,6 +473,11 @@
           "name": "size",
           "fieldName": "size",
           "type": "String",
+          "unionValues": [
+            "small",
+            "medium",
+            "large"
+          ],
           "description": "The button's size.",
           "default": "'medium'",
           "reflects": true
@@ -474,6 +517,11 @@
           "name": "type",
           "fieldName": "type",
           "type": "String",
+          "unionValues": [
+            "button",
+            "submit",
+            "reset"
+          ],
           "description": "The type of button. Note that the default value is `button` instead of `submit`, which is opposite of how native\n`<button>` elements behave. When the type is `submit`, the button will submit the surrounding form.",
           "default": "'button'"
         },
@@ -502,6 +550,12 @@
           "name": "target",
           "fieldName": "target",
           "type": "String",
+          "unionValues": [
+            "_blank",
+            "_parent",
+            "_self",
+            "_top"
+          ],
           "description": "Tells the browser where to open the link. Only used when `href` is present."
         },
         {
@@ -534,12 +588,21 @@
           "name": "formenctype",
           "fieldName": "formEnctype",
           "type": "String",
+          "unionValues": [
+            "application/x-www-form-urlencoded",
+            "multipart/form-data",
+            "text/plain"
+          ],
           "description": "Used to override the form owner's `enctype` attribute."
         },
         {
           "name": "formmethod",
           "fieldName": "formMethod",
           "type": "String",
+          "unionValues": [
+            "post",
+            "get"
+          ],
           "description": "Used to override the form owner's `method` attribute."
         },
         {
@@ -771,6 +834,10 @@
           "name": "orientation",
           "fieldName": "orientation",
           "type": "String",
+          "unionValues": [
+            "horizontal",
+            "vertical"
+          ],
           "description": "The button group's orientation.",
           "default": "'horizontal'",
           "reflects": true
@@ -779,6 +846,11 @@
           "name": "size",
           "fieldName": "size",
           "type": "String",
+          "unionValues": [
+            "small",
+            "medium",
+            "large"
+          ],
           "description": "The component's size.",
           "reflects": true
         },
@@ -786,6 +858,13 @@
           "name": "variant",
           "fieldName": "variant",
           "type": "String",
+          "unionValues": [
+            "neutral",
+            "brand",
+            "success",
+            "warning",
+            "danger"
+          ],
           "description": "The button group's theme variant. Defaults to `neutral` if not within another element with a variant.",
           "default": "'neutral'",
           "reflects": true
@@ -859,6 +938,13 @@
           "name": "variant",
           "fieldName": "variant",
           "type": "String",
+          "unionValues": [
+            "brand",
+            "neutral",
+            "success",
+            "warning",
+            "danger"
+          ],
           "description": "The callout's theme variant. Defaults to `brand` if not within another element with a variant.",
           "default": "'brand'",
           "reflects": true
@@ -875,6 +961,11 @@
           "name": "size",
           "fieldName": "size",
           "type": "String",
+          "unionValues": [
+            "small",
+            "medium",
+            "large"
+          ],
           "description": "The callout's size.",
           "default": "'medium'",
           "reflects": true
@@ -917,6 +1008,12 @@
           "name": "appearance",
           "fieldName": "appearance",
           "type": "String",
+          "unionValues": [
+            "accent",
+            "filled",
+            "outlined",
+            "plain"
+          ],
           "description": "The card's visual appearance.",
           "default": "'outlined'",
           "reflects": true
@@ -1071,6 +1168,10 @@
           "name": "orientation",
           "fieldName": "orientation",
           "type": "String",
+          "unionValues": [
+            "horizontal",
+            "vertical"
+          ],
           "description": "Specifies the orientation in which the carousel will lay out.",
           "default": "'horizontal'"
         },
@@ -1293,6 +1394,11 @@
           "name": "size",
           "fieldName": "size",
           "type": "String",
+          "unionValues": [
+            "small",
+            "medium",
+            "large"
+          ],
           "description": "The checkbox's size.",
           "default": "'medium'",
           "reflects": true
@@ -1531,6 +1637,12 @@
           "name": "format",
           "fieldName": "format",
           "type": "String",
+          "unionValues": [
+            "hex",
+            "rgb",
+            "hsl",
+            "hsv"
+          ],
           "description": "The format to use. If opacity is enabled, these will translate to HEXA, RGBA, HSLA, and HSVA respectively. The color\npicker will accept user input in any format (including CSS color names) and convert it to the desired format.",
           "default": "'hex'"
         },
@@ -1538,6 +1650,11 @@
           "name": "size",
           "fieldName": "size",
           "type": "String",
+          "unionValues": [
+            "small",
+            "medium",
+            "large"
+          ],
           "description": "Determines the size of the color picker's trigger",
           "default": "'medium'",
           "reflects": true
@@ -2120,6 +2237,12 @@
           "name": "tooltip-placement",
           "fieldName": "tooltipPlacement",
           "type": "String",
+          "unionValues": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ],
           "description": "The preferred placement of the tooltip.",
           "default": "'top'"
         }
@@ -2236,6 +2359,11 @@
           "name": "appearance",
           "fieldName": "appearance",
           "type": "String",
+          "unionValues": [
+            "filled",
+            "outlined",
+            "plain"
+          ],
           "description": "The element's visual appearance.",
           "default": "'outlined'",
           "reflects": true
@@ -2513,6 +2641,10 @@
           "name": "orientation",
           "fieldName": "orientation",
           "type": "String",
+          "unionValues": [
+            "horizontal",
+            "vertical"
+          ],
           "description": "Sets the divider's orientation.",
           "default": "'horizontal'",
           "reflects": true
@@ -2573,6 +2705,12 @@
           "name": "placement",
           "fieldName": "placement",
           "type": "String",
+          "unionValues": [
+            "top",
+            "end",
+            "bottom",
+            "start"
+          ],
           "description": "The direction from which the drawer will open.",
           "default": "'end'",
           "reflects": true
@@ -2722,6 +2860,11 @@
           "name": "size",
           "fieldName": "size",
           "type": "String",
+          "unionValues": [
+            "small",
+            "medium",
+            "large"
+          ],
           "description": "The dropdown's size.",
           "default": "'medium'",
           "reflects": true
@@ -2832,6 +2975,10 @@
           "name": "variant",
           "fieldName": "variant",
           "type": "String",
+          "unionValues": [
+            "danger",
+            "default"
+          ],
           "description": "The type of menu item to render.",
           "default": "'default'",
           "reflects": true
@@ -2846,6 +2993,10 @@
           "name": "type",
           "fieldName": "type",
           "type": "String",
+          "unionValues": [
+            "normal",
+            "checkbox"
+          ],
           "description": "Set to `checkbox` to make the item a checkbox.",
           "default": "'normal'",
           "reflects": true
@@ -2972,6 +3123,10 @@
           "name": "unit",
           "fieldName": "unit",
           "type": "String",
+          "unionValues": [
+            "byte",
+            "bit"
+          ],
           "description": "The type of unit to display.",
           "default": "'byte'"
         },
@@ -2979,6 +3134,11 @@
           "name": "display",
           "fieldName": "display",
           "type": "String",
+          "unionValues": [
+            "long",
+            "short",
+            "narrow"
+          ],
           "description": "Determines how to display the result, e.g. \"100 bytes\", \"100 b\", or \"100b\".",
           "default": "'short'"
         }
@@ -3009,54 +3169,95 @@
           "name": "weekday",
           "fieldName": "weekday",
           "type": "String",
+          "unionValues": [
+            "narrow",
+            "short",
+            "long"
+          ],
           "description": "The format for displaying the weekday."
         },
         {
           "name": "era",
           "fieldName": "era",
           "type": "String",
+          "unionValues": [
+            "narrow",
+            "short",
+            "long"
+          ],
           "description": "The format for displaying the era."
         },
         {
           "name": "year",
           "fieldName": "year",
           "type": "String",
+          "unionValues": [
+            "numeric",
+            "2-digit"
+          ],
           "description": "The format for displaying the year."
         },
         {
           "name": "month",
           "fieldName": "month",
           "type": "String",
+          "unionValues": [
+            "numeric",
+            "2-digit",
+            "narrow",
+            "short",
+            "long"
+          ],
           "description": "The format for displaying the month."
         },
         {
           "name": "day",
           "fieldName": "day",
           "type": "String",
+          "unionValues": [
+            "numeric",
+            "2-digit"
+          ],
           "description": "The format for displaying the day."
         },
         {
           "name": "hour",
           "fieldName": "hour",
           "type": "String",
+          "unionValues": [
+            "numeric",
+            "2-digit"
+          ],
           "description": "The format for displaying the hour."
         },
         {
           "name": "minute",
           "fieldName": "minute",
           "type": "String",
+          "unionValues": [
+            "numeric",
+            "2-digit"
+          ],
           "description": "The format for displaying the minute."
         },
         {
           "name": "second",
           "fieldName": "second",
           "type": "String",
+          "unionValues": [
+            "numeric",
+            "2-digit"
+          ],
           "description": "The format for displaying the second."
         },
         {
           "name": "time-zone-name",
           "fieldName": "timeZoneName",
           "type": "String",
+          "unionValues": [
+            "short",
+            "long"
+          ],
           "description": "The format for displaying the time."
         },
         {
@@ -3069,6 +3270,11 @@
           "name": "hour-format",
           "fieldName": "hourFormat",
           "type": "String",
+          "unionValues": [
+            "auto",
+            "12",
+            "24"
+          ],
           "description": "The format for displaying the hour.",
           "default": "'auto'"
         }
@@ -3099,6 +3305,11 @@
           "name": "type",
           "fieldName": "type",
           "type": "String",
+          "unionValues": [
+            "currency",
+            "decimal",
+            "percent"
+          ],
           "description": "The formatting style to use.",
           "default": "'decimal'"
         },
@@ -3120,6 +3331,12 @@
           "name": "currency-display",
           "fieldName": "currencyDisplay",
           "type": "String",
+          "unionValues": [
+            "symbol",
+            "narrowSymbol",
+            "code",
+            "name"
+          ],
           "description": "How to display the currency.",
           "default": "'symbol'"
         },
@@ -3299,6 +3516,11 @@
           "name": "mode",
           "fieldName": "mode",
           "type": "String",
+          "unionValues": [
+            "cors",
+            "no-cors",
+            "same-origin"
+          ],
           "description": "The fetch mode to use.",
           "default": "'cors'"
         },
@@ -3373,6 +3595,11 @@
           "name": "size",
           "fieldName": "size",
           "type": "String",
+          "unionValues": [
+            "small",
+            "medium",
+            "large"
+          ],
           "description": "The input's size.",
           "default": "'medium'",
           "reflects": true
@@ -3381,6 +3608,10 @@
           "name": "appearance",
           "fieldName": "appearance",
           "type": "String",
+          "unionValues": [
+            "filled",
+            "outlined"
+          ],
           "description": "The input's visual appearance.",
           "default": "'outlined'",
           "reflects": true
@@ -3506,12 +3737,24 @@
           "name": "autocapitalize",
           "fieldName": "autocapitalize",
           "type": "String",
+          "unionValues": [
+            "off",
+            "none",
+            "on",
+            "sentences",
+            "words",
+            "characters"
+          ],
           "description": "Controls whether and how text input is automatically capitalized as it is entered by the user."
         },
         {
           "name": "autocorrect",
           "fieldName": "autocorrect",
           "type": "String",
+          "unionValues": [
+            "off",
+            "on"
+          ],
           "description": "Indicates whether the browser's autocorrect feature is on or off."
         },
         {
@@ -3530,6 +3773,15 @@
           "name": "enterkeyhint",
           "fieldName": "enterkeyhint",
           "type": "String",
+          "unionValues": [
+            "enter",
+            "done",
+            "go",
+            "next",
+            "previous",
+            "search",
+            "send"
+          ],
           "description": "Used to customize the label or icon of the Enter key on virtual keyboards."
         },
         {
@@ -3543,6 +3795,16 @@
           "name": "inputmode",
           "fieldName": "inputmode",
           "type": "String",
+          "unionValues": [
+            "none",
+            "text",
+            "decimal",
+            "numeric",
+            "tel",
+            "search",
+            "email",
+            "url"
+          ],
           "description": "Tells the browser what type of data will be entered by the user, allowing it to display the appropriate virtual\nkeyboard on supportive devices."
         },
         {
@@ -3954,6 +4216,10 @@
           "name": "view",
           "fieldName": "view",
           "type": "String",
+          "unionValues": [
+            "mobile",
+            "desktop"
+          ],
           "description": "The view is a reflection of the \"mobileBreakpoint\", when the page is larger than the `mobile-breakpoint` (768px by\ndefault), it is considered to be a \"desktop\" view. The view is merely a way to distinguish when to show/hide the\nnavigation. You can use additional media queries to make other adjustments to content as necessary.\nThe default is \"desktop\" because the \"mobile navigation drawer\" isn't accessible via SSR due to drawer requiring JS.",
           "default": "'desktop'",
           "reflects": true
@@ -3977,6 +4243,10 @@
           "name": "navigation-placement",
           "fieldName": "navigationPlacement",
           "type": "String",
+          "unionValues": [
+            "start",
+            "end"
+          ],
           "description": "Where to place the navigation when in the mobile viewport.",
           "default": "'start'",
           "reflects": true
@@ -4384,6 +4654,10 @@
           "name": "boundary",
           "fieldName": "boundary",
           "type": "String",
+          "unionValues": [
+            "viewport",
+            "scroll"
+          ],
           "description": "The bounding box to use for flipping, shifting, and auto-sizing.",
           "default": "'viewport'"
         },
@@ -4412,6 +4686,12 @@
           "name": "arrow-placement",
           "fieldName": "arrowPlacement",
           "type": "String",
+          "unionValues": [
+            "start",
+            "end",
+            "center",
+            "anchor"
+          ],
           "description": "The placement of the arrow. The default is `anchor`, which will align the arrow as close to the center of the\nanchor as possible, considering available space and `arrow-padding`. A value of `start`, `end`, or `center` will\nalign the arrow to the start, end, or center of the popover instead.",
           "default": "'anchor'"
         },
@@ -4440,6 +4720,10 @@
           "name": "flip-fallback-strategy",
           "fieldName": "flipFallbackStrategy",
           "type": "String",
+          "unionValues": [
+            "best-fit",
+            "initial"
+          ],
           "description": "When neither the preferred placement nor the fallback placements fit, this value will be used to determine whether\nthe popup should be positioned using the best available fit based on available space or as it was initially\npreferred.",
           "default": "'best-fit'"
         },
@@ -4480,12 +4764,22 @@
           "name": "auto-size",
           "fieldName": "autoSize",
           "type": "String",
+          "unionValues": [
+            "horizontal",
+            "vertical",
+            "both"
+          ],
           "description": "When set, this will cause the popup to automatically resize itself to prevent it from overflowing."
         },
         {
           "name": "sync",
           "fieldName": "sync",
           "type": "String",
+          "unionValues": [
+            "width",
+            "height",
+            "both"
+          ],
           "description": "Syncs the popup's width or height to that of the anchor element."
         },
         {
@@ -4775,6 +5069,12 @@
           "name": "error-correction",
           "fieldName": "errorCorrection",
           "type": "String",
+          "unionValues": [
+            "L",
+            "M",
+            "Q",
+            "H"
+          ],
           "description": "The level of error correction to use. [Learn more](https://www.qrcode.com/en/about/error_correction.html)",
           "default": "'H'"
         }
@@ -4825,6 +5125,10 @@
           "name": "appearance",
           "fieldName": "appearance",
           "type": "String",
+          "unionValues": [
+            "default",
+            "button"
+          ],
           "description": "The radio's value. When selected, the radio group will receive this value.",
           "default": "'default'",
           "reflects": true
@@ -4833,6 +5137,11 @@
           "name": "size",
           "fieldName": "size",
           "type": "String",
+          "unionValues": [
+            "small",
+            "medium",
+            "large"
+          ],
           "description": "The radio's size. When used inside a radio group, the size will be determined by the radio group's size so this\nattribute can typically be omitted.",
           "default": "'medium'",
           "reflects": true
@@ -4943,6 +5252,10 @@
           "name": "orientation",
           "fieldName": "orientation",
           "type": "String",
+          "unionValues": [
+            "horizontal",
+            "vertical"
+          ],
           "description": "The orientation in which to show radio items.",
           "default": "'vertical'",
           "reflects": true
@@ -4958,6 +5271,11 @@
           "name": "size",
           "fieldName": "size",
           "type": "String",
+          "unionValues": [
+            "small",
+            "medium",
+            "large"
+          ],
           "description": "The radio group's size. This size will be applied to all child radios and radio buttons, except when explicitly overridden.",
           "default": "'medium'",
           "reflects": true
@@ -5134,6 +5452,11 @@
           "name": "size",
           "fieldName": "size",
           "type": "String",
+          "unionValues": [
+            "small",
+            "medium",
+            "large"
+          ],
           "description": "The component's size.",
           "default": "'medium'",
           "reflects": true
@@ -5234,6 +5557,11 @@
           "name": "format",
           "fieldName": "format",
           "type": "String",
+          "unionValues": [
+            "long",
+            "short",
+            "narrow"
+          ],
           "description": "The formatting style to use.",
           "default": "'long'"
         },
@@ -5241,6 +5569,10 @@
           "name": "numeric",
           "fieldName": "numeric",
           "type": "String",
+          "unionValues": [
+            "always",
+            "auto"
+          ],
           "description": "When `auto`, values such as \"yesterday\" and \"tomorrow\" will be shown when possible. When `always`, values such as\n\"1 day ago\" and \"in 1 day\" will be shown.",
           "default": "'auto'"
         },
@@ -5317,6 +5649,10 @@
           "name": "orientation",
           "fieldName": "orientation",
           "type": "String",
+          "unionValues": [
+            "horizontal",
+            "vertical"
+          ],
           "description": "The scroller's orientation.",
           "default": "'horizontal'",
           "reflects": true
@@ -5391,6 +5727,11 @@
           "name": "size",
           "fieldName": "size",
           "type": "String",
+          "unionValues": [
+            "small",
+            "medium",
+            "large"
+          ],
           "description": "The select's size.",
           "default": "'medium'",
           "reflects": true
@@ -5443,6 +5784,10 @@
           "name": "appearance",
           "fieldName": "appearance",
           "type": "String",
+          "unionValues": [
+            "filled",
+            "outlined"
+          ],
           "description": "The select's visual appearance.",
           "default": "'outlined'",
           "reflects": true
@@ -5466,6 +5811,10 @@
           "name": "placement",
           "fieldName": "placement",
           "type": "String",
+          "unionValues": [
+            "top",
+            "bottom"
+          ],
           "description": "The preferred placement of the select's menu. Note that the actual placement may vary as needed to keep the listbox\ninside of the viewport.",
           "default": "'bottom'",
           "reflects": true
@@ -5767,6 +6116,11 @@
           "name": "effect",
           "fieldName": "effect",
           "type": "String",
+          "unionValues": [
+            "pulse",
+            "sheen",
+            "none"
+          ],
           "description": "Determines which effect the skeleton will use.",
           "default": "'none'",
           "reflects": true
@@ -5870,6 +6224,10 @@
           "name": "orientation",
           "fieldName": "orientation",
           "type": "String",
+          "unionValues": [
+            "horizontal",
+            "vertical"
+          ],
           "description": "The orientation of the slider.",
           "default": "'horizontal'",
           "reflects": true
@@ -5878,6 +6236,11 @@
           "name": "size",
           "fieldName": "size",
           "type": "String",
+          "unionValues": [
+            "small",
+            "medium",
+            "large"
+          ],
           "description": "The slider's size.",
           "default": "'medium'",
           "reflects": true
@@ -5942,6 +6305,12 @@
           "name": "tooltip-placement",
           "fieldName": "tooltipPlacement",
           "type": "String",
+          "unionValues": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ],
           "description": "The placement of the tooltip in reference to the slider's thumb.",
           "default": "'top'",
           "reflects": true
@@ -6193,6 +6562,10 @@
           "name": "orientation",
           "fieldName": "orientation",
           "type": "String",
+          "unionValues": [
+            "horizontal",
+            "vertical"
+          ],
           "description": "Sets the split panel's orientation.",
           "default": "'horizontal'",
           "reflects": true
@@ -6345,6 +6718,11 @@
           "name": "size",
           "fieldName": "size",
           "type": "String",
+          "unionValues": [
+            "small",
+            "medium",
+            "large"
+          ],
           "description": "The switch's size.",
           "default": "'medium'",
           "reflects": true
@@ -6624,6 +7002,12 @@
           "name": "placement",
           "fieldName": "placement",
           "type": "String",
+          "unionValues": [
+            "top",
+            "bottom",
+            "start",
+            "end"
+          ],
           "description": "The placement of the tabs.",
           "default": "'top'"
         },
@@ -6631,6 +7015,10 @@
           "name": "activation",
           "fieldName": "activation",
           "type": "String",
+          "unionValues": [
+            "auto",
+            "manual"
+          ],
           "description": "When set to auto, navigating tabs with the arrow keys will instantly show the corresponding tab panel. When set to\nmanual, the tab will receive focus but will not show until the user presses spacebar or enter.",
           "default": "'auto'"
         },
@@ -6803,6 +7191,13 @@
           "name": "variant",
           "fieldName": "variant",
           "type": "String",
+          "unionValues": [
+            "brand",
+            "neutral",
+            "success",
+            "warning",
+            "danger"
+          ],
           "description": "The tag's theme variant. Defaults to `neutral` if not within another element with a variant.",
           "default": "'neutral'",
           "reflects": true
@@ -6811,6 +7206,13 @@
           "name": "appearance",
           "fieldName": "appearance",
           "type": "String",
+          "unionValues": [
+            "accent",
+            "outlined accent",
+            "filled",
+            "outlined",
+            "outlined filled"
+          ],
           "description": "The tag's visual appearance.",
           "default": "'outlined filled'",
           "reflects": true
@@ -6819,6 +7221,11 @@
           "name": "size",
           "fieldName": "size",
           "type": "String",
+          "unionValues": [
+            "small",
+            "medium",
+            "large"
+          ],
           "description": "The tag's size.",
           "default": "'medium'",
           "reflects": true
@@ -6913,6 +7320,11 @@
           "name": "size",
           "fieldName": "size",
           "type": "String",
+          "unionValues": [
+            "small",
+            "medium",
+            "large"
+          ],
           "description": "The textarea's size.",
           "default": "'medium'",
           "reflects": true
@@ -6921,6 +7333,10 @@
           "name": "appearance",
           "fieldName": "appearance",
           "type": "String",
+          "unionValues": [
+            "filled",
+            "outlined"
+          ],
           "description": "The textarea's visual appearance.",
           "default": "'outlined'",
           "reflects": true
@@ -6957,6 +7373,13 @@
           "name": "resize",
           "fieldName": "resize",
           "type": "String",
+          "unionValues": [
+            "none",
+            "vertical",
+            "horizontal",
+            "both",
+            "auto"
+          ],
           "description": "Controls how the textarea can be resized.",
           "default": "'vertical'",
           "reflects": true
@@ -7008,6 +7431,14 @@
           "name": "autocapitalize",
           "fieldName": "autocapitalize",
           "type": "String",
+          "unionValues": [
+            "off",
+            "none",
+            "on",
+            "sentences",
+            "words",
+            "characters"
+          ],
           "description": "Controls whether and how text input is automatically capitalized as it is entered by the user."
         },
         {
@@ -7032,6 +7463,15 @@
           "name": "enterkeyhint",
           "fieldName": "enterkeyhint",
           "type": "String",
+          "unionValues": [
+            "enter",
+            "done",
+            "go",
+            "next",
+            "previous",
+            "search",
+            "send"
+          ],
           "description": "Used to customize the label or icon of the Enter key on virtual keyboards."
         },
         {
@@ -7045,6 +7485,16 @@
           "name": "inputmode",
           "fieldName": "inputmode",
           "type": "String",
+          "unionValues": [
+            "none",
+            "text",
+            "decimal",
+            "numeric",
+            "tel",
+            "search",
+            "email",
+            "url"
+          ],
           "description": "Tells the browser what type of data will be entered by the user, allowing it to display the appropriate virtual\nkeyboard on supportive devices."
         },
         {
@@ -7423,6 +7873,11 @@
           "name": "selection",
           "fieldName": "selection",
           "type": "String",
+          "unionValues": [
+            "single",
+            "multiple",
+            "leaf"
+          ],
           "description": "The selection behavior of the tree. Single selection allows only one node to be selected at a time. Multiple\ndisplays checkboxes and allows more than one node to be selected. Leaf allows only leaf nodes to be selected.",
           "default": "'single'"
         }
@@ -7784,6 +8239,10 @@
           "name": "loading",
           "fieldName": "loading",
           "type": "String",
+          "unionValues": [
+            "eager",
+            "lazy"
+          ],
           "description": "Controls iframe loading behavior.",
           "default": "'eager'"
         },

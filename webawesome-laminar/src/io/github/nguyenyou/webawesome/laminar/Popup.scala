@@ -45,7 +45,7 @@ object Popup extends WebComponent("wa-popup") {
   panel inside of the viewport. */
   lazy val placement: HtmlAttr[String] = stringAttr("placement")
 
-  /** The bounding box to use for flipping, shifting, and auto-sizing. */
+  /** The bounding box to use for flipping, shifting, and auto-sizing. Valid values: "viewport", "scroll". */
   lazy val boundary: HtmlAttr[String] = stringAttr("boundary")
 
   /** The distance in pixels from which to offset the panel away from its anchor. */
@@ -61,7 +61,7 @@ object Popup extends WebComponent("wa-popup") {
 
   /** The placement of the arrow. The default is `anchor`, which will align the arrow as close to the center of the
   anchor as possible, considering available space and `arrow-padding`. A value of `start`, `end`, or `center` will
-  align the arrow to the start, end, or center of the popover instead. */
+  align the arrow to the start, end, or center of the popover instead. Valid values: "start", "end", "center", "anchor". */
   lazy val arrowPlacement: HtmlAttr[String] = stringAttr("arrow-placement")
 
   /** The amount of padding between the arrow and the edges of the popup. If the popup has a border-radius, for example,
@@ -79,7 +79,7 @@ object Popup extends WebComponent("wa-popup") {
 
   /** When neither the preferred placement nor the fallback placements fit, this value will be used to determine whether
   the popup should be positioned using the best available fit based on available space or as it was initially
-  preferred. */
+  preferred. Valid values: "best-fit", "initial". */
   lazy val flipFallbackStrategy: HtmlAttr[String] = stringAttr("flip-fallback-strategy")
 
   /** The flip boundary describes clipping element(s) that overflow will be checked relative to when flipping. By
@@ -101,10 +101,10 @@ object Popup extends WebComponent("wa-popup") {
   /** The amount of padding, in pixels, to exceed before the shift behavior will occur. */
   lazy val shiftPadding: HtmlAttr[Double] = doubleAttr("shift-padding")
 
-  /** When set, this will cause the popup to automatically resize itself to prevent it from overflowing. */
+  /** When set, this will cause the popup to automatically resize itself to prevent it from overflowing. Valid values: "horizontal", "vertical", "both". */
   lazy val autoSize: HtmlAttr[String] = stringAttr("auto-size")
 
-  /** Syncs the popup's width or height to that of the anchor element. */
+  /** Syncs the popup's width or height to that of the anchor element. Valid values: "width", "height", "both". */
   lazy val sync: HtmlAttr[String] = stringAttr("sync")
 
   /** The auto-size boundary describes clipping element(s) that overflow will be checked relative to when resizing. By
@@ -189,8 +189,8 @@ object Popup extends WebComponent("wa-popup") {
     panel inside of the viewport. */
     var placement: js.Any
 
-    /** The bounding box to use for flipping, shifting, and auto-sizing. */
-    var boundary: String
+    /** The bounding box to use for flipping, shifting, and auto-sizing. Valid values: "viewport", "scroll". */
+    var boundary: "viewport" | "scroll"
 
     /** The distance in pixels from which to offset the panel away from its anchor. */
     var distance: Double
@@ -205,8 +205,8 @@ object Popup extends WebComponent("wa-popup") {
 
     /** The placement of the arrow. The default is `anchor`, which will align the arrow as close to the center of the
     anchor as possible, considering available space and `arrow-padding`. A value of `start`, `end`, or `center` will
-    align the arrow to the start, end, or center of the popover instead. */
-    var arrowPlacement: String
+    align the arrow to the start, end, or center of the popover instead. Valid values: "start", "end", "center", "anchor". */
+    var arrowPlacement: "start" | "end" | "center" | "anchor"
 
     /** The amount of padding between the arrow and the edges of the popup. If the popup has a border-radius, for example,
     this will prevent it from overflowing the corners. */
@@ -223,8 +223,8 @@ object Popup extends WebComponent("wa-popup") {
 
     /** When neither the preferred placement nor the fallback placements fit, this value will be used to determine whether
     the popup should be positioned using the best available fit based on available space or as it was initially
-    preferred. */
-    var flipFallbackStrategy: String
+    preferred. Valid values: "best-fit", "initial". */
+    var flipFallbackStrategy: "best-fit" | "initial"
 
     /** The flip boundary describes clipping element(s) that overflow will be checked relative to when flipping. By
     default, the boundary includes overflow ancestors that will cause the element to be clipped. If needed, you can
@@ -245,11 +245,11 @@ object Popup extends WebComponent("wa-popup") {
     /** The amount of padding, in pixels, to exceed before the shift behavior will occur. */
     var shiftPadding: Double
 
-    /** When set, this will cause the popup to automatically resize itself to prevent it from overflowing. */
-    var autoSize: String
+    /** When set, this will cause the popup to automatically resize itself to prevent it from overflowing. Valid values: "horizontal", "vertical", "both". */
+    var autoSize: "horizontal" | "vertical" | "both"
 
-    /** Syncs the popup's width or height to that of the anchor element. */
-    var sync: String
+    /** Syncs the popup's width or height to that of the anchor element. Valid values: "width", "height", "both". */
+    var sync: "width" | "height" | "both"
 
     /** The auto-size boundary describes clipping element(s) that overflow will be checked relative to when resizing. By
     default, the boundary includes overflow ancestors that will cause the element to be clipped. If needed, you can

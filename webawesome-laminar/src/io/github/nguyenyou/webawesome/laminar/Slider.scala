@@ -71,10 +71,10 @@ object Slider extends WebComponent("wa-slider") {
   /** Makes the slider a read-only field. */
   lazy val readonly: HtmlAttr[Boolean] = boolAttr("readonly")
 
-  /** The orientation of the slider. */
+  /** The orientation of the slider. Valid values: "horizontal", "vertical". */
   lazy val orientation: HtmlAttr[String] = stringAttr("orientation")
 
-  /** The slider's size. */
+  /** The slider's size. Valid values: "small", "medium", "large". */
   lazy val size: HtmlAttr[String] = stringAttr("size")
 
   /** The starting value from which to draw the slider's fill, which is based on its current value. */
@@ -102,7 +102,7 @@ object Slider extends WebComponent("wa-slider") {
   /** The distance of the tooltip from the slider's thumb. */
   lazy val tooltipDistance: HtmlAttr[Double] = doubleAttr("tooltip-distance")
 
-  /** The placement of the tooltip in reference to the slider's thumb. */
+  /** The placement of the tooltip in reference to the slider's thumb. Valid values: "top", "right", "bottom", "left". */
   lazy val tooltipPlacement: HtmlAttr[String] = stringAttr("tooltip-placement")
 
   /** Draws markers at each step along the slider. */
@@ -234,11 +234,11 @@ object Slider extends WebComponent("wa-slider") {
     /** Makes the slider a read-only field. */
     var readonly: Boolean
 
-    /** The orientation of the slider. */
-    var orientation: String
+    /** The orientation of the slider. Valid values: "horizontal", "vertical". */
+    var orientation: "horizontal" | "vertical"
 
-    /** The slider's size. */
-    var size: String
+    /** The slider's size. Valid values: "small", "medium", "large". */
+    var size: "small" | "medium" | "large"
 
     /** The starting value from which to draw the slider's fill, which is based on its current value. */
     var indicatorOffset: Double
@@ -265,8 +265,8 @@ object Slider extends WebComponent("wa-slider") {
     /** The distance of the tooltip from the slider's thumb. */
     var tooltipDistance: Double
 
-    /** The placement of the tooltip in reference to the slider's thumb. */
-    var tooltipPlacement: String
+    /** The placement of the tooltip in reference to the slider's thumb. Valid values: "top", "right", "bottom", "left". */
+    var tooltipPlacement: "top" | "right" | "bottom" | "left"
 
     /** Draws markers at each step along the slider. */
     var withMarkers: Boolean

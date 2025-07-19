@@ -67,10 +67,10 @@ object ColorPicker extends WebComponent("wa-color-picker") {
   lazy val hint: HtmlAttr[String] = stringAttr("hint")
 
   /** The format to use. If opacity is enabled, these will translate to HEXA, RGBA, HSLA, and HSVA respectively. The color
-  picker will accept user input in any format (including CSS color names) and convert it to the desired format. */
+  picker will accept user input in any format (including CSS color names) and convert it to the desired format. Valid values: "hex", "rgb", "hsl", "hsv". */
   lazy val format: HtmlAttr[String] = stringAttr("format")
 
-  /** Determines the size of the color picker's trigger */
+  /** Determines the size of the color picker's trigger Valid values: "small", "medium", "large". */
   lazy val size: HtmlAttr[String] = stringAttr("size")
 
   /** Removes the button that lets users toggle between format. */
@@ -246,11 +246,11 @@ object ColorPicker extends WebComponent("wa-color-picker") {
     var hint: String
 
     /** The format to use. If opacity is enabled, these will translate to HEXA, RGBA, HSLA, and HSVA respectively. The color
-    picker will accept user input in any format (including CSS color names) and convert it to the desired format. */
-    var format: String
+    picker will accept user input in any format (including CSS color names) and convert it to the desired format. Valid values: "hex", "rgb", "hsl", "hsv". */
+    var format: "hex" | "rgb" | "hsl" | "hsv"
 
-    /** Determines the size of the color picker's trigger */
-    var size: String
+    /** Determines the size of the color picker's trigger Valid values: "small", "medium", "large". */
+    var size: "small" | "medium" | "large"
 
     /** Removes the button that lets users toggle between format. */
     var withoutFormatToggle: Boolean

@@ -65,7 +65,7 @@ object Select extends WebComponent("wa-select") {
   /** The select's value. This will be a string for single select or an array for multi-select. */
   lazy val value: HtmlAttr[String] = stringAttr("value")
 
-  /** The select's size. */
+  /** The select's size. Valid values: "small", "medium", "large". */
   lazy val size: HtmlAttr[String] = stringAttr("size")
 
   /** Placeholder text to show as a hint when the select is empty. */
@@ -88,7 +88,7 @@ object Select extends WebComponent("wa-select") {
   use the `show()` and `hide()` methods and this attribute will reflect the select's open state. */
   lazy val open: HtmlAttr[Boolean] = boolAttr("open")
 
-  /** The select's visual appearance. */
+  /** The select's visual appearance. Valid values: "filled", "outlined". */
   lazy val appearance: HtmlAttr[String] = stringAttr("appearance")
 
   /** Draws a pill-style select with rounded edges. */
@@ -98,7 +98,7 @@ object Select extends WebComponent("wa-select") {
   lazy val label: HtmlAttr[String] = stringAttr("label")
 
   /** The preferred placement of the select's menu. Note that the actual placement may vary as needed to keep the listbox
-  inside of the viewport. */
+  inside of the viewport. Valid values: "top", "bottom". */
   lazy val placement: HtmlAttr[String] = stringAttr("placement")
 
   /** The select's hint. If you need to display HTML, use the `hint` slot instead. */
@@ -223,8 +223,8 @@ object Select extends WebComponent("wa-select") {
     /** The select's value. This will be a string for single select or an array for multi-select. */
     var value: String
 
-    /** The select's size. */
-    var size: String
+    /** The select's size. Valid values: "small", "medium", "large". */
+    var size: "small" | "medium" | "large"
 
     /** Placeholder text to show as a hint when the select is empty. */
     var placeholder: String
@@ -246,8 +246,8 @@ object Select extends WebComponent("wa-select") {
     use the `show()` and `hide()` methods and this attribute will reflect the select's open state. */
     var open: Boolean
 
-    /** The select's visual appearance. */
-    var appearance: String
+    /** The select's visual appearance. Valid values: "filled", "outlined". */
+    var appearance: "filled" | "outlined"
 
     /** Draws a pill-style select with rounded edges. */
     var pill: Boolean
@@ -256,8 +256,8 @@ object Select extends WebComponent("wa-select") {
     var label: String
 
     /** The preferred placement of the select's menu. Note that the actual placement may vary as needed to keep the listbox
-    inside of the viewport. */
-    var placement: String
+    inside of the viewport. Valid values: "top", "bottom". */
+    var placement: "top" | "bottom"
 
     /** The select's hint. If you need to display HTML, use the `hint` slot instead. */
     var hint: String

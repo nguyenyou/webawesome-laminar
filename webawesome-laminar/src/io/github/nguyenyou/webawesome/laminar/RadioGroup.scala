@@ -51,13 +51,13 @@ object RadioGroup extends WebComponent("wa-radio-group") {
   /** Disables the radio group and all child radios. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
 
-  /** The orientation in which to show radio items. */
+  /** The orientation in which to show radio items. Valid values: "horizontal", "vertical". */
   lazy val orientation: HtmlAttr[String] = stringAttr("orientation")
 
   /** The default value of the form control. Primarily used for resetting the form control. */
   lazy val value: HtmlAttr[String] = stringAttr("value")
 
-  /** The radio group's size. This size will be applied to all child radios and radio buttons, except when explicitly overridden. */
+  /** The radio group's size. This size will be applied to all child radios and radio buttons, except when explicitly overridden. Valid values: "small", "medium", "large". */
   lazy val size: HtmlAttr[String] = stringAttr("size")
 
   /** Ensures a child radio is checked before allowing the containing form to submit. */
@@ -127,14 +127,14 @@ object RadioGroup extends WebComponent("wa-radio-group") {
     /** Disables the radio group and all child radios. */
     var disabled: Boolean
 
-    /** The orientation in which to show radio items. */
-    var orientation: String
+    /** The orientation in which to show radio items. Valid values: "horizontal", "vertical". */
+    var orientation: "horizontal" | "vertical"
 
     /** The default value of the form control. Primarily used for resetting the form control. */
     var defaultValue: String
 
-    /** The radio group's size. This size will be applied to all child radios and radio buttons, except when explicitly overridden. */
-    var size: String
+    /** The radio group's size. This size will be applied to all child radios and radio buttons, except when explicitly overridden. Valid values: "small", "medium", "large". */
+    var size: "small" | "medium" | "large"
 
     /** Ensures a child radio is checked before allowing the containing form to submit. */
     var required: Boolean

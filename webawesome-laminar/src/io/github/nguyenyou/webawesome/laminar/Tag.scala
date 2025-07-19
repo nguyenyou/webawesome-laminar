@@ -32,13 +32,13 @@ object Tag extends WebComponent("wa-tag") {
 
   // -- Attributes --
 
-  /** The tag's theme variant. Defaults to `neutral` if not within another element with a variant. */
+  /** The tag's theme variant. Defaults to `neutral` if not within another element with a variant. Valid values: "brand", "neutral", "success", "warning", "danger". */
   lazy val variant: HtmlAttr[String] = stringAttr("variant")
 
-  /** The tag's visual appearance. */
+  /** The tag's visual appearance. Valid values: "accent", "outlined accent", "filled", "outlined", "outlined filled". */
   lazy val appearance: HtmlAttr[String] = stringAttr("appearance")
 
-  /** The tag's size. */
+  /** The tag's size. Valid values: "small", "medium", "large". */
   lazy val size: HtmlAttr[String] = stringAttr("size")
 
   /** Draws a pill-style tag with rounded edges. */
@@ -78,14 +78,14 @@ object Tag extends WebComponent("wa-tag") {
   @js.native trait WaTagComponent extends js.Object {
     this: dom.HTMLElement =>
 
-    /** The tag's theme variant. Defaults to `neutral` if not within another element with a variant. */
-    var variant: String
+    /** The tag's theme variant. Defaults to `neutral` if not within another element with a variant. Valid values: "brand", "neutral", "success", "warning", "danger". */
+    var variant: "brand" | "neutral" | "success" | "warning" | "danger"
 
-    /** The tag's visual appearance. */
-    var appearance: String
+    /** The tag's visual appearance. Valid values: "accent", "outlined accent", "filled", "outlined", "outlined filled". */
+    var appearance: "accent" | "outlined accent" | "filled" | "outlined" | "outlined filled"
 
-    /** The tag's size. */
-    var size: String
+    /** The tag's size. Valid values: "small", "medium", "large". */
+    var size: "small" | "medium" | "large"
 
     /** Draws a pill-style tag with rounded edges. */
     var pill: Boolean

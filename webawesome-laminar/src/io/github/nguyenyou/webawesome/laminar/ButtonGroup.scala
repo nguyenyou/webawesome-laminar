@@ -31,13 +31,13 @@ object ButtonGroup extends WebComponent("wa-button-group") {
   devices when interacting with the control and is strongly recommended. */
   lazy val label: HtmlAttr[String] = stringAttr("label")
 
-  /** The button group's orientation. */
+  /** The button group's orientation. Valid values: "horizontal", "vertical". */
   lazy val orientation: HtmlAttr[String] = stringAttr("orientation")
 
-  /** The component's size. */
+  /** The component's size. Valid values: "small", "medium", "large". */
   lazy val size: HtmlAttr[String] = stringAttr("size")
 
-  /** The button group's theme variant. Defaults to `neutral` if not within another element with a variant. */
+  /** The button group's theme variant. Defaults to `neutral` if not within another element with a variant. Valid values: "neutral", "brand", "success", "warning", "danger". */
   lazy val variant: HtmlAttr[String] = stringAttr("variant")
 
   // -- Slots --
@@ -66,14 +66,14 @@ object ButtonGroup extends WebComponent("wa-button-group") {
     devices when interacting with the control and is strongly recommended. */
     var label: String
 
-    /** The button group's orientation. */
-    var orientation: String
+    /** The button group's orientation. Valid values: "horizontal", "vertical". */
+    var orientation: "horizontal" | "vertical"
 
-    /** The component's size. */
-    var size: String
+    /** The component's size. Valid values: "small", "medium", "large". */
+    var size: "small" | "medium" | "large"
 
-    /** The button group's theme variant. Defaults to `neutral` if not within another element with a variant. */
-    var variant: String
+    /** The button group's theme variant. Defaults to `neutral` if not within another element with a variant. Valid values: "neutral", "brand", "success", "warning", "danger". */
+    var variant: "neutral" | "brand" | "success" | "warning" | "danger"
 
   }
 }
