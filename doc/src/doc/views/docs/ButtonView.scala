@@ -102,6 +102,23 @@ object ButtonView
         }
       ),
       Demo(
+        title = "Start & End Decorations ",
+        description = """
+        | Use the `start` and `end` slots to add presentational elements like `<wa-icon>` next to the button label.
+        """.stripMargin,
+        content = Source.annotate {
+          div(
+            tw.flex.flexWrap.gap2,
+            // <show>
+            Button(
+              _.size := "small",
+              _.slots.start(Icon(_.name := "gear")())
+            )("Settings"),
+            // </show>
+          )
+        }
+      ),
+      Demo(
         title = "Icon Buttons",
         content = Source.annotate {
           div(
