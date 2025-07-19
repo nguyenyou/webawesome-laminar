@@ -24,14 +24,14 @@ abstract class WebComponent(tagName: String) extends CommonTypes { this: Self =>
 
   type Ref <: dom.HTMLElement
 
-  type Element = ReactiveHtmlElement[Ref]
+  private type Element = ReactiveHtmlElement[Ref]
 
   type ModFunction = Self => Modifier[Element]
 
-  type ComponentMod = Self => Modifier[Element]
-  type LaminarMod   = Modifier[Element]
+  private type ComponentMod = Self => Modifier[Element]
+  private type LaminarMod   = Modifier[Element]
 
-  // Note: this is overriden for components that have controlled inputs – see `tagWithControlledInputs` 
+  // Note: this is overridden for components that have controlled inputs – see `tagWithControlledInputs`
   protected lazy val tag: CustomHtmlTag[Ref] = new CustomHtmlTag(tagName)
 
   protected def tagWithControlledInput[Ref <: dom.html.Element, A, Ev <: dom.Event](
