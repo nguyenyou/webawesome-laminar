@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -25,10 +26,6 @@ object Dropdown extends WebComponent("wa-dropdown") {
   type Self = Dropdown.type
 
   type Ref = WaDropdownComponent & dom.HTMLElement
-
-  // -- Union Types --
-
-  type DropdownSize = "small" | "medium" | "large"
 
   // -- Events --
 
@@ -53,7 +50,7 @@ object Dropdown extends WebComponent("wa-dropdown") {
   lazy val open: HtmlAttr[Boolean] = boolAttr("open")
 
   /** The dropdown's size. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[DropdownSize] = unionAttr("size")
+  lazy val size: HtmlAttr[ComponentSize] = unionAttr("size")
 
   /** The placement of the dropdown menu in reference to the trigger. The menu will shift to a more optimal location if
   the preferred placement doesn't have enough room. */
@@ -109,7 +106,7 @@ object Dropdown extends WebComponent("wa-dropdown") {
     var open: Boolean
 
     /** The dropdown's size. Valid values: "small", "medium", "large". */
-    var size: "small" | "medium" | "large"
+    var size: ComponentSize
 
     /** The placement of the dropdown menu in reference to the trigger. The menu will shift to a more optimal location if
     the preferred placement doesn't have enough room. */

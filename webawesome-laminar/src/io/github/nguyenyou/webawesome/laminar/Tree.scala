@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -24,10 +25,6 @@ object Tree extends WebComponent("wa-tree") {
   type Self = Tree.type
 
   type Ref = WaTreeComponent & dom.HTMLElement
-
-  // -- Union Types --
-
-  type TreeSelection = "single" | "multiple" | "leaf"
 
   // -- Events --
 
@@ -91,7 +88,7 @@ object Tree extends WebComponent("wa-tree") {
 
     /** The selection behavior of the tree. Single selection allows only one node to be selected at a time. Multiple
     displays checkboxes and allows more than one node to be selected. Leaf allows only leaf nodes to be selected. Valid values: "single", "multiple", "leaf". */
-    var selection: "single" | "multiple" | "leaf"
+    var selection: TreeSelection
 
     def handleMouseDown(event: js.Any): js.Any = js.native
 

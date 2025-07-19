@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -25,14 +26,6 @@ object Tag extends WebComponent("wa-tag") {
 
   type Ref = WaTagComponent & dom.HTMLElement
 
-  // -- Union Types --
-
-  type TagVariant = "brand" | "neutral" | "success" | "warning" | "danger"
-
-  type TagAppearance = "accent" | "outlined accent" | "filled" | "outlined" | "outlined filled"
-
-  type TagSize = "small" | "medium" | "large"
-
   // -- Events --
 
   /** Emitted when the remove button is activated. */
@@ -41,13 +34,13 @@ object Tag extends WebComponent("wa-tag") {
   // -- Attributes --
 
   /** The tag's theme variant. Defaults to `neutral` if not within another element with a variant. Valid values: "brand", "neutral", "success", "warning", "danger". */
-  lazy val variant: HtmlAttr[TagVariant] = unionAttr("variant")
+  lazy val variant: HtmlAttr[ThemeVariant] = unionAttr("variant")
 
   /** The tag's visual appearance. Valid values: "accent", "outlined accent", "filled", "outlined", "outlined filled". */
-  lazy val appearance: HtmlAttr[TagAppearance] = unionAttr("appearance")
+  lazy val appearance: HtmlAttr[TagExtendedAppearance] = unionAttr("appearance")
 
   /** The tag's size. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[TagSize] = unionAttr("size")
+  lazy val size: HtmlAttr[ComponentSize] = unionAttr("size")
 
   /** Draws a pill-style tag with rounded edges. */
   lazy val pill: HtmlAttr[Boolean] = boolAttr("pill")
@@ -87,13 +80,13 @@ object Tag extends WebComponent("wa-tag") {
     this: dom.HTMLElement =>
 
     /** The tag's theme variant. Defaults to `neutral` if not within another element with a variant. Valid values: "brand", "neutral", "success", "warning", "danger". */
-    var variant: "brand" | "neutral" | "success" | "warning" | "danger"
+    var variant: ThemeVariant
 
     /** The tag's visual appearance. Valid values: "accent", "outlined accent", "filled", "outlined", "outlined filled". */
-    var appearance: "accent" | "outlined accent" | "filled" | "outlined" | "outlined filled"
+    var appearance: TagExtendedAppearance
 
     /** The tag's size. Valid values: "small", "medium", "large". */
-    var size: "small" | "medium" | "large"
+    var size: ComponentSize
 
     /** Draws a pill-style tag with rounded edges. */
     var pill: Boolean

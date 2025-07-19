@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -25,14 +26,10 @@ object Divider extends WebComponent("wa-divider") {
 
   type Ref = WaDividerComponent & dom.HTMLElement
 
-  // -- Union Types --
-
-  type DividerOrientation = "horizontal" | "vertical"
-
   // -- Attributes --
 
   /** Sets the divider's orientation. Valid values: "horizontal", "vertical". */
-  lazy val orientation: HtmlAttr[DividerOrientation] = unionAttr("orientation")
+  lazy val orientation: HtmlAttr[Orientation] = unionAttr("orientation")
 
   // -- CSS Vars --
 
@@ -55,7 +52,7 @@ object Divider extends WebComponent("wa-divider") {
     this: dom.HTMLElement =>
 
     /** Sets the divider's orientation. Valid values: "horizontal", "vertical". */
-    var orientation: "horizontal" | "vertical"
+    var orientation: Orientation
 
     def handleVerticalChange(): js.Any = js.native
 

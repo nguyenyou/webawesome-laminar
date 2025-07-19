@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -24,12 +25,6 @@ object Radio extends WebComponent("wa-radio") {
   type Self = Radio.type
 
   type Ref = WaRadioComponent & dom.HTMLElement
-
-  // -- Union Types --
-
-  type RadioAppearance = "default" | "button"
-
-  type RadioSize = "small" | "medium" | "large"
 
   // -- Events --
 
@@ -52,7 +47,7 @@ object Radio extends WebComponent("wa-radio") {
 
   /** The radio's size. When used inside a radio group, the size will be determined by the radio group's size so this
   attribute can typically be omitted. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[RadioSize] = unionAttr("size")
+  lazy val size: HtmlAttr[ComponentSize] = unionAttr("size")
 
   /** Disables the radio. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
@@ -109,11 +104,11 @@ object Radio extends WebComponent("wa-radio") {
     var value: String
 
     /** The radio's value. When selected, the radio group will receive this value. Valid values: "default", "button". */
-    var appearance: "default" | "button"
+    var appearance: RadioAppearance
 
     /** The radio's size. When used inside a radio group, the size will be determined by the radio group's size so this
     attribute can typically be omitted. Valid values: "small", "medium", "large". */
-    var size: "small" | "medium" | "large"
+    var size: ComponentSize
 
     /** Disables the radio. */
     var disabled: Boolean

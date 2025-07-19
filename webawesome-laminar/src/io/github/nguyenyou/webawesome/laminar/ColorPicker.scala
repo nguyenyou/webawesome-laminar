@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -24,12 +25,6 @@ object ColorPicker extends WebComponent("wa-color-picker") {
   type Self = ColorPicker.type
 
   type Ref = WaColorPickerComponent & dom.HTMLElement
-
-  // -- Union Types --
-
-  type ColorPickerFormat = "hex" | "rgb" | "hsl" | "hsv"
-
-  type ColorPickerSize = "small" | "medium" | "large"
 
   // -- Events --
 
@@ -77,7 +72,7 @@ object ColorPicker extends WebComponent("wa-color-picker") {
   lazy val format: HtmlAttr[ColorPickerFormat] = unionAttr("format")
 
   /** Determines the size of the color picker's trigger Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[ColorPickerSize] = unionAttr("size")
+  lazy val size: HtmlAttr[ComponentSize] = unionAttr("size")
 
   /** Removes the button that lets users toggle between format. */
   lazy val withoutFormatToggle: HtmlAttr[Boolean] = boolAttr("without-format-toggle")
@@ -253,10 +248,10 @@ object ColorPicker extends WebComponent("wa-color-picker") {
 
     /** The format to use. If opacity is enabled, these will translate to HEXA, RGBA, HSLA, and HSVA respectively. The color
     picker will accept user input in any format (including CSS color names) and convert it to the desired format. Valid values: "hex", "rgb", "hsl", "hsv". */
-    var format: "hex" | "rgb" | "hsl" | "hsv"
+    var format: ColorPickerFormat
 
     /** Determines the size of the color picker's trigger Valid values: "small", "medium", "large". */
-    var size: "small" | "medium" | "large"
+    var size: ComponentSize
 
     /** Removes the button that lets users toggle between format. */
     var withoutFormatToggle: Boolean

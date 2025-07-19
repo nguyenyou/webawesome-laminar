@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -25,14 +26,10 @@ object Card extends WebComponent("wa-card") {
 
   type Ref = WaCardComponent & dom.HTMLElement
 
-  // -- Union Types --
-
-  type CardAppearance = "accent" | "filled" | "outlined" | "plain"
-
   // -- Attributes --
 
   /** The card's visual appearance. Valid values: "accent", "filled", "outlined", "plain". */
-  lazy val appearance: HtmlAttr[CardAppearance] = unionAttr("appearance")
+  lazy val appearance: HtmlAttr[ExtendedAppearance] = unionAttr("appearance")
 
   /** Renders the card with a header. Only needed for SSR, otherwise is automatically added. */
   lazy val withHeader: HtmlAttr[Boolean] = boolAttr("with-header")
@@ -93,7 +90,7 @@ object Card extends WebComponent("wa-card") {
     this: dom.HTMLElement =>
 
     /** The card's visual appearance. Valid values: "accent", "filled", "outlined", "plain". */
-    var appearance: "accent" | "filled" | "outlined" | "plain"
+    var appearance: ExtendedAppearance
 
     /** Renders the card with a header. Only needed for SSR, otherwise is automatically added. */
     var withHeader: Boolean

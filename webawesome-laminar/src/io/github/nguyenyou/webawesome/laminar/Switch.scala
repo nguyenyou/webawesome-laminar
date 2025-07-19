@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -24,10 +25,6 @@ object Switch extends WebComponent("wa-switch") {
   type Self = Switch.type
 
   type Ref = WaSwitchComponent & dom.HTMLElement
-
-  // -- Union Types --
-
-  type SwitchSize = "small" | "medium" | "large"
 
   // -- Events --
 
@@ -57,7 +54,7 @@ object Switch extends WebComponent("wa-switch") {
   lazy val value: HtmlAttr[String] = stringAttr("value")
 
   /** The switch's size. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[SwitchSize] = unionAttr("size")
+  lazy val size: HtmlAttr[ComponentSize] = unionAttr("size")
 
   /** Disables the switch. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
@@ -145,7 +142,7 @@ object Switch extends WebComponent("wa-switch") {
     var value: String
 
     /** The switch's size. Valid values: "small", "medium", "large". */
-    var size: "small" | "medium" | "large"
+    var size: ComponentSize
 
     /** Disables the switch. */
     var disabled: Boolean

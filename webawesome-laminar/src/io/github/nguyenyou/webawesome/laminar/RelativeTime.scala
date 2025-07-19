@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -25,12 +26,6 @@ object RelativeTime extends WebComponent("wa-relative-time") {
 
   type Ref = WaRelativeTimeComponent & dom.HTMLElement
 
-  // -- Union Types --
-
-  type RelativeTimeFormat = "long" | "short" | "narrow"
-
-  type RelativeTimeNumeric = "always" | "auto"
-
   // -- Attributes --
 
   /** The date from which to calculate time from. If not set, the current date and time will be used. When passing a
@@ -39,7 +34,7 @@ object RelativeTime extends WebComponent("wa-relative-time") {
   lazy val date: HtmlAttr[String] = stringAttr("date")
 
   /** The formatting style to use. Valid values: "long", "short", "narrow". */
-  lazy val format: HtmlAttr[RelativeTimeFormat] = unionAttr("format")
+  lazy val format: HtmlAttr[DisplayFormat] = unionAttr("format")
 
   /** When `auto`, values such as "yesterday" and "tomorrow" will be shown when possible. When `always`, values such as
   "1 day ago" and "in 1 day" will be shown. Valid values: "always", "auto". */
@@ -59,11 +54,11 @@ object RelativeTime extends WebComponent("wa-relative-time") {
     var date: String
 
     /** The formatting style to use. Valid values: "long", "short", "narrow". */
-    var format: "long" | "short" | "narrow"
+    var format: DisplayFormat
 
     /** When `auto`, values such as "yesterday" and "tomorrow" will be shown when possible. When `always`, values such as
     "1 day ago" and "in 1 day" will be shown. Valid values: "always", "auto". */
-    var numeric: "always" | "auto"
+    var numeric: RelativeTimeNumeric
 
     /** Keep the displayed value up to date as time passes. */
     var sync: Boolean

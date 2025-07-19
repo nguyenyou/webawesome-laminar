@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -24,12 +25,6 @@ object DropdownItem extends WebComponent("wa-dropdown-item") {
   type Self = DropdownItem.type
 
   type Ref = WaDropdownItemComponent & dom.HTMLElement
-
-  // -- Union Types --
-
-  type DropdownItemVariant = "danger" | "default"
-
-  type DropdownItemType = "normal" | "checkbox"
 
   // -- Events --
 
@@ -49,11 +44,11 @@ object DropdownItem extends WebComponent("wa-dropdown-item") {
   lazy val value: HtmlAttr[String] = stringAttr("value")
 
   /** Set to `checkbox` to make the item a checkbox. Valid values: "normal", "checkbox". */
-  lazy val `type`: HtmlAttr[DropdownItemType] = unionAttr("type")
+  lazy val `type`: HtmlAttr[DropdownItemElementType] = unionAttr("type")
 
-  lazy val typ: HtmlAttr[DropdownItemType] = `type`
+  lazy val typ: HtmlAttr[DropdownItemElementType] = `type`
 
-  lazy val tpe: HtmlAttr[DropdownItemType] = `type`
+  lazy val tpe: HtmlAttr[DropdownItemElementType] = `type`
 
   /** Set to true to check the dropdown item. Only valid when `type` is `checkbox`. */
   lazy val checked: HtmlAttr[Boolean] = boolAttr("checked")
@@ -116,14 +111,14 @@ object DropdownItem extends WebComponent("wa-dropdown-item") {
     this: dom.HTMLElement =>
 
     /** The type of menu item to render. Valid values: "danger", "default". */
-    var variant: "danger" | "default"
+    var variant: DropdownItemVariant
 
     /** An optional value for the menu item. This is useful for determining which item was selected when listening to the
     dropdown's `wa-select` event. */
     var value: String
 
     /** Set to `checkbox` to make the item a checkbox. Valid values: "normal", "checkbox". */
-    var `type`: "normal" | "checkbox"
+    var `type`: DropdownItemElementType
 
     /** Set to true to check the dropdown item. Only valid when `type` is `checkbox`. */
     var checked: Boolean

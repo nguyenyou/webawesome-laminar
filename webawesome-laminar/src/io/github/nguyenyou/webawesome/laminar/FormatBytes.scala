@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -25,12 +26,6 @@ object FormatBytes extends WebComponent("wa-format-bytes") {
 
   type Ref = WaFormatBytesComponent & dom.HTMLElement
 
-  // -- Union Types --
-
-  type FormatBytesUnit = "byte" | "bit"
-
-  type FormatBytesDisplay = "long" | "short" | "narrow"
-
   // -- Attributes --
 
   /** The number to format in bytes. */
@@ -40,7 +35,7 @@ object FormatBytes extends WebComponent("wa-format-bytes") {
   lazy val unit: HtmlAttr[FormatBytesUnit] = unionAttr("unit")
 
   /** Determines how to display the result, e.g. "100 bytes", "100 b", or "100b". Valid values: "long", "short", "narrow". */
-  lazy val display: HtmlAttr[FormatBytesDisplay] = unionAttr("display")
+  lazy val display: HtmlAttr[DisplayFormat] = unionAttr("display")
 
   // -- Props --
 
@@ -56,10 +51,10 @@ object FormatBytes extends WebComponent("wa-format-bytes") {
     var value: Double
 
     /** The type of unit to display. Valid values: "byte", "bit". */
-    var unit: "byte" | "bit"
+    var unit: FormatBytesUnit
 
     /** Determines how to display the result, e.g. "100 bytes", "100 b", or "100b". Valid values: "long", "short", "narrow". */
-    var display: "long" | "short" | "narrow"
+    var display: DisplayFormat
 
   }
 }

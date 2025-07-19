@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -24,10 +25,6 @@ object Skeleton extends WebComponent("wa-skeleton") {
   type Self = Skeleton.type
 
   type Ref = WaSkeletonComponent & dom.HTMLElement
-
-  // -- Union Types --
-
-  type SkeletonEffect = "pulse" | "sheen" | "none"
 
   // -- Attributes --
 
@@ -61,7 +58,7 @@ object Skeleton extends WebComponent("wa-skeleton") {
     this: dom.HTMLElement =>
 
     /** Determines which effect the skeleton will use. Valid values: "pulse", "sheen", "none". */
-    var effect: "pulse" | "sheen" | "none"
+    var effect: SkeletonEffect
 
   }
 }

@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -26,14 +27,10 @@ object Scroller extends WebComponent("wa-scroller") {
 
   type Ref = WaScrollerComponent & dom.HTMLElement
 
-  // -- Union Types --
-
-  type ScrollerOrientation = "horizontal" | "vertical"
-
   // -- Attributes --
 
   /** The scroller's orientation. Valid values: "horizontal", "vertical". */
-  lazy val orientation: HtmlAttr[ScrollerOrientation] = unionAttr("orientation")
+  lazy val orientation: HtmlAttr[Orientation] = unionAttr("orientation")
 
   /** Removes the visible scrollbar. */
   lazy val withoutScrollbar: HtmlAttr[Boolean] = boolAttr("without-scrollbar")
@@ -76,7 +73,7 @@ object Scroller extends WebComponent("wa-scroller") {
     this: dom.HTMLElement =>
 
     /** The scroller's orientation. Valid values: "horizontal", "vertical". */
-    var orientation: "horizontal" | "vertical"
+    var orientation: Orientation
 
     /** Removes the visible scrollbar. */
     var withoutScrollbar: Boolean

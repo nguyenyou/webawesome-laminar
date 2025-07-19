@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -24,10 +25,6 @@ object CopyButton extends WebComponent("wa-copy-button") {
   type Self = CopyButton.type
 
   type Ref = WaCopyButtonComponent & dom.HTMLElement
-
-  // -- Union Types --
-
-  type CopyButtonTooltipPlacement = "top" | "right" | "bottom" | "left"
 
   // -- Events --
 
@@ -64,7 +61,7 @@ object CopyButton extends WebComponent("wa-copy-button") {
   lazy val feedbackDuration: HtmlAttr[Double] = doubleAttr("feedback-duration")
 
   /** The preferred placement of the tooltip. Valid values: "top", "right", "bottom", "left". */
-  lazy val tooltipPlacement: HtmlAttr[CopyButtonTooltipPlacement] = unionAttr("tooltip-placement")
+  lazy val tooltipPlacement: HtmlAttr[TooltipPlacement] = unionAttr("tooltip-placement")
 
   // -- Props --
 
@@ -145,7 +142,7 @@ object CopyButton extends WebComponent("wa-copy-button") {
     var feedbackDuration: Double
 
     /** The preferred placement of the tooltip. Valid values: "top", "right", "bottom", "left". */
-    var tooltipPlacement: "top" | "right" | "bottom" | "left"
+    var tooltipPlacement: TooltipPlacement
 
   }
 }

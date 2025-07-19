@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -24,10 +25,6 @@ object Rating extends WebComponent("wa-rating") {
   type Self = Rating.type
 
   type Ref = WaRatingComponent & dom.HTMLElement
-
-  // -- Union Types --
-
-  type RatingSize = "small" | "medium" | "large"
 
   // -- Events --
 
@@ -64,7 +61,7 @@ object Rating extends WebComponent("wa-rating") {
   lazy val getSymbol: HtmlAttr[String] = stringAttr("getSymbol")
 
   /** The component's size. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[RatingSize] = unionAttr("size")
+  lazy val size: HtmlAttr[ComponentSize] = unionAttr("size")
 
   // -- Props --
 
@@ -125,7 +122,7 @@ object Rating extends WebComponent("wa-rating") {
     var getSymbol: String
 
     /** The component's size. Valid values: "small", "medium", "large". */
-    var size: "small" | "medium" | "large"
+    var size: ComponentSize
 
     def handleHoverValueChange(): js.Any = js.native
 

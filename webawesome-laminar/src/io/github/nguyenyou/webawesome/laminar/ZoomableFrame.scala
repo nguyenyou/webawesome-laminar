@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -24,10 +25,6 @@ object ZoomableFrame extends WebComponent("wa-zoomable-frame") {
   type Self = ZoomableFrame.type
 
   type Ref = WaZoomableFrameComponent & dom.HTMLElement
-
-  // -- Union Types --
-
-  type ZoomableFrameLoading = "eager" | "lazy"
 
   // -- Events --
 
@@ -49,7 +46,7 @@ object ZoomableFrame extends WebComponent("wa-zoomable-frame") {
   lazy val allowfullscreen: HtmlAttr[Boolean] = boolAttr("allowfullscreen")
 
   /** Controls iframe loading behavior. Valid values: "eager", "lazy". */
-  lazy val loading: HtmlAttr[ZoomableFrameLoading] = unionAttr("loading")
+  lazy val loading: HtmlAttr[LoadingStrategy] = unionAttr("loading")
 
   /** Controls referrer information. */
   lazy val referrerpolicy: HtmlAttr[String] = stringAttr("referrerpolicy")
@@ -113,7 +110,7 @@ object ZoomableFrame extends WebComponent("wa-zoomable-frame") {
     var allowfullscreen: Boolean
 
     /** Controls iframe loading behavior. Valid values: "eager", "lazy". */
-    var loading: "eager" | "lazy"
+    var loading: LoadingStrategy
 
     /** Controls referrer information. */
     var referrerpolicy: String

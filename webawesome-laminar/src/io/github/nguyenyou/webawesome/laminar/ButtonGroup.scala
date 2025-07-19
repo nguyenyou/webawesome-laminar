@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -25,14 +26,6 @@ object ButtonGroup extends WebComponent("wa-button-group") {
 
   type Ref = WaButtonGroupComponent & dom.HTMLElement
 
-  // -- Union Types --
-
-  type ButtonGroupOrientation = "horizontal" | "vertical"
-
-  type ButtonGroupSize = "small" | "medium" | "large"
-
-  type ButtonGroupVariant = "neutral" | "brand" | "success" | "warning" | "danger"
-
   // -- Attributes --
 
   /** A label to use for the button group. This won't be displayed on the screen, but it will be announced by assistive
@@ -40,13 +33,13 @@ object ButtonGroup extends WebComponent("wa-button-group") {
   lazy val label: HtmlAttr[String] = stringAttr("label")
 
   /** The button group's orientation. Valid values: "horizontal", "vertical". */
-  lazy val orientation: HtmlAttr[ButtonGroupOrientation] = unionAttr("orientation")
+  lazy val orientation: HtmlAttr[Orientation] = unionAttr("orientation")
 
   /** The component's size. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[ButtonGroupSize] = unionAttr("size")
+  lazy val size: HtmlAttr[ComponentSize] = unionAttr("size")
 
   /** The button group's theme variant. Defaults to `neutral` if not within another element with a variant. Valid values: "neutral", "brand", "success", "warning", "danger". */
-  lazy val variant: HtmlAttr[ButtonGroupVariant] = unionAttr("variant")
+  lazy val variant: HtmlAttr[ThemeVariant] = unionAttr("variant")
 
   // -- Slots --
 
@@ -75,13 +68,13 @@ object ButtonGroup extends WebComponent("wa-button-group") {
     var label: String
 
     /** The button group's orientation. Valid values: "horizontal", "vertical". */
-    var orientation: "horizontal" | "vertical"
+    var orientation: Orientation
 
     /** The component's size. Valid values: "small", "medium", "large". */
-    var size: "small" | "medium" | "large"
+    var size: ComponentSize
 
     /** The button group's theme variant. Defaults to `neutral` if not within another element with a variant. Valid values: "neutral", "brand", "success", "warning", "danger". */
-    var variant: "neutral" | "brand" | "success" | "warning" | "danger"
+    var variant: ThemeVariant
 
   }
 }

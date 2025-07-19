@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -24,10 +25,6 @@ object Include extends WebComponent("wa-include") {
   type Self = Include.type
 
   type Ref = WaIncludeComponent & dom.HTMLElement
-
-  // -- Union Types --
-
-  type IncludeMode = "cors" | "no-cors" | "same-origin"
 
   // -- Events --
 
@@ -60,7 +57,7 @@ object Include extends WebComponent("wa-include") {
     var src: String
 
     /** The fetch mode to use. Valid values: "cors", "no-cors", "same-origin". */
-    var mode: "cors" | "no-cors" | "same-origin"
+    var mode: IncludeMode
 
     /** Allows included scripts to be executed. Be sure you trust the content you are including as it will be executed as
     code and can result in XSS attacks. */

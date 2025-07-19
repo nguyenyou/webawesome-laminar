@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -25,10 +26,6 @@ object SplitPanel extends WebComponent("wa-split-panel") {
 
   type Ref = WaSplitPanelComponent & dom.HTMLElement
 
-  // -- Union Types --
-
-  type SplitPanelOrientation = "horizontal" | "vertical"
-
   // -- Events --
 
   /** Emitted when the divider's position changes. */
@@ -44,7 +41,7 @@ object SplitPanel extends WebComponent("wa-split-panel") {
   lazy val positionInPixels: HtmlAttr[Double] = doubleAttr("position-in-pixels")
 
   /** Sets the split panel's orientation. Valid values: "horizontal", "vertical". */
-  lazy val orientation: HtmlAttr[SplitPanelOrientation] = unionAttr("orientation")
+  lazy val orientation: HtmlAttr[Orientation] = unionAttr("orientation")
 
   /** Disables resizing. Note that the position may still change as a result of resizing the host element. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
@@ -124,7 +121,7 @@ object SplitPanel extends WebComponent("wa-split-panel") {
     var positionInPixels: Double
 
     /** Sets the split panel's orientation. Valid values: "horizontal", "vertical". */
-    var orientation: "horizontal" | "vertical"
+    var orientation: Orientation
 
     /** Disables resizing. Note that the position may still change as a result of resizing the host element. */
     var disabled: Boolean

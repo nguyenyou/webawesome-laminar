@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -25,22 +26,16 @@ object Callout extends WebComponent("wa-callout") {
 
   type Ref = WaCalloutComponent & dom.HTMLElement
 
-  // -- Union Types --
-
-  type CalloutVariant = "brand" | "neutral" | "success" | "warning" | "danger"
-
-  type CalloutSize = "small" | "medium" | "large"
-
   // -- Attributes --
 
   /** The callout's theme variant. Defaults to `brand` if not within another element with a variant. Valid values: "brand", "neutral", "success", "warning", "danger". */
-  lazy val variant: HtmlAttr[CalloutVariant] = unionAttr("variant")
+  lazy val variant: HtmlAttr[ThemeVariant] = unionAttr("variant")
 
   /** The callout's visual appearance. */
   lazy val appearance: HtmlAttr[String] = stringAttr("appearance")
 
   /** The callout's size. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[CalloutSize] = unionAttr("size")
+  lazy val size: HtmlAttr[ComponentSize] = unionAttr("size")
 
   // -- Slots --
 
@@ -71,13 +66,13 @@ object Callout extends WebComponent("wa-callout") {
     this: dom.HTMLElement =>
 
     /** The callout's theme variant. Defaults to `brand` if not within another element with a variant. Valid values: "brand", "neutral", "success", "warning", "danger". */
-    var variant: "brand" | "neutral" | "success" | "warning" | "danger"
+    var variant: ThemeVariant
 
     /** The callout's visual appearance. */
     var appearance: js.Any
 
     /** The callout's size. Valid values: "small", "medium", "large". */
-    var size: "small" | "medium" | "large"
+    var size: ComponentSize
 
   }
 }

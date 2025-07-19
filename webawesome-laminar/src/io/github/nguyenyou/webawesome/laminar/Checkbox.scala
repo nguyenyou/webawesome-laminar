@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -24,10 +25,6 @@ object Checkbox extends WebComponent("wa-checkbox") {
   type Self = Checkbox.type
 
   type Ref = WaCheckboxComponent & dom.HTMLElement
-
-  // -- Union Types --
-
-  type CheckboxSize = "small" | "medium" | "large"
 
   // -- Events --
 
@@ -57,7 +54,7 @@ object Checkbox extends WebComponent("wa-checkbox") {
   lazy val value: HtmlAttr[String] = stringAttr("value")
 
   /** The checkbox's size. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[CheckboxSize] = unionAttr("size")
+  lazy val size: HtmlAttr[ComponentSize] = unionAttr("size")
 
   /** Disables the checkbox. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
@@ -146,7 +143,7 @@ object Checkbox extends WebComponent("wa-checkbox") {
     var value: String
 
     /** The checkbox's size. Valid values: "small", "medium", "large". */
-    var size: "small" | "medium" | "large"
+    var size: ComponentSize
 
     /** Disables the checkbox. */
     var disabled: Boolean

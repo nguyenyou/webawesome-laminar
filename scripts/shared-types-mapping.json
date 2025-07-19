@@ -1,0 +1,677 @@
+{
+  "sharedTypes": [
+    {
+      "name": "ComponentSize",
+      "signature": "large|medium|small",
+      "values": [
+        "large",
+        "medium",
+        "small"
+      ],
+      "frequency": 15,
+      "components": [
+        "WaButton",
+        "WaButtonGroup",
+        "WaCallout",
+        "WaCheckbox",
+        "WaColorPicker",
+        "WaDropdown",
+        "WaInput",
+        "WaRadio",
+        "WaRadioGroup",
+        "WaRating",
+        "WaSelect",
+        "WaSlider",
+        "WaSwitch",
+        "WaTag",
+        "WaTextarea"
+      ]
+    },
+    {
+      "name": "Orientation",
+      "signature": "horizontal|vertical",
+      "values": [
+        "horizontal",
+        "vertical"
+      ],
+      "frequency": 7,
+      "components": [
+        "WaButtonGroup",
+        "WaCarousel",
+        "WaDivider",
+        "WaRadioGroup",
+        "WaScroller",
+        "WaSlider",
+        "WaSplitPanel"
+      ]
+    },
+    {
+      "name": "ThemeVariant",
+      "signature": "brand|danger|neutral|success|warning",
+      "values": [
+        "brand",
+        "danger",
+        "neutral",
+        "success",
+        "warning"
+      ],
+      "frequency": 5,
+      "components": [
+        "WaBadge",
+        "WaButton",
+        "WaButtonGroup",
+        "WaCallout",
+        "WaTag"
+      ]
+    },
+    {
+      "name": "DateYearFormat",
+      "signature": "2-digit|numeric",
+      "values": [
+        "2-digit",
+        "numeric"
+      ],
+      "frequency": 5,
+      "components": [
+        "WaFormatDate",
+        "WaFormatDate",
+        "WaFormatDate",
+        "WaFormatDate",
+        "WaFormatDate"
+      ]
+    },
+    {
+      "name": "DisplayFormat",
+      "signature": "long|narrow|short",
+      "values": [
+        "long",
+        "narrow",
+        "short"
+      ],
+      "frequency": 4,
+      "components": [
+        "WaFormatBytes",
+        "WaFormatDate",
+        "WaFormatDate",
+        "WaRelativeTime"
+      ]
+    },
+    {
+      "name": "FilledOutlineAppearance",
+      "signature": "filled|outlined",
+      "values": [
+        "filled",
+        "outlined"
+      ],
+      "frequency": 3,
+      "components": [
+        "WaInput",
+        "WaSelect",
+        "WaTextarea"
+      ]
+    },
+    {
+      "name": "LoadingStrategy",
+      "signature": "eager|lazy",
+      "values": [
+        "eager",
+        "lazy"
+      ],
+      "frequency": 2,
+      "components": [
+        "WaAvatar",
+        "WaZoomableFrame"
+      ]
+    },
+    {
+      "name": "ExtendedAppearance",
+      "signature": "accent|filled|outlined|plain",
+      "values": [
+        "accent",
+        "filled",
+        "outlined",
+        "plain"
+      ],
+      "frequency": 2,
+      "components": [
+        "WaButton",
+        "WaCard"
+      ]
+    },
+    {
+      "name": "TooltipPlacement",
+      "signature": "bottom|left|right|top",
+      "values": [
+        "bottom",
+        "left",
+        "right",
+        "top"
+      ],
+      "frequency": 2,
+      "components": [
+        "WaCopyButton",
+        "WaSlider"
+      ]
+    },
+    {
+      "name": "ComponentPlacement",
+      "signature": "bottom|end|start|top",
+      "values": [
+        "bottom",
+        "end",
+        "start",
+        "top"
+      ],
+      "frequency": 2,
+      "components": [
+        "WaDrawer",
+        "WaTabGroup"
+      ]
+    },
+    {
+      "name": "Autocapitalize",
+      "signature": "characters|none|off|on|sentences|words",
+      "values": [
+        "characters",
+        "none",
+        "off",
+        "on",
+        "sentences",
+        "words"
+      ],
+      "frequency": 2,
+      "components": [
+        "WaInput",
+        "WaTextarea"
+      ]
+    },
+    {
+      "name": "Enterkeyhint",
+      "signature": "done|enter|go|next|previous|search|send",
+      "values": [
+        "done",
+        "enter",
+        "go",
+        "next",
+        "previous",
+        "search",
+        "send"
+      ],
+      "frequency": 2,
+      "components": [
+        "WaInput",
+        "WaTextarea"
+      ]
+    },
+    {
+      "name": "Inputmode",
+      "signature": "decimal|email|none|numeric|search|tel|text|url",
+      "values": [
+        "decimal",
+        "email",
+        "none",
+        "numeric",
+        "search",
+        "tel",
+        "text",
+        "url"
+      ],
+      "frequency": 2,
+      "components": [
+        "WaInput",
+        "WaTextarea"
+      ]
+    },
+    {
+      "name": "AvatarShape",
+      "signature": "circle|rounded|square",
+      "values": [
+        "circle",
+        "rounded",
+        "square"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaAvatar"
+      ]
+    },
+    {
+      "name": "BadgeExtendedAppearance",
+      "signature": "accent|filled|outlined",
+      "values": [
+        "accent",
+        "filled",
+        "outlined"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaBadge"
+      ]
+    },
+    {
+      "name": "BadgeAttention",
+      "signature": "none|pulse",
+      "values": [
+        "none",
+        "pulse"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaBadge"
+      ]
+    },
+    {
+      "name": "ButtonButtonType",
+      "signature": "button|reset|submit",
+      "values": [
+        "button",
+        "reset",
+        "submit"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaButton"
+      ]
+    },
+    {
+      "name": "ButtonLinkTarget",
+      "signature": "_blank|_parent|_self|_top",
+      "values": [
+        "_blank",
+        "_parent",
+        "_self",
+        "_top"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaButton"
+      ]
+    },
+    {
+      "name": "ButtonFormenctype",
+      "signature": "application/x-www-form-urlencoded|multipart/form-data|text/plain",
+      "values": [
+        "application/x-www-form-urlencoded",
+        "multipart/form-data",
+        "text/plain"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaButton"
+      ]
+    },
+    {
+      "name": "ButtonFormmethod",
+      "signature": "get|post",
+      "values": [
+        "get",
+        "post"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaButton"
+      ]
+    },
+    {
+      "name": "ColorPickerFormat",
+      "signature": "hex|hsl|hsv|rgb",
+      "values": [
+        "hex",
+        "hsl",
+        "hsv",
+        "rgb"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaColorPicker"
+      ]
+    },
+    {
+      "name": "DetailsAppearance",
+      "signature": "filled|outlined|plain",
+      "values": [
+        "filled",
+        "outlined",
+        "plain"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaDetails"
+      ]
+    },
+    {
+      "name": "DropdownItemVariant",
+      "signature": "danger|default",
+      "values": [
+        "danger",
+        "default"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaDropdownItem"
+      ]
+    },
+    {
+      "name": "DropdownItemElementType",
+      "signature": "checkbox|normal",
+      "values": [
+        "checkbox",
+        "normal"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaDropdownItem"
+      ]
+    },
+    {
+      "name": "FormatBytesUnit",
+      "signature": "bit|byte",
+      "values": [
+        "bit",
+        "byte"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaFormatBytes"
+      ]
+    },
+    {
+      "name": "FormatDateDateMonthFormat",
+      "signature": "2-digit|long|narrow|numeric|short",
+      "values": [
+        "2-digit",
+        "long",
+        "narrow",
+        "numeric",
+        "short"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaFormatDate"
+      ]
+    },
+    {
+      "name": "FormatDateTimeZoneName",
+      "signature": "long|short",
+      "values": [
+        "long",
+        "short"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaFormatDate"
+      ]
+    },
+    {
+      "name": "FormatDateHourFormat",
+      "signature": "12|24|auto",
+      "values": [
+        "12",
+        "24",
+        "auto"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaFormatDate"
+      ]
+    },
+    {
+      "name": "FormatNumberElementType",
+      "signature": "currency|decimal|percent",
+      "values": [
+        "currency",
+        "decimal",
+        "percent"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaFormatNumber"
+      ]
+    },
+    {
+      "name": "FormatNumberCurrencyDisplay",
+      "signature": "code|name|narrowSymbol|symbol",
+      "values": [
+        "code",
+        "name",
+        "narrowSymbol",
+        "symbol"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaFormatNumber"
+      ]
+    },
+    {
+      "name": "IncludeMode",
+      "signature": "cors|no-cors|same-origin",
+      "values": [
+        "cors",
+        "no-cors",
+        "same-origin"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaInclude"
+      ]
+    },
+    {
+      "name": "InputAutocorrect",
+      "signature": "off|on",
+      "values": [
+        "off",
+        "on"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaInput"
+      ]
+    },
+    {
+      "name": "PageView",
+      "signature": "desktop|mobile",
+      "values": [
+        "desktop",
+        "mobile"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaPage"
+      ]
+    },
+    {
+      "name": "PageNavigationPlacement",
+      "signature": "end|start",
+      "values": [
+        "end",
+        "start"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaPage"
+      ]
+    },
+    {
+      "name": "PopupBoundary",
+      "signature": "scroll|viewport",
+      "values": [
+        "scroll",
+        "viewport"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaPopup"
+      ]
+    },
+    {
+      "name": "PopupArrowPlacement",
+      "signature": "anchor|center|end|start",
+      "values": [
+        "anchor",
+        "center",
+        "end",
+        "start"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaPopup"
+      ]
+    },
+    {
+      "name": "PopupFlipFallbackStrategy",
+      "signature": "best-fit|initial",
+      "values": [
+        "best-fit",
+        "initial"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaPopup"
+      ]
+    },
+    {
+      "name": "PopupAutoSize",
+      "signature": "both|horizontal|vertical",
+      "values": [
+        "both",
+        "horizontal",
+        "vertical"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaPopup"
+      ]
+    },
+    {
+      "name": "PopupSync",
+      "signature": "both|height|width",
+      "values": [
+        "both",
+        "height",
+        "width"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaPopup"
+      ]
+    },
+    {
+      "name": "QrCodeErrorCorrection",
+      "signature": "H|L|M|Q",
+      "values": [
+        "H",
+        "L",
+        "M",
+        "Q"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaQrCode"
+      ]
+    },
+    {
+      "name": "RadioAppearance",
+      "signature": "button|default",
+      "values": [
+        "button",
+        "default"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaRadio"
+      ]
+    },
+    {
+      "name": "RelativeTimeNumeric",
+      "signature": "always|auto",
+      "values": [
+        "always",
+        "auto"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaRelativeTime"
+      ]
+    },
+    {
+      "name": "SelectPlacement",
+      "signature": "bottom|top",
+      "values": [
+        "bottom",
+        "top"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaSelect"
+      ]
+    },
+    {
+      "name": "SkeletonEffect",
+      "signature": "none|pulse|sheen",
+      "values": [
+        "none",
+        "pulse",
+        "sheen"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaSkeleton"
+      ]
+    },
+    {
+      "name": "TabGroupActivation",
+      "signature": "auto|manual",
+      "values": [
+        "auto",
+        "manual"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaTabGroup"
+      ]
+    },
+    {
+      "name": "TagExtendedAppearance",
+      "signature": "accent|filled|outlined|outlined accent|outlined filled",
+      "values": [
+        "accent",
+        "filled",
+        "outlined",
+        "outlined accent",
+        "outlined filled"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaTag"
+      ]
+    },
+    {
+      "name": "TextareaResize",
+      "signature": "auto|both|horizontal|none|vertical",
+      "values": [
+        "auto",
+        "both",
+        "horizontal",
+        "none",
+        "vertical"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaTextarea"
+      ]
+    },
+    {
+      "name": "TreeSelection",
+      "signature": "leaf|multiple|single",
+      "values": [
+        "leaf",
+        "multiple",
+        "single"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaTree"
+      ]
+    }
+  ]
+}

@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -24,10 +25,6 @@ object QrCode extends WebComponent("wa-qr-code") {
   type Self = QrCode.type
 
   type Ref = WaQrCodeComponent & dom.HTMLElement
-
-  // -- Union Types --
-
-  type QrCodeErrorCorrection = "L" | "M" | "Q" | "H"
 
   // -- Attributes --
 
@@ -90,7 +87,7 @@ object QrCode extends WebComponent("wa-qr-code") {
     var radius: Double
 
     /** The level of error correction to use. [Learn more](https://www.qrcode.com/en/about/error_correction.html) Valid values: "L", "M", "Q", "H". */
-    var errorCorrection: "L" | "M" | "Q" | "H"
+    var errorCorrection: QrCodeErrorCorrection
 
     def generate(): js.Any = js.native
 

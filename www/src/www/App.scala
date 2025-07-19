@@ -11,7 +11,7 @@ case class App() {
         h2("Basic Components"),
         Button(
           "Click me",
-          _.variant := "brand"
+          _.variant := "success"
         )
       )
     )

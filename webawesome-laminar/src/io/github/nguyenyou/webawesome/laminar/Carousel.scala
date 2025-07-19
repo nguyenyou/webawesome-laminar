@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -23,10 +24,6 @@ object Carousel extends WebComponent("wa-carousel") {
   type Self = Carousel.type
 
   type Ref = WaCarouselComponent & dom.HTMLElement
-
-  // -- Union Types --
-
-  type CarouselOrientation = "horizontal" | "vertical"
 
   // -- Events --
 
@@ -62,7 +59,7 @@ object Carousel extends WebComponent("wa-carousel") {
   lazy val slidesPerMove: HtmlAttr[Double] = doubleAttr("slides-per-move")
 
   /** Specifies the orientation in which the carousel will lay out. Valid values: "horizontal", "vertical". */
-  lazy val orientation: HtmlAttr[CarouselOrientation] = unionAttr("orientation")
+  lazy val orientation: HtmlAttr[Orientation] = unionAttr("orientation")
 
   /** When set, it is possible to scroll through the slides by dragging them with the mouse. */
   lazy val mouseDragging: HtmlAttr[Boolean] = boolAttr("mouse-dragging")
@@ -161,7 +158,7 @@ object Carousel extends WebComponent("wa-carousel") {
     var slidesPerMove: Double
 
     /** Specifies the orientation in which the carousel will lay out. Valid values: "horizontal", "vertical". */
-    var orientation: "horizontal" | "vertical"
+    var orientation: Orientation
 
     /** When set, it is possible to scroll through the slides by dragging them with the mouse. */
     var mouseDragging: Boolean

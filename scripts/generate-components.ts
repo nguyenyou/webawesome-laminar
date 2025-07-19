@@ -3,6 +3,22 @@ import CodeBlockWriter from 'code-block-writer';
 import path from 'path';
 import fs from 'fs/promises';
 
+// Load shared types mapping
+let sharedTypesMapping: any = null;
+
+async function loadSharedTypesMapping() {
+  if (!sharedTypesMapping) {
+    try {
+      const mappingContent = await readFile('scripts/shared-types-mapping.json');
+      sharedTypesMapping = JSON.parse(mappingContent);
+    } catch (error) {
+      console.warn('No shared types mapping found, using component-specific types');
+      sharedTypesMapping = { sharedTypes: [] };
+    }
+  }
+  return sharedTypesMapping;
+}
+
 interface ComponentIR {
   name: string;
   tagName: string;
@@ -100,6 +116,27 @@ function shouldUseUnionType(attr: AttributeIR): boolean {
   return !!(attr.unionValues && attr.unionValues.length > 0 && attr.type === 'String');
 }
 
+function findSharedType(unionValues: string[]): string | null {
+  if (!sharedTypesMapping || !unionValues) return null;
+  
+  const signature = [...unionValues].sort().join('|');
+  const sharedType = sharedTypesMapping.sharedTypes.find((st: any) => st.signature === signature);
+  return sharedType ? sharedType.name : null;
+}
+
+function getUnionTypeReference(attr: AttributeIR, componentName: string): string {
+  if (!attr.unionValues) return 'String';
+  
+  // First try to find a shared type
+  const sharedTypeName = findSharedType(attr.unionValues);
+  if (sharedTypeName) {
+    return `SharedTypes.${sharedTypeName}`;
+  }
+  
+  // Fallback to component-specific type (for rare cases)
+  return getUnionTypeName(attr.name, componentName);
+}
+
 function mapTypeScriptToScala(tsType: string): string {
   const typeMap: Record<string, string> = {
     'string': 'String',
@@ -161,9 +198,15 @@ function mapTypeScriptToScala(tsType: string): string {
 }
 
 function getJSFacadeType(irType: string, unionValues?: string[]): string {
-  // If we have union values, use union type syntax
+  // If we have union values, use shared type name
   if (unionValues && unionValues.length > 0 && irType === 'String') {
-    return generateUnionType(unionValues);
+    const sharedTypeName = findSharedType(unionValues);
+    if (sharedTypeName) {
+      return sharedTypeName; // Use shared type name directly with wildcard import
+    } else {
+      // Fallback to inline union type if not found (shouldn't happen)
+      return generateUnionType(unionValues);
+    }
   }
   
   // Map IR types to proper Scala.js facade types
@@ -201,10 +244,16 @@ function getJSFacadeType(irType: string, unionValues?: string[]): string {
 }
 
 function getScalaAttributeType(type: string, unionValues?: string[], componentName?: string, attributeName?: string): string {
-  // For union types, use the specific union type
+  // For union types, use shared type (all union types are now in SharedTypes)
   if (unionValues && unionValues.length > 0 && type === 'String' && componentName && attributeName) {
-    const unionTypeName = getUnionTypeName(attributeName, componentName);
-    return `HtmlAttr[${unionTypeName}]`;
+    const sharedTypeName = findSharedType(unionValues);
+    if (sharedTypeName) {
+      return `HtmlAttr[${sharedTypeName}]`; // No prefix needed with wildcard import
+    } else {
+      // This shouldn't happen since we're putting all union types in SharedTypes now
+      console.warn(`Union type not found in SharedTypes for ${componentName}.${attributeName}`);
+      return `HtmlAttr[String]`;
+    }
   }
   
   // For regular types, use standard attribute types
@@ -257,7 +306,10 @@ function generateScalaDoc(description?: string, documentation?: string): string 
   return doc;
 }
 
-function generateComponent(component: ComponentIR): string {
+async function generateComponent(component: ComponentIR): Promise<string> {
+  // Load shared types mapping
+  await loadSharedTypesMapping();
+  
   const writer = new CodeBlockWriter({
     indentNumberOfSpaces: 2,
     useTabs: false
@@ -265,6 +317,8 @@ function generateComponent(component: ComponentIR): string {
 
   const className = getComponentClassName(component.tagName);
   const componentRef = `${component.name}Component`;
+
+  // We always import SharedTypes since all union types are centralized there
 
   // Package declaration
   writer.writeLine('package io.github.nguyenyou.webawesome.laminar');
@@ -279,6 +333,10 @@ function generateComponent(component: ComponentIR): string {
   writer.writeLine('import scala.scalajs.js');
   writer.writeLine('import scala.scalajs.js.|');
   writer.writeLine('import scala.scalajs.js.annotation.JSImport');
+  
+  // Import SharedTypes if needed (always import since we're moving all union types there)
+  writer.writeLine('import io.github.nguyenyou.webawesome.laminar.SharedTypes.*');
+  
   writer.blankLine();
 
   // Generated comment
@@ -308,19 +366,7 @@ function generateComponent(component: ComponentIR): string {
     writer.writeLine(`type Ref = ${componentRef} & dom.HTMLElement`);
     writer.blankLine();
 
-    // Union type aliases for attributes
-    const unionAttributes = component.attributes.filter(shouldUseUnionType);
-    if (unionAttributes.length > 0) {
-      writer.writeLine('// -- Union Types --');
-      writer.blankLine();
-      
-      unionAttributes.forEach(attr => {
-        const unionTypeName = getUnionTypeName(attr.name, className);
-        const unionTypeDefinition = generateUnionType(attr.unionValues!);
-        writer.writeLine(`type ${unionTypeName} = ${unionTypeDefinition}`);
-        writer.blankLine();
-      });
-    }
+    // All union types are now in SharedTypes.scala - no component-specific types needed
 
     // Events section
     if (component.events.length > 0) {
@@ -538,7 +584,7 @@ async function generateAllComponents() {
   for (const component of components) {
     try {
       const className = getComponentClassName(component.tagName);
-      const scalaCode = generateComponent(component);
+      const scalaCode = await generateComponent(component);
       const outputPath = path.join(outputDir, `${className}.scala`);
       
       await writeFile(outputPath, scalaCode);

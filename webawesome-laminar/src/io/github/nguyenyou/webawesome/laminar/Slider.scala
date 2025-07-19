@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -24,14 +25,6 @@ object Slider extends WebComponent("wa-slider") {
   type Self = Slider.type
 
   type Ref = WaSliderComponent & dom.HTMLElement
-
-  // -- Union Types --
-
-  type SliderOrientation = "horizontal" | "vertical"
-
-  type SliderSize = "small" | "medium" | "large"
-
-  type SliderTooltipPlacement = "top" | "right" | "bottom" | "left"
 
   // -- Events --
 
@@ -80,10 +73,10 @@ object Slider extends WebComponent("wa-slider") {
   lazy val readonly: HtmlAttr[Boolean] = boolAttr("readonly")
 
   /** The orientation of the slider. Valid values: "horizontal", "vertical". */
-  lazy val orientation: HtmlAttr[SliderOrientation] = unionAttr("orientation")
+  lazy val orientation: HtmlAttr[Orientation] = unionAttr("orientation")
 
   /** The slider's size. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[SliderSize] = unionAttr("size")
+  lazy val size: HtmlAttr[ComponentSize] = unionAttr("size")
 
   /** The starting value from which to draw the slider's fill, which is based on its current value. */
   lazy val indicatorOffset: HtmlAttr[Double] = doubleAttr("indicator-offset")
@@ -111,7 +104,7 @@ object Slider extends WebComponent("wa-slider") {
   lazy val tooltipDistance: HtmlAttr[Double] = doubleAttr("tooltip-distance")
 
   /** The placement of the tooltip in reference to the slider's thumb. Valid values: "top", "right", "bottom", "left". */
-  lazy val tooltipPlacement: HtmlAttr[SliderTooltipPlacement] = unionAttr("tooltip-placement")
+  lazy val tooltipPlacement: HtmlAttr[TooltipPlacement] = unionAttr("tooltip-placement")
 
   /** Draws markers at each step along the slider. */
   lazy val withMarkers: HtmlAttr[Boolean] = boolAttr("with-markers")
@@ -243,10 +236,10 @@ object Slider extends WebComponent("wa-slider") {
     var readonly: Boolean
 
     /** The orientation of the slider. Valid values: "horizontal", "vertical". */
-    var orientation: "horizontal" | "vertical"
+    var orientation: Orientation
 
     /** The slider's size. Valid values: "small", "medium", "large". */
-    var size: "small" | "medium" | "large"
+    var size: ComponentSize
 
     /** The starting value from which to draw the slider's fill, which is based on its current value. */
     var indicatorOffset: Double
@@ -274,7 +267,7 @@ object Slider extends WebComponent("wa-slider") {
     var tooltipDistance: Double
 
     /** The placement of the tooltip in reference to the slider's thumb. Valid values: "top", "right", "bottom", "left". */
-    var tooltipPlacement: "top" | "right" | "bottom" | "left"
+    var tooltipPlacement: TooltipPlacement
 
     /** Draws markers at each step along the slider. */
     var withMarkers: Boolean

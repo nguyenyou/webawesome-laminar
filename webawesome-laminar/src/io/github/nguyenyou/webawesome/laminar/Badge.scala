@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -25,21 +26,13 @@ object Badge extends WebComponent("wa-badge") {
 
   type Ref = WaBadgeComponent & dom.HTMLElement
 
-  // -- Union Types --
-
-  type BadgeVariant = "brand" | "neutral" | "success" | "warning" | "danger"
-
-  type BadgeAppearance = "accent" | "filled" | "outlined"
-
-  type BadgeAttention = "none" | "pulse"
-
   // -- Attributes --
 
   /** The badge's theme variant. Defaults to `brand` if not within another element with a variant. Valid values: "brand", "neutral", "success", "warning", "danger". */
-  lazy val variant: HtmlAttr[BadgeVariant] = unionAttr("variant")
+  lazy val variant: HtmlAttr[ThemeVariant] = unionAttr("variant")
 
   /** The badge's visual appearance. Valid values: "accent", "filled", "outlined". */
-  lazy val appearance: HtmlAttr[BadgeAppearance] = unionAttr("appearance")
+  lazy val appearance: HtmlAttr[BadgeExtendedAppearance] = unionAttr("appearance")
 
   /** Draws a pill-style badge with rounded edges. */
   lazy val pill: HtmlAttr[Boolean] = boolAttr("pill")
@@ -70,16 +63,16 @@ object Badge extends WebComponent("wa-badge") {
     this: dom.HTMLElement =>
 
     /** The badge's theme variant. Defaults to `brand` if not within another element with a variant. Valid values: "brand", "neutral", "success", "warning", "danger". */
-    var variant: "brand" | "neutral" | "success" | "warning" | "danger"
+    var variant: ThemeVariant
 
     /** The badge's visual appearance. Valid values: "accent", "filled", "outlined". */
-    var appearance: "accent" | "filled" | "outlined"
+    var appearance: BadgeExtendedAppearance
 
     /** Draws a pill-style badge with rounded edges. */
     var pill: Boolean
 
     /** Makes the badge pulsate to draw attention. Valid values: "none", "pulse". */
-    var attention: "none" | "pulse"
+    var attention: BadgeAttention
 
   }
 }

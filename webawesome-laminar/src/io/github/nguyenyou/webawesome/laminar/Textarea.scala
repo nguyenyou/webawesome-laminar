@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -24,20 +25,6 @@ object Textarea extends WebComponent("wa-textarea") {
   type Self = Textarea.type
 
   type Ref = WaTextareaComponent & dom.HTMLElement
-
-  // -- Union Types --
-
-  type TextareaSize = "small" | "medium" | "large"
-
-  type TextareaAppearance = "filled" | "outlined"
-
-  type TextareaResize = "none" | "vertical" | "horizontal" | "both" | "auto"
-
-  type TextareaAutocapitalize = "off" | "none" | "on" | "sentences" | "words" | "characters"
-
-  type TextareaEnterkeyhint = "enter" | "done" | "go" | "next" | "previous" | "search" | "send"
-
-  type TextareaInputmode = "none" | "text" | "decimal" | "numeric" | "tel" | "search" | "email" | "url"
 
   // -- Events --
 
@@ -67,10 +54,10 @@ object Textarea extends WebComponent("wa-textarea") {
   lazy val value: HtmlAttr[String] = stringAttr("value")
 
   /** The textarea's size. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[TextareaSize] = unionAttr("size")
+  lazy val size: HtmlAttr[ComponentSize] = unionAttr("size")
 
   /** The textarea's visual appearance. Valid values: "filled", "outlined". */
-  lazy val appearance: HtmlAttr[TextareaAppearance] = unionAttr("appearance")
+  lazy val appearance: HtmlAttr[FilledOutlineAppearance] = unionAttr("appearance")
 
   /** The textarea's label. If you need to display HTML, use the `label` slot instead. */
   lazy val label: HtmlAttr[String] = stringAttr("label")
@@ -108,7 +95,7 @@ object Textarea extends WebComponent("wa-textarea") {
   lazy val maxlength: HtmlAttr[Double] = doubleAttr("maxlength")
 
   /** Controls whether and how text input is automatically capitalized as it is entered by the user. Valid values: "off", "none", "on", "sentences", "words", "characters". */
-  lazy val autocapitalize: HtmlAttr[TextareaAutocapitalize] = unionAttr("autocapitalize")
+  lazy val autocapitalize: HtmlAttr[Autocapitalize] = unionAttr("autocapitalize")
 
   /** Indicates whether the browser's autocorrect feature is on or off. */
   lazy val autocorrect: HtmlAttr[String] = stringAttr("autocorrect")
@@ -121,14 +108,14 @@ object Textarea extends WebComponent("wa-textarea") {
   lazy val autofocus: HtmlAttr[Boolean] = boolAttr("autofocus")
 
   /** Used to customize the label or icon of the Enter key on virtual keyboards. Valid values: "enter", "done", "go", "next", "previous", "search", "send". */
-  lazy val enterkeyhint: HtmlAttr[TextareaEnterkeyhint] = unionAttr("enterkeyhint")
+  lazy val enterkeyhint: HtmlAttr[Enterkeyhint] = unionAttr("enterkeyhint")
 
   /** Enables spell checking on the textarea. */
   lazy val spellcheck: HtmlAttr[Boolean] = boolAttr("spellcheck")
 
   /** Tells the browser what type of data will be entered by the user, allowing it to display the appropriate virtual
   keyboard on supportive devices. Valid values: "none", "text", "decimal", "numeric", "tel", "search", "email", "url". */
-  lazy val inputmode: HtmlAttr[TextareaInputmode] = unionAttr("inputmode")
+  lazy val inputmode: HtmlAttr[Inputmode] = unionAttr("inputmode")
 
   /** Used for SSR. If you're slotting in a `label` element, make sure to set this to `true`. */
   lazy val withLabel: HtmlAttr[Boolean] = boolAttr("with-label")
@@ -187,10 +174,10 @@ object Textarea extends WebComponent("wa-textarea") {
     var defaultValue: String
 
     /** The textarea's size. Valid values: "small", "medium", "large". */
-    var size: "small" | "medium" | "large"
+    var size: ComponentSize
 
     /** The textarea's visual appearance. Valid values: "filled", "outlined". */
-    var appearance: "filled" | "outlined"
+    var appearance: FilledOutlineAppearance
 
     /** The textarea's label. If you need to display HTML, use the `label` slot instead. */
     var label: String
@@ -205,7 +192,7 @@ object Textarea extends WebComponent("wa-textarea") {
     var rows: Double
 
     /** Controls how the textarea can be resized. Valid values: "none", "vertical", "horizontal", "both", "auto". */
-    var resize: "none" | "vertical" | "horizontal" | "both" | "auto"
+    var resize: TextareaResize
 
     /** Disables the textarea. */
     var disabled: Boolean
@@ -228,7 +215,7 @@ object Textarea extends WebComponent("wa-textarea") {
     var maxlength: Double
 
     /** Controls whether and how text input is automatically capitalized as it is entered by the user. Valid values: "off", "none", "on", "sentences", "words", "characters". */
-    var autocapitalize: "off" | "none" | "on" | "sentences" | "words" | "characters"
+    var autocapitalize: Autocapitalize
 
     /** Indicates whether the browser's autocorrect feature is on or off. */
     var autocorrect: String
@@ -241,14 +228,14 @@ object Textarea extends WebComponent("wa-textarea") {
     var autofocus: Boolean
 
     /** Used to customize the label or icon of the Enter key on virtual keyboards. Valid values: "enter", "done", "go", "next", "previous", "search", "send". */
-    var enterkeyhint: "enter" | "done" | "go" | "next" | "previous" | "search" | "send"
+    var enterkeyhint: Enterkeyhint
 
     /** Enables spell checking on the textarea. */
     var spellcheck: Boolean
 
     /** Tells the browser what type of data will be entered by the user, allowing it to display the appropriate virtual
     keyboard on supportive devices. Valid values: "none", "text", "decimal", "numeric", "tel", "search", "email", "url". */
-    var inputmode: "none" | "text" | "decimal" | "numeric" | "tel" | "search" | "email" | "url"
+    var inputmode: Inputmode
 
     /** Used for SSR. If you're slotting in a `label` element, make sure to set this to `true`. */
     var withLabel: Boolean

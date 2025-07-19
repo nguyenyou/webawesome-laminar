@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -24,12 +25,6 @@ object Avatar extends WebComponent("wa-avatar") {
   type Self = Avatar.type
 
   type Ref = WaAvatarComponent & dom.HTMLElement
-
-  // -- Union Types --
-
-  type AvatarLoading = "eager" | "lazy"
-
-  type AvatarShape = "circle" | "square" | "rounded"
 
   // -- Events --
 
@@ -48,7 +43,7 @@ object Avatar extends WebComponent("wa-avatar") {
   lazy val initials: HtmlAttr[String] = stringAttr("initials")
 
   /** Indicates how the browser should load the image. Valid values: "eager", "lazy". */
-  lazy val loading: HtmlAttr[AvatarLoading] = unionAttr("loading")
+  lazy val loading: HtmlAttr[LoadingStrategy] = unionAttr("loading")
 
   /** The shape of the avatar. Valid values: "circle", "square", "rounded". */
   lazy val shape: HtmlAttr[AvatarShape] = unionAttr("shape")
@@ -100,10 +95,10 @@ object Avatar extends WebComponent("wa-avatar") {
     var initials: String
 
     /** Indicates how the browser should load the image. Valid values: "eager", "lazy". */
-    var loading: "eager" | "lazy"
+    var loading: LoadingStrategy
 
     /** The shape of the avatar. Valid values: "circle", "square", "rounded". */
-    var shape: "circle" | "square" | "rounded"
+    var shape: AvatarShape
 
     def handleImageChange(): js.Any = js.native
 

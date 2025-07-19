@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -25,12 +26,6 @@ object TabGroup extends WebComponent("wa-tab-group") {
 
   type Ref = WaTabGroupComponent & dom.HTMLElement
 
-  // -- Union Types --
-
-  type TabGroupPlacement = "top" | "bottom" | "start" | "end"
-
-  type TabGroupActivation = "auto" | "manual"
-
   // -- Events --
 
   /** Emitted when a tab is shown. */
@@ -45,7 +40,7 @@ object TabGroup extends WebComponent("wa-tab-group") {
   lazy val active: HtmlAttr[String] = stringAttr("active")
 
   /** The placement of the tabs. Valid values: "top", "bottom", "start", "end". */
-  lazy val placement: HtmlAttr[TabGroupPlacement] = unionAttr("placement")
+  lazy val placement: HtmlAttr[ComponentPlacement] = unionAttr("placement")
 
   /** When set to auto, navigating tabs with the arrow keys will instantly show the corresponding tab panel. When set to
   manual, the tab will receive focus but will not show until the user presses spacebar or enter. Valid values: "auto", "manual". */
@@ -119,11 +114,11 @@ object TabGroup extends WebComponent("wa-tab-group") {
     var active: String
 
     /** The placement of the tabs. Valid values: "top", "bottom", "start", "end". */
-    var placement: "top" | "bottom" | "start" | "end"
+    var placement: ComponentPlacement
 
     /** When set to auto, navigating tabs with the arrow keys will instantly show the corresponding tab panel. When set to
     manual, the tab will receive focus but will not show until the user presses spacebar or enter. Valid values: "auto", "manual". */
-    var activation: "auto" | "manual"
+    var activation: TabGroupActivation
 
     /** Disables the scroll arrows that appear when tabs overflow. */
     var withoutScrollControls: Boolean

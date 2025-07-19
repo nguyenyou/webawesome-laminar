@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -24,12 +25,6 @@ object Page extends WebComponent("wa-page") {
   type Self = Page.type
 
   type Ref = WaPageComponent & dom.HTMLElement
-
-  // -- Union Types --
-
-  type PageView = "mobile" | "desktop"
-
-  type PageNavigationPlacement = "start" | "end"
 
   // -- Attributes --
 
@@ -200,7 +195,7 @@ object Page extends WebComponent("wa-page") {
     default), it is considered to be a "desktop" view. The view is merely a way to distinguish when to show/hide the
     navigation. You can use additional media queries to make other adjustments to content as necessary.
     The default is "desktop" because the "mobile navigation drawer" isn't accessible via SSR due to drawer requiring JS. Valid values: "mobile", "desktop". */
-    var view: "mobile" | "desktop"
+    var view: PageView
 
     /** Whether or not the navigation drawer is open. Note, the navigation drawer is only "open" on mobile views. */
     var navOpen: Boolean
@@ -210,7 +205,7 @@ object Page extends WebComponent("wa-page") {
     var mobileBreakpoint: String
 
     /** Where to place the navigation when in the mobile viewport. Valid values: "start", "end". */
-    var navigationPlacement: "start" | "end"
+    var navigationPlacement: PageNavigationPlacement
 
     /** Determines whether or not to hide the default hamburger button.
     This will automatically flip to "true" if you add an element with `data-toggle-nav` anywhere in the element light DOM.

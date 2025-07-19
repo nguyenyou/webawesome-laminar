@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -24,10 +25,6 @@ object Drawer extends WebComponent("wa-drawer") {
   type Self = Drawer.type
 
   type Ref = WaDrawerComponent & dom.HTMLElement
-
-  // -- Union Types --
-
-  type DrawerPlacement = "top" | "end" | "bottom" | "start"
 
   // -- Events --
 
@@ -53,7 +50,7 @@ object Drawer extends WebComponent("wa-drawer") {
   lazy val label: HtmlAttr[String] = stringAttr("label")
 
   /** The direction from which the drawer will open. Valid values: "top", "end", "bottom", "start". */
-  lazy val placement: HtmlAttr[DrawerPlacement] = unionAttr("placement")
+  lazy val placement: HtmlAttr[ComponentPlacement] = unionAttr("placement")
 
   /** Disables the header. This will also remove the default close button. */
   lazy val withoutHeader: HtmlAttr[Boolean] = boolAttr("without-header")
@@ -136,7 +133,7 @@ object Drawer extends WebComponent("wa-drawer") {
     var label: String
 
     /** The direction from which the drawer will open. Valid values: "top", "end", "bottom", "start". */
-    var placement: "top" | "end" | "bottom" | "start"
+    var placement: ComponentPlacement
 
     /** Disables the header. This will also remove the default close button. */
     var withoutHeader: Boolean

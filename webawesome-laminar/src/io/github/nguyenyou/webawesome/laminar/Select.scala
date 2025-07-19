@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -24,14 +25,6 @@ object Select extends WebComponent("wa-select") {
   type Self = Select.type
 
   type Ref = WaSelectComponent & dom.HTMLElement
-
-  // -- Union Types --
-
-  type SelectSize = "small" | "medium" | "large"
-
-  type SelectAppearance = "filled" | "outlined"
-
-  type SelectPlacement = "top" | "bottom"
 
   // -- Events --
 
@@ -74,7 +67,7 @@ object Select extends WebComponent("wa-select") {
   lazy val value: HtmlAttr[String] = stringAttr("value")
 
   /** The select's size. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[SelectSize] = unionAttr("size")
+  lazy val size: HtmlAttr[ComponentSize] = unionAttr("size")
 
   /** Placeholder text to show as a hint when the select is empty. */
   lazy val placeholder: HtmlAttr[String] = stringAttr("placeholder")
@@ -97,7 +90,7 @@ object Select extends WebComponent("wa-select") {
   lazy val open: HtmlAttr[Boolean] = boolAttr("open")
 
   /** The select's visual appearance. Valid values: "filled", "outlined". */
-  lazy val appearance: HtmlAttr[SelectAppearance] = unionAttr("appearance")
+  lazy val appearance: HtmlAttr[FilledOutlineAppearance] = unionAttr("appearance")
 
   /** Draws a pill-style select with rounded edges. */
   lazy val pill: HtmlAttr[Boolean] = boolAttr("pill")
@@ -232,7 +225,7 @@ object Select extends WebComponent("wa-select") {
     var value: String
 
     /** The select's size. Valid values: "small", "medium", "large". */
-    var size: "small" | "medium" | "large"
+    var size: ComponentSize
 
     /** Placeholder text to show as a hint when the select is empty. */
     var placeholder: String
@@ -255,7 +248,7 @@ object Select extends WebComponent("wa-select") {
     var open: Boolean
 
     /** The select's visual appearance. Valid values: "filled", "outlined". */
-    var appearance: "filled" | "outlined"
+    var appearance: FilledOutlineAppearance
 
     /** Draws a pill-style select with rounded edges. */
     var pill: Boolean
@@ -265,7 +258,7 @@ object Select extends WebComponent("wa-select") {
 
     /** The preferred placement of the select's menu. Note that the actual placement may vary as needed to keep the listbox
     inside of the viewport. Valid values: "top", "bottom". */
-    var placement: "top" | "bottom"
+    var placement: SelectPlacement
 
     /** The select's hint. If you need to display HTML, use the `hint` slot instead. */
     var hint: String

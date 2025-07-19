@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -24,10 +25,6 @@ object Details extends WebComponent("wa-details") {
   type Self = Details.type
 
   type Ref = WaDetailsComponent & dom.HTMLElement
-
-  // -- Union Types --
-
-  type DetailsAppearance = "filled" | "outlined" | "plain"
 
   // -- Events --
 
@@ -133,7 +130,7 @@ object Details extends WebComponent("wa-details") {
     var disabled: Boolean
 
     /** The element's visual appearance. Valid values: "filled", "outlined", "plain". */
-    var appearance: "filled" | "outlined" | "plain"
+    var appearance: DetailsAppearance
 
     def handleOpenChange(): js.Any = js.native
 

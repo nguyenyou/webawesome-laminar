@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -24,12 +25,6 @@ object RadioGroup extends WebComponent("wa-radio-group") {
   type Self = RadioGroup.type
 
   type Ref = WaRadioGroupComponent & dom.HTMLElement
-
-  // -- Union Types --
-
-  type RadioGroupOrientation = "horizontal" | "vertical"
-
-  type RadioGroupSize = "small" | "medium" | "large"
 
   // -- Events --
 
@@ -58,13 +53,13 @@ object RadioGroup extends WebComponent("wa-radio-group") {
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
 
   /** The orientation in which to show radio items. Valid values: "horizontal", "vertical". */
-  lazy val orientation: HtmlAttr[RadioGroupOrientation] = unionAttr("orientation")
+  lazy val orientation: HtmlAttr[Orientation] = unionAttr("orientation")
 
   /** The default value of the form control. Primarily used for resetting the form control. */
   lazy val value: HtmlAttr[String] = stringAttr("value")
 
   /** The radio group's size. This size will be applied to all child radios and radio buttons, except when explicitly overridden. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[RadioGroupSize] = unionAttr("size")
+  lazy val size: HtmlAttr[ComponentSize] = unionAttr("size")
 
   /** Ensures a child radio is checked before allowing the containing form to submit. */
   lazy val required: HtmlAttr[Boolean] = boolAttr("required")
@@ -134,13 +129,13 @@ object RadioGroup extends WebComponent("wa-radio-group") {
     var disabled: Boolean
 
     /** The orientation in which to show radio items. Valid values: "horizontal", "vertical". */
-    var orientation: "horizontal" | "vertical"
+    var orientation: Orientation
 
     /** The default value of the form control. Primarily used for resetting the form control. */
     var defaultValue: String
 
     /** The radio group's size. This size will be applied to all child radios and radio buttons, except when explicitly overridden. Valid values: "small", "medium", "large". */
-    var size: "small" | "medium" | "large"
+    var size: ComponentSize
 
     /** Ensures a child radio is checked before allowing the containing form to submit. */
     var required: Boolean

@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -25,28 +26,6 @@ object FormatDate extends WebComponent("wa-format-date") {
 
   type Ref = WaFormatDateComponent & dom.HTMLElement
 
-  // -- Union Types --
-
-  type FormatDateWeekday = "narrow" | "short" | "long"
-
-  type FormatDateEra = "narrow" | "short" | "long"
-
-  type FormatDateYear = "numeric" | "2-digit"
-
-  type FormatDateMonth = "numeric" | "2-digit" | "narrow" | "short" | "long"
-
-  type FormatDateDay = "numeric" | "2-digit"
-
-  type FormatDateHour = "numeric" | "2-digit"
-
-  type FormatDateMinute = "numeric" | "2-digit"
-
-  type FormatDateSecond = "numeric" | "2-digit"
-
-  type FormatDateTimeZoneName = "short" | "long"
-
-  type FormatDateHourFormat = "auto" | "12" | "24"
-
   // -- Attributes --
 
   /** The date/time to format. If not set, the current date and time will be used. When passing a string, it's strongly
@@ -55,28 +34,28 @@ object FormatDate extends WebComponent("wa-format-date") {
   lazy val date: HtmlAttr[String] = stringAttr("date")
 
   /** The format for displaying the weekday. Valid values: "narrow", "short", "long". */
-  lazy val weekday: HtmlAttr[FormatDateWeekday] = unionAttr("weekday")
+  lazy val weekday: HtmlAttr[DisplayFormat] = unionAttr("weekday")
 
   /** The format for displaying the era. Valid values: "narrow", "short", "long". */
-  lazy val era: HtmlAttr[FormatDateEra] = unionAttr("era")
+  lazy val era: HtmlAttr[DisplayFormat] = unionAttr("era")
 
   /** The format for displaying the year. Valid values: "numeric", "2-digit". */
-  lazy val year: HtmlAttr[FormatDateYear] = unionAttr("year")
+  lazy val year: HtmlAttr[DateYearFormat] = unionAttr("year")
 
   /** The format for displaying the month. Valid values: "numeric", "2-digit", "narrow", "short", "long". */
-  lazy val month: HtmlAttr[FormatDateMonth] = unionAttr("month")
+  lazy val month: HtmlAttr[FormatDateDateMonthFormat] = unionAttr("month")
 
   /** The format for displaying the day. Valid values: "numeric", "2-digit". */
-  lazy val day: HtmlAttr[FormatDateDay] = unionAttr("day")
+  lazy val day: HtmlAttr[DateYearFormat] = unionAttr("day")
 
   /** The format for displaying the hour. Valid values: "numeric", "2-digit". */
-  lazy val hour: HtmlAttr[FormatDateHour] = unionAttr("hour")
+  lazy val hour: HtmlAttr[DateYearFormat] = unionAttr("hour")
 
   /** The format for displaying the minute. Valid values: "numeric", "2-digit". */
-  lazy val minute: HtmlAttr[FormatDateMinute] = unionAttr("minute")
+  lazy val minute: HtmlAttr[DateYearFormat] = unionAttr("minute")
 
   /** The format for displaying the second. Valid values: "numeric", "2-digit". */
-  lazy val second: HtmlAttr[FormatDateSecond] = unionAttr("second")
+  lazy val second: HtmlAttr[DateYearFormat] = unionAttr("second")
 
   /** The format for displaying the time. Valid values: "short", "long". */
   lazy val timeZoneName: HtmlAttr[FormatDateTimeZoneName] = unionAttr("time-zone-name")
@@ -98,37 +77,37 @@ object FormatDate extends WebComponent("wa-format-date") {
     var date: String
 
     /** The format for displaying the weekday. Valid values: "narrow", "short", "long". */
-    var weekday: "narrow" | "short" | "long"
+    var weekday: DisplayFormat
 
     /** The format for displaying the era. Valid values: "narrow", "short", "long". */
-    var era: "narrow" | "short" | "long"
+    var era: DisplayFormat
 
     /** The format for displaying the year. Valid values: "numeric", "2-digit". */
-    var year: "numeric" | "2-digit"
+    var year: DateYearFormat
 
     /** The format for displaying the month. Valid values: "numeric", "2-digit", "narrow", "short", "long". */
-    var month: "numeric" | "2-digit" | "narrow" | "short" | "long"
+    var month: FormatDateDateMonthFormat
 
     /** The format for displaying the day. Valid values: "numeric", "2-digit". */
-    var day: "numeric" | "2-digit"
+    var day: DateYearFormat
 
     /** The format for displaying the hour. Valid values: "numeric", "2-digit". */
-    var hour: "numeric" | "2-digit"
+    var hour: DateYearFormat
 
     /** The format for displaying the minute. Valid values: "numeric", "2-digit". */
-    var minute: "numeric" | "2-digit"
+    var minute: DateYearFormat
 
     /** The format for displaying the second. Valid values: "numeric", "2-digit". */
-    var second: "numeric" | "2-digit"
+    var second: DateYearFormat
 
     /** The format for displaying the time. Valid values: "short", "long". */
-    var timeZoneName: "short" | "long"
+    var timeZoneName: FormatDateTimeZoneName
 
     /** The time zone to express the time in. */
     var timeZone: String
 
     /** The format for displaying the hour. Valid values: "auto", "12", "24". */
-    var hourFormat: "auto" | "12" | "24"
+    var hourFormat: FormatDateHourFormat
 
   }
 }

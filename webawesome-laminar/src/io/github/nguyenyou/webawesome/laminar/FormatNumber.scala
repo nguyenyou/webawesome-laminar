@@ -8,6 +8,7 @@ import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.|
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -25,23 +26,17 @@ object FormatNumber extends WebComponent("wa-format-number") {
 
   type Ref = WaFormatNumberComponent & dom.HTMLElement
 
-  // -- Union Types --
-
-  type FormatNumberType = "currency" | "decimal" | "percent"
-
-  type FormatNumberCurrencyDisplay = "symbol" | "narrowSymbol" | "code" | "name"
-
   // -- Attributes --
 
   /** The number to format. */
   lazy val value: HtmlAttr[Double] = doubleAttr("value")
 
   /** The formatting style to use. Valid values: "currency", "decimal", "percent". */
-  lazy val `type`: HtmlAttr[FormatNumberType] = unionAttr("type")
+  lazy val `type`: HtmlAttr[FormatNumberElementType] = unionAttr("type")
 
-  lazy val typ: HtmlAttr[FormatNumberType] = `type`
+  lazy val typ: HtmlAttr[FormatNumberElementType] = `type`
 
-  lazy val tpe: HtmlAttr[FormatNumberType] = `type`
+  lazy val tpe: HtmlAttr[FormatNumberElementType] = `type`
 
   /** Turns off grouping separators. */
   lazy val withoutGrouping: HtmlAttr[Boolean] = boolAttr("without-grouping")
@@ -81,7 +76,7 @@ object FormatNumber extends WebComponent("wa-format-number") {
     var value: Double
 
     /** The formatting style to use. Valid values: "currency", "decimal", "percent". */
-    var `type`: "currency" | "decimal" | "percent"
+    var `type`: FormatNumberElementType
 
     /** Turns off grouping separators. */
     var withoutGrouping: Boolean
@@ -90,7 +85,7 @@ object FormatNumber extends WebComponent("wa-format-number") {
     var currency: String
 
     /** How to display the currency. Valid values: "symbol", "narrowSymbol", "code", "name". */
-    var currencyDisplay: "symbol" | "narrowSymbol" | "code" | "name"
+    var currencyDisplay: FormatNumberCurrencyDisplay
 
     /** The minimum number of integer digits to use. Possible values are 1-21. */
     var minimumIntegerDigits: Double
