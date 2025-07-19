@@ -1,0 +1,118 @@
+package io.github.nguyenyou.webawesome.laminar
+
+import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
+import com.raquo.laminar.api.L
+import com.raquo.laminar.nodes.Slot
+import org.scalajs.dom
+
+import scala.scalajs.js
+import scala.scalajs.js.|
+import scala.scalajs.js.annotation.JSImport
+
+// This file is generated at compile-time by WebAwesome generator
+
+/**
+  * Radios allow the user to select a single option from a group.
+  *
+  * [[https://backers.webawesome.com/docs/components/radio WebAwesome  docs]]
+  */
+object Radio extends WebComponent("wa-radio") {
+
+  @JSImport("@awesome.me/webawesome/dist/components/radio/radio.js", JSImport.Namespace)
+  @js.native object RawImport extends js.Object
+
+  type Self = Radio.type
+
+  type Ref = WaRadioComponent & dom.HTMLElement
+
+  // -- Events --
+
+  /** Emitted when the control loses focus. */
+  lazy val blur: EventProp[dom.Event] = eventProp("blur")
+
+  /** Emitted when the control gains focus. */
+  lazy val focus: EventProp[dom.Event] = eventProp("focus")
+
+  // -- Attributes --
+
+  /** The string pointing to a form's id. */
+  lazy val form: HtmlAttr[String] = stringAttr("form")
+
+  /** The radio's value. When selected, the radio group will receive this value. */
+  lazy val value: HtmlAttr[String] = stringAttr("value")
+
+  /** The radio's value. When selected, the radio group will receive this value. */
+  lazy val appearance: HtmlAttr[String] = stringAttr("appearance")
+
+  /** The radio's size. When used inside a radio group, the size will be determined by the radio group's size so this
+  attribute can typically be omitted. */
+  lazy val size: HtmlAttr[String] = stringAttr("size")
+
+  /** Disables the radio. */
+  lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
+
+  // -- Props --
+
+  /** The value of the component. */
+  lazy val valueProp: HtmlProp[String, ?] = L.value
+
+  // -- Slots --
+
+  object slots {
+    /** The radio's label. Note: You can just say `_ => element` instead of `_.slots.default(element)` */
+    lazy val default: Slot = Slot("")
+
+  }
+
+  // -- CSS Vars --
+
+  /** For documentation only. You need to style these from a CSS stylesheet. */
+  object cssVars {
+    /** The color of the checked icon. */
+    lazy val checkedIconColor: String = "--checked-icon-color"
+
+    /** The size of the checked icon relative to the radio. */
+    lazy val checkedIconScale: String = "--checked-icon-scale"
+
+  }
+
+  // -- CSS Parts --
+
+  /** For documentation only. You need to style these from a CSS stylesheet. */
+  object cssParts {
+    /** The circular container that wraps the radio's checked state. */
+    lazy val control: String = "control"
+
+    /** The checked icon. */
+    lazy val checkedIcon: String = "checked-icon"
+
+    /** The container that wraps the radio's label. */
+    lazy val label: String = "label"
+
+  }
+
+  // -- Element type --
+
+  @js.native trait WaRadioComponent extends js.Object {
+    this: dom.HTMLElement =>
+
+    /** The string pointing to a form's id. */
+    var form: String
+
+    /** The radio's value. When selected, the radio group will receive this value. */
+    var value: String
+
+    /** The radio's value. When selected, the radio group will receive this value. */
+    var appearance: String
+
+    /** The radio's size. When used inside a radio group, the size will be determined by the radio group's size so this
+    attribute can typically be omitted. */
+    var size: String
+
+    /** Disables the radio. */
+    var disabled: Boolean
+
+    def setValue(): Unit = js.native
+
+  }
+}

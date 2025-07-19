@@ -6,8 +6,6 @@ import com.raquo.laminar.api.L.*
 object Main {
   @main
   def run(): Unit = {
-    render(dom.document.getElementById("app"), div("Mill + Vite + Scala.js"))
+    render(dom.document.getElementById("app"), App()())
   }
-
-  def hello(): String = "Hello World"
 }

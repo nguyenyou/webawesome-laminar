@@ -1,0 +1,407 @@
+{
+  "totalComponents": 57,
+  "totalAttributes": 402,
+  "totalEvents": 137,
+  "totalSlots": 121,
+  "components": [
+    {
+      "name": "AnimatedImage",
+      "tagName": "wa-animated-image",
+      "attributes": 3,
+      "events": 3,
+      "slots": 2
+    },
+    {
+      "name": "Animation",
+      "tagName": "wa-animation",
+      "attributes": 11,
+      "events": 4,
+      "slots": 1
+    },
+    {
+      "name": "Avatar",
+      "tagName": "wa-avatar",
+      "attributes": 5,
+      "events": 2,
+      "slots": 1
+    },
+    {
+      "name": "Badge",
+      "tagName": "wa-badge",
+      "attributes": 4,
+      "events": 0,
+      "slots": 1
+    },
+    {
+      "name": "Button",
+      "tagName": "wa-button",
+      "attributes": 21,
+      "events": 4,
+      "slots": 3
+    },
+    {
+      "name": "BreadcrumbItem",
+      "tagName": "wa-breadcrumb-item",
+      "attributes": 3,
+      "events": 0,
+      "slots": 4
+    },
+    {
+      "name": "ButtonGroup",
+      "tagName": "wa-button-group",
+      "attributes": 4,
+      "events": 0,
+      "slots": 1
+    },
+    {
+      "name": "Breadcrumb",
+      "tagName": "wa-breadcrumb",
+      "attributes": 1,
+      "events": 0,
+      "slots": 2
+    },
+    {
+      "name": "Callout",
+      "tagName": "wa-callout",
+      "attributes": 3,
+      "events": 0,
+      "slots": 2
+    },
+    {
+      "name": "Card",
+      "tagName": "wa-card",
+      "attributes": 4,
+      "events": 0,
+      "slots": 4
+    },
+    {
+      "name": "Carousel",
+      "tagName": "wa-carousel",
+      "attributes": 11,
+      "events": 2,
+      "slots": 3
+    },
+    {
+      "name": "CarouselItem",
+      "tagName": "wa-carousel-item",
+      "attributes": 0,
+      "events": 0,
+      "slots": 1
+    },
+    {
+      "name": "Checkbox",
+      "tagName": "wa-checkbox",
+      "attributes": 10,
+      "events": 5,
+      "slots": 2
+    },
+    {
+      "name": "ColorPicker",
+      "tagName": "wa-color-picker",
+      "attributes": 16,
+      "events": 10,
+      "slots": 2
+    },
+    {
+      "name": "Comparison",
+      "tagName": "wa-comparison",
+      "attributes": 1,
+      "events": 1,
+      "slots": 3
+    },
+    {
+      "name": "CopyButton",
+      "tagName": "wa-copy-button",
+      "attributes": 8,
+      "events": 3,
+      "slots": 3
+    },
+    {
+      "name": "Details",
+      "tagName": "wa-details",
+      "attributes": 5,
+      "events": 5,
+      "slots": 4
+    },
+    {
+      "name": "Dialog",
+      "tagName": "wa-dialog",
+      "attributes": 4,
+      "events": 5,
+      "slots": 4
+    },
+    {
+      "name": "Divider",
+      "tagName": "wa-divider",
+      "attributes": 1,
+      "events": 0,
+      "slots": 0
+    },
+    {
+      "name": "Drawer",
+      "tagName": "wa-drawer",
+      "attributes": 5,
+      "events": 5,
+      "slots": 4
+    },
+    {
+      "name": "Dropdown",
+      "tagName": "wa-dropdown",
+      "attributes": 5,
+      "events": 6,
+      "slots": 2
+    },
+    {
+      "name": "DropdownItem",
+      "tagName": "wa-dropdown-item",
+      "attributes": 6,
+      "events": 2,
+      "slots": 4
+    },
+    {
+      "name": "FormatBytes",
+      "tagName": "wa-format-bytes",
+      "attributes": 3,
+      "events": 0,
+      "slots": 0
+    },
+    {
+      "name": "FormatDate",
+      "tagName": "wa-format-date",
+      "attributes": 12,
+      "events": 0,
+      "slots": 0
+    },
+    {
+      "name": "FormatNumber",
+      "tagName": "wa-format-number",
+      "attributes": 10,
+      "events": 0,
+      "slots": 0
+    },
+    {
+      "name": "Icon",
+      "tagName": "wa-icon",
+      "attributes": 7,
+      "events": 3,
+      "slots": 0
+    },
+    {
+      "name": "Include",
+      "tagName": "wa-include",
+      "attributes": 3,
+      "events": 3,
+      "slots": 0
+    },
+    {
+      "name": "Input",
+      "tagName": "wa-input",
+      "attributes": 31,
+      "events": 7,
+      "slots": 7
+    },
+    {
+      "name": "MutationObserver",
+      "tagName": "wa-mutation-observer",
+      "attributes": 6,
+      "events": 1,
+      "slots": 1
+    },
+    {
+      "name": "Option",
+      "tagName": "wa-option",
+      "attributes": 4,
+      "events": 0,
+      "slots": 3
+    },
+    {
+      "name": "Page",
+      "tagName": "wa-page",
+      "attributes": 5,
+      "events": 0,
+      "slots": 15
+    },
+    {
+      "name": "Popover",
+      "tagName": "wa-popover",
+      "attributes": 5,
+      "events": 5,
+      "slots": 1
+    },
+    {
+      "name": "Popup",
+      "tagName": "wa-popup",
+      "attributes": 22,
+      "events": 2,
+      "slots": 2
+    },
+    {
+      "name": "ProgressBar",
+      "tagName": "wa-progress-bar",
+      "attributes": 3,
+      "events": 0,
+      "slots": 1
+    },
+    {
+      "name": "ProgressRing",
+      "tagName": "wa-progress-ring",
+      "attributes": 2,
+      "events": 0,
+      "slots": 1
+    },
+    {
+      "name": "QrCode",
+      "tagName": "wa-qr-code",
+      "attributes": 7,
+      "events": 0,
+      "slots": 0
+    },
+    {
+      "name": "Radio",
+      "tagName": "wa-radio",
+      "attributes": 5,
+      "events": 2,
+      "slots": 1
+    },
+    {
+      "name": "RadioGroup",
+      "tagName": "wa-radio-group",
+      "attributes": 10,
+      "events": 3,
+      "slots": 3
+    },
+    {
+      "name": "Rating",
+      "tagName": "wa-rating",
+      "attributes": 8,
+      "events": 3,
+      "slots": 0
+    },
+    {
+      "name": "RelativeTime",
+      "tagName": "wa-relative-time",
+      "attributes": 4,
+      "events": 0,
+      "slots": 0
+    },
+    {
+      "name": "ResizeObserver",
+      "tagName": "wa-resize-observer",
+      "attributes": 1,
+      "events": 2,
+      "slots": 1
+    },
+    {
+      "name": "Scroller",
+      "tagName": "wa-scroller",
+      "attributes": 3,
+      "events": 0,
+      "slots": 1
+    },
+    {
+      "name": "Select",
+      "tagName": "wa-select",
+      "attributes": 18,
+      "events": 11,
+      "slots": 7
+    },
+    {
+      "name": "Skeleton",
+      "tagName": "wa-skeleton",
+      "attributes": 1,
+      "events": 0,
+      "slots": 0
+    },
+    {
+      "name": "Slider",
+      "tagName": "wa-slider",
+      "attributes": 22,
+      "events": 5,
+      "slots": 3
+    },
+    {
+      "name": "Spinner",
+      "tagName": "wa-spinner",
+      "attributes": 0,
+      "events": 0,
+      "slots": 0
+    },
+    {
+      "name": "SplitPanel",
+      "tagName": "wa-split-panel",
+      "attributes": 7,
+      "events": 2,
+      "slots": 3
+    },
+    {
+      "name": "Switch",
+      "tagName": "wa-switch",
+      "attributes": 10,
+      "events": 5,
+      "slots": 2
+    },
+    {
+      "name": "Tab",
+      "tagName": "wa-tab",
+      "attributes": 2,
+      "events": 0,
+      "slots": 1
+    },
+    {
+      "name": "TabGroup",
+      "tagName": "wa-tab-group",
+      "attributes": 4,
+      "events": 3,
+      "slots": 2
+    },
+    {
+      "name": "TabPanel",
+      "tagName": "wa-tab-panel",
+      "attributes": 2,
+      "events": 0,
+      "slots": 1
+    },
+    {
+      "name": "Tag",
+      "tagName": "wa-tag",
+      "attributes": 5,
+      "events": 2,
+      "slots": 1
+    },
+    {
+      "name": "Textarea",
+      "tagName": "wa-textarea",
+      "attributes": 25,
+      "events": 5,
+      "slots": 2
+    },
+    {
+      "name": "Tooltip",
+      "tagName": "wa-tooltip",
+      "attributes": 9,
+      "events": 5,
+      "slots": 1
+    },
+    {
+      "name": "Tree",
+      "tagName": "wa-tree",
+      "attributes": 1,
+      "events": 2,
+      "slots": 3
+    },
+    {
+      "name": "TreeItem",
+      "tagName": "wa-tree-item",
+      "attributes": 4,
+      "events": 7,
+      "slots": 3
+    },
+    {
+      "name": "ZoomableFrame",
+      "tagName": "wa-zoomable-frame",
+      "attributes": 10,
+      "events": 2,
+      "slots": 2
+    }
+  ]
+}

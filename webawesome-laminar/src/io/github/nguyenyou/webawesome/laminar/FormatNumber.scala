@@ -1,0 +1,105 @@
+package io.github.nguyenyou.webawesome.laminar
+
+import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
+import com.raquo.laminar.api.L
+import com.raquo.laminar.nodes.Slot
+import org.scalajs.dom
+
+import scala.scalajs.js
+import scala.scalajs.js.|
+import scala.scalajs.js.annotation.JSImport
+
+// This file is generated at compile-time by WebAwesome generator
+
+/**
+  * Formats a number using the specified locale and options.
+  *
+  * [[https://backers.webawesome.com/docs/components/format-number WebAwesome  docs]]
+  */
+object FormatNumber extends WebComponent("wa-format-number") {
+
+  @JSImport("@awesome.me/webawesome/dist/components/format-number/format-number.js", JSImport.Namespace)
+  @js.native object RawImport extends js.Object
+
+  type Self = FormatNumber.type
+
+  type Ref = WaFormatNumberComponent & dom.HTMLElement
+
+  // -- Attributes --
+
+  /** The number to format. */
+  lazy val value: HtmlAttr[Double] = doubleAttr("value")
+
+  /** The formatting style to use. */
+  lazy val `type`: HtmlAttr[String] = stringAttr("type")
+
+  lazy val typ: HtmlAttr[String] = `type`
+
+  lazy val tpe: HtmlAttr[String] = `type`
+
+  /** Turns off grouping separators. */
+  lazy val withoutGrouping: HtmlAttr[Boolean] = boolAttr("without-grouping")
+
+  /** The [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code to use when formatting. */
+  lazy val currency: HtmlAttr[String] = stringAttr("currency")
+
+  /** How to display the currency. */
+  lazy val currencyDisplay: HtmlAttr[String] = stringAttr("currency-display")
+
+  /** The minimum number of integer digits to use. Possible values are 1-21. */
+  lazy val minimumIntegerDigits: HtmlAttr[Double] = doubleAttr("minimum-integer-digits")
+
+  /** The minimum number of fraction digits to use. Possible values are 0-100. */
+  lazy val minimumFractionDigits: HtmlAttr[Double] = doubleAttr("minimum-fraction-digits")
+
+  /** The maximum number of fraction digits to use. Possible values are 0-100. */
+  lazy val maximumFractionDigits: HtmlAttr[Double] = doubleAttr("maximum-fraction-digits")
+
+  /** The minimum number of significant digits to use. Possible values are 1-21. */
+  lazy val minimumSignificantDigits: HtmlAttr[Double] = doubleAttr("minimum-significant-digits")
+
+  /** The maximum number of significant digits to use,. Possible values are 1-21. */
+  lazy val maximumSignificantDigits: HtmlAttr[Double] = doubleAttr("maximum-significant-digits")
+
+  // -- Props --
+
+  /** The value of the component. */
+  lazy val valueProp: HtmlProp[String, ?] = L.value
+
+  // -- Element type --
+
+  @js.native trait WaFormatNumberComponent extends js.Object {
+    this: dom.HTMLElement =>
+
+    /** The number to format. */
+    var value: Double
+
+    /** The formatting style to use. */
+    var `type`: String
+
+    /** Turns off grouping separators. */
+    var withoutGrouping: Boolean
+
+    /** The [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code to use when formatting. */
+    var currency: String
+
+    /** How to display the currency. */
+    var currencyDisplay: String
+
+    /** The minimum number of integer digits to use. Possible values are 1-21. */
+    var minimumIntegerDigits: Double
+
+    /** The minimum number of fraction digits to use. Possible values are 0-100. */
+    var minimumFractionDigits: Double
+
+    /** The maximum number of fraction digits to use. Possible values are 0-100. */
+    var maximumFractionDigits: Double
+
+    /** The minimum number of significant digits to use. Possible values are 1-21. */
+    var minimumSignificantDigits: Double
+
+    /** The maximum number of significant digits to use,. Possible values are 1-21. */
+    var maximumSignificantDigits: Double
+
+  }
+}

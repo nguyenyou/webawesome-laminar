@@ -9,7 +9,7 @@ const workspaceDir = path.resolve(__dirname, '..');
 
 const workspacePkg = path.resolve(workspaceDir, 'package.json');
 
-const webawesomeLaminarDir = path.resolve(workspaceDir, 'webawesome-laminar/io/github/nguyenyou/webawesome/laminar');
+const webawesomeLaminarDir = path.resolve(workspaceDir, 'webawesome-laminar/src/io/github/nguyenyou/webawesome/laminar');
 
 export function writeFile(filePath: string, content: string): Promise<void> {
     return fs.writeFile(filePath, content, { encoding: 'utf8' });

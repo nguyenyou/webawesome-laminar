@@ -1,7 +1,7 @@
-package com.raquo.laminar.shoelace.sl
+package io.github.nguyenyou.webawesome.laminar
 
 import com.raquo.laminar.api.Laminar
-import com.raquo.laminar.keys.{EventProcessor, EventProp, HtmlProp}
+import com.raquo.laminar.keys.{EventProcessor, EventProp, HtmlProp, HtmlAttr}
 import com.raquo.laminar.modifiers.Modifier
 import com.raquo.laminar.nodes.ReactiveHtmlElement
 import com.raquo.laminar.tags.CustomHtmlTag
@@ -9,8 +9,8 @@ import org.scalajs.dom
 
 import scala.scalajs.js
 
-/** Base "trait" for all web components. */
-abstract class WebComponent(tagName: String) extends CommonTypes { this: Self =>
+/** Base trait for all WebAwesome components. */
+abstract class WebComponent(tagName: String) { this: Self =>
   
   type Self
   
@@ -33,7 +33,7 @@ abstract class WebComponent(tagName: String) extends CommonTypes { this: Self =>
   protected lazy val tag: CustomHtmlTag[Ref] = new CustomHtmlTag(tagName)
 
   protected def tagWithControlledInput[Ref <: dom.html.Element, A, Ev <: dom.Event](
-    prop: HtmlProp[A, _],
+    prop: HtmlProp[A, ?],
     initial: A,
     eventProp: EventProp[Ev]
   ): CustomHtmlTag[Ref] = {
@@ -42,6 +42,12 @@ abstract class WebComponent(tagName: String) extends CommonTypes { this: Self =>
 
   // Mark imported JS object as used, to prevent dead code elimination
   @inline protected def useImport(importObject: js.Any): Unit = ()
+
+  // Helper methods for creating attributes and events
+  protected def stringAttr(name: String): HtmlAttr[String] = new HtmlAttr(name, com.raquo.laminar.codecs.StringAsIsCodec)
+  protected def boolAttr(name: String): HtmlAttr[Boolean] = new HtmlAttr(name, com.raquo.laminar.codecs.BooleanAsAttrPresenceCodec)
+  protected def doubleAttr(name: String): HtmlAttr[Double] = new HtmlAttr(name, com.raquo.laminar.codecs.DoubleAsStringCodec)
+  protected def eventProp(name: String): EventProp[dom.Event] = new EventProp(name)
 
   /** Optional syntax for using built-in Laminar events: `_.on(onDblClick.preventDefault) --> ...` */
   def on[Ev <: dom.Event, V](ev: EventProcessor[Ev, V]): EventProcessor[Ev, V] = ev

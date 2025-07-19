@@ -2,6 +2,7 @@ package build
 
 import mill._, scalalib._, scalajslib._
 import mill.scalajslib.api._
+import mill.api.Task.Simple
 
 object Versions {
     val scala3 = "3.7.0"
@@ -10,12 +11,13 @@ object Versions {
     val laminar = "17.2.1"
 }
 
-object www extends ScalaJSModule {
-  def scalaVersion = Versions.scala3
-  def scalaJSVersion = Versions.sjs
+trait WebModule extends ScalaJSModule {
   def moduleKind = ModuleKind.ESModule
   def moduleSplitStyle = ModuleSplitStyle.FewestModules
-  
+
+  def scalaVersion = Versions.scala3
+  def scalaJSVersion = Versions.sjs
+
   def mvnDeps = Seq(
     mvn"com.raquo::laminar::${Versions.laminar}",
     mvn"org.scala-js::scalajs-dom::${Versions.sjsdom}"
@@ -29,4 +31,14 @@ object www extends ScalaJSModule {
   def jsEnvConfig = Task {
     JsEnvConfig.JsDom()
   }
+}
+
+object www extends WebModule {
+  def moduleDeps = Seq(
+    `webawesome-laminar`
+  )
+}
+
+object `webawesome-laminar` extends WebModule {
+  override def artifactName: Simple[String] = "webawesome-laminar"
 }
