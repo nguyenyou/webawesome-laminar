@@ -32,6 +32,14 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
           
+      - name: Cache Mill binary
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/mill
+          key: mill-binary-${{ runner.os }}-${{ hashFiles('build.mill') }}
+          restore-keys: |
+            mill-binary-${{ runner.os }}-
+          
       - name: Cache Mill build artifacts
         uses: actions/cache@v4
         with:
