@@ -39,6 +39,7 @@ object Pages {
   case object ColorPalettePopoverPage  extends Page("ColorPalettePopover")
   case object ColorPickerPage          extends Page("ColorPicker")
   case object ComboBoxPage             extends Page("ComboBox")
+  case object CalloutPage              extends Page("Callout")
   case object DatePickerPage           extends Page("DatePicker")
   case object DateRangePickerPage      extends Page("DateRangePicker")
   case object DateTimePickerPage       extends Page("DateTimePicker")
@@ -95,6 +96,7 @@ val pageViews: Signal[HtmlElement] = AppRouter.currentPageSignal.splitMatchOne
   .handleValue(AvatarPage)(AvatarView()())
   .handleValue(BadgePage)(BadgeView()())
   .handleValue(BreadcrumbPage)(BreadcrumbView()())
+  .handleValue(CalloutPage)(CalloutView()())
   .handleValue(NotFoundPage)(div("Not Found"))
   .toSignal
 
@@ -104,28 +106,8 @@ val componentsPages: List[Page] = List(
   BadgePage,
   ButtonPage,
   ButtonGroupPage,
-  BreadcrumbPage
-).sortBy(_.getClass.getSimpleName)
-
-val dataDisplayPages: List[Page] = List(
-).sortBy(_.getClass.getSimpleName)
-
-val modalAndPopoverPages: List[Page] = List(
-).sortBy(_.getClass.getSimpleName)
-
-val feedbackPages: List[Page] = List(
-).sortBy(_.getClass.getSimpleName)
-
-val nagigationPages: List[Page] = List(
-).sortBy(_.getClass.getSimpleName)
-
-val surfacesPages: List[Page] = List(
-).sortBy(_.getClass.getSimpleName)
-
-val fioriPages: List[Page] = List(
-).sortBy(_.getClass.getSimpleName)
-
-val aiPages: List[Page] = List(
+  BreadcrumbPage,
+  CalloutPage
 ).sortBy(_.getClass.getSimpleName)
 
 // Step 4: Map URL to Page
@@ -149,6 +131,12 @@ object AppRouter
           .static(
             BadgePage,
             root / BadgePage.path / endOfSegments,
+            "/docs"
+          ),
+        Route
+          .static(
+            CalloutPage,
+            root / CalloutPage.path / endOfSegments,
             "/docs"
           ),
         Route
@@ -209,6 +197,12 @@ object AppRouter
           .static(
             CheckBoxPage,
             root / CheckBoxPage.path / endOfSegments,
+            "/docs"
+          ),
+        Route
+          .static(
+            CalloutPage,
+            root / CalloutPage.path / endOfSegments,
             "/docs"
           ),
         Route
