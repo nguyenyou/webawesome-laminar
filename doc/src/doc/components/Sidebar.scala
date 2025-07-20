@@ -37,7 +37,7 @@ case class Sidebar() {
     val isActiveSignal = currentPageSignal.map(_ == page).distinct
     tag
       .amend(
-        tw.group.relative.flex.h8.wFull.itemsCenter.roundedLg.px3.textBase,
+        tw.group.relative.flex.h8.wFull.itemsCenter.roundedLg.px3.textSm,
         tw.fontSemibold.sidebarItemHover <-- isActiveSignal,
         tw.fontMedium,
         navigateTo(page),
@@ -100,7 +100,7 @@ case class Sidebar() {
   def Section(title: String, pages: List[Page]) = {
     div(
       div(
-        tw.roundedMd.px2.py1.textXs.fontBold.uppercase,
+        tw.roundedMd.px2.py1.textXs.fontMedium.textMutedForeground,
         title
       ),
       div(

@@ -371,6 +371,7 @@ case class Tailwind() {
   def overflowXVisible                = this
   def overflowYAuto                   = this
   def fontMedium                      = this
+  def textMutedForeground             = this
   def h8                              = this
   def roundedLg                       = this
   def fontNormal                      = this
