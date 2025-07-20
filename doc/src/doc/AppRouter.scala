@@ -92,6 +92,7 @@ val pageViews: Signal[HtmlElement] = AppRouter.currentPageSignal.splitMatchOne
   .handleValue(ButtonPage)(ButtonView()())
   .handleValue(AvatarPage)(AvatarView()())
   .handleValue(BadgePage)(BadgeView()())
+  .handleValue(BreadcrumbsPage)(BreadcrumbView()())
   .handleValue(NotFoundPage)(div("Not Found"))
   .toSignal
 
@@ -100,6 +101,7 @@ val componentsPages: List[Page] = List(
   AvatarPage,
   BadgePage,
   ButtonPage,
+  BreadcrumbsPage,
 ).sortBy(_.getClass.getSimpleName)
 
 val dataDisplayPages: List[Page] = List(
