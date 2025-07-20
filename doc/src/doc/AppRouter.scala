@@ -25,9 +25,10 @@ object Pages {
   case object AvatarPage               extends Page("Avatar")
   case object AvatarGroupPage          extends Page("AvatarGroup")
   case object BarPage                  extends Page("Bar")
-  case object BreadcrumbsPage          extends Page("Breadcrumbs")
+  case object BreadcrumbPage          extends Page("Breadcrumb")
   case object BusyIndicatorPage        extends Page("BusyIndicator")
   case object ButtonPage               extends Page("Button")
+  case object ButtonGroupPage          extends Page("ButtonGroup")
   case object BadgePage                extends Page("Badge")
   case object CalendarPage             extends Page("Calendar")
   case object CalendarLegendPage       extends Page("CalendarLegend")
@@ -90,9 +91,10 @@ object Pages {
 val pageViews: Signal[HtmlElement] = AppRouter.currentPageSignal.splitMatchOne
   .handleValue(HomePage)(HomeView())
   .handleValue(ButtonPage)(ButtonView()())
+  .handleValue(ButtonGroupPage)(ButtonGroupView()())
   .handleValue(AvatarPage)(AvatarView()())
   .handleValue(BadgePage)(BadgeView()())
-  .handleValue(BreadcrumbsPage)(BreadcrumbView()())
+  .handleValue(BreadcrumbPage)(BreadcrumbView()())
   .handleValue(NotFoundPage)(div("Not Found"))
   .toSignal
 
@@ -101,7 +103,8 @@ val componentsPages: List[Page] = List(
   AvatarPage,
   BadgePage,
   ButtonPage,
-  BreadcrumbsPage,
+  ButtonGroupPage,
+  BreadcrumbPage,
 ).sortBy(_.getClass.getSimpleName)
 
 val dataDisplayPages: List[Page] = List(
@@ -140,6 +143,12 @@ object AppRouter
           ),
         Route
           .static(
+            ButtonGroupPage,
+            root / ButtonGroupPage.path / endOfSegments,
+            "/docs"
+          ),
+        Route
+          .static(
             BadgePage,
             root / BadgePage.path / endOfSegments,
             "/docs"
@@ -164,8 +173,8 @@ object AppRouter
           ),
         Route
           .static(
-            BreadcrumbsPage,
-            root / BreadcrumbsPage.path / endOfSegments,
+            BreadcrumbPage,
+            root / BreadcrumbPage.path / endOfSegments,
             "/docs"
           ),
         Route
