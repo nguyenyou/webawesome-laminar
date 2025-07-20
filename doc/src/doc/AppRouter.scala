@@ -99,6 +99,7 @@ val pageViews: Signal[HtmlElement] = AppRouter.currentPageSignal.splitMatchOne
   .handleValue(CalloutPage)(CalloutView()())
   .handleValue(CheckboxPage)(CheckboxView()())
   .handleValue(ColorPickerPage)(ColorPickerView()())
+  .handleValue(DialogPage)(DialogView()())
   .handleValue(NotFoundPage)(div("Not Found"))
   .toSignal
 
@@ -111,7 +112,8 @@ val componentsPages: List[Page] = List(
   BreadcrumbPage,
   CalloutPage,
   CheckboxPage,
-  ColorPickerPage
+  ColorPickerPage,
+  DialogPage
 ).sortBy(_.getClass.getSimpleName)
 
 // Step 4: Map URL to Page
