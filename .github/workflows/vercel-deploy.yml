@@ -35,7 +35,7 @@ jobs:
       - name: Cache Mill binary
         uses: actions/cache@v4
         with:
-          path: ~/.cache/mill
+          path: ~/.cache/mill/download
           key: mill-binary-${{ runner.os }}-${{ hashFiles('build.mill') }}
           restore-keys: |
             mill-binary-${{ runner.os }}-
