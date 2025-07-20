@@ -109,7 +109,7 @@ case class App() {
                   )
                 ),
                 navTag(
-                  tw.flex.itemsCenter.gap4.textSm.xl(tw.gap6),
+                  tw.flex.itemsCenter.gap4.textSm.fontMedium.xl(tw.gap6),
                   a(
                     navigateTo(HomePage),
                     "Docs"
