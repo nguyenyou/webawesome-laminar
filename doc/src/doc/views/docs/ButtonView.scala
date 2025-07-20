@@ -29,8 +29,7 @@ case class ButtonView()
     div(
       Demo(
         title = "Variants",
-        description =
-          "Use the `variant` attribute to set the button's semantic variant.",
+        description = "Use the `variant` attribute to set the button's semantic variant.",
         content = Source.annotate {
           div(
             tw.flex.flexWrap.gap2,
@@ -46,8 +45,7 @@ case class ButtonView()
       )().withLocator,
       Demo(
         title = "Appearance",
-        description =
-          "Use the `appearance` attribute to change the button's visual appearance.",
+        description = "Use the `appearance` attribute to change the button's visual appearance.",
         content = Source.annotate {
           div(
             tw.flex.flexWrap.gap2,
@@ -106,7 +104,7 @@ case class ButtonView()
               "Link with target"
             ),
             Button(
-              _.href := "/assets/images/logo.svg",
+              _.href     := "/assets/images/logo.svg",
               _.download := "shoelace.svg"
             )("Download")
             // </show>
@@ -172,7 +170,7 @@ case class ButtonView()
                 _.slots.start(Icon(_.name := "link", _.label := "Link")()),
                 _.slots.end(
                   Icon(
-                    _.name := "arrow-up-right-from-square",
+                    _.name  := "arrow-up-right-from-square",
                     _.label := "Open in new tab"
                   )()
                 )
@@ -195,7 +193,7 @@ case class ButtonView()
                 _.slots.start(Icon(_.name := "link", _.label := "Link")()),
                 _.slots.end(
                   Icon(
-                    _.name := "arrow-up-right-from-square",
+                    _.name  := "arrow-up-right-from-square",
                     _.label := "Open in new tab"
                   )()
                 )
@@ -218,7 +216,7 @@ case class ButtonView()
                 _.slots.start(Icon(_.name := "link", _.label := "Link")()),
                 _.slots.end(
                   Icon(
-                    _.name := "arrow-up-right-from-square",
+                    _.name  := "arrow-up-right-from-square",
                     _.label := "Open in new tab"
                   )()
                 )

@@ -1,26 +1,23 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
-import com.raquo.laminar.api.L
+import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.nodes.Slot
-import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/**
-  * Breadcrumb Items are used inside breadcrumbs to represent different links.
+/** Breadcrumb Items are used inside breadcrumbs to represent different links.
   *
-  * [[https://backers.webawesome.com/docs/components/breadcrumb-item WebAwesome  docs]]
+  * [[https://webawesome.com/docs/components/breadcrumb-item WebAwesome docs]]
   */
 object BreadcrumbItem extends WebComponent("wa-breadcrumb-item") {
 
   @JSImport("@awesome.me/webawesome/dist/components/breadcrumb-item/breadcrumb-item.js", JSImport.Namespace)
-  @js.native object RawImport extends js.Object
+  @js.native
+  object RawImport extends js.Object
 
   type Self = BreadcrumbItem.type
 
@@ -29,7 +26,8 @@ object BreadcrumbItem extends WebComponent("wa-breadcrumb-item") {
   // -- Attributes --
 
   /** Optional URL to direct the user to when the breadcrumb item is activated. When set, a link will be rendered
-  internally. When unset, a button will be rendered instead. */
+    * internally. When unset, a button will be rendered instead.
+    */
   lazy val href: HtmlAttr[String] = stringAttr("href")
 
   /** Tells the browser where to open the link. Only used when `href` is set. */
@@ -41,6 +39,7 @@ object BreadcrumbItem extends WebComponent("wa-breadcrumb-item") {
   // -- Slots --
 
   object slots {
+
     /** The breadcrumb item's label. Note: You can just say `_ => element` instead of `_.slots.default(element)` */
     lazy val default: Slot = Slot("")
 
@@ -50,7 +49,9 @@ object BreadcrumbItem extends WebComponent("wa-breadcrumb-item") {
     /** An element, such as `<wa-icon>`, placed after the label. */
     lazy val end: Slot = Slot("end")
 
-    /** The separator to use for the breadcrumb item. This will only change the separator for this item. If you want to change it for all items in the group, set the separator on `<wa-breadcrumb>` instead. */
+    /** The separator to use for the breadcrumb item. This will only change the separator for this item. If you want to
+      * change it for all items in the group, set the separator on `<wa-breadcrumb>` instead.
+      */
     lazy val separator: Slot = Slot("separator")
 
   }
@@ -59,6 +60,7 @@ object BreadcrumbItem extends WebComponent("wa-breadcrumb-item") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
+
     /** The breadcrumb item's label. */
     lazy val label: String = "label"
 
@@ -75,11 +77,13 @@ object BreadcrumbItem extends WebComponent("wa-breadcrumb-item") {
 
   // -- Element type --
 
-  @js.native trait WaBreadcrumbItemComponent extends js.Object {
+  @js.native
+  trait WaBreadcrumbItemComponent extends js.Object {
     this: dom.HTMLElement =>
 
     /** Optional URL to direct the user to when the breadcrumb item is activated. When set, a link will be rendered
-    internally. When unset, a button will be rendered instead. */
+      * internally. When unset, a button will be rendered instead.
+      */
     var href: String
 
     /** Tells the browser where to open the link. Only used when `href` is set. */

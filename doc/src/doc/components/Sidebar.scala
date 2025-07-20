@@ -75,7 +75,7 @@ case class Sidebar() {
       top.px <-- hoverStylesSignal.map(_.top),
       height.px <-- hoverStylesSignal.map(_.height),
       width.px <-- hoverStylesSignal.map(_.width),
-      left.rem(0.25),
+      left.rem(0.25)
     )
   }
 
@@ -123,7 +123,7 @@ case class Sidebar() {
           Section(
             title = "Components",
             pages = componentsPages
-          ),
+          )
         )
       )
     ).amend(

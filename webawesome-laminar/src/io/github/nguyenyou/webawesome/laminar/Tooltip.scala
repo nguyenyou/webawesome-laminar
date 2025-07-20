@@ -1,26 +1,24 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
-import com.raquo.laminar.api.L
+import com.raquo.laminar.keys.EventProp
+import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.nodes.Slot
-import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/**
-  * Tooltips display additional information based on a specific action.
+/** Tooltips display additional information based on a specific action.
   *
-  * [[https://backers.webawesome.com/docs/components/tooltip WebAwesome  docs]]
+  * [[https://webawesome.com/docs/components/tooltip WebAwesome docs]]
   */
 object Tooltip extends WebComponent("wa-tooltip") {
 
   @JSImport("@awesome.me/webawesome/dist/components/tooltip/tooltip.js", JSImport.Namespace)
-  @js.native object RawImport extends js.Object
+  @js.native
+  object RawImport extends js.Object
 
   type Self = Tooltip.type
 
@@ -43,7 +41,8 @@ object Tooltip extends WebComponent("wa-tooltip") {
   // -- Attributes --
 
   /** The preferred placement of the tooltip. Note that the actual placement may vary as needed to keep the tooltip
-  inside of the viewport. */
+    * inside of the viewport.
+    */
   lazy val placement: HtmlAttr[String] = stringAttr("placement")
 
   /** Disables the tooltip so it won't show when triggered. */
@@ -65,8 +64,9 @@ object Tooltip extends WebComponent("wa-tooltip") {
   lazy val hideDelay: HtmlAttr[Double] = doubleAttr("hide-delay")
 
   /** Controls how the tooltip is activated. Possible options include `click`, `hover`, `focus`, and `manual`. Multiple
-  options can be passed by separating them with a space. When manual is used, the tooltip must be activated
-  programmatically. */
+    * options can be passed by separating them with a space. When manual is used, the tooltip must be activated
+    * programmatically.
+    */
   lazy val trigger: HtmlAttr[String] = stringAttr("trigger")
 
   lazy val `for`: HtmlAttr[String] = stringAttr("for")
@@ -74,7 +74,10 @@ object Tooltip extends WebComponent("wa-tooltip") {
   // -- Slots --
 
   object slots {
-    /** The tooltip's default slot where any content should live. Interactive content should be avoided. Note: You can just say `_ => element` instead of `_.slots.default(element)` */
+
+    /** The tooltip's default slot where any content should live. Interactive content should be avoided. Note: You can
+      * just say `_ => element` instead of `_.slots.default(element)`
+      */
     lazy val default: Slot = Slot("")
 
   }
@@ -83,6 +86,7 @@ object Tooltip extends WebComponent("wa-tooltip") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssVars {
+
     /** The maximum width of the tooltip before its content will wrap. */
     lazy val maxWidth: String = "--max-width"
 
@@ -92,6 +96,7 @@ object Tooltip extends WebComponent("wa-tooltip") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
+
     /** The component's base wrapper, an `<wa-popup>` element. */
     lazy val base: String = "base"
 
@@ -108,11 +113,13 @@ object Tooltip extends WebComponent("wa-tooltip") {
 
   // -- Element type --
 
-  @js.native trait WaTooltipComponent extends js.Object {
+  @js.native
+  trait WaTooltipComponent extends js.Object {
     this: dom.HTMLElement =>
 
     /** The preferred placement of the tooltip. Note that the actual placement may vary as needed to keep the tooltip
-    inside of the viewport. */
+      * inside of the viewport.
+      */
     var placement: js.Any
 
     /** Disables the tooltip so it won't show when triggered. */
@@ -133,9 +140,10 @@ object Tooltip extends WebComponent("wa-tooltip") {
     /** The amount of time to wait before hiding the tooltip when the user mouses out.. */
     var hideDelay: Double
 
-    /** Controls how the tooltip is activated. Possible options include `click`, `hover`, `focus`, and `manual`. Multiple
-    options can be passed by separating them with a space. When manual is used, the tooltip must be activated
-    programmatically. */
+    /** Controls how the tooltip is activated. Possible options include `click`, `hover`, `focus`, and `manual`.
+      * Multiple options can be passed by separating them with a space. When manual is used, the tooltip must be
+      * activated programmatically.
+      */
     var trigger: String
 
     var `for`: String

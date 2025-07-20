@@ -1,7 +1,7 @@
 //| mill-version: 1.0.0-38-9bceb6
 //| mill-jvm-version: temurin:23.0.1
 //| mill-jvm-opts: ["-Xss10m", "-Xmx10G"]
-//| mvnDeps: ["com.lihaoyi::mill-contrib-buildinfo:$MILL_VERSION"]
+//| mvnDeps: ["com.lihaoyi::mill-contrib-buildinfo:$MILL_VERSION", "com.goyeau::mill-scalafix::0.6.0"]
 
 package build
 
@@ -10,6 +10,7 @@ import mill.scalajslib.api._
 import mill.api.Task.Simple
 import mill.scalalib.SonatypeCentralPublishModule
 import mill.util.VcsVersion
+import com.goyeau.mill.scalafix.ScalafixModule
 
 object Versions {
     val scala3 = "3.7.0"
@@ -30,6 +31,10 @@ object Constants {
   val author = "Tu Nguyen"
   val organization = "io.github.nguyenyou"
   val description = "Laminar wrappers for WebAwesome"
+}
+
+trait Scalafix extends ScalafixModule {
+  def scalacOptions = super.scalacOptions() ++ Seq("-Wunused:all", "-Wunused:imports")
 }
 
 trait NoDoc extends ScalaModule {
@@ -99,7 +104,7 @@ object doc extends WebModule {
   def mvnDeps = super.mvnDeps() ++ Deps.waypoint ++ Deps.borer ++ Deps.sourcecode
 }
 
-object `webawesome-laminar` extends WebModule, CommonPublish {
+object `webawesome-laminar` extends WebModule, CommonPublish, Scalafix {
   override def artifactName = "webawesome-laminar"
 
   def publishVersion = VcsVersion.vcsState().format()

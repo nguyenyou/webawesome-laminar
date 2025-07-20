@@ -83,7 +83,7 @@ object Codeblock {
                 _.onClick --> { _ =>
                   renderer.copy.onNext(())
                 },
-                _.size := "small",
+                _.size       := "small",
                 _.appearance := "filled"
               )(
                 Icon(

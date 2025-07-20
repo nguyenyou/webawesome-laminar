@@ -25,7 +25,7 @@ object Pages {
   case object AvatarPage               extends Page("Avatar")
   case object AvatarGroupPage          extends Page("AvatarGroup")
   case object BarPage                  extends Page("Bar")
-  case object BreadcrumbPage          extends Page("Breadcrumb")
+  case object BreadcrumbPage           extends Page("Breadcrumb")
   case object BusyIndicatorPage        extends Page("BusyIndicator")
   case object ButtonPage               extends Page("Button")
   case object ButtonGroupPage          extends Page("ButtonGroup")
@@ -104,7 +104,7 @@ val componentsPages: List[Page] = List(
   BadgePage,
   ButtonPage,
   ButtonGroupPage,
-  BreadcrumbPage,
+  BreadcrumbPage
 ).sortBy(_.getClass.getSimpleName)
 
 val dataDisplayPages: List[Page] = List(
@@ -123,12 +123,10 @@ val surfacesPages: List[Page] = List(
 ).sortBy(_.getClass.getSimpleName)
 
 val fioriPages: List[Page] = List(
-  
 ).sortBy(_.getClass.getSimpleName)
 
 val aiPages: List[Page] = List(
 ).sortBy(_.getClass.getSimpleName)
-
 
 // Step 4: Map URL to Page
 object AppRouter
@@ -477,13 +475,13 @@ object AppRouter
             root / TabPage.path / endOfSegments,
             "/docs"
           ),
-          Route
+        Route
           .static(
             StepInputPage,
             root / StepInputPage.path / endOfSegments,
             "/docs"
           ),
-          Route
+        Route
           .static(
             TimePickerPage,
             root / TimePickerPage.path / endOfSegments,

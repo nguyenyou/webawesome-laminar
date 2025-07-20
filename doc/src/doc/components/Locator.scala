@@ -13,7 +13,7 @@ trait Locator(using
 
   def locatorModifiers(el: HtmlElement): HtmlElement = {
     el.amend(
-      Locator.scalaFileName := n.value,
+      Locator.scalaFileName   := n.value,
       Locator.scalaSourcePath := f.value,
       Locator.scalaLineNumber := l.value,
       dataAttr("source-path") := f.value
@@ -36,13 +36,13 @@ object Locator {
   extension (element: HtmlElement) {
     inline def withLocator: HtmlElement = {
       val fileName = sourcecode.FileName()
-      val file = sourcecode.File()
-      val line = sourcecode.Line()
+      val file     = sourcecode.File()
+      val line     = sourcecode.Line()
 
       element.amend(
-        scalaFileName := fileName,
-        scalaSourcePath := file,
-        scalaLineNumber := line,
+        scalaFileName           := fileName,
+        scalaSourcePath         := file,
+        scalaLineNumber         := line,
         dataAttr("source-path") := s"${fileName}:${line}"
       )
     }

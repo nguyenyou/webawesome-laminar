@@ -1,26 +1,25 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
-import com.raquo.laminar.api.L
+import com.raquo.laminar.keys.EventProp
+import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.nodes.Slot
-import com.raquo.laminar.tags.CustomHtmlTag
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import org.scalajs.dom
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/**
-  * Split panels display two adjacent panels, allowing the user to reposition them.
+/** Split panels display two adjacent panels, allowing the user to reposition them.
   *
-  * [[https://backers.webawesome.com/docs/components/split-panel WebAwesome  docs]]
+  * [[https://webawesome.com/docs/components/split-panel WebAwesome docs]]
   */
 object SplitPanel extends WebComponent("wa-split-panel") {
 
   @JSImport("@awesome.me/webawesome/dist/components/split-panel/split-panel.js", JSImport.Namespace)
-  @js.native object RawImport extends js.Object
+  @js.native
+  object RawImport extends js.Object
 
   type Self = SplitPanel.type
 
@@ -34,7 +33,8 @@ object SplitPanel extends WebComponent("wa-split-panel") {
   // -- Attributes --
 
   /** The current position of the divider from the primary panel's edge as a percentage 0-100. Defaults to 50% of the
-  container's initial size. */
+    * container's initial size.
+    */
   lazy val position: HtmlAttr[Double] = doubleAttr("position")
 
   /** The current position of the divider from the primary panel's edge in pixels. */
@@ -47,12 +47,14 @@ object SplitPanel extends WebComponent("wa-split-panel") {
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
 
   /** If no primary panel is designated, both panels will resize proportionally when the host element is resized. If a
-  primary panel is designated, it will maintain its size and the other panel will grow or shrink as needed when the
-  host element is resized. */
+    * primary panel is designated, it will maintain its size and the other panel will grow or shrink as needed when the
+    * host element is resized.
+    */
   lazy val primary: HtmlAttr[String] = stringAttr("primary")
 
   /** One or more space-separated values at which the divider should snap. Values can be in pixels or percentages, e.g.
-  `"100px 50%"`. */
+    * `"100px 50%"`.
+    */
   lazy val snap: HtmlAttr[String] = stringAttr("snap")
 
   /** How close the divider must be to a snap point until snapping occurs. */
@@ -61,6 +63,7 @@ object SplitPanel extends WebComponent("wa-split-panel") {
   // -- Slots --
 
   object slots {
+
     /** Content to place in the start panel. */
     lazy val start: Slot = Slot("start")
 
@@ -76,10 +79,13 @@ object SplitPanel extends WebComponent("wa-split-panel") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssVars {
+
     /** The width of the visible divider. Default: 4px */
     lazy val dividerWidth: String = "--divider-width"
 
-    /** The invisible region around the divider where dragging can occur. This is usually wider than the divider to facilitate easier dragging. Default: 12px */
+    /** The invisible region around the divider where dragging can occur. This is usually wider than the divider to
+      * facilitate easier dragging. Default: 12px
+      */
     lazy val dividerHitArea: String = "--divider-hit-area"
 
     /** The minimum allowed size of the primary panel. Default: 0 */
@@ -94,6 +100,7 @@ object SplitPanel extends WebComponent("wa-split-panel") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
+
     /** The start panel. */
     lazy val start: String = "start"
 
@@ -110,11 +117,13 @@ object SplitPanel extends WebComponent("wa-split-panel") {
 
   // -- Element type --
 
-  @js.native trait WaSplitPanelComponent extends js.Object {
+  @js.native
+  trait WaSplitPanelComponent extends js.Object {
     this: dom.HTMLElement =>
 
     /** The current position of the divider from the primary panel's edge as a percentage 0-100. Defaults to 50% of the
-    container's initial size. */
+      * container's initial size.
+      */
     var position: Double
 
     /** The current position of the divider from the primary panel's edge in pixels. */
@@ -127,12 +136,14 @@ object SplitPanel extends WebComponent("wa-split-panel") {
     var disabled: Boolean
 
     /** If no primary panel is designated, both panels will resize proportionally when the host element is resized. If a
-    primary panel is designated, it will maintain its size and the other panel will grow or shrink as needed when the
-    host element is resized. */
+      * primary panel is designated, it will maintain its size and the other panel will grow or shrink as needed when
+      * the host element is resized.
+      */
     var primary: js.Any
 
-    /** One or more space-separated values at which the divider should snap. Values can be in pixels or percentages, e.g.
-    `"100px 50%"`. */
+    /** One or more space-separated values at which the divider should snap. Values can be in pixels or percentages,
+      * e.g. `"100px 50%"`.
+      */
     var snap: String
 
     /** How close the divider must be to a snap point until snapping occurs. */

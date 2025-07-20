@@ -13,7 +13,6 @@ object Preview {
   private def getIndicatorStyles(ele: HtmlElement) =
     IndicatorStyles(ele.ref.offsetWidth.toInt, ele.ref.offsetLeft.toInt)
 
-
   private def render(
       title: => String,
       description: => String,
@@ -101,7 +100,7 @@ object Preview {
               resizable = resizable,
               containerMinWidth = containerMinWidth,
               center = center
-            )(preview),
+            )(preview)
           ),
           div(
             tw.relative.shadowMd.roundedXl.overflowHidden.p1,

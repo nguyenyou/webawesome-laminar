@@ -1,26 +1,24 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
-import com.raquo.laminar.api.L
+import com.raquo.laminar.keys.HtmlAttr
+import com.raquo.laminar.keys.HtmlProp
 import com.raquo.laminar.nodes.Slot
-import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/**
-  * Progress bars are used to show the status of an ongoing operation.
+/** Progress bars are used to show the status of an ongoing operation.
   *
-  * [[https://backers.webawesome.com/docs/components/progress-bar WebAwesome  docs]]
+  * [[https://webawesome.com/docs/components/progress-bar WebAwesome docs]]
   */
 object ProgressBar extends WebComponent("wa-progress-bar") {
 
   @JSImport("@awesome.me/webawesome/dist/components/progress-bar/progress-bar.js", JSImport.Namespace)
-  @js.native object RawImport extends js.Object
+  @js.native
+  object RawImport extends js.Object
 
   type Self = ProgressBar.type
 
@@ -42,7 +40,10 @@ object ProgressBar extends WebComponent("wa-progress-bar") {
   // -- Slots --
 
   object slots {
-    /** A label to show inside the progress indicator. Note: You can just say `_ => element` instead of `_.slots.default(element)` */
+
+    /** A label to show inside the progress indicator. Note: You can just say `_ => element` instead of
+      * `_.slots.default(element)`
+      */
     lazy val default: Slot = Slot("")
 
   }
@@ -51,10 +52,14 @@ object ProgressBar extends WebComponent("wa-progress-bar") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssVars {
-    /** The color of the track. */
+
+    /** The color of the track. Default: 1rem */
+    lazy val trackHeight: String = "--track-height"
+
+    /** The color of the track. Default: var(--wa-color-neutral-fill-normal) */
     lazy val trackColor: String = "--track-color"
 
-    /** The color of the indicator. */
+    /** The color of the indicator. Default: var(--wa-color-brand-fill-loud) */
     lazy val indicatorColor: String = "--indicator-color"
 
   }
@@ -63,6 +68,7 @@ object ProgressBar extends WebComponent("wa-progress-bar") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
+
     /** The component's base wrapper. */
     lazy val base: String = "base"
 
@@ -76,10 +82,12 @@ object ProgressBar extends WebComponent("wa-progress-bar") {
 
   // -- Element type --
 
-  @js.native trait WaProgressBarComponent extends js.Object {
+  @js.native
+  trait WaProgressBarComponent extends js.Object {
     this: dom.HTMLElement =>
 
-    /** When true, percentage is ignored, the label is hidden, and the progress bar is drawn in an indeterminate state. */
+    /** When true, percentage is ignored, the label is hidden, and the progress bar is drawn in an indeterminate state.
+      */
     var indeterminate: Boolean
 
     /** A custom label for assistive devices. */

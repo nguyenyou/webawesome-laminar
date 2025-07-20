@@ -3,13 +3,12 @@ package io.github.nguyenyou.webawesome.laminar
 import com.raquo.laminar.api.L
 import com.raquo.laminar.api.L.*
 import com.raquo.laminar.codecs.*
-import com.raquo.laminar.defs.styles.{traits as s, units as u}
+import com.raquo.laminar.defs.styles.traits as s
+import com.raquo.laminar.defs.styles.units as u
 import com.raquo.laminar.keys
 import com.raquo.laminar.keys.DerivedStyleProp
-import com.raquo.laminar.modifiers.KeySetter
 import com.raquo.laminar.modifiers.KeySetter.StyleSetter
 import org.scalajs.dom
-import scala.scalajs.js
 
 trait CommonTypes {
 
@@ -46,13 +45,15 @@ trait CommonTypes {
   }
 
   // Custom codec for union types - accepts any union type but encodes as string
-  private object UnionAsStringCodec extends Codec[Any, String] {
-    override def encode(scalaValue: Any): String = scalaValue.toString
-    override def decode(domValue: String): Any = domValue
+  private object UnionAsStringCodec {
+    def apply[T <: String]: Codec[T, String] = new Codec[T, String] {
+      override def encode(scalaValue: T): String = scalaValue
+      override def decode(domValue: String): T   = domValue.asInstanceOf[T] // scalafix:ok
+    }
   }
-  
+
   // Custom attribute constructor for union types
-  protected def unionAttr[T](name: String): HtmlAttr[T] = new HtmlAttr(name, UnionAsStringCodec.asInstanceOf[Codec[T, String]])
+  protected def unionAttr[T <: String](name: String): HtmlAttr[T] = new HtmlAttr(name, UnionAsStringCodec[T])
 
   protected def lengthStyle(name: String): StyleProp[String] & u.Length[DSP, Int] = {
     new StyleProp[String](name) with u.Length[DSP, Int]

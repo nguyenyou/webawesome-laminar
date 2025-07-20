@@ -1,26 +1,25 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
-import com.raquo.laminar.api.L
+import com.raquo.laminar.keys.EventProp
+import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.nodes.Slot
-import com.raquo.laminar.tags.CustomHtmlTag
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import org.scalajs.dom
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/**
-  * Drawers slide in from a container to expose additional options and information.
+/** Drawers slide in from a container to expose additional options and information.
   *
-  * [[https://backers.webawesome.com/docs/components/drawer WebAwesome  docs]]
+  * [[https://webawesome.com/docs/components/drawer WebAwesome docs]]
   */
 object Drawer extends WebComponent("wa-drawer") {
 
   @JSImport("@awesome.me/webawesome/dist/components/drawer/drawer.js", JSImport.Namespace)
-  @js.native object RawImport extends js.Object
+  @js.native
+  object RawImport extends js.Object
 
   type Self = Drawer.type
 
@@ -34,7 +33,11 @@ object Drawer extends WebComponent("wa-drawer") {
   /** Emitted after the drawer opens and all animations are complete. */
   lazy val onAfterShow: EventProp[dom.Event] = eventProp("wa-after-show")
 
-  /** Emitted when the drawer is requesting to close. Calling `event.preventDefault()` will prevent the drawer from closing. You can inspect `event.detail.source` to see which element caused the drawer to close. If the source is the drawer element itself, the user has pressed [[Escape]] or the drawer has been closed programmatically. Avoid using this unless closing the drawer will result in destructive behavior such as data loss. */
+  /** Emitted when the drawer is requesting to close. Calling `event.preventDefault()` will prevent the drawer from
+    * closing. You can inspect `event.detail.source` to see which element caused the drawer to close. If the source is
+    * the drawer element itself, the user has pressed [[Escape]] or the drawer has been closed programmatically. Avoid
+    * using this unless closing the drawer will result in destructive behavior such as data loss.
+    */
   lazy val onHide: EventProp[dom.Event] = eventProp("wa-hide")
 
   /** Emitted after the drawer closes and all animations are complete. */
@@ -46,7 +49,8 @@ object Drawer extends WebComponent("wa-drawer") {
   lazy val open: HtmlAttr[Boolean] = boolAttr("open")
 
   /** The drawer's label as displayed in the header. You should always include a relevant label, as it is required for
-  proper accessibility. If you need to display HTML, use the `label` slot instead. */
+    * proper accessibility. If you need to display HTML, use the `label` slot instead.
+    */
   lazy val label: HtmlAttr[String] = stringAttr("label")
 
   /** The direction from which the drawer will open. Valid values: "top", "end", "bottom", "start". */
@@ -61,6 +65,7 @@ object Drawer extends WebComponent("wa-drawer") {
   // -- Slots --
 
   object slots {
+
     /** The drawer's main content. Note: You can just say `_ => element` instead of `_.slots.default(element)` */
     lazy val default: Slot = Slot("")
 
@@ -79,10 +84,13 @@ object Drawer extends WebComponent("wa-drawer") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssVars {
+
     /** The amount of space around and between the drawer's content. */
     lazy val spacing: String = "--spacing"
 
-    /** The preferred size of the drawer. This will be applied to the drawer's width or height depending on its `placement`. Note that the drawer will shrink to accommodate smaller screens. */
+    /** The preferred size of the drawer. This will be applied to the drawer's width or height depending on its
+      * `placement`. Note that the drawer will shrink to accommodate smaller screens.
+      */
     lazy val size: String = "--size"
 
     /** The animation duration when showing the drawer. Default: 200ms */
@@ -97,6 +105,7 @@ object Drawer extends WebComponent("wa-drawer") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
+
     /** The drawer's header. This element wraps the title and header actions. */
     lazy val header: String = "header"
 
@@ -122,14 +131,16 @@ object Drawer extends WebComponent("wa-drawer") {
 
   // -- Element type --
 
-  @js.native trait WaDrawerComponent extends js.Object {
+  @js.native
+  trait WaDrawerComponent extends js.Object {
     this: dom.HTMLElement =>
 
     /** Indicates whether or not the drawer is open. Toggle this attribute to show and hide the drawer. */
     var open: Boolean
 
     /** The drawer's label as displayed in the header. You should always include a relevant label, as it is required for
-    proper accessibility. If you need to display HTML, use the `label` slot instead. */
+      * proper accessibility. If you need to display HTML, use the `label` slot instead.
+      */
     var label: String
 
     /** The direction from which the drawer will open. Valid values: "top", "end", "bottom", "start". */

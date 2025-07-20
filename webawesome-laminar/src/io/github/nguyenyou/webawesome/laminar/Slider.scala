@@ -1,26 +1,26 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
-import com.raquo.laminar.api.L
+import com.raquo.laminar.keys.EventProp
+import com.raquo.laminar.keys.HtmlAttr
+import com.raquo.laminar.keys.HtmlProp
 import com.raquo.laminar.nodes.Slot
-import com.raquo.laminar.tags.CustomHtmlTag
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import org.scalajs.dom
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/**
-  * Ranges allow the user to select a single value within a given range using a slider.
+/** Ranges allow the user to select a single value within a given range using a slider.
   *
-  * [[https://backers.webawesome.com/docs/components/range WebAwesome  docs]]
+  * [[https://webawesome.com/docs/components/range WebAwesome docs]]
   */
 object Slider extends WebComponent("wa-slider") {
 
   @JSImport("@awesome.me/webawesome/dist/components/slider/slider.js", JSImport.Namespace)
-  @js.native object RawImport extends js.Object
+  @js.native
+  object RawImport extends js.Object
 
   type Self = Slider.type
 
@@ -84,7 +84,8 @@ object Slider extends WebComponent("wa-slider") {
   lazy val indicatorOffset: HtmlAttr[Double] = doubleAttr("indicator-offset")
 
   /** The form to associate this control with. If omitted, the closest containing `<form>` will be used. The value of
-  this attribute must be an ID of a form in the same document or shadow root. */
+    * this attribute must be an ID of a form in the same document or shadow root.
+    */
   lazy val form: HtmlAttr[String] = stringAttr("form")
 
   /** The minimum value allowed. */
@@ -105,7 +106,8 @@ object Slider extends WebComponent("wa-slider") {
   /** The distance of the tooltip from the slider's thumb. */
   lazy val tooltipDistance: HtmlAttr[Double] = doubleAttr("tooltip-distance")
 
-  /** The placement of the tooltip in reference to the slider's thumb. Valid values: "top", "right", "bottom", "left". */
+  /** The placement of the tooltip in reference to the slider's thumb. Valid values: "top", "right", "bottom", "left".
+    */
   lazy val tooltipPlacement: HtmlAttr[TooltipPlacement] = unionAttr("tooltip-placement")
 
   /** Draws markers at each step along the slider. */
@@ -117,6 +119,7 @@ object Slider extends WebComponent("wa-slider") {
   // -- Slots --
 
   object slots {
+
     /** The slider label. Alternatively, you can use the `label` attribute. */
     lazy val label: Slot = Slot("label")
 
@@ -132,6 +135,7 @@ object Slider extends WebComponent("wa-slider") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssVars {
+
     /** The height or width of the slider's track. Default: 0.75em */
     lazy val trackSize: String = "--track-size"
 
@@ -153,6 +157,7 @@ object Slider extends WebComponent("wa-slider") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
+
     /** The element that contains the sliders's label. */
     lazy val label: String = "label"
 
@@ -202,7 +207,8 @@ object Slider extends WebComponent("wa-slider") {
 
   // -- Element type --
 
-  @js.native trait WaSliderComponent extends js.Object {
+  @js.native
+  trait WaSliderComponent extends js.Object {
     this: dom.HTMLElement =>
 
     /** The slider's label. If you need to provide HTML in the label, use the `label` slot instead. */
@@ -239,7 +245,8 @@ object Slider extends WebComponent("wa-slider") {
     var indicatorOffset: Double
 
     /** The form to associate this control with. If omitted, the closest containing `<form>` will be used. The value of
-    this attribute must be an ID of a form in the same document or shadow root. */
+      * this attribute must be an ID of a form in the same document or shadow root.
+      */
     var form: String
 
     /** The minimum value allowed. */
@@ -260,7 +267,8 @@ object Slider extends WebComponent("wa-slider") {
     /** The distance of the tooltip from the slider's thumb. */
     var tooltipDistance: Double
 
-    /** The placement of the tooltip in reference to the slider's thumb. Valid values: "top", "right", "bottom", "left". */
+    /** The placement of the tooltip in reference to the slider's thumb. Valid values: "top", "right", "bottom", "left".
+      */
     var tooltipPlacement: TooltipPlacement
 
     /** Draws markers at each step along the slider. */
@@ -275,12 +283,14 @@ object Slider extends WebComponent("wa-slider") {
     /** Removes focus from the slider. */
     def blur(): js.Any = js.native
 
-    /** Decreases the slider's value by `step`. This is a programmatic change, so `input` and `change` events will not be
-    emitted when this is called. */
+    /** Decreases the slider's value by `step`. This is a programmatic change, so `input` and `change` events will not
+      * be emitted when this is called.
+      */
     def stepDown(): js.Any = js.native
 
-    /** Increases the slider's value by `step`. This is a programmatic change, so `input` and `change` events will not be
-    emitted when this is called. */
+    /** Increases the slider's value by `step`. This is a programmatic change, so `input` and `change` events will not
+      * be emitted when this is called.
+      */
     def stepUp(): js.Any = js.native
 
   }

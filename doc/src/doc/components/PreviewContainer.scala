@@ -61,13 +61,12 @@ case class PreviewContainer(
               )
             )
           } --> Observer.empty,
-          documentEvents(_.onMouseMove).compose(_.withCurrentValueOf(mouseDataSignal)).map {
-            (event, mouseData) =>
-              if (mouseData.isDragging) {
-                val deltaX = event.clientX - mouseData.startX
-                val newWidth = deltaX + mouseData.startWidth
-                widthVar.set(Some(newWidth))
-              }
+          documentEvents(_.onMouseMove).compose(_.withCurrentValueOf(mouseDataSignal)).map { (event, mouseData) =>
+            if (mouseData.isDragging) {
+              val deltaX   = event.clientX - mouseData.startX
+              val newWidth = deltaX + mouseData.startWidth
+              widthVar.set(Some(newWidth))
+            }
           } --> Observer.empty,
           documentEvents(_.onMouseUp).map { _ =>
             mouseDataVar.update(_.copy(isDragging = false))
@@ -84,6 +83,6 @@ case class PreviewContainer(
 
 object PreviewContainer {
   val defaultContainerMinWidth = 200.0
-  val defaultResizable = true
-  val defaultCenter = false
+  val defaultResizable         = true
+  val defaultCenter            = false
 }

@@ -1,26 +1,27 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
-import com.raquo.laminar.api.L
+import com.raquo.laminar.keys.EventProp
+import com.raquo.laminar.keys.HtmlAttr
+import com.raquo.laminar.keys.HtmlProp
 import com.raquo.laminar.nodes.Slot
 import com.raquo.laminar.tags.CustomHtmlTag
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import org.scalajs.dom
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/**
-  * Textareas collect data from the user and allow multiple lines of text.
+/** Textareas collect data from the user and allow multiple lines of text.
   *
-  * [[https://backers.webawesome.com/docs/components/textarea WebAwesome  docs]]
+  * [[https://webawesome.com/docs/components/textarea WebAwesome docs]]
   */
 object Textarea extends WebComponent("wa-textarea") {
 
   @JSImport("@awesome.me/webawesome/dist/components/textarea/textarea.js", JSImport.Namespace)
-  @js.native object RawImport extends js.Object
+  @js.native
+  object RawImport extends js.Object
 
   type Self = Textarea.type
 
@@ -89,8 +90,9 @@ object Textarea extends WebComponent("wa-textarea") {
   lazy val readonly: HtmlAttr[Boolean] = boolAttr("readonly")
 
   /** By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
-  to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
-  the same document or shadow root for this to work. */
+    * to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
+    * the same document or shadow root for this to work.
+    */
   lazy val form: HtmlAttr[String] = stringAttr("form")
 
   /** Makes the textarea a required field. */
@@ -102,27 +104,34 @@ object Textarea extends WebComponent("wa-textarea") {
   /** The maximum length of input that will be considered valid. */
   lazy val maxlength: HtmlAttr[Double] = doubleAttr("maxlength")
 
-  /** Controls whether and how text input is automatically capitalized as it is entered by the user. Valid values: "off", "none", "on", "sentences", "words", "characters". */
+  /** Controls whether and how text input is automatically capitalized as it is entered by the user. Valid values:
+    * "off", "none", "on", "sentences", "words", "characters".
+    */
   lazy val autocapitalize: HtmlAttr[Autocapitalize] = unionAttr("autocapitalize")
 
   /** Indicates whether the browser's autocorrect feature is on or off. */
   lazy val autocorrect: HtmlAttr[String] = stringAttr("autocorrect")
 
-  /** Specifies what permission the browser has to provide assistance in filling out form field values. Refer to
-  [this page on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) for available values. */
+  /** Specifies what permission the browser has to provide assistance in filling out form field values. Refer to [this
+    * page on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) for available values.
+    */
   lazy val autocomplete: HtmlAttr[String] = stringAttr("autocomplete")
 
   /** Indicates that the input should receive focus on page load. */
   lazy val autofocus: HtmlAttr[Boolean] = boolAttr("autofocus")
 
-  /** Used to customize the label or icon of the Enter key on virtual keyboards. Valid values: "enter", "done", "go", "next", "previous", "search", "send". */
+  /** Used to customize the label or icon of the Enter key on virtual keyboards. Valid values: "enter", "done", "go",
+    * "next", "previous", "search", "send".
+    */
   lazy val enterkeyhint: HtmlAttr[Enterkeyhint] = unionAttr("enterkeyhint")
 
   /** Enables spell checking on the textarea. */
   lazy val spellcheck: HtmlAttr[Boolean] = boolAttr("spellcheck")
 
   /** Tells the browser what type of data will be entered by the user, allowing it to display the appropriate virtual
-  keyboard on supportive devices. Valid values: "none", "text", "decimal", "numeric", "tel", "search", "email", "url". */
+    * keyboard on supportive devices. Valid values: "none", "text", "decimal", "numeric", "tel", "search", "email",
+    * "url".
+    */
   lazy val inputmode: HtmlAttr[Inputmode] = unionAttr("inputmode")
 
   /** Used for SSR. If you're slotting in a `label` element, make sure to set this to `true`. */
@@ -134,6 +143,7 @@ object Textarea extends WebComponent("wa-textarea") {
   // -- Slots --
 
   object slots {
+
     /** The textarea's label. Alternatively, you can use the `label` attribute. */
     lazy val label: Slot = Slot("label")
 
@@ -146,6 +156,7 @@ object Textarea extends WebComponent("wa-textarea") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
+
     /** The label */
     lazy val label: String = "label"
 
@@ -165,7 +176,8 @@ object Textarea extends WebComponent("wa-textarea") {
 
   // -- Element type --
 
-  @js.native trait WaTextareaComponent extends js.Object {
+  @js.native
+  trait WaTextareaComponent extends js.Object {
     this: dom.HTMLElement =>
 
     var title: String
@@ -201,8 +213,9 @@ object Textarea extends WebComponent("wa-textarea") {
     var readonly: Boolean
 
     /** By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
-    to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
-    the same document or shadow root for this to work. */
+      * to place the form control outside of a form and associate it with the form that has this `id`. The form must be
+      * in the same document or shadow root for this to work.
+      */
     var form: String
 
     /** Makes the textarea a required field. */
@@ -214,27 +227,34 @@ object Textarea extends WebComponent("wa-textarea") {
     /** The maximum length of input that will be considered valid. */
     var maxlength: Double
 
-    /** Controls whether and how text input is automatically capitalized as it is entered by the user. Valid values: "off", "none", "on", "sentences", "words", "characters". */
+    /** Controls whether and how text input is automatically capitalized as it is entered by the user. Valid values:
+      * "off", "none", "on", "sentences", "words", "characters".
+      */
     var autocapitalize: Autocapitalize
 
     /** Indicates whether the browser's autocorrect feature is on or off. */
     var autocorrect: String
 
-    /** Specifies what permission the browser has to provide assistance in filling out form field values. Refer to
-    [this page on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) for available values. */
+    /** Specifies what permission the browser has to provide assistance in filling out form field values. Refer to [this
+      * page on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) for available values.
+      */
     var autocomplete: String
 
     /** Indicates that the input should receive focus on page load. */
     var autofocus: Boolean
 
-    /** Used to customize the label or icon of the Enter key on virtual keyboards. Valid values: "enter", "done", "go", "next", "previous", "search", "send". */
+    /** Used to customize the label or icon of the Enter key on virtual keyboards. Valid values: "enter", "done", "go",
+      * "next", "previous", "search", "send".
+      */
     var enterkeyhint: Enterkeyhint
 
     /** Enables spell checking on the textarea. */
     var spellcheck: Boolean
 
     /** Tells the browser what type of data will be entered by the user, allowing it to display the appropriate virtual
-    keyboard on supportive devices. Valid values: "none", "text", "decimal", "numeric", "tel", "search", "email", "url". */
+      * keyboard on supportive devices. Valid values: "none", "text", "decimal", "numeric", "tel", "search", "email",
+      * "url".
+      */
     var inputmode: Inputmode
 
     /** Used for SSR. If you're slotting in a `label` element, make sure to set this to `true`. */
@@ -263,7 +283,12 @@ object Textarea extends WebComponent("wa-textarea") {
     def setSelectionRange(selectionStart: js.Any, selectionEnd: js.Any, selectionDirection: js.Any): js.Any = js.native
 
     /** Replaces a range of text with a new string. */
-    def setRangeText(replacement: js.Any, start: js.Any = js.undefined, end: js.Any = js.undefined, selectMode: js.Any): js.Any = js.native
+    def setRangeText(
+        replacement: js.Any,
+        start: js.Any = js.undefined,
+        end: js.Any = js.undefined,
+        selectMode: js.Any
+    ): js.Any = js.native
 
     def formResetCallback(): js.Any = js.native
 

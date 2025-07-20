@@ -4,14 +4,14 @@
     "schemaVersion": "1.0.0",
     "modulesCount": 64
   },
-  "generated": "2025-07-19T05:47:29.043Z",
+  "generated": "2025-07-20T07:30:49.631Z",
   "components": [
     {
       "name": "WaAnimatedImage",
       "tagName": "wa-animated-image",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.AnimatedImage",
       "description": "A component for displaying animated GIFs and WEBPs that play and pause on interaction.",
-      "documentation": "https://backers.webawesome.com/docs/components/animated-image",
+      "documentation": "https://webawesome.com/docs/components/animated-image",
       "since": "2.0",
       "attributes": [
         {
@@ -100,7 +100,7 @@
       "tagName": "wa-animation",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Animation",
       "description": "Animate elements declaratively with nearly 100 baked-in presets, or roll your own with custom keyframes. Powered by the [Web Animations API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API).",
-      "documentation": "https://backers.webawesome.com/docs/components/animation",
+      "documentation": "https://webawesome.com/docs/components/animation",
       "since": "2.0",
       "attributes": [
         {
@@ -250,11 +250,132 @@
       "dependencies": []
     },
     {
+      "name": "WaBreadcrumb",
+      "tagName": "wa-breadcrumb",
+      "packagePath": "io.github.nguyenyou.webawesome.laminar.Breadcrumb",
+      "description": "Breadcrumbs provide a group of links so users can easily navigate a website's hierarchy.",
+      "documentation": "https://webawesome.com/docs/components/breadcrumb",
+      "since": "2.0",
+      "attributes": [
+        {
+          "name": "label",
+          "fieldName": "label",
+          "type": "String",
+          "description": "The label to use for the breadcrumb control. This will not be shown on the screen, but it will be announced by\nscreen readers and other assistive devices to provide more context for users.",
+          "default": "''"
+        }
+      ],
+      "events": [],
+      "slots": [
+        {
+          "name": "",
+          "description": "One or more breadcrumb items to display."
+        },
+        {
+          "name": "separator",
+          "description": "The separator to use between breadcrumb items. Works best with `<wa-icon>`."
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "base",
+          "description": "The component's base wrapper."
+        }
+      ],
+      "methods": [],
+      "dependencies": [
+        "wa-icon"
+      ]
+    },
+    {
+      "name": "WaBreadcrumbItem",
+      "tagName": "wa-breadcrumb-item",
+      "packagePath": "io.github.nguyenyou.webawesome.laminar.BreadcrumbItem",
+      "description": "Breadcrumb Items are used inside breadcrumbs to represent different links.",
+      "documentation": "https://webawesome.com/docs/components/breadcrumb-item",
+      "since": "2.0",
+      "attributes": [
+        {
+          "name": "href",
+          "fieldName": "href",
+          "type": "string | undefined",
+          "description": "Optional URL to direct the user to when the breadcrumb item is activated. When set, a link will be rendered\ninternally. When unset, a button will be rendered instead."
+        },
+        {
+          "name": "target",
+          "fieldName": "target",
+          "type": "'_blank' | '_parent' | '_self' | '_top' | undefined",
+          "description": "Tells the browser where to open the link. Only used when `href` is set."
+        },
+        {
+          "name": "rel",
+          "fieldName": "rel",
+          "type": "String",
+          "description": "The `rel` attribute to use on the link. Only used when `href` is set.",
+          "default": "'noreferrer noopener'"
+        }
+      ],
+      "events": [],
+      "slots": [
+        {
+          "name": "",
+          "description": "The breadcrumb item's label."
+        },
+        {
+          "name": "start",
+          "description": "An element, such as `<wa-icon>`, placed before the label."
+        },
+        {
+          "name": "end",
+          "description": "An element, such as `<wa-icon>`, placed after the label."
+        },
+        {
+          "name": "separator",
+          "description": "The separator to use for the breadcrumb item. This will only change the separator for this item. If you want to change it for all items in the group, set the separator on `<wa-breadcrumb>` instead."
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "label",
+          "description": "The breadcrumb item's label."
+        },
+        {
+          "name": "start",
+          "description": "The container that wraps the `start` slot."
+        },
+        {
+          "name": "end",
+          "description": "The container that wraps the `end` slot."
+        },
+        {
+          "name": "separator",
+          "description": "The container that wraps the separator."
+        }
+      ],
+      "methods": [
+        {
+          "name": "hrefChanged",
+          "parameters": [],
+          "returnType": "Unit",
+          "public": true
+        },
+        {
+          "name": "handleSlotChange",
+          "parameters": [],
+          "returnType": "Unit",
+          "public": true
+        }
+      ],
+      "dependencies": []
+    },
+    {
       "name": "WaAvatar",
       "tagName": "wa-avatar",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Avatar",
       "description": "Avatars are used to represent a person or object.",
-      "documentation": "https://backers.webawesome.com/docs/components/avatar",
+      "documentation": "https://webawesome.com/docs/components/avatar",
       "since": "2.0",
       "attributes": [
         {
@@ -353,85 +474,11 @@
       ]
     },
     {
-      "name": "WaBadge",
-      "tagName": "wa-badge",
-      "packagePath": "io.github.nguyenyou.webawesome.laminar.Badge",
-      "description": "Badges are used to draw attention and display statuses or counts.",
-      "documentation": "https://backers.webawesome.com/docs/components/badge",
-      "since": "2.0",
-      "attributes": [
-        {
-          "name": "variant",
-          "fieldName": "variant",
-          "type": "String",
-          "unionValues": [
-            "brand",
-            "neutral",
-            "success",
-            "warning",
-            "danger"
-          ],
-          "description": "The badge's theme variant. Defaults to `brand` if not within another element with a variant.",
-          "default": "'brand'",
-          "reflects": true
-        },
-        {
-          "name": "appearance",
-          "fieldName": "appearance",
-          "type": "String",
-          "unionValues": [
-            "accent",
-            "filled",
-            "outlined"
-          ],
-          "description": "The badge's visual appearance.",
-          "default": "'accent'",
-          "reflects": true
-        },
-        {
-          "name": "pill",
-          "fieldName": "pill",
-          "type": "Boolean",
-          "description": "Draws a pill-style badge with rounded edges.",
-          "default": "false",
-          "reflects": true
-        },
-        {
-          "name": "attention",
-          "fieldName": "attention",
-          "type": "String",
-          "unionValues": [
-            "none",
-            "pulse"
-          ],
-          "description": "Makes the badge pulsate to draw attention.",
-          "default": "'none'",
-          "reflects": true
-        }
-      ],
-      "events": [],
-      "slots": [
-        {
-          "name": "",
-          "description": "The badge's content."
-        }
-      ],
-      "cssProperties": [],
-      "cssParts": [
-        {
-          "name": "base",
-          "description": "The component's base wrapper."
-        }
-      ],
-      "methods": [],
-      "dependencies": []
-    },
-    {
       "name": "WaButton",
       "tagName": "wa-button",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Button",
       "description": "Buttons represent actions that are available to the user.",
-      "documentation": "https://backers.webawesome.com/docs/components/button",
+      "documentation": "https://webawesome.com/docs/components/button",
       "since": "2.0",
       "attributes": [
         {
@@ -734,85 +781,83 @@
       ]
     },
     {
-      "name": "WaBreadcrumbItem",
-      "tagName": "wa-breadcrumb-item",
-      "packagePath": "io.github.nguyenyou.webawesome.laminar.BreadcrumbItem",
-      "description": "Breadcrumb Items are used inside breadcrumbs to represent different links.",
-      "documentation": "https://backers.webawesome.com/docs/components/breadcrumb-item",
+      "name": "WaBadge",
+      "tagName": "wa-badge",
+      "packagePath": "io.github.nguyenyou.webawesome.laminar.Badge",
+      "description": "Badges are used to draw attention and display statuses or counts.",
+      "documentation": "https://webawesome.com/docs/components/badge",
       "since": "2.0",
       "attributes": [
         {
-          "name": "href",
-          "fieldName": "href",
-          "type": "string | undefined",
-          "description": "Optional URL to direct the user to when the breadcrumb item is activated. When set, a link will be rendered\ninternally. When unset, a button will be rendered instead."
-        },
-        {
-          "name": "target",
-          "fieldName": "target",
-          "type": "'_blank' | '_parent' | '_self' | '_top' | undefined",
-          "description": "Tells the browser where to open the link. Only used when `href` is set."
-        },
-        {
-          "name": "rel",
-          "fieldName": "rel",
+          "name": "variant",
+          "fieldName": "variant",
           "type": "String",
-          "description": "The `rel` attribute to use on the link. Only used when `href` is set.",
-          "default": "'noreferrer noopener'"
+          "unionValues": [
+            "brand",
+            "neutral",
+            "success",
+            "warning",
+            "danger"
+          ],
+          "description": "The badge's theme variant. Defaults to `brand` if not within another element with a variant.",
+          "default": "'brand'",
+          "reflects": true
+        },
+        {
+          "name": "appearance",
+          "fieldName": "appearance",
+          "type": "String",
+          "unionValues": [
+            "accent",
+            "filled",
+            "outlined"
+          ],
+          "description": "The badge's visual appearance.",
+          "default": "'accent'",
+          "reflects": true
+        },
+        {
+          "name": "pill",
+          "fieldName": "pill",
+          "type": "Boolean",
+          "description": "Draws a pill-style badge with rounded edges.",
+          "default": "false",
+          "reflects": true
+        },
+        {
+          "name": "attention",
+          "fieldName": "attention",
+          "type": "String",
+          "unionValues": [
+            "none",
+            "pulse",
+            "bounce"
+          ],
+          "description": "Adds an animation to draw attention to the badge.",
+          "default": "'none'",
+          "reflects": true
         }
       ],
       "events": [],
       "slots": [
         {
           "name": "",
-          "description": "The breadcrumb item's label."
-        },
-        {
-          "name": "start",
-          "description": "An element, such as `<wa-icon>`, placed before the label."
-        },
-        {
-          "name": "end",
-          "description": "An element, such as `<wa-icon>`, placed after the label."
-        },
-        {
-          "name": "separator",
-          "description": "The separator to use for the breadcrumb item. This will only change the separator for this item. If you want to change it for all items in the group, set the separator on `<wa-breadcrumb>` instead."
+          "description": "The badge's content."
         }
       ],
-      "cssProperties": [],
+      "cssProperties": [
+        {
+          "name": "--pulse-color",
+          "description": "The color of the badge's pulse effect when using `attention=\"pulse\"`."
+        }
+      ],
       "cssParts": [
         {
-          "name": "label",
-          "description": "The breadcrumb item's label."
-        },
-        {
-          "name": "start",
-          "description": "The container that wraps the `start` slot."
-        },
-        {
-          "name": "end",
-          "description": "The container that wraps the `end` slot."
-        },
-        {
-          "name": "separator",
-          "description": "The container that wraps the separator."
+          "name": "base",
+          "description": "The component's base wrapper."
         }
       ],
-      "methods": [
-        {
-          "name": "hrefChanged",
-          "parameters": [],
-          "returnType": "Unit",
-          "public": true
-        },
-        {
-          "name": "handleSlotChange",
-          "parameters": [],
-          "returnType": "Unit",
-          "public": true
-        }
-      ],
+      "methods": [],
       "dependencies": []
     },
     {
@@ -820,7 +865,7 @@
       "tagName": "wa-button-group",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.ButtonGroup",
       "description": "Button groups can be used to group related buttons into sections.",
-      "documentation": "https://backers.webawesome.com/docs/components/button-group",
+      "documentation": "https://webawesome.com/docs/components/button-group",
       "since": "2.0",
       "attributes": [
         {
@@ -888,50 +933,11 @@
       "dependencies": []
     },
     {
-      "name": "WaBreadcrumb",
-      "tagName": "wa-breadcrumb",
-      "packagePath": "io.github.nguyenyou.webawesome.laminar.Breadcrumb",
-      "description": "Breadcrumbs provide a group of links so users can easily navigate a website's hierarchy.",
-      "documentation": "https://backers.webawesome.com/docs/components/breadcrumb",
-      "since": "2.0",
-      "attributes": [
-        {
-          "name": "label",
-          "fieldName": "label",
-          "type": "String",
-          "description": "The label to use for the breadcrumb control. This will not be shown on the screen, but it will be announced by\nscreen readers and other assistive devices to provide more context for users.",
-          "default": "''"
-        }
-      ],
-      "events": [],
-      "slots": [
-        {
-          "name": "",
-          "description": "One or more breadcrumb items to display."
-        },
-        {
-          "name": "separator",
-          "description": "The separator to use between breadcrumb items. Works best with `<wa-icon>`."
-        }
-      ],
-      "cssProperties": [],
-      "cssParts": [
-        {
-          "name": "base",
-          "description": "The component's base wrapper."
-        }
-      ],
-      "methods": [],
-      "dependencies": [
-        "wa-icon"
-      ]
-    },
-    {
       "name": "WaCallout",
       "tagName": "wa-callout",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Callout",
       "description": "Callouts are used to display important messages inline.",
-      "documentation": "https://backers.webawesome.com/docs/components/callout",
+      "documentation": "https://webawesome.com/docs/components/callout",
       "since": "2.0",
       "attributes": [
         {
@@ -1001,7 +1007,7 @@
       "tagName": "wa-card",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Card",
       "description": "Cards can be used to group related subjects in a container.",
-      "documentation": "https://backers.webawesome.com/docs/components/card",
+      "documentation": "https://webawesome.com/docs/components/card",
       "since": "2.0",
       "attributes": [
         {
@@ -1366,7 +1372,7 @@
       "tagName": "wa-checkbox",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Checkbox",
       "description": "Checkboxes allow the user to toggle an option on or off.",
-      "documentation": "https://backers.webawesome.com/docs/components/checkbox",
+      "documentation": "https://webawesome.com/docs/components/checkbox",
       "since": "2.0",
       "attributes": [
         {
@@ -1595,7 +1601,7 @@
       "tagName": "wa-color-picker",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.ColorPicker",
       "description": "Color pickers allow the user to select a color.",
-      "documentation": "https://backers.webawesome.com/docs/components/color-picker",
+      "documentation": "https://webawesome.com/docs/components/color-picker",
       "since": "2.0",
       "attributes": [
         {
@@ -2097,7 +2103,7 @@
       "tagName": "wa-comparison",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Comparison",
       "description": "Compare visual differences between similar content with a sliding panel.",
-      "documentation": "https://backers.webawesome.com/docs/components/comparison",
+      "documentation": "https://webawesome.com/docs/components/comparison",
       "since": "2.0",
       "attributes": [
         {
@@ -2180,7 +2186,7 @@
       "tagName": "wa-copy-button",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.CopyButton",
       "description": "Copies text data to the clipboard when the user clicks the trigger.",
-      "documentation": "https://backers.webawesome.com/docs/components/copy",
+      "documentation": "https://webawesome.com/docs/components/copy",
       "since": "2.7",
       "attributes": [
         {
@@ -2324,7 +2330,7 @@
       "tagName": "wa-details",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Details",
       "description": "Details show a brief summary and expand to show additional content.",
-      "documentation": "https://backers.webawesome.com/docs/components/details",
+      "documentation": "https://webawesome.com/docs/components/details",
       "since": "2.0",
       "attributes": [
         {
@@ -2485,7 +2491,7 @@
       "tagName": "wa-dialog",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Dialog",
       "description": "Dialogs, sometimes called \"modals\", appear above the page and require the user's immediate attention.",
-      "documentation": "https://backers.webawesome.com/docs/components/dialog",
+      "documentation": "https://webawesome.com/docs/components/dialog",
       "since": "2.0",
       "attributes": [
         {
@@ -2634,7 +2640,7 @@
       "tagName": "wa-divider",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Divider",
       "description": "Dividers are used to visually separate or group elements.",
-      "documentation": "https://backers.webawesome.com/docs/components/divider",
+      "documentation": "https://webawesome.com/docs/components/divider",
       "since": "2.0",
       "attributes": [
         {
@@ -2682,7 +2688,7 @@
       "tagName": "wa-drawer",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Drawer",
       "description": "Drawers slide in from a container to expose additional options and information.",
-      "documentation": "https://backers.webawesome.com/docs/components/drawer",
+      "documentation": "https://webawesome.com/docs/components/drawer",
       "since": "2.0",
       "attributes": [
         {
@@ -2845,7 +2851,7 @@
       "tagName": "wa-dropdown",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Dropdown",
       "description": "Dropdowns display a list of options that can be triggered by a button or other element. They support\nkeyboard navigation, submenus, and various customization options.",
-      "documentation": "https://backers.webawesome.com/docs/components/dropdown",
+      "documentation": "https://webawesome.com/docs/components/dropdown",
       "since": "2.0",
       "attributes": [
         {
@@ -2968,7 +2974,7 @@
       "tagName": "wa-dropdown-item",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.DropdownItem",
       "description": "Represents an individual item within a dropdown menu, supporting standard items, checkboxes, and submenus.",
-      "documentation": "https://backers.webawesome.com/docs/components/dropdown-item",
+      "documentation": "https://webawesome.com/docs/components/dropdown-item",
       "since": "3.0",
       "attributes": [
         {
@@ -3109,7 +3115,7 @@
       "tagName": "wa-format-bytes",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.FormatBytes",
       "description": "Formats a number as a human readable bytes value.",
-      "documentation": "https://backers.webawesome.com/docs/components/format-bytes",
+      "documentation": "https://webawesome.com/docs/components/format-bytes",
       "since": "2.0",
       "attributes": [
         {
@@ -3151,11 +3157,103 @@
       "dependencies": []
     },
     {
+      "name": "WaFormatNumber",
+      "tagName": "wa-format-number",
+      "packagePath": "io.github.nguyenyou.webawesome.laminar.FormatNumber",
+      "description": "Formats a number using the specified locale and options.",
+      "documentation": "https://webawesome.com/docs/components/format-number",
+      "since": "2.0",
+      "attributes": [
+        {
+          "name": "value",
+          "fieldName": "value",
+          "type": "Double",
+          "description": "The number to format.",
+          "default": "0"
+        },
+        {
+          "name": "type",
+          "fieldName": "type",
+          "type": "String",
+          "unionValues": [
+            "currency",
+            "decimal",
+            "percent"
+          ],
+          "description": "The formatting style to use.",
+          "default": "'decimal'"
+        },
+        {
+          "name": "without-grouping",
+          "fieldName": "withoutGrouping",
+          "type": "Boolean",
+          "description": "Turns off grouping separators.",
+          "default": "false"
+        },
+        {
+          "name": "currency",
+          "fieldName": "currency",
+          "type": "String",
+          "description": "The [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code to use when formatting.",
+          "default": "'USD'"
+        },
+        {
+          "name": "currency-display",
+          "fieldName": "currencyDisplay",
+          "type": "String",
+          "unionValues": [
+            "symbol",
+            "narrowSymbol",
+            "code",
+            "name"
+          ],
+          "description": "How to display the currency.",
+          "default": "'symbol'"
+        },
+        {
+          "name": "minimum-integer-digits",
+          "fieldName": "minimumIntegerDigits",
+          "type": "Double",
+          "description": "The minimum number of integer digits to use. Possible values are 1-21."
+        },
+        {
+          "name": "minimum-fraction-digits",
+          "fieldName": "minimumFractionDigits",
+          "type": "Double",
+          "description": "The minimum number of fraction digits to use. Possible values are 0-100."
+        },
+        {
+          "name": "maximum-fraction-digits",
+          "fieldName": "maximumFractionDigits",
+          "type": "Double",
+          "description": "The maximum number of fraction digits to use. Possible values are 0-100."
+        },
+        {
+          "name": "minimum-significant-digits",
+          "fieldName": "minimumSignificantDigits",
+          "type": "Double",
+          "description": "The minimum number of significant digits to use. Possible values are 1-21."
+        },
+        {
+          "name": "maximum-significant-digits",
+          "fieldName": "maximumSignificantDigits",
+          "type": "Double",
+          "description": "The maximum number of significant digits to use,. Possible values are 1-21."
+        }
+      ],
+      "events": [],
+      "slots": [],
+      "cssProperties": [],
+      "cssParts": [],
+      "methods": [],
+      "dependencies": []
+    },
+    {
       "name": "WaFormatDate",
       "tagName": "wa-format-date",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.FormatDate",
       "description": "Formats a date/time using the specified locale and options.",
-      "documentation": "https://backers.webawesome.com/docs/components/format-date",
+      "documentation": "https://webawesome.com/docs/components/format-date",
       "since": "2.0",
       "attributes": [
         {
@@ -3287,103 +3385,11 @@
       "dependencies": []
     },
     {
-      "name": "WaFormatNumber",
-      "tagName": "wa-format-number",
-      "packagePath": "io.github.nguyenyou.webawesome.laminar.FormatNumber",
-      "description": "Formats a number using the specified locale and options.",
-      "documentation": "https://backers.webawesome.com/docs/components/format-number",
-      "since": "2.0",
-      "attributes": [
-        {
-          "name": "value",
-          "fieldName": "value",
-          "type": "Double",
-          "description": "The number to format.",
-          "default": "0"
-        },
-        {
-          "name": "type",
-          "fieldName": "type",
-          "type": "String",
-          "unionValues": [
-            "currency",
-            "decimal",
-            "percent"
-          ],
-          "description": "The formatting style to use.",
-          "default": "'decimal'"
-        },
-        {
-          "name": "without-grouping",
-          "fieldName": "withoutGrouping",
-          "type": "Boolean",
-          "description": "Turns off grouping separators.",
-          "default": "false"
-        },
-        {
-          "name": "currency",
-          "fieldName": "currency",
-          "type": "String",
-          "description": "The [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code to use when formatting.",
-          "default": "'USD'"
-        },
-        {
-          "name": "currency-display",
-          "fieldName": "currencyDisplay",
-          "type": "String",
-          "unionValues": [
-            "symbol",
-            "narrowSymbol",
-            "code",
-            "name"
-          ],
-          "description": "How to display the currency.",
-          "default": "'symbol'"
-        },
-        {
-          "name": "minimum-integer-digits",
-          "fieldName": "minimumIntegerDigits",
-          "type": "Double",
-          "description": "The minimum number of integer digits to use. Possible values are 1-21."
-        },
-        {
-          "name": "minimum-fraction-digits",
-          "fieldName": "minimumFractionDigits",
-          "type": "Double",
-          "description": "The minimum number of fraction digits to use. Possible values are 0-100."
-        },
-        {
-          "name": "maximum-fraction-digits",
-          "fieldName": "maximumFractionDigits",
-          "type": "Double",
-          "description": "The maximum number of fraction digits to use. Possible values are 0-100."
-        },
-        {
-          "name": "minimum-significant-digits",
-          "fieldName": "minimumSignificantDigits",
-          "type": "Double",
-          "description": "The minimum number of significant digits to use. Possible values are 1-21."
-        },
-        {
-          "name": "maximum-significant-digits",
-          "fieldName": "maximumSignificantDigits",
-          "type": "Double",
-          "description": "The maximum number of significant digits to use,. Possible values are 1-21."
-        }
-      ],
-      "events": [],
-      "slots": [],
-      "cssProperties": [],
-      "cssParts": [],
-      "methods": [],
-      "dependencies": []
-    },
-    {
       "name": "WaIcon",
       "tagName": "wa-icon",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Icon",
       "description": "Icons are symbols that can be used to represent various options within an application.",
-      "documentation": "https://backers.webawesome.com/docs/components/icon",
+      "documentation": "https://webawesome.com/docs/components/icon",
       "since": "2.0",
       "attributes": [
         {
@@ -3503,7 +3509,7 @@
       "tagName": "wa-include",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Include",
       "description": "Includes give you the power to embed external HTML files into the page.",
-      "documentation": "https://backers.webawesome.com/docs/components/include",
+      "documentation": "https://webawesome.com/docs/components/include",
       "since": "2.0",
       "attributes": [
         {
@@ -3563,11 +3569,175 @@
       "dependencies": []
     },
     {
+      "name": "WaOption",
+      "tagName": "wa-option",
+      "packagePath": "io.github.nguyenyou.webawesome.laminar.Option",
+      "description": "Options define the selectable items within a select component.",
+      "documentation": "https://webawesome.com/docs/components/option",
+      "since": "2.0",
+      "attributes": [
+        {
+          "name": "value",
+          "fieldName": "value",
+          "type": "String",
+          "description": "The option's value. When selected, the containing form control will receive this value. The value must be unique\nfrom other options in the same group. Values may not contain spaces, as spaces are used as delimiters when listing\nmultiple values.",
+          "default": "''",
+          "reflects": true
+        },
+        {
+          "name": "disabled",
+          "fieldName": "disabled",
+          "type": "Boolean",
+          "description": "Draws the option in a disabled state, preventing selection.",
+          "default": "false"
+        },
+        {
+          "name": "selected",
+          "fieldName": "defaultSelected",
+          "type": "Boolean",
+          "description": "Selects an option initially.",
+          "default": "false"
+        },
+        {
+          "name": "label",
+          "fieldName": "label",
+          "type": "String",
+          "description": "The option’s plain text label.\nUsually automatically generated, but can be useful to provide manually for cases involving complex content."
+        }
+      ],
+      "events": [],
+      "slots": [
+        {
+          "name": "",
+          "description": "The option's label."
+        },
+        {
+          "name": "start",
+          "description": "An element, such as `<wa-icon>`, placed before the label."
+        },
+        {
+          "name": "end",
+          "description": "An element, such as `<wa-icon>`, placed after the label."
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "checked-icon",
+          "description": "The checked icon, a `<wa-icon>` element."
+        },
+        {
+          "name": "label",
+          "description": "The option's label."
+        },
+        {
+          "name": "start",
+          "description": "The container that wraps the `start` slot."
+        },
+        {
+          "name": "end",
+          "description": "The container that wraps the `end` slot."
+        }
+      ],
+      "methods": [],
+      "dependencies": [
+        "wa-icon"
+      ]
+    },
+    {
+      "name": "WaMutationObserver",
+      "tagName": "wa-mutation-observer",
+      "packagePath": "io.github.nguyenyou.webawesome.laminar.MutationObserver",
+      "description": "The Mutation Observer component offers a thin, declarative interface to the [`MutationObserver API`](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver).",
+      "documentation": "https://webawesome.com/docs/components/mutation-observer",
+      "since": "2.0",
+      "attributes": [
+        {
+          "name": "attr",
+          "fieldName": "attr",
+          "type": "String",
+          "description": "Watches for changes to attributes. To watch only specific attributes, separate them by a space, e.g.\n`attr=\"class id title\"`. To watch all attributes, use `*`.",
+          "reflects": true
+        },
+        {
+          "name": "attr-old-value",
+          "fieldName": "attrOldValue",
+          "type": "Boolean",
+          "description": "Indicates whether or not the attribute's previous value should be recorded when monitoring changes.",
+          "default": "false",
+          "reflects": true
+        },
+        {
+          "name": "char-data",
+          "fieldName": "charData",
+          "type": "Boolean",
+          "description": "Watches for changes to the character data contained within the node.",
+          "default": "false",
+          "reflects": true
+        },
+        {
+          "name": "char-data-old-value",
+          "fieldName": "charDataOldValue",
+          "type": "Boolean",
+          "description": "Indicates whether or not the previous value of the node's text should be recorded.",
+          "default": "false",
+          "reflects": true
+        },
+        {
+          "name": "child-list",
+          "fieldName": "childList",
+          "type": "Boolean",
+          "description": "Watches for the addition or removal of new child nodes.",
+          "default": "false",
+          "reflects": true
+        },
+        {
+          "name": "disabled",
+          "fieldName": "disabled",
+          "type": "Boolean",
+          "description": "Disables the observer.",
+          "default": "false",
+          "reflects": true
+        }
+      ],
+      "events": [
+        {
+          "name": "wa-mutation",
+          "eventType": "WaMutationEvent",
+          "description": "Emitted when a mutation occurs.",
+          "reactName": "onWaMutation"
+        }
+      ],
+      "slots": [
+        {
+          "name": "",
+          "description": "The content to watch for mutations."
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [],
+      "methods": [
+        {
+          "name": "handleDisabledChange",
+          "parameters": [],
+          "returnType": "Unit",
+          "public": true
+        },
+        {
+          "name": "handleChange",
+          "parameters": [],
+          "returnType": "Unit",
+          "public": true
+        }
+      ],
+      "dependencies": []
+    },
+    {
       "name": "WaInput",
       "tagName": "wa-input",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Input",
       "description": "Inputs collect data from the user.",
-      "documentation": "https://backers.webawesome.com/docs/components/input",
+      "documentation": "https://webawesome.com/docs/components/input",
       "since": "2.0",
       "attributes": [
         {
@@ -4041,175 +4211,11 @@
       ]
     },
     {
-      "name": "WaMutationObserver",
-      "tagName": "wa-mutation-observer",
-      "packagePath": "io.github.nguyenyou.webawesome.laminar.MutationObserver",
-      "description": "The Mutation Observer component offers a thin, declarative interface to the [`MutationObserver API`](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver).",
-      "documentation": "https://backers.webawesome.com/docs/components/mutation-observer",
-      "since": "2.0",
-      "attributes": [
-        {
-          "name": "attr",
-          "fieldName": "attr",
-          "type": "String",
-          "description": "Watches for changes to attributes. To watch only specific attributes, separate them by a space, e.g.\n`attr=\"class id title\"`. To watch all attributes, use `*`.",
-          "reflects": true
-        },
-        {
-          "name": "attr-old-value",
-          "fieldName": "attrOldValue",
-          "type": "Boolean",
-          "description": "Indicates whether or not the attribute's previous value should be recorded when monitoring changes.",
-          "default": "false",
-          "reflects": true
-        },
-        {
-          "name": "char-data",
-          "fieldName": "charData",
-          "type": "Boolean",
-          "description": "Watches for changes to the character data contained within the node.",
-          "default": "false",
-          "reflects": true
-        },
-        {
-          "name": "char-data-old-value",
-          "fieldName": "charDataOldValue",
-          "type": "Boolean",
-          "description": "Indicates whether or not the previous value of the node's text should be recorded.",
-          "default": "false",
-          "reflects": true
-        },
-        {
-          "name": "child-list",
-          "fieldName": "childList",
-          "type": "Boolean",
-          "description": "Watches for the addition or removal of new child nodes.",
-          "default": "false",
-          "reflects": true
-        },
-        {
-          "name": "disabled",
-          "fieldName": "disabled",
-          "type": "Boolean",
-          "description": "Disables the observer.",
-          "default": "false",
-          "reflects": true
-        }
-      ],
-      "events": [
-        {
-          "name": "wa-mutation",
-          "eventType": "WaMutationEvent",
-          "description": "Emitted when a mutation occurs.",
-          "reactName": "onWaMutation"
-        }
-      ],
-      "slots": [
-        {
-          "name": "",
-          "description": "The content to watch for mutations."
-        }
-      ],
-      "cssProperties": [],
-      "cssParts": [],
-      "methods": [
-        {
-          "name": "handleDisabledChange",
-          "parameters": [],
-          "returnType": "Unit",
-          "public": true
-        },
-        {
-          "name": "handleChange",
-          "parameters": [],
-          "returnType": "Unit",
-          "public": true
-        }
-      ],
-      "dependencies": []
-    },
-    {
-      "name": "WaOption",
-      "tagName": "wa-option",
-      "packagePath": "io.github.nguyenyou.webawesome.laminar.Option",
-      "description": "Options define the selectable items within a select component.",
-      "documentation": "https://backers.webawesome.com/docs/components/option",
-      "since": "2.0",
-      "attributes": [
-        {
-          "name": "value",
-          "fieldName": "value",
-          "type": "String",
-          "description": "The option's value. When selected, the containing form control will receive this value. The value must be unique\nfrom other options in the same group. Values may not contain spaces, as spaces are used as delimiters when listing\nmultiple values.",
-          "default": "''",
-          "reflects": true
-        },
-        {
-          "name": "disabled",
-          "fieldName": "disabled",
-          "type": "Boolean",
-          "description": "Draws the option in a disabled state, preventing selection.",
-          "default": "false"
-        },
-        {
-          "name": "selected",
-          "fieldName": "defaultSelected",
-          "type": "Boolean",
-          "description": "Selects an option initially.",
-          "default": "false"
-        },
-        {
-          "name": "label",
-          "fieldName": "label",
-          "type": "String",
-          "description": "The option’s plain text label.\nUsually automatically generated, but can be useful to provide manually for cases involving complex content."
-        }
-      ],
-      "events": [],
-      "slots": [
-        {
-          "name": "",
-          "description": "The option's label."
-        },
-        {
-          "name": "start",
-          "description": "An element, such as `<wa-icon>`, placed before the label."
-        },
-        {
-          "name": "end",
-          "description": "An element, such as `<wa-icon>`, placed after the label."
-        }
-      ],
-      "cssProperties": [],
-      "cssParts": [
-        {
-          "name": "checked-icon",
-          "description": "The checked icon, a `<wa-icon>` element."
-        },
-        {
-          "name": "label",
-          "description": "The option's label."
-        },
-        {
-          "name": "start",
-          "description": "The container that wraps the `start` slot."
-        },
-        {
-          "name": "end",
-          "description": "The container that wraps the `end` slot."
-        }
-      ],
-      "methods": [],
-      "dependencies": [
-        "wa-icon"
-      ]
-    },
-    {
       "name": "WaPage",
       "tagName": "wa-page",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Page",
       "description": "Pages offer an easy way to scaffold entire page layouts using minimal markup.",
-      "documentation": "https://backers.webawesome.com/docs/components/page",
+      "documentation": "https://webawesome.com/docs/components/page",
       "since": "3.0",
       "attributes": [
         {
@@ -4463,7 +4469,7 @@
       "tagName": "wa-popover",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Popover",
       "description": "Popovers display contextual content and interactive elements in a floating panel.",
-      "documentation": "https://backers.webawesome.com/docs/components/popover",
+      "documentation": "https://webawesome.com/docs/components/popover",
       "since": "3.0",
       "attributes": [
         {
@@ -4625,7 +4631,7 @@
       "tagName": "wa-popup",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Popup",
       "description": "Popup is a utility that lets you declaratively anchor \"popup\" containers to another element.",
-      "documentation": "https://backers.webawesome.com/docs/components/popup",
+      "documentation": "https://webawesome.com/docs/components/popup",
       "since": "2.0",
       "attributes": [
         {
@@ -4884,7 +4890,7 @@
       "tagName": "wa-progress-bar",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.ProgressBar",
       "description": "Progress bars are used to show the status of an ongoing operation.",
-      "documentation": "https://backers.webawesome.com/docs/components/progress-bar",
+      "documentation": "https://webawesome.com/docs/components/progress-bar",
       "since": "2.0",
       "attributes": [
         {
@@ -4920,12 +4926,19 @@
       ],
       "cssProperties": [
         {
+          "name": "--track-height",
+          "description": "The color of the track.",
+          "default": "1rem"
+        },
+        {
           "name": "--track-color",
-          "description": "The color of the track."
+          "description": "The color of the track.",
+          "default": "var(--wa-color-neutral-fill-normal)"
         },
         {
           "name": "--indicator-color",
-          "description": "The color of the indicator."
+          "description": "The color of the indicator.",
+          "default": "var(--wa-color-brand-fill-loud)"
         }
       ],
       "cssParts": [
@@ -4946,81 +4959,11 @@
       "dependencies": []
     },
     {
-      "name": "WaProgressRing",
-      "tagName": "wa-progress-ring",
-      "packagePath": "io.github.nguyenyou.webawesome.laminar.ProgressRing",
-      "description": "Progress rings are used to show the progress of a determinate operation in a circular fashion.",
-      "documentation": "https://backers.webawesome.com/docs/components/progress-ring",
-      "since": "2.0",
-      "attributes": [
-        {
-          "name": "value",
-          "fieldName": "value",
-          "type": "Double",
-          "description": "The current progress as a percentage, 0 to 100.",
-          "default": "0",
-          "reflects": true
-        },
-        {
-          "name": "label",
-          "fieldName": "label",
-          "type": "String",
-          "description": "A custom label for assistive devices.",
-          "default": "''"
-        }
-      ],
-      "events": [],
-      "slots": [
-        {
-          "name": "",
-          "description": "A label to show inside the ring."
-        }
-      ],
-      "cssProperties": [
-        {
-          "name": "--size",
-          "description": "The diameter of the progress ring (cannot be a percentage)."
-        },
-        {
-          "name": "--track-width",
-          "description": "The width of the track."
-        },
-        {
-          "name": "--track-color",
-          "description": "The color of the track."
-        },
-        {
-          "name": "--indicator-width",
-          "description": "The width of the indicator. Defaults to the track width."
-        },
-        {
-          "name": "--indicator-color",
-          "description": "The color of the indicator."
-        },
-        {
-          "name": "--indicator-transition-duration",
-          "description": "The duration of the indicator's transition when the value changes."
-        }
-      ],
-      "cssParts": [
-        {
-          "name": "base",
-          "description": "The component's base wrapper."
-        },
-        {
-          "name": "label",
-          "description": "The progress ring label."
-        }
-      ],
-      "methods": [],
-      "dependencies": []
-    },
-    {
       "name": "WaQrCode",
       "tagName": "wa-qr-code",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.QrCode",
       "description": "Generates a [QR code](https://www.qrcode.com/) and renders it using the [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API).",
-      "documentation": "https://backers.webawesome.com/docs/components/qr-code",
+      "documentation": "https://webawesome.com/docs/components/qr-code",
       "since": "2.0",
       "attributes": [
         {
@@ -5099,11 +5042,81 @@
       "dependencies": []
     },
     {
+      "name": "WaProgressRing",
+      "tagName": "wa-progress-ring",
+      "packagePath": "io.github.nguyenyou.webawesome.laminar.ProgressRing",
+      "description": "Progress rings are used to show the progress of a determinate operation in a circular fashion.",
+      "documentation": "https://webawesome.com/docs/components/progress-ring",
+      "since": "2.0",
+      "attributes": [
+        {
+          "name": "value",
+          "fieldName": "value",
+          "type": "Double",
+          "description": "The current progress as a percentage, 0 to 100.",
+          "default": "0",
+          "reflects": true
+        },
+        {
+          "name": "label",
+          "fieldName": "label",
+          "type": "String",
+          "description": "A custom label for assistive devices.",
+          "default": "''"
+        }
+      ],
+      "events": [],
+      "slots": [
+        {
+          "name": "",
+          "description": "A label to show inside the ring."
+        }
+      ],
+      "cssProperties": [
+        {
+          "name": "--size",
+          "description": "The diameter of the progress ring (cannot be a percentage)."
+        },
+        {
+          "name": "--track-width",
+          "description": "The width of the track."
+        },
+        {
+          "name": "--track-color",
+          "description": "The color of the track."
+        },
+        {
+          "name": "--indicator-width",
+          "description": "The width of the indicator. Defaults to the track width."
+        },
+        {
+          "name": "--indicator-color",
+          "description": "The color of the indicator."
+        },
+        {
+          "name": "--indicator-transition-duration",
+          "description": "The duration of the indicator's transition when the value changes."
+        }
+      ],
+      "cssParts": [
+        {
+          "name": "base",
+          "description": "The component's base wrapper."
+        },
+        {
+          "name": "label",
+          "description": "The progress ring label."
+        }
+      ],
+      "methods": [],
+      "dependencies": []
+    },
+    {
       "name": "WaRadio",
       "tagName": "wa-radio",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Radio",
       "description": "Radios allow the user to select a single option from a group.",
-      "documentation": "https://backers.webawesome.com/docs/components/radio",
+      "documentation": "https://webawesome.com/docs/components/radio",
       "since": "2.0",
       "attributes": [
         {
@@ -5215,7 +5228,7 @@
       "tagName": "wa-radio-group",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.RadioGroup",
       "description": "Radio groups are used to group multiple [radios](/docs/components/radio) so they function as a single form control.",
-      "documentation": "https://backers.webawesome.com/docs/components/radio-group",
+      "documentation": "https://webawesome.com/docs/components/radio-group",
       "since": "2.0",
       "attributes": [
         {
@@ -5395,7 +5408,7 @@
       "tagName": "wa-rating",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Rating",
       "description": "Ratings give users a way to quickly view and provide feedback.",
-      "documentation": "https://backers.webawesome.com/docs/components/rating",
+      "documentation": "https://webawesome.com/docs/components/rating",
       "since": "2.0",
       "attributes": [
         {
@@ -5543,7 +5556,7 @@
       "tagName": "wa-relative-time",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.RelativeTime",
       "description": "Outputs a localized time phrase relative to the current date and time.",
-      "documentation": "https://backers.webawesome.com/docs/components/relative-time",
+      "documentation": "https://webawesome.com/docs/components/relative-time",
       "since": "2.0",
       "attributes": [
         {
@@ -5596,7 +5609,7 @@
       "tagName": "wa-resize-observer",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.ResizeObserver",
       "description": "The Resize Observer component offers a thin, declarative interface to the [`ResizeObserver API`](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver).",
-      "documentation": "https://backers.webawesome.com/docs/components/resize-observer",
+      "documentation": "https://webawesome.com/docs/components/resize-observer",
       "since": "2.0",
       "attributes": [
         {
@@ -5642,7 +5655,7 @@
       "tagName": "wa-scroller",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Scroller",
       "description": "Scrollers create an accessible container while providing visual cues that help users identify and navigate\nthrough content that scrolls.",
-      "documentation": "https://backers.webawesome.com/docs/components/card",
+      "documentation": "https://webawesome.com/docs/components/scroller",
       "since": "3.0",
       "attributes": [
         {
@@ -5707,7 +5720,7 @@
       "tagName": "wa-select",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Select",
       "description": "Selects allow you to choose items from a menu of predefined options.",
-      "documentation": "https://backers.webawesome.com/docs/components/select",
+      "documentation": "https://webawesome.com/docs/components/select",
       "since": "2.0",
       "attributes": [
         {
@@ -6109,7 +6122,7 @@
       "tagName": "wa-skeleton",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Skeleton",
       "description": "Skeletons are used to provide a visual representation of where content will eventually be drawn.",
-      "documentation": "https://backers.webawesome.com/docs/components/skeleton",
+      "documentation": "https://webawesome.com/docs/components/skeleton",
       "since": "2.0",
       "attributes": [
         {
@@ -6152,7 +6165,7 @@
       "tagName": "wa-slider",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Slider",
       "description": "Ranges allow the user to select a single value within a given range using a slider.",
-      "documentation": "https://backers.webawesome.com/docs/components/range",
+      "documentation": "https://webawesome.com/docs/components/range",
       "since": "2.0",
       "attributes": [
         {
@@ -6504,7 +6517,7 @@
       "tagName": "wa-spinner",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Spinner",
       "description": "Spinners are used to show the progress of an indeterminate operation.",
-      "documentation": "https://backers.webawesome.com/docs/components/spinner",
+      "documentation": "https://webawesome.com/docs/components/spinner",
       "since": "2.0",
       "attributes": [],
       "events": [],
@@ -6541,7 +6554,7 @@
       "tagName": "wa-split-panel",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.SplitPanel",
       "description": "Split panels display two adjacent panels, allowing the user to reposition them.",
-      "documentation": "https://backers.webawesome.com/docs/components/split-panel",
+      "documentation": "https://webawesome.com/docs/components/split-panel",
       "since": "2.0",
       "attributes": [
         {
@@ -6690,7 +6703,7 @@
       "tagName": "wa-switch",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Switch",
       "description": "Switches allow the user to toggle an option on or off.",
-      "documentation": "https://backers.webawesome.com/docs/components/switch",
+      "documentation": "https://webawesome.com/docs/components/switch",
       "since": "2.0",
       "attributes": [
         {
@@ -6932,7 +6945,7 @@
       "tagName": "wa-tab",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Tab",
       "description": "Tabs are used inside [tab groups](/docs/components/tab-group) to represent and activate [tab panels](/docs/components/tab-panel).",
-      "documentation": "https://backers.webawesome.com/docs/components/tab",
+      "documentation": "https://webawesome.com/docs/components/tab",
       "since": "2.0",
       "attributes": [
         {
@@ -6987,7 +7000,7 @@
       "tagName": "wa-tab-group",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.TabGroup",
       "description": "Tab groups organize content into a container that shows one section at a time.",
-      "documentation": "https://backers.webawesome.com/docs/components/tab-group",
+      "documentation": "https://webawesome.com/docs/components/tab-group",
       "since": "2.0",
       "attributes": [
         {
@@ -7130,7 +7143,7 @@
       "tagName": "wa-tab-panel",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.TabPanel",
       "description": "Tab panels are used inside [tab groups](/docs/components/tab-group) to display tabbed content.",
-      "documentation": "https://backers.webawesome.com/docs/components/tab-panel",
+      "documentation": "https://webawesome.com/docs/components/tab-panel",
       "since": "2.0",
       "attributes": [
         {
@@ -7184,7 +7197,7 @@
       "tagName": "wa-tag",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Tag",
       "description": "Tags are used as labels to organize things or to indicate a selection.",
-      "documentation": "https://backers.webawesome.com/docs/components/tag",
+      "documentation": "https://webawesome.com/docs/components/tag",
       "since": "2.0",
       "attributes": [
         {
@@ -7292,7 +7305,7 @@
       "tagName": "wa-textarea",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Textarea",
       "description": "Textareas collect data from the user and allow multiple lines of text.",
-      "documentation": "https://backers.webawesome.com/docs/components/textarea",
+      "documentation": "https://webawesome.com/docs/components/textarea",
       "since": "2.0",
       "attributes": [
         {
@@ -7690,7 +7703,7 @@
       "tagName": "wa-tooltip",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Tooltip",
       "description": "Tooltips display additional information based on a specific action.",
-      "documentation": "https://backers.webawesome.com/docs/components/tooltip",
+      "documentation": "https://webawesome.com/docs/components/tooltip",
       "since": "2.0",
       "attributes": [
         {
@@ -7866,7 +7879,7 @@
       "tagName": "wa-tree",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Tree",
       "description": "Trees allow you to display a hierarchical list of selectable [tree items](/docs/components/tree-item). Items with children can be expanded and collapsed as desired by the user.",
-      "documentation": "https://backers.webawesome.com/docs/components/tree",
+      "documentation": "https://webawesome.com/docs/components/tree",
       "since": "2.0",
       "attributes": [
         {
@@ -7968,7 +7981,7 @@
       "tagName": "wa-tree-item",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.TreeItem",
       "description": "A tree item serves as a hierarchical node that lives inside a [tree](/docs/components/tree).",
-      "documentation": "https://backers.webawesome.com/docs/components/tree-item",
+      "documentation": "https://webawesome.com/docs/components/tree-item",
       "since": "2.0",
       "attributes": [
         {
@@ -8213,7 +8226,7 @@
       "tagName": "wa-zoomable-frame",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.ZoomableFrame",
       "description": "Zoomable frames render iframe content with zoom and interaction controls.",
-      "documentation": "https://backers.webawesome.com/docs/components/zoomable-frame",
+      "documentation": "https://webawesome.com/docs/components/zoomable-frame",
       "since": "3.0",
       "attributes": [
         {
@@ -8359,7 +8372,7 @@
     "totalAttributes": 402,
     "totalEvents": 137,
     "totalSlots": 121,
-    "totalCSSProperties": 99,
+    "totalCSSProperties": 101,
     "totalMethods": 150
   }
 }

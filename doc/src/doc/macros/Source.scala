@@ -23,52 +23,49 @@ object Source {
   private def indexWhereNotWhitespace(string: Option[String]) =
     string.fold(-1)(_.indexWhere(c => !c.isWhitespace))
 
-  /**
-   * Filters lines to only include content between <show> and </show> comments.
-   * If no show markers are found, returns all lines.
-   * Supports multiple show/hide sections.
-   */
+  /** Filters lines to only include content between <show> and </show> comments. If no show markers are found, returns
+    * all lines. Supports multiple show/hide sections.
+    */
   private def filterShowLines(lines: Array[String]): Array[String] = {
     val showStartPattern = """.*//\s*<show>.*""".r
-    val showEndPattern = """.*//\s*</show>.*""".r
-    
+    val showEndPattern   = """.*//\s*</show>.*""".r
+
     var isInShowSection = false
-    var hasShowMarkers = false
-    val filteredLines = scala.collection.mutable.ArrayBuffer[String]()
-    
+    var hasShowMarkers  = false
+    val filteredLines   = scala.collection.mutable.ArrayBuffer[String]()
+
     for (line <- lines) {
       line match {
         case showStartPattern() =>
           hasShowMarkers = true
           isInShowSection = true
-          // Don't include the <show> comment line itself
+        // Don't include the <show> comment line itself
         case showEndPattern() =>
           isInShowSection = false
-          // Don't include the </show> comment line itself
+        // Don't include the </show> comment line itself
         case _ =>
           if (isInShowSection) {
             filteredLines += line
           }
       }
     }
-    
+
     // If no show markers were found, return all lines
     if (!hasShowMarkers) lines else filteredLines.toArray
   }
 
-  /**
-   * Processes inline show/hide comments on individual lines.
-   * Inline comments have higher priority than block-level markers.
-   * - Lines with `// show` are always included
-   * - Lines with `// hide` are always excluded
-   * - Other lines follow the default behavior from block filtering
-   */
+  /** Processes inline show/hide comments on individual lines. Inline comments have higher priority than block-level
+    * markers.
+    *   - Lines with `// show` are always included
+    *   - Lines with `// hide` are always excluded
+    *   - Other lines follow the default behavior from block filtering
+    */
   private def processInlineShowHide(lines: Array[String]): Array[String] = {
     val showPattern = """.*//\s*show\s*$""".r
     val hidePattern = """.*//\s*hide\s*$""".r
-    
+
     val filteredLines = scala.collection.mutable.ArrayBuffer[String]()
-    
+
     for (line <- lines) {
       line match {
         case showPattern() =>
@@ -76,43 +73,41 @@ object Source {
           val cleanedLine = line.replaceAll("""//\s*show\s*$""", "").trim
           filteredLines += cleanedLine
         case hidePattern() =>
-          // Exclude lines with `// hide` completely
+        // Exclude lines with `// hide` completely
         case _ =>
           // Include all other lines as-is
           filteredLines += line
       }
     }
-    
+
     filteredLines.toArray
   }
 
-  /**
-   * Filters lines to exclude content between <hide> and </hide> comments.
-   * This has higher priority than <show>/<show> but lower than inline comments.
-   * Supports multiple hide sections.
-   */
+  /** Filters lines to exclude content between <hide> and </hide> comments. This has higher priority than <show>/<show>
+    * but lower than inline comments. Supports multiple hide sections.
+    */
   private def filterHideLines(lines: Array[String]): Array[String] = {
     val hideStartPattern = """.*//\s*<hide>.*""".r
-    val hideEndPattern = """.*//\s*</hide>.*""".r
-    
+    val hideEndPattern   = """.*//\s*</hide>.*""".r
+
     var isInHideSection = false
-    val filteredLines = scala.collection.mutable.ArrayBuffer[String]()
-    
+    val filteredLines   = scala.collection.mutable.ArrayBuffer[String]()
+
     for (line <- lines) {
       line match {
         case hideStartPattern() =>
           isInHideSection = true
-          // Don't include the <hide> comment line itself
+        // Don't include the <hide> comment line itself
         case hideEndPattern() =>
           isInHideSection = false
-          // Don't include the </hide> comment line itself
+        // Don't include the </hide> comment line itself
         case _ =>
           if (!isInHideSection) {
             filteredLines += line
           }
       }
     }
-    
+
     filteredLines.toArray
   }
 

@@ -1,25 +1,23 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
-import com.raquo.laminar.api.L
+import com.raquo.laminar.keys.EventProp
+import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.nodes.Slot
-import com.raquo.laminar.tags.CustomHtmlTag
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import org.scalajs.dom
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/**
-  * Carousels display an arbitrary number of content slides along a horizontal or vertical axis.
-  *
+/** Carousels display an arbitrary number of content slides along a horizontal or vertical axis.
   */
 object Carousel extends WebComponent("wa-carousel") {
 
   @JSImport("@awesome.me/webawesome/dist/components/carousel/carousel.js", JSImport.Namespace)
-  @js.native object RawImport extends js.Object
+  @js.native
+  object RawImport extends js.Object
 
   type Self = Carousel.type
 
@@ -54,8 +52,9 @@ object Carousel extends WebComponent("wa-carousel") {
   /** Specifies how many slides should be shown at a given time. */
   lazy val slidesPerPage: HtmlAttr[Double] = doubleAttr("slides-per-page")
 
-  /** Specifies the number of slides the carousel will advance when scrolling, useful when specifying a `slides-per-page`
-  greater than one. It can't be higher than `slides-per-page`. */
+  /** Specifies the number of slides the carousel will advance when scrolling, useful when specifying a
+    * `slides-per-page` greater than one. It can't be higher than `slides-per-page`.
+    */
   lazy val slidesPerMove: HtmlAttr[Double] = doubleAttr("slides-per-move")
 
   /** Specifies the orientation in which the carousel will lay out. Valid values: "horizontal", "vertical". */
@@ -67,7 +66,10 @@ object Carousel extends WebComponent("wa-carousel") {
   // -- Slots --
 
   object slots {
-    /** The carousel's main content, one or more `<wa-carousel-item>` elements. Note: You can just say `_ => element` instead of `_.slots.default(element)` */
+
+    /** The carousel's main content, one or more `<wa-carousel-item>` elements. Note: You can just say `_ => element`
+      * instead of `_.slots.default(element)`
+      */
     lazy val default: Slot = Slot("")
 
     /** Optional next icon to use instead of the default. Works best with `<wa-icon>`. */
@@ -82,10 +84,13 @@ object Carousel extends WebComponent("wa-carousel") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssVars {
+
     /** The aspect ratio of each slide. Default: 16/9 */
     lazy val aspectRatio: String = "--aspect-ratio"
 
-    /** The amount of padding to apply to the scroll area, allowing adjacent slides to become partially visible as a scroll hint. */
+    /** The amount of padding to apply to the scroll area, allowing adjacent slides to become partially visible as a
+      * scroll hint.
+      */
     lazy val scrollHint: String = "--scroll-hint"
 
     /** The space between each slide. Default: var(--wa-space-m) */
@@ -97,6 +102,7 @@ object Carousel extends WebComponent("wa-carousel") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
+
     /** The carousel's internal wrapper. */
     lazy val base: String = "base"
 
@@ -128,7 +134,8 @@ object Carousel extends WebComponent("wa-carousel") {
 
   // -- Element type --
 
-  @js.native trait WaCarouselComponent extends js.Object {
+  @js.native
+  trait WaCarouselComponent extends js.Object {
     this: dom.HTMLElement =>
 
     /** When set, allows the user to navigate the carousel in the same direction indefinitely. */
@@ -153,8 +160,9 @@ object Carousel extends WebComponent("wa-carousel") {
     /** Specifies how many slides should be shown at a given time. */
     var slidesPerPage: Double
 
-    /** Specifies the number of slides the carousel will advance when scrolling, useful when specifying a `slides-per-page`
-    greater than one. It can't be higher than `slides-per-page`. */
+    /** Specifies the number of slides the carousel will advance when scrolling, useful when specifying a
+      * `slides-per-page` greater than one. It can't be higher than `slides-per-page`.
+      */
     var slidesPerMove: Double
 
     /** Specifies the orientation in which the carousel will lay out. Valid values: "horizontal", "vertical". */

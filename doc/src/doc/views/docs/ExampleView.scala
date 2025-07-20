@@ -40,11 +40,11 @@ trait ExampleView(
               div(
                 tw.flex.itemsCenter.gap2.hover(tw.underline),
                 Icon(
-                  _.name := "arrow-up-right-from-square",
+                  _.name  := "arrow-up-right-from-square",
                   _.label := "Open in new tab"
                 )(),
                 a(
-                  href := l,
+                  href   := l,
                   target := "_blank",
                   s"$name - WebAwesome Documentation"
                 )

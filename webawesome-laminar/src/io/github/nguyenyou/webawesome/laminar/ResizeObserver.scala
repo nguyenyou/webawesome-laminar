@@ -1,26 +1,25 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
-import com.raquo.laminar.api.L
+import com.raquo.laminar.keys.EventProp
+import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.nodes.Slot
-import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/**
-  * The Resize Observer component offers a thin, declarative interface to the [`ResizeObserver API`](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver).
+/** The Resize Observer component offers a thin, declarative interface to the [`ResizeObserver
+  * API`](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver).
   *
-  * [[https://backers.webawesome.com/docs/components/resize-observer WebAwesome  docs]]
+  * [[https://webawesome.com/docs/components/resize-observer WebAwesome docs]]
   */
 object ResizeObserver extends WebComponent("wa-resize-observer") {
 
   @JSImport("@awesome.me/webawesome/dist/components/resize-observer/resize-observer.js", JSImport.Namespace)
-  @js.native object RawImport extends js.Object
+  @js.native
+  object RawImport extends js.Object
 
   type Self = ResizeObserver.type
 
@@ -39,14 +38,18 @@ object ResizeObserver extends WebComponent("wa-resize-observer") {
   // -- Slots --
 
   object slots {
-    /** One or more elements to watch for resizing. Note: You can just say `_ => element` instead of `_.slots.default(element)` */
+
+    /** One or more elements to watch for resizing. Note: You can just say `_ => element` instead of
+      * `_.slots.default(element)`
+      */
     lazy val default: Slot = Slot("")
 
   }
 
   // -- Element type --
 
-  @js.native trait WaResizeObserverComponent extends js.Object {
+  @js.native
+  trait WaResizeObserverComponent extends js.Object {
     this: dom.HTMLElement =>
 
     /** Disables the observer. */

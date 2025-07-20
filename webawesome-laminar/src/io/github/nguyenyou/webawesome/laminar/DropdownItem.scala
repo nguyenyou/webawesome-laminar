@@ -1,26 +1,26 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
-import com.raquo.laminar.api.L
+import com.raquo.laminar.keys.EventProp
+import com.raquo.laminar.keys.HtmlAttr
+import com.raquo.laminar.keys.HtmlProp
 import com.raquo.laminar.nodes.Slot
-import com.raquo.laminar.tags.CustomHtmlTag
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import org.scalajs.dom
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/**
-  * Represents an individual item within a dropdown menu, supporting standard items, checkboxes, and submenus.
+/** Represents an individual item within a dropdown menu, supporting standard items, checkboxes, and submenus.
   *
-  * [[https://backers.webawesome.com/docs/components/dropdown-item WebAwesome  docs]]
+  * [[https://webawesome.com/docs/components/dropdown-item WebAwesome docs]]
   */
 object DropdownItem extends WebComponent("wa-dropdown-item") {
 
   @JSImport("@awesome.me/webawesome/dist/components/dropdown-item/dropdown-item.js", JSImport.Namespace)
-  @js.native object RawImport extends js.Object
+  @js.native
+  object RawImport extends js.Object
 
   type Self = DropdownItem.type
 
@@ -40,7 +40,8 @@ object DropdownItem extends WebComponent("wa-dropdown-item") {
   lazy val checked: HtmlProp[Boolean, ?] = L.checked
 
   /** An optional value for the menu item. This is useful for determining which item was selected when listening to the
-  dropdown's `wa-select` event. */
+    * dropdown's `wa-select` event.
+    */
   lazy val value: HtmlProp[String, ?] = L.value
 
   // -- Attributes --
@@ -64,6 +65,7 @@ object DropdownItem extends WebComponent("wa-dropdown-item") {
   // -- Slots --
 
   object slots {
+
     /** The dropdown item's label. Note: You can just say `_ => element` instead of `_.slots.default(element)` */
     lazy val default: Slot = Slot("")
 
@@ -82,6 +84,7 @@ object DropdownItem extends WebComponent("wa-dropdown-item") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
+
     /** The checkmark icon (a `<wa-icon>` element) when the item is a checkbox. */
     lazy val checkmark: String = "checkmark"
 
@@ -104,7 +107,8 @@ object DropdownItem extends WebComponent("wa-dropdown-item") {
 
   // -- Element type --
 
-  @js.native trait WaDropdownItemComponent extends js.Object {
+  @js.native
+  trait WaDropdownItemComponent extends js.Object {
     this: dom.HTMLElement =>
 
     /** The type of menu item to render. Valid values: "danger", "default". */

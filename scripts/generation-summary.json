@@ -19,17 +19,24 @@
       "slots": 1
     },
     {
+      "name": "Breadcrumb",
+      "tagName": "wa-breadcrumb",
+      "attributes": 1,
+      "events": 0,
+      "slots": 2
+    },
+    {
+      "name": "BreadcrumbItem",
+      "tagName": "wa-breadcrumb-item",
+      "attributes": 3,
+      "events": 0,
+      "slots": 4
+    },
+    {
       "name": "Avatar",
       "tagName": "wa-avatar",
       "attributes": 5,
       "events": 2,
-      "slots": 1
-    },
-    {
-      "name": "Badge",
-      "tagName": "wa-badge",
-      "attributes": 4,
-      "events": 0,
       "slots": 1
     },
     {
@@ -40,11 +47,11 @@
       "slots": 3
     },
     {
-      "name": "BreadcrumbItem",
-      "tagName": "wa-breadcrumb-item",
-      "attributes": 3,
+      "name": "Badge",
+      "tagName": "wa-badge",
+      "attributes": 4,
       "events": 0,
-      "slots": 4
+      "slots": 1
     },
     {
       "name": "ButtonGroup",
@@ -52,13 +59,6 @@
       "attributes": 4,
       "events": 0,
       "slots": 1
-    },
-    {
-      "name": "Breadcrumb",
-      "tagName": "wa-breadcrumb",
-      "attributes": 1,
-      "events": 0,
-      "slots": 2
     },
     {
       "name": "Callout",
@@ -166,16 +166,16 @@
       "slots": 0
     },
     {
-      "name": "FormatDate",
-      "tagName": "wa-format-date",
-      "attributes": 12,
+      "name": "FormatNumber",
+      "tagName": "wa-format-number",
+      "attributes": 10,
       "events": 0,
       "slots": 0
     },
     {
-      "name": "FormatNumber",
-      "tagName": "wa-format-number",
-      "attributes": 10,
+      "name": "FormatDate",
+      "tagName": "wa-format-date",
+      "attributes": 12,
       "events": 0,
       "slots": 0
     },
@@ -194,11 +194,11 @@
       "slots": 0
     },
     {
-      "name": "Input",
-      "tagName": "wa-input",
-      "attributes": 31,
-      "events": 7,
-      "slots": 7
+      "name": "Option",
+      "tagName": "wa-option",
+      "attributes": 4,
+      "events": 0,
+      "slots": 3
     },
     {
       "name": "MutationObserver",
@@ -208,11 +208,11 @@
       "slots": 1
     },
     {
-      "name": "Option",
-      "tagName": "wa-option",
-      "attributes": 4,
-      "events": 0,
-      "slots": 3
+      "name": "Input",
+      "tagName": "wa-input",
+      "attributes": 31,
+      "events": 7,
+      "slots": 7
     },
     {
       "name": "Page",
@@ -243,18 +243,18 @@
       "slots": 1
     },
     {
-      "name": "ProgressRing",
-      "tagName": "wa-progress-ring",
-      "attributes": 2,
-      "events": 0,
-      "slots": 1
-    },
-    {
       "name": "QrCode",
       "tagName": "wa-qr-code",
       "attributes": 7,
       "events": 0,
       "slots": 0
+    },
+    {
+      "name": "ProgressRing",
+      "tagName": "wa-progress-ring",
+      "attributes": 2,
+      "events": 0,
+      "slots": 1
     },
     {
       "name": "Radio",

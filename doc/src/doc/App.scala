@@ -145,16 +145,16 @@ case class App() {
                 a(
                   tw.important(tw.underline),
                   target := "_blank",
-                  rel := "noopener noreferrer",
-                  href := "https://github.com/nguyenyou",
+                  rel    := "noopener noreferrer",
+                  href   := "https://github.com/nguyenyou",
                   "Tu Nguyen"
                 ),
                 ". The source code is available on ",
                 a(
                   tw.important(tw.underline),
                   target := "_blank",
-                  rel := "noopener noreferrer",
-                  href := "https://github.com/nguyenyou/webawesome-laminar",
+                  rel    := "noopener noreferrer",
+                  href   := "https://github.com/nguyenyou/webawesome-laminar",
                   "GitHub"
                 )
               )

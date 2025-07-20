@@ -1,26 +1,24 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
-import com.raquo.laminar.api.L
-import com.raquo.laminar.nodes.Slot
-import com.raquo.laminar.tags.CustomHtmlTag
+import com.raquo.laminar.keys.HtmlAttr
+import com.raquo.laminar.keys.HtmlProp
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import org.scalajs.dom
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/**
-  * Formats a number using the specified locale and options.
+/** Formats a number using the specified locale and options.
   *
-  * [[https://backers.webawesome.com/docs/components/format-number WebAwesome  docs]]
+  * [[https://webawesome.com/docs/components/format-number WebAwesome docs]]
   */
 object FormatNumber extends WebComponent("wa-format-number") {
 
   @JSImport("@awesome.me/webawesome/dist/components/format-number/format-number.js", JSImport.Namespace)
-  @js.native object RawImport extends js.Object
+  @js.native
+  object RawImport extends js.Object
 
   type Self = FormatNumber.type
 
@@ -66,7 +64,8 @@ object FormatNumber extends WebComponent("wa-format-number") {
 
   // -- Element type --
 
-  @js.native trait WaFormatNumberComponent extends js.Object {
+  @js.native
+  trait WaFormatNumberComponent extends js.Object {
     this: dom.HTMLElement =>
 
     /** The formatting style to use. Valid values: "currency", "decimal", "percent". */

@@ -1,26 +1,23 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
-import com.raquo.laminar.api.L
-import com.raquo.laminar.nodes.Slot
-import com.raquo.laminar.tags.CustomHtmlTag
+import com.raquo.laminar.keys.HtmlAttr
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import org.scalajs.dom
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/**
-  * Formats a date/time using the specified locale and options.
+/** Formats a date/time using the specified locale and options.
   *
-  * [[https://backers.webawesome.com/docs/components/format-date WebAwesome  docs]]
+  * [[https://webawesome.com/docs/components/format-date WebAwesome docs]]
   */
 object FormatDate extends WebComponent("wa-format-date") {
 
   @JSImport("@awesome.me/webawesome/dist/components/format-date/format-date.js", JSImport.Namespace)
-  @js.native object RawImport extends js.Object
+  @js.native
+  object RawImport extends js.Object
 
   type Self = FormatDate.type
 
@@ -29,8 +26,10 @@ object FormatDate extends WebComponent("wa-format-date") {
   // -- Attributes --
 
   /** The date/time to format. If not set, the current date and time will be used. When passing a string, it's strongly
-  recommended to use the ISO 8601 format to ensure timezones are handled correctly. To convert a date to this format
-  in JavaScript, use [`date.toISOString()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString). */
+    * recommended to use the ISO 8601 format to ensure timezones are handled correctly. To convert a date to this format
+    * in JavaScript, use
+    * [`date.toISOString()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString).
+    */
   lazy val date: HtmlAttr[String] = stringAttr("date")
 
   /** The format for displaying the weekday. Valid values: "narrow", "short", "long". */
@@ -68,12 +67,15 @@ object FormatDate extends WebComponent("wa-format-date") {
 
   // -- Element type --
 
-  @js.native trait WaFormatDateComponent extends js.Object {
+  @js.native
+  trait WaFormatDateComponent extends js.Object {
     this: dom.HTMLElement =>
 
-    /** The date/time to format. If not set, the current date and time will be used. When passing a string, it's strongly
-    recommended to use the ISO 8601 format to ensure timezones are handled correctly. To convert a date to this format
-    in JavaScript, use [`date.toISOString()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString). */
+    /** The date/time to format. If not set, the current date and time will be used. When passing a string, it's
+      * strongly recommended to use the ISO 8601 format to ensure timezones are handled correctly. To convert a date to
+      * this format in JavaScript, use
+      * [`date.toISOString()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString).
+      */
     var date: String
 
     /** The format for displaying the weekday. Valid values: "narrow", "short", "long". */

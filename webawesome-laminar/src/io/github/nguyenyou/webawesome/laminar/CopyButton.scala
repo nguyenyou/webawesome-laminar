@@ -1,26 +1,26 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
-import com.raquo.laminar.api.L
+import com.raquo.laminar.keys.EventProp
+import com.raquo.laminar.keys.HtmlAttr
+import com.raquo.laminar.keys.HtmlProp
 import com.raquo.laminar.nodes.Slot
-import com.raquo.laminar.tags.CustomHtmlTag
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import org.scalajs.dom
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/**
-  * Copies text data to the clipboard when the user clicks the trigger.
+/** Copies text data to the clipboard when the user clicks the trigger.
   *
-  * [[https://backers.webawesome.com/docs/components/copy WebAwesome  docs]]
+  * [[https://webawesome.com/docs/components/copy WebAwesome docs]]
   */
 object CopyButton extends WebComponent("wa-copy-button") {
 
   @JSImport("@awesome.me/webawesome/dist/components/copy-button/copy-button.js", JSImport.Namespace)
-  @js.native object RawImport extends js.Object
+  @js.native
+  object RawImport extends js.Object
 
   type Self = CopyButton.type
 
@@ -42,9 +42,10 @@ object CopyButton extends WebComponent("wa-copy-button") {
   // -- Attributes --
 
   /** An id that references an element in the same document from which data will be copied. If both this and `value` are
-  present, this value will take precedence. By default, the target element's `textContent` will be copied. To copy an
-  attribute, append the attribute name wrapped in square brackets, e.g. `from="el[value]"`. To copy a property,
-  append a dot and the property name, e.g. `from="el.value"`. */
+    * present, this value will take precedence. By default, the target element's `textContent` will be copied. To copy
+    * an attribute, append the attribute name wrapped in square brackets, e.g. `from="el[value]"`. To copy a property,
+    * append a dot and the property name, e.g. `from="el.value"`.
+    */
   lazy val from: HtmlAttr[String] = stringAttr("from")
 
   /** Disables the copy button. */
@@ -68,6 +69,7 @@ object CopyButton extends WebComponent("wa-copy-button") {
   // -- Slots --
 
   object slots {
+
     /** The icon to show in the default copy state. Works best with `<wa-icon>`. */
     lazy val copyIcon: Slot = Slot("copy-icon")
 
@@ -83,6 +85,7 @@ object CopyButton extends WebComponent("wa-copy-button") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
+
     /** The internal `<button>` element. */
     lazy val button: String = "button"
 
@@ -111,13 +114,15 @@ object CopyButton extends WebComponent("wa-copy-button") {
 
   // -- Element type --
 
-  @js.native trait WaCopyButtonComponent extends js.Object {
+  @js.native
+  trait WaCopyButtonComponent extends js.Object {
     this: dom.HTMLElement =>
 
-    /** An id that references an element in the same document from which data will be copied. If both this and `value` are
-    present, this value will take precedence. By default, the target element's `textContent` will be copied. To copy an
-    attribute, append the attribute name wrapped in square brackets, e.g. `from="el[value]"`. To copy a property,
-    append a dot and the property name, e.g. `from="el.value"`. */
+    /** An id that references an element in the same document from which data will be copied. If both this and `value`
+      * are present, this value will take precedence. By default, the target element's `textContent` will be copied. To
+      * copy an attribute, append the attribute name wrapped in square brackets, e.g. `from="el[value]"`. To copy a
+      * property, append a dot and the property name, e.g. `from="el.value"`.
+      */
     var from: String
 
     /** Disables the copy button. */

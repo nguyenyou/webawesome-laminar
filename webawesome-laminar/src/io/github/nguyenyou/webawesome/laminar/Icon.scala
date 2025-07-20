@@ -1,26 +1,23 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
-import com.raquo.laminar.api.L
-import com.raquo.laminar.nodes.Slot
-import com.raquo.laminar.tags.CustomHtmlTag
+import com.raquo.laminar.keys.EventProp
+import com.raquo.laminar.keys.HtmlAttr
 import org.scalajs.dom
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/**
-  * Icons are symbols that can be used to represent various options within an application.
+/** Icons are symbols that can be used to represent various options within an application.
   *
-  * [[https://backers.webawesome.com/docs/components/icon WebAwesome  docs]]
+  * [[https://webawesome.com/docs/components/icon WebAwesome docs]]
   */
 object Icon extends WebComponent("wa-icon") {
 
   @JSImport("@awesome.me/webawesome/dist/components/icon/icon.js", JSImport.Namespace)
-  @js.native object RawImport extends js.Object
+  @js.native
+  object RawImport extends js.Object
 
   type Self = Icon.type
 
@@ -39,26 +36,30 @@ object Icon extends WebComponent("wa-icon") {
   /** The name of the icon to draw. Available names depend on the icon library being used. */
   lazy val name: HtmlAttr[String] = stringAttr("name")
 
-  /** The family of icons to choose from. For Font Awesome Free, valid options include `classic` and `brands`. For
-  Font Awesome Pro subscribers, valid options include, `classic`, `sharp`, `duotone`, `sharp-duotone`, and `brands`.
-  A valid kit code must be present to show pro icons via CDN. You can set `<html data-fa-kit-code="...">` to provide
-  one. */
+  /** The family of icons to choose from. For Font Awesome Free, valid options include `classic` and `brands`. For Font
+    * Awesome Pro subscribers, valid options include, `classic`, `sharp`, `duotone`, `sharp-duotone`, and `brands`. A
+    * valid kit code must be present to show pro icons via CDN. You can set `<html data-fa-kit-code="...">` to provide
+    * one.
+    */
   lazy val family: HtmlAttr[String] = stringAttr("family")
 
-  /** The name of the icon's variant. For Font Awesome, valid options include `thin`, `light`, `regular`, and `solid` for
-  the `classic` and `sharp` families. Some variants require a Font Awesome Pro subscription. Custom icon libraries
-  may or may not use this property. */
+  /** The name of the icon's variant. For Font Awesome, valid options include `thin`, `light`, `regular`, and `solid`
+    * for the `classic` and `sharp` families. Some variants require a Font Awesome Pro subscription. Custom icon
+    * libraries may or may not use this property.
+    */
   lazy val variant: HtmlAttr[String] = stringAttr("variant")
 
   /** Draws the icon in a fixed-width both. */
   lazy val fixedWidth: HtmlAttr[String] = stringAttr("fixed-width")
 
-  /** An external URL of an SVG file. Be sure you trust the content you are including, as it will be executed as code and
-  can result in XSS attacks. */
+  /** An external URL of an SVG file. Be sure you trust the content you are including, as it will be executed as code
+    * and can result in XSS attacks.
+    */
   lazy val src: HtmlAttr[String] = stringAttr("src")
 
   /** An alternate description to use for assistive devices. If omitted, the icon will be considered presentational and
-  ignored by assistive devices. */
+    * ignored by assistive devices.
+    */
   lazy val label: HtmlAttr[String] = stringAttr("label")
 
   /** The name of a registered custom icon library. */
@@ -68,6 +69,7 @@ object Icon extends WebComponent("wa-icon") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssVars {
+
     /** Sets a duotone icon's primary color. Default: currentColor */
     lazy val primaryColor: String = "--primary-color"
 
@@ -86,6 +88,7 @@ object Icon extends WebComponent("wa-icon") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
+
     /** The internal SVG element. */
     lazy val svg: String = "svg"
 
@@ -96,32 +99,37 @@ object Icon extends WebComponent("wa-icon") {
 
   // -- Element type --
 
-  @js.native trait WaIconComponent extends js.Object {
+  @js.native
+  trait WaIconComponent extends js.Object {
     this: dom.HTMLElement =>
 
     /** The name of the icon to draw. Available names depend on the icon library being used. */
     var name: String
 
     /** The family of icons to choose from. For Font Awesome Free, valid options include `classic` and `brands`. For
-    Font Awesome Pro subscribers, valid options include, `classic`, `sharp`, `duotone`, `sharp-duotone`, and `brands`.
-    A valid kit code must be present to show pro icons via CDN. You can set `<html data-fa-kit-code="...">` to provide
-    one. */
+      * Font Awesome Pro subscribers, valid options include, `classic`, `sharp`, `duotone`, `sharp-duotone`, and
+      * `brands`. A valid kit code must be present to show pro icons via CDN. You can set `<html
+      * data-fa-kit-code="...">` to provide one.
+      */
     var family: String
 
-    /** The name of the icon's variant. For Font Awesome, valid options include `thin`, `light`, `regular`, and `solid` for
-    the `classic` and `sharp` families. Some variants require a Font Awesome Pro subscription. Custom icon libraries
-    may or may not use this property. */
+    /** The name of the icon's variant. For Font Awesome, valid options include `thin`, `light`, `regular`, and `solid`
+      * for the `classic` and `sharp` families. Some variants require a Font Awesome Pro subscription. Custom icon
+      * libraries may or may not use this property.
+      */
     var variant: String
 
     /** Draws the icon in a fixed-width both. */
     var fixedWidth: js.Any
 
-    /** An external URL of an SVG file. Be sure you trust the content you are including, as it will be executed as code and
-    can result in XSS attacks. */
+    /** An external URL of an SVG file. Be sure you trust the content you are including, as it will be executed as code
+      * and can result in XSS attacks.
+      */
     var src: String
 
-    /** An alternate description to use for assistive devices. If omitted, the icon will be considered presentational and
-    ignored by assistive devices. */
+    /** An alternate description to use for assistive devices. If omitted, the icon will be considered presentational
+      * and ignored by assistive devices.
+      */
     var label: String
 
     /** The name of a registered custom icon library. */

@@ -1,9 +1,7 @@
 package io.github.nguyenyou.webawesome.laminar
 
-/**
- * All union types used by WebAwesome components.
- * This file is generated at compile-time by WebAwesome generator.
- */
+/** All union types used by WebAwesome components. This file is generated at compile-time by WebAwesome generator.
+  */
 object SharedTypes {
 
   /** Used by 15 components for "size" attribute. Components: WaButton, WaButtonGroup, WaCallout, ... */
@@ -12,7 +10,7 @@ object SharedTypes {
   /** Used by 7 components for "orientation" attribute. Components: WaButtonGroup, WaCarousel, WaDivider, ... */
   type Orientation = "horizontal" | "vertical"
 
-  /** Used by 5 components for "variant" attribute. Components: WaBadge, WaButton, WaButtonGroup, ... */
+  /** Used by 5 components for "variant" attribute. Components: WaButton, WaBadge, WaButtonGroup, ... */
   type ThemeVariant = "brand" | "danger" | "neutral" | "success" | "warning"
 
   /** Used by 5 components for "year" attribute. Components: WaFormatDate, WaFormatDate, WaFormatDate, ... */
@@ -48,12 +46,6 @@ object SharedTypes {
   /** Used by WaAvatar for "shape" attribute. Components: WaAvatar */
   type AvatarShape = "circle" | "rounded" | "square"
 
-  /** Used by WaBadge for "appearance" attribute. Components: WaBadge */
-  type BadgeExtendedAppearance = "accent" | "filled" | "outlined"
-
-  /** Used by WaBadge for "attention" attribute. Components: WaBadge */
-  type BadgeAttention = "none" | "pulse"
-
   /** Used by WaButton for "type" attribute. Components: WaButton */
   type ButtonButtonType = "button" | "reset" | "submit"
 
@@ -65,6 +57,12 @@ object SharedTypes {
 
   /** Used by WaButton for "formmethod" attribute. Components: WaButton */
   type ButtonFormmethod = "get" | "post"
+
+  /** Used by WaBadge for "appearance" attribute. Components: WaBadge */
+  type BadgeExtendedAppearance = "accent" | "filled" | "outlined"
+
+  /** Used by WaBadge for "attention" attribute. Components: WaBadge */
+  type BadgeAttention = "bounce" | "none" | "pulse"
 
   /** Used by WaColorPicker for "format" attribute. Components: WaColorPicker */
   type ColorPickerFormat = "hex" | "hsl" | "hsv" | "rgb"
@@ -81,6 +79,12 @@ object SharedTypes {
   /** Used by WaFormatBytes for "unit" attribute. Components: WaFormatBytes */
   type FormatBytesUnit = "bit" | "byte"
 
+  /** Used by WaFormatNumber for "type" attribute. Components: WaFormatNumber */
+  type FormatNumberElementType = "currency" | "decimal" | "percent"
+
+  /** Used by WaFormatNumber for "currency-display" attribute. Components: WaFormatNumber */
+  type FormatNumberCurrencyDisplay = "code" | "name" | "narrowSymbol" | "symbol"
+
   /** Used by WaFormatDate for "month" attribute. Components: WaFormatDate */
   type FormatDateDateMonthFormat = "2-digit" | "long" | "narrow" | "numeric" | "short"
 
@@ -89,12 +93,6 @@ object SharedTypes {
 
   /** Used by WaFormatDate for "hour-format" attribute. Components: WaFormatDate */
   type FormatDateHourFormat = "12" | "24" | "auto"
-
-  /** Used by WaFormatNumber for "type" attribute. Components: WaFormatNumber */
-  type FormatNumberElementType = "currency" | "decimal" | "percent"
-
-  /** Used by WaFormatNumber for "currency-display" attribute. Components: WaFormatNumber */
-  type FormatNumberCurrencyDisplay = "code" | "name" | "narrowSymbol" | "symbol"
 
   /** Used by WaInclude for "mode" attribute. Components: WaInclude */
   type IncludeMode = "cors" | "no-cors" | "same-origin"

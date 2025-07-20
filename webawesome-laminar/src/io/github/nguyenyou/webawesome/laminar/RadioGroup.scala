@@ -1,26 +1,27 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
-import com.raquo.laminar.api.L
+import com.raquo.laminar.keys.EventProp
+import com.raquo.laminar.keys.HtmlAttr
+import com.raquo.laminar.keys.HtmlProp
 import com.raquo.laminar.nodes.Slot
 import com.raquo.laminar.tags.CustomHtmlTag
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import org.scalajs.dom
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/**
-  * Radio groups are used to group multiple [radios](/docs/components/radio) so they function as a single form control.
+/** Radio groups are used to group multiple [radios](/docs/components/radio) so they function as a single form control.
   *
-  * [[https://backers.webawesome.com/docs/components/radio-group WebAwesome  docs]]
+  * [[https://webawesome.com/docs/components/radio-group WebAwesome docs]]
   */
 object RadioGroup extends WebComponent("wa-radio-group") {
 
   @JSImport("@awesome.me/webawesome/dist/components/radio-group/radio-group.js", JSImport.Namespace)
-  @js.native object RawImport extends js.Object
+  @js.native
+  object RawImport extends js.Object
 
   type Self = RadioGroup.type
 
@@ -51,7 +52,8 @@ object RadioGroup extends WebComponent("wa-radio-group") {
   // -- Attributes --
 
   /** The radio group's label. Required for proper accessibility. If you need to display HTML, use the `label` slot
-  instead. */
+    * instead.
+    */
   lazy val label: HtmlAttr[String] = stringAttr("label")
 
   /** The radio groups's hint. If you need to display HTML, use the `hint` slot instead. */
@@ -66,7 +68,9 @@ object RadioGroup extends WebComponent("wa-radio-group") {
   /** The orientation in which to show radio items. Valid values: "horizontal", "vertical". */
   lazy val orientation: HtmlAttr[Orientation] = unionAttr("orientation")
 
-  /** The radio group's size. This size will be applied to all child radios and radio buttons, except when explicitly overridden. Valid values: "small", "medium", "large". */
+  /** The radio group's size. This size will be applied to all child radios and radio buttons, except when explicitly
+    * overridden. Valid values: "small", "medium", "large".
+    */
   lazy val size: HtmlAttr[ComponentSize] = unionAttr("size")
 
   /** Ensures a child radio is checked before allowing the containing form to submit. */
@@ -81,7 +85,10 @@ object RadioGroup extends WebComponent("wa-radio-group") {
   // -- Slots --
 
   object slots {
-    /** The default slot where `<wa-radio>` elements are placed. Note: You can just say `_ => element` instead of `_.slots.default(element)` */
+
+    /** The default slot where `<wa-radio>` elements are placed. Note: You can just say `_ => element` instead of
+      * `_.slots.default(element)`
+      */
     lazy val default: Slot = Slot("")
 
     /** The radio group's label. Required for proper accessibility. Alternatively, you can use the `label` attribute. */
@@ -96,6 +103,7 @@ object RadioGroup extends WebComponent("wa-radio-group") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
+
     /** The form control that wraps the label, input, and hint. */
     lazy val formControl: String = "form-control"
 
@@ -115,11 +123,13 @@ object RadioGroup extends WebComponent("wa-radio-group") {
 
   // -- Element type --
 
-  @js.native trait WaRadioGroupComponent extends js.Object {
+  @js.native
+  trait WaRadioGroupComponent extends js.Object {
     this: dom.HTMLElement =>
 
     /** The radio group's label. Required for proper accessibility. If you need to display HTML, use the `label` slot
-    instead. */
+      * instead.
+      */
     var label: String
 
     /** The radio groups's hint. If you need to display HTML, use the `hint` slot instead. */
@@ -134,7 +144,9 @@ object RadioGroup extends WebComponent("wa-radio-group") {
     /** The orientation in which to show radio items. Valid values: "horizontal", "vertical". */
     var orientation: Orientation
 
-    /** The radio group's size. This size will be applied to all child radios and radio buttons, except when explicitly overridden. Valid values: "small", "medium", "large". */
+    /** The radio group's size. This size will be applied to all child radios and radio buttons, except when explicitly
+      * overridden. Valid values: "small", "medium", "large".
+      */
     var size: ComponentSize
 
     /** Ensures a child radio is checked before allowing the containing form to submit. */

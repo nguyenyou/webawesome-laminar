@@ -1,26 +1,27 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
-import com.raquo.laminar.api.L
+import com.raquo.laminar.keys.EventProp
+import com.raquo.laminar.keys.HtmlAttr
+import com.raquo.laminar.keys.HtmlProp
 import com.raquo.laminar.nodes.Slot
 import com.raquo.laminar.tags.CustomHtmlTag
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import org.scalajs.dom
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/**
-  * Selects allow you to choose items from a menu of predefined options.
+/** Selects allow you to choose items from a menu of predefined options.
   *
-  * [[https://backers.webawesome.com/docs/components/select WebAwesome  docs]]
+  * [[https://webawesome.com/docs/components/select WebAwesome docs]]
   */
 object Select extends WebComponent("wa-select") {
 
   @JSImport("@awesome.me/webawesome/dist/components/select/select.js", JSImport.Namespace)
-  @js.native object RawImport extends js.Object
+  @js.native
+  object RawImport extends js.Object
 
   type Self = Select.type
 
@@ -84,7 +85,8 @@ object Select extends WebComponent("wa-select") {
   lazy val multiple: HtmlAttr[Boolean] = boolAttr("multiple")
 
   /** The maximum number of selected options to show when `multiple` is true. After the maximum, "+n" will be shown to
-  indicate the number of additional items that are selected. Set to 0 to remove the limit. */
+    * indicate the number of additional items that are selected. Set to 0 to remove the limit.
+    */
   lazy val maxOptionsVisible: HtmlAttr[Double] = doubleAttr("max-options-visible")
 
   /** Disables the select control. */
@@ -94,7 +96,8 @@ object Select extends WebComponent("wa-select") {
   lazy val withClear: HtmlAttr[Boolean] = boolAttr("with-clear")
 
   /** Indicates whether or not the select is open. You can toggle this attribute to show and hide the menu, or you can
-  use the `show()` and `hide()` methods and this attribute will reflect the select's open state. */
+    * use the `show()` and `hide()` methods and this attribute will reflect the select's open state.
+    */
   lazy val open: HtmlAttr[Boolean] = boolAttr("open")
 
   /** The select's visual appearance. Valid values: "filled", "outlined". */
@@ -106,8 +109,9 @@ object Select extends WebComponent("wa-select") {
   /** The select's label. If you need to display HTML, use the `label` slot instead. */
   lazy val label: HtmlAttr[String] = stringAttr("label")
 
-  /** The preferred placement of the select's menu. Note that the actual placement may vary as needed to keep the listbox
-  inside of the viewport. Valid values: "top", "bottom". */
+  /** The preferred placement of the select's menu. Note that the actual placement may vary as needed to keep the
+    * listbox inside of the viewport. Valid values: "top", "bottom".
+    */
   lazy val placement: HtmlAttr[SelectPlacement] = unionAttr("placement")
 
   /** The select's hint. If you need to display HTML, use the `hint` slot instead. */
@@ -120,8 +124,9 @@ object Select extends WebComponent("wa-select") {
   lazy val withHint: HtmlAttr[Boolean] = boolAttr("with-hint")
 
   /** By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
-  to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
-  the same document or shadow root for this to work. */
+    * to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
+    * the same document or shadow root for this to work.
+    */
   lazy val form: HtmlAttr[String] = stringAttr("form")
 
   /** The select's required attribute. */
@@ -130,7 +135,10 @@ object Select extends WebComponent("wa-select") {
   // -- Slots --
 
   object slots {
-    /** The listbox options. Must be `<wa-option>` elements. You can use `<wa-divider>` to group items visually. Note: You can just say `_ => element` instead of `_.slots.default(element)` */
+
+    /** The listbox options. Must be `<wa-option>` elements. You can use `<wa-divider>` to group items visually. Note:
+      * You can just say `_ => element` instead of `_.slots.default(element)`
+      */
     lazy val default: Slot = Slot("")
 
     /** The input's label. Alternatively, you can use the `label` attribute. */
@@ -157,6 +165,7 @@ object Select extends WebComponent("wa-select") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssVars {
+
     /** When using `multiple`, the max size of tags before their content is truncated. Default: 10ch */
     lazy val tagMaxSize: String = "--tag-max-size"
 
@@ -166,6 +175,7 @@ object Select extends WebComponent("wa-select") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
+
     /** The form control that wraps the label, input, and hint. */
     lazy val formControl: String = "form-control"
 
@@ -218,7 +228,8 @@ object Select extends WebComponent("wa-select") {
 
   // -- Element type --
 
-  @js.native trait WaSelectComponent extends js.Object {
+  @js.native
+  trait WaSelectComponent extends js.Object {
     this: dom.HTMLElement =>
 
     /** The name of the select, submitted as a name/value pair with form data. */
@@ -234,7 +245,8 @@ object Select extends WebComponent("wa-select") {
     var multiple: Boolean
 
     /** The maximum number of selected options to show when `multiple` is true. After the maximum, "+n" will be shown to
-    indicate the number of additional items that are selected. Set to 0 to remove the limit. */
+      * indicate the number of additional items that are selected. Set to 0 to remove the limit.
+      */
     var maxOptionsVisible: Double
 
     /** Disables the select control. */
@@ -244,7 +256,8 @@ object Select extends WebComponent("wa-select") {
     var withClear: Boolean
 
     /** Indicates whether or not the select is open. You can toggle this attribute to show and hide the menu, or you can
-    use the `show()` and `hide()` methods and this attribute will reflect the select's open state. */
+      * use the `show()` and `hide()` methods and this attribute will reflect the select's open state.
+      */
     var open: Boolean
 
     /** The select's visual appearance. Valid values: "filled", "outlined". */
@@ -256,8 +269,9 @@ object Select extends WebComponent("wa-select") {
     /** The select's label. If you need to display HTML, use the `label` slot instead. */
     var label: String
 
-    /** The preferred placement of the select's menu. Note that the actual placement may vary as needed to keep the listbox
-    inside of the viewport. Valid values: "top", "bottom". */
+    /** The preferred placement of the select's menu. Note that the actual placement may vary as needed to keep the
+      * listbox inside of the viewport. Valid values: "top", "bottom".
+      */
     var placement: SelectPlacement
 
     /** The select's hint. If you need to display HTML, use the `hint` slot instead. */
@@ -270,8 +284,9 @@ object Select extends WebComponent("wa-select") {
     var withHint: Boolean
 
     /** By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
-    to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
-    the same document or shadow root for this to work. */
+      * to place the form control outside of a form and associate it with the form that has this `id`. The form must be
+      * in the same document or shadow root for this to work.
+      */
     var form: String
 
     /** The select's required attribute. */
