@@ -2,11 +2,10 @@ package doc.views.docs
 
 import com.raquo.laminar.api.L.*
 import doc.components.Demo
+import doc.components.Locator.withLocator
 import doc.libs.scalawind.*
 import doc.macros.Source
-import org.scalajs.dom
 import io.github.nguyenyou.webawesome.laminar.*
-import doc.components.Locator.withLocator
 
 case class ButtonView()
     extends ExampleView(

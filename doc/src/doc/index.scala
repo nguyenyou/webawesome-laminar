@@ -1,7 +1,6 @@
 package doc
 
 import com.raquo.laminar.api.L.*
-import doc.views.docs.*
 import org.scalajs.dom
 
 @main

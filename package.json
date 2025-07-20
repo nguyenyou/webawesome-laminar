@@ -14,8 +14,8 @@
     "generate:ir": "tsx scripts/gen-ir.ts",
     "generate:types": "tsx scripts/extract-shared-types.ts",
     "generate:components": "tsx scripts/generate-components.ts",
-    "lib:fix": "./mill webawesome-laminar.fix",
-    "lib:fmt": "./mill mill.scalalib.scalafmt/"
+    "fix": "./mill __.fix",
+    "fmt": "./mill mill.scalalib.scalafmt/"
   },
   "packageManager": "yarn@4.9.2",
   "devDependencies": {

@@ -3,11 +3,11 @@ package doc.components
 import com.raquo.laminar.api.L.*
 import doc.facades.*
 import doc.libs.scalawind.*
+import io.github.nguyenyou.webawesome.laminar.*
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.util.Failure
 import scala.util.Success
-import io.github.nguyenyou.webawesome.laminar.*
 
 object Codeblock {
 

@@ -1,9 +1,9 @@
 package doc.components
 
 import com.raquo.laminar.api.L.*
+import doc.*
 import doc.AppRouter.*
 import doc.Pages.*
-import doc.*
 import doc.facades.ScrollOptions
 import doc.facades.scrollIntoViewIfNeeded
 import doc.libs.scalawind.*

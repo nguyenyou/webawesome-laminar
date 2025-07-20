@@ -2,9 +2,8 @@ package doc.views.docs
 
 import com.raquo.laminar.api.L.*
 import doc.components.Demo
-import doc.libs.scalawind.*
-import doc.macros.Source
 import doc.components.Locator.withLocator
+import doc.macros.Source
 
 case class DialogView()
     extends ExampleView(
@@ -31,7 +30,7 @@ case class DialogView()
             )
           )("Lorem ipsum dolor sit amet, consectetur adipiscing elit."),
           Button(
-            _.onClick.mapTo(true) --> openVar.writer,
+            _.onClick.mapTo(true) --> openVar.writer
           )(
             "Open Dialog"
           )

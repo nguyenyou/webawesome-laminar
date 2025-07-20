@@ -1,9 +1,7 @@
 package doc.components
-
-import scala.scalajs.LinkingInfo.developmentMode
-
 import com.raquo.laminar.api.L.*
-import com.raquo.laminar.codecs.{IntAsStringCodec, StringAsIsCodec}
+import com.raquo.laminar.codecs.IntAsStringCodec
+import com.raquo.laminar.codecs.StringAsIsCodec
 
 trait Locator(using
     n: sourcecode.FileName,

@@ -74,7 +74,7 @@ object Deps {
 }
 
 
-trait WebModule extends ScalaJSModule with NoDoc {
+trait WebModule extends ScalaJSModule, NoDoc, Scalafix {
   def moduleKind = ModuleKind.ESModule
   def moduleSplitStyle = ModuleSplitStyle.FewestModules
 
@@ -104,7 +104,7 @@ object doc extends WebModule {
   def mvnDeps = super.mvnDeps() ++ Deps.waypoint ++ Deps.borer ++ Deps.sourcecode
 }
 
-object `webawesome-laminar` extends WebModule, CommonPublish, Scalafix {
+object `webawesome-laminar` extends WebModule, CommonPublish {
   override def artifactName = "webawesome-laminar"
 
   def publishVersion = VcsVersion.vcsState().format()

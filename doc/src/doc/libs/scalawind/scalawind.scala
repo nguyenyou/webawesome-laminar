@@ -145,11 +145,7 @@ def methodNameToTailwindClass(methodName: String) = {
 
 def swImpl(tailwindExpr: Expr[Tailwind])(using Quotes): Expr[String] = {
   import quotes.reflect.*
-  @SuppressWarnings(
-    Array(
-      "scalafix:DisableSyntax.var"
-    )
-  )
+ 
   def extractClassNames(term: Term, prefix: String = "", important: Boolean = false): List[String] = {
     var stack      = List((term, prefix, important))
     var classNames = List.empty[String]

@@ -111,11 +111,6 @@ object Source {
     filteredLines.toArray
   }
 
-  @SuppressWarnings(
-    Array(
-      "scalafix:DisableSyntax.var"
-    )
-  )
   def annotateImpl(
       element: Expr[L.HtmlElement]
   )(using

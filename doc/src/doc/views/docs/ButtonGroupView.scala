@@ -2,9 +2,8 @@ package doc.views.docs
 
 import com.raquo.laminar.api.L.*
 import doc.components.Demo
-import doc.libs.scalawind.*
-import doc.macros.Source
 import doc.components.Locator.withLocator
+import doc.macros.Source
 
 case class ButtonGroupView()
     extends ExampleView(

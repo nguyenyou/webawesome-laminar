@@ -10,8 +10,7 @@ object Preview {
   private val initialTab: Tab = "Preview"
   private case class IndicatorStyles(width: Int, left: Int)
 
-  private def getIndicatorStyles(ele: HtmlElement) =
-    IndicatorStyles(ele.ref.offsetWidth.toInt, ele.ref.offsetLeft.toInt)
+  
 
   private def render(
       title: => String,
@@ -27,7 +26,6 @@ object Preview {
     val activeTabSignal = activeTabVar.signal.distinct
 
     def TabItem(name: Tab, isActiveSignal: Signal[Boolean]) = {
-      val isInitialTab = name == initialTab
       div(
         tw.flex.itemsCenter.justifyCenter.transitionColors.duration300.py1.h9.cursorPointer.gap2.textBase.fontMedium,
         cls <-- isActiveSignal.map(
@@ -49,11 +47,6 @@ object Preview {
       name = "Code",
       isActiveSignal = activeTabSignal.map(_ == "Code").distinct
     )
-
-    val initialNode = initialTab match {
-      case "Preview" => previewNode
-      case "Code"    => codeNode
-    }
 
     // Create an ID from the title for use in the URL hash
     val titleId = title.toLowerCase.replace(" ", "-")

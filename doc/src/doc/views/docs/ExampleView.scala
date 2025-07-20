@@ -1,8 +1,8 @@
 package doc.views.docs
 
 import com.raquo.laminar.api.L.*
-import doc.libs.scalawind.*
 import doc.components.Locator
+import doc.libs.scalawind.*
 import io.github.nguyenyou.webawesome.laminar.*
 
 trait ExampleView(

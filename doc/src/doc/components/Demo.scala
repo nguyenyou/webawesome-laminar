@@ -2,8 +2,6 @@ package doc.components
 
 import com.raquo.laminar.api.L.*
 import doc.macros.Source.AnnotationType
-import doc.components.UIComponent
-import doc.components.Locator.withLocator
 
 case class Demo(
     title: String = "",
