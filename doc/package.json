@@ -18,7 +18,7 @@
     "fmt": "./mill mill.scalalib.scalafmt/"
   },
   "devDependencies": {
-    "vite": "^7.0.5"
+    "vite": "npm:rolldown-vite@latest"
   },
   "dependencies": {
     "@shikijs/transformers": "^3.4.2",
