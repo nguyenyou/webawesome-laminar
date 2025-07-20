@@ -104,6 +104,7 @@ val pageViews: Signal[HtmlElement] = AppRouter.currentPageSignal.splitMatchOne
   .handleValue(DialogPage)(DialogView()())
   .handleValue(DropdownPage)(DropdownView()())
   .handleValue(SelectPage)(SelectView()())
+  .handleValue(SwitchPage)(SwitchView()())
   .handleValue(TooltipPage)(TooltipView()())
   .handleValue(NotFoundPage)(div("Not Found"))
   .toSignal
@@ -121,6 +122,7 @@ val componentsPages: List[Page] = List(
   DialogPage,
   DropdownPage,
   SelectPage,
+  SwitchPage,
   TooltipPage
 ).sortBy(_.getClass.getSimpleName)
 
