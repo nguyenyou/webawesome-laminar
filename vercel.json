@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": null,
+  "buildCommand": "yarn workspace doc build",
   "outputDirectory": "doc/dist",
   "installCommand": null,
   "framework": null,
