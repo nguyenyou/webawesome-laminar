@@ -140,9 +140,23 @@ case class App() {
             div(
               tw.container.py4,
               div(
-                tw.textBalance.textCenter.textSm.leadingLoose
-                  .md(tw.textLeft),
-                "© 2025 Tu Nguyen. All Rights Reserved."
+                tw.textBalance.textCenter.textSm.leadingLoose.textMutedForeground,
+                "Built by ",
+                a(
+                  tw.important(tw.underline),
+                  target := "_blank",
+                  rel := "noopener noreferrer",
+                  href := "https://github.com/nguyenyou",
+                  "Tu Nguyen"
+                ),
+                ". The source code is available on ",
+                a(
+                  tw.important(tw.underline),
+                  target := "_blank",
+                  rel := "noopener noreferrer",
+                  href := "https://github.com/nguyenyou/webawesome-laminar",
+                  "GitHub"
+                )
               )
             )
           )
