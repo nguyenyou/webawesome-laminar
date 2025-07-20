@@ -28,6 +28,7 @@ object Pages {
   case object BreadcrumbsPage          extends Page("Breadcrumbs")
   case object BusyIndicatorPage        extends Page("BusyIndicator")
   case object ButtonPage               extends Page("Button")
+  case object BadgePage                extends Page("Badge")
   case object CalendarPage             extends Page("Calendar")
   case object CalendarLegendPage       extends Page("CalendarLegend")
   case object CardPage                 extends Page("Card")
@@ -89,12 +90,16 @@ object Pages {
 val pageViews: Signal[HtmlElement] = AppRouter.currentPageSignal.splitMatchOne
   .handleValue(HomePage)(HomeView())
   .handleValue(ButtonPage)(ButtonView()())
+  .handleValue(AvatarPage)(AvatarView()())
+  .handleValue(BadgePage)(BadgeView()())
   .handleValue(NotFoundPage)(div("Not Found"))
   .toSignal
 
 // Step 3: Display in Sidebar
-val inputsPages: List[Page] = List(
-  ButtonPage
+val componentsPages: List[Page] = List(
+  AvatarPage,
+  BadgePage,
+  ButtonPage,
 ).sortBy(_.getClass.getSimpleName)
 
 val dataDisplayPages: List[Page] = List(
@@ -129,6 +134,12 @@ object AppRouter
           .static(
             ButtonPage,
             root / ButtonPage.path / endOfSegments,
+            "/docs"
+          ),
+        Route
+          .static(
+            BadgePage,
+            root / BadgePage.path / endOfSegments,
             "/docs"
           ),
         Route

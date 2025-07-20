@@ -121,37 +121,9 @@ case class Sidebar() {
         div(
           tw.flex.flexCol.gap6,
           Section(
-            title = "Inputs",
-            pages = inputsPages
+            title = "Components",
+            pages = componentsPages
           ),
-          Section(
-            title = "Data Display",
-            pages = dataDisplayPages
-          ),
-          Section(
-            title = "Modals & Popovers",
-            pages = modalAndPopoverPages
-          ),
-          Section(
-            title = "Feedback",
-            pages = feedbackPages
-          ),
-          Section(
-            title = "Navigation",
-            pages = nagigationPages
-          ),
-          Section(
-            title = "Surfaces",
-            pages = surfacesPages
-          ),
-          Section(
-            title = "Fiori",
-            pages = fioriPages
-          ),
-          Section(
-            title = "AI",
-            pages = aiPages
-          )
         )
       )
     ).amend(
