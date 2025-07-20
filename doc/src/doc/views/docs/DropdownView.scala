@@ -5,7 +5,6 @@ import doc.components.Demo
 import doc.components.Locator.withLocator
 import doc.macros.Source
 import io.github.nguyenyou.webawesome.laminar.*
-import scala.util.Try
 
 case class DropdownView()
     extends ExampleView(
@@ -16,8 +15,6 @@ case class DropdownView()
     Demo(
       center = true,
       content = Source.annotate {
-        import io.github.nguyenyou.webawesome.laminar.*
-
         Dropdown(
           _.slots.trigger(
             Button(_.withCaret := true)("View")

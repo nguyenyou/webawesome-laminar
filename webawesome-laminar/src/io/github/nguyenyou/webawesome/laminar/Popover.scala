@@ -57,6 +57,8 @@ object Popover extends WebComponent("wa-popover") {
   /** The ID of the popover's anchor element. This must be an interactive/focusable element such as a button. */
   lazy val `for`: HtmlAttr[String] = stringAttr("for")
 
+  lazy val forId: HtmlAttr[String] = `for`
+
   // -- Slots --
 
   object slots {

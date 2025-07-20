@@ -9,7 +9,7 @@ trait WaSelectItem extends js.Object {
   def value: js.UndefOr[String]
 }
 
-trait WaSelectEventDetail extends js.Object {
+trait WaSelectEvent extends js.Object {
 
   def item: dom.HTMLElement & WaSelectItem
 

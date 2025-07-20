@@ -4,12 +4,11 @@ import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.nodes.Slot
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
-import io.github.nguyenyou.webawesome.laminar.events.WaSelectEventDetail
+import io.github.nguyenyou.webawesome.laminar.events.*
 import org.scalajs.dom
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import io.github.nguyenyou.ui5.webcomponents.laminar.shared.EventDetail
 
 // This file is generated at compile-time by WebAwesome generator
 
@@ -43,7 +42,7 @@ object Dropdown extends WebComponent("wa-dropdown") {
   lazy val onAfterHide: EventProp[dom.Event] = eventProp("wa-after-hide")
 
   /** Emitted when an item in the dropdown is selected. */
-  lazy val onSelect: EventProp[dom.Event & EventDetail[WaSelectEventDetail]] = eventProp("wa-select")
+  lazy val onSelect: EventProp[dom.Event & EventDetail[WaSelectEvent]] = eventProp("wa-select")
 
   // -- Attributes --
 

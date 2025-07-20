@@ -1,4 +1,4 @@
-package io.github.nguyenyou.ui5.webcomponents.laminar.shared
+package io.github.nguyenyou.webawesome.laminar.events
 
 import scala.scalajs.js
 

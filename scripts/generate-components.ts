@@ -353,6 +353,7 @@ async function generateComponent(component: ComponentIR): Promise<string> {
   writer.writeLine('import com.raquo.laminar.nodes.Slot');
   writer.writeLine('import com.raquo.laminar.tags.CustomHtmlTag');
   writer.writeLine('import org.scalajs.dom');
+  writer.writeLine('import io.github.nguyenyou.webawesome.laminar.events.*');
   writer.blankLine();
   writer.writeLine('import scala.scalajs.js');
   writer.writeLine('import scala.scalajs.js.annotation.JSImport');
@@ -413,7 +414,11 @@ async function generateComponent(component: ComponentIR): Promise<string> {
             writer.writeLine(`/** ${event.description} */`);
           }
           const eventName = toCamelCase(event.name.replace('wa-', 'on-'));
-          writer.writeLine(`lazy val ${eventName}: EventProp[dom.Event] = eventProp("${event.name}")`);
+          if(event.eventType === 'WaSelectEvent') {
+            writer.writeLine(`lazy val ${eventName}: EventProp[dom.Event & EventDetail[WaSelectEvent]] = eventProp("${event.name}")`);
+          } else {
+            writer.writeLine(`lazy val ${eventName}: EventProp[dom.Event] = eventProp("${event.name}")`);
+          }
           writer.blankLine();
         }
       });
@@ -478,6 +483,12 @@ async function generateComponent(component: ComponentIR): Promise<string> {
           writer.writeLine(`lazy val typ: ${scalaType} = \`type\``);
           writer.blankLine();
           writer.writeLine(`lazy val tpe: ${scalaType} = \`type\``);
+          writer.blankLine();
+        }
+
+        // Add common aliases for 'for' attribute
+        if (attr.name === 'for') {
+          writer.writeLine(`lazy val forId: ${scalaType} = \`for\``);
           writer.blankLine();
         }
       });

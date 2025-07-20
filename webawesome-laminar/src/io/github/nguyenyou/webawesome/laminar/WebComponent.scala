@@ -1,5 +1,6 @@
 package io.github.nguyenyou.webawesome.laminar
 
+import com.raquo.laminar.api.L.idAttr
 import com.raquo.laminar.api.Laminar
 import com.raquo.laminar.keys.EventProcessor
 import com.raquo.laminar.keys.EventProp
@@ -15,6 +16,8 @@ import scala.scalajs.js
 abstract class WebComponent(tagName: String) extends CommonTypes { this: Self =>
 
   type Self
+
+  val id: HtmlProp[String, String] = idAttr
 
   /** Override this with JSImport-ed object of the component. The import must register the component's custom element in
     * the DOM.

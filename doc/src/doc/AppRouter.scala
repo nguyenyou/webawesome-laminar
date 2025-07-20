@@ -84,6 +84,7 @@ object Pages {
   case object TabPage                  extends Page("Tab")
   case object ToolbarPage              extends Page("Toolbar")
   case object TimePickerPage           extends Page("TimePicker")
+  case object TooltipPage              extends Page("Tooltip")
   case object StepInputPage            extends Page("StepInput")
   case object SideNavigationPage       extends Page("SideNavigation")
   given pageCodec: Codec[Page] = deriveAllCodecs
@@ -103,6 +104,7 @@ val pageViews: Signal[HtmlElement] = AppRouter.currentPageSignal.splitMatchOne
   .handleValue(DialogPage)(DialogView()())
   .handleValue(DropdownPage)(DropdownView()())
   .handleValue(SelectPage)(SelectView()())
+  .handleValue(TooltipPage)(TooltipView()())
   .handleValue(NotFoundPage)(div("Not Found"))
   .toSignal
 
@@ -118,7 +120,8 @@ val componentsPages: List[Page] = List(
   ColorPickerPage,
   DialogPage,
   DropdownPage,
-  SelectPage
+  SelectPage,
+  TooltipPage
 ).sortBy(_.getClass.getSimpleName)
 
 // Step 4: Map URL to Page
@@ -424,6 +427,12 @@ object AppRouter
           .static(
             ToggleButtonPage,
             root / ToggleButtonPage.path / endOfSegments,
+            "/docs"
+          ),
+        Route
+          .static(
+            TooltipPage,
+            root / TooltipPage.path / endOfSegments,
             "/docs"
           ),
         Route

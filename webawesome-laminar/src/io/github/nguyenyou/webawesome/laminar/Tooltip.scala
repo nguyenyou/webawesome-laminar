@@ -71,6 +71,8 @@ object Tooltip extends WebComponent("wa-tooltip") {
 
   lazy val `for`: HtmlAttr[String] = stringAttr("for")
 
+  lazy val forId: HtmlAttr[String] = `for`
+
   // -- Slots --
 
   object slots {
