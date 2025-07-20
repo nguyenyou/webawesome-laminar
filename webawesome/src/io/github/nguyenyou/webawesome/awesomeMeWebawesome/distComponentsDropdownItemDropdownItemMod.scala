@@ -51,12 +51,12 @@ object distComponentsDropdownItemDropdownItemMod {
     /** Closes the submenu. */
     def closeSubmenu(): js.Promise[Unit] = js.native
     
-    def connectedCallback(): Unit = js.native
+    override def connectedCallback(): Unit = js.native
     
     /** Disables the dropdown item. */
     var disabled: Boolean = js.native
     
-    def disconnectedCallback(): Unit = js.native
+    override def disconnectedCallback(): Unit = js.native
     
     def firstUpdated(): Unit = js.native
     
@@ -79,7 +79,7 @@ object distComponentsDropdownItemDropdownItemMod {
     /** Opens the submenu. */
     def openSubmenu(): js.Promise[Unit] = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     /**
       * @internal The dropdown item's size.

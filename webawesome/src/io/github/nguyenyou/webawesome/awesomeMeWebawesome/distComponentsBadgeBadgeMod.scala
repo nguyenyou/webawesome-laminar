@@ -48,7 +48,7 @@ object distComponentsBadgeBadgeMod {
     /** Draws a pill-style badge with rounded edges. */
     var pill: Boolean = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     /** The badge's theme variant. Defaults to `brand` if not within another element with a variant. */
     var variant: brand | neutral | success | warning | danger = js.native

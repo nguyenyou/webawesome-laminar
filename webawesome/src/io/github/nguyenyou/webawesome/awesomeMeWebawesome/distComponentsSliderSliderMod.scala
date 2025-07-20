@@ -77,7 +77,7 @@ object distComponentsSliderSliderMod {
     def firstUpdated(): Unit = js.native
     
     /** Sets focus to the slider. */
-    def focus(): Unit = js.native
+    override def focus(): Unit = js.native
     
     /* protected */ def focusableAnchor: HTMLElement = js.native
     
@@ -153,7 +153,7 @@ object distComponentsSliderSliderMod {
     /** Makes the slider a read-only field. */
     var readonly: Boolean = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     /* private */ var setThumbValueFromCoordinates: Any = js.native
     

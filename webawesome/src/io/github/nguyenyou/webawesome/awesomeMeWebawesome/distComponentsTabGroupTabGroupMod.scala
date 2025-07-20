@@ -49,9 +49,9 @@ object distComponentsTabGroupTabGroupMod {
     
     var body: HTMLSlotElement = js.native
     
-    def connectedCallback(): Unit = js.native
+    override def connectedCallback(): Unit = js.native
     
-    def disconnectedCallback(): Unit = js.native
+    override def disconnectedCallback(): Unit = js.native
     
     /* private */ var findNextFocusableTab: Any = js.native
     
@@ -84,7 +84,7 @@ object distComponentsTabGroupTabGroupMod {
     /** The placement of the tabs. */
     var placement: top | bottom | start | end = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     /* private */ var resizeObserver: Any = js.native
     

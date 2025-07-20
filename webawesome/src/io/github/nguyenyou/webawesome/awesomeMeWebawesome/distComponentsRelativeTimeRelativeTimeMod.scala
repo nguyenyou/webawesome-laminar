@@ -29,7 +29,7 @@ object distComponentsRelativeTimeRelativeTimeMod {
       */
     var date: js.Date | String = js.native
     
-    def disconnectedCallback(): Unit = js.native
+    override def disconnectedCallback(): Unit = js.native
     
     /** The formatting style to use. */
     var format: long | short | narrow = js.native
@@ -46,7 +46,7 @@ object distComponentsRelativeTimeRelativeTimeMod {
     
     /* private */ var relativeTime: Any = js.native
     
-    def render(): TemplateResult[`1`] | _empty = js.native
+    override def render(): TemplateResult[`1`] | _empty = js.native
     
     /** Keep the displayed value up to date as time passes. */
     var sync: Boolean = js.native

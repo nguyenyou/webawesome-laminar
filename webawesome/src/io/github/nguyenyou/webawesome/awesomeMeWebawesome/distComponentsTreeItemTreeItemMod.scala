@@ -45,7 +45,7 @@ object distComponentsTreeItemTreeItemMod {
     
     var childrenSlot: HTMLSlotElement = js.native
     
-    def connectedCallback(): Unit = js.native
+    override def connectedCallback(): Unit = js.native
     
     var defaultSlot: HTMLSlotElement = js.native
     
@@ -96,7 +96,7 @@ object distComponentsTreeItemTreeItemMod {
     
     /* private */ val localize: Any = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     var selectable: Boolean = js.native
     

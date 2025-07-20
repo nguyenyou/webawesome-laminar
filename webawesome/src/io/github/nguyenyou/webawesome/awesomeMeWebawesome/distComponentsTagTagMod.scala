@@ -51,7 +51,7 @@ object distComponentsTagTagMod {
     /** Draws a pill-style tag with rounded edges. */
     var pill: Boolean = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     /** The tag's size. */
     var size: small | medium | large = js.native

@@ -32,7 +32,7 @@ object distComponentsOptionOptionMod {
     
     var _label: String = js.native
     
-    def connectedCallback(): Unit = js.native
+    override def connectedCallback(): Unit = js.native
     
     var current: Boolean = js.native
     
@@ -47,7 +47,7 @@ object distComponentsOptionOptionMod {
     /** Draws the option in a disabled state, preventing selection. */
     var disabled: Boolean = js.native
     
-    def disconnectedCallback(): Unit = js.native
+    override def disconnectedCallback(): Unit = js.native
     
     /* private */ var handleDefaultSlotChange: Any = js.native
     
@@ -64,7 +64,7 @@ object distComponentsOptionOptionMod {
     
     /* private */ val localize: Any = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     /** @internal */
     var selected: Boolean = js.native

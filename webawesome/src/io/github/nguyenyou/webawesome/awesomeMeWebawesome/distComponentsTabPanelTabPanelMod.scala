@@ -35,14 +35,14 @@ object distComponentsTabPanelTabPanelMod {
     
     /* private */ val componentId: Any = js.native
     
-    def connectedCallback(): Unit = js.native
+    override def connectedCallback(): Unit = js.native
     
     def handleActiveChange(): Unit = js.native
     
     /** The tab panel's name. */
     var name: String = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
   }
   
   object global {

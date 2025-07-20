@@ -104,8 +104,8 @@ object distComponentsInputInputMod {
     var enterkeyhint: enter | done | go | next | previous | search | send = js.native
     
     /** Sets focus on the input. */
-    def focus(): Unit = js.native
-    def focus(options: FocusOptions): Unit = js.native
+    override def focus(): Unit = js.native
+    override def focus(options: FocusOptions): Unit = js.native
     
     /**
       * By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
@@ -181,7 +181,7 @@ object distComponentsInputInputMod {
     /** Makes the input readonly. */
     var readonly: Boolean = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     /** Selects all the text in the input. */
     def select(): Unit = js.native

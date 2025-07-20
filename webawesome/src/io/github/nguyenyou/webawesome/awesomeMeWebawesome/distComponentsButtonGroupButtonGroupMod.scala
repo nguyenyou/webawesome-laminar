@@ -65,7 +65,7 @@ object distComponentsButtonGroupButtonGroupMod {
     /** The button group's orientation. */
     var orientation: horizontal | vertical = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     /** The component's size. */
     var size: small | medium | large = js.native

@@ -136,9 +136,9 @@ object distComponentsPopupPopupMod {
     
     /* private */ var cleanup: Any = js.native
     
-    def connectedCallback(): js.Promise[Unit] = js.native
+    override def connectedCallback(): js.Promise[Unit] = js.native
     
-    def disconnectedCallback(): Unit = js.native
+    override def disconnectedCallback(): Unit = js.native
     
     /** The distance in pixels from which to offset the panel away from its anchor. */
     var distance: Double = js.native
@@ -194,7 +194,7 @@ object distComponentsPopupPopupMod {
     /** A reference to the internal popup container. Useful for animating and styling the popup with JavaScript. */
     var popup: HTMLElement = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     /** Forces the popup to recalculate and reposition itself. */
     def reposition(): Unit = js.native

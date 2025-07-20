@@ -53,14 +53,14 @@ object distComponentsTooltipTooltipMod {
     
     var body: HTMLElement = js.native
     
-    def connectedCallback(): Unit = js.native
+    override def connectedCallback(): Unit = js.native
     
     var defaultSlot: HTMLSlotElement = js.native
     
     /** Disables the tooltip so it won't show when triggered. */
     var disabled: Boolean = js.native
     
-    def disconnectedCallback(): Unit = js.native
+    override def disconnectedCallback(): Unit = js.native
     
     /** The distance in pixels from which to offset the tooltip away from its target. */
     var distance: Double = js.native
@@ -112,7 +112,7 @@ object distComponentsTooltipTooltipMod {
     
     var popup: io.github.nguyenyou.webawesome.awesomeMeWebawesome.distComponentsPopupPopupMod.default = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     /** Shows the tooltip. */
     def show(): js.Promise[Unit] = js.native

@@ -43,7 +43,7 @@ object distComponentsBreadcrumbBreadcrumbMod {
     
     /* private */ val localize: Any = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     /* private */ var separatorDir: Any = js.native
     

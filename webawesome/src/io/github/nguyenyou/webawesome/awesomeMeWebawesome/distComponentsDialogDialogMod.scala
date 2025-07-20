@@ -33,7 +33,7 @@ object distComponentsDialogDialogMod {
     
     var dialog: HTMLDialogElement = js.native
     
-    def disconnectedCallback(): Unit = js.native
+    override def disconnectedCallback(): Unit = js.native
     
     def firstUpdated(): Unit = js.native
     
@@ -67,7 +67,7 @@ object distComponentsDialogDialogMod {
     
     /* private */ var removeOpenListeners: Any = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     /* private */ var requestClose: Any = js.native
     

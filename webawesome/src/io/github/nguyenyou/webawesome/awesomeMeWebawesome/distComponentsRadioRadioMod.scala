@@ -50,7 +50,7 @@ object distComponentsRadioRadioMod {
     
     /* private */ var handleClick: Any = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     /* private */ var setInitialAttributes: Any = js.native
     

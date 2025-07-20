@@ -28,7 +28,7 @@ object distComponentsDividerDividerMod {
   trait WaDivider
     extends io.github.nguyenyou.webawesome.awesomeMeWebawesome.distInternalWebawesomeElementMod.default {
     
-    def connectedCallback(): Unit = js.native
+    override def connectedCallback(): Unit = js.native
     
     def handleVerticalChange(): Unit = js.native
     

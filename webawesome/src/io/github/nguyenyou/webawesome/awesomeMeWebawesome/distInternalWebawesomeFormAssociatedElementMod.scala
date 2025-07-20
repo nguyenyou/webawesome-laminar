@@ -35,7 +35,7 @@ object distInternalWebawesomeFormAssociatedElementMod {
     
     var assumeInteractionOn: js.Array[String] = js.native
     
-    def connectedCallback(): Unit = js.native
+    override def connectedCallback(): Unit = js.native
     
     @JSName("customError")
     var customError_WebAwesomeFormAssociatedElement: String | Null = js.native

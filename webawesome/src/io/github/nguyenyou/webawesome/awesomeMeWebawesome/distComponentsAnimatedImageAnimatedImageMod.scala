@@ -55,7 +55,7 @@ object distComponentsAnimatedImageAnimatedImageMod {
     /** Plays the animation. When this attribute is remove, the animation will pause. */
     var play: Boolean = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     /** The path to the image to load. */
     var src: String = js.native

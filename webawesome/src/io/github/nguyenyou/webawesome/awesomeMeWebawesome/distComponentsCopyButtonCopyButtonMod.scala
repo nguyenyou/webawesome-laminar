@@ -68,7 +68,7 @@ object distComponentsCopyButtonCopyButtonMod {
     
     /* private */ val localize: Any = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     /* private */ var showStatus: Any = js.native
     

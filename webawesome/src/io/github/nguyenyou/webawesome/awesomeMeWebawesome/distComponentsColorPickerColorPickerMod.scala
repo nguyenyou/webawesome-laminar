@@ -70,8 +70,8 @@ object distComponentsColorPickerColorPickerMod {
     def firstUpdated(changedProperties: PropertyValues[this.type]): Unit = js.native
     
     /** Sets focus on the color picker. */
-    def focus(): Unit = js.native
-    def focus(options: FocusOptions): Unit = js.native
+    override def focus(): Unit = js.native
+    override def focus(options: FocusOptions): Unit = js.native
     
     /**
       * By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
@@ -202,7 +202,7 @@ object distComponentsColorPickerColorPickerMod {
     
     def removeOpenListeners(): Unit = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     /* private */ var reportValidityAfterShow: Any = js.native
     

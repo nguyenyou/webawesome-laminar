@@ -36,7 +36,7 @@ object distComponentsTabTabMod {
     
     /* private */ val componentId: Any = js.native
     
-    def connectedCallback(): Unit = js.native
+    override def connectedCallback(): Unit = js.native
     
     /** Disables the tab and prevents selection. */
     var disabled: Boolean = js.native
@@ -48,7 +48,7 @@ object distComponentsTabTabMod {
     /** The name of the tab panel this tab is associated with. The panel must be located in the same tab group. */
     var panel: String = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     var tab: HTMLElement = js.native
     

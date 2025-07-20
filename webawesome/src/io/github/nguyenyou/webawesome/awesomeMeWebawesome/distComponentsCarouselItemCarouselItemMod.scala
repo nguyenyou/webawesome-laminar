@@ -28,9 +28,9 @@ object distComponentsCarouselItemCarouselItemMod {
   trait WaCarouselItem
     extends io.github.nguyenyou.webawesome.awesomeMeWebawesome.distInternalWebawesomeElementMod.default {
     
-    def connectedCallback(): Unit = js.native
+    override def connectedCallback(): Unit = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
   }
   
   object global {

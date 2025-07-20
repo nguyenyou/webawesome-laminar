@@ -34,7 +34,7 @@ object distComponentsSkeletonSkeletonMod {
     /** Determines which effect the skeleton will use. */
     var effect: pulse | sheen | none = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
   }
   
   object global {

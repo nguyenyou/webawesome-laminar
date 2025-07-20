@@ -37,11 +37,11 @@ object distComponentsTreeTreeMod {
     
     var collapsedIconSlot: HTMLSlotElement = js.native
     
-    def connectedCallback(): js.Promise[Unit] = js.native
+    override def connectedCallback(): js.Promise[Unit] = js.native
     
     var defaultSlot: HTMLSlotElement = js.native
     
-    def disconnectedCallback(): Unit = js.native
+    override def disconnectedCallback(): Unit = js.native
     
     var expandedIconSlot: HTMLSlotElement = js.native
     
@@ -80,7 +80,7 @@ object distComponentsTreeTreeMod {
     
     /* private */ var mutationObserver: Any = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     /* private */ var selectItem: Any = js.native
     

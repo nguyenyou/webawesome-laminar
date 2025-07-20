@@ -40,8 +40,8 @@ object distComponentsRatingRatingMod {
     var disabled: Boolean = js.native
     
     /** Sets focus on the rating. */
-    def focus(): Unit = js.native
-    def focus(options: FocusOptions): Unit = js.native
+    override def focus(): Unit = js.native
+    override def focus(options: FocusOptions): Unit = js.native
     
     /**
       * A function that customizes the symbol to be rendered. The first and only argument is the rating's current value.
@@ -99,7 +99,7 @@ object distComponentsRatingRatingMod {
     /** Makes the rating readonly. */
     var readonly: Boolean = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     /* private */ var roundToPrecision: Any = js.native
     

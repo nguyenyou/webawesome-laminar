@@ -74,8 +74,8 @@ object distComponentsSelectSelectMod {
     var displayLabel: String = js.native
     
     /** Sets focus on the control. */
-    def focus(): Unit = js.native
-    def focus(options: FocusOptions): Unit = js.native
+    override def focus(): Unit = js.native
+    override def focus(options: FocusOptions): Unit = js.native
     
     /**
       * By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
@@ -181,7 +181,7 @@ object distComponentsSelectSelectMod {
     
     /* private */ var removeOpenListeners: Any = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     var selectedOptions: js.Array[
         io.github.nguyenyou.webawesome.awesomeMeWebawesome.distComponentsOptionOptionMod.default

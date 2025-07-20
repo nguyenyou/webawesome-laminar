@@ -52,8 +52,8 @@ object distComponentsRadioGroupRadioGroupMod {
     var defaultValue_WaRadioGroup: String | Null = js.native
     
     /** Sets focus on the radio group. */
-    def focus(): Unit = js.native
-    def focus(options: FocusOptions): Unit = js.native
+    override def focus(): Unit = js.native
+    override def focus(options: FocusOptions): Unit = js.native
     
     def formResetCallback(
       /* import warning: parser.TsParser#functionParam Dropping repeated marker of param args because its type Parameters<WebAwesomeFormAssociatedElement['formResetCallback']> is not an array type */ args: Parameters[js.Function0[Unit]]
@@ -83,7 +83,7 @@ object distComponentsRadioGroupRadioGroupMod {
     /** The orientation in which to show radio items. */
     var orientation: horizontal | vertical = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     /** The radio group's size. This size will be applied to all child radios and radio buttons, except when explicitly overridden. */
     var size: small | medium | large = js.native

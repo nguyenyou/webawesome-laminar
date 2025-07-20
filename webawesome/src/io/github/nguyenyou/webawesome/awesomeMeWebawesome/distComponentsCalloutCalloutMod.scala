@@ -45,7 +45,7 @@ object distComponentsCalloutCalloutMod {
     /** The callout's visual appearance. */
     var appearance: accent | filled | outlined | plain | (`outlined filled`) | (`outlined accent`) = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     /** The callout's size. */
     var size: small | medium | large = js.native

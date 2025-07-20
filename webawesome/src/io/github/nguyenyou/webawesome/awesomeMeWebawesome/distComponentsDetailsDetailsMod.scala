@@ -49,7 +49,7 @@ object distComponentsDetailsDetailsMod {
     /** Disables the details so it can't be toggled. */
     var disabled: Boolean = js.native
     
-    def disconnectedCallback(): Unit = js.native
+    override def disconnectedCallback(): Unit = js.native
     
     var expandIconSlot: HTMLSlotElement = js.native
     
@@ -77,7 +77,7 @@ object distComponentsDetailsDetailsMod {
       */
     var open: Boolean = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     /** Shows the details. */
     def show(): js.Promise[Unit] = js.native

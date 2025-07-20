@@ -49,13 +49,13 @@ object distComponentsCarouselCarouselMod {
     
     /* private */ var canScrollPrev: Any = js.native
     
-    def connectedCallback(): Unit = js.native
+    override def connectedCallback(): Unit = js.native
     
     /* private */ var createClones: Any = js.native
     
     var currentSlide: Double = js.native
     
-    def disconnectedCallback(): Unit = js.native
+    override def disconnectedCallback(): Unit = js.native
     
     /* private */ var dragStartPosition: Any = js.native
     
@@ -142,7 +142,7 @@ object distComponentsCarouselCarouselMod {
     def previous(): Unit = js.native
     def previous(behavior: ScrollBehavior): Unit = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     var scrollContainer: HTMLElement = js.native
     

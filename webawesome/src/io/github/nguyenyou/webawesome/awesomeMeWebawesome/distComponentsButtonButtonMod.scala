@@ -73,8 +73,8 @@ object distComponentsButtonButtonMod {
     var download: js.UndefOr[String] = js.native
     
     /** Sets focus on the button. */
-    def focus(): Unit = js.native
-    def focus(options: FocusOptions): Unit = js.native
+    override def focus(): Unit = js.native
+    override def focus(options: FocusOptions): Unit = js.native
     
     /** Used to override the form owner's `action` attribute. */
     var formAction: String = js.native
@@ -139,7 +139,7 @@ object distComponentsButtonButtonMod {
     /** When using `href`, this attribute will map to the underlying link's `rel` attribute. */
     var rel: js.UndefOr[String] = js.native
     
-    def render(): TemplateResult[ResultType] = js.native
+    override def render(): TemplateResult[ResultType] = js.native
     
     /** The button's size. */
     var size: small | medium | large = js.native

@@ -64,7 +64,7 @@ object distComponentsDropdownDropdownMod {
     
     var defaultSlot: HTMLSlotElement = js.native
     
-    def disconnectedCallback(): Unit = js.native
+    override def disconnectedCallback(): Unit = js.native
     
     /** The distance of the dropdown menu from its trigger. */
     var distance: Double = js.native
@@ -135,7 +135,7 @@ object distComponentsDropdownDropdownMod {
     /** Removes the last item from the submenu stack */
     /* private */ var removeFromSubmenuStack: Any = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     /** Sets up submenu positioning with autoUpdate */
     /* private */ var setupSubmenuPosition: Any = js.native

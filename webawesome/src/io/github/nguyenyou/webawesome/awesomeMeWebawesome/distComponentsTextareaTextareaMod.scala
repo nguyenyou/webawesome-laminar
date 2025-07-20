@@ -97,14 +97,14 @@ object distComponentsTextareaTextareaMod {
     @JSName("defaultValue")
     var defaultValue_WaTextarea: String = js.native
     
-    def disconnectedCallback(): Unit = js.native
+    override def disconnectedCallback(): Unit = js.native
     
     /** Used to customize the label or icon of the Enter key on virtual keyboards. */
     var enterkeyhint: enter | done | go | next | previous | search | send = js.native
     
     /** Sets focus on the textarea. */
-    def focus(): Unit = js.native
-    def focus(options: FocusOptions): Unit = js.native
+    override def focus(): Unit = js.native
+    override def focus(options: FocusOptions): Unit = js.native
     
     /**
       * By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
@@ -155,7 +155,7 @@ object distComponentsTextareaTextareaMod {
     /** Makes the textarea readonly. */
     var readonly: Boolean = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     /** Controls how the textarea can be resized. */
     var resize: none | vertical | horizontal | both | auto = js.native

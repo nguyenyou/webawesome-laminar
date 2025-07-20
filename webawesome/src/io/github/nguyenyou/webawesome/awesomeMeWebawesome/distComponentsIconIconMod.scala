@@ -30,9 +30,9 @@ object distComponentsIconIconMod {
   trait WaIcon
     extends io.github.nguyenyou.webawesome.awesomeMeWebawesome.distInternalWebawesomeElementMod.default {
     
-    def connectedCallback(): Unit = js.native
+    override def connectedCallback(): Unit = js.native
     
-    def disconnectedCallback(): Unit = js.native
+    override def disconnectedCallback(): Unit = js.native
     
     /**
       * The family of icons to choose from. For Font Awesome Free, valid options include `classic` and `brands`. For

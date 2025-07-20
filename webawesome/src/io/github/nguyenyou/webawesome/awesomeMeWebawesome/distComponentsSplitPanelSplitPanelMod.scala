@@ -35,14 +35,14 @@ object distComponentsSplitPanelSplitPanelMod {
     
     /* private */ var cachedPositionInPixels: Any = js.native
     
-    def connectedCallback(): Unit = js.native
+    override def connectedCallback(): Unit = js.native
     
     /* private */ var detectSize: Any = js.native
     
     /** Disables resizing. Note that the position may still change as a result of resizing the host element. */
     var disabled: Boolean = js.native
     
-    def disconnectedCallback(): Unit = js.native
+    override def disconnectedCallback(): Unit = js.native
     
     var divider: HTMLElement = js.native
     
@@ -87,7 +87,7 @@ object distComponentsSplitPanelSplitPanelMod {
       */
     var primary: js.UndefOr[start | end] = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     /* private */ var resizeObserver: Any = js.native
     

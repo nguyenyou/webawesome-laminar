@@ -46,12 +46,12 @@ object distComponentsMutationObserverMutationObserverMod {
     /** Watches for the addition or removal of new child nodes. */
     var childList: Boolean = js.native
     
-    def connectedCallback(): Unit = js.native
+    override def connectedCallback(): Unit = js.native
     
     /** Disables the observer. */
     var disabled: Boolean = js.native
     
-    def disconnectedCallback(): Unit = js.native
+    override def disconnectedCallback(): Unit = js.native
     
     def handleChange(): Unit = js.native
     
@@ -61,7 +61,7 @@ object distComponentsMutationObserverMutationObserverMod {
     
     /* private */ var mutationObserver: Any = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     /* private */ var startObserver: Any = js.native
     

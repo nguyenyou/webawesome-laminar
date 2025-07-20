@@ -37,7 +37,7 @@ object distComponentsCardCardMod {
     
     /* private */ val hasSlotController: Any = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     def updated(): Unit = js.native
     

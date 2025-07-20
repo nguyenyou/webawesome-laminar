@@ -57,8 +57,8 @@ object distComponentsCheckboxCheckboxMod {
     var defaultChecked_WaCheckbox: Boolean = js.native
     
     /** Sets focus on the checkbox. */
-    def focus(): Unit = js.native
-    def focus(options: FocusOptions): Unit = js.native
+    override def focus(): Unit = js.native
+    override def focus(options: FocusOptions): Unit = js.native
     
     /**
       * By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
@@ -96,7 +96,7 @@ object distComponentsCheckboxCheckboxMod {
     @JSName("name")
     var name_WaCheckbox: String = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     /** The checkbox's size. */
     var size: small | medium | large = js.native

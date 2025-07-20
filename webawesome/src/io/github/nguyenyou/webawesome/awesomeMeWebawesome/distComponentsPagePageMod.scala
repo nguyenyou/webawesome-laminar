@@ -39,7 +39,7 @@ object distComponentsPagePageMod {
     
     /* private */ var bannerResizeObserver: Any = js.native
     
-    def connectedCallback(): Unit = js.native
+    override def connectedCallback(): Unit = js.native
     
     /**
       * Determines whether or not to hide the default hamburger button.
@@ -48,7 +48,7 @@ object distComponentsPagePageMod {
       */
     var disableNavigationToggle: Boolean = js.native
     
-    def disconnectedCallback(): Unit = js.native
+    override def disconnectedCallback(): Unit = js.native
     
     def firstUpdated(): Unit = js.native
     
@@ -89,7 +89,7 @@ object distComponentsPagePageMod {
     
     var pageResizeObserver: ResizeObserver = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     /**
       * Shows the mobile navigation drawer

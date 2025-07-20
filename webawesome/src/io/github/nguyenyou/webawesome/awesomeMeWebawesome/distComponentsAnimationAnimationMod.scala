@@ -38,7 +38,7 @@ object distComponentsAnimationAnimationMod {
     /** Clears all keyframe effects caused by this animation and aborts its playback. */
     def cancel(): Unit = js.native
     
-    def connectedCallback(): Unit = js.native
+    override def connectedCallback(): Unit = js.native
     
     /* private */ var createAnimation: Any = js.native
     
@@ -59,7 +59,7 @@ object distComponentsAnimationAnimationMod {
       */
     var direction: PlaybackDirection = js.native
     
-    def disconnectedCallback(): Unit = js.native
+    override def disconnectedCallback(): Unit = js.native
     
     /** The number of milliseconds each iteration of the animation takes to complete. */
     var duration: Double = js.native
@@ -118,7 +118,7 @@ object distComponentsAnimationAnimationMod {
       */
     var playbackRate: Double = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
   }
   
   object global {

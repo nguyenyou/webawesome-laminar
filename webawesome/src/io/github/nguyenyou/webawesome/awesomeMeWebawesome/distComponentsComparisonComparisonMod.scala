@@ -42,7 +42,7 @@ object distComponentsComparisonComparisonMod {
     /** The position of the divider as a percentage. */
     var position: Double = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
   }
   
   object global {

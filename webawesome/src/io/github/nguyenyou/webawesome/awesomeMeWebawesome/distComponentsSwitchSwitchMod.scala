@@ -65,8 +65,8 @@ object distComponentsSwitchSwitchMod {
     ): Unit = js.native
     
     /** Sets focus on the switch. */
-    def focus(): Unit = js.native
-    def focus(options: FocusOptions): Unit = js.native
+    override def focus(): Unit = js.native
+    override def focus(options: FocusOptions): Unit = js.native
     
     /**
       * By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
@@ -96,7 +96,7 @@ object distComponentsSwitchSwitchMod {
     @JSName("input")
     var input_WaSwitch: HTMLInputElement = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     def setValue(): Unit = js.native
     def setValue(value: String): Unit = js.native

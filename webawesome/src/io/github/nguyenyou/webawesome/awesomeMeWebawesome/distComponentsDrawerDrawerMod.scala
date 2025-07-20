@@ -35,7 +35,7 @@ object distComponentsDrawerDrawerMod {
     
     /* private */ var addOpenListeners: Any = js.native
     
-    def disconnectedCallback(): Unit = js.native
+    override def disconnectedCallback(): Unit = js.native
     
     var drawer: HTMLDialogElement = js.native
     
@@ -74,7 +74,7 @@ object distComponentsDrawerDrawerMod {
     
     /* private */ var removeOpenListeners: Any = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     /* private */ var requestClose: Any = js.native
     

@@ -44,7 +44,7 @@ object distComponentsIncludeIncludeMod {
     /** The fetch mode to use. */
     var mode: cors | `no-cors` | `same-origin` = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     /**
       * The location of the HTML file to include. Be sure you trust the content you are including as it will be executed as

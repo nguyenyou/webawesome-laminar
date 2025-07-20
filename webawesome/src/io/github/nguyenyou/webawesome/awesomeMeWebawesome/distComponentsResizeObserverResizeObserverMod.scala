@@ -28,12 +28,12 @@ object distComponentsResizeObserverResizeObserverMod {
   trait WaResizeObserver
     extends io.github.nguyenyou.webawesome.awesomeMeWebawesome.distInternalWebawesomeElementMod.default {
     
-    def connectedCallback(): Unit = js.native
+    override def connectedCallback(): Unit = js.native
     
     /** Disables the observer. */
     var disabled: Boolean = js.native
     
-    def disconnectedCallback(): Unit = js.native
+    override def disconnectedCallback(): Unit = js.native
     
     def handleDisabledChange(): Unit = js.native
     
@@ -41,7 +41,7 @@ object distComponentsResizeObserverResizeObserverMod {
     
     /* private */ var observedElements: Any = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     /* private */ var resizeObserver: Any = js.native
     

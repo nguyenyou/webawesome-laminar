@@ -51,7 +51,7 @@ object distComponentsAvatarAvatarMod {
     /** Indicates how the browser should load the image. */
     var loading: eager | `lazy` = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     /** The shape of the avatar. */
     var shape: circle | square | rounded = js.native

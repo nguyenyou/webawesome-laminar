@@ -33,11 +33,11 @@ object distComponentsScrollerScrollerMod {
     
     var canScroll: Boolean = js.native
     
-    def connectedCallback(): Unit = js.native
+    override def connectedCallback(): Unit = js.native
     
     var content: HTMLElement = js.native
     
-    def disconnectedCallback(): Unit = js.native
+    override def disconnectedCallback(): Unit = js.native
     
     /* private */ var handleKeyDown: Any = js.native
     
@@ -48,7 +48,7 @@ object distComponentsScrollerScrollerMod {
     /** The scroller's orientation. */
     var orientation: horizontal | vertical = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     /* private */ var resizeObserver: Any = js.native
     

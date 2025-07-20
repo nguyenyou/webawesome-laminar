@@ -67,7 +67,7 @@ object distComponentsZoomableFrameZoomableFrameMod {
     /** Controls referrer information. */
     var referrerpolicy: String = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     /** Security restrictions for the iframe. */
     var sandbox: String = js.native

@@ -60,7 +60,7 @@ object distComponentsQrCodeQrCodeMod {
     /** The edge radius of each module. Must be between 0 and 0.5. */
     var radius: Double = js.native
     
-    def render(): TemplateResult[`1`] = js.native
+    override def render(): TemplateResult[`1`] = js.native
     
     /** The size of the QR code, in pixels. */
     var size: Double = js.native
