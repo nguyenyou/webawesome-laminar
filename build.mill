@@ -1,14 +1,22 @@
-//| mill-version: 1.0.0-38-9bceb6
-//| mvnDeps: ["com.lihaoyi::mill-contrib-buildinfo:$MILL_VERSION", "com.goyeau::mill-scalafix::0.6.0"]
-
 package build
 
-import mill._, scalalib._, scalajslib._, publish._
-import mill.scalajslib.api._
-import mill.api.Task.Simple
-import mill.scalalib.SonatypeCentralPublishModule
-import mill.util.VcsVersion
+import $ivy.`io.github.nguyenyou::mill-scalablytyped::0.0.2`
+import $ivy.`com.lihaoyi::mill-contrib-sonatypecentral:`
+import $ivy.`com.goyeau::mill-scalafix::0.5.0`
+import $ivy.`com.lihaoyi::mill-contrib-buildinfo:`
+
+import mill._, scalalib._, scalajslib._, scalajslib.api._, publish._
+import io.github.nguyenyou.mill.scalablytyped._
+import mill.contrib.sonatypecentral.SonatypeCentralPublishModule
 import com.goyeau.mill.scalafix.ScalafixModule
+import $ivy.`de.tototec::de.tobiasroeser.mill.vcs.version::0.4.1`
+import de.tobiasroeser.mill.vcs.version.VcsVersion
+import mill.contrib.sonatypecentral.SonatypeCentralPublishModule.{
+  defaultAwaitTimeout,
+  defaultConnectTimeout,
+  defaultReadTimeout,
+}
+import mill.contrib.buildinfo.BuildInfo
 
 object Versions {
     val scala3 = "3.7.0"
@@ -20,6 +28,7 @@ object Versions {
     val scalajsdom = "2.8.0"
     val `webawesome-laminar` = "0.0.1"
     val sourcecode = "0.4.3-M5"
+    val webawesome = "0.0.1"
 }
 
 object Constants {
@@ -36,8 +45,8 @@ trait Scalafix extends ScalafixModule {
 }
 
 trait NoDoc extends ScalaModule {
-  override def docJar = Task {
-    val outPath = Task.dest / "empty-doc.jar"
+  override def docJar = T {
+    val outPath = T.dest / "empty-doc.jar"
     os.write(outPath, Array.emptyByteArray)
     PathRef(outPath)
   }
@@ -50,38 +59,38 @@ trait CommonPublish extends SonatypeCentralPublishModule {
 
 object Deps {
   val laminar = Seq(
-    mvn"com.raquo::laminar::${Versions.laminar}"
+    ivy"com.raquo::laminar::${Versions.laminar}"
   )
 
   val scalajsDom = Seq(
-    mvn"org.scala-js::scalajs-dom::${Versions.scalajsdom}"
+    ivy"org.scala-js::scalajs-dom::${Versions.scalajsdom}"
   )
 
   val waypoint = Seq(
-    mvn"com.raquo::waypoint::${Versions.waypoint}"
+    ivy"com.raquo::waypoint::${Versions.waypoint}"
   )
 
   val borer = Seq(
-    mvn"io.bullet::borer-core::${Versions.borer}",
-    mvn"io.bullet::borer-derivation::${Versions.borer}",
+    ivy"io.bullet::borer-core::${Versions.borer}",
+    ivy"io.bullet::borer-derivation::${Versions.borer}",
   )
 
   val sourcecode = Seq(
-    mvn"com.lihaoyi::sourcecode::${Versions.sourcecode}"
+    ivy"com.lihaoyi::sourcecode::${Versions.sourcecode}"
   )
 }
 
 
-trait WebModule extends ScalaJSModule, NoDoc, Scalafix {
+trait WebModule extends ScalaJSModule with NoDoc with Scalafix {
   def moduleKind = ModuleKind.ESModule
   def moduleSplitStyle = ModuleSplitStyle.FewestModules
 
   def scalaVersion = Versions.scala3
   def scalaJSVersion = Versions.sjs
 
-  def mvnDeps = Seq(
-    mvn"com.raquo::laminar::${Versions.laminar}",
-    mvn"org.scala-js::scalajs-dom::${Versions.sjsdom}"
+  def ivyDeps = Agg(
+    ivy"com.raquo::laminar::${Versions.laminar}",
+    ivy"org.scala-js::scalajs-dom::${Versions.sjsdom}"
   )
 
   object test extends ScalaJSTests with TestModule.Utest {
@@ -99,10 +108,10 @@ object doc extends WebModule {
     `webawesome-laminar`
   )
 
-  def mvnDeps = super.mvnDeps() ++ Deps.waypoint ++ Deps.borer ++ Deps.sourcecode
+  def ivyDeps = super.ivyDeps() ++ Deps.waypoint ++ Deps.borer ++ Deps.sourcecode
 }
 
-object `webawesome-laminar` extends WebModule, CommonPublish {
+object `webawesome-laminar` extends WebModule with CommonPublish {
   override def artifactName = "webawesome-laminar"
 
   def publishVersion = VcsVersion.vcsState().format()
@@ -114,5 +123,30 @@ object `webawesome-laminar` extends WebModule, CommonPublish {
     licenses = Seq(License.MIT),
     versionControl = VersionControl.github(Constants.githubUsername, "webawesome-laminar"),
     developers = Seq(Developer(Constants.githubUsername, Constants.author, Constants.githubProfile)),
+  )
+}
+
+
+object `webawesome` extends WebModule with ScalablyTyped with CommonPublish {
+  def artifactName = "webawesome"
+  def publishVersion = Versions.`webawesome`
+
+  def pomSettings = PomSettings(
+    description = "WebAwesome Facades",
+    organization = "io.github.nguyenyou",
+    url = "https://github.com/nguyenyou/webawesome-laminar",
+    licenses = Seq(License.MIT),
+    versionControl = VersionControl.github("nguyenyou", "webawesome-laminar"),
+    developers = Seq(Developer("nguyenyou", "Nguyen You", "https://github.com/nguyenyou")),
+  )
+
+  def ivyDeps = super.ivyDeps() ++ Deps.scalajsDom
+  override def stIgnoredLibs: T[Seq[String]] = T {
+    Seq.empty[String]
+  }
+  override def stOutputPackage = "io.github.nguyenyou.webawesome"
+  override def stOutputPath = moduleDir / "src"
+  override def stMinimize = MinimizeSelection.AllExcept(
+    "@awesome.me/webawesome"
   )
 }

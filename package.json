@@ -15,7 +15,10 @@
     "generate:types": "tsx scripts/extract-shared-types.ts",
     "generate:components": "tsx scripts/generate-components.ts",
     "fix": "./mill __.fix",
-    "fmt": "./mill mill.scalalib.scalafmt/"
+    "fmt": "./mill mill.scalalib.scalafmt/",
+    "generate:facades": "rm -rf webawesome/src && ./mill webawesome.scalablyTypedImportTask",
+    "compile:webawesome": "./mill webawesome.compile > compile-output.txt 2>&1 || true",
+    "parse-override-errors": "npx tsx scripts/parse-override-errors.ts"
   },
   "workspaces": [
     "doc"
