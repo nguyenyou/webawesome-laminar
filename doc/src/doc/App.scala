@@ -113,10 +113,6 @@ case class App() {
                   a(
                     navigateTo(HomePage),
                     "Docs"
-                  ),
-                  a(
-                    navigateTo(IconsPage),
-                    "Icons"
                   )
                 )
               ),
