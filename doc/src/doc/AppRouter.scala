@@ -45,6 +45,7 @@ object Pages {
   case object DateRangePickerPage      extends Page("DateRangePicker")
   case object DateTimePickerPage       extends Page("DateTimePicker")
   case object DialogPage               extends Page("Dialog")
+  case object DrawerPage               extends Page("Drawer")
   case object InputPage                extends Page("Input")
   case object LabelPage                extends Page("Label")
   case object LinkPage                 extends Page("Link")
@@ -106,6 +107,8 @@ val pageViews: Signal[HtmlElement] = AppRouter.currentPageSignal.splitMatchOne
   .handleValue(SelectPage)(SelectView()())
   .handleValue(SwitchPage)(SwitchView()())
   .handleValue(TooltipPage)(TooltipView()())
+  .handleValue(DrawerPage)(DrawerView()())
+  .handleValue(PopoverPage)(PopoverView()())
   .handleValue(NotFoundPage)(div("Not Found"))
   .toSignal
 
@@ -123,7 +126,9 @@ val componentsPages: List[Page] = List(
   DropdownPage,
   SelectPage,
   SwitchPage,
-  TooltipPage
+  TooltipPage,
+  DrawerPage,
+  PopoverPage
 ).sortBy(_.getClass.getSimpleName)
 
 // Step 4: Map URL to Page
@@ -273,6 +278,12 @@ object AppRouter
           .static(
             DialogPage,
             root / DialogPage.path / endOfSegments,
+            "/docs"
+          ),
+        Route
+          .static(
+            DrawerPage,
+            root / DrawerPage.path / endOfSegments,
             "/docs"
           ),
         Route
