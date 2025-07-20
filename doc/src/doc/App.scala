@@ -97,6 +97,10 @@ case class App() {
                 a(
                   navigateTo(HomePage),
                   tw.hFull.mr4.flex.itemsCenter.gap2.lg(tw.mr6),
+                  img(
+                    src := "/logo.png",
+                    tw.h6.w6.objectContain
+                  ),
                   div(
                     tw.fontMono.hFull.flex.itemsCenter.relative.fontBold,
                     div(
