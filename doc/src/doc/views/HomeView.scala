@@ -7,6 +7,10 @@ import doc.views.docs.ExampleView
 
 object HomeView extends ExampleView("Home") {
 
+  override def playground: HtmlElement = {
+    div(
+    )
+  }
   override def component: HtmlElement = {
     div(
       onMountCallback { _ =>

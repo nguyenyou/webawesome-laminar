@@ -21,7 +21,8 @@ object Preview {
       sourceCode: => String,
       fullSourceCode: => String,
       resizable: => Boolean,
-      containerMinWidth: => Double
+      containerMinWidth: => Double,
+      center: => Boolean
   ) = {
     val activeTabVar    = Var[Tab](initialTab)
     val activeTabSignal = activeTabVar.signal.distinct
@@ -29,7 +30,7 @@ object Preview {
     def TabItem(name: Tab, isActiveSignal: Signal[Boolean]) = {
       val isInitialTab = name == initialTab
       div(
-        tw.flex.itemsCenter.justifyCenter.transitionColors.duration300.h9.px3.py1.cursorPointer.gap2.textBase.fontMedium,
+        tw.flex.itemsCenter.justifyCenter.transitionColors.duration300.py1.h9.cursorPointer.gap2.textBase.fontMedium,
         cls <-- isActiveSignal.map(
           if (_) tw.important(tw.opacity100).css
           else tw.important(tw.opacity50).css
@@ -82,11 +83,11 @@ object Preview {
         }
       ),
       div(
-        tw.relative,
+        tw.relative.flex.flexCol.gap2,
         div(
-          tw.relative.mb5,
+          tw.relative,
           div(
-            tw.flex.relative.gap2,
+            tw.flex.relative.gap4.py1,
             previewNode,
             codeNode
           )
@@ -98,7 +99,8 @@ object Preview {
             tw.hidden <-- activeTabSignal.map(_ == "Preview").not,
             PreviewContainer(
               resizable = resizable,
-              containerMinWidth = containerMinWidth
+              containerMinWidth = containerMinWidth,
+              center = center
             )(preview),
           ),
           div(
@@ -116,7 +118,8 @@ object Preview {
       title: => String = "",
       description: => String = "",
       resizable: => Boolean = PreviewContainer.defaultResizable,
-      containerMinWidth: => Double = PreviewContainer.defaultContainerMinWidth
+      containerMinWidth: => Double = PreviewContainer.defaultContainerMinWidth,
+      center: => Boolean = PreviewContainer.defaultCenter
   )(
       preview: => Node = emptyNode
   )(
@@ -130,7 +133,8 @@ object Preview {
       sourceCode = sourceCode,
       fullSourceCode = fullSourceCode,
       resizable = resizable,
-      containerMinWidth = containerMinWidth
+      containerMinWidth = containerMinWidth,
+      center = center
     )
   }
 

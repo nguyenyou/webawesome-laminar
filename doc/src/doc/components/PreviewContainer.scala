@@ -6,7 +6,8 @@ import org.scalajs.dom
 
 case class PreviewContainer(
     containerMinWidth: Double,
-    resizable: Boolean
+    resizable: Boolean,
+    center: Boolean
 ) {
   case class MouseData(isDragging: Boolean, startX: Double, startWidth: Double)
 
@@ -23,6 +24,7 @@ case class PreviewContainer(
       tw.relative.z10.roundedLg.overflowHidden.min_h_("118px"),
       tw.py3.pl3.pr5,
       tw.bgBackground,
+      tw.flex.itemsCenter.justifyCenter := center,
       onMountBind(ctx => {
         val containerWidth = ctx.thisNode.ref.getBoundingClientRect().width
         Var.set(
@@ -83,4 +85,5 @@ case class PreviewContainer(
 object PreviewContainer {
   val defaultContainerMinWidth = 200.0
   val defaultResizable = true
+  val defaultCenter = false
 }

@@ -430,4 +430,5 @@ case class Tailwind() {
   def py3                             = this
   def pl3                             = this
   def pr5                             = this
+  def mt3                             = this
 }

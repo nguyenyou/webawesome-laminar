@@ -8,7 +8,23 @@ import org.scalajs.dom
 import io.github.nguyenyou.webawesome.laminar.*
 import doc.components.Locator.withLocator
 
-case class ButtonView() extends ExampleView("Button", Some("https://webawesome.com/docs/components/button/")) {
+case class ButtonView()
+    extends ExampleView(
+      "Button",
+      Some("https://webawesome.com/docs/components/button/")
+    ) {
+
+  def playground: HtmlElement = {
+    Demo(
+      center = true,
+      content = Source.annotate {
+        import io.github.nguyenyou.webawesome.laminar.Button
+
+        Button()("Button")
+      }
+    )().withLocator
+  }
+
   def component: HtmlElement = {
     div(
       Demo(
@@ -30,6 +46,8 @@ case class ButtonView() extends ExampleView("Button", Some("https://webawesome.c
       )().withLocator,
       Demo(
         title = "Appearance",
+        description =
+          "Use the `appearance` attribute to change the button's visual appearance.",
         content = Source.annotate {
           div(
             tw.flex.flexWrap.gap2,

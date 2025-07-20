@@ -10,7 +10,8 @@ case class Demo(
     description: String = "",
     content: AnnotationType,
     resizable: Boolean = PreviewContainer.defaultResizable,
-    containerMinWidth: Double = PreviewContainer.defaultContainerMinWidth
+    containerMinWidth: Double = PreviewContainer.defaultContainerMinWidth,
+    center: Boolean = PreviewContainer.defaultCenter
 ) {
 
   def apply(): HtmlElement = {
@@ -18,7 +19,8 @@ case class Demo(
       title = title,
       description = description,
       resizable = resizable,
-      containerMinWidth = containerMinWidth
+      containerMinWidth = containerMinWidth,
+      center = center
     )(
       preview = content.element
     )(

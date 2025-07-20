@@ -10,6 +10,7 @@ trait ExampleView(
     val webawesomeLink: Option[String] = None
 ) extends Locator {
   def component: HtmlElement
+  def playground: HtmlElement
 
   def apply(): HtmlElement = {
     locatorModifiers(
@@ -19,9 +20,12 @@ trait ExampleView(
           tw.text2xl.fontBold.mb5.mt0.flex.itemsEnd.gap1,
           name
         ),
+        div(
+          playground
+        ),
         h2(
-          tw.fontSemibold.textXl,
-          "Usage"
+          tw.fontSemibold.textXl.mt4,
+          "Examples"
         ),
         div(
           component
@@ -42,7 +46,7 @@ trait ExampleView(
                 a(
                   href := l,
                   target := "_blank",
-                  "WebAwesome Documentation"
+                  s"$name - WebAwesome Documentation"
                 )
               )
             )
