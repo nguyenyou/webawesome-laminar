@@ -34,7 +34,7 @@ object Pages {
   case object CalendarLegendPage       extends Page("CalendarLegend")
   case object CardPage                 extends Page("Card")
   case object CarouselPage             extends Page("Carousel")
-  case object CheckBoxPage             extends Page("CheckBox")
+  case object CheckboxPage             extends Page("Checkbox")
   case object ColorPalettePage         extends Page("ColorPalette")
   case object ColorPalettePopoverPage  extends Page("ColorPalettePopover")
   case object ColorPickerPage          extends Page("ColorPicker")
@@ -97,6 +97,7 @@ val pageViews: Signal[HtmlElement] = AppRouter.currentPageSignal.splitMatchOne
   .handleValue(BadgePage)(BadgeView()())
   .handleValue(BreadcrumbPage)(BreadcrumbView()())
   .handleValue(CalloutPage)(CalloutView()())
+  .handleValue(CheckboxPage)(CheckboxView()())
   .handleValue(NotFoundPage)(div("Not Found"))
   .toSignal
 
@@ -107,7 +108,8 @@ val componentsPages: List[Page] = List(
   ButtonPage,
   ButtonGroupPage,
   BreadcrumbPage,
-  CalloutPage
+  CalloutPage,
+  CheckboxPage
 ).sortBy(_.getClass.getSimpleName)
 
 // Step 4: Map URL to Page
@@ -195,8 +197,8 @@ object AppRouter
           ),
         Route
           .static(
-            CheckBoxPage,
-            root / CheckBoxPage.path / endOfSegments,
+            CheckboxPage,
+            root / CheckboxPage.path / endOfSegments,
             "/docs"
           ),
         Route
