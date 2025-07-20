@@ -1,7 +1,7 @@
 {
-  "name": "awesome-laminar",
+  "name": "doc",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -17,18 +17,16 @@
     "fix": "./mill __.fix",
     "fmt": "./mill mill.scalalib.scalafmt/"
   },
-  "workspaces": [
-    "doc"
-  ],
-  "packageManager": "yarn@4.9.2",
   "devDependencies": {
-    "@types/node": "^24.0.15",
-    "code-block-writer": "^13.0.3",
-    "jsdom": "^26.1.0",
-    "tsx": "^4.20.3",
-    "typescript": "^5.8.3"
+    "vite": "^7.0.5"
   },
   "dependencies": {
-    "@awesome.me/webawesome": "^3.0.0-beta.3"
+    "@shikijs/transformers": "^3.4.2",
+    "@tailwindcss/vite": "^4.1.11",
+    "dedent": "^1.6.0",
+    "marked": "^15.0.12",
+    "scroll-into-view-if-needed": "3.1.0",
+    "shiki": "3.4.0",
+    "tailwindcss": "^4.1.11"
   }
 }
