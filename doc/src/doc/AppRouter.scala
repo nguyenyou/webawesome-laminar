@@ -40,6 +40,7 @@ object Pages {
   case object ColorPickerPage          extends Page("Color Picker")
   case object ComboBoxPage             extends Page("Combo Box")
   case object CalloutPage              extends Page("Callout")
+  case object DropdownPage             extends Page("Dropdown")
   case object DatePickerPage           extends Page("DatePicker")
   case object DateRangePickerPage      extends Page("DateRangePicker")
   case object DateTimePickerPage       extends Page("DateTimePicker")
@@ -100,6 +101,7 @@ val pageViews: Signal[HtmlElement] = AppRouter.currentPageSignal.splitMatchOne
   .handleValue(CheckboxPage)(CheckboxView()())
   .handleValue(ColorPickerPage)(ColorPickerView()())
   .handleValue(DialogPage)(DialogView()())
+  .handleValue(DropdownPage)(DropdownView()())
   .handleValue(NotFoundPage)(div("Not Found"))
   .toSignal
 
@@ -113,7 +115,8 @@ val componentsPages: List[Page] = List(
   CalloutPage,
   CheckboxPage,
   ColorPickerPage,
-  DialogPage
+  DialogPage,
+  DropdownPage
 ).sortBy(_.getClass.getSimpleName)
 
 // Step 4: Map URL to Page
@@ -233,6 +236,12 @@ object AppRouter
           .static(
             ComboBoxPage,
             root / ComboBoxPage.path / endOfSegments,
+            "/docs"
+          ),
+        Route
+          .static(
+            DropdownPage,
+            root / DropdownPage.path / endOfSegments,
             "/docs"
           ),
         Route

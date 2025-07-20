@@ -17,6 +17,9 @@ case class DropdownView()
         import io.github.nguyenyou.webawesome.laminar.{Dropdown, DropdownItem, Button}
 
         Dropdown(
+          _.onSelect.map { event =>
+            println(event)
+          } --> Observer.empty,
           _.slots.trigger(
             Button(_.withCaret := true)("View")
           )
