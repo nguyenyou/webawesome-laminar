@@ -17,7 +17,7 @@ import views.HomeView
 object Pages {
 
   sealed trait Page(val title: String, val url: String = "") {
-    def path: String = if (url.isEmpty) title else url
+    def path: String = if (url.isEmpty) title.replaceAll(" ", "-").toLowerCase else url
   }
 
   case object HomePage                 extends Page("Home")
@@ -28,17 +28,17 @@ object Pages {
   case object BreadcrumbPage           extends Page("Breadcrumb")
   case object BusyIndicatorPage        extends Page("BusyIndicator")
   case object ButtonPage               extends Page("Button")
-  case object ButtonGroupPage          extends Page("ButtonGroup")
+  case object ButtonGroupPage          extends Page("Button Group")
   case object BadgePage                extends Page("Badge")
   case object CalendarPage             extends Page("Calendar")
   case object CalendarLegendPage       extends Page("CalendarLegend")
   case object CardPage                 extends Page("Card")
   case object CarouselPage             extends Page("Carousel")
   case object CheckboxPage             extends Page("Checkbox")
-  case object ColorPalettePage         extends Page("ColorPalette")
-  case object ColorPalettePopoverPage  extends Page("ColorPalettePopover")
-  case object ColorPickerPage          extends Page("ColorPicker")
-  case object ComboBoxPage             extends Page("ComboBox")
+  case object ColorPalettePage         extends Page("Color Palette")
+  case object ColorPalettePopoverPage  extends Page("Color Palette Popover")
+  case object ColorPickerPage          extends Page("Color Picker")
+  case object ComboBoxPage             extends Page("Combo Box")
   case object CalloutPage              extends Page("Callout")
   case object DatePickerPage           extends Page("DatePicker")
   case object DateRangePickerPage      extends Page("DateRangePicker")
@@ -98,6 +98,7 @@ val pageViews: Signal[HtmlElement] = AppRouter.currentPageSignal.splitMatchOne
   .handleValue(BreadcrumbPage)(BreadcrumbView()())
   .handleValue(CalloutPage)(CalloutView()())
   .handleValue(CheckboxPage)(CheckboxView()())
+  .handleValue(ColorPickerPage)(ColorPickerView()())
   .handleValue(NotFoundPage)(div("Not Found"))
   .toSignal
 
@@ -109,7 +110,8 @@ val componentsPages: List[Page] = List(
   ButtonGroupPage,
   BreadcrumbPage,
   CalloutPage,
-  CheckboxPage
+  CheckboxPage,
+  ColorPickerPage
 ).sortBy(_.getClass.getSimpleName)
 
 // Step 4: Map URL to Page
