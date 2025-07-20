@@ -10,7 +10,6 @@ import mill.scalajslib.api._
 import mill.api.Task.Simple
 import mill.scalalib.SonatypeCentralPublishModule
 import mill.util.VcsVersion
-import mill.contrib.buildinfo.BuildInfo
 
 object Versions {
     val scala3 = "3.7.0"
@@ -92,22 +91,12 @@ trait WebModule extends ScalaJSModule with NoDoc {
   }
 }
 
-object doc extends WebModule, BuildInfo {
+object doc extends WebModule {
   def moduleDeps = Seq(
     `webawesome-laminar`
   )
 
   def mvnDeps = super.mvnDeps() ++ Deps.waypoint ++ Deps.borer ++ Deps.sourcecode
-
-  val buildInfoPackageName = "doc"
-
-  def baseUrlInput = Task.Input {
-    Task.env.getOrElse("PAGES_BASE_PATH", "")
-  }
-
-  def buildInfoMembers = Seq(
-    BuildInfo.Value("baseUrl", baseUrlInput())
-  )
 }
 
 object `webawesome-laminar` extends WebModule, CommonPublish {
