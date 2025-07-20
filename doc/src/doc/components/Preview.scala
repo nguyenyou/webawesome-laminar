@@ -10,8 +10,6 @@ object Preview {
   private val initialTab: Tab = "Preview"
   private case class IndicatorStyles(width: Int, left: Int)
 
-  
-
   private def render(
       title: => String,
       description: => String,

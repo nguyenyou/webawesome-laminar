@@ -14,13 +14,13 @@ import scala.scalajs.js.annotation.JSImport
   *
   * [[https://webawesome.com/docs/components/option WebAwesome docs]]
   */
-object Option extends WebComponent("wa-option") {
+object UOption extends WebComponent("wa-option") {
 
   @JSImport("@awesome.me/webawesome/dist/components/option/option.js", JSImport.Namespace)
   @js.native
   object RawImport extends js.Object
 
-  type Self = Option.type
+  type Self = UOption.type
 
   type Ref = WaOptionComponent & dom.HTMLElement
 

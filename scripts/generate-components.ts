@@ -96,7 +96,14 @@ function toPascalCase(str: string): string {
 
 function getComponentClassName(tagName: string): string {
   // Convert wa-button-group to ButtonGroup
-  return toPascalCase(tagName.replace('wa-', ''));
+  const className = toPascalCase(tagName.replace('wa-', ''));
+  
+  // Handle special case for Option component to avoid conflict with Scala's Option type
+  if (className === 'Option') {
+    return 'UOption';
+  }
+  
+  return className;
 }
 
 function generateUnionType(values: string[]): string {

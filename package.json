@@ -4,11 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
+    "dev": "yarn workspace doc dev",
     "generate": "npx tsx scripts/generate.ts && npm run lib:fmt && npm run lib:fix",
-    "generate:force": "npx tsx scripts/generate.ts --force && npm run lib:fmt && npm run lib:fix",
+    "generate:force": "npx tsx scripts/generate.ts --force && npm run fmt && npm run fix",
     "generate:verbose": "npx tsx scripts/generate.ts --verbose",
     "generate:validate": "npx tsx scripts/generate.ts --validate",
     "generate:ir": "tsx scripts/gen-ir.ts",

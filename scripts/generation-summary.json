@@ -194,7 +194,7 @@
       "slots": 0
     },
     {
-      "name": "Option",
+      "name": "UOption",
       "tagName": "wa-option",
       "attributes": 4,
       "events": 0,
