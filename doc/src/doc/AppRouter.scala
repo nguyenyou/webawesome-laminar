@@ -46,6 +46,10 @@ object Pages {
   case object DateTimePickerPage       extends Page("DateTimePicker")
   case object DialogPage               extends Page("Dialog")
   case object DrawerPage               extends Page("Drawer")
+  case object DetailsPage              extends Page("Details")
+  case object DividerPage              extends Page("Divider")
+  case object ProgressBarPage          extends Page("Progress Bar")
+  case object ProgressRingPage         extends Page("Progress Ring")
   case object InputPage                extends Page("Input")
   case object LabelPage                extends Page("Label")
   case object LinkPage                 extends Page("Link")
@@ -55,13 +59,16 @@ object Pages {
   case object MultiComboBoxPage        extends Page("MultiComboBox")
   case object MultiInputPage           extends Page("MultiInput")
   case object RadioButtonPage          extends Page("RadioButton")
+  case object RadioGroupPage           extends Page("RadioGroup")
   case object RangeSliderPage          extends Page("RangeSlider")
   case object RatingIndicatorPage      extends Page("RatingIndicator")
   case object SplitButtonPage          extends Page("SplitButton")
   case object SelectPage               extends Page("Select")
   case object SegmentedButtonPage      extends Page("SegmentedButton")
   case object SwitchPage               extends Page("Switch")
+  case object SpinnerPage              extends Page("Spinner")
   case object SliderPage               extends Page("Slider")
+  case object SkeletonPage             extends Page("Skeleton")
   case object ToastPage                extends Page("Toast")
   case object TagPage                  extends Page("Tag")
   case object TextPage                 extends Page("Text")
@@ -69,7 +76,7 @@ object Pages {
   case object PanelPage                extends Page("Panel")
   case object ProgressIndicatorPage    extends Page("ProgressIndicator")
   case object PopoverPage              extends Page("Popover")
-  case object TreeViewPage             extends Page("Tree")
+  case object TreePage             extends Page("Tree")
   case object ToggleButtonPage         extends Page("ToggleButton")
   case object TokenPage                extends Page("Token")
   case object TextAreaPage             extends Page("TextArea")
@@ -88,6 +95,8 @@ object Pages {
   case object TooltipPage              extends Page("Tooltip")
   case object StepInputPage            extends Page("StepInput")
   case object SideNavigationPage       extends Page("SideNavigation")
+  case object TabGroupPage             extends Page("TabGroup")
+  case object SplitPanelPage           extends Page("Split Panel")
   given pageCodec: Codec[Page] = deriveAllCodecs
 }
 
@@ -105,11 +114,26 @@ val pageViews: Signal[HtmlElement] = AppRouter.currentPageSignal.splitMatchOne
   .handleValue(DialogPage)(DialogView()())
   .handleValue(DropdownPage)(DropdownView()())
   .handleValue(SelectPage)(SelectView()())
+  .handleValue(RadioGroupPage)(RadioGroupView()())
   .handleValue(SwitchPage)(SwitchView()())
   .handleValue(TooltipPage)(TooltipView()())
+  .handleValue(TagPage)(TagView()())
   .handleValue(DrawerPage)(DrawerView()())
   .handleValue(PopoverPage)(PopoverView()())
+  .handleValue(InputPage)(InputView()())
+  .handleValue(DetailsPage)(DetailsView()())
+  .handleValue(DividerPage)(DividerView()())
+  .handleValue(ProgressBarPage)(ProgressBarView()())
+  .handleValue(ProgressRingPage)(ProgressRingView()())
   .handleValue(NotFoundPage)(div("Not Found"))
+  .handleValue(TabGroupPage)(TabGroupView()())
+  .handleValue(SpinnerPage)(SpinnerView()())
+  .handleValue(TextAreaPage)(TextareaView()())
+  .handleValue(SliderPage)(SliderView()())
+  .handleValue(TreePage)(TreeView()())
+  .handleValue(SplitPanelPage)(SplitPanelView()())
+  .handleValue(SkeletonPage)(SkeletonView()())
+  .handleValue(CardPage)(CardView()())
   .toSignal
 
 // Step 3: Display in Sidebar
@@ -125,11 +149,26 @@ val componentsPages: List[Page] = List(
   DialogPage,
   DropdownPage,
   SelectPage,
+  RadioGroupPage,
   SwitchPage,
   TooltipPage,
   DrawerPage,
-  PopoverPage
-).sortBy(_.getClass.getSimpleName)
+  PopoverPage,
+  InputPage,
+  TabGroupPage,
+  SpinnerPage,
+  TextAreaPage,
+  TagPage,
+  DetailsPage,
+  DividerPage,
+  ProgressBarPage,
+  ProgressRingPage,
+  SliderPage,
+  TreePage,
+  SplitPanelPage,
+  SkeletonPage,
+  CardPage,
+  ).sortBy(_.getClass.getSimpleName.slice(0, 2))
 
 // Step 4: Map URL to Page
 object AppRouter
@@ -288,6 +327,30 @@ object AppRouter
           ),
         Route
           .static(
+            DetailsPage,
+            root / DetailsPage.path / endOfSegments,
+            "/docs"
+          ),
+        Route
+          .static(
+            DividerPage,
+            root / DividerPage.path / endOfSegments,
+            "/docs"
+          ),
+        Route
+          .static(
+            ProgressBarPage,
+            root / ProgressBarPage.path / endOfSegments,
+            "/docs"
+          ),
+        Route
+          .static(
+            ProgressRingPage,
+            root / ProgressRingPage.path / endOfSegments,
+            "/docs"
+          ),
+        Route
+          .static(
             FileUploaderPage,
             root / FileUploaderPage.path / endOfSegments,
             "/docs"
@@ -348,6 +411,12 @@ object AppRouter
           ),
         Route
           .static(
+            RadioGroupPage,
+            root / RadioGroupPage.path / endOfSegments,
+            "/docs"
+          ),
+        Route
+          .static(
             RangeSliderPage,
             root / RangeSliderPage.path / endOfSegments,
             "/docs"
@@ -386,6 +455,12 @@ object AppRouter
           .static(
             SliderPage,
             root / SliderPage.path / endOfSegments,
+            "/docs"
+          ),
+        Route
+          .static(
+            SkeletonPage,
+            root / SkeletonPage.path / endOfSegments,
             "/docs"
           ),
         Route
@@ -432,8 +507,8 @@ object AppRouter
           ),
         Route
           .static(
-            TreeViewPage,
-            root / TreeViewPage.path / endOfSegments,
+            TreePage,
+            root / TreePage.path / endOfSegments,
             "/docs"
           ),
         Route
@@ -536,6 +611,24 @@ object AppRouter
           .static(
             SideNavigationPage,
             root / SideNavigationPage.path / endOfSegments,
+            "/docs"
+          ),
+        Route
+          .static(
+            TabGroupPage,
+            root / TabGroupPage.path / endOfSegments,
+            "/docs"
+          ),
+        Route
+          .static(
+            SpinnerPage,
+            root / SpinnerPage.path / endOfSegments,
+            "/docs"
+          ),
+        Route
+          .static(
+            SplitPanelPage,
+            root / SplitPanelPage.path / endOfSegments,
             "/docs"
           ),
         Route

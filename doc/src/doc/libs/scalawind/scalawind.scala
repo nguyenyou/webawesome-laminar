@@ -428,4 +428,7 @@ case class Tailwind() {
   def pl3                             = this
   def pr5                             = this
   def mt3                             = this
+  def w12                             = this
+  def h12                             = this
+  def bgNeutral100                    = this
 }
