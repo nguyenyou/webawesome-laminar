@@ -29,15 +29,9 @@ object Pages {
   case object BadgePage                extends Page("Badge")
   case object CardPage                 extends Page("Card")
   case object CheckboxPage             extends Page("Checkbox")
-  case object ColorPalettePage         extends Page("Color Palette")
-  case object ColorPalettePopoverPage  extends Page("Color Palette Popover")
   case object ColorPickerPage          extends Page("Color Picker")
-  case object ComboBoxPage             extends Page("Combo Box")
   case object CalloutPage              extends Page("Callout")
   case object DropdownPage             extends Page("Dropdown")
-  case object DatePickerPage           extends Page("DatePicker")
-  case object DateRangePickerPage      extends Page("DateRangePicker")
-  case object DateTimePickerPage       extends Page("DateTimePicker")
   case object DialogPage               extends Page("Dialog")
   case object DrawerPage               extends Page("Drawer")
   case object DetailsPage              extends Page("Details")
@@ -45,52 +39,19 @@ object Pages {
   case object ProgressBarPage          extends Page("Progress Bar")
   case object ProgressRingPage         extends Page("Progress Ring")
   case object InputPage                extends Page("Input")
-  case object LabelPage                extends Page("Label")
-  case object LinkPage                 extends Page("Link")
-  case object ListViewPage             extends Page("List")
-  case object MenuPage                 extends Page("Menu")
-  case object MessageStripPage         extends Page("MessageStrip")
-  case object MultiComboBoxPage        extends Page("MultiComboBox")
-  case object MultiInputPage           extends Page("MultiInput")
-  case object RadioButtonPage          extends Page("RadioButton")
   case object RadioGroupPage           extends Page("RadioGroup")
-  case object RangeSliderPage          extends Page("RangeSlider")
-  case object RatingIndicatorPage      extends Page("RatingIndicator")
-  case object SplitButtonPage          extends Page("SplitButton")
   case object SelectPage               extends Page("Select")
-  case object SegmentedButtonPage      extends Page("SegmentedButton")
   case object SwitchPage               extends Page("Switch")
   case object SpinnerPage              extends Page("Spinner")
   case object SliderPage               extends Page("Slider")
   case object SkeletonPage             extends Page("Skeleton")
-  case object ToastPage                extends Page("Toast")
   case object TagPage                  extends Page("Tag")
-  case object TextPage                 extends Page("Text")
-  case object TitlePage                extends Page("Title")
-  case object PanelPage                extends Page("Panel")
-  case object ProgressIndicatorPage    extends Page("ProgressIndicator")
   case object PopoverPage              extends Page("Popover")
-  case object TreePage             extends Page("Tree")
-  case object ToggleButtonPage         extends Page("ToggleButton")
-  case object TokenPage                extends Page("Token")
+  case object TreePage                 extends Page("Tree")
   case object TextAreaPage             extends Page("TextArea")
-  case object BarcodeScannerDialogPage extends Page("BarcodeScannerDialog")
-  case object FormPage                 extends Page("Form")
-  case object ResponsivePopoverPage    extends Page("ResponsivePopover")
-  case object ExpandableTextPage       extends Page("ExpandableText")
-  case object TablePage                extends Page("Table")
-  case object FileUploaderPage         extends Page("FileUploader")
-  case object IconPage                 extends Page("Icon")
-  case object IconsPage                extends Page("Icons")
-  case object AiButtonPage             extends Page("AI Button")
-  case object TabPage                  extends Page("Tab")
-  case object ToolbarPage              extends Page("Toolbar")
-  case object TimePickerPage           extends Page("TimePicker")
-  case object TooltipPage              extends Page("Tooltip")
-  case object StepInputPage            extends Page("StepInput")
-  case object SideNavigationPage       extends Page("SideNavigation")
   case object TabGroupPage             extends Page("TabGroup")
   case object SplitPanelPage           extends Page("Split Panel")
+  case object TooltipPage              extends Page("Tooltip")
   given pageCodec: Codec[Page] = deriveAllCodecs
 }
 
@@ -219,56 +180,14 @@ object AppRouter
           ),
         Route
           .static(
-            CalloutPage,
-            root / CalloutPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            ColorPalettePage,
-            root / ColorPalettePage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            ColorPalettePopoverPage,
-            root / ColorPalettePopoverPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
             ColorPickerPage,
             root / ColorPickerPage.path / endOfSegments,
             "/docs"
           ),
         Route
           .static(
-            ComboBoxPage,
-            root / ComboBoxPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
             DropdownPage,
             root / DropdownPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            DatePickerPage,
-            root / DatePickerPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            DateRangePickerPage,
-            root / DateRangePickerPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            DateTimePickerPage,
-            root / DateTimePickerPage.path / endOfSegments,
             "/docs"
           ),
         Route
@@ -309,62 +228,8 @@ object AppRouter
           ),
         Route
           .static(
-            FileUploaderPage,
-            root / FileUploaderPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
             InputPage,
             root / InputPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            LabelPage,
-            root / LabelPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            LinkPage,
-            root / LinkPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            ListViewPage,
-            root / ListViewPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            MenuPage,
-            root / MenuPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            MessageStripPage,
-            root / MessageStripPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            MultiInputPage,
-            root / MultiInputPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            MultiComboBoxPage,
-            root / MultiComboBoxPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            RadioButtonPage,
-            root / RadioButtonPage.path / endOfSegments,
             "/docs"
           ),
         Route
@@ -375,32 +240,8 @@ object AppRouter
           ),
         Route
           .static(
-            RangeSliderPage,
-            root / RangeSliderPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            RatingIndicatorPage,
-            root / RatingIndicatorPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            SplitButtonPage,
-            root / SplitButtonPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
             SelectPage,
             root / SelectPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            SegmentedButtonPage,
-            root / SegmentedButtonPage.path / endOfSegments,
             "/docs"
           ),
         Route
@@ -423,38 +264,8 @@ object AppRouter
           ),
         Route
           .static(
-            ToastPage,
-            root / ToastPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
             TagPage,
             root / TagPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            TextPage,
-            root / TextPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            TitlePage,
-            root / TitlePage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            PanelPage,
-            root / PanelPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            ProgressIndicatorPage,
-            root / ProgressIndicatorPage.path / endOfSegments,
             "/docs"
           ),
         Route
@@ -471,104 +282,14 @@ object AppRouter
           ),
         Route
           .static(
-            ToggleButtonPage,
-            root / ToggleButtonPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
             TooltipPage,
             root / TooltipPage.path / endOfSegments,
             "/docs"
           ),
         Route
           .static(
-            TokenPage,
-            root / TokenPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            ToolbarPage,
-            root / ToolbarPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
             TextAreaPage,
             root / TextAreaPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            AiButtonPage,
-            root / AiButtonPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            BarcodeScannerDialogPage,
-            root / BarcodeScannerDialogPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            FormPage,
-            root / FormPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            ResponsivePopoverPage,
-            root / ResponsivePopoverPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            ExpandableTextPage,
-            root / ExpandableTextPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            TablePage,
-            root / TablePage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            TabPage,
-            root / TabPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            StepInputPage,
-            root / StepInputPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            TimePickerPage,
-            root / TimePickerPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            FileUploaderPage,
-            root / FileUploaderPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            IconPage,
-            root / IconPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            SideNavigationPage,
-            root / SideNavigationPage.path / endOfSegments,
             "/docs"
           ),
         Route
@@ -588,9 +309,7 @@ object AppRouter
             SplitPanelPage,
             root / SplitPanelPage.path / endOfSegments,
             "/docs"
-          ),
-        Route
-          .static(IconsPage, root / "icons" / endOfSegments)
+          )
       ),
       getPageTitle = page => s"${page.title} | WebAwesome Laminar", // displayed in the browser tab next to favicon
       serializePage = page =>

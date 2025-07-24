@@ -11,12 +11,10 @@ case class App() {
 
   enum Layout derives CanEqual {
     case Docs
-    case Icons
   }
 
   val layoutSignal = AppRouter.currentPageSignal.map { page =>
     page match
-      case IconsPage => Layout.Icons
       case _         => Layout.Docs
   }.distinct
 
@@ -126,8 +124,7 @@ case class App() {
           )
         ),
         child <-- layoutSignal.map {
-          case Layout.Icons => renderIconsLayout()
-          case Layout.Docs  => renderDocsLayout()
+          case Layout.Docs => renderDocsLayout()
         },
         footerTag(
           tw.py6.md(tw.py0),
