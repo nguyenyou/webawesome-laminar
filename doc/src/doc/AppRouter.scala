@@ -23,17 +23,11 @@ object Pages {
   case object HomePage                 extends Page("Home")
   case object NotFoundPage             extends Page("Not Found")
   case object AvatarPage               extends Page("Avatar")
-  case object AvatarGroupPage          extends Page("AvatarGroup")
-  case object BarPage                  extends Page("Bar")
   case object BreadcrumbPage           extends Page("Breadcrumb")
-  case object BusyIndicatorPage        extends Page("BusyIndicator")
   case object ButtonPage               extends Page("Button")
   case object ButtonGroupPage          extends Page("Button Group")
   case object BadgePage                extends Page("Badge")
-  case object CalendarPage             extends Page("Calendar")
-  case object CalendarLegendPage       extends Page("CalendarLegend")
   case object CardPage                 extends Page("Card")
-  case object CarouselPage             extends Page("Carousel")
   case object CheckboxPage             extends Page("Checkbox")
   case object ColorPalettePage         extends Page("Color Palette")
   case object ColorPalettePopoverPage  extends Page("Color Palette Popover")
@@ -207,50 +201,14 @@ object AppRouter
           ),
         Route
           .static(
-            AvatarGroupPage,
-            root / AvatarGroupPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            BarPage,
-            root / BarPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
             BreadcrumbPage,
             root / BreadcrumbPage.path / endOfSegments,
             "/docs"
           ),
         Route
           .static(
-            BusyIndicatorPage,
-            root / BusyIndicatorPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            CalendarPage,
-            root / CalendarPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            CalendarLegendPage,
-            root / CalendarLegendPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
             CardPage,
             root / CardPage.path / endOfSegments,
-            "/docs"
-          ),
-        Route
-          .static(
-            CarouselPage,
-            root / CarouselPage.path / endOfSegments,
             "/docs"
           ),
         Route
