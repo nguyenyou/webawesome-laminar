@@ -294,7 +294,8 @@
       "values": [
         "accent",
         "filled",
-        "outlined"
+        "outlined",
+        "filled outlined"
       ],
       "frequency": 1,
       "components": [

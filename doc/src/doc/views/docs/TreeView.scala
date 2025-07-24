@@ -4,7 +4,6 @@ import com.raquo.laminar.api.L.*
 import doc.components.Demo
 import doc.components.Locator.withLocator
 import doc.macros.Source
-import io.github.nguyenyou.webawesome.laminar.*
 
 case class TreeView()
     extends ExampleView(
@@ -20,11 +19,8 @@ case class TreeView()
           TreeItem()(
             "Parent Node",
             TreeItem(_.selected := true)("Child Node 1"),
-            TreeItem()("Child Node 2",
-              TreeItem()("Child Node 2 - 1"),
-              TreeItem()("Child Node 2 - 2")
-            )
-          ),
+            TreeItem()("Child Node 2", TreeItem()("Child Node 2 - 1"), TreeItem()("Child Node 2 - 2"))
+          )
         )
       }
     )().withLocator

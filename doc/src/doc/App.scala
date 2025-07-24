@@ -15,7 +15,7 @@ case class App() {
 
   val layoutSignal = AppRouter.currentPageSignal.map { page =>
     page match
-      case _         => Layout.Docs
+      case _ => Layout.Docs
   }.distinct
 
   def renderIconsLayout() = {
@@ -123,8 +123,8 @@ case class App() {
             )
           )
         ),
-        child <-- layoutSignal.map {
-          case Layout.Docs => renderDocsLayout()
+        child <-- layoutSignal.map { case Layout.Docs =>
+          renderDocsLayout()
         },
         footerTag(
           tw.py6.md(tw.py0),

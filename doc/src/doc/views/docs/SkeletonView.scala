@@ -3,9 +3,8 @@ package doc.views.docs
 import com.raquo.laminar.api.L.*
 import doc.components.Demo
 import doc.components.Locator.withLocator
-import doc.macros.Source
-import io.github.nguyenyou.webawesome.laminar.*
 import doc.libs.scalawind.*
+import doc.macros.Source
 
 case class SkeletonView()
     extends ExampleView(
@@ -24,10 +23,9 @@ case class SkeletonView()
               tw.w12.h12
             ),
             Skeleton(_.effect := "sheen")(
-              width.percent(30),
+              width.percent(30)
             )
           ),
-
           Skeleton(_.effect := "sheen")(tw.mb4),
           Skeleton(_.effect := "sheen")(width.percent(95), tw.mb4),
           Skeleton(_.effect := "sheen")(width.percent(80), tw.mb4)

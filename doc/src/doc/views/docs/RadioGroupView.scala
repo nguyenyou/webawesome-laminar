@@ -4,7 +4,6 @@ import com.raquo.laminar.api.L.*
 import doc.components.Demo
 import doc.components.Locator.withLocator
 import doc.macros.Source
-import io.github.nguyenyou.webawesome.laminar.*
 
 case class RadioGroupView()
     extends ExampleView(

@@ -59,7 +59,7 @@ object SharedTypes {
   type ButtonFormmethod = "get" | "post"
 
   /** Used by WaBadge for "appearance" attribute. Components: WaBadge */
-  type BadgeExtendedAppearance = "accent" | "filled" | "outlined"
+  type BadgeExtendedAppearance = "accent" | "filled" | "outlined" | "filled outlined"
 
   /** Used by WaBadge for "attention" attribute. Components: WaBadge */
   type BadgeAttention = "bounce" | "none" | "pulse"

@@ -96,7 +96,7 @@ case class ButtonView()
               Button(_.appearance := "plain", _.variant := "warning")("Plain")
               // </show>
             ),
-             div(
+            div(
               tw.flex.flexWrap.gap2,
               // <show>
               Button(_.appearance := "accent", _.variant := "danger")("Accent"),
