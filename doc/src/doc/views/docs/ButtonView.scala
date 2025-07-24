@@ -47,15 +47,67 @@ case class ButtonView()
         description = "Use the `appearance` attribute to change the button's visual appearance.",
         content = Source.annotate {
           div(
-            tw.flex.flexWrap.gap2,
-            // <show>
-            Button(_.appearance := "accent", _.variant := "neutral")("Accent"),
-            Button(_.appearance := "filled", _.variant := "neutral")("Filled"),
-            Button(_.appearance := "outlined", _.variant := "neutral")(
-              "Outlined"
+            tw.spaceY4,
+            div(
+              tw.flex.flexWrap.gap2,
+              // <show>
+              Button(_.appearance := "accent", _.variant := "neutral")("Accent"),
+              Button(_.appearance := "filled outlined", _.variant := "neutral")("Filled + Outlined"),
+              Button(_.appearance := "filled", _.variant := "neutral")("Filled"),
+              Button(_.appearance := "outlined", _.variant := "neutral")(
+                "Outlined"
+              ),
+              Button(_.appearance := "plain", _.variant := "neutral")("Plain")
+              // </show>
             ),
-            Button(_.appearance := "plain", _.variant := "neutral")("Plain")
-            // </show>
+            div(
+              tw.flex.flexWrap.gap2,
+              // <show>
+              Button(_.appearance := "accent", _.variant := "brand")("Accent"),
+              Button(_.appearance := "filled outlined", _.variant := "brand")("Filled + Outlined"),
+              Button(_.appearance := "filled", _.variant := "brand")("Filled"),
+              Button(_.appearance := "outlined", _.variant := "brand")(
+                "Outlined"
+              ),
+              Button(_.appearance := "plain", _.variant := "brand")("Plain")
+              // </show>
+            ),
+            div(
+              tw.flex.flexWrap.gap2,
+              // <show>
+              Button(_.appearance := "accent", _.variant := "success")("Accent"),
+              Button(_.appearance := "filled outlined", _.variant := "success")("Filled + Outlined"),
+              Button(_.appearance := "filled", _.variant := "success")("Filled"),
+              Button(_.appearance := "outlined", _.variant := "success")(
+                "Outlined"
+              ),
+              Button(_.appearance := "plain", _.variant := "success")("Plain")
+              // </show>
+            ),
+            div(
+              tw.flex.flexWrap.gap2,
+              // <show>
+              Button(_.appearance := "accent", _.variant := "warning")("Accent"),
+              Button(_.appearance := "filled outlined", _.variant := "warning")("Filled + Outlined"),
+              Button(_.appearance := "filled", _.variant := "warning")("Filled"),
+              Button(_.appearance := "outlined", _.variant := "warning")(
+                "Outlined"
+              ),
+              Button(_.appearance := "plain", _.variant := "warning")("Plain")
+              // </show>
+            ),
+             div(
+              tw.flex.flexWrap.gap2,
+              // <show>
+              Button(_.appearance := "accent", _.variant := "danger")("Accent"),
+              Button(_.appearance := "filled outlined", _.variant := "danger")("Filled + Outlined"),
+              Button(_.appearance := "filled", _.variant := "danger")("Filled"),
+              Button(_.appearance := "outlined", _.variant := "danger")(
+                "Outlined"
+              ),
+              Button(_.appearance := "plain", _.variant := "danger")("Plain")
+              // </show>
+            )
           )
         }
       )().withLocator,

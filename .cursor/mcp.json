@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "webawesome-laminar-metals": {
-      "url": "http://localhost:53938/sse"
+      "url": "http://localhost:57656/sse"
     }
   }
 }

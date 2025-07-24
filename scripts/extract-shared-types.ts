@@ -170,7 +170,13 @@ export async function extractSharedTypes(): Promise<void> {
       counter++;
     }
     usedNames.add(typeName);
-    
+
+    // Special case for Button
+    if(typeName === "ExtendedAppearance") {
+      console.log(unionType);
+      unionType.values = [...unionType.values, "filled outlined"]
+    }
+
     const sharedType: SharedType = {
       name: typeName,
       values: unionType.values,
@@ -202,10 +208,8 @@ export async function extractSharedTypes(): Promise<void> {
 async function generateSharedTypesFile() {
   const scalaCode = `package io.github.nguyenyou.webawesome.laminar
 
-/**
- * All union types used by WebAwesome components.
- * This file is generated at compile-time by WebAwesome generator.
- */
+/** All union types used by WebAwesome components. This file is generated at compile-time by WebAwesome generator.
+  */
 object SharedTypes {
 
 ${sharedTypes.map(st => {

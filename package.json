@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "yarn workspace doc dev",
-    "generate": "npx tsx scripts/generate.ts && npm run lib:fmt && npm run lib:fix",
+    "generate": "npx tsx scripts/generate.ts && npm run fmt && npm run fix",
     "generate:force": "npx tsx scripts/generate.ts --force && npm run fmt && npm run fix",
     "generate:verbose": "npx tsx scripts/generate.ts --verbose",
     "generate:validate": "npx tsx scripts/generate.ts --validate",

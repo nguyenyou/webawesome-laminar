@@ -130,7 +130,8 @@
         "accent",
         "filled",
         "outlined",
-        "plain"
+        "plain",
+        "filled outlined"
       ],
       "frequency": 2,
       "components": [

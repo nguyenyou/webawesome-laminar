@@ -3,8 +3,8 @@ package doc.views.docs
 import com.raquo.laminar.api.L.*
 import doc.components.Demo
 import doc.components.Locator.withLocator
-import doc.macros.Source
 import doc.libs.scalawind.*
+import doc.macros.Source
 
 case class PopoverView()
     extends ExampleView(
@@ -26,7 +26,7 @@ case class PopoverView()
               p("This popover contains interactive content that users can engage with directly."),
               Button(
                 _.variant := "brand",
-                _.size := "small"
+                _.size    := "small"
               )("Take Action")
             )
           ),

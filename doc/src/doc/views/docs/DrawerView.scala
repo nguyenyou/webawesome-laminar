@@ -30,7 +30,7 @@ case class DrawerView()
             )
           )(),
           Button(
-            _.onClick.mapTo(true) --> openVar.writer,
+            _.onClick.mapTo(true) --> openVar.writer
           )("Open Drawer")
         )
       }

@@ -26,7 +26,7 @@ object SharedTypes {
   type LoadingStrategy = "eager" | "lazy"
 
   /** Used by 2 components for "appearance" attribute. Components: WaButton, WaCard */
-  type ExtendedAppearance = "accent" | "filled" | "outlined" | "plain"
+  type ExtendedAppearance = "accent" | "filled" | "outlined" | "plain" | "filled outlined"
 
   /** Used by 2 components for "tooltip-placement" attribute. Components: WaCopyButton, WaSlider */
   type TooltipPlacement = "bottom" | "left" | "right" | "top"
