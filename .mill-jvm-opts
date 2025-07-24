@@ -1,0 +1,9 @@
+-Xms3G
+-Xmx5G
+-Xss4M
+# G1GC
+-XX:+UseG1GC
+-XX:+UnlockExperimentalVMOptions
+-XX:G1NewSizePercent=25
+-XX:G1MaxNewSizePercent=30
+-XX:InitiatingHeapOccupancyPercent=40
