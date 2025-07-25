@@ -1,0 +1,38 @@
+# WebAwesome Laminar Project Structure
+
+## Main Directories
+
+### `/webawesome-laminar/src/`
+Core library containing all WebAwesome component bindings:
+- Component files: [Button.scala](mdc:webawesome-laminar/src/io/github/nguyenyou/webawesome/laminar/Button.scala), [Callout.scala](mdc:webawesome-laminar/src/io/github/nguyenyou/webawesome/laminar/Callout.scala), etc.
+- [SharedTypes.scala](mdc:webawesome-laminar/src/io/github/nguyenyou/webawesome/laminar/SharedTypes.scala) - All union types
+- [WebComponent.scala](mdc:webawesome-laminar/src/io/github/nguyenyou/webawesome/laminar/WebComponent.scala) - Base component trait
+- [CommonTypes.scala](mdc:webawesome-laminar/src/io/github/nguyenyou/webawesome/laminar/CommonTypes.scala) - Common type utilities
+
+### `/doc/src/doc/`
+Documentation site built with Laminar:
+- `views/docs/` - Component documentation pages like [ButtonView.scala](mdc:doc/src/doc/views/docs/ButtonView.scala)
+- `views/components/` - Markdown files with HTML examples
+- `components/` - Documentation UI components
+- `facades/` - JS library bindings
+
+### `/scripts/`
+Code generation and build scripts:
+- [generate-components.ts](mdc:scripts/generate-components.ts) - Generates Scala components from WebAwesome definitions
+- [extract-shared-types.ts](mdc:scripts/extract-shared-types.ts) - Extracts union types
+- [custom-elements.json](mdc:scripts/custom-elements.json) - WebAwesome component metadata
+
+## Key Files
+- [build.mill](mdc:build.mill) - Mill build configuration
+- [package.json](mdc:package.json) - Node.js dependencies for generation scripts
+- Component `.md` files provide HTML examples that should be translated to Scala
+
+## Development Workflow
+1. HTML examples are written in `.md` files
+2. Scala documentation views translate these to Laminar syntax
+3. Components are generated from WebAwesome's custom-elements.json
+4. Union types are centralized in SharedTypes.scala
+description:
+globs:
+alwaysApply: false
+---

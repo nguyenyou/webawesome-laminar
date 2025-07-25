@@ -1,0 +1,47 @@
+# SharedTypes Union Type Patterns
+
+Reference: [SharedTypes.scala](mdc:webawesome-laminar/src/io/github/nguyenyou/webawesome/laminar/SharedTypes.scala)
+
+## Union Type Guidelines
+- ALL union types must be defined in SharedTypes.scala, even if used by only one component
+- Use descriptive type names that indicate their purpose
+- Include usage comments showing which components use each type
+
+## Common Union Types
+```scala
+// Sizes (used by 15+ components)
+type ComponentSize = "large" | "medium" | "small"
+
+// Theme variants (used by buttons, badges, callouts, etc.)
+type ThemeVariant = "brand" | "danger" | "neutral" | "success" | "warning"
+
+// Orientations (used by button groups, carousels, dividers, etc.)
+type Orientation = "horizontal" | "vertical"
+
+// Extended appearances (used by buttons, cards)
+type ExtendedAppearance = "accent" | "filled" | "outlined" | "plain" | "filled outlined"
+```
+
+## Component Usage
+Components should reference these types in their attribute definitions:
+```scala
+// In component files
+lazy val variant: HtmlAttr[ThemeVariant] = unionAttr("variant")
+lazy val size: HtmlAttr[ComponentSize] = unionAttr("size")
+lazy val appearance: HtmlAttr[ExtendedAppearance] = unionAttr("appearance")
+```
+
+## Type Safety Benefits
+- Compile-time checking of valid attribute values
+- IDE autocomplete for valid options
+- Clear documentation of supported values
+- Centralized management of shared enumerations
+
+## Naming Convention
+- Use descriptive names: `ComponentSize` not `Size`
+- Include context when needed: `ButtonFormmethod` for button-specific types
+- Group related types: `FormatDate*` for date formatting options
+description:
+globs:
+alwaysApply: false
+---

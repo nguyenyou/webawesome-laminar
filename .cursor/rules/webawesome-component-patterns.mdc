@@ -1,0 +1,39 @@
+# WebAwesome Laminar Component Patterns
+
+## Import Strategy
+- Always use wildcard import for WebAwesome components: `import io.github.nguyenyou.webawesome.laminar.*`
+- Place union types in [SharedTypes.scala](mdc:webawesome-laminar/src/io/github/nguyenyou/webawesome/laminar/SharedTypes.scala) even if used by only one component
+- Components should import shared types via wildcard import
+
+## Component Syntax
+- Use function-style syntax: `Component(modifiers...)(content)`
+- Attributes: `_.attribute := "value"`
+- Boolean attributes: `_.booleanAttr := true/false`
+- Slots: `_.slots.slotName(content)` for slot-based content
+- Union types from SharedTypes should be used for type-safe attributes
+
+## Type Mapping
+- Map primitive JavaScript types (string, number) to appropriate Scala types
+- Only use `js.Any` for complex types that cannot be properly mapped
+- Prefer union types over generic `String` for constrained values
+
+## Examples
+```scala
+// Good component usage
+Button(
+  _.variant := "brand",
+  _.size := "large", 
+  _.disabled := false,
+  _.slots.start(Icon(_.name := "gear")())
+)("Click me")
+
+// Good slot usage
+Callout(
+  _.variant := "success",
+  _.slots.icon(Icon(_.name := "check")())
+)("Success message")
+```
+description:
+globs:
+alwaysApply: false
+---
