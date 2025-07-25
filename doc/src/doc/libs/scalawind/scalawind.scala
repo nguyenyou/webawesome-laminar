@@ -279,6 +279,7 @@ case class Tailwind() {
   def itemsStart                      = this
   def grid                            = this
   def gridCols2                       = this
+  def gridCols3                       = this
   def py0                             = this
   def py4                             = this
   def py6                             = this
