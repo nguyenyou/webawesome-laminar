@@ -1,24 +1,27 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.keys.HtmlAttr
+import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
+import com.raquo.laminar.api.L
 import com.raquo.laminar.nodes.Slot
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
+import io.github.nguyenyou.webawesome.laminar.events.*
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Tabs are used inside [tab groups](/docs/components/tab-group) to represent and activate [tab
-  * panels](/docs/components/tab-panel).
+/**
+  * Tabs are used inside [tab groups](/docs/components/tab-group) to represent and activate [tab panels](/docs/components/tab-panel).
   *
-  * [[https://webawesome.com/docs/components/tab WebAwesome docs]]
+  * [[https://webawesome.com/docs/components/tab WebAwesome  docs]]
   */
 object Tab extends WebComponent("wa-tab") {
 
   @JSImport("@awesome.me/webawesome/dist/components/tab/tab.js", JSImport.Namespace)
-  @js.native
-  object RawImport extends js.Object
+  @js.native object RawImport extends js.Object
 
   type Self = Tab.type
 
@@ -35,7 +38,6 @@ object Tab extends WebComponent("wa-tab") {
   // -- Slots --
 
   object slots {
-
     /** The tab's label. Note: You can just say `_ => element` instead of `_.slots.default(element)` */
     lazy val default: Slot = Slot("")
 
@@ -45,7 +47,6 @@ object Tab extends WebComponent("wa-tab") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
-
     /** The component's base wrapper. */
     lazy val base: String = "base"
 
@@ -53,8 +54,7 @@ object Tab extends WebComponent("wa-tab") {
 
   // -- Element type --
 
-  @js.native
-  trait WaTabComponent extends js.Object {
+  @js.native trait WaTabComponent extends js.Object {
     this: dom.HTMLElement =>
 
     /** The name of the tab panel this tab is associated with. The panel must be located in the same tab group. */

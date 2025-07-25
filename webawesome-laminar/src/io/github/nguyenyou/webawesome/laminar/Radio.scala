@@ -1,27 +1,27 @@
 package io.github.nguyenyou.webawesome.laminar
 
+import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
 import com.raquo.laminar.api.L
-import com.raquo.laminar.keys.EventProp
-import com.raquo.laminar.keys.HtmlAttr
-import com.raquo.laminar.keys.HtmlProp
 import com.raquo.laminar.nodes.Slot
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
+import io.github.nguyenyou.webawesome.laminar.events.*
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Radios allow the user to select a single option from a group.
+/**
+  * Radios allow the user to select a single option from a group.
   *
-  * [[https://webawesome.com/docs/components/radio WebAwesome docs]]
+  * [[https://webawesome.com/docs/components/radio WebAwesome  docs]]
   */
 object Radio extends WebComponent("wa-radio") {
 
   @JSImport("@awesome.me/webawesome/dist/components/radio/radio.js", JSImport.Namespace)
-  @js.native
-  object RawImport extends js.Object
+  @js.native object RawImport extends js.Object
 
   type Self = Radio.type
 
@@ -46,12 +46,11 @@ object Radio extends WebComponent("wa-radio") {
   lazy val form: HtmlAttr[String] = stringAttr("form")
 
   /** The radio's value. When selected, the radio group will receive this value. Valid values: "default", "button". */
-  lazy val appearance: HtmlAttr[RadioAppearance] = unionAttr("appearance")
+  lazy val appearance: CommonKeys.RadioAppearance.type = CommonKeys.RadioAppearance
 
   /** The radio's size. When used inside a radio group, the size will be determined by the radio group's size so this
-    * attribute can typically be omitted. Valid values: "small", "medium", "large".
-    */
-  lazy val size: CommonKeys.size.type = CommonKeys.size
+  attribute can typically be omitted. Valid values: "small", "medium", "large". */
+  lazy val size: CommonKeys.ComponentSize.type = CommonKeys.ComponentSize
 
   /** Disables the radio. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
@@ -59,7 +58,6 @@ object Radio extends WebComponent("wa-radio") {
   // -- Slots --
 
   object slots {
-
     /** The radio's label. Note: You can just say `_ => element` instead of `_.slots.default(element)` */
     lazy val default: Slot = Slot("")
 
@@ -69,7 +67,6 @@ object Radio extends WebComponent("wa-radio") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssVars {
-
     /** The color of the checked icon. */
     lazy val checkedIconColor: String = "--checked-icon-color"
 
@@ -82,7 +79,6 @@ object Radio extends WebComponent("wa-radio") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
-
     /** The circular container that wraps the radio's checked state. */
     lazy val control: String = "control"
 
@@ -96,8 +92,7 @@ object Radio extends WebComponent("wa-radio") {
 
   // -- Element type --
 
-  @js.native
-  trait WaRadioComponent extends js.Object {
+  @js.native trait WaRadioComponent extends js.Object {
     this: dom.HTMLElement =>
 
     /** The string pointing to a form's id. */
@@ -107,8 +102,7 @@ object Radio extends WebComponent("wa-radio") {
     var appearance: RadioAppearance
 
     /** The radio's size. When used inside a radio group, the size will be determined by the radio group's size so this
-      * attribute can typically be omitted. Valid values: "small", "medium", "large".
-      */
+    attribute can typically be omitted. Valid values: "small", "medium", "large". */
     var size: ComponentSize
 
     /** Disables the radio. */

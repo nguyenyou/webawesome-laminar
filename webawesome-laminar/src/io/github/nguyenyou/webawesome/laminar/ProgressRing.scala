@@ -1,25 +1,27 @@
 package io.github.nguyenyou.webawesome.laminar
 
+import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
 import com.raquo.laminar.api.L
-import com.raquo.laminar.keys.HtmlAttr
-import com.raquo.laminar.keys.HtmlProp
 import com.raquo.laminar.nodes.Slot
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
+import io.github.nguyenyou.webawesome.laminar.events.*
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Progress rings are used to show the progress of a determinate operation in a circular fashion.
+/**
+  * Progress rings are used to show the progress of a determinate operation in a circular fashion.
   *
-  * [[https://webawesome.com/docs/components/progress-ring WebAwesome docs]]
+  * [[https://webawesome.com/docs/components/progress-ring WebAwesome  docs]]
   */
 object ProgressRing extends WebComponent("wa-progress-ring") {
 
   @JSImport("@awesome.me/webawesome/dist/components/progress-ring/progress-ring.js", JSImport.Namespace)
-  @js.native
-  object RawImport extends js.Object
+  @js.native object RawImport extends js.Object
 
   type Self = ProgressRing.type
 
@@ -38,7 +40,6 @@ object ProgressRing extends WebComponent("wa-progress-ring") {
   // -- Slots --
 
   object slots {
-
     /** A label to show inside the ring. Note: You can just say `_ => element` instead of `_.slots.default(element)` */
     lazy val default: Slot = Slot("")
 
@@ -48,7 +49,6 @@ object ProgressRing extends WebComponent("wa-progress-ring") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssVars {
-
     /** The diameter of the progress ring (cannot be a percentage). */
     lazy val size: String = "--size"
 
@@ -73,7 +73,6 @@ object ProgressRing extends WebComponent("wa-progress-ring") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
-
     /** The component's base wrapper. */
     lazy val base: String = "base"
 
@@ -84,8 +83,7 @@ object ProgressRing extends WebComponent("wa-progress-ring") {
 
   // -- Element type --
 
-  @js.native
-  trait WaProgressRingComponent extends js.Object {
+  @js.native trait WaProgressRingComponent extends js.Object {
     this: dom.HTMLElement =>
 
     /** A custom label for assistive devices. */

@@ -1,24 +1,27 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.keys.HtmlAttr
+import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
+import com.raquo.laminar.api.L
 import com.raquo.laminar.nodes.Slot
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
+import io.github.nguyenyou.webawesome.laminar.events.*
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Button groups can be used to group related buttons into sections.
+/**
+  * Button groups can be used to group related buttons into sections.
   *
-  * [[https://webawesome.com/docs/components/button-group WebAwesome docs]]
+  * [[https://webawesome.com/docs/components/button-group WebAwesome  docs]]
   */
 object ButtonGroup extends WebComponent("wa-button-group") {
 
   @JSImport("@awesome.me/webawesome/dist/components/button-group/button-group.js", JSImport.Namespace)
-  @js.native
-  object RawImport extends js.Object
+  @js.native object RawImport extends js.Object
 
   type Self = ButtonGroup.type
 
@@ -27,28 +30,22 @@ object ButtonGroup extends WebComponent("wa-button-group") {
   // -- Attributes --
 
   /** A label to use for the button group. This won't be displayed on the screen, but it will be announced by assistive
-    * devices when interacting with the control and is strongly recommended.
-    */
+  devices when interacting with the control and is strongly recommended. */
   lazy val label: HtmlAttr[String] = stringAttr("label")
 
   /** The button group's orientation. Valid values: "horizontal", "vertical". */
-  lazy val orientation: HtmlAttr[Orientation] = unionAttr("orientation")
+  lazy val orientation: CommonKeys.Orientation.type = CommonKeys.Orientation
 
   /** The component's size. Valid values: "small", "medium", "large". */
-  lazy val size: CommonKeys.size.type = CommonKeys.size
+  lazy val size: CommonKeys.ComponentSize.type = CommonKeys.ComponentSize
 
-  /** The button group's theme variant. Defaults to `neutral` if not within another element with a variant. Valid
-    * values: "neutral", "brand", "success", "warning", "danger".
-    */
-  lazy val variant: CommonKeys.variant.type = CommonKeys.variant
+  /** The button group's theme variant. Defaults to `neutral` if not within another element with a variant. Valid values: "neutral", "brand", "success", "warning", "danger". */
+  lazy val variant: CommonKeys.ThemeVariant.type = CommonKeys.ThemeVariant
 
   // -- Slots --
 
   object slots {
-
-    /** One or more `<wa-button>` elements to display in the button group. Note: You can just say `_ => element` instead
-      * of `_.slots.default(element)`
-      */
+    /** One or more `<wa-button>` elements to display in the button group. Note: You can just say `_ => element` instead of `_.slots.default(element)` */
     lazy val default: Slot = Slot("")
 
   }
@@ -57,7 +54,6 @@ object ButtonGroup extends WebComponent("wa-button-group") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
-
     /** The component's base wrapper. */
     lazy val base: String = "base"
 
@@ -65,13 +61,11 @@ object ButtonGroup extends WebComponent("wa-button-group") {
 
   // -- Element type --
 
-  @js.native
-  trait WaButtonGroupComponent extends js.Object {
+  @js.native trait WaButtonGroupComponent extends js.Object {
     this: dom.HTMLElement =>
 
-    /** A label to use for the button group. This won't be displayed on the screen, but it will be announced by
-      * assistive devices when interacting with the control and is strongly recommended.
-      */
+    /** A label to use for the button group. This won't be displayed on the screen, but it will be announced by assistive
+    devices when interacting with the control and is strongly recommended. */
     var label: String
 
     /** The button group's orientation. Valid values: "horizontal", "vertical". */
@@ -80,9 +74,7 @@ object ButtonGroup extends WebComponent("wa-button-group") {
     /** The component's size. Valid values: "small", "medium", "large". */
     var size: ComponentSize
 
-    /** The button group's theme variant. Defaults to `neutral` if not within another element with a variant. Valid
-      * values: "neutral", "brand", "success", "warning", "danger".
-      */
+    /** The button group's theme variant. Defaults to `neutral` if not within another element with a variant. Valid values: "neutral", "brand", "success", "warning", "danger". */
     var variant: ThemeVariant
 
   }

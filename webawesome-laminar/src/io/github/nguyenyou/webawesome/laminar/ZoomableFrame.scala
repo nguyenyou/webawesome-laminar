@@ -1,25 +1,27 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.keys.EventProp
-import com.raquo.laminar.keys.HtmlAttr
+import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
+import com.raquo.laminar.api.L
 import com.raquo.laminar.nodes.Slot
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
+import io.github.nguyenyou.webawesome.laminar.events.*
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Zoomable frames render iframe content with zoom and interaction controls.
+/**
+  * Zoomable frames render iframe content with zoom and interaction controls.
   *
-  * [[https://webawesome.com/docs/components/zoomable-frame WebAwesome docs]]
+  * [[https://webawesome.com/docs/components/zoomable-frame WebAwesome  docs]]
   */
 object ZoomableFrame extends WebComponent("wa-zoomable-frame") {
 
   @JSImport("@awesome.me/webawesome/dist/components/zoomable-frame/zoomable-frame.js", JSImport.Namespace)
-  @js.native
-  object RawImport extends js.Object
+  @js.native object RawImport extends js.Object
 
   type Self = ZoomableFrame.type
 
@@ -45,7 +47,7 @@ object ZoomableFrame extends WebComponent("wa-zoomable-frame") {
   lazy val allowfullscreen: HtmlAttr[Boolean] = boolAttr("allowfullscreen")
 
   /** Controls iframe loading behavior. Valid values: "eager", "lazy". */
-  lazy val loading: HtmlAttr[LoadingStrategy] = unionAttr("loading")
+  lazy val loading: CommonKeys.LoadingStrategy.type = CommonKeys.LoadingStrategy
 
   /** Controls referrer information. */
   lazy val referrerpolicy: HtmlAttr[String] = stringAttr("referrerpolicy")
@@ -56,8 +58,7 @@ object ZoomableFrame extends WebComponent("wa-zoomable-frame") {
   /** The current zoom of the frame, e.g. 0 = 0% and 1 = 100%. */
   lazy val zoom: HtmlAttr[Double] = doubleAttr("zoom")
 
-  /** The zoom levels to step through when using zoom controls. This does not restrict programmatic changes to the zoom.
-    */
+  /** The zoom levels to step through when using zoom controls. This does not restrict programmatic changes to the zoom. */
   lazy val zoomLevels: HtmlAttr[String] = stringAttr("zoom-levels")
 
   /** Removes the zoom controls. */
@@ -69,7 +70,6 @@ object ZoomableFrame extends WebComponent("wa-zoomable-frame") {
   // -- Slots --
 
   object slots {
-
     /** The slot that contains the zoom in icon. */
     lazy val zoomInIcon: Slot = Slot("zoom-in-icon")
 
@@ -82,7 +82,6 @@ object ZoomableFrame extends WebComponent("wa-zoomable-frame") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
-
     /** The internal `<iframe>` element. */
     lazy val iframe: String = "iframe"
 
@@ -99,8 +98,7 @@ object ZoomableFrame extends WebComponent("wa-zoomable-frame") {
 
   // -- Element type --
 
-  @js.native
-  trait WaZoomableFrameComponent extends js.Object {
+  @js.native trait WaZoomableFrameComponent extends js.Object {
     this: dom.HTMLElement =>
 
     /** The URL of the content to display. */
@@ -124,9 +122,7 @@ object ZoomableFrame extends WebComponent("wa-zoomable-frame") {
     /** The current zoom of the frame, e.g. 0 = 0% and 1 = 100%. */
     var zoom: Double
 
-    /** The zoom levels to step through when using zoom controls. This does not restrict programmatic changes to the
-      * zoom.
-      */
+    /** The zoom levels to step through when using zoom controls. This does not restrict programmatic changes to the zoom. */
     var zoomLevels: String
 
     /** Removes the zoom controls. */

@@ -1,25 +1,27 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.keys.EventProp
-import com.raquo.laminar.keys.HtmlAttr
+import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
+import com.raquo.laminar.api.L
 import com.raquo.laminar.nodes.Slot
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
+import io.github.nguyenyou.webawesome.laminar.events.*
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Avatars are used to represent a person or object.
+/**
+  * Avatars are used to represent a person or object.
   *
-  * [[https://webawesome.com/docs/components/avatar WebAwesome docs]]
+  * [[https://webawesome.com/docs/components/avatar WebAwesome  docs]]
   */
 object Avatar extends WebComponent("wa-avatar") {
 
   @JSImport("@awesome.me/webawesome/dist/components/avatar/avatar.js", JSImport.Namespace)
-  @js.native
-  object RawImport extends js.Object
+  @js.native object RawImport extends js.Object
 
   type Self = Avatar.type
 
@@ -27,9 +29,7 @@ object Avatar extends WebComponent("wa-avatar") {
 
   // -- Events --
 
-  /** The image could not be loaded. This may because of an invalid URL, a temporary network condition, or some unknown
-    * cause.
-    */
+  /** The image could not be loaded. This may because of an invalid URL, a temporary network condition, or some unknown cause. */
   lazy val onError: EventProp[dom.Event] = eventProp("wa-error")
 
   // -- Attributes --
@@ -44,15 +44,14 @@ object Avatar extends WebComponent("wa-avatar") {
   lazy val initials: HtmlAttr[String] = stringAttr("initials")
 
   /** Indicates how the browser should load the image. Valid values: "eager", "lazy". */
-  lazy val loading: HtmlAttr[LoadingStrategy] = unionAttr("loading")
+  lazy val loading: CommonKeys.LoadingStrategy.type = CommonKeys.LoadingStrategy
 
   /** The shape of the avatar. Valid values: "circle", "square", "rounded". */
-  lazy val shape: HtmlAttr[AvatarShape] = unionAttr("shape")
+  lazy val shape: CommonKeys.AvatarShape.type = CommonKeys.AvatarShape
 
   // -- Slots --
 
   object slots {
-
     /** The default icon to use when no image or initials are present. Works best with `<wa-icon>`. */
     lazy val icon: Slot = Slot("icon")
 
@@ -62,7 +61,6 @@ object Avatar extends WebComponent("wa-avatar") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssVars {
-
     /** The size of the avatar. */
     lazy val size: String = "--size"
 
@@ -72,7 +70,6 @@ object Avatar extends WebComponent("wa-avatar") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
-
     /** The container that wraps the avatar's icon. */
     lazy val icon: String = "icon"
 
@@ -86,8 +83,7 @@ object Avatar extends WebComponent("wa-avatar") {
 
   // -- Element type --
 
-  @js.native
-  trait WaAvatarComponent extends js.Object {
+  @js.native trait WaAvatarComponent extends js.Object {
     this: dom.HTMLElement =>
 
     /** The image source to use for the avatar. */

@@ -1,24 +1,27 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.keys.EventProp
-import com.raquo.laminar.keys.HtmlAttr
+import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
+import com.raquo.laminar.api.L
 import com.raquo.laminar.nodes.Slot
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
+import io.github.nguyenyou.webawesome.laminar.events.*
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** A component for displaying animated GIFs and WEBPs that play and pause on interaction.
+/**
+  * A component for displaying animated GIFs and WEBPs that play and pause on interaction.
   *
-  * [[https://webawesome.com/docs/components/animated-image WebAwesome docs]]
+  * [[https://webawesome.com/docs/components/animated-image WebAwesome  docs]]
   */
 object AnimatedImage extends WebComponent("wa-animated-image") {
 
   @JSImport("@awesome.me/webawesome/dist/components/animated-image/animated-image.js", JSImport.Namespace)
-  @js.native
-  object RawImport extends js.Object
+  @js.native object RawImport extends js.Object
 
   type Self = AnimatedImage.type
 
@@ -46,7 +49,6 @@ object AnimatedImage extends WebComponent("wa-animated-image") {
   // -- Slots --
 
   object slots {
-
     /** Optional play icon to use instead of the default. Works best with `<wa-icon>`. */
     lazy val playIcon: Slot = Slot("play-icon")
 
@@ -59,7 +61,6 @@ object AnimatedImage extends WebComponent("wa-animated-image") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssVars {
-
     /** The size of the icon box. */
     lazy val controlBoxSize: String = "--control-box-size"
 
@@ -72,7 +73,6 @@ object AnimatedImage extends WebComponent("wa-animated-image") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
-
     /** The container that surrounds the pause/play icons and provides their background. */
     lazy val controlBox: String = "control-box"
 
@@ -80,8 +80,7 @@ object AnimatedImage extends WebComponent("wa-animated-image") {
 
   // -- Element type --
 
-  @js.native
-  trait WaAnimatedImageComponent extends js.Object {
+  @js.native trait WaAnimatedImageComponent extends js.Object {
     this: dom.HTMLElement =>
 
     /** The path to the image to load. */

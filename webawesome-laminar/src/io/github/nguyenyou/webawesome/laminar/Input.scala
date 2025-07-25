@@ -1,28 +1,27 @@
 package io.github.nguyenyou.webawesome.laminar
 
+import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
 import com.raquo.laminar.api.L
-import com.raquo.laminar.keys.EventProp
-import com.raquo.laminar.keys.HtmlAttr
-import com.raquo.laminar.keys.HtmlProp
 import com.raquo.laminar.nodes.Slot
 import com.raquo.laminar.tags.CustomHtmlTag
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import org.scalajs.dom
+import io.github.nguyenyou.webawesome.laminar.events.*
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Inputs collect data from the user.
+/**
+  * Inputs collect data from the user.
   *
-  * [[https://webawesome.com/docs/components/input WebAwesome docs]]
+  * [[https://webawesome.com/docs/components/input WebAwesome  docs]]
   */
 object Input extends WebComponent("wa-input") {
 
   @JSImport("@awesome.me/webawesome/dist/components/input/input.js", JSImport.Namespace)
-  @js.native
-  object RawImport extends js.Object
+  @js.native object RawImport extends js.Object
 
   type Self = Input.type
 
@@ -63,9 +62,8 @@ object Input extends WebComponent("wa-input") {
 
   lazy val title: HtmlAttr[String] = stringAttr("title")
 
-  /** The type of input. Works the same as a native `<input>` element, but only a subset of types are supported.
-    * Defaults to `text`.
-    */
+  /** The type of input. Works the same as a native `<input>` element, but only a subset of types are supported. Defaults
+  to `text`. */
   lazy val `type`: HtmlAttr[String] = stringAttr("type")
 
   lazy val typ: HtmlAttr[String] = `type`
@@ -73,10 +71,10 @@ object Input extends WebComponent("wa-input") {
   lazy val tpe: HtmlAttr[String] = `type`
 
   /** The input's size. Valid values: "small", "medium", "large". */
-  lazy val size: CommonKeys.size.type = CommonKeys.size
+  lazy val size: CommonKeys.ComponentSize.type = CommonKeys.ComponentSize
 
   /** The input's visual appearance. Valid values: "filled", "outlined". */
-  lazy val appearance: HtmlAttr[FilledOutlineAppearance] = unionAttr("appearance")
+  lazy val appearance: CommonKeys.FilledOutlineAppearance.type = CommonKeys.FilledOutlineAppearance
 
   /** Draws a pill-style input with rounded edges. */
   lazy val pill: HtmlAttr[Boolean] = boolAttr("pill")
@@ -106,9 +104,8 @@ object Input extends WebComponent("wa-input") {
   lazy val withoutSpinButtons: HtmlAttr[Boolean] = boolAttr("without-spin-buttons")
 
   /** By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
-    * to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
-    * the same document or shadow root for this to work.
-    */
+  to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
+  the same document or shadow root for this to work. */
   lazy val form: HtmlAttr[String] = stringAttr("form")
 
   /** Makes the input a required field. */
@@ -130,39 +127,31 @@ object Input extends WebComponent("wa-input") {
   lazy val max: HtmlAttr[String] = stringAttr("max")
 
   /** Specifies the granularity that the value must adhere to, or the special value `any` which means no stepping is
-    * implied, allowing any numeric value. Only applies to date and number input types.
-    */
+  implied, allowing any numeric value. Only applies to date and number input types. */
   lazy val step: HtmlAttr[String] = stringAttr("step")
 
-  /** Controls whether and how text input is automatically capitalized as it is entered by the user. Valid values:
-    * "off", "none", "on", "sentences", "words", "characters".
-    */
-  lazy val autocapitalize: HtmlAttr[Autocapitalize] = unionAttr("autocapitalize")
+  /** Controls whether and how text input is automatically capitalized as it is entered by the user. Valid values: "off", "none", "on", "sentences", "words", "characters". */
+  lazy val autocapitalize: CommonKeys.Autocapitalize.type = CommonKeys.Autocapitalize
 
   /** Indicates whether the browser's autocorrect feature is on or off. Valid values: "off", "on". */
-  lazy val autocorrect: HtmlAttr[InputAutocorrect] = unionAttr("autocorrect")
+  lazy val autocorrect: CommonKeys.InputAutocorrect.type = CommonKeys.InputAutocorrect
 
-  /** Specifies what permission the browser has to provide assistance in filling out form field values. Refer to [this
-    * page on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) for available values.
-    */
+  /** Specifies what permission the browser has to provide assistance in filling out form field values. Refer to
+  [this page on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) for available values. */
   lazy val autocomplete: HtmlAttr[String] = stringAttr("autocomplete")
 
   /** Indicates that the input should receive focus on page load. */
   lazy val autofocus: HtmlAttr[Boolean] = boolAttr("autofocus")
 
-  /** Used to customize the label or icon of the Enter key on virtual keyboards. Valid values: "enter", "done", "go",
-    * "next", "previous", "search", "send".
-    */
-  lazy val enterkeyhint: HtmlAttr[Enterkeyhint] = unionAttr("enterkeyhint")
+  /** Used to customize the label or icon of the Enter key on virtual keyboards. Valid values: "enter", "done", "go", "next", "previous", "search", "send". */
+  lazy val enterkeyhint: CommonKeys.Enterkeyhint.type = CommonKeys.Enterkeyhint
 
   /** Enables spell checking on the input. */
   lazy val spellcheck: HtmlAttr[Boolean] = boolAttr("spellcheck")
 
   /** Tells the browser what type of data will be entered by the user, allowing it to display the appropriate virtual
-    * keyboard on supportive devices. Valid values: "none", "text", "decimal", "numeric", "tel", "search", "email",
-    * "url".
-    */
-  lazy val inputmode: HtmlAttr[Inputmode] = unionAttr("inputmode")
+  keyboard on supportive devices. Valid values: "none", "text", "decimal", "numeric", "tel", "search", "email", "url". */
+  lazy val inputmode: CommonKeys.Inputmode.type = CommonKeys.Inputmode
 
   /** Used for SSR. Will determine if the SSRed component will have the label slot rendered on initial paint. */
   lazy val withLabel: HtmlAttr[Boolean] = boolAttr("with-label")
@@ -173,7 +162,6 @@ object Input extends WebComponent("wa-input") {
   // -- Slots --
 
   object slots {
-
     /** The input's label. Alternatively, you can use the `label` attribute. */
     lazy val label: Slot = Slot("label")
 
@@ -201,7 +189,6 @@ object Input extends WebComponent("wa-input") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
-
     /** The label */
     lazy val label: String = "label"
 
@@ -230,15 +217,13 @@ object Input extends WebComponent("wa-input") {
 
   // -- Element type --
 
-  @js.native
-  trait WaInputComponent extends js.Object {
+  @js.native trait WaInputComponent extends js.Object {
     this: dom.HTMLElement =>
 
     var title: String
 
-    /** The type of input. Works the same as a native `<input>` element, but only a subset of types are supported.
-      * Defaults to `text`.
-      */
+    /** The type of input. Works the same as a native `<input>` element, but only a subset of types are supported. Defaults
+    to `text`. */
     var `type`: Double
 
     /** The input's size. Valid values: "small", "medium", "large". */
@@ -275,9 +260,8 @@ object Input extends WebComponent("wa-input") {
     var withoutSpinButtons: Boolean
 
     /** By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
-      * to place the form control outside of a form and associate it with the form that has this `id`. The form must be
-      * in the same document or shadow root for this to work.
-      */
+    to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
+    the same document or shadow root for this to work. */
     var form: String
 
     /** Makes the input a required field. */
@@ -299,38 +283,30 @@ object Input extends WebComponent("wa-input") {
     var max: String
 
     /** Specifies the granularity that the value must adhere to, or the special value `any` which means no stepping is
-      * implied, allowing any numeric value. Only applies to date and number input types.
-      */
+    implied, allowing any numeric value. Only applies to date and number input types. */
     var step: Double
 
-    /** Controls whether and how text input is automatically capitalized as it is entered by the user. Valid values:
-      * "off", "none", "on", "sentences", "words", "characters".
-      */
+    /** Controls whether and how text input is automatically capitalized as it is entered by the user. Valid values: "off", "none", "on", "sentences", "words", "characters". */
     var autocapitalize: Autocapitalize
 
     /** Indicates whether the browser's autocorrect feature is on or off. Valid values: "off", "on". */
     var autocorrect: InputAutocorrect
 
-    /** Specifies what permission the browser has to provide assistance in filling out form field values. Refer to [this
-      * page on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) for available values.
-      */
+    /** Specifies what permission the browser has to provide assistance in filling out form field values. Refer to
+    [this page on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) for available values. */
     var autocomplete: String
 
     /** Indicates that the input should receive focus on page load. */
     var autofocus: Boolean
 
-    /** Used to customize the label or icon of the Enter key on virtual keyboards. Valid values: "enter", "done", "go",
-      * "next", "previous", "search", "send".
-      */
+    /** Used to customize the label or icon of the Enter key on virtual keyboards. Valid values: "enter", "done", "go", "next", "previous", "search", "send". */
     var enterkeyhint: Enterkeyhint
 
     /** Enables spell checking on the input. */
     var spellcheck: Boolean
 
     /** Tells the browser what type of data will be entered by the user, allowing it to display the appropriate virtual
-      * keyboard on supportive devices. Valid values: "none", "text", "decimal", "numeric", "tel", "search", "email",
-      * "url".
-      */
+    keyboard on supportive devices. Valid values: "none", "text", "decimal", "numeric", "tel", "search", "email", "url". */
     var inputmode: Inputmode
 
     /** Used for SSR. Will determine if the SSRed component will have the label slot rendered on initial paint. */
@@ -354,12 +330,7 @@ object Input extends WebComponent("wa-input") {
     def setSelectionRange(selectionStart: js.Any, selectionEnd: js.Any, selectionDirection: js.Any): js.Any = js.native
 
     /** Replaces a range of text with a new string. */
-    def setRangeText(
-        replacement: js.Any,
-        start: js.Any = js.undefined,
-        end: js.Any = js.undefined,
-        selectMode: js.Any
-    ): js.Any = js.native
+    def setRangeText(replacement: js.Any, start: js.Any = js.undefined, end: js.Any = js.undefined, selectMode: js.Any): js.Any = js.native
 
     /** Displays the browser picker for an input element (only works if the browser supports it for the input type). */
     def showPicker(): js.Any = js.native

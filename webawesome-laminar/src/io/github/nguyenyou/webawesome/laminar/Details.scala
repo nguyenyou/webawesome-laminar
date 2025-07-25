@@ -1,26 +1,27 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.keys.EventProp
-import com.raquo.laminar.keys.HtmlAttr
+import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
+import com.raquo.laminar.api.L
 import com.raquo.laminar.nodes.Slot
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
-import io.github.nguyenyou.webawesome.laminar.events.*
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
+import io.github.nguyenyou.webawesome.laminar.events.*
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Details show a brief summary and expand to show additional content.
+/**
+  * Details show a brief summary and expand to show additional content.
   *
-  * [[https://webawesome.com/docs/components/details WebAwesome docs]]
+  * [[https://webawesome.com/docs/components/details WebAwesome  docs]]
   */
 object Details extends WebComponent("wa-details") {
 
   @JSImport("@awesome.me/webawesome/dist/components/details/details.js", JSImport.Namespace)
-  @js.native
-  object RawImport extends js.Object
+  @js.native object RawImport extends js.Object
 
   type Self = Details.type
 
@@ -43,8 +44,7 @@ object Details extends WebComponent("wa-details") {
   // -- Attributes --
 
   /** Indicates whether or not the details is open. You can toggle this attribute to show and hide the details, or you
-    * can use the `show()` and `hide()` methods and this attribute will reflect the details' open state.
-    */
+  can use the `show()` and `hide()` methods and this attribute will reflect the details' open state. */
   lazy val open: HtmlAttr[Boolean] = boolAttr("open")
 
   /** The summary to show in the header. If you need to display HTML, use the `summary` slot instead. */
@@ -57,12 +57,11 @@ object Details extends WebComponent("wa-details") {
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
 
   /** The element's visual appearance. Valid values: "filled", "outlined", "plain". */
-  lazy val appearance: HtmlAttr[DetailsAppearance] = unionAttr("appearance")
+  lazy val appearance: CommonKeys.DetailsAppearance.type = CommonKeys.DetailsAppearance
 
   // -- Slots --
 
   object slots {
-
     /** The details' main content. Note: You can just say `_ => element` instead of `_.slots.default(element)` */
     lazy val default: Slot = Slot("")
 
@@ -81,7 +80,6 @@ object Details extends WebComponent("wa-details") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssVars {
-
     /** The amount of space around and between the details' content. Expects a single value. */
     lazy val spacing: String = "--spacing"
 
@@ -97,10 +95,7 @@ object Details extends WebComponent("wa-details") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
-
-    /** The inner `<details>` element used to render the component. Styles you apply to the component are automatically
-      * applied to this part, so you usually don't need to deal with it unless you need to set the `display` property.
-      */
+    /** The inner `<details>` element used to render the component. Styles you apply to the component are automatically applied to this part, so you usually don't need to deal with it unless you need to set the `display` property. */
     lazy val base: String = "base"
 
     /** The header that wraps both the summary and the expand/collapse icon. */
@@ -119,13 +114,11 @@ object Details extends WebComponent("wa-details") {
 
   // -- Element type --
 
-  @js.native
-  trait WaDetailsComponent extends js.Object {
+  @js.native trait WaDetailsComponent extends js.Object {
     this: dom.HTMLElement =>
 
     /** Indicates whether or not the details is open. You can toggle this attribute to show and hide the details, or you
-      * can use the `show()` and `hide()` methods and this attribute will reflect the details' open state.
-      */
+    can use the `show()` and `hide()` methods and this attribute will reflect the details' open state. */
     var open: Boolean
 
     /** The summary to show in the header. If you need to display HTML, use the `summary` slot instead. */

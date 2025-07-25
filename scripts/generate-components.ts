@@ -250,9 +250,29 @@ function getJSFacadeType(irType: string, unionValues?: string[]): string {
   }
 }
 
+function getCommonKeyName(attributeName: string, unionValues: string[]): string | null {
+  // Check if this exact union type signature exists in shared types
+  if (!sharedTypesMapping) return null;
+  
+  const signature = [...unionValues].sort().join('|');
+  const sharedType = sharedTypesMapping.sharedTypes.find((st: any) => st.signature === signature);
+  
+  if (!sharedType) return null;
+  
+  // Return the shared type name as the CommonKeys object name
+  // e.g., ComponentSize, ThemeVariant, ButtonButtonType, etc.
+  return sharedType.name;
+}
+
 function getScalaAttributeType(type: string, unionValues?: string[], componentName?: string, attributeName?: string): string {
-  // For union types, use shared type (all union types are now in SharedTypes)
-  if (unionValues && unionValues.length > 0 && type === 'String' && componentName && attributeName) {
+  // For union types, check if there's a CommonKeys entry first
+  if (unionValues && unionValues.length > 0 && type === 'String' && attributeName) {
+    const commonKeyName = getCommonKeyName(attributeName, unionValues);
+    if (commonKeyName) {
+      return `CommonKeys.${commonKeyName}.type`;
+    }
+    
+    // Otherwise use shared type
     const sharedTypeName = findSharedType(unionValues);
     if (sharedTypeName) {
       return `HtmlAttr[${sharedTypeName}]`; // No prefix needed with wildcard import
@@ -272,9 +292,14 @@ function getScalaAttributeType(type: string, unionValues?: string[], componentNa
   }
 }
 
-function getScalaAttributeConstructor(type: string, unionValues?: string[]): string {
-  // For union types, use the unionAttr constructor
-  if (unionValues && unionValues.length > 0 && type === 'String') {
+function getScalaAttributeConstructor(type: string, unionValues?: string[], attributeName?: string): string {
+  // For union types, check if there's a CommonKeys entry first
+  if (unionValues && unionValues.length > 0 && type === 'String' && attributeName) {
+    const commonKeyName = getCommonKeyName(attributeName, unionValues);
+    if (commonKeyName) {
+      return `CommonKeys.${commonKeyName}`;
+    }
+    // Otherwise use unionAttr constructor
     return 'unionAttr';
   }
   
@@ -475,12 +500,12 @@ async function generateComponent(component: ComponentIR): Promise<string> {
         
         const attrName = escapeScalaKeyword(toCamelCase(attr.name));
         const scalaType = getScalaAttributeType(attr.type, attr.unionValues, className, attr.name);
-        const constructor = getScalaAttributeConstructor(attr.type, attr.unionValues);
+        const constructor = getScalaAttributeConstructor(attr.type, attr.unionValues, attr.name);
         
-        if(scalaType.includes("ComponentSize") && attrName === "size") {
-          writer.writeLine(`lazy val size: CommonKeys.size.type = CommonKeys.size`);
-        } else if(scalaType.includes("ThemeVariant") && attrName === "variant") {
-          writer.writeLine(`lazy val variant: CommonKeys.variant.type = CommonKeys.variant`);
+        // Check if this is a CommonKeys reference
+        const commonKeyName = shouldUseUnionType(attr) ? getCommonKeyName(attr.name, attr.unionValues!) : null;
+        if (commonKeyName) {
+          writer.writeLine(`lazy val ${attrName}: ${scalaType} = ${constructor}`);
         } else {
           writer.writeLine(`lazy val ${attrName}: ${scalaType} = ${constructor}("${attr.name}")`);
         }

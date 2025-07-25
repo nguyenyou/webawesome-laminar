@@ -1,25 +1,27 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.keys.EventProp
-import com.raquo.laminar.keys.HtmlAttr
+import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
+import com.raquo.laminar.api.L
 import com.raquo.laminar.nodes.Slot
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
+import io.github.nguyenyou.webawesome.laminar.events.*
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Tags are used as labels to organize things or to indicate a selection.
+/**
+  * Tags are used as labels to organize things or to indicate a selection.
   *
-  * [[https://webawesome.com/docs/components/tag WebAwesome docs]]
+  * [[https://webawesome.com/docs/components/tag WebAwesome  docs]]
   */
 object Tag extends WebComponent("wa-tag") {
 
   @JSImport("@awesome.me/webawesome/dist/components/tag/tag.js", JSImport.Namespace)
-  @js.native
-  object RawImport extends js.Object
+  @js.native object RawImport extends js.Object
 
   type Self = Tag.type
 
@@ -32,17 +34,14 @@ object Tag extends WebComponent("wa-tag") {
 
   // -- Attributes --
 
-  /** The tag's theme variant. Defaults to `neutral` if not within another element with a variant. Valid values:
-    * "brand", "neutral", "success", "warning", "danger".
-    */
-  lazy val variant: CommonKeys.variant.type = CommonKeys.variant
+  /** The tag's theme variant. Defaults to `neutral` if not within another element with a variant. Valid values: "brand", "neutral", "success", "warning", "danger". */
+  lazy val variant: CommonKeys.ThemeVariant.type = CommonKeys.ThemeVariant
 
-  /** The tag's visual appearance. Valid values: "accent", "outlined accent", "filled", "outlined", "outlined filled".
-    */
-  lazy val appearance: HtmlAttr[TagExtendedAppearance] = unionAttr("appearance")
+  /** The tag's visual appearance. Valid values: "accent", "outlined accent", "filled", "outlined", "outlined filled". */
+  lazy val appearance: CommonKeys.TagExtendedAppearance.type = CommonKeys.TagExtendedAppearance
 
   /** The tag's size. Valid values: "small", "medium", "large". */
-  lazy val size: CommonKeys.size.type = CommonKeys.size
+  lazy val size: CommonKeys.ComponentSize.type = CommonKeys.ComponentSize
 
   /** Draws a pill-style tag with rounded edges. */
   lazy val pill: HtmlAttr[Boolean] = boolAttr("pill")
@@ -53,7 +52,6 @@ object Tag extends WebComponent("wa-tag") {
   // -- Slots --
 
   object slots {
-
     /** The tag's content. Note: You can just say `_ => element` instead of `_.slots.default(element)` */
     lazy val default: Slot = Slot("")
 
@@ -63,7 +61,6 @@ object Tag extends WebComponent("wa-tag") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
-
     /** The component's base wrapper. */
     lazy val base: String = "base"
 
@@ -80,17 +77,13 @@ object Tag extends WebComponent("wa-tag") {
 
   // -- Element type --
 
-  @js.native
-  trait WaTagComponent extends js.Object {
+  @js.native trait WaTagComponent extends js.Object {
     this: dom.HTMLElement =>
 
-    /** The tag's theme variant. Defaults to `neutral` if not within another element with a variant. Valid values:
-      * "brand", "neutral", "success", "warning", "danger".
-      */
+    /** The tag's theme variant. Defaults to `neutral` if not within another element with a variant. Valid values: "brand", "neutral", "success", "warning", "danger". */
     var variant: ThemeVariant
 
-    /** The tag's visual appearance. Valid values: "accent", "outlined accent", "filled", "outlined", "outlined filled".
-      */
+    /** The tag's visual appearance. Valid values: "accent", "outlined accent", "filled", "outlined", "outlined filled". */
     var appearance: TagExtendedAppearance
 
     /** The tag's size. Valid values: "small", "medium", "large". */
