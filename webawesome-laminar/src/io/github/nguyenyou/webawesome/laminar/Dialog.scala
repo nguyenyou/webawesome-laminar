@@ -4,7 +4,7 @@ import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.nodes.Slot
 import org.scalajs.dom
-
+import io.github.nguyenyou.webawesome.laminar.events.*
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 
@@ -37,7 +37,7 @@ object Dialog extends WebComponent("wa-dialog") {
     * the dialog element itself, the user has pressed [[Escape]] or the dialog has been closed programmatically. Avoid
     * using this unless closing the dialog will result in destructive behavior such as data loss.
     */
-  lazy val onHide: EventProp[dom.Event] = eventProp("wa-hide")
+  lazy val onHide: EventProp[dom.Event & EventDetail[WaHideEvent]] = eventProp("wa-hide")
 
   /** Emitted after the dialog closes and all animations are complete. */
   lazy val onAfterHide: EventProp[dom.Event] = eventProp("wa-after-hide")
