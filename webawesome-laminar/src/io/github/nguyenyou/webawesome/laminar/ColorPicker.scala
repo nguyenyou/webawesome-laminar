@@ -1,29 +1,27 @@
 package io.github.nguyenyou.webawesome.laminar
 
+import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
 import com.raquo.laminar.api.L
-import com.raquo.laminar.keys.EventProp
-import com.raquo.laminar.keys.HtmlAttr
-import com.raquo.laminar.keys.HtmlProp
 import com.raquo.laminar.nodes.Slot
 import com.raquo.laminar.tags.CustomHtmlTag
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
-import io.github.nguyenyou.webawesome.laminar.events.*
 import org.scalajs.dom
+import io.github.nguyenyou.webawesome.laminar.events.*
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Color pickers allow the user to select a color.
+/**
+  * Color pickers allow the user to select a color.
   *
-  * [[https://webawesome.com/docs/components/color-picker WebAwesome docs]]
+  * [[https://webawesome.com/docs/components/color-picker WebAwesome  docs]]
   */
 object ColorPicker extends WebComponent("wa-color-picker") {
 
   @JSImport("@awesome.me/webawesome/dist/components/color-picker/color-picker.js", JSImport.Namespace)
-  @js.native
-  object RawImport extends js.Object
+  @js.native object RawImport extends js.Object
 
   type Self = ColorPicker.type
 
@@ -71,22 +69,19 @@ object ColorPicker extends WebComponent("wa-color-picker") {
 
   lazy val withHint: HtmlAttr[Boolean] = boolAttr("with-hint")
 
-  /** The color picker's label. This will not be displayed, but it will be announced by assistive devices. If you need
-    * to display HTML, you can use the `label` slot` instead.
-    */
+  /** The color picker's label. This will not be displayed, but it will be announced by assistive devices. If you need to
+  display HTML, you can use the `label` slot` instead. */
   lazy val label: HtmlAttr[String] = stringAttr("label")
 
   /** The color picker's hint. If you need to display HTML, use the `hint` slot instead. */
   lazy val hint: HtmlAttr[String] = stringAttr("hint")
 
-  /** The format to use. If opacity is enabled, these will translate to HEXA, RGBA, HSLA, and HSVA respectively. The
-    * color picker will accept user input in any format (including CSS color names) and convert it to the desired
-    * format. Valid values: "hex", "rgb", "hsl", "hsv".
-    */
-  lazy val format: HtmlAttr[ColorPickerFormat] = unionAttr("format")
+  /** The format to use. If opacity is enabled, these will translate to HEXA, RGBA, HSLA, and HSVA respectively. The color
+  picker will accept user input in any format (including CSS color names) and convert it to the desired format. Valid values: "hex", "rgb", "hsl", "hsv". */
+  lazy val format: CommonKeys.ColorPickerFormat.type = CommonKeys.ColorPickerFormat
 
   /** Determines the size of the color picker's trigger Valid values: "small", "medium", "large". */
-  lazy val size: CommonKeys.size.type = CommonKeys.size
+  lazy val size: CommonKeys.ComponentSize.type = CommonKeys.ComponentSize
 
   /** Removes the button that lets users toggle between format. */
   lazy val withoutFormatToggle: HtmlAttr[Boolean] = boolAttr("without-format-toggle")
@@ -97,9 +92,8 @@ object ColorPicker extends WebComponent("wa-color-picker") {
   /** Disables the color picker. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
 
-  /** Indicates whether or not the popup is open. You can toggle this attribute to show and hide the popup, or you can
-    * use the `show()` and `hide()` methods and this attribute will reflect the popup's open state.
-    */
+  /** Indicates whether or not the popup is open. You can toggle this attribute to show and hide the popup, or you
+  can use the `show()` and `hide()` methods and this attribute will reflect the popup's open state. */
   lazy val open: HtmlAttr[Boolean] = boolAttr("open")
 
   /** Shows the opacity slider. Enabling this will cause the formatted value to be HEXA, RGBA, or HSLA. */
@@ -109,15 +103,13 @@ object ColorPicker extends WebComponent("wa-color-picker") {
   lazy val uppercase: HtmlAttr[Boolean] = boolAttr("uppercase")
 
   /** One or more predefined color swatches to display as presets in the color picker. Can include any format the color
-    * picker can parse, including HEX(A), RGB(A), HSL(A), HSV(A), and CSS color names. Each color must be separated by a
-    * semicolon (`;`). Alternatively, you can pass an array of color values to this property using JavaScript.
-    */
+  picker can parse, including HEX(A), RGB(A), HSL(A), HSV(A), and CSS color names. Each color must be separated by a
+  semicolon (`;`). Alternatively, you can pass an array of color values to this property using JavaScript. */
   lazy val swatches: HtmlAttr[String] = stringAttr("swatches")
 
   /** By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
-    * to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
-    * the same document or shadow root for this to work.
-    */
+  to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
+  the same document or shadow root for this to work. */
   lazy val form: HtmlAttr[String] = stringAttr("form")
 
   /** Makes the color picker a required field. */
@@ -126,7 +118,6 @@ object ColorPicker extends WebComponent("wa-color-picker") {
   // -- Slots --
 
   object slots {
-
     /** The color picker's form label. Alternatively, you can use the `label` attribute. */
     lazy val label: Slot = Slot("label")
 
@@ -139,7 +130,6 @@ object ColorPicker extends WebComponent("wa-color-picker") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssVars {
-
     /** The width of the color grid. */
     lazy val gridWidth: String = "--grid-width"
 
@@ -161,7 +151,6 @@ object ColorPicker extends WebComponent("wa-color-picker") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
-
     /** The component's base wrapper. */
     lazy val base: String = "base"
 
@@ -244,26 +233,22 @@ object ColorPicker extends WebComponent("wa-color-picker") {
 
   // -- Element type --
 
-  @js.native
-  trait WaColorPickerComponent extends js.Object {
+  @js.native trait WaColorPickerComponent extends js.Object {
     this: dom.HTMLElement =>
 
     var withLabel: Boolean
 
     var withHint: Boolean
 
-    /** The color picker's label. This will not be displayed, but it will be announced by assistive devices. If you need
-      * to display HTML, you can use the `label` slot` instead.
-      */
+    /** The color picker's label. This will not be displayed, but it will be announced by assistive devices. If you need to
+    display HTML, you can use the `label` slot` instead. */
     var label: String
 
     /** The color picker's hint. If you need to display HTML, use the `hint` slot instead. */
     var hint: String
 
-    /** The format to use. If opacity is enabled, these will translate to HEXA, RGBA, HSLA, and HSVA respectively. The
-      * color picker will accept user input in any format (including CSS color names) and convert it to the desired
-      * format. Valid values: "hex", "rgb", "hsl", "hsv".
-      */
+    /** The format to use. If opacity is enabled, these will translate to HEXA, RGBA, HSLA, and HSVA respectively. The color
+    picker will accept user input in any format (including CSS color names) and convert it to the desired format. Valid values: "hex", "rgb", "hsl", "hsv". */
     var format: ColorPickerFormat
 
     /** Determines the size of the color picker's trigger Valid values: "small", "medium", "large". */
@@ -278,9 +263,8 @@ object ColorPicker extends WebComponent("wa-color-picker") {
     /** Disables the color picker. */
     var disabled: Boolean
 
-    /** Indicates whether or not the popup is open. You can toggle this attribute to show and hide the popup, or you can
-      * use the `show()` and `hide()` methods and this attribute will reflect the popup's open state.
-      */
+    /** Indicates whether or not the popup is open. You can toggle this attribute to show and hide the popup, or you
+    can use the `show()` and `hide()` methods and this attribute will reflect the popup's open state. */
     var open: Boolean
 
     /** Shows the opacity slider. Enabling this will cause the formatted value to be HEXA, RGBA, or HSLA. */
@@ -289,17 +273,14 @@ object ColorPicker extends WebComponent("wa-color-picker") {
     /** By default, values are lowercase. With this attribute, values will be uppercase instead. */
     var uppercase: Boolean
 
-    /** One or more predefined color swatches to display as presets in the color picker. Can include any format the
-      * color picker can parse, including HEX(A), RGB(A), HSL(A), HSV(A), and CSS color names. Each color must be
-      * separated by a semicolon (`;`). Alternatively, you can pass an array of color values to this property using
-      * JavaScript.
-      */
+    /** One or more predefined color swatches to display as presets in the color picker. Can include any format the color
+    picker can parse, including HEX(A), RGB(A), HSL(A), HSV(A), and CSS color names. Each color must be separated by a
+    semicolon (`;`). Alternatively, you can pass an array of color values to this property using JavaScript. */
     var swatches: String
 
     /** By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
-      * to place the form control outside of a form and associate it with the form that has this `id`. The form must be
-      * in the same document or shadow root for this to work.
-      */
+    to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
+    the same document or shadow root for this to work. */
     var form: String
 
     /** Makes the color picker a required field. */

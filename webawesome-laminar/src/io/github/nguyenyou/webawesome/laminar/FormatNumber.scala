@@ -1,25 +1,27 @@
 package io.github.nguyenyou.webawesome.laminar
 
+import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
 import com.raquo.laminar.api.L
-import com.raquo.laminar.keys.HtmlAttr
-import com.raquo.laminar.keys.HtmlProp
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
+import com.raquo.laminar.nodes.Slot
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
+import io.github.nguyenyou.webawesome.laminar.events.*
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Formats a number using the specified locale and options.
+/**
+  * Formats a number using the specified locale and options.
   *
-  * [[https://webawesome.com/docs/components/format-number WebAwesome docs]]
+  * [[https://webawesome.com/docs/components/format-number WebAwesome  docs]]
   */
 object FormatNumber extends WebComponent("wa-format-number") {
 
   @JSImport("@awesome.me/webawesome/dist/components/format-number/format-number.js", JSImport.Namespace)
-  @js.native
-  object RawImport extends js.Object
+  @js.native object RawImport extends js.Object
 
   type Self = FormatNumber.type
 
@@ -33,11 +35,11 @@ object FormatNumber extends WebComponent("wa-format-number") {
   // -- Attributes --
 
   /** The formatting style to use. Valid values: "currency", "decimal", "percent". */
-  lazy val `type`: HtmlAttr[FormatNumberElementType] = unionAttr("type")
+  lazy val `type`: CommonKeys.FormatNumberElementType.type = CommonKeys.FormatNumberElementType
 
-  lazy val typ: HtmlAttr[FormatNumberElementType] = `type`
+  lazy val typ: CommonKeys.FormatNumberElementType.type = `type`
 
-  lazy val tpe: HtmlAttr[FormatNumberElementType] = `type`
+  lazy val tpe: CommonKeys.FormatNumberElementType.type = `type`
 
   /** Turns off grouping separators. */
   lazy val withoutGrouping: HtmlAttr[Boolean] = boolAttr("without-grouping")
@@ -46,7 +48,7 @@ object FormatNumber extends WebComponent("wa-format-number") {
   lazy val currency: HtmlAttr[String] = stringAttr("currency")
 
   /** How to display the currency. Valid values: "symbol", "narrowSymbol", "code", "name". */
-  lazy val currencyDisplay: HtmlAttr[FormatNumberCurrencyDisplay] = unionAttr("currency-display")
+  lazy val currencyDisplay: CommonKeys.FormatNumberCurrencyDisplay.type = CommonKeys.FormatNumberCurrencyDisplay
 
   /** The minimum number of integer digits to use. Possible values are 1-21. */
   lazy val minimumIntegerDigits: HtmlAttr[Double] = doubleAttr("minimum-integer-digits")
@@ -65,8 +67,7 @@ object FormatNumber extends WebComponent("wa-format-number") {
 
   // -- Element type --
 
-  @js.native
-  trait WaFormatNumberComponent extends js.Object {
+  @js.native trait WaFormatNumberComponent extends js.Object {
     this: dom.HTMLElement =>
 
     /** The formatting style to use. Valid values: "currency", "decimal", "percent". */

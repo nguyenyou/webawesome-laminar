@@ -1,25 +1,27 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.keys.EventProp
-import com.raquo.laminar.keys.HtmlAttr
+import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
+import com.raquo.laminar.api.L
 import com.raquo.laminar.nodes.Slot
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
+import io.github.nguyenyou.webawesome.laminar.events.*
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Tab groups organize content into a container that shows one section at a time.
+/**
+  * Tab groups organize content into a container that shows one section at a time.
   *
-  * [[https://webawesome.com/docs/components/tab-group WebAwesome docs]]
+  * [[https://webawesome.com/docs/components/tab-group WebAwesome  docs]]
   */
 object TabGroup extends WebComponent("wa-tab-group") {
 
   @JSImport("@awesome.me/webawesome/dist/components/tab-group/tab-group.js", JSImport.Namespace)
-  @js.native
-  object RawImport extends js.Object
+  @js.native object RawImport extends js.Object
 
   type Self = TabGroup.type
 
@@ -39,13 +41,11 @@ object TabGroup extends WebComponent("wa-tab-group") {
   lazy val active: HtmlAttr[String] = stringAttr("active")
 
   /** The placement of the tabs. Valid values: "top", "bottom", "start", "end". */
-  lazy val placement: HtmlAttr[ComponentPlacement] = unionAttr("placement")
+  lazy val placement: CommonKeys.ComponentPlacement.type = CommonKeys.ComponentPlacement
 
   /** When set to auto, navigating tabs with the arrow keys will instantly show the corresponding tab panel. When set to
-    * manual, the tab will receive focus but will not show until the user presses spacebar or enter. Valid values:
-    * "auto", "manual".
-    */
-  lazy val activation: HtmlAttr[TabGroupActivation] = unionAttr("activation")
+  manual, the tab will receive focus but will not show until the user presses spacebar or enter. Valid values: "auto", "manual". */
+  lazy val activation: CommonKeys.TabGroupActivation.type = CommonKeys.TabGroupActivation
 
   /** Disables the scroll arrows that appear when tabs overflow. */
   lazy val withoutScrollControls: HtmlAttr[Boolean] = boolAttr("without-scroll-controls")
@@ -53,15 +53,10 @@ object TabGroup extends WebComponent("wa-tab-group") {
   // -- Slots --
 
   object slots {
-
-    /** Used for grouping tab panels in the tab group. Must be `<wa-tab-panel>` elements. Note: You can just say `_ =>
-      * element` instead of `_.slots.default(element)`
-      */
+    /** Used for grouping tab panels in the tab group. Must be `<wa-tab-panel>` elements. Note: You can just say `_ => element` instead of `_.slots.default(element)` */
     lazy val default: Slot = Slot("")
 
-    /** Used for grouping tabs in the tab group. Must be `<wa-tab>` elements. Note that `<wa-tab>` will set this slot on
-      * itself automatically.
-      */
+    /** Used for grouping tabs in the tab group. Must be `<wa-tab>` elements. Note that `<wa-tab>` will set this slot on itself automatically. */
     lazy val nav: Slot = Slot("nav")
 
   }
@@ -70,7 +65,6 @@ object TabGroup extends WebComponent("wa-tab-group") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssVars {
-
     /** The color of the active tab indicator. */
     lazy val indicatorColor: String = "--indicator-color"
 
@@ -86,7 +80,6 @@ object TabGroup extends WebComponent("wa-tab-group") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
-
     /** The component's base wrapper. */
     lazy val base: String = "base"
 
@@ -115,8 +108,7 @@ object TabGroup extends WebComponent("wa-tab-group") {
 
   // -- Element type --
 
-  @js.native
-  trait WaTabGroupComponent extends js.Object {
+  @js.native trait WaTabGroupComponent extends js.Object {
     this: dom.HTMLElement =>
 
     /** Sets the active tab. */
@@ -125,10 +117,8 @@ object TabGroup extends WebComponent("wa-tab-group") {
     /** The placement of the tabs. Valid values: "top", "bottom", "start", "end". */
     var placement: ComponentPlacement
 
-    /** When set to auto, navigating tabs with the arrow keys will instantly show the corresponding tab panel. When set
-      * to manual, the tab will receive focus but will not show until the user presses spacebar or enter. Valid values:
-      * "auto", "manual".
-      */
+    /** When set to auto, navigating tabs with the arrow keys will instantly show the corresponding tab panel. When set to
+    manual, the tab will receive focus but will not show until the user presses spacebar or enter. Valid values: "auto", "manual". */
     var activation: TabGroupActivation
 
     /** Disables the scroll arrows that appear when tabs overflow. */

@@ -1,25 +1,27 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.keys.EventProp
-import com.raquo.laminar.keys.HtmlAttr
+import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
+import com.raquo.laminar.api.L
 import com.raquo.laminar.nodes.Slot
-import io.github.nguyenyou.webawesome.laminar.events.*
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
+import io.github.nguyenyou.webawesome.laminar.events.*
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Popovers display contextual content and interactive elements in a floating panel.
+/**
+  * Popovers display contextual content and interactive elements in a floating panel.
   *
-  * [[https://webawesome.com/docs/components/popover WebAwesome docs]]
+  * [[https://webawesome.com/docs/components/popover WebAwesome  docs]]
   */
 object Popover extends WebComponent("wa-popover") {
 
   @JSImport("@awesome.me/webawesome/dist/components/popover/popover.js", JSImport.Namespace)
-  @js.native
-  object RawImport extends js.Object
+  @js.native object RawImport extends js.Object
 
   type Self = Popover.type
 
@@ -42,8 +44,7 @@ object Popover extends WebComponent("wa-popover") {
   // -- Attributes --
 
   /** The preferred placement of the popover. Note that the actual placement may vary as needed to keep the popover
-    * inside of the viewport.
-    */
+  inside of the viewport. */
   lazy val placement: HtmlAttr[String] = stringAttr("placement")
 
   /** Shows or hides the popover. */
@@ -63,10 +64,7 @@ object Popover extends WebComponent("wa-popover") {
   // -- Slots --
 
   object slots {
-
-    /** The popover's content. Interactive elements such as buttons and links are supported. Note: You can just say `_
-      * \=> element` instead of `_.slots.default(element)`
-      */
+    /** The popover's content. Interactive elements such as buttons and links are supported. Note: You can just say `_ => element` instead of `_.slots.default(element)` */
     lazy val default: Slot = Slot("")
 
   }
@@ -75,7 +73,6 @@ object Popover extends WebComponent("wa-popover") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssVars {
-
     /** The size of the tiny arrow that points to the popover (set to zero to remove). Default: 0.375rem */
     lazy val arrowSize: String = "--arrow-size"
 
@@ -94,7 +91,6 @@ object Popover extends WebComponent("wa-popover") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
-
     /** The native dialog element that contains the popover content. */
     lazy val dialog: String = "dialog"
 
@@ -114,13 +110,11 @@ object Popover extends WebComponent("wa-popover") {
 
   // -- Element type --
 
-  @js.native
-  trait WaPopoverComponent extends js.Object {
+  @js.native trait WaPopoverComponent extends js.Object {
     this: dom.HTMLElement =>
 
     /** The preferred placement of the popover. Note that the actual placement may vary as needed to keep the popover
-      * inside of the viewport.
-      */
+    inside of the viewport. */
     var placement: js.Any
 
     /** Shows or hides the popover. */

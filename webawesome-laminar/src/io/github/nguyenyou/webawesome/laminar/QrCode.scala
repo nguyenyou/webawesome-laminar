@@ -1,26 +1,27 @@
 package io.github.nguyenyou.webawesome.laminar
 
+import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
 import com.raquo.laminar.api.L
-import com.raquo.laminar.keys.HtmlAttr
-import com.raquo.laminar.keys.HtmlProp
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
+import com.raquo.laminar.nodes.Slot
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
+import io.github.nguyenyou.webawesome.laminar.events.*
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Generates a [QR code](https://www.qrcode.com/) and renders it using the [Canvas
-  * API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API).
+/**
+  * Generates a [QR code](https://www.qrcode.com/) and renders it using the [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API).
   *
-  * [[https://webawesome.com/docs/components/qr-code WebAwesome docs]]
+  * [[https://webawesome.com/docs/components/qr-code WebAwesome  docs]]
   */
 object QrCode extends WebComponent("wa-qr-code") {
 
   @JSImport("@awesome.me/webawesome/dist/components/qr-code/qr-code.js", JSImport.Namespace)
-  @js.native
-  object RawImport extends js.Object
+  @js.native object RawImport extends js.Object
 
   type Self = QrCode.type
 
@@ -48,16 +49,13 @@ object QrCode extends WebComponent("wa-qr-code") {
   /** The edge radius of each module. Must be between 0 and 0.5. */
   lazy val radius: HtmlAttr[Double] = doubleAttr("radius")
 
-  /** The level of error correction to use. [Learn more](https://www.qrcode.com/en/about/error_correction.html) Valid
-    * values: "L", "M", "Q", "H".
-    */
-  lazy val errorCorrection: HtmlAttr[QrCodeErrorCorrection] = unionAttr("error-correction")
+  /** The level of error correction to use. [Learn more](https://www.qrcode.com/en/about/error_correction.html) Valid values: "L", "M", "Q", "H". */
+  lazy val errorCorrection: CommonKeys.QrCodeErrorCorrection.type = CommonKeys.QrCodeErrorCorrection
 
   // -- CSS Parts --
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
-
     /** The component's base wrapper. */
     lazy val base: String = "base"
 
@@ -65,8 +63,7 @@ object QrCode extends WebComponent("wa-qr-code") {
 
   // -- Element type --
 
-  @js.native
-  trait WaQrCodeComponent extends js.Object {
+  @js.native trait WaQrCodeComponent extends js.Object {
     this: dom.HTMLElement =>
 
     /** The label for assistive devices to announce. If unspecified, the value will be used instead. */
@@ -84,9 +81,7 @@ object QrCode extends WebComponent("wa-qr-code") {
     /** The edge radius of each module. Must be between 0 and 0.5. */
     var radius: Double
 
-    /** The level of error correction to use. [Learn more](https://www.qrcode.com/en/about/error_correction.html) Valid
-      * values: "L", "M", "Q", "H".
-      */
+    /** The level of error correction to use. [Learn more](https://www.qrcode.com/en/about/error_correction.html) Valid values: "L", "M", "Q", "H". */
     var errorCorrection: QrCodeErrorCorrection
 
     def generate(): js.Any = js.native

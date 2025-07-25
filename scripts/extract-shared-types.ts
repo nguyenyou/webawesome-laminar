@@ -290,35 +290,24 @@ ${sharedTypes.map(st => {
 }
 
 async function generateCommonKeysFile() {
-  // Group shared types by attribute name to avoid duplicate keys
-  const attributeToTypesMap = new Map<string, SharedType[]>();
+  // Generate keys for ALL shared types, using the type name as the key name
+  const attributeKeys: Array<{keyName: string, typeName: string, attributeName: string, values: string[]}> = [];
   
   sharedTypes.forEach(sharedType => {
     const attributeName = Array.from(unionTypeMap.values())
       .find(ut => ut.signature === sharedType.signature)?.attributeName;
     
     if (attributeName) {
-      if (!attributeToTypesMap.has(attributeName)) {
-        attributeToTypesMap.set(attributeName, []);
-      }
-      attributeToTypesMap.get(attributeName)!.push(sharedType);
+      // Use the shared type name as the key name (e.g., ComponentSize, ThemeVariant, etc.)
+      const keyName = sharedType.name;
+      
+      attributeKeys.push({
+        keyName,
+        typeName: sharedType.name,
+        attributeName,
+        values: sharedType.values
+      });
     }
-  });
-
-  // For each attribute, use the most frequent type (first in sorted order)
-  const attributeKeys: Array<{keyName: string, typeName: string, attributeName: string, values: string[]}> = [];
-  
-  attributeToTypesMap.forEach((types, attributeName) => {
-    // Use the most frequent type (they're already sorted by frequency)
-    const primaryType = types[0];
-    const keyName = generateKeyName(attributeName);
-    
-    attributeKeys.push({
-      keyName,
-      typeName: primaryType.name,
-      attributeName,
-      values: primaryType.values
-    });
   });
 
   const scalaCode = `package ${CONSTANTS.packageName}
@@ -337,7 +326,7 @@ ${attributeKeys.map(key => {
     return `    lazy val ${methodName}: HtmlAttrSetter[${key.typeName}] = ${key.keyName}("${value}")`;
   }).join('\n\n');
 
-  return `  /** ${key.attributeName} attribute */
+  return `  /** ${key.attributeName} attribute - ${key.typeName} */
   object ${key.keyName} extends HtmlAttr[${key.typeName}]("${key.attributeName}", UnionAsStringCodec[${key.typeName}]) {
 
 ${valueSetters}

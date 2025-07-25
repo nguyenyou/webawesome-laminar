@@ -1,27 +1,28 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.keys.EventProp
-import com.raquo.laminar.keys.HtmlAttr
+import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
+import com.raquo.laminar.api.L
 import com.raquo.laminar.nodes.Slot
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
-import io.github.nguyenyou.webawesome.laminar.events.*
+import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
+import io.github.nguyenyou.webawesome.laminar.events.*
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Dropdowns display a list of options that can be triggered by a button or other element. They support keyboard
-  * navigation, submenus, and various customization options.
+/**
+  * Dropdowns display a list of options that can be triggered by a button or other element. They support
+  * keyboard navigation, submenus, and various customization options.
   *
-  * [[https://webawesome.com/docs/components/dropdown WebAwesome docs]]
+  * [[https://webawesome.com/docs/components/dropdown WebAwesome  docs]]
   */
 object Dropdown extends WebComponent("wa-dropdown") {
 
   @JSImport("@awesome.me/webawesome/dist/components/dropdown/dropdown.js", JSImport.Namespace)
-  @js.native
-  object RawImport extends js.Object
+  @js.native object RawImport extends js.Object
 
   type Self = Dropdown.type
 
@@ -50,11 +51,10 @@ object Dropdown extends WebComponent("wa-dropdown") {
   lazy val open: HtmlAttr[Boolean] = boolAttr("open")
 
   /** The dropdown's size. Valid values: "small", "medium", "large". */
-  lazy val size: CommonKeys.size.type = CommonKeys.size
+  lazy val size: CommonKeys.ComponentSize.type = CommonKeys.ComponentSize
 
   /** The placement of the dropdown menu in reference to the trigger. The menu will shift to a more optimal location if
-    * the preferred placement doesn't have enough room.
-    */
+  the preferred placement doesn't have enough room. */
   lazy val placement: HtmlAttr[String] = stringAttr("placement")
 
   /** The distance of the dropdown menu from its trigger. */
@@ -66,10 +66,7 @@ object Dropdown extends WebComponent("wa-dropdown") {
   // -- Slots --
 
   object slots {
-
-    /** The dropdown's items, typically `<wa-dropdown-item>` elements. Note: You can just say `_ => element` instead of
-      * `_.slots.default(element)`
-      */
+    /** The dropdown's items, typically `<wa-dropdown-item>` elements. Note: You can just say `_ => element` instead of `_.slots.default(element)` */
     lazy val default: Slot = Slot("")
 
     /** The element that triggers the dropdown, such as a `<wa-button>` or `<button>`. */
@@ -81,7 +78,6 @@ object Dropdown extends WebComponent("wa-dropdown") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssVars {
-
     /** The duration of the show animation. */
     lazy val showDuration: String = "--show-duration"
 
@@ -94,7 +90,6 @@ object Dropdown extends WebComponent("wa-dropdown") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
-
     /** The component's host element. */
     lazy val base: String = "base"
 
@@ -105,8 +100,7 @@ object Dropdown extends WebComponent("wa-dropdown") {
 
   // -- Element type --
 
-  @js.native
-  trait WaDropdownComponent extends js.Object {
+  @js.native trait WaDropdownComponent extends js.Object {
     this: dom.HTMLElement =>
 
     /** Opens or closes the dropdown. */
@@ -115,9 +109,8 @@ object Dropdown extends WebComponent("wa-dropdown") {
     /** The dropdown's size. Valid values: "small", "medium", "large". */
     var size: ComponentSize
 
-    /** The placement of the dropdown menu in reference to the trigger. The menu will shift to a more optimal location
-      * if the preferred placement doesn't have enough room.
-      */
+    /** The placement of the dropdown menu in reference to the trigger. The menu will shift to a more optimal location if
+    the preferred placement doesn't have enough room. */
     var placement: js.Any
 
     /** The distance of the dropdown menu from its trigger. */
