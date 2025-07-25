@@ -20,7 +20,7 @@ object SharedTypes {
   type DisplayFormat = "long" | "narrow" | "short"
 
   /** Used by 3 components for "appearance" attribute. Components: WaInput, WaSelect, WaTextarea */
-  type FilledOutlineAppearance = "filled" | "outlined"
+  type FilledOutlineAppearance = "filled" | "outlined" | "filled outlined"
 
   /** Used by 2 components for "loading" attribute. Components: WaAvatar, WaZoomableFrame */
   type LoadingStrategy = "eager" | "lazy"
@@ -68,7 +68,7 @@ object SharedTypes {
   type ColorPickerFormat = "hex" | "hsl" | "hsv" | "rgb"
 
   /** Used by WaDetails for "appearance" attribute. Components: WaDetails */
-  type DetailsAppearance = "filled" | "outlined" | "plain"
+  type DetailsAppearance = "filled" | "outlined" | "plain" | "filled outlined"
 
   /** Used by WaDropdownItem for "variant" attribute. Components: WaDropdownItem */
   type DropdownItemVariant = "danger" | "default"
@@ -140,7 +140,8 @@ object SharedTypes {
   type TabGroupActivation = "auto" | "manual"
 
   /** Used by WaTag for "appearance" attribute. Components: WaTag */
-  type TagExtendedAppearance = "accent" | "filled" | "outlined" | "outlined accent" | "outlined filled"
+  type TagExtendedAppearance = "accent" | "filled" | "outlined" | "outlined accent" | "outlined filled" |
+    "filled outlined"
 
   /** Used by WaTextarea for "resize" attribute. Components: WaTextarea */
   type TextareaResize = "auto" | "both" | "horizontal" | "none" | "vertical"

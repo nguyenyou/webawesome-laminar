@@ -69,7 +69,8 @@ case class CheckboxView()
       )().withLocator,
       Demo(
         title = "Hint",
-        description = "Add descriptive hint to a checkbox with the `hint` attribute. For hints that contain HTML, use the `hint` slot instead.",
+        description =
+          "Add descriptive hint to a checkbox with the `hint` attribute. For hints that contain HTML, use the `hint` slot instead.",
         content = Source.annotate {
           Checkbox(_.hint := "What should the user know about the checkbox?")("Label")
         }
@@ -86,11 +87,11 @@ case class CheckboxView()
           form(
             tw.flex.flexCol.itemsStart.gap4,
             Checkbox(
-              _.name := "agree",
+              _.name     := "agree",
               _.required := true
             )("Check me"),
             Button(
-              _.`type` := "submit",
+              _.`type`  := "submit",
               _.variant := "brand"
             )("Submit")
           )

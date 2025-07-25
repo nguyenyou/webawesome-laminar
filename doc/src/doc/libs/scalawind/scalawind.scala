@@ -243,6 +243,10 @@ case class Tailwind() {
   def flex1                           = this
   def itemsEnd                        = this
   def flexCol                         = this
+  def gap3                            = this
+  def gap4                            = this
+  def gap6                            = this
+  def gap10                           = this
   def minHSvh                         = this
   def justifyCenter                   = this
   def justifyBetween                  = this
@@ -273,9 +277,6 @@ case class Tailwind() {
   def mlAuto                          = this
   def itemsCenter                     = this
   def gap2                            = this
-  def gap4                            = this
-  def gap6                            = this
-  def gap10                           = this
   def itemsStart                      = this
   def grid                            = this
   def gridCols2                       = this

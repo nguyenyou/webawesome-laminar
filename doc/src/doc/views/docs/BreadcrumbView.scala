@@ -164,7 +164,7 @@ case class BreadcrumbView()
               ),
               BreadcrumbItem()("Our Services"),
               BreadcrumbItem()("Digital Media")
-            ),
+            )
             // </show>
           )
         }

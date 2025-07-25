@@ -41,35 +41,40 @@ case class CalloutView()
               _.variant := "brand",
               _.slots.icon(Icon(_.name := "circle-info")())
             )(
-              strong("This is super informative"), br(),
+              strong("This is super informative"),
+              br(),
               "You can tell by how pretty the callout is."
             ),
             Callout(
               _.variant := "success",
               _.slots.icon(Icon(_.name := "circle-check")())
             )(
-              strong("Your changes have been saved"), br(),
+              strong("Your changes have been saved"),
+              br(),
               "You can safely exit the app now."
             ),
             Callout(
               _.variant := "neutral",
               _.slots.icon(Icon(_.name := "gear")())
             )(
-              strong("Your settings have been updated"), br(),
+              strong("Your settings have been updated"),
+              br(),
               "Settings will take effect on next login."
             ),
             Callout(
               _.variant := "warning",
               _.slots.icon(Icon(_.name := "triangle-exclamation")())
             )(
-              strong("Your session has ended"), br(),
+              strong("Your session has ended"),
+              br(),
               "Please login again to continue."
             ),
             Callout(
               _.variant := "danger",
               _.slots.icon(Icon(_.name := "circle-exclamation")())
             )(
-              strong("Your account has been deleted"), br(),
+              strong("Your account has been deleted"),
+              br(),
               "We're very sorry to see you go!"
             )
             // </show>
@@ -78,45 +83,56 @@ case class CalloutView()
       )().withLocator,
       Demo(
         title = "Appearance",
-        description = "Use the `appearance` attribute to change the callout's visual appearance (the default is `outlined filled`).",
+        description =
+          "Use the `appearance` attribute to change the callout's visual appearance (the default is `outlined filled`).",
         content = Source.annotate {
           div(
             tw.spaceY4,
             // <show>
             Callout(
-              _.variant := "brand",
+              _.variant    := "brand",
               _.appearance := "accent",
               _.slots.icon(Icon(_.name := "square-check")())
             )(
-              "This ", strong("accent"), " callout draws attention"
+              "This ",
+              strong("accent"),
+              " callout draws attention"
             ),
             Callout(
-              _.variant := "brand",
+              _.variant    := "brand",
               _.appearance := "outlined filled",
               _.slots.icon(Icon(_.name := "fill-drip")())
             )(
-              "This callout is both ", strong("filled"), " and ", strong("outlined")
+              "This callout is both ",
+              strong("filled"),
+              " and ",
+              strong("outlined")
             ),
             Callout(
-              _.variant := "brand",
+              _.variant    := "brand",
               _.appearance := "filled",
               _.slots.icon(Icon(_.name := "fill")())
             )(
-              "This callout is only ", strong("filled")
+              "This callout is only ",
+              strong("filled")
             ),
             Callout(
-              _.variant := "brand",
+              _.variant    := "brand",
               _.appearance := "outlined",
               _.slots.icon(Icon(_.name := "lines-leaning")())
             )(
-              "Here's an ", strong("outlined"), " callout"
+              "Here's an ",
+              strong("outlined"),
+              " callout"
             ),
             Callout(
-              _.variant := "brand",
+              _.variant    := "brand",
               _.appearance := "plain",
               _.slots.icon(Icon(_.name := "font")())
             )(
-              "No bells and whistles on this ", strong("plain"), " callout"
+              "No bells and whistles on this ",
+              strong("plain"),
+              " callout"
             )
             // </show>
           )

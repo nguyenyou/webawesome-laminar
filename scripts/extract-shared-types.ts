@@ -171,8 +171,8 @@ export async function extractSharedTypes(): Promise<void> {
     }
     usedNames.add(typeName);
 
-    // Special case for Button
-    if(["ExtendedAppearance", "BadgeExtendedAppearance"].includes(typeName)) {
+    // Allow combination of filled and outlined
+    if(unionType.values.includes("filled") && unionType.values.includes("outlined")) {
       unionType.values = [...unionType.values, "filled outlined"]
     }
 

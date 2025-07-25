@@ -101,7 +101,8 @@
       "signature": "filled|outlined",
       "values": [
         "filled",
-        "outlined"
+        "outlined",
+        "filled outlined"
       ],
       "frequency": 3,
       "components": [
@@ -335,7 +336,8 @@
       "values": [
         "filled",
         "outlined",
-        "plain"
+        "plain",
+        "filled outlined"
       ],
       "frequency": 1,
       "components": [
@@ -641,7 +643,8 @@
         "filled",
         "outlined",
         "outlined accent",
-        "outlined filled"
+        "outlined filled",
+        "filled outlined"
       ],
       "frequency": 1,
       "components": [
