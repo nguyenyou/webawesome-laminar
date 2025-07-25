@@ -9,7 +9,7 @@ import doc.facades.scrollIntoViewIfNeeded
 import doc.libs.scalawind.*
 import org.scalajs.dom
 
-case class Sidebar() {
+case class Sidebar() extends UIComponent {
   private case class IndicatorStyles(height: Int, width: Int, top: Int)
 
   private val activeLinkRefVar = Var[Option[dom.Element]](None)
@@ -110,7 +110,7 @@ case class Sidebar() {
     )
   }
 
-  def apply(): HtmlElement = {
+  def render(): HtmlElement = {
     asideTag(
       tw.relative.fixed.top14.z30.hidden,
       tw.wFull.shrink0.md(tw.sticky.block),

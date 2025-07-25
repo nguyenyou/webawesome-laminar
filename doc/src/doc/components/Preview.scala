@@ -28,7 +28,7 @@ object Preview {
         tw.flex.itemsCenter.justifyCenter.transitionColors.duration300.py1.h9.cursorPointer.gap2.textBase.fontMedium,
         cls <-- isActiveSignal.map(
           if (_) tw.important(tw.opacity100).css
-          else tw.important(tw.opacity50).css
+          else tw.important(tw.opacity50).hover(tw.important(tw.opacity80)).css
         ),
         onClick.mapTo(name) --> activeTabVar,
         name

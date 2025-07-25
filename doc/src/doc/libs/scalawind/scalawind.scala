@@ -313,8 +313,14 @@ case class Tailwind() {
   def absolute                        = this
   def opacity0                        = this
   def opacity10                       = this
+  def opacity20                       = this
+  def opacity30                       = this
+  def opacity40                       = this
   def opacity50                       = this
+  def opacity60                       = this
+  def opacity70                       = this
   def opacity80                       = this
+  def opacity90                       = this
   def opacity100                      = this
   def border0                         = this
   def rounded                         = this
