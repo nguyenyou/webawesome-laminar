@@ -1,5 +1,6 @@
 package io.github.nguyenyou.webawesome.laminar
 
+import com.raquo.laminar.api.L
 import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.keys.HtmlProp
@@ -122,7 +123,8 @@ object Button extends WebComponent("wa-button") {
   /** Used to override the form owner's `target` attribute. */
   lazy val formtarget: HtmlAttr[String] = stringAttr("formtarget")
 
-  lazy val closeDialog   = L.dataAttr("dialog") := "close"
+  lazy val closeDialog = L.dataAttr("dialog") := "close"
+
   def dialog(id: String) = L.dataAttr("dialog") := s"open $id"
 
   // -- Slots --

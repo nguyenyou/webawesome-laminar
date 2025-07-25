@@ -14,7 +14,7 @@ case class DrawerView()
   def playground: HtmlElement = {
     Demo(
       center = true,
-      content = Source.annotate { 
+      content = Source.annotate {
         val openVar = Var(false)
 
         div(
@@ -23,14 +23,16 @@ case class DrawerView()
             _.label := "Drawer",
             _.slots.footer(
               Button(
-                _.variant            := "brand",
-                _.dataAttr("drawer") := "close"
-              )("Close")
+                _.variant := "brand"
+              )(dataAttr("drawer") := "close", "Close")
             )
-          )(),
-          Button(
-            _.onClick.mapTo(true) --> openVar.writer
-          )("Open Drawer")
+          )(
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          ),
+          Button()(
+            onClick.mapTo(true) --> openVar.writer,
+            "Open Drawer"
+          )
         )
       }
     )().withLocator

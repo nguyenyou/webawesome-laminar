@@ -3,6 +3,7 @@ package io.github.nguyenyou.webawesome.laminar
 import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.nodes.Slot
+import io.github.nguyenyou.webawesome.laminar.events.*
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -33,7 +34,7 @@ object Popover extends WebComponent("wa-popover") {
   lazy val onAfterShow: EventProp[dom.Event] = eventProp("wa-after-show")
 
   /** Emitted when the popover begins to hide. Canceling this event will stop the popover from hiding. */
-  lazy val onHide: EventProp[dom.Event] = eventProp("wa-hide")
+  lazy val onHide: EventProp[dom.Event & EventDetail[WaHideEvent]] = eventProp("wa-hide")
 
   /** Emitted after the popover has hidden and all animations are complete. */
   lazy val onAfterHide: EventProp[dom.Event] = eventProp("wa-after-hide")

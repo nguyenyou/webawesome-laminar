@@ -1,5 +1,6 @@
 package io.github.nguyenyou.webawesome.laminar
 
+import com.raquo.laminar.api.L
 import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.keys.HtmlProp

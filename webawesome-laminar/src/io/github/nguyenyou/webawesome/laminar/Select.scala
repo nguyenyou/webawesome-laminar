@@ -1,11 +1,13 @@
 package io.github.nguyenyou.webawesome.laminar
 
+import com.raquo.laminar.api.L
 import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.keys.HtmlProp
 import com.raquo.laminar.nodes.Slot
 import com.raquo.laminar.tags.CustomHtmlTag
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
+import io.github.nguyenyou.webawesome.laminar.events.*
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -57,7 +59,7 @@ object Select extends WebComponent("wa-select") {
   lazy val onAfterShow: EventProp[dom.Event] = eventProp("wa-after-show")
 
   /** Emitted when the select's menu closes. */
-  lazy val onHide: EventProp[dom.Event] = eventProp("wa-hide")
+  lazy val onHide: EventProp[dom.Event & EventDetail[WaHideEvent]] = eventProp("wa-hide")
 
   /** Emitted after the select's menu closes and all animations are complete. */
   lazy val onAfterHide: EventProp[dom.Event] = eventProp("wa-after-hide")

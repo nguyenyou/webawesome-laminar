@@ -1,4 +1,5 @@
-import { readFile, writeFile } from './utils.js';
+import { readFile, writeFile, CONSTANTS, paths } from './utils.js';
+import path from 'path';
 
 interface AttributeIR {
   name: string;
@@ -173,7 +174,7 @@ export async function extractSharedTypes(): Promise<void> {
 
     // Allow combination of filled and outlined
     if(unionType.values.includes("filled") && unionType.values.includes("outlined")) {
-      unionType.values = [...unionType.values, "filled outlined"]
+      unionType.values = [...unionType.values.filter(v => v !== "filled outlined" && v !== "outlined filled"), "filled outlined"]
     }
 
     const sharedType: SharedType = {
@@ -205,7 +206,7 @@ export async function extractSharedTypes(): Promise<void> {
 }
 
 async function generateSharedTypesFile() {
-  const scalaCode = `package io.github.nguyenyou.webawesome.laminar
+  const scalaCode = `package ${CONSTANTS.packageName}
 
 /** All union types used by WebAwesome components. This file is generated at compile-time by WebAwesome generator.
   */
@@ -222,7 +223,7 @@ ${sharedTypes.map(st => {
 }
 `;
 
-  await writeFile('webawesome-laminar/src/io/github/nguyenyou/webawesome/laminar/SharedTypes.scala', scalaCode);
+  await writeFile(path.join(paths.webawesomeLaminarDir, 'SharedTypes.scala'), scalaCode);
   console.log('✓ Generated SharedTypes.scala');
 }
 

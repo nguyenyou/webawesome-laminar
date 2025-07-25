@@ -62,12 +62,12 @@ object Codeblock {
           tw.flex.gap2.itemsCenter,
           if (source != fullSource) {
             Button(
-              _.size := "small",
-              _.onClick --> { _ =>
-                showFullSourceVar.invert()
-              },
+              _.size       := "small",
               _.appearance := "filled"
             )(
+              onClick.mapTo(()) --> { _ =>
+                showFullSourceVar.invert()
+              },
               text <-- showFullSourceSignal.map {
                 case true  => "Collapse code"
                 case false => "Expand code"
@@ -80,12 +80,12 @@ object Codeblock {
             content = Val(source.trim),
             renderChildren = renderer => {
               Button(
-                _.onClick --> { _ =>
-                  renderer.copy.onNext(())
-                },
                 _.size       := "small",
                 _.appearance := "filled"
               )(
+                onClick --> { _ =>
+                  renderer.copy.onNext(())
+                },
                 Icon(
                   _.label := "Copy code",
                   _.name <-- renderer.isCopied.map {

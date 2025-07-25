@@ -4,8 +4,8 @@ import com.raquo.laminar.api.L.*
 import doc.components.Demo
 import doc.components.Locator.withLocator
 import doc.macros.Source
-import org.scalajs.dom.window
 import io.github.nguyenyou.webawesome.laminar.*
+import org.scalajs.dom.window
 
 case class DialogView()
     extends ExampleView(
@@ -28,9 +28,10 @@ case class DialogView()
               )("Close")
             )
           )("Lorem ipsum dolor sit amet, consectetur adipiscing elit."),
-          Button(
-            _.onClick.mapTo(true) --> openEvent
-          )("Open Dialog")
+          Button()(
+            onClick.mapTo(true) --> openEvent,
+            "Open Dialog"
+          )
         )
       }
     )().withLocator
@@ -57,9 +58,10 @@ case class DialogView()
                 )("Close")
               )
             )("Lorem ipsum dolor sit amet, consectetur adipiscing elit."),
-            Button(
-              _.onClick.mapTo(true) --> openEvent
-            )("Open Dialog")
+            Button()(
+              onClick.mapTo(true) --> openEvent,
+              "Open Dialog"
+            )
           )
         }
       )(),
@@ -82,9 +84,10 @@ case class DialogView()
                 )("Close")
               )
             )("Lorem ipsum dolor sit amet, consectetur adipiscing elit."),
-            Button(
-              _.onClick.mapTo(true) --> openEvent
-            )("Open Dialog")
+            Button()(
+              onClick.mapTo(true) --> openEvent,
+              "Open Dialog"
+            )
           )
         }
       )(),
@@ -197,11 +200,11 @@ case class DialogView()
               _.label := "Dialog",
               _.slots.headerActions(
                 Button(
-                  _.appearance := "plain",
-                  _.onClick --> Observer { _ =>
-                    window.open(window.location.href)
-                  }
+                  _.appearance := "plain"
                 )(
+                  onClick --> Observer { _ =>
+                    window.open(window.location.href)
+                  },
                   Icon(
                     _.name  := "arrow-up-right-from-square",
                     _.label := "Open in new window"

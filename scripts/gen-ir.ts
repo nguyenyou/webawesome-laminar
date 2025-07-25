@@ -1,6 +1,6 @@
 // Import from node_modules to use the version specified in package.json
 import manifest from '../node_modules/@awesome.me/webawesome/dist/custom-elements.json' with { type: "json" };
-import { writeFile } from './utils.js';
+import { writeFile, CONSTANTS } from './utils.js';
 
 console.log('Processing manifest with', manifest.modules.length, 'modules');
 
@@ -142,7 +142,7 @@ function generatePackagePath(tagName: string): string {
   const className = parts.map(part => 
     part.charAt(0).toUpperCase() + part.slice(1)
   ).join('');
-  return `io.github.nguyenyou.webawesome.laminar.${className}`;
+  return `${CONSTANTS.packageName}.${className}`;
 }
 
 function parseAttributes(declaration: any): AttributeIR[] {

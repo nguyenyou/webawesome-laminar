@@ -1,4 +1,4 @@
-import { readFile, writeFile } from './utils.js';
+import { readFile, writeFile, CONSTANTS } from './utils.js';
 import CodeBlockWriter from 'code-block-writer';
 import path from 'path';
 import fs from 'fs/promises';
@@ -344,7 +344,7 @@ async function generateComponent(component: ComponentIR): Promise<string> {
   // We always import SharedTypes since all union types are centralized there
 
   // Package declaration
-  writer.writeLine('package io.github.nguyenyou.webawesome.laminar');
+  writer.writeLine(`package ${CONSTANTS.packageName}`);
   writer.blankLine();
 
   // Imports
@@ -353,13 +353,13 @@ async function generateComponent(component: ComponentIR): Promise<string> {
   writer.writeLine('import com.raquo.laminar.nodes.Slot');
   writer.writeLine('import com.raquo.laminar.tags.CustomHtmlTag');
   writer.writeLine('import org.scalajs.dom');
-  writer.writeLine('import io.github.nguyenyou.webawesome.laminar.events.*');
+  writer.writeLine(`import ${CONSTANTS.packageName}.events.*`);
   writer.blankLine();
   writer.writeLine('import scala.scalajs.js');
   writer.writeLine('import scala.scalajs.js.annotation.JSImport');
   
   // Import SharedTypes if needed (always import since we're moving all union types there)
-  writer.writeLine('import io.github.nguyenyou.webawesome.laminar.SharedTypes.*');
+  writer.writeLine(`import ${CONSTANTS.packageName}.SharedTypes.*`);
   
   writer.blankLine();
 

@@ -1,9 +1,9 @@
 {
   "version": "1.0.0",
-  "generated": "2025-07-20T17:00:15.237Z",
+  "generated": "2025-07-25T08:38:34.245Z",
   "source": {
     "version": "3.0.0-beta.3",
-    "path": "/Users/tunguyen/Desktop/DELETEME/webawesome-laminar/node_modules/@awesome.me/webawesome/dist/custom-elements.json",
+    "path": "/Users/tunguyen/Documents/GitHub/webawesome-laminar/node_modules/@awesome.me/webawesome/dist/custom-elements.json",
     "checksum": "724048-67f63c10"
   },
   "components": {

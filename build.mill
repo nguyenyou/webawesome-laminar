@@ -32,7 +32,7 @@ object Constants {
 }
 
 trait Scalafix extends ScalafixModule {
-  def scalacOptions = super.scalacOptions() ++ Seq("-Wunused:all", "-Wunused:imports")
+  def scalacOptions = super.scalacOptions() ++ Seq("-Wunused:all", "-Wunused:imports", "-feature")
 }
 
 trait NoDoc extends ScalaModule {

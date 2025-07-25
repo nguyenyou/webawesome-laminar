@@ -140,8 +140,7 @@ object SharedTypes {
   type TabGroupActivation = "auto" | "manual"
 
   /** Used by WaTag for "appearance" attribute. Components: WaTag */
-  type TagExtendedAppearance = "accent" | "filled" | "outlined" | "outlined accent" | "outlined filled" |
-    "filled outlined"
+  type TagExtendedAppearance = "accent" | "filled" | "outlined" | "outlined accent" | "filled outlined"
 
   /** Used by WaTextarea for "resize" attribute. Components: WaTextarea */
   type TextareaResize = "auto" | "both" | "horizontal" | "none" | "vertical"

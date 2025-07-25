@@ -4,6 +4,7 @@ import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.nodes.Slot
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
+import io.github.nguyenyou.webawesome.laminar.events.*
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -34,7 +35,7 @@ object Details extends WebComponent("wa-details") {
   lazy val onAfterShow: EventProp[dom.Event] = eventProp("wa-after-show")
 
   /** Emitted when the details closes. */
-  lazy val onHide: EventProp[dom.Event] = eventProp("wa-hide")
+  lazy val onHide: EventProp[dom.Event & EventDetail[WaHideEvent]] = eventProp("wa-hide")
 
   /** Emitted after the details closes and all animations are complete. */
   lazy val onAfterHide: EventProp[dom.Event] = eventProp("wa-after-hide")

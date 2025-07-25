@@ -36,7 +36,7 @@ object Dropdown extends WebComponent("wa-dropdown") {
   lazy val onAfterShow: EventProp[dom.Event] = eventProp("wa-after-show")
 
   /** Emitted when the dropdown is about to hide. */
-  lazy val onHide: EventProp[dom.Event] = eventProp("wa-hide")
+  lazy val onHide: EventProp[dom.Event & EventDetail[WaHideEvent]] = eventProp("wa-hide")
 
   /** Emitted after the dropdown has been hidden. */
   lazy val onAfterHide: EventProp[dom.Event] = eventProp("wa-after-hide")

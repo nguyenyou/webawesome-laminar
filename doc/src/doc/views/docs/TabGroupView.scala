@@ -38,7 +38,8 @@ case class TabGroupView()
           TabPanel(_.name := "advanced")(
             "This is the advanced tab panel."
           ),
-          TabPanel(_.name := "disabled", _.disabled := true)(
+          TabPanel(_.name := "disabled")(
+            disabled := true,
             "This is the disabled tab panel."
           )
         )

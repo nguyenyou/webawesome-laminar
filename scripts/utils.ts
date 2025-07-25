@@ -221,12 +221,16 @@ export async function downloadFile(url: string, outputPath: string): Promise<voi
   }
 }
 
+export const CONSTANTS = {
+  packageName: "io.github.nguyenyou.webawesome.laminar"
+}
+
 // Path helpers
 export const paths = {
   workspace: workspaceDir,
   scripts: __dirname,
   package: workspacePkg,
-  laminarSrc: webawesomeLaminarDir,
+  webawesomeLaminarDir: webawesomeLaminarDir,
   customElementsJson: path.join(workspaceDir, 'node_modules/@awesome.me/webawesome/dist/custom-elements.json'),
   customElementsJsonBackup: path.join(__dirname, 'custom-elements.json'), // Backup location
   ir: path.join(__dirname, 'webawesome-laminar-ir.json'),

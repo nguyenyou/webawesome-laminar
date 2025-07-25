@@ -1,8 +1,6 @@
 package io.github.nguyenyou.webawesome.laminar
 
 import com.raquo.laminar.api.L.idAttr
-import com.raquo.laminar.api.Laminar
-import com.raquo.laminar.keys.EventProcessor
 import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlProp
 import com.raquo.laminar.modifiers.Modifier
@@ -10,6 +8,7 @@ import com.raquo.laminar.nodes.ReactiveHtmlElement
 import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
 
+import scala.language.implicitConversions
 import scala.scalajs.js
 
 /** Base trait for all WebAwesome components. */
@@ -49,21 +48,10 @@ abstract class WebComponent(tagName: String) extends CommonTypes { this: Self =>
   // Mark imported JS object as used, to prevent dead code elimination
   @inline protected def useImport(importObject: js.Any): Unit = ()
 
-  /** Optional syntax for using built-in Laminar events: `_.on(onDblClick.preventDefault) --> ...` */
-  def on[Ev <: dom.Event, V](ev: EventProcessor[Ev, V]): EventProcessor[Ev, V] = ev
-
   final def apply(componentMods: ComponentMod*)(laminarMods: LaminarMod*): Element = {
     val el = tag()
     componentMods.foreach(_(this)(el))
     laminarMods.foreach(_(el))
     el
   }
-
-  given toL: Conversion[WebComponent, Laminar] with
-    override def apply(x: WebComponent): Laminar =
-      com.raquo.laminar.api.L
-
-  /** Lets you set standard Laminar properties when using `of` method, e.g. `sl.Button.of(_.L.attr := "value")`
-    */
-  def L: Laminar = com.raquo.laminar.api.L
 }

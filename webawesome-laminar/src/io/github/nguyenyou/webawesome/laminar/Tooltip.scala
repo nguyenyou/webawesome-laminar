@@ -3,6 +3,7 @@ package io.github.nguyenyou.webawesome.laminar
 import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.nodes.Slot
+import io.github.nguyenyou.webawesome.laminar.events.*
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -33,7 +34,7 @@ object Tooltip extends WebComponent("wa-tooltip") {
   lazy val onAfterShow: EventProp[dom.Event] = eventProp("wa-after-show")
 
   /** Emitted when the tooltip begins to hide. */
-  lazy val onHide: EventProp[dom.Event] = eventProp("wa-hide")
+  lazy val onHide: EventProp[dom.Event & EventDetail[WaHideEvent]] = eventProp("wa-hide")
 
   /** Emitted after the tooltip has hidden and all animations are complete. */
   lazy val onAfterHide: EventProp[dom.Event] = eventProp("wa-after-hide")
