@@ -26,9 +26,9 @@ case class DividerView()
         title = "Width",
         description = "Use the `--width` custom property to change the width of the divider.",
         content = Source.annotate {
-          Divider()(
-            styleAttr := "--width: 4px;" // [!code highlight]
-          )
+          Divider(
+            _.style := "--width: 4px;" // [!code highlight]
+          )()
         }
       )(),
 
@@ -37,9 +37,9 @@ case class DividerView()
         title = "Color",
         description = "Use the `--color` custom property to change the color of the divider.",
         content = Source.annotate {
-          Divider()(
-            styleAttr := "--color: tomato;" // [!code highlight]
-          )
+          Divider(
+            _.style := "--color: tomato;" // [!code highlight]
+          )()
         }
       )(),
 
@@ -52,9 +52,9 @@ case class DividerView()
           div(
             textAlign := "center",
             "Above",
-            Divider()(
-              styleAttr := "--spacing: 2rem;" // [!code highlight]
-            ),
+            Divider(
+              _.style := "--spacing: 2rem;" // [!code highlight]
+            )(),
             "Below"
           )
         }
@@ -67,15 +67,15 @@ case class DividerView()
           "The default orientation for dividers is `horizontal`. Set `orientation` attribute to `vertical` to draw a vertical divider. The divider will span the full height of its container.",
         content = Source.annotate {
           div(
-            display    := "flex",
-            alignItems := "center",
+            display.flex,
+            alignItems.center,
             "First",
             Divider(
-              _.orientation := "vertical" // [!code highlight]
+              _.orientation.vertical // [!code highlight]
             )(),
             "Middle",
             Divider(
-              _.orientation := "vertical" // [!code highlight]
+              _.orientation.vertical // [!code highlight]
             )(),
             "Last"
           )
@@ -92,9 +92,9 @@ case class DividerView()
               Button(
                 _.withCaret := true
               )("Menu")
-            )
+            ),
+            _.style := "max-width: 200px;" // [!code highlight]
           )(
-            styleAttr := "max-width: 200px;", // [!code highlight]
             DropdownItem(
               _.value := "1"
             )("Option 1"),

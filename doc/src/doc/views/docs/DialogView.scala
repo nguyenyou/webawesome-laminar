@@ -140,6 +140,7 @@ case class DialogView()
             Dialog(
               _.id    := "dialog-custom-width",
               _.label := "Dialog",
+              _.style := "--width: 50vw;", // [!code highlight]
               _.slots.footer(
                 Button(
                   _.variant := "brand",
@@ -147,7 +148,6 @@ case class DialogView()
                 )("Close")
               )
             )(
-              styleAttr := "--width: 50vw;", // [!code highlight]
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
             ),
             Button(
