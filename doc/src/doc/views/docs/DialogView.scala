@@ -24,7 +24,7 @@ case class DialogView()
             _.slots.footer(
               Button(
                 _.variant := "brand",
-                _.closeDialog
+                _.close("dialog")
               )("Close")
             )
           )("Lorem ipsum dolor sit amet, consectetur adipiscing elit."),
@@ -54,7 +54,7 @@ case class DialogView()
               _.slots.footer(
                 Button(
                   _.variant := "brand",
-                  _.closeDialog
+                  _.close("dialog")
                 )("Close")
               )
             )("Lorem ipsum dolor sit amet, consectetur adipiscing elit."),
@@ -80,7 +80,7 @@ case class DialogView()
               _.slots.footer(
                 Button(
                   _.variant := "brand",
-                  _.closeDialog
+                  _.close("dialog")
                 )("Close")
               )
             )("Lorem ipsum dolor sit amet, consectetur adipiscing elit."),
@@ -103,7 +103,7 @@ case class DialogView()
               _.label := "Dialog"
             )("Lorem ipsum dolor sit amet, consectetur adipiscing elit."),
             Button(
-              _.dialog("dialog-opening") // [!code highlight]
+              _.open("dialog", "dialog-opening") // [!code highlight]
             )("Open Dialog")
           )
         }
@@ -120,12 +120,12 @@ case class DialogView()
               _.slots.footer(
                 Button(
                   _.variant := "brand",
-                  _.closeDialog // [!code highlight]
+                  _.close("dialog") // [!code highlight]
                 )("Close")
               )
             )("Lorem ipsum dolor sit amet, consectetur adipiscing elit."),
             Button(
-              _.dialog("dialog-dismiss") // [!code highlight]
+              _.open("dialog", "dialog-dismiss") // [!code highlight]
             )("Open Dialog")
           )
         }
@@ -143,7 +143,7 @@ case class DialogView()
               _.slots.footer(
                 Button(
                   _.variant := "brand",
-                  _.closeDialog
+                  _.close("dialog")
                 )("Close")
               )
             )(
@@ -151,7 +151,7 @@ case class DialogView()
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
             ),
             Button(
-              _.dialog("dialog-custom-width")
+              _.open("dialog", "dialog-custom-width")
             )("Open Dialog")
           )
         }
@@ -169,7 +169,7 @@ case class DialogView()
               _.slots.footer(
                 Button(
                   _.variant := "brand",
-                  _.closeDialog
+                  _.close("dialog")
                 )("Close")
               )
             )(
@@ -183,7 +183,7 @@ case class DialogView()
               )
             ),
             Button(
-              _.dialog("dialog-scrolling")
+              _.open("dialog", "dialog-scrolling")
             )("Open Dialog")
           )
         }
@@ -214,14 +214,14 @@ case class DialogView()
               _.slots.footer(
                 Button(
                   _.variant := "brand",
-                  _.closeDialog
+                  _.close("dialog")
                 )("Close")
               )
             )(
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
             ),
             Button(
-              _.dialog("dialog-header-actions")
+              _.open("dialog", "dialog-header-actions")
             )("Open Dialog")
           )
         }
@@ -240,12 +240,12 @@ case class DialogView()
               _.slots.footer(
                 Button(
                   _.variant := "brand",
-                  _.closeDialog
+                  _.close("dialog")
                 )("Close")
               )
             )("Lorem ipsum dolor sit amet, consectetur adipiscing elit."),
             Button(
-              _.dialog("dialog-light-dismiss")
+              _.open("dialog", "dialog-light-dismiss")
             )("Open Dialog")
           )
         }
@@ -263,7 +263,7 @@ case class DialogView()
 
           val closeDialogButton = Button(
             _.variant := "brand",
-            _.closeDialog
+            _.close("dialog")
           )("Only this button will close it")
 
           div(
@@ -280,7 +280,7 @@ case class DialogView()
               )
             )("This dialog will only close when you click the button below."),
             Button(
-              _.dialog("dialog-deny-close")
+              _.open("dialog", "dialog-deny-close")
             )("Open Dialog")
           )
         }
@@ -298,7 +298,7 @@ case class DialogView()
               _.slots.footer(
                 Button(
                   _.variant := "brand",
-                  _.closeDialog
+                  _.close("dialog")
                 )("Close")
               )
             )(
@@ -308,7 +308,7 @@ case class DialogView()
               )()
             ),
             Button(
-              _.dialog("dialog-focus")
+              _.open("dialog", "dialog-focus")
             )("Open Dialog")
           )
         }

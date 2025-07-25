@@ -15,22 +15,21 @@ case class DrawerView()
     Demo(
       center = true,
       content = Source.annotate {
-        val openVar = Var(false)
+        val openEvent = EventBus[Boolean]()
 
         div(
           Drawer(
-            _.open <-- openVar.signal,
+            _.open <-- openEvent,
             _.label := "Drawer",
             _.slots.footer(
               Button(
-                _.variant := "brand"
-              )(dataAttr("drawer") := "close", "Close")
+                _.variant := "brand",
+                _.close("drawer")
+              )("Close")
             )
-          )(
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-          ),
+          )("Lorem ipsum dolor sit amet, consectetur adipiscing elit."),
           Button()(
-            onClick.mapTo(true) --> openVar.writer,
+            onClick.mapTo(true) --> openEvent,
             "Open Drawer"
           )
         )

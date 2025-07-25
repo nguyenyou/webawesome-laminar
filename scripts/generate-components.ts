@@ -497,9 +497,9 @@ async function generateComponent(component: ComponentIR): Promise<string> {
 
       // Extra attributes
       if(component.tagName === 'wa-button') {
-        writer.writeLine('lazy val closeDialog = L.dataAttr("dialog") := "close"');
+        writer.writeLine('def close(component: "dialog" | "drawer") = L.dataAttr(component) := "close"');
         writer.blankLine();
-        writer.writeLine('def dialog(id: String) = L.dataAttr("dialog") := s"open $id"');
+        writer.writeLine('def open(component: "dialog" | "drawer", id: String) = L.dataAttr(component) := s"open $id"');
         writer.blankLine();
       }
     }
