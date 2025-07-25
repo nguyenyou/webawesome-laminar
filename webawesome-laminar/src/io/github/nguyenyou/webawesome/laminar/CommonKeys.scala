@@ -59,7 +59,8 @@ object CommonKeys extends CommonTypes {
   }
 
   /** appearance attribute - FilledOutlineAppearance */
-  object FilledOutlineAppearance extends HtmlAttr[FilledOutlineAppearance]("appearance", UnionAsStringCodec[FilledOutlineAppearance]) {
+  object FilledOutlineAppearance
+      extends HtmlAttr[FilledOutlineAppearance]("appearance", UnionAsStringCodec[FilledOutlineAppearance]) {
 
     lazy val filled: HtmlAttrSetter[FilledOutlineAppearance] = FilledOutlineAppearance("filled")
 
@@ -91,7 +92,8 @@ object CommonKeys extends CommonTypes {
   }
 
   /** tooltip-placement attribute - TooltipPlacement */
-  object TooltipPlacement extends HtmlAttr[TooltipPlacement]("tooltip-placement", UnionAsStringCodec[TooltipPlacement]) {
+  object TooltipPlacement
+      extends HtmlAttr[TooltipPlacement]("tooltip-placement", UnionAsStringCodec[TooltipPlacement]) {
 
     lazy val bottom: HtmlAttrSetter[TooltipPlacement] = TooltipPlacement("bottom")
 
@@ -203,7 +205,9 @@ object CommonKeys extends CommonTypes {
   /** formenctype attribute - ButtonFormenctype */
   object ButtonFormenctype extends HtmlAttr[ButtonFormenctype]("formenctype", UnionAsStringCodec[ButtonFormenctype]) {
 
-    lazy val applicationxWwwFormUrlencoded: HtmlAttrSetter[ButtonFormenctype] = ButtonFormenctype("application/x-www-form-urlencoded")
+    lazy val applicationxWwwFormUrlencoded: HtmlAttrSetter[ButtonFormenctype] = ButtonFormenctype(
+      "application/x-www-form-urlencoded"
+    )
 
     lazy val multipartformData: HtmlAttrSetter[ButtonFormenctype] = ButtonFormenctype("multipart/form-data")
 
@@ -219,7 +223,8 @@ object CommonKeys extends CommonTypes {
   }
 
   /** appearance attribute - BadgeExtendedAppearance */
-  object BadgeExtendedAppearance extends HtmlAttr[BadgeExtendedAppearance]("appearance", UnionAsStringCodec[BadgeExtendedAppearance]) {
+  object BadgeExtendedAppearance
+      extends HtmlAttr[BadgeExtendedAppearance]("appearance", UnionAsStringCodec[BadgeExtendedAppearance]) {
 
     lazy val accent: HtmlAttrSetter[BadgeExtendedAppearance] = BadgeExtendedAppearance("accent")
 
@@ -273,7 +278,8 @@ object CommonKeys extends CommonTypes {
   }
 
   /** type attribute - DropdownItemElementType */
-  object DropdownItemElementType extends HtmlAttr[DropdownItemElementType]("type", UnionAsStringCodec[DropdownItemElementType]) {
+  object DropdownItemElementType
+      extends HtmlAttr[DropdownItemElementType]("type", UnionAsStringCodec[DropdownItemElementType]) {
 
     lazy val checkbox: HtmlAttrSetter[DropdownItemElementType] = DropdownItemElementType("checkbox")
 
@@ -289,7 +295,8 @@ object CommonKeys extends CommonTypes {
   }
 
   /** type attribute - FormatNumberElementType */
-  object FormatNumberElementType extends HtmlAttr[FormatNumberElementType]("type", UnionAsStringCodec[FormatNumberElementType]) {
+  object FormatNumberElementType
+      extends HtmlAttr[FormatNumberElementType]("type", UnionAsStringCodec[FormatNumberElementType]) {
 
     lazy val currency: HtmlAttrSetter[FormatNumberElementType] = FormatNumberElementType("currency")
 
@@ -299,7 +306,11 @@ object CommonKeys extends CommonTypes {
   }
 
   /** currency-display attribute - FormatNumberCurrencyDisplay */
-  object FormatNumberCurrencyDisplay extends HtmlAttr[FormatNumberCurrencyDisplay]("currency-display", UnionAsStringCodec[FormatNumberCurrencyDisplay]) {
+  object FormatNumberCurrencyDisplay
+      extends HtmlAttr[FormatNumberCurrencyDisplay](
+        "currency-display",
+        UnionAsStringCodec[FormatNumberCurrencyDisplay]
+      ) {
 
     lazy val code: HtmlAttrSetter[FormatNumberCurrencyDisplay] = FormatNumberCurrencyDisplay("code")
 
@@ -311,7 +322,8 @@ object CommonKeys extends CommonTypes {
   }
 
   /** month attribute - FormatDateDateMonthFormat */
-  object FormatDateDateMonthFormat extends HtmlAttr[FormatDateDateMonthFormat]("month", UnionAsStringCodec[FormatDateDateMonthFormat]) {
+  object FormatDateDateMonthFormat
+      extends HtmlAttr[FormatDateDateMonthFormat]("month", UnionAsStringCodec[FormatDateDateMonthFormat]) {
 
     lazy val `2-digit`: HtmlAttrSetter[FormatDateDateMonthFormat] = FormatDateDateMonthFormat("2-digit")
 
@@ -325,7 +337,8 @@ object CommonKeys extends CommonTypes {
   }
 
   /** time-zone-name attribute - FormatDateTimeZoneName */
-  object FormatDateTimeZoneName extends HtmlAttr[FormatDateTimeZoneName]("time-zone-name", UnionAsStringCodec[FormatDateTimeZoneName]) {
+  object FormatDateTimeZoneName
+      extends HtmlAttr[FormatDateTimeZoneName]("time-zone-name", UnionAsStringCodec[FormatDateTimeZoneName]) {
 
     lazy val long: HtmlAttrSetter[FormatDateTimeZoneName] = FormatDateTimeZoneName("long")
 
@@ -333,7 +346,8 @@ object CommonKeys extends CommonTypes {
   }
 
   /** hour-format attribute - FormatDateHourFormat */
-  object FormatDateHourFormat extends HtmlAttr[FormatDateHourFormat]("hour-format", UnionAsStringCodec[FormatDateHourFormat]) {
+  object FormatDateHourFormat
+      extends HtmlAttr[FormatDateHourFormat]("hour-format", UnionAsStringCodec[FormatDateHourFormat]) {
 
     lazy val `12`: HtmlAttrSetter[FormatDateHourFormat] = FormatDateHourFormat("12")
 
@@ -369,7 +383,8 @@ object CommonKeys extends CommonTypes {
   }
 
   /** navigation-placement attribute - PageNavigationPlacement */
-  object PageNavigationPlacement extends HtmlAttr[PageNavigationPlacement]("navigation-placement", UnionAsStringCodec[PageNavigationPlacement]) {
+  object PageNavigationPlacement
+      extends HtmlAttr[PageNavigationPlacement]("navigation-placement", UnionAsStringCodec[PageNavigationPlacement]) {
 
     lazy val end: HtmlAttrSetter[PageNavigationPlacement] = PageNavigationPlacement("end")
 
@@ -385,7 +400,8 @@ object CommonKeys extends CommonTypes {
   }
 
   /** arrow-placement attribute - PopupArrowPlacement */
-  object PopupArrowPlacement extends HtmlAttr[PopupArrowPlacement]("arrow-placement", UnionAsStringCodec[PopupArrowPlacement]) {
+  object PopupArrowPlacement
+      extends HtmlAttr[PopupArrowPlacement]("arrow-placement", UnionAsStringCodec[PopupArrowPlacement]) {
 
     lazy val anchor: HtmlAttrSetter[PopupArrowPlacement] = PopupArrowPlacement("anchor")
 
@@ -397,7 +413,11 @@ object CommonKeys extends CommonTypes {
   }
 
   /** flip-fallback-strategy attribute - PopupFlipFallbackStrategy */
-  object PopupFlipFallbackStrategy extends HtmlAttr[PopupFlipFallbackStrategy]("flip-fallback-strategy", UnionAsStringCodec[PopupFlipFallbackStrategy]) {
+  object PopupFlipFallbackStrategy
+      extends HtmlAttr[PopupFlipFallbackStrategy](
+        "flip-fallback-strategy",
+        UnionAsStringCodec[PopupFlipFallbackStrategy]
+      ) {
 
     lazy val bestFit: HtmlAttrSetter[PopupFlipFallbackStrategy] = PopupFlipFallbackStrategy("best-fit")
 
@@ -425,7 +445,8 @@ object CommonKeys extends CommonTypes {
   }
 
   /** error-correction attribute - QrCodeErrorCorrection */
-  object QrCodeErrorCorrection extends HtmlAttr[QrCodeErrorCorrection]("error-correction", UnionAsStringCodec[QrCodeErrorCorrection]) {
+  object QrCodeErrorCorrection
+      extends HtmlAttr[QrCodeErrorCorrection]("error-correction", UnionAsStringCodec[QrCodeErrorCorrection]) {
 
     lazy val h: HtmlAttrSetter[QrCodeErrorCorrection] = QrCodeErrorCorrection("H")
 
@@ -479,7 +500,8 @@ object CommonKeys extends CommonTypes {
   }
 
   /** appearance attribute - TagExtendedAppearance */
-  object TagExtendedAppearance extends HtmlAttr[TagExtendedAppearance]("appearance", UnionAsStringCodec[TagExtendedAppearance]) {
+  object TagExtendedAppearance
+      extends HtmlAttr[TagExtendedAppearance]("appearance", UnionAsStringCodec[TagExtendedAppearance]) {
 
     lazy val accent: HtmlAttrSetter[TagExtendedAppearance] = TagExtendedAppearance("accent")
 

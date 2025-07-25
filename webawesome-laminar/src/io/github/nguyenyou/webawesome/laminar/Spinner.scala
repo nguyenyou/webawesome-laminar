@@ -1,27 +1,20 @@
 package io.github.nguyenyou.webawesome.laminar
-
-import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
-import com.raquo.laminar.api.L
-import com.raquo.laminar.nodes.Slot
-import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
-import io.github.nguyenyou.webawesome.laminar.events.*
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/**
-  * Spinners are used to show the progress of an indeterminate operation.
+/** Spinners are used to show the progress of an indeterminate operation.
   *
-  * [[https://webawesome.com/docs/components/spinner WebAwesome  docs]]
+  * [[https://webawesome.com/docs/components/spinner WebAwesome docs]]
   */
 object Spinner extends WebComponent("wa-spinner") {
 
   @JSImport("@awesome.me/webawesome/dist/components/spinner/spinner.js", JSImport.Namespace)
-  @js.native object RawImport extends js.Object
+  @js.native
+  object RawImport extends js.Object
 
   type Self = Spinner.type
 
@@ -31,6 +24,7 @@ object Spinner extends WebComponent("wa-spinner") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssVars {
+
     /** The width of the track. */
     lazy val trackWidth: String = "--track-width"
 
@@ -49,6 +43,7 @@ object Spinner extends WebComponent("wa-spinner") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
+
     /** The component's base wrapper. */
     lazy val base: String = "base"
 
@@ -56,7 +51,8 @@ object Spinner extends WebComponent("wa-spinner") {
 
   // -- Element type --
 
-  @js.native trait WaSpinnerComponent extends js.Object {
+  @js.native
+  trait WaSpinnerComponent extends js.Object {
     this: dom.HTMLElement =>
 
   }

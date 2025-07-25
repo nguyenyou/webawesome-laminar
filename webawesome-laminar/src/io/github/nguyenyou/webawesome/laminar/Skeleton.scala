@@ -1,27 +1,21 @@
 package io.github.nguyenyou.webawesome.laminar
-
-import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
-import com.raquo.laminar.api.L
-import com.raquo.laminar.nodes.Slot
-import com.raquo.laminar.tags.CustomHtmlTag
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import org.scalajs.dom
-import io.github.nguyenyou.webawesome.laminar.events.*
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/**
-  * Skeletons are used to provide a visual representation of where content will eventually be drawn.
+/** Skeletons are used to provide a visual representation of where content will eventually be drawn.
   *
-  * [[https://webawesome.com/docs/components/skeleton WebAwesome  docs]]
+  * [[https://webawesome.com/docs/components/skeleton WebAwesome docs]]
   */
 object Skeleton extends WebComponent("wa-skeleton") {
 
   @JSImport("@awesome.me/webawesome/dist/components/skeleton/skeleton.js", JSImport.Namespace)
-  @js.native object RawImport extends js.Object
+  @js.native
+  object RawImport extends js.Object
 
   type Self = Skeleton.type
 
@@ -36,6 +30,7 @@ object Skeleton extends WebComponent("wa-skeleton") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssVars {
+
     /** The color of the skeleton. */
     lazy val color: String = "--color"
 
@@ -48,6 +43,7 @@ object Skeleton extends WebComponent("wa-skeleton") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
+
     /** The skeleton's indicator which is responsible for its color and animation. */
     lazy val indicator: String = "indicator"
 
@@ -55,7 +51,8 @@ object Skeleton extends WebComponent("wa-skeleton") {
 
   // -- Element type --
 
-  @js.native trait WaSkeletonComponent extends js.Object {
+  @js.native
+  trait WaSkeletonComponent extends js.Object {
     this: dom.HTMLElement =>
 
     /** Determines which effect the skeleton will use. Valid values: "pulse", "sheen", "none". */

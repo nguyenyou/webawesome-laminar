@@ -1,27 +1,26 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
 import com.raquo.laminar.api.L
-import com.raquo.laminar.nodes.Slot
-import com.raquo.laminar.tags.CustomHtmlTag
+import com.raquo.laminar.keys.EventProp
+import com.raquo.laminar.keys.HtmlAttr
+import com.raquo.laminar.keys.HtmlProp
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import org.scalajs.dom
-import io.github.nguyenyou.webawesome.laminar.events.*
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/**
-  * Ratings give users a way to quickly view and provide feedback.
+/** Ratings give users a way to quickly view and provide feedback.
   *
-  * [[https://webawesome.com/docs/components/rating WebAwesome  docs]]
+  * [[https://webawesome.com/docs/components/rating WebAwesome docs]]
   */
 object Rating extends WebComponent("wa-rating") {
 
   @JSImport("@awesome.me/webawesome/dist/components/rating/rating.js", JSImport.Namespace)
-  @js.native object RawImport extends js.Object
+  @js.native
+  object RawImport extends js.Object
 
   type Self = Rating.type
 
@@ -32,7 +31,10 @@ object Rating extends WebComponent("wa-rating") {
   /** Emitted when the rating's value changes. */
   lazy val change: EventProp[dom.Event] = eventProp("change")
 
-  /** Emitted when the user hovers over a value. The `phase` property indicates when hovering starts, moves to a new value, or ends. The `value` property tells what the rating's value would be if the user were to commit to the hovered value. */
+  /** Emitted when the user hovers over a value. The `phase` property indicates when hovering starts, moves to a new
+    * value, or ends. The `value` property tells what the rating's value would be if the user were to commit to the
+    * hovered value.
+    */
   lazy val onHover: EventProp[dom.Event] = eventProp("wa-hover")
 
   // -- Props --
@@ -49,7 +51,8 @@ object Rating extends WebComponent("wa-rating") {
   lazy val max: HtmlAttr[Double] = doubleAttr("max")
 
   /** The precision at which the rating will increase and decrease. For example, to allow half-star ratings, set this
-  attribute to `0.5`. */
+    * attribute to `0.5`.
+    */
   lazy val precision: HtmlAttr[Double] = doubleAttr("precision")
 
   /** Makes the rating readonly. */
@@ -59,8 +62,9 @@ object Rating extends WebComponent("wa-rating") {
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
 
   /** A function that customizes the symbol to be rendered. The first and only argument is the rating's current value.
-  The function should return a string containing trusted HTML of the symbol to render at the specified value. Works
-  well with `<wa-icon>` elements. */
+    * The function should return a string containing trusted HTML of the symbol to render at the specified value. Works
+    * well with `<wa-icon>` elements.
+    */
   lazy val getSymbol: HtmlAttr[String] = stringAttr("getSymbol")
 
   /** The component's size. Valid values: "small", "medium", "large". */
@@ -70,6 +74,7 @@ object Rating extends WebComponent("wa-rating") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssVars {
+
     /** The inactive color for symbols. */
     lazy val symbolColor: String = "--symbol-color"
 
@@ -85,6 +90,7 @@ object Rating extends WebComponent("wa-rating") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
+
     /** The component's base wrapper. */
     lazy val base: String = "base"
 
@@ -92,7 +98,8 @@ object Rating extends WebComponent("wa-rating") {
 
   // -- Element type --
 
-  @js.native trait WaRatingComponent extends js.Object {
+  @js.native
+  trait WaRatingComponent extends js.Object {
     this: dom.HTMLElement =>
 
     /** A label that describes the rating to assistive devices. */
@@ -102,7 +109,8 @@ object Rating extends WebComponent("wa-rating") {
     var max: Double
 
     /** The precision at which the rating will increase and decrease. For example, to allow half-star ratings, set this
-    attribute to `0.5`. */
+      * attribute to `0.5`.
+      */
     var precision: Double
 
     /** Makes the rating readonly. */
@@ -112,8 +120,9 @@ object Rating extends WebComponent("wa-rating") {
     var disabled: Boolean
 
     /** A function that customizes the symbol to be rendered. The first and only argument is the rating's current value.
-    The function should return a string containing trusted HTML of the symbol to render at the specified value. Works
-    well with `<wa-icon>` elements. */
+      * The function should return a string containing trusted HTML of the symbol to render at the specified value.
+      * Works well with `<wa-icon>` elements.
+      */
     var getSymbol: String
 
     /** The component's size. Valid values: "small", "medium", "large". */

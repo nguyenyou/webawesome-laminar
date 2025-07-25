@@ -1,27 +1,21 @@
 package io.github.nguyenyou.webawesome.laminar
-
-import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
-import com.raquo.laminar.api.L
-import com.raquo.laminar.nodes.Slot
-import com.raquo.laminar.tags.CustomHtmlTag
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import org.scalajs.dom
-import io.github.nguyenyou.webawesome.laminar.events.*
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/**
-  * Dividers are used to visually separate or group elements.
+/** Dividers are used to visually separate or group elements.
   *
-  * [[https://webawesome.com/docs/components/divider WebAwesome  docs]]
+  * [[https://webawesome.com/docs/components/divider WebAwesome docs]]
   */
 object Divider extends WebComponent("wa-divider") {
 
   @JSImport("@awesome.me/webawesome/dist/components/divider/divider.js", JSImport.Namespace)
-  @js.native object RawImport extends js.Object
+  @js.native
+  object RawImport extends js.Object
 
   type Self = Divider.type
 
@@ -36,6 +30,7 @@ object Divider extends WebComponent("wa-divider") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssVars {
+
     /** The color of the divider. */
     lazy val color: String = "--color"
 
@@ -49,7 +44,8 @@ object Divider extends WebComponent("wa-divider") {
 
   // -- Element type --
 
-  @js.native trait WaDividerComponent extends js.Object {
+  @js.native
+  trait WaDividerComponent extends js.Object {
     this: dom.HTMLElement =>
 
     /** Sets the divider's orientation. Valid values: "horizontal", "vertical". */

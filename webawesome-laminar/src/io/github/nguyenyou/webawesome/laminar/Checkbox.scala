@@ -1,27 +1,28 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
 import com.raquo.laminar.api.L
+import com.raquo.laminar.keys.EventProp
+import com.raquo.laminar.keys.HtmlAttr
+import com.raquo.laminar.keys.HtmlProp
 import com.raquo.laminar.nodes.Slot
 import com.raquo.laminar.tags.CustomHtmlTag
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import org.scalajs.dom
-import io.github.nguyenyou.webawesome.laminar.events.*
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/**
-  * Checkboxes allow the user to toggle an option on or off.
+/** Checkboxes allow the user to toggle an option on or off.
   *
-  * [[https://webawesome.com/docs/components/checkbox WebAwesome  docs]]
+  * [[https://webawesome.com/docs/components/checkbox WebAwesome docs]]
   */
 object Checkbox extends WebComponent("wa-checkbox") {
 
   @JSImport("@awesome.me/webawesome/dist/components/checkbox/checkbox.js", JSImport.Namespace)
-  @js.native object RawImport extends js.Object
+  @js.native
+  object RawImport extends js.Object
 
   type Self = Checkbox.type
 
@@ -72,12 +73,14 @@ object Checkbox extends WebComponent("wa-checkbox") {
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
 
   /** Draws the checkbox in an indeterminate state. This is usually applied to checkboxes that represents a "select
-  all/none" behavior when associated checkboxes have a mix of checked and unchecked states. */
+    * all/none" behavior when associated checkboxes have a mix of checked and unchecked states.
+    */
   lazy val indeterminate: HtmlAttr[Boolean] = boolAttr("indeterminate")
 
   /** By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
-  to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
-  the same document or shadow root for this to work. */
+    * to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
+    * the same document or shadow root for this to work.
+    */
   lazy val form: HtmlAttr[String] = stringAttr("form")
 
   /** Makes the checkbox a required field. */
@@ -89,6 +92,7 @@ object Checkbox extends WebComponent("wa-checkbox") {
   // -- Slots --
 
   object slots {
+
     /** The checkbox's label. Note: You can just say `_ => element` instead of `_.slots.default(element)` */
     lazy val default: Slot = Slot("")
 
@@ -101,6 +105,7 @@ object Checkbox extends WebComponent("wa-checkbox") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssVars {
+
     /** The color of the checked and indeterminate icons. */
     lazy val checkedIconColor: String = "--checked-icon-color"
 
@@ -113,6 +118,7 @@ object Checkbox extends WebComponent("wa-checkbox") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
+
     /** The component's label . */
     lazy val base: String = "base"
 
@@ -135,7 +141,8 @@ object Checkbox extends WebComponent("wa-checkbox") {
 
   // -- Element type --
 
-  @js.native trait WaCheckboxComponent extends js.Object {
+  @js.native
+  trait WaCheckboxComponent extends js.Object {
     this: dom.HTMLElement =>
 
     var title: String
@@ -150,12 +157,14 @@ object Checkbox extends WebComponent("wa-checkbox") {
     var disabled: Boolean
 
     /** Draws the checkbox in an indeterminate state. This is usually applied to checkboxes that represents a "select
-    all/none" behavior when associated checkboxes have a mix of checked and unchecked states. */
+      * all/none" behavior when associated checkboxes have a mix of checked and unchecked states.
+      */
     var indeterminate: Boolean
 
     /** By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
-    to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
-    the same document or shadow root for this to work. */
+      * to place the form control outside of a form and associate it with the form that has this `id`. The form must be
+      * in the same document or shadow root for this to work.
+      */
     var form: String
 
     /** Makes the checkbox a required field. */

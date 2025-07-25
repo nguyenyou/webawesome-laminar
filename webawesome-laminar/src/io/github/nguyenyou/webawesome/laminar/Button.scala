@@ -1,27 +1,27 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
 import com.raquo.laminar.api.L
+import com.raquo.laminar.keys.EventProp
+import com.raquo.laminar.keys.HtmlAttr
+import com.raquo.laminar.keys.HtmlProp
 import com.raquo.laminar.nodes.Slot
-import com.raquo.laminar.tags.CustomHtmlTag
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import org.scalajs.dom
-import io.github.nguyenyou.webawesome.laminar.events.*
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/**
-  * Buttons represent actions that are available to the user.
+/** Buttons represent actions that are available to the user.
   *
-  * [[https://webawesome.com/docs/components/button WebAwesome  docs]]
+  * [[https://webawesome.com/docs/components/button WebAwesome docs]]
   */
 object Button extends WebComponent("wa-button") {
 
   @JSImport("@awesome.me/webawesome/dist/components/button/button.js", JSImport.Namespace)
-  @js.native object RawImport extends js.Object
+  @js.native
+  object RawImport extends js.Object
 
   type Self = Button.type
 
@@ -41,14 +41,17 @@ object Button extends WebComponent("wa-button") {
   // -- Props --
 
   /** The value of the button, submitted as a pair with the button's name as part of the form data, but only when this
-  button is the submitter. This attribute is ignored when `href` is present. */
+    * button is the submitter. This attribute is ignored when `href` is present.
+    */
   lazy val value: HtmlProp[String, ?] = L.value
 
   // -- Attributes --
 
   lazy val title: HtmlAttr[String] = stringAttr("title")
 
-  /** The button's theme variant. Defaults to `neutral` if not within another element with a variant. Valid values: "neutral", "brand", "success", "warning", "danger". */
+  /** The button's theme variant. Defaults to `neutral` if not within another element with a variant. Valid values:
+    * "neutral", "brand", "success", "warning", "danger".
+    */
   lazy val variant: CommonKeys.ThemeVariant.type = CommonKeys.ThemeVariant
 
   /** The button's visual appearance. Valid values: "accent", "filled", "outlined", "plain". */
@@ -70,7 +73,9 @@ object Button extends WebComponent("wa-button") {
   lazy val pill: HtmlAttr[Boolean] = boolAttr("pill")
 
   /** The type of button. Note that the default value is `button` instead of `submit`, which is opposite of how native
-  `<button>` elements behave. When the type is `submit`, the button will submit the surrounding form. Valid values: "button", "submit", "reset". */
+    * `<button>` elements behave. When the type is `submit`, the button will submit the surrounding form. Valid values:
+    * "button", "submit", "reset".
+    */
   lazy val `type`: CommonKeys.ButtonButtonType.type = CommonKeys.ButtonButtonType
 
   lazy val typ: CommonKeys.ButtonButtonType.type = `type`
@@ -78,13 +83,16 @@ object Button extends WebComponent("wa-button") {
   lazy val tpe: CommonKeys.ButtonButtonType.type = `type`
 
   /** The name of the button, submitted as a name/value pair with form data, but only when this button is the submitter.
-  This attribute is ignored when `href` is present. */
+    * This attribute is ignored when `href` is present.
+    */
   lazy val name: HtmlAttr[String] = stringAttr("name")
 
   /** When set, the underlying button will be rendered as an `<a>` with this `href` instead of a `<button>`. */
   lazy val href: HtmlAttr[String] = stringAttr("href")
 
-  /** Tells the browser where to open the link. Only used when `href` is present. Valid values: "_blank", "_parent", "_self", "_top". */
+  /** Tells the browser where to open the link. Only used when `href` is present. Valid values: "_blank", "_parent",
+    * "_self", "_top".
+    */
   lazy val target: CommonKeys.ButtonLinkTarget.type = CommonKeys.ButtonLinkTarget
 
   /** When using `href`, this attribute will map to the underlying link's `rel` attribute. */
@@ -94,13 +102,16 @@ object Button extends WebComponent("wa-button") {
   lazy val download: HtmlAttr[String] = stringAttr("download")
 
   /** The "form owner" to associate the button with. If omitted, the closest containing form will be used instead. The
-  value of this attribute must be an id of a form in the same document or shadow root as the button. */
+    * value of this attribute must be an id of a form in the same document or shadow root as the button.
+    */
   lazy val form: HtmlAttr[String] = stringAttr("form")
 
   /** Used to override the form owner's `action` attribute. */
   lazy val formaction: HtmlAttr[String] = stringAttr("formaction")
 
-  /** Used to override the form owner's `enctype` attribute. Valid values: "application/x-www-form-urlencoded", "multipart/form-data", "text/plain". */
+  /** Used to override the form owner's `enctype` attribute. Valid values: "application/x-www-form-urlencoded",
+    * "multipart/form-data", "text/plain".
+    */
   lazy val formenctype: CommonKeys.ButtonFormenctype.type = CommonKeys.ButtonFormenctype
 
   /** Used to override the form owner's `method` attribute. Valid values: "post", "get". */
@@ -119,6 +130,7 @@ object Button extends WebComponent("wa-button") {
   // -- Slots --
 
   object slots {
+
     /** The button's label. Note: You can just say `_ => element` instead of `_.slots.default(element)` */
     lazy val default: Slot = Slot("")
 
@@ -134,6 +146,7 @@ object Button extends WebComponent("wa-button") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
+
     /** The component's base wrapper. */
     lazy val base: String = "base"
 
@@ -156,12 +169,15 @@ object Button extends WebComponent("wa-button") {
 
   // -- Element type --
 
-  @js.native trait WaButtonComponent extends js.Object {
+  @js.native
+  trait WaButtonComponent extends js.Object {
     this: dom.HTMLElement =>
 
     var title: String
 
-    /** The button's theme variant. Defaults to `neutral` if not within another element with a variant. Valid values: "neutral", "brand", "success", "warning", "danger". */
+    /** The button's theme variant. Defaults to `neutral` if not within another element with a variant. Valid values:
+      * "neutral", "brand", "success", "warning", "danger".
+      */
     var variant: ThemeVariant
 
     /** The button's visual appearance. Valid values: "accent", "filled", "outlined", "plain". */
@@ -183,17 +199,22 @@ object Button extends WebComponent("wa-button") {
     var pill: Boolean
 
     /** The type of button. Note that the default value is `button` instead of `submit`, which is opposite of how native
-    `<button>` elements behave. When the type is `submit`, the button will submit the surrounding form. Valid values: "button", "submit", "reset". */
+      * `<button>` elements behave. When the type is `submit`, the button will submit the surrounding form. Valid
+      * values: "button", "submit", "reset".
+      */
     var `type`: ButtonButtonType
 
-    /** The name of the button, submitted as a name/value pair with form data, but only when this button is the submitter.
-    This attribute is ignored when `href` is present. */
+    /** The name of the button, submitted as a name/value pair with form data, but only when this button is the
+      * submitter. This attribute is ignored when `href` is present.
+      */
     var name: String
 
     /** When set, the underlying button will be rendered as an `<a>` with this `href` instead of a `<button>`. */
     var href: String
 
-    /** Tells the browser where to open the link. Only used when `href` is present. Valid values: "_blank", "_parent", "_self", "_top". */
+    /** Tells the browser where to open the link. Only used when `href` is present. Valid values: "_blank", "_parent",
+      * "_self", "_top".
+      */
     var target: ButtonLinkTarget
 
     /** When using `href`, this attribute will map to the underlying link's `rel` attribute. */
@@ -203,13 +224,16 @@ object Button extends WebComponent("wa-button") {
     var download: String
 
     /** The "form owner" to associate the button with. If omitted, the closest containing form will be used instead. The
-    value of this attribute must be an id of a form in the same document or shadow root as the button. */
+      * value of this attribute must be an id of a form in the same document or shadow root as the button.
+      */
     var form: String
 
     /** Used to override the form owner's `action` attribute. */
     var formAction: String
 
-    /** Used to override the form owner's `enctype` attribute. Valid values: "application/x-www-form-urlencoded", "multipart/form-data", "text/plain". */
+    /** Used to override the form owner's `enctype` attribute. Valid values: "application/x-www-form-urlencoded",
+      * "multipart/form-data", "text/plain".
+      */
     var formEnctype: ButtonFormenctype
 
     /** Used to override the form owner's `method` attribute. Valid values: "post", "get". */

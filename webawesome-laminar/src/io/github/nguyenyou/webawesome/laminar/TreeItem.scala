@@ -1,27 +1,24 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
-import com.raquo.laminar.api.L
+import com.raquo.laminar.keys.EventProp
+import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.nodes.Slot
-import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
-import io.github.nguyenyou.webawesome.laminar.events.*
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/**
-  * A tree item serves as a hierarchical node that lives inside a [tree](/docs/components/tree).
+/** A tree item serves as a hierarchical node that lives inside a [tree](/docs/components/tree).
   *
-  * [[https://webawesome.com/docs/components/tree-item WebAwesome  docs]]
+  * [[https://webawesome.com/docs/components/tree-item WebAwesome docs]]
   */
 object TreeItem extends WebComponent("wa-tree-item") {
 
   @JSImport("@awesome.me/webawesome/dist/components/tree-item/tree-item.js", JSImport.Namespace)
-  @js.native object RawImport extends js.Object
+  @js.native
+  object RawImport extends js.Object
 
   type Self = TreeItem.type
 
@@ -44,7 +41,10 @@ object TreeItem extends WebComponent("wa-tree-item") {
   /** Emitted when the tree item's lazy state changes. */
   lazy val onLazyChange: EventProp[dom.Event] = eventProp("wa-lazy-change")
 
-  /** Emitted when a lazy item is selected. Use this event to asynchronously load data and append items to the tree before expanding. After appending new items, remove the `lazy` attribute to remove the loading state and update the tree. */
+  /** Emitted when a lazy item is selected. Use this event to asynchronously load data and append items to the tree
+    * before expanding. After appending new items, remove the `lazy` attribute to remove the loading state and update
+    * the tree.
+    */
   lazy val onLazyLoad: EventProp[dom.Event] = eventProp("wa-lazy-load")
 
   // -- Attributes --
@@ -64,6 +64,7 @@ object TreeItem extends WebComponent("wa-tree-item") {
   // -- Slots --
 
   object slots {
+
     /** The default slot. Note: You can just say `_ => element` instead of `_.slots.default(element)` */
     lazy val default: Slot = Slot("")
 
@@ -79,6 +80,7 @@ object TreeItem extends WebComponent("wa-tree-item") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssVars {
+
     /** The animation duration when expanding tree items. Default: 200ms */
     lazy val showDuration: String = "--show-duration"
 
@@ -91,6 +93,7 @@ object TreeItem extends WebComponent("wa-tree-item") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
+
     /** The component's base wrapper. */
     lazy val base: String = "base"
 
@@ -137,7 +140,8 @@ object TreeItem extends WebComponent("wa-tree-item") {
 
   // -- Element type --
 
-  @js.native trait WaTreeItemComponent extends js.Object {
+  @js.native
+  trait WaTreeItemComponent extends js.Object {
     this: dom.HTMLElement =>
 
     /** Expands the tree item. */

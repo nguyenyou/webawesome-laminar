@@ -1,27 +1,24 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
-import com.raquo.laminar.api.L
+import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.nodes.Slot
-import com.raquo.laminar.tags.CustomHtmlTag
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import org.scalajs.dom
-import io.github.nguyenyou.webawesome.laminar.events.*
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/**
-  * Cards can be used to group related subjects in a container.
+/** Cards can be used to group related subjects in a container.
   *
-  * [[https://webawesome.com/docs/components/card WebAwesome  docs]]
+  * [[https://webawesome.com/docs/components/card WebAwesome docs]]
   */
 object Card extends WebComponent("wa-card") {
 
   @JSImport("@awesome.me/webawesome/dist/components/card/card.js", JSImport.Namespace)
-  @js.native object RawImport extends js.Object
+  @js.native
+  object RawImport extends js.Object
 
   type Self = Card.type
 
@@ -44,6 +41,7 @@ object Card extends WebComponent("wa-card") {
   // -- Slots --
 
   object slots {
+
     /** The card's main content. Note: You can just say `_ => element` instead of `_.slots.default(element)` */
     lazy val default: Slot = Slot("")
 
@@ -62,7 +60,9 @@ object Card extends WebComponent("wa-card") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssVars {
-    /** The amount of space around and between sections of the card. Expects a single value. Default: var(--wa-space-l) */
+
+    /** The amount of space around and between sections of the card. Expects a single value. Default: var(--wa-space-l)
+      */
     lazy val spacing: String = "--spacing"
 
   }
@@ -71,6 +71,7 @@ object Card extends WebComponent("wa-card") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
+
     /** The container that wraps the card's media. */
     lazy val media: String = "media"
 
@@ -87,7 +88,8 @@ object Card extends WebComponent("wa-card") {
 
   // -- Element type --
 
-  @js.native trait WaCardComponent extends js.Object {
+  @js.native
+  trait WaCardComponent extends js.Object {
     this: dom.HTMLElement =>
 
     /** The card's visual appearance. Valid values: "accent", "filled", "outlined", "plain". */

@@ -1,27 +1,24 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
-import com.raquo.laminar.api.L
+import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.nodes.Slot
-import com.raquo.laminar.tags.CustomHtmlTag
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import org.scalajs.dom
-import io.github.nguyenyou.webawesome.laminar.events.*
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/**
-  * Pages offer an easy way to scaffold entire page layouts using minimal markup.
+/** Pages offer an easy way to scaffold entire page layouts using minimal markup.
   *
-  * [[https://webawesome.com/docs/components/page WebAwesome  docs]]
+  * [[https://webawesome.com/docs/components/page WebAwesome docs]]
   */
 object Page extends WebComponent("wa-page") {
 
   @JSImport("@awesome.me/webawesome/dist/components/page/page.js", JSImport.Namespace)
-  @js.native object RawImport extends js.Object
+  @js.native
+  object RawImport extends js.Object
 
   type Self = Page.type
 
@@ -30,54 +27,69 @@ object Page extends WebComponent("wa-page") {
   // -- Attributes --
 
   /** The view is a reflection of the "mobileBreakpoint", when the page is larger than the `mobile-breakpoint` (768px by
-  default), it is considered to be a "desktop" view. The view is merely a way to distinguish when to show/hide the
-  navigation. You can use additional media queries to make other adjustments to content as necessary.
-  The default is "desktop" because the "mobile navigation drawer" isn't accessible via SSR due to drawer requiring JS. Valid values: "mobile", "desktop". */
+    * default), it is considered to be a "desktop" view. The view is merely a way to distinguish when to show/hide the
+    * navigation. You can use additional media queries to make other adjustments to content as necessary. The default is
+    * "desktop" because the "mobile navigation drawer" isn't accessible via SSR due to drawer requiring JS. Valid
+    * values: "mobile", "desktop".
+    */
   lazy val view: CommonKeys.PageView.type = CommonKeys.PageView
 
   /** Whether or not the navigation drawer is open. Note, the navigation drawer is only "open" on mobile views. */
   lazy val navOpen: HtmlAttr[Boolean] = boolAttr("nav-open")
 
-  /** At what page width to hide the "navigation" slot and collapse into a hamburger button.
-  Accepts both numbers (interpreted as px) and CSS lengths (e.g. `50em`), which are resolved based on the root element. */
+  /** At what page width to hide the "navigation" slot and collapse into a hamburger button. Accepts both numbers
+    * (interpreted as px) and CSS lengths (e.g. `50em`), which are resolved based on the root element.
+    */
   lazy val mobileBreakpoint: HtmlAttr[String] = stringAttr("mobile-breakpoint")
 
   /** Where to place the navigation when in the mobile viewport. Valid values: "start", "end". */
   lazy val navigationPlacement: CommonKeys.PageNavigationPlacement.type = CommonKeys.PageNavigationPlacement
 
-  /** Determines whether or not to hide the default hamburger button.
-  This will automatically flip to "true" if you add an element with `data-toggle-nav` anywhere in the element light DOM.
-  Generally this will be set for you and you don't need to do anything, unless you're using SSR, in which case you should set this manually for initial page loads. */
+  /** Determines whether or not to hide the default hamburger button. This will automatically flip to "true" if you add
+    * an element with `data-toggle-nav` anywhere in the element light DOM. Generally this will be set for you and you
+    * don't need to do anything, unless you're using SSR, in which case you should set this manually for initial page
+    * loads.
+    */
   lazy val disableNavigationToggle: HtmlAttr[Boolean] = boolAttr("disable-navigation-toggle")
 
   // -- Slots --
 
   object slots {
+
     /** The page's main content. Note: You can just say `_ => element` instead of `_.slots.default(element)` */
     lazy val default: Slot = Slot("")
 
     /** The banner that gets display above the header. The banner will not be shown if no content is provided. */
     lazy val banner: Slot = Slot("banner")
 
-    /** The header to display at the top of the page. If a banner is present, the header will appear below the banner. The header will not be shown if there is no content. */
+    /** The header to display at the top of the page. If a banner is present, the header will appear below the banner.
+      * The header will not be shown if there is no content.
+      */
     lazy val header: Slot = Slot("header")
 
     /** A subheader to display below the `header`. This is a good place to put things like breadcrumbs. */
     lazy val subheader: Slot = Slot("subheader")
 
-    /** The left side of the page. If you slot an element in here, you will override the default `navigation` slot and will be handling navigation on your own. This also will not disable the fallback behavior of the navigation button. This section "sticks" to the top as the page scrolls. */
+    /** The left side of the page. If you slot an element in here, you will override the default `navigation` slot and
+      * will be handling navigation on your own. This also will not disable the fallback behavior of the navigation
+      * button. This section "sticks" to the top as the page scrolls.
+      */
     lazy val menu: Slot = Slot("menu")
 
     /** The header for a navigation area. On mobile this will be the header for `<wa-drawer>`. */
     lazy val navigationHeader: Slot = Slot("navigation-header")
 
-    /** The main content to display in the navigation area. This is displayed on the left side of the page, if `menu` is not used. This section "sticks" to the top as the page scrolls. */
+    /** The main content to display in the navigation area. This is displayed on the left side of the page, if `menu` is
+      * not used. This section "sticks" to the top as the page scrolls.
+      */
     lazy val navigation: Slot = Slot("navigation")
 
     /** The footer for a navigation area. On mobile this will be the footer for `<wa-drawer>`. */
     lazy val navigationFooter: Slot = Slot("navigation-footer")
 
-    /** Use this slot to slot in your own button + icon for toggling the navigation drawer. By default it is a `<wa-button>` + a 3 bars `<wa-icon>` */
+    /** Use this slot to slot in your own button + icon for toggling the navigation drawer. By default it is a
+      * `<wa-button>` + a 3 bars `<wa-icon>`
+      */
     lazy val navigationToggle: Slot = Slot("navigation-toggle")
 
     /** Use this to slot in your own icon for toggling the navigation drawer. By default it is 3 bars `<wa-icon>`. */
@@ -89,13 +101,19 @@ object Page extends WebComponent("wa-page") {
     /** Footer to display inline below the main content. */
     lazy val mainFooter: Slot = Slot("main-footer")
 
-    /** Content to be shown on the right side of the page. Typically contains a table of contents, ads, etc. This section "sticks" to the top as the page scrolls. */
+    /** Content to be shown on the right side of the page. Typically contains a table of contents, ads, etc. This
+      * section "sticks" to the top as the page scrolls.
+      */
     lazy val aside: Slot = Slot("aside")
 
-    /** The "skip to content" slot. You can override this If you would like to override the `Skip to content` button and add additional "Skip to X", they can be inserted here. */
+    /** The "skip to content" slot. You can override this If you would like to override the `Skip to content` button and
+      * add additional "Skip to X", they can be inserted here.
+      */
     lazy val skipToContent: Slot = Slot("skip-to-content")
 
-    /** The content to display in the footer. This is always displayed underneath the viewport so will always make the page "scrollable". */
+    /** The content to display in the footer. This is always displayed underneath the viewport so will always make the
+      * page "scrollable".
+      */
     lazy val footer: Slot = Slot("footer")
 
   }
@@ -104,6 +122,7 @@ object Page extends WebComponent("wa-page") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssVars {
+
     /** The width of the page's "menu" section. Default: auto */
     lazy val menuWidth: String = "--menu-width"
 
@@ -113,13 +132,19 @@ object Page extends WebComponent("wa-page") {
     /** The wide of the page's "aside" section. Default: auto */
     lazy val asideWidth: String = "--aside-width"
 
-    /** The height of the banner. This gets calculated when the page initializes. If the height is known, you can set it here to prevent shifting when the page loads. Default: 0px */
+    /** The height of the banner. This gets calculated when the page initializes. If the height is known, you can set it
+      * here to prevent shifting when the page loads. Default: 0px
+      */
     lazy val bannerHeight: String = "--banner-height"
 
-    /** The height of the header. This gets calculated when the page initializes. If the height is known, you can set it here to prevent shifting when the page loads. Default: 0px */
+    /** The height of the header. This gets calculated when the page initializes. If the height is known, you can set it
+      * here to prevent shifting when the page loads. Default: 0px
+      */
     lazy val headerHeight: String = "--header-height"
 
-    /** The height of the subheader. This gets calculated when the page initializes. If the height is known, you can set it here to prevent shifting when the page loads. Default: 0px */
+    /** The height of the subheader. This gets calculated when the page initializes. If the height is known, you can set
+      * it here to prevent shifting when the page loads. Default: 0px
+      */
     lazy val subheaderHeight: String = "--subheader-height"
 
   }
@@ -128,6 +153,7 @@ object Page extends WebComponent("wa-page") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
+
     /** The component's base wrapper. */
     lazy val base: String = "base"
 
@@ -189,28 +215,34 @@ object Page extends WebComponent("wa-page") {
 
   // -- Element type --
 
-  @js.native trait WaPageComponent extends js.Object {
+  @js.native
+  trait WaPageComponent extends js.Object {
     this: dom.HTMLElement =>
 
-    /** The view is a reflection of the "mobileBreakpoint", when the page is larger than the `mobile-breakpoint` (768px by
-    default), it is considered to be a "desktop" view. The view is merely a way to distinguish when to show/hide the
-    navigation. You can use additional media queries to make other adjustments to content as necessary.
-    The default is "desktop" because the "mobile navigation drawer" isn't accessible via SSR due to drawer requiring JS. Valid values: "mobile", "desktop". */
+    /** The view is a reflection of the "mobileBreakpoint", when the page is larger than the `mobile-breakpoint` (768px
+      * by default), it is considered to be a "desktop" view. The view is merely a way to distinguish when to show/hide
+      * the navigation. You can use additional media queries to make other adjustments to content as necessary. The
+      * default is "desktop" because the "mobile navigation drawer" isn't accessible via SSR due to drawer requiring JS.
+      * Valid values: "mobile", "desktop".
+      */
     var view: PageView
 
     /** Whether or not the navigation drawer is open. Note, the navigation drawer is only "open" on mobile views. */
     var navOpen: Boolean
 
-    /** At what page width to hide the "navigation" slot and collapse into a hamburger button.
-    Accepts both numbers (interpreted as px) and CSS lengths (e.g. `50em`), which are resolved based on the root element. */
+    /** At what page width to hide the "navigation" slot and collapse into a hamburger button. Accepts both numbers
+      * (interpreted as px) and CSS lengths (e.g. `50em`), which are resolved based on the root element.
+      */
     var mobileBreakpoint: String
 
     /** Where to place the navigation when in the mobile viewport. Valid values: "start", "end". */
     var navigationPlacement: PageNavigationPlacement
 
-    /** Determines whether or not to hide the default hamburger button.
-    This will automatically flip to "true" if you add an element with `data-toggle-nav` anywhere in the element light DOM.
-    Generally this will be set for you and you don't need to do anything, unless you're using SSR, in which case you should set this manually for initial page loads. */
+    /** Determines whether or not to hide the default hamburger button. This will automatically flip to "true" if you
+      * add an element with `data-toggle-nav` anywhere in the element light DOM. Generally this will be set for you and
+      * you don't need to do anything, unless you're using SSR, in which case you should set this manually for initial
+      * page loads.
+      */
     var disableNavigationToggle: Boolean
 
     /** Shows the mobile navigation drawer */

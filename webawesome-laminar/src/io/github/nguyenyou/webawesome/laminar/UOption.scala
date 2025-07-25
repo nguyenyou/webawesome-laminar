@@ -1,27 +1,25 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.keys.{EventProp, HtmlAttr, HtmlProp}
 import com.raquo.laminar.api.L
+import com.raquo.laminar.keys.HtmlAttr
+import com.raquo.laminar.keys.HtmlProp
 import com.raquo.laminar.nodes.Slot
-import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
-import io.github.nguyenyou.webawesome.laminar.events.*
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 
 // This file is generated at compile-time by WebAwesome generator
 
-/**
-  * Options define the selectable items within a select component.
+/** Options define the selectable items within a select component.
   *
-  * [[https://webawesome.com/docs/components/option WebAwesome  docs]]
+  * [[https://webawesome.com/docs/components/option WebAwesome docs]]
   */
 object UOption extends WebComponent("wa-option") {
 
   @JSImport("@awesome.me/webawesome/dist/components/option/option.js", JSImport.Namespace)
-  @js.native object RawImport extends js.Object
+  @js.native
+  object RawImport extends js.Object
 
   type Self = UOption.type
 
@@ -30,8 +28,9 @@ object UOption extends WebComponent("wa-option") {
   // -- Props --
 
   /** The option's value. When selected, the containing form control will receive this value. The value must be unique
-  from other options in the same group. Values may not contain spaces, as spaces are used as delimiters when listing
-  multiple values. */
+    * from other options in the same group. Values may not contain spaces, as spaces are used as delimiters when listing
+    * multiple values.
+    */
   lazy val value: HtmlProp[String, ?] = L.value
 
   // -- Attributes --
@@ -42,13 +41,15 @@ object UOption extends WebComponent("wa-option") {
   /** Selects an option initially. */
   lazy val selected: HtmlAttr[Boolean] = boolAttr("selected")
 
-  /** The option’s plain text label.
-  Usually automatically generated, but can be useful to provide manually for cases involving complex content. */
+  /** The option’s plain text label. Usually automatically generated, but can be useful to provide manually for cases
+    * involving complex content.
+    */
   lazy val label: HtmlAttr[String] = stringAttr("label")
 
   // -- Slots --
 
   object slots {
+
     /** The option's label. Note: You can just say `_ => element` instead of `_.slots.default(element)` */
     lazy val default: Slot = Slot("")
 
@@ -64,6 +65,7 @@ object UOption extends WebComponent("wa-option") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
+
     /** The checked icon, a `<wa-icon>` element. */
     lazy val checkedIcon: String = "checked-icon"
 
@@ -80,7 +82,8 @@ object UOption extends WebComponent("wa-option") {
 
   // -- Element type --
 
-  @js.native trait WaOptionComponent extends js.Object {
+  @js.native
+  trait WaOptionComponent extends js.Object {
     this: dom.HTMLElement =>
 
     /** Draws the option in a disabled state, preventing selection. */
@@ -89,8 +92,9 @@ object UOption extends WebComponent("wa-option") {
     /** Selects an option initially. */
     var defaultSelected: Boolean
 
-    /** The option’s plain text label.
-    Usually automatically generated, but can be useful to provide manually for cases involving complex content. */
+    /** The option’s plain text label. Usually automatically generated, but can be useful to provide manually for cases
+      * involving complex content.
+      */
     var label: String
 
   }
