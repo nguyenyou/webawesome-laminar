@@ -51,7 +51,7 @@ object Radio extends WebComponent("wa-radio") {
   /** The radio's size. When used inside a radio group, the size will be determined by the radio group's size so this
     * attribute can typically be omitted. Valid values: "small", "medium", "large".
     */
-  lazy val size: HtmlAttr[ComponentSize] = unionAttr("size")
+  lazy val size: CommonKeys.size.type = CommonKeys.size
 
   /** Disables the radio. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")

@@ -31,11 +31,11 @@ case class ButtonView()
           div(
             tw.flex.flexWrap.gap2,
             // <show>
-            Button(_.variant := "brand")("Brand"),
-            Button(_.variant := "danger")("Danger"),
-            Button(_.variant := "neutral")("Neutral"),
-            Button(_.variant := "success")("Success"),
-            Button(_.variant := "warning")("Warning")
+            Button(_.variant.brand)("Brand"),
+            Button(_.variant.danger)("Danger"),
+            Button(_.variant.neutral)("Neutral"),
+            Button(_.variant.success)("Success"),
+            Button(_.variant.warning)("Warning")
             // </show>
           )
         }
@@ -116,9 +116,9 @@ case class ButtonView()
           div(
             tw.flex.flexWrap.gap2,
             // <show>
-            Button(_.size := "small")("Small"),
-            Button(_.size := "medium")("Medium"),
-            Button(_.size := "large")("Large")
+            Button(_.size.small)("Small"),
+            Button(_.size.medium)("Medium"),
+            Button(_.size.large)("Large")
             // </show>
           )
         }
@@ -207,15 +207,15 @@ case class ButtonView()
               tw.flex.flexWrap.gap2,
               // <show>
               Button(
-                _.size := "small",
+                _.size.small,
                 _.slots.start(Icon(_.name := "gear", _.label := "Settings")())
               )("Settings"),
               Button(
-                _.size := "small",
+                _.size.small,
                 _.slots.end(Icon(_.name := "undo", _.label := "Refresh")())
               )("Refresh"),
               Button(
-                _.size := "small",
+                _.size.small,
                 _.slots.start(Icon(_.name := "link", _.label := "Link")()),
                 _.slots.end(
                   Icon(

@@ -10,6 +10,14 @@ import com.raquo.laminar.keys.DerivedStyleProp
 import com.raquo.laminar.modifiers.KeySetter.StyleSetter
 import org.scalajs.dom
 
+// Custom codec for union types - accepts any union type but encodes as string
+object UnionAsStringCodec {
+  def apply[T <: String]: Codec[T, String] = new Codec[T, String] {
+    override def encode(scalaValue: T): String = scalaValue
+    override def decode(domValue: String): T   = domValue.asInstanceOf[T] // scalafix:ok
+  }
+}
+
 trait CommonTypes {
 
   protected type DSP[V] = DerivedStyleProp[V]
@@ -42,14 +50,6 @@ trait CommonTypes {
 
   protected def stringAttr(name: String): HtmlAttr[String] = {
     L.htmlAttr(name, StringAsIsCodec)
-  }
-
-  // Custom codec for union types - accepts any union type but encodes as string
-  private object UnionAsStringCodec {
-    def apply[T <: String]: Codec[T, String] = new Codec[T, String] {
-      override def encode(scalaValue: T): String = scalaValue
-      override def decode(domValue: String): T   = domValue.asInstanceOf[T] // scalafix:ok
-    }
   }
 
   // Custom attribute constructor for union types

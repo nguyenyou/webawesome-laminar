@@ -50,7 +50,7 @@ object Dropdown extends WebComponent("wa-dropdown") {
   lazy val open: HtmlAttr[Boolean] = boolAttr("open")
 
   /** The dropdown's size. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[ComponentSize] = unionAttr("size")
+  lazy val size: CommonKeys.size.type = CommonKeys.size
 
   /** The placement of the dropdown menu in reference to the trigger. The menu will shift to a more optimal location if
     * the preferred placement doesn't have enough room.

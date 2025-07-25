@@ -72,7 +72,7 @@ object RadioGroup extends WebComponent("wa-radio-group") {
   /** The radio group's size. This size will be applied to all child radios and radio buttons, except when explicitly
     * overridden. Valid values: "small", "medium", "large".
     */
-  lazy val size: HtmlAttr[ComponentSize] = unionAttr("size")
+  lazy val size: CommonKeys.size.type = CommonKeys.size
 
   /** Ensures a child radio is checked before allowing the containing form to submit. */
   lazy val required: HtmlAttr[Boolean] = boolAttr("required")

@@ -78,7 +78,7 @@ object Select extends WebComponent("wa-select") {
   lazy val name: HtmlAttr[String] = stringAttr("name")
 
   /** The select's size. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[ComponentSize] = unionAttr("size")
+  lazy val size: CommonKeys.size.type = CommonKeys.size
 
   /** Placeholder text to show as a hint when the select is empty. */
   lazy val placeholder: HtmlAttr[String] = stringAttr("placeholder")

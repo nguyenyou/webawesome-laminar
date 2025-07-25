@@ -52,13 +52,13 @@ object Button extends WebComponent("wa-button") {
   /** The button's theme variant. Defaults to `neutral` if not within another element with a variant. Valid values:
     * "neutral", "brand", "success", "warning", "danger".
     */
-  lazy val variant: HtmlAttr[ThemeVariant] = unionAttr("variant")
+  lazy val variant: CommonKeys.variant.type = CommonKeys.variant
 
   /** The button's visual appearance. Valid values: "accent", "filled", "outlined", "plain". */
   lazy val appearance: HtmlAttr[ExtendedAppearance] = unionAttr("appearance")
 
   /** The button's size. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[ComponentSize] = unionAttr("size")
+  lazy val size: CommonKeys.size.type = CommonKeys.size
 
   /** Draws the button with a caret. Used to indicate that the button triggers a dropdown menu or similar behavior. */
   lazy val withCaret: HtmlAttr[Boolean] = boolAttr("with-caret")

@@ -29,7 +29,7 @@ object Badge extends WebComponent("wa-badge") {
   /** The badge's theme variant. Defaults to `brand` if not within another element with a variant. Valid values:
     * "brand", "neutral", "success", "warning", "danger".
     */
-  lazy val variant: HtmlAttr[ThemeVariant] = unionAttr("variant")
+  lazy val variant: CommonKeys.variant.type = CommonKeys.variant
 
   /** The badge's visual appearance. Valid values: "accent", "filled", "outlined". */
   lazy val appearance: HtmlAttr[BadgeExtendedAppearance] = unionAttr("appearance")

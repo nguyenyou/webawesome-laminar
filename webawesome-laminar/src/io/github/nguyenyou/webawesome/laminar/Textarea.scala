@@ -64,7 +64,7 @@ object Textarea extends WebComponent("wa-textarea") {
   lazy val name: HtmlAttr[String] = stringAttr("name")
 
   /** The textarea's size. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[ComponentSize] = unionAttr("size")
+  lazy val size: CommonKeys.size.type = CommonKeys.size
 
   /** The textarea's visual appearance. Valid values: "filled", "outlined". */
   lazy val appearance: HtmlAttr[FilledOutlineAppearance] = unionAttr("appearance")

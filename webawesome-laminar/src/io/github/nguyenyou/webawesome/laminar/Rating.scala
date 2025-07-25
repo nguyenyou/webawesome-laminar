@@ -68,7 +68,7 @@ object Rating extends WebComponent("wa-rating") {
   lazy val getSymbol: HtmlAttr[String] = stringAttr("getSymbol")
 
   /** The component's size. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[ComponentSize] = unionAttr("size")
+  lazy val size: CommonKeys.size.type = CommonKeys.size
 
   // -- CSS Vars --
 

@@ -35,14 +35,14 @@ object Tag extends WebComponent("wa-tag") {
   /** The tag's theme variant. Defaults to `neutral` if not within another element with a variant. Valid values:
     * "brand", "neutral", "success", "warning", "danger".
     */
-  lazy val variant: HtmlAttr[ThemeVariant] = unionAttr("variant")
+  lazy val variant: CommonKeys.variant.type = CommonKeys.variant
 
   /** The tag's visual appearance. Valid values: "accent", "outlined accent", "filled", "outlined", "outlined filled".
     */
   lazy val appearance: HtmlAttr[TagExtendedAppearance] = unionAttr("appearance")
 
   /** The tag's size. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[ComponentSize] = unionAttr("size")
+  lazy val size: CommonKeys.size.type = CommonKeys.size
 
   /** Draws a pill-style tag with rounded edges. */
   lazy val pill: HtmlAttr[Boolean] = boolAttr("pill")

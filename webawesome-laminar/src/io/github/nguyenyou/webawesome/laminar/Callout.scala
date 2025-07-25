@@ -29,13 +29,13 @@ object Callout extends WebComponent("wa-callout") {
   /** The callout's theme variant. Defaults to `brand` if not within another element with a variant. Valid values:
     * "brand", "neutral", "success", "warning", "danger".
     */
-  lazy val variant: HtmlAttr[ThemeVariant] = unionAttr("variant")
+  lazy val variant: CommonKeys.variant.type = CommonKeys.variant
 
   /** The callout's visual appearance. */
   lazy val appearance: HtmlAttr[String] = stringAttr("appearance")
 
   /** The callout's size. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[ComponentSize] = unionAttr("size")
+  lazy val size: CommonKeys.size.type = CommonKeys.size
 
   // -- Slots --
 

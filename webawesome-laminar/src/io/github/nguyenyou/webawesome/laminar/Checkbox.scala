@@ -67,7 +67,7 @@ object Checkbox extends WebComponent("wa-checkbox") {
   lazy val name: HtmlAttr[String] = stringAttr("name")
 
   /** The checkbox's size. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[ComponentSize] = unionAttr("size")
+  lazy val size: CommonKeys.size.type = CommonKeys.size
 
   /** Disables the checkbox. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")

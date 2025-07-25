@@ -67,7 +67,7 @@ object Switch extends WebComponent("wa-switch") {
   lazy val name: HtmlAttr[String] = stringAttr("name")
 
   /** The switch's size. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[ComponentSize] = unionAttr("size")
+  lazy val size: CommonKeys.size.type = CommonKeys.size
 
   /** Disables the switch. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")

@@ -79,7 +79,7 @@ object Slider extends WebComponent("wa-slider") {
   lazy val orientation: HtmlAttr[Orientation] = unionAttr("orientation")
 
   /** The slider's size. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[ComponentSize] = unionAttr("size")
+  lazy val size: CommonKeys.size.type = CommonKeys.size
 
   /** The starting value from which to draw the slider's fill, which is based on its current value. */
   lazy val indicatorOffset: HtmlAttr[Double] = doubleAttr("indicator-offset")

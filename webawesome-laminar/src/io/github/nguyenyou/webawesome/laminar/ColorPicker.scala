@@ -86,7 +86,7 @@ object ColorPicker extends WebComponent("wa-color-picker") {
   lazy val format: HtmlAttr[ColorPickerFormat] = unionAttr("format")
 
   /** Determines the size of the color picker's trigger Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[ComponentSize] = unionAttr("size")
+  lazy val size: CommonKeys.size.type = CommonKeys.size
 
   /** Removes the button that lets users toggle between format. */
   lazy val withoutFormatToggle: HtmlAttr[Boolean] = boolAttr("without-format-toggle")

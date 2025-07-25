@@ -35,12 +35,12 @@ object ButtonGroup extends WebComponent("wa-button-group") {
   lazy val orientation: HtmlAttr[Orientation] = unionAttr("orientation")
 
   /** The component's size. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[ComponentSize] = unionAttr("size")
+  lazy val size: CommonKeys.size.type = CommonKeys.size
 
   /** The button group's theme variant. Defaults to `neutral` if not within another element with a variant. Valid
     * values: "neutral", "brand", "success", "warning", "danger".
     */
-  lazy val variant: HtmlAttr[ThemeVariant] = unionAttr("variant")
+  lazy val variant: CommonKeys.variant.type = CommonKeys.variant
 
   // -- Slots --
 

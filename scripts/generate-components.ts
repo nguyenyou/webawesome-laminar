@@ -477,7 +477,14 @@ async function generateComponent(component: ComponentIR): Promise<string> {
         const scalaType = getScalaAttributeType(attr.type, attr.unionValues, className, attr.name);
         const constructor = getScalaAttributeConstructor(attr.type, attr.unionValues);
         
-        writer.writeLine(`lazy val ${attrName}: ${scalaType} = ${constructor}("${attr.name}")`);
+        if(scalaType.includes("ComponentSize") && attrName === "size") {
+          writer.writeLine(`lazy val size: CommonKeys.size.type = CommonKeys.size`);
+        } else if(scalaType.includes("ThemeVariant") && attrName === "variant") {
+          writer.writeLine(`lazy val variant: CommonKeys.variant.type = CommonKeys.variant`);
+        } else {
+          writer.writeLine(`lazy val ${attrName}: ${scalaType} = ${constructor}("${attr.name}")`);
+        }
+        
         writer.blankLine();
 
         // Add common aliases for 'type' attribute

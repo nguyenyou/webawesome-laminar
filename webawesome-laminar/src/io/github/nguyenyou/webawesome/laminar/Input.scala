@@ -73,7 +73,7 @@ object Input extends WebComponent("wa-input") {
   lazy val tpe: HtmlAttr[String] = `type`
 
   /** The input's size. Valid values: "small", "medium", "large". */
-  lazy val size: HtmlAttr[ComponentSize] = unionAttr("size")
+  lazy val size: CommonKeys.size.type = CommonKeys.size
 
   /** The input's visual appearance. Valid values: "filled", "outlined". */
   lazy val appearance: HtmlAttr[FilledOutlineAppearance] = unionAttr("appearance")
