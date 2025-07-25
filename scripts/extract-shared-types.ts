@@ -116,6 +116,65 @@ function generateSemanticName(attributeName: string, values: string[], frequency
   return baseName;
 }
 
+function generateKeyName(attributeName: string): string {
+  // Convert kebab-case to camelCase for key names
+  let keyName = attributeName
+    .split('-')
+    .map((part, index) => index === 0 ? part : part.charAt(0).toUpperCase() + part.slice(1))
+    .join('');
+  
+  // Handle Scala reserved keywords by wrapping in backticks
+  const reservedKeywords = new Set(['lazy', 'type', 'class', 'object', 'def', 'val', 'var', 'if', 'else', 'while', 'for', 'match', 'case', 'try', 'catch', 'finally', 'throw', 'return', 'yield', 'import', 'package', 'extends', 'with', 'override', 'final', 'sealed', 'abstract', 'private', 'protected', 'implicit', 'new', 'this', 'super', 'true', 'false', 'null']);
+  
+  if (reservedKeywords.has(keyName)) {
+    keyName = `\`${keyName}\``;
+  }
+  
+  return keyName;
+}
+
+function generateValueMethodName(value: string): string {
+  // Convert kebab-case and spaces to camelCase for method names
+  let methodName = value
+    .replace(/[^a-zA-Z0-9\s-]/g, '') // Remove special characters except spaces and hyphens
+    .split(/[\s-]+/)
+    .map((part, index) => {
+      const cleanPart = part.toLowerCase();
+      return index === 0 ? cleanPart : cleanPart.charAt(0).toUpperCase() + cleanPart.slice(1);
+    })
+    .join('');
+
+  // Handle special formatting for specific cases
+  const specialCases: Record<string, string> = {
+    'applicationxwwwformurlencoded': 'applicationXWwwFormUrlencoded',
+    'multipartformdata': 'multipartFormData',
+    'textplain': 'textPlain',
+    'narrowsymbol': 'narrowSymbol',
+    'nocors': 'noCors',
+    'sameorigin': 'sameOrigin',
+    'bestfit': 'bestFit'
+  };
+  
+  methodName = specialCases[methodName] || methodName;
+  
+  // Handle Scala reserved keywords by wrapping in backticks
+  const reservedKeywords = new Set(['lazy', 'type', 'class', 'object', 'def', 'val', 'var', 'if', 'else', 'while', 'for', 'match', 'case', 'try', 'catch', 'finally', 'throw', 'return', 'yield', 'import', 'package', 'extends', 'with', 'override', 'final', 'sealed', 'abstract', 'private', 'protected', 'implicit', 'new', 'this', 'super', 'true', 'false', 'null']);
+  
+  // HtmlAttr class methods that should be avoided - prefix with underscore
+  const htmlAttrMethods = new Set(['name', 'toString', 'hashCode', 'equals', 'getClass']);
+  
+  // Handle names that start with numbers or are reserved keywords
+  if (/^\d/.test(methodName) || reservedKeywords.has(methodName)) {
+    methodName = `\`${value}\``;
+  }
+  // Handle conflicting HtmlAttr methods by prefixing with underscore
+  else if (htmlAttrMethods.has(methodName)) {
+    methodName = '_' + methodName;
+  }
+  
+  return methodName;
+}
+
 export async function extractSharedTypes(): Promise<void> {
   console.log('=== Extracting Shared Union Types ===');
   
@@ -199,6 +258,9 @@ export async function extractSharedTypes(): Promise<void> {
   // Generate SharedTypes.scala file
   await generateSharedTypesFile();
   
+  // Generate CommonKeys.scala file
+  await generateCommonKeysFile();
+  
   // Save mapping for component generation
   await saveSharedTypesMapping();
   
@@ -225,6 +287,67 @@ ${sharedTypes.map(st => {
 
   await writeFile(path.join(paths.webawesomeLaminarDir, 'SharedTypes.scala'), scalaCode);
   console.log('✓ Generated SharedTypes.scala');
+}
+
+async function generateCommonKeysFile() {
+  // Group shared types by attribute name to avoid duplicate keys
+  const attributeToTypesMap = new Map<string, SharedType[]>();
+  
+  sharedTypes.forEach(sharedType => {
+    const attributeName = Array.from(unionTypeMap.values())
+      .find(ut => ut.signature === sharedType.signature)?.attributeName;
+    
+    if (attributeName) {
+      if (!attributeToTypesMap.has(attributeName)) {
+        attributeToTypesMap.set(attributeName, []);
+      }
+      attributeToTypesMap.get(attributeName)!.push(sharedType);
+    }
+  });
+
+  // For each attribute, use the most frequent type (first in sorted order)
+  const attributeKeys: Array<{keyName: string, typeName: string, attributeName: string, values: string[]}> = [];
+  
+  attributeToTypesMap.forEach((types, attributeName) => {
+    // Use the most frequent type (they're already sorted by frequency)
+    const primaryType = types[0];
+    const keyName = generateKeyName(attributeName);
+    
+    attributeKeys.push({
+      keyName,
+      typeName: primaryType.name,
+      attributeName,
+      values: primaryType.values
+    });
+  });
+
+  const scalaCode = `package ${CONSTANTS.packageName}
+import com.raquo.laminar.keys.HtmlAttr
+import com.raquo.laminar.modifiers.KeySetter.HtmlAttrSetter
+import ${CONSTANTS.packageName}.SharedTypes.*
+
+/** Typical events / properties / etc. defined on Shoelace web components. We selectively export them from this object
+  * into individual components that define them.
+  */
+object CommonKeys extends CommonTypes {
+
+${attributeKeys.map(key => {
+  const valueSetters = key.values.map(value => {
+    const methodName = generateValueMethodName(value);
+    return `    lazy val ${methodName}: HtmlAttrSetter[${key.typeName}] = ${key.keyName}("${value}")`;
+  }).join('\n\n');
+
+  return `  /** ${key.attributeName} attribute */
+  object ${key.keyName} extends HtmlAttr[${key.typeName}]("${key.attributeName}", UnionAsStringCodec[${key.typeName}]) {
+
+${valueSetters}
+  }`;
+}).join('\n\n')}
+}
+`;
+
+  await writeFile(path.join(paths.webawesomeLaminarDir, 'CommonKeys.scala'), scalaCode);
+  console.log('✓ Generated CommonKeys.scala');
 }
 
 async function saveSharedTypesMapping() {
