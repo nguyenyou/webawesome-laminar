@@ -529,9 +529,9 @@ async function generateComponent(component: ComponentIR): Promise<string> {
 
       // Extra attributes
       if(component.tagName === 'wa-button') {
-        writer.writeLine('def close(component: "dialog" | "drawer") = L.dataAttr(component) := "close"');
+        writer.writeLine('lazy val close: CustomKeys.Close.type = CustomKeys.Close');
         writer.blankLine();
-        writer.writeLine('def open(component: "dialog" | "drawer", id: String) = L.dataAttr(component) := s"open $id"');
+        writer.writeLine('lazy val open: CustomKeys.Open.type = CustomKeys.Open');
         writer.blankLine();
       }
     }

@@ -24,7 +24,7 @@ case class DrawerView()
             _.slots.footer(
               Button(
                 _.variant := "brand",
-                _.close("drawer")
+                _.close.drawer
               )("Close")
             )
           )("Lorem ipsum dolor sit amet, consectetur adipiscing elit."),
@@ -38,6 +38,31 @@ case class DrawerView()
   }
   def component: HtmlElement = {
     div(
+      Demo(
+        title = "Drawer with Footer",
+        description =
+          "Footers can be used to display titles and more. Use the `footer` slot to add a footer to the drawer.",
+        content = Source.annotate {
+          val openEvent = EventBus[Boolean]()
+
+          div(
+            Drawer(
+              _.open <-- openEvent,
+              _.label := "Drawer",
+              _.slots.footer(
+                Button(
+                  _.variant := "brand",
+                  _.close.drawer
+                )("Close")
+              )
+            )("Lorem ipsum dolor sit amet, consectetur adipiscing elit."),
+            Button()(
+              onClick.mapTo(true) --> openEvent,
+              "Open Drawer"
+            )
+          )
+        }
+      )().withLocator
     )
   }
 

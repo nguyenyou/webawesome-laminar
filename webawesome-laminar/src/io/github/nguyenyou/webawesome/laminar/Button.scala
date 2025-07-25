@@ -123,9 +123,9 @@ object Button extends WebComponent("wa-button") {
   /** Used to override the form owner's `target` attribute. */
   lazy val formtarget: HtmlAttr[String] = stringAttr("formtarget")
 
-  def close(component: "dialog" | "drawer") = L.dataAttr(component) := "close"
+  lazy val close: CustomKeys.Close.type = CustomKeys.Close
 
-  def open(component: "dialog" | "drawer", id: String) = L.dataAttr(component) := s"open $id"
+  lazy val open: CustomKeys.Open.type = CustomKeys.Open
 
   // -- Slots --
 
