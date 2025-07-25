@@ -17,8 +17,6 @@ case class CheckboxView()
     Demo(
       center = true,
       content = Source.annotate {
-        import io.github.nguyenyou.webawesome.laminar.Checkbox
-
         Checkbox()("Checkbox")
       }
     )().withLocator

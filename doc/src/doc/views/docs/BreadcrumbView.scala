@@ -16,8 +16,6 @@ case class BreadcrumbView()
     Demo(
       center = true,
       content = Source.annotate {
-        import io.github.nguyenyou.webawesome.laminar.{Breadcrumb, BreadcrumbItem}
-
         Breadcrumb()(
           BreadcrumbItem()("Catalog"),
           BreadcrumbItem()("Clothing"),

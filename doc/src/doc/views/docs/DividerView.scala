@@ -14,8 +14,6 @@ case class DividerView()
   def playground: HtmlElement = {
     Demo(
       content = Source.annotate {
-        import io.github.nguyenyou.webawesome.laminar.Divider
-
         Divider()()
       }
     )().withLocator

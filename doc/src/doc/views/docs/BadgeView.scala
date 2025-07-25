@@ -16,8 +16,6 @@ case class BadgeView()
     Demo(
       center = true,
       content = Source.annotate {
-        import io.github.nguyenyou.webawesome.laminar.Badge
-
         Badge()("Badge")
       }
     )().withLocator

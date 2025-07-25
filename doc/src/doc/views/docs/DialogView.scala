@@ -5,6 +5,7 @@ import doc.components.Demo
 import doc.components.Locator.withLocator
 import doc.macros.Source
 import org.scalajs.dom.window
+import io.github.nguyenyou.webawesome.laminar.*
 
 case class DialogView()
     extends ExampleView(
@@ -15,7 +16,6 @@ case class DialogView()
     Demo(
       center = true,
       content = Source.annotate {
-        import io.github.nguyenyou.webawesome.laminar.{Dialog, Button}
         val openEvent = EventBus[Boolean]()
         div(
           Dialog(
@@ -44,7 +44,6 @@ case class DialogView()
         description =
           "Headers are enabled by default. To render a dialog without a header, add the without-header attribute.",
         content = Source.annotate {
-          import io.github.nguyenyou.webawesome.laminar.{Dialog, Button}
           val openEvent = EventBus[Boolean]()
           div(
             Dialog(
@@ -71,7 +70,6 @@ case class DialogView()
         description =
           "Footers can be used to display titles and more. Use the footer slot to add a footer to the dialog.",
         content = Source.annotate {
-          import io.github.nguyenyou.webawesome.laminar.{Dialog, Button}
           val openEvent = EventBus[Boolean]()
           div(
             Dialog(
@@ -96,7 +94,6 @@ case class DialogView()
         | You can open and close dialogs with JavaScript by toggling the `open` attribute, but you can also do it declaratively. Add the `data-dialog="open id"` to any button on the page, where `id` is the ID of the dialog you want to open.
         """.stripMargin,
         content = Source.annotate {
-          import io.github.nguyenyou.webawesome.laminar.{Dialog, Button}
           div(
             Dialog(
               _.id    := "dialog-opening", // [!code highlight]
@@ -113,7 +110,6 @@ case class DialogView()
         | Similarly, you can add `_.closeDialog` to a button _inside_ of a dialog to tell it to close.
         """.stripMargin,
         content = Source.annotate {
-          import io.github.nguyenyou.webawesome.laminar.{Dialog, Button}
           div(
             Dialog(
               _.id    := "dialog-dismiss", // [!code highlight]
@@ -137,7 +133,6 @@ case class DialogView()
         | Just use the `--width` custom property to set the dialog's width.
         """.stripMargin,
         content = Source.annotate {
-          import io.github.nguyenyou.webawesome.laminar.{Dialog, Button}
           div(
             Dialog(
               _.id    := "dialog-custom-width",
@@ -164,7 +159,6 @@ case class DialogView()
         | By design, a dialog's height will never exceed that of the viewport. As such, dialogs will not scroll with the page ensuring the header and footer are always accessible to the user.
         """.stripMargin,
         content = Source.annotate {
-          import io.github.nguyenyou.webawesome.laminar.{Dialog, Button}
           div(
             Dialog(
               _.id    := "dialog-scrolling",
@@ -197,7 +191,6 @@ case class DialogView()
         | The header shows a functional close button by default. You can use the `header-actions` slot to add additional [buttons](/docs/components/button) if needed.
         """.stripMargin,
         content = Source.annotate {
-          import io.github.nguyenyou.webawesome.laminar.{Dialog, Button, Icon}
           div(
             Dialog(
               _.id    := "dialog-header-actions",
@@ -236,7 +229,6 @@ case class DialogView()
         | If you want the dialog to close when the user clicks on the overlay, add the `light-dismiss` attribute.
         """.stripMargin,
         content = Source.annotate {
-          import io.github.nguyenyou.webawesome.laminar.{Dialog, Button}
           div(
             Dialog(
               _.id           := "dialog-light-dismiss",
@@ -265,7 +257,6 @@ case class DialogView()
         | You can use `event.detail.source` to determine which element triggered the request to close. This example prevents the dialog from closing when the overlay is clicked, but allows the close button or [[Escape]] to dismiss it.
         """.stripMargin,
         content = Source.annotate {
-          import io.github.nguyenyou.webawesome.laminar.{Dialog, Button}
 
           val closeDialogButton = Button(
             _.variant := "brand",
@@ -297,7 +288,6 @@ case class DialogView()
         | To give focus to a specific element when the dialog opens, use the `autofocus` attribute.
         """.stripMargin,
         content = Source.annotate {
-          import io.github.nguyenyou.webawesome.laminar.{Dialog, Button, Input}
           div(
             Dialog(
               _.id    := "dialog-focus",

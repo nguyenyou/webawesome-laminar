@@ -17,8 +17,6 @@ case class ColorPickerView()
     Demo(
       center = true,
       content = Source.annotate {
-        import io.github.nguyenyou.webawesome.laminar.ColorPicker
-
         ColorPicker(_.label := "Select a color")()
       }
     )().withLocator

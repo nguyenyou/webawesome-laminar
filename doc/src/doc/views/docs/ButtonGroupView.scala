@@ -16,8 +16,6 @@ case class ButtonGroupView()
     Demo(
       center = true,
       content = Source.annotate {
-        import io.github.nguyenyou.webawesome.laminar.{Button, ButtonGroup}
-
         ButtonGroup(_.label := "Alignment")(
           Button()("Left"),
           Button()("Center"),

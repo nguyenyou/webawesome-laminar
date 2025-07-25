@@ -16,8 +16,6 @@ case class AvatarView()
     Demo(
       center = true,
       content = Source.annotate {
-        import io.github.nguyenyou.webawesome.laminar.Avatar
-
         Avatar(_.label := "User avatar")()
       }
     )().withLocator

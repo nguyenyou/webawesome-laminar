@@ -4,6 +4,7 @@ import com.raquo.laminar.api.L.*
 import doc.components.Demo
 import doc.components.Locator.withLocator
 import doc.macros.Source
+import io.github.nguyenyou.webawesome.laminar.*
 
 case class DrawerView()
     extends ExampleView(
@@ -13,9 +14,7 @@ case class DrawerView()
   def playground: HtmlElement = {
     Demo(
       center = true,
-      content = Source.annotate {
-        import io.github.nguyenyou.webawesome.laminar.{Drawer, Button}
-
+      content = Source.annotate { 
         val openVar = Var(false)
 
         div(

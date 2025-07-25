@@ -123,7 +123,7 @@ val componentsPages: List[Page] = List(
   SplitPanelPage,
   SkeletonPage,
   CardPage
-).sortBy(_.getClass.getSimpleName.slice(0, 2))
+).sortBy(_.getClass.getSimpleName.slice(0, 3))
 
 // Step 4: Map URL to Page
 object AppRouter

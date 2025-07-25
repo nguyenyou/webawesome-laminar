@@ -17,8 +17,6 @@ case class ButtonView()
     Demo(
       center = true,
       content = Source.annotate {
-        import io.github.nguyenyou.webawesome.laminar.Button
-
         Button()("Button")
       }
     )().withLocator

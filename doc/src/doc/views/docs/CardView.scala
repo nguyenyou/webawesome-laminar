@@ -16,8 +16,6 @@ case class CardView()
   def playground: HtmlElement = {
     Demo(
       content = Source.annotate {
-        import io.github.nguyenyou.webawesome.laminar.*
-
         Card(
           _.slots.footer(
             div(

@@ -17,8 +17,6 @@ case class CalloutView()
     Demo(
       center = true,
       content = Source.annotate {
-        import io.github.nguyenyou.webawesome.laminar.{Callout, Icon}
-
         Callout(
           _.slots.icon(Icon(_.name := "circle-info")())
         )(

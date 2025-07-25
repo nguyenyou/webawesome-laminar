@@ -16,8 +16,6 @@ case class DetailsView()
   def playground: HtmlElement = {
     Demo(
       content = Source.annotate {
-        import io.github.nguyenyou.webawesome.laminar.*
-
         Details(
           _.summary := "Toggle Details"
         )(
