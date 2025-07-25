@@ -23,7 +23,7 @@ case class DialogView()
             _.slots.footer(
               Button(
                 _.variant := "brand",
-                _.closeDialog(true)
+                _.closeDialog
               )("Close")
             )
           )("Lorem ipsum dolor sit amet, consectetur adipiscing elit."),
@@ -40,19 +40,20 @@ case class DialogView()
       // Dialog without Header
       Demo(
         title = "Dialog without Header",
-        description = "Headers are enabled by default. To render a dialog without a header, add the without-header attribute.",
+        description =
+          "Headers are enabled by default. To render a dialog without a header, add the without-header attribute.",
         content = Source.annotate {
           import io.github.nguyenyou.webawesome.laminar.{Dialog, Button}
           val openEvent = EventBus[Boolean]()
           div(
             Dialog(
               _.open <-- openEvent,
-              _.label := "Dialog",
+              _.label         := "Dialog",
               _.withoutHeader := true,
               _.slots.footer(
                 Button(
                   _.variant := "brand",
-                  _.closeDialog(true)
+                  _.closeDialog
                 )("Close")
               )
             )("Lorem ipsum dolor sit amet, consectetur adipiscing elit."),
@@ -66,7 +67,8 @@ case class DialogView()
       // Dialog with Footer
       Demo(
         title = "Dialog with Footer",
-        description = "Footers can be used to display titles and more. Use the footer slot to add a footer to the dialog.",
+        description =
+          "Footers can be used to display titles and more. Use the footer slot to add a footer to the dialog.",
         content = Source.annotate {
           import io.github.nguyenyou.webawesome.laminar.{Dialog, Button}
           val openEvent = EventBus[Boolean]()
@@ -77,7 +79,7 @@ case class DialogView()
               _.slots.footer(
                 Button(
                   _.variant := "brand",
-                  _.closeDialog(true)
+                  _.closeDialog
                 )("Close")
               )
             )("Lorem ipsum dolor sit amet, consectetur adipiscing elit."),
@@ -87,7 +89,6 @@ case class DialogView()
           )
         }
       )(),
-
       Demo(
         title = "Opening and Closing Dialogs Declaratively",
         description = """
@@ -97,15 +98,15 @@ case class DialogView()
           import io.github.nguyenyou.webawesome.laminar.{Dialog, Button}
           div(
             Dialog(
-              _.id := "dialog-opening", // [!code highlight]
-              _.label := "Dialog",
+              _.id    := "dialog-opening", // [!code highlight]
+              _.label := "Dialog"
             )("Lorem ipsum dolor sit amet, consectetur adipiscing elit."),
             Button(
-              _.openDialog("dialog-opening") // [!code highlight]
+              _.dialog("dialog-opening") // [!code highlight]
             )("Open Dialog")
           )
         }
-      )(),
+      )()
     )
   }
 }

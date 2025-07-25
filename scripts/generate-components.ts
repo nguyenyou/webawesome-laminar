@@ -492,6 +492,14 @@ async function generateComponent(component: ComponentIR): Promise<string> {
           writer.blankLine();
         }
       });
+
+      // Extra attributes
+      if(component.tagName === 'wa-button') {
+        writer.writeLine('lazy val closeDialog = L.dataAttr("dialog") := "close"');
+        writer.blankLine();
+        writer.writeLine('def dialog(id: String) = L.dataAttr("dialog") := s"open $id"');
+        writer.blankLine();
+      }
     }
 
     // Slots section
