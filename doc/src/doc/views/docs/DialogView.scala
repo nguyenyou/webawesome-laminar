@@ -106,6 +106,56 @@ case class DialogView()
             )("Open Dialog")
           )
         }
+      )(),
+      Demo(
+        description = """
+        | Similarly, you can add `_.closeDialog` to a button _inside_ of a dialog to tell it to close.
+        """.stripMargin,
+        content = Source.annotate {
+          import io.github.nguyenyou.webawesome.laminar.{Dialog, Button}
+          div(
+            Dialog(
+              _.id    := "dialog-dismiss", // [!code highlight]
+              _.label := "Dialog",
+              _.slots.footer(
+                Button(
+                  _.variant := "brand",
+                  _.closeDialog // [!code highlight]
+                )("Close")
+              )
+            )("Lorem ipsum dolor sit amet, consectetur adipiscing elit."),
+            Button(
+              _.dialog("dialog-dismiss") // [!code highlight]
+            )("Open Dialog")
+          )
+        }
+      )(),
+      Demo(
+        title = "Custom Width",
+        description = """
+        | Just use the `--width` custom property to set the dialog's width.
+        """.stripMargin,
+        content = Source.annotate {
+          import io.github.nguyenyou.webawesome.laminar.{Dialog, Button}
+          div(
+            Dialog(
+              _.id    := "dialog-custom-width",
+              _.label := "Dialog",
+              _.slots.footer(
+                Button(
+                  _.variant := "brand",
+                  _.closeDialog
+                )("Close")
+              )
+            )(
+              styleAttr := "--width: 50vw;", // [!code highlight]
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+            ),
+            Button(
+              _.dialog("dialog-custom-width")
+            )("Open Dialog")
+          )
+        }
       )()
     )
   }
