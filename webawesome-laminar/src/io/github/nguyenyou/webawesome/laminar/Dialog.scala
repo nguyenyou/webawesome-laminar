@@ -3,8 +3,9 @@ package io.github.nguyenyou.webawesome.laminar
 import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.nodes.Slot
-import org.scalajs.dom
 import io.github.nguyenyou.webawesome.laminar.events.*
+import org.scalajs.dom
+
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 

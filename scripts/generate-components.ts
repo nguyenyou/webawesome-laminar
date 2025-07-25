@@ -416,6 +416,8 @@ async function generateComponent(component: ComponentIR): Promise<string> {
           const eventName = toCamelCase(event.name.replace('wa-', 'on-'));
           if(event.eventType === 'WaSelectEvent') {
             writer.writeLine(`lazy val ${eventName}: EventProp[dom.Event & EventDetail[WaSelectEvent]] = eventProp("${event.name}")`);
+          }  else if(event.eventType === 'WaHideEvent') {
+            writer.writeLine(`lazy val ${eventName}: EventProp[dom.Event & EventDetail[WaHideEvent]] = eventProp("${event.name}")`);
           } else {
             writer.writeLine(`lazy val ${eventName}: EventProp[dom.Event] = eventProp("${event.name}")`);
           }
