@@ -290,7 +290,36 @@ case class DialogView()
             )("Open Dialog")
           )
         }
-      )()
+      )(),
+         Demo(
+        title = "Setting Initial Focus",
+        description = """
+        | To give focus to a specific element when the dialog opens, use the `autofocus` attribute.
+        """.stripMargin,
+        content = Source.annotate {
+          import io.github.nguyenyou.webawesome.laminar.{Dialog, Button, Input}
+          div(
+            Dialog(
+              _.id           := "dialog-focus",
+              _.label        := "Dialog",
+              _.slots.footer(
+                Button(
+                  _.variant := "brand",
+                  _.closeDialog
+                )("Close")
+              )
+            )(
+              Input(
+                _.autofocus := true, // [!code highlight]
+                _.placeholder := "I will have focus when the dialog is opened"
+              )()
+            ),
+            Button(
+              _.dialog("dialog-focus")
+            )("Open Dialog")
+          )
+        }
+      )(),
     )
   }
 }
