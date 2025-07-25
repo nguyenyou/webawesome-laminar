@@ -49,10 +49,10 @@ case class ButtonView()
             div(
               tw.flex.flexWrap.gap2,
               // <show>
-              Button(_.appearance := "accent", _.variant := "neutral")("Accent"),
-              Button(_.appearance := "filled outlined", _.variant := "neutral")("Filled + Outlined"),
-              Button(_.appearance := "filled", _.variant := "neutral")("Filled"),
-              Button(_.appearance := "outlined", _.variant := "neutral")(
+              Button(_.appearance.accent, _.variant.neutral)("Accent"),
+              Button(_.appearance.filledOutlined, _.variant.neutral)("Filled + Outlined"),
+              Button(_.appearance.filled, _.variant.neutral)("Filled"),
+              Button(_.appearance.outlined, _.variant.neutral)(
                 "Outlined"
               ),
               Button(_.appearance := "plain", _.variant := "neutral")("Plain")
@@ -61,7 +61,7 @@ case class ButtonView()
             div(
               tw.flex.flexWrap.gap2,
               // <show>
-              Button(_.appearance := "accent", _.variant := "brand")("Accent"),
+              Button(_.appearance.accent, _.variant.brand)("Accent"),
               Button(_.appearance := "filled outlined", _.variant := "brand")("Filled + Outlined"),
               Button(_.appearance := "filled", _.variant := "brand")("Filled"),
               Button(_.appearance := "outlined", _.variant := "brand")(

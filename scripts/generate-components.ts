@@ -1,4 +1,4 @@
-import { readFile, writeFile, CONSTANTS } from './utils.js';
+import { readFile, writeFile, CONSTANTS, paths } from './utils.js';
 import CodeBlockWriter from 'code-block-writer';
 import path from 'path';
 import fs from 'fs/promises';
@@ -680,7 +680,7 @@ export async function generateAllComponents(): Promise<{ componentsGenerated: nu
   console.log(`Generating ${components.length} components...`);
   
   // Ensure output directory exists
-  const outputDir = 'webawesome-laminar/src/io/github/nguyenyou/webawesome/laminar';
+  const outputDir = paths.webawesomeLaminarDir;
   await fs.mkdir(outputDir, { recursive: true });
   
   let generatedCount = 0;
