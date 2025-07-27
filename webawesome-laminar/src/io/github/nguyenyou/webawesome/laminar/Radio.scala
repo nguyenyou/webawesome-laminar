@@ -6,6 +6,7 @@ import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.keys.HtmlProp
 import com.raquo.laminar.nodes.Slot
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
+import io.github.nguyenyou.webawesome.laminar.events.*
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -30,10 +31,10 @@ object Radio extends WebComponent("wa-radio") {
   // -- Events --
 
   /** Emitted when the control loses focus. */
-  lazy val onBlur: EventProp[dom.Event] = eventProp("blur")
+  lazy val onBlur: EventProp[CustomEvent[Ref]] = eventProp("blur")
 
   /** Emitted when the control gains focus. */
-  lazy val onFocus: EventProp[dom.Event] = eventProp("focus")
+  lazy val onFocus: EventProp[CustomEvent[Ref]] = eventProp("focus")
 
   // -- Props --
 

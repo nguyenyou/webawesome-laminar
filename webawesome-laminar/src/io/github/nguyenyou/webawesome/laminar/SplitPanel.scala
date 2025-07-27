@@ -4,6 +4,7 @@ import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.nodes.Slot
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
+import io.github.nguyenyou.webawesome.laminar.events.*
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -28,7 +29,7 @@ object SplitPanel extends WebComponent("wa-split-panel") {
   // -- Events --
 
   /** Emitted when the divider's position changes. */
-  lazy val onReposition: EventProp[dom.Event] = eventProp("wa-reposition")
+  lazy val onReposition: EventProp[CustomEvent[Ref]] = eventProp("wa-reposition")
 
   // -- Attributes --
 

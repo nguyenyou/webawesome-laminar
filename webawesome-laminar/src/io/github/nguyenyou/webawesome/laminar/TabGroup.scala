@@ -4,6 +4,7 @@ import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.nodes.Slot
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
+import io.github.nguyenyou.webawesome.laminar.events.*
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -28,10 +29,10 @@ object TabGroup extends WebComponent("wa-tab-group") {
   // -- Events --
 
   /** Emitted when a tab is shown. */
-  lazy val onTabShow: EventProp[dom.Event] = eventProp("wa-tab-show")
+  lazy val onTabShow: EventProp[CustomEvent[Ref]] = eventProp("wa-tab-show")
 
   /** Emitted when a tab is hidden. */
-  lazy val onTabHide: EventProp[dom.Event] = eventProp("wa-tab-hide")
+  lazy val onTabHide: EventProp[CustomEvent[Ref]] = eventProp("wa-tab-hide")
 
   // -- Attributes --
 

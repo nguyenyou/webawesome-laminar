@@ -3,6 +3,7 @@ package io.github.nguyenyou.webawesome.laminar
 import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.nodes.Slot
+import io.github.nguyenyou.webawesome.laminar.events.*
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -27,7 +28,7 @@ object Comparison extends WebComponent("wa-comparison") {
   // -- Events --
 
   /** Emitted when the position changes. */
-  lazy val onChange: EventProp[dom.Event] = eventProp("change")
+  lazy val onChange: EventProp[CustomEvent[Ref]] = eventProp("change")
 
   // -- Attributes --
 

@@ -29,7 +29,7 @@ object MutationObserver extends WebComponent("wa-mutation-observer") {
   // -- Events --
 
   /** Emitted when a mutation occurs. */
-  lazy val onMutation: EventProp[dom.Event & EventDetail[WaMutationEvent]] = eventProp("wa-mutation")
+  lazy val onMutation: EventProp[CustomEvent[Ref] & EventDetail[WaMutationEvent]] = eventProp("wa-mutation")
 
   // -- Attributes --
 

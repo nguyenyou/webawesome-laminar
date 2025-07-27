@@ -4,6 +4,7 @@ import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.nodes.Slot
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
+import io.github.nguyenyou.webawesome.laminar.events.*
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -26,7 +27,7 @@ object Carousel extends WebComponent("wa-carousel") {
   // -- Events --
 
   /** Emitted when the active slide changes. */
-  lazy val onSlideChange: EventProp[dom.Event] = eventProp("wa-slide-change")
+  lazy val onSlideChange: EventProp[CustomEvent[Ref]] = eventProp("wa-slide-change")
 
   // -- Attributes --
 

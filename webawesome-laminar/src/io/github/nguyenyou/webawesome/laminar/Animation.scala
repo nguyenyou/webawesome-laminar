@@ -3,6 +3,7 @@ package io.github.nguyenyou.webawesome.laminar
 import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.nodes.Slot
+import io.github.nguyenyou.webawesome.laminar.events.*
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -28,13 +29,13 @@ object Animation extends WebComponent("wa-animation") {
   // -- Events --
 
   /** Emitted when the animation is canceled. */
-  lazy val onCancel: EventProp[dom.Event] = eventProp("wa-cancel")
+  lazy val onCancel: EventProp[CustomEvent[Ref]] = eventProp("wa-cancel")
 
   /** Emitted when the animation finishes. */
-  lazy val onFinish: EventProp[dom.Event] = eventProp("wa-finish")
+  lazy val onFinish: EventProp[CustomEvent[Ref]] = eventProp("wa-finish")
 
   /** Emitted when the animation starts or restarts. */
-  lazy val onStart: EventProp[dom.Event] = eventProp("wa-start")
+  lazy val onStart: EventProp[CustomEvent[Ref]] = eventProp("wa-start")
 
   // -- Attributes --
 

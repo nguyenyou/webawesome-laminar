@@ -3,6 +3,7 @@ package io.github.nguyenyou.webawesome.laminar
 import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.nodes.Slot
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
+import io.github.nguyenyou.webawesome.laminar.events.*
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -28,7 +29,7 @@ object Tree extends WebComponent("wa-tree") {
   // -- Events --
 
   /** Emitted when a tree item is selected or deselected. */
-  lazy val onSelectionChange: EventProp[dom.Event] = eventProp("wa-selection-change")
+  lazy val onSelectionChange: EventProp[CustomEvent[Ref]] = eventProp("wa-selection-change")
 
   // -- Attributes --
 

@@ -3,6 +3,7 @@ package io.github.nguyenyou.webawesome.laminar
 import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.nodes.Slot
+import io.github.nguyenyou.webawesome.laminar.events.*
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -27,10 +28,10 @@ object AnimatedImage extends WebComponent("wa-animated-image") {
   // -- Events --
 
   /** Emitted when the image loads successfully. */
-  lazy val onLoad: EventProp[dom.Event] = eventProp("wa-load")
+  lazy val onLoad: EventProp[CustomEvent[Ref]] = eventProp("wa-load")
 
   /** Emitted when the image fails to load. */
-  lazy val onError: EventProp[dom.Event] = eventProp("wa-error")
+  lazy val onError: EventProp[CustomEvent[Ref]] = eventProp("wa-error")
 
   // -- Attributes --
 

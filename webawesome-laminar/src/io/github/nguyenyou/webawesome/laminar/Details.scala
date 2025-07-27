@@ -29,16 +29,16 @@ object Details extends WebComponent("wa-details") {
   // -- Events --
 
   /** Emitted when the details opens. */
-  lazy val onShow: EventProp[dom.Event] = eventProp("wa-show")
+  lazy val onShow: EventProp[CustomEvent[Ref]] = eventProp("wa-show")
 
   /** Emitted after the details opens and all animations are complete. */
-  lazy val onAfterShow: EventProp[dom.Event] = eventProp("wa-after-show")
+  lazy val onAfterShow: EventProp[CustomEvent[Ref]] = eventProp("wa-after-show")
 
   /** Emitted when the details closes. */
-  lazy val onHide: EventProp[dom.Event & EventDetail[WaHideEvent]] = eventProp("wa-hide")
+  lazy val onHide: EventProp[CustomEvent[Ref] & EventDetail[WaHideEvent]] = eventProp("wa-hide")
 
   /** Emitted after the details closes and all animations are complete. */
-  lazy val onAfterHide: EventProp[dom.Event] = eventProp("wa-after-hide")
+  lazy val onAfterHide: EventProp[CustomEvent[Ref]] = eventProp("wa-after-hide")
 
   // -- Attributes --
 

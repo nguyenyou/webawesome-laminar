@@ -237,12 +237,12 @@ case class PopupView()
         description =
           "Use the `distance` attribute to change the distance between the popup and its anchor. A positive value will move the popup further away and a negative value will move it closer.",
         content = Source.annotate {
-          val distanceVar = Var("0")
+          val distanceVar = Var(0.0)
 
           div(
             Popup(
               _.placement := "top",
-              // _.distance <-- distanceVar.signal.map(_.toDouble),
+              _.distance <-- distanceVar,
               _.active := true,
               _.slots.anchor(
                 span(
@@ -266,10 +266,8 @@ case class PopupView()
               _.min   := -50,
               _.max   := 50,
               _.step  := 1,
-              _.controlled(
-                _.value <-- distanceVar,
-                _.onInput.mapToValue --> distanceVar
-              )
+              _.value <-- distanceVar.signal.map(_.toString),
+              _.onInput.map(_.target.value) --> distanceVar
             )(
               maxWidth := "260px"
             )

@@ -3,6 +3,7 @@ package io.github.nguyenyou.webawesome.laminar
 import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
+import io.github.nguyenyou.webawesome.laminar.events.*
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -27,10 +28,10 @@ object Include extends WebComponent("wa-include") {
   // -- Events --
 
   /** Emitted when the included file is loaded. */
-  lazy val onLoad: EventProp[dom.Event] = eventProp("wa-load")
+  lazy val onLoad: EventProp[CustomEvent[Ref]] = eventProp("wa-load")
 
   /** Emitted when the included file fails to load due to an error. */
-  lazy val onError: EventProp[dom.Event] = eventProp("wa-error")
+  lazy val onError: EventProp[CustomEvent[Ref]] = eventProp("wa-error")
 
   // -- Attributes --
 

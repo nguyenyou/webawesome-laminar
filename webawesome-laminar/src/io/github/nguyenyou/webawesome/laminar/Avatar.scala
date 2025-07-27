@@ -4,6 +4,7 @@ import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.nodes.Slot
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
+import io.github.nguyenyou.webawesome.laminar.events.*
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -30,7 +31,7 @@ object Avatar extends WebComponent("wa-avatar") {
   /** The image could not be loaded. This may because of an invalid URL, a temporary network condition, or some unknown
     * cause.
     */
-  lazy val onError: EventProp[dom.Event] = eventProp("wa-error")
+  lazy val onError: EventProp[CustomEvent[Ref]] = eventProp("wa-error")
 
   // -- Attributes --
 

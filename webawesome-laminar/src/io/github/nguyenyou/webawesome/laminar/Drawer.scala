@@ -29,20 +29,20 @@ object Drawer extends WebComponent("wa-drawer") {
   // -- Events --
 
   /** Emitted when the drawer opens. */
-  lazy val onShow: EventProp[dom.Event] = eventProp("wa-show")
+  lazy val onShow: EventProp[CustomEvent[Ref]] = eventProp("wa-show")
 
   /** Emitted after the drawer opens and all animations are complete. */
-  lazy val onAfterShow: EventProp[dom.Event] = eventProp("wa-after-show")
+  lazy val onAfterShow: EventProp[CustomEvent[Ref]] = eventProp("wa-after-show")
 
   /** Emitted when the drawer is requesting to close. Calling `event.preventDefault()` will prevent the drawer from
     * closing. You can inspect `event.detail.source` to see which element caused the drawer to close. If the source is
     * the drawer element itself, the user has pressed [[Escape]] or the drawer has been closed programmatically. Avoid
     * using this unless closing the drawer will result in destructive behavior such as data loss.
     */
-  lazy val onHide: EventProp[dom.Event & EventDetail[WaHideEvent]] = eventProp("wa-hide")
+  lazy val onHide: EventProp[CustomEvent[Ref] & EventDetail[WaHideEvent]] = eventProp("wa-hide")
 
   /** Emitted after the drawer closes and all animations are complete. */
-  lazy val onAfterHide: EventProp[dom.Event] = eventProp("wa-after-hide")
+  lazy val onAfterHide: EventProp[CustomEvent[Ref]] = eventProp("wa-after-hide")
 
   // -- Attributes --
 

@@ -3,6 +3,7 @@ package io.github.nguyenyou.webawesome.laminar
 import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.nodes.Slot
+import io.github.nguyenyou.webawesome.laminar.events.*
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -28,7 +29,7 @@ object ResizeObserver extends WebComponent("wa-resize-observer") {
   // -- Events --
 
   /** Emitted when the element is resized. */
-  lazy val onResize: EventProp[dom.Event] = eventProp("wa-resize")
+  lazy val onResize: EventProp[CustomEvent[Ref]] = eventProp("wa-resize")
 
   // -- Attributes --
 

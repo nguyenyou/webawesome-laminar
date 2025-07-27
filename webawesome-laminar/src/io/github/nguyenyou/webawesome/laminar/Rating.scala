@@ -5,6 +5,7 @@ import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.keys.HtmlProp
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
+import io.github.nguyenyou.webawesome.laminar.events.*
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -29,13 +30,13 @@ object Rating extends WebComponent("wa-rating") {
   // -- Events --
 
   /** Emitted when the rating's value changes. */
-  lazy val onChange: EventProp[dom.Event] = eventProp("change")
+  lazy val onChange: EventProp[CustomEvent[Ref]] = eventProp("change")
 
   /** Emitted when the user hovers over a value. The `phase` property indicates when hovering starts, moves to a new
     * value, or ends. The `value` property tells what the rating's value would be if the user were to commit to the
     * hovered value.
     */
-  lazy val onHover: EventProp[dom.Event] = eventProp("wa-hover")
+  lazy val onHover: EventProp[CustomEvent[Ref]] = eventProp("wa-hover")
 
   // -- Props --
 

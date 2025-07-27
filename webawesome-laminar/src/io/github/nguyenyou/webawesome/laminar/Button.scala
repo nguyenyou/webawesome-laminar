@@ -6,6 +6,7 @@ import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.keys.HtmlProp
 import com.raquo.laminar.nodes.Slot
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
+import io.github.nguyenyou.webawesome.laminar.events.*
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -30,13 +31,13 @@ object Button extends WebComponent("wa-button") {
   // -- Events --
 
   /** Emitted when the button loses focus. */
-  lazy val onBlur: EventProp[dom.Event] = eventProp("blur")
+  lazy val onBlur: EventProp[CustomEvent[Ref]] = eventProp("blur")
 
   /** Emitted when the button gains focus. */
-  lazy val onFocus: EventProp[dom.Event] = eventProp("focus")
+  lazy val onFocus: EventProp[CustomEvent[Ref]] = eventProp("focus")
 
   /** Emitted when the form control has been checked for validity and its constraints aren't satisfied. */
-  lazy val onInvalid: EventProp[dom.Event] = eventProp("wa-invalid")
+  lazy val onInvalid: EventProp[CustomEvent[Ref]] = eventProp("wa-invalid")
 
   // -- Props --
 

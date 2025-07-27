@@ -7,6 +7,7 @@ import com.raquo.laminar.keys.HtmlProp
 import com.raquo.laminar.nodes.Slot
 import com.raquo.laminar.tags.CustomHtmlTag
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
+import io.github.nguyenyou.webawesome.laminar.events.*
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -37,19 +38,19 @@ object Checkbox extends WebComponent("wa-checkbox") with ControlledInput {
   // -- Events --
 
   /** Emitted when the checked state changes. */
-  lazy val onChange: EventProp[dom.Event] = eventProp("change")
+  lazy val onChange: EventProp[CustomEvent[Ref]] = eventProp("change")
 
   /** Emitted when the checkbox loses focus. */
-  lazy val onBlur: EventProp[dom.Event] = eventProp("blur")
+  lazy val onBlur: EventProp[CustomEvent[Ref]] = eventProp("blur")
 
   /** Emitted when the checkbox gains focus. */
-  lazy val onFocus: EventProp[dom.Event] = eventProp("focus")
+  lazy val onFocus: EventProp[CustomEvent[Ref]] = eventProp("focus")
 
   /** Emitted when the checkbox receives input. */
-  lazy val onInput: EventProp[dom.Event] = eventProp("input")
+  lazy val onInput: EventProp[CustomEvent[Ref]] = eventProp("input")
 
   /** Emitted when the form control has been checked for validity and its constraints aren't satisfied. */
-  lazy val onInvalid: EventProp[dom.Event] = eventProp("wa-invalid")
+  lazy val onInvalid: EventProp[CustomEvent[Ref]] = eventProp("wa-invalid")
 
   // -- Props --
 

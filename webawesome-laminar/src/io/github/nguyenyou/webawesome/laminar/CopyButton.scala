@@ -6,6 +6,7 @@ import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.keys.HtmlProp
 import com.raquo.laminar.nodes.Slot
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
+import io.github.nguyenyou.webawesome.laminar.events.*
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -30,10 +31,10 @@ object CopyButton extends WebComponent("wa-copy-button") {
   // -- Events --
 
   /** Emitted when the data has been copied. */
-  lazy val onCopy: EventProp[dom.Event] = eventProp("wa-copy")
+  lazy val onCopy: EventProp[CustomEvent[Ref]] = eventProp("wa-copy")
 
   /** Emitted when the data could not be copied. */
-  lazy val onError: EventProp[dom.Event] = eventProp("wa-error")
+  lazy val onError: EventProp[CustomEvent[Ref]] = eventProp("wa-error")
 
   // -- Props --
 

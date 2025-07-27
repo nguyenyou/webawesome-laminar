@@ -14,20 +14,14 @@ case class SliderView()
   def playground: HtmlElement = {
     Demo(
       content = Source.annotate {
+        val valueVar = Var(3.0)
+
         Slider(
           _.label := "Number of cats",
           _.hint  := "Limit six per household",
           _.name  := "value",
-          _.value := "3",
-          _.onChange.map { v =>
-            org.scalajs.dom.console.log(v)
-          } --> Observer.empty,
-          _.onInput.map { v =>
-            org.scalajs.dom.console.log(v)
-            org.scalajs.dom.console.log(v.target)
-            val x = v.target.asInstanceOf[Slider.Ref].value // scalafix: ok
-            org.scalajs.dom.console.log(x)
-          } --> Observer.empty,
+          _.value <-- valueVar.signal.map(_.toString),
+          _.onInput.map(_.target.value) --> valueVar,
           _.min         := 0,
           _.max         := 6,
           _.withMarkers := true,

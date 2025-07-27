@@ -4,6 +4,7 @@ import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.nodes.Slot
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
+import io.github.nguyenyou.webawesome.laminar.events.*
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -28,7 +29,7 @@ object Tag extends WebComponent("wa-tag") {
   // -- Events --
 
   /** Emitted when the remove button is activated. */
-  lazy val onRemove: EventProp[dom.Event] = eventProp("wa-remove")
+  lazy val onRemove: EventProp[CustomEvent[Ref]] = eventProp("wa-remove")
 
   // -- Attributes --
 

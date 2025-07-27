@@ -4,6 +4,7 @@ import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.nodes.Slot
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
+import io.github.nguyenyou.webawesome.laminar.events.*
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -28,10 +29,10 @@ object ZoomableFrame extends WebComponent("wa-zoomable-frame") {
   // -- Events --
 
   /** Emitted when the internal iframe when it finishes loading. */
-  lazy val onLoad: EventProp[dom.Event] = eventProp("load")
+  lazy val onLoad: EventProp[CustomEvent[Ref]] = eventProp("load")
 
   /** Emitted from the internal iframe when it fails to load. */
-  lazy val onError: EventProp[dom.Event] = eventProp("error")
+  lazy val onError: EventProp[CustomEvent[Ref]] = eventProp("error")
 
   // -- Attributes --
 

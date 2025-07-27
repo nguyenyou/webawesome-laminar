@@ -38,27 +38,27 @@ object ColorPicker extends WebComponent("wa-color-picker") with ControlledInput 
   // -- Events --
 
   /** Emitted when the color picker's value changes. */
-  lazy val onChange: EventProp[dom.Event] = eventProp("change")
+  lazy val onChange: EventProp[CustomEvent[Ref]] = eventProp("change")
 
   /** Emitted when the color picker receives input. */
-  lazy val onInput: EventProp[dom.Event] = eventProp("input")
+  lazy val onInput: EventProp[CustomEvent[Ref]] = eventProp("input")
 
-  lazy val onShow: EventProp[dom.Event] = eventProp("wa-show")
+  lazy val onShow: EventProp[CustomEvent[Ref]] = eventProp("wa-show")
 
-  lazy val onAfterShow: EventProp[dom.Event] = eventProp("wa-after-show")
+  lazy val onAfterShow: EventProp[CustomEvent[Ref]] = eventProp("wa-after-show")
 
-  lazy val onHide: EventProp[dom.Event & EventDetail[WaHideEvent]] = eventProp("wa-hide")
+  lazy val onHide: EventProp[CustomEvent[Ref] & EventDetail[WaHideEvent]] = eventProp("wa-hide")
 
-  lazy val onAfterHide: EventProp[dom.Event] = eventProp("wa-after-hide")
+  lazy val onAfterHide: EventProp[CustomEvent[Ref]] = eventProp("wa-after-hide")
 
   /** Emitted when the color picker loses focus. */
-  lazy val onBlur: EventProp[dom.Event] = eventProp("blur")
+  lazy val onBlur: EventProp[CustomEvent[Ref]] = eventProp("blur")
 
   /** Emitted when the color picker receives focus. */
-  lazy val onFocus: EventProp[dom.Event] = eventProp("focus")
+  lazy val onFocus: EventProp[CustomEvent[Ref]] = eventProp("focus")
 
   /** Emitted when the form control has been checked for validity and its constraints aren't satisfied. */
-  lazy val onInvalid: EventProp[dom.Event] = eventProp("wa-invalid")
+  lazy val onInvalid: EventProp[CustomEvent[Ref]] = eventProp("wa-invalid")
 
   // -- Props --
 

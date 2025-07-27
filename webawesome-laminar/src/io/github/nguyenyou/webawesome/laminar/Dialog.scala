@@ -28,20 +28,20 @@ object Dialog extends WebComponent("wa-dialog") {
   // -- Events --
 
   /** Emitted when the dialog opens. */
-  lazy val onShow: EventProp[dom.Event] = eventProp("wa-show")
+  lazy val onShow: EventProp[CustomEvent[Ref]] = eventProp("wa-show")
 
   /** Emitted after the dialog opens and all animations are complete. */
-  lazy val onAfterShow: EventProp[dom.Event] = eventProp("wa-after-show")
+  lazy val onAfterShow: EventProp[CustomEvent[Ref]] = eventProp("wa-after-show")
 
   /** Emitted when the dialog is requested to close. Calling `event.preventDefault()` will prevent the dialog from
     * closing. You can inspect `event.detail.source` to see which element caused the dialog to close. If the source is
     * the dialog element itself, the user has pressed [[Escape]] or the dialog has been closed programmatically. Avoid
     * using this unless closing the dialog will result in destructive behavior such as data loss.
     */
-  lazy val onHide: EventProp[dom.Event & EventDetail[WaHideEvent]] = eventProp("wa-hide")
+  lazy val onHide: EventProp[CustomEvent[Ref] & EventDetail[WaHideEvent]] = eventProp("wa-hide")
 
   /** Emitted after the dialog closes and all animations are complete. */
-  lazy val onAfterHide: EventProp[dom.Event] = eventProp("wa-after-hide")
+  lazy val onAfterHide: EventProp[CustomEvent[Ref]] = eventProp("wa-after-hide")
 
   // -- Attributes --
 
