@@ -442,7 +442,7 @@ async function generateComponent(component: ComponentIR): Promise<string> {
             writer.writeLine(`/** ${event.description} */`);
           }
           const eventName = toCamelCase(event.name.startsWith('wa-') ? event.name.replace('wa-', 'on-') : `on-${event.name}`);
-          const supportedEvents = ['WaSelectEvent', 'WaHideEvent', 'WaMutationEvent', 'WaHoverEvent'];
+          const supportedEvents = ['WaSelectEvent', 'WaHideEvent', 'WaMutationEvent', 'WaHoverEvent', 'WaResizeEvent'];
           if(supportedEvents.includes(event.eventType || '')) {
             writer.writeLine(`lazy val ${eventName}: EventProp[CustomEvent[Ref] & EventDetail[${event.eventType}]] = eventProp("${event.name}")`);
           } else {

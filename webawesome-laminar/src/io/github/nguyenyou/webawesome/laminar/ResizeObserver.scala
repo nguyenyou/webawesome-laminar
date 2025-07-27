@@ -29,7 +29,7 @@ object ResizeObserver extends WebComponent("wa-resize-observer") {
   // -- Events --
 
   /** Emitted when the element is resized. */
-  lazy val onResize: EventProp[CustomEvent[Ref]] = eventProp("wa-resize")
+  lazy val onResize: EventProp[CustomEvent[Ref] & EventDetail[WaResizeEvent]] = eventProp("wa-resize")
 
   // -- Attributes --
 

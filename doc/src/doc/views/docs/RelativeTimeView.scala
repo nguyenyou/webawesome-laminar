@@ -7,6 +7,7 @@ import doc.components.Markdown
 import doc.libs.scalawind.*
 import doc.macros.Source
 import io.github.nguyenyou.webawesome.laminar.*
+
 import scala.scalajs.js
 
 case class RelativeTimeView()
