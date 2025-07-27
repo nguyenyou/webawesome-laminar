@@ -5,6 +5,7 @@ import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.keys.HtmlProp
 import com.raquo.laminar.nodes.Slot
+import com.raquo.laminar.tags.CustomHtmlTag
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import org.scalajs.dom
 
@@ -17,7 +18,7 @@ import scala.scalajs.js.annotation.JSImport
   *
   * [[https://webawesome.com/docs/components/range WebAwesome docs]]
   */
-object Slider extends WebComponent("wa-slider") {
+object Slider extends WebComponent("wa-slider") with ControlledInput {
 
   @JSImport("@awesome.me/webawesome/dist/components/slider/slider.js", JSImport.Namespace)
   @js.native
@@ -26,6 +27,12 @@ object Slider extends WebComponent("wa-slider") {
   type Self = Slider.type
 
   type Ref = WaSliderComponent & dom.HTMLElement
+
+  // -- Controlled Component --
+
+  override protected lazy val tag: CustomHtmlTag[Ref] = {
+    tagWithControlledInput(value, initial = "", onInput)
+  }
 
   // -- Events --
 
@@ -277,6 +284,8 @@ object Slider extends WebComponent("wa-slider") {
 
     /** Draws a tooltip above the thumb when the control has focus or is dragged. */
     var withTooltip: Boolean
+
+    var value: Double
 
     /** Sets focus to the slider. */
     def focus(): js.Any = js.native

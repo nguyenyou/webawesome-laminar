@@ -331,6 +331,7 @@ function getAllowedControlKeys(tagName: string): { propName: string; eventPropNa
     case "wa-select": return { propName: "value", eventPropName: "onInput", initialValueRepr: emptyStringRepr };
     case "wa-switch": return { propName: "checked", eventPropName: "onInput", initialValueRepr: falseRepr };
     case "wa-textarea": return { propName: "value", eventPropName: "onInput", initialValueRepr: emptyStringRepr };
+    case "wa-slider": return { propName: "value", eventPropName: "onInput", initialValueRepr: emptyStringRepr };
     default: return null;
   }
 }
@@ -640,6 +641,12 @@ async function generateComponent(component: ComponentIR): Promise<string> {
         writer.writeLine(`var ${escapeScalaKeyword(fieldName)}: ${jsType}`);
         writer.blankLine();
       });
+
+      // Extra attributes
+      if(component.tagName === "wa-slider") {
+        writer.writeLine('var value: Double');
+        writer.blankLine();
+      }
 
       // Add public methods
       const publicMethods = component.methods.filter(m => m.public && m.name !== 'constructor');
