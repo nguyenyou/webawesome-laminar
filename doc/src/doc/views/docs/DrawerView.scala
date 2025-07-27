@@ -385,7 +385,7 @@ case class DrawerView()
               )
             )(
               Input(
-                _.autofocus := true,
+                _.autofocus   := true,
                 _.placeholder := "I will have focus when the drawer is opened"
               )()
             ),

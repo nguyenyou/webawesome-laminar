@@ -18,7 +18,7 @@ abstract class WebComponent(tagName: String) extends CommonTypes { this: Self =>
   type Self
 
   lazy val id: HtmlProp[String, String] = idAttr
-  lazy val style: HtmlAttr[String] = styleAttr
+  lazy val style: HtmlAttr[String]      = styleAttr
 
   /** Override this with JSImport-ed object of the component. The import must register the component's custom element in
     * the DOM.

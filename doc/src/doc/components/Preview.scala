@@ -49,7 +49,7 @@ object Preview {
     val titleId = title.toLowerCase.replace(" ", "-")
 
     div(
-      tw.spaceY2.mb4,
+      tw.spaceY2.mb4.mt2,
       when(title.nonEmpty)(
         h3(
           tw.fontSemibold.textLg.group,

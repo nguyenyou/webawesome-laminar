@@ -336,6 +336,7 @@ case class Tailwind() {
   def `h_0.5`                         = this
   def `_bottom_1.5`                   = this
   def spaceY2                         = this
+  def my4                             = this
   def h9                              = this
   def transitionColors                = this
   def m0                              = this
@@ -360,6 +361,7 @@ case class Tailwind() {
   def p3                              = this
   def mb4                             = this
   def mb2                             = this
+  def pt2                             = this
   def fontSemibold                    = this
   def textLg                          = this
   def textXl                          = this
