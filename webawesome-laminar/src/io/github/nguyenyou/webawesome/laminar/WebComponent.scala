@@ -30,7 +30,7 @@ abstract class WebComponent(tagName: String) extends CommonTypes { this: Self =>
 
   type Ref <: dom.HTMLElement
 
-  private type Element = ReactiveHtmlElement[Ref]
+  type Element = ReactiveHtmlElement[Ref]
 
   type ModFunction = Self => Modifier[Element]
 

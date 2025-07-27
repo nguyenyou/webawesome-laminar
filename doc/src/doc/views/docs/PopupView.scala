@@ -14,13 +14,22 @@ case class PopupView()
     ) {
   def playground: HtmlElement = {
     val placementVar = Var("top")
+    val distanceVar  = Var("0")
+    val skiddingVar  = Var("0")
+    val activeVar    = Var(true)
+    val arrowVar     = Var(false)
 
     Demo(
       content = Source.annotate {
         div(
+          padding.px(40),
           Popup(
             _.placement <-- placementVar,
-            _.active    := true,
+            _.distance <-- distanceVar.signal.map(_.toDouble),
+            _.skidding <-- skiddingVar.signal.map(_.toDouble),
+            _.active <-- activeVar,
+            _.arrow <-- arrowVar,
+            _.style := "--arrow-color: var(--wa-color-brand-fill-loud)",
             _.slots.anchor(
               span(
                 display.inlineBlock,
@@ -43,8 +52,10 @@ case class PopupView()
             Select(
               _.label := "Placement",
               _.name  := "placement",
-              _.value <-- placementVar,
-              _.onChange.mapToValue --> placementVar
+              _.controlled(
+                _.value <-- placementVar,
+                _.onInput.mapToValue --> placementVar
+              )
             )(
               UOption(_.value := "top")("top"),
               UOption(_.value := "top-start")("top-start"),
@@ -62,17 +73,38 @@ case class PopupView()
             Input(
               _.label  := "Distance",
               _.`type` := "number",
-              _.value  := "0"
-            )(
-              nameAttr := "distance"
-            ),
+              _.name   := "distance",
+              _.controlled(
+                _.value <-- distanceVar,
+                _.onInput.mapToValue --> distanceVar
+              )
+            )(),
             Input(
               _.label  := "Skidding",
               _.`type` := "number",
-              _.value  := "0"
-            )(
-              nameAttr := "skidding"
-            )
+              _.name   := "skidding",
+              _.controlled(
+                _.value <-- skiddingVar,
+                _.onInput.mapToValue --> skiddingVar
+              )
+            )()
+          ),
+          div(
+            tw.flex.gap2.mt2,
+            Switch(
+              _.name := "active",
+              _.controlled(
+                _.checked <-- activeVar,
+                _.onInput.mapToChecked --> activeVar
+              )
+            )("Active"),
+            Switch(
+              _.name := "arrow",
+              _.controlled(
+                _.checked <-- arrowVar,
+                _.onInput.mapToChecked --> arrowVar
+              )
+            )("Arrow")
           )
         )
       }

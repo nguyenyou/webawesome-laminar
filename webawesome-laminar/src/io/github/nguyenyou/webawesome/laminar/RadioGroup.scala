@@ -18,7 +18,7 @@ import scala.scalajs.js.annotation.JSImport
   *
   * [[https://webawesome.com/docs/components/radio-group WebAwesome docs]]
   */
-object RadioGroup extends WebComponent("wa-radio-group") {
+object RadioGroup extends WebComponent("wa-radio-group") with ControlledInput {
 
   @JSImport("@awesome.me/webawesome/dist/components/radio-group/radio-group.js", JSImport.Namespace)
   @js.native

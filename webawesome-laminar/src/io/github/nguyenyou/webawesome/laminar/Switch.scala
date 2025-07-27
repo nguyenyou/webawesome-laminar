@@ -18,7 +18,7 @@ import scala.scalajs.js.annotation.JSImport
   *
   * [[https://webawesome.com/docs/components/switch WebAwesome docs]]
   */
-object Switch extends WebComponent("wa-switch") {
+object Switch extends WebComponent("wa-switch") with ControlledInput {
 
   @JSImport("@awesome.me/webawesome/dist/components/switch/switch.js", JSImport.Namespace)
   @js.native

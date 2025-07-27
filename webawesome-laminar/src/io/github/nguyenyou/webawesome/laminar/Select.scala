@@ -19,7 +19,7 @@ import scala.scalajs.js.annotation.JSImport
   *
   * [[https://webawesome.com/docs/components/select WebAwesome docs]]
   */
-object Select extends WebComponent("wa-select") {
+object Select extends WebComponent("wa-select") with ControlledInput {
 
   @JSImport("@awesome.me/webawesome/dist/components/select/select.js", JSImport.Namespace)
   @js.native

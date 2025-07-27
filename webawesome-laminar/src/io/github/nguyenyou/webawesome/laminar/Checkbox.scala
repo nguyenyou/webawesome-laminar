@@ -18,7 +18,7 @@ import scala.scalajs.js.annotation.JSImport
   *
   * [[https://webawesome.com/docs/components/checkbox WebAwesome docs]]
   */
-object Checkbox extends WebComponent("wa-checkbox") {
+object Checkbox extends WebComponent("wa-checkbox") with ControlledInput {
 
   @JSImport("@awesome.me/webawesome/dist/components/checkbox/checkbox.js", JSImport.Namespace)
   @js.native

@@ -18,7 +18,7 @@ import scala.scalajs.js.annotation.JSImport
   *
   * [[https://webawesome.com/docs/components/textarea WebAwesome docs]]
   */
-object Textarea extends WebComponent("wa-textarea") {
+object Textarea extends WebComponent("wa-textarea") with ControlledInput {
 
   @JSImport("@awesome.me/webawesome/dist/components/textarea/textarea.js", JSImport.Namespace)
   @js.native

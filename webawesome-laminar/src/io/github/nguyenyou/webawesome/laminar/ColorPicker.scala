@@ -19,7 +19,7 @@ import scala.scalajs.js.annotation.JSImport
   *
   * [[https://webawesome.com/docs/components/color-picker WebAwesome docs]]
   */
-object ColorPicker extends WebComponent("wa-color-picker") {
+object ColorPicker extends WebComponent("wa-color-picker") with ControlledInput {
 
   @JSImport("@awesome.me/webawesome/dist/components/color-picker/color-picker.js", JSImport.Namespace)
   @js.native

@@ -398,8 +398,10 @@ async function generateComponent(component: ComponentIR): Promise<string> {
     writer.writeLine(scalaDoc);
   }
 
+  const allowedControlKeys = getAllowedControlKeys(component.tagName);
+
   // Object declaration
-  writer.write(`object ${className} extends WebComponent("${component.tagName}")`).block(() => {
+  writer.write(`object ${className} extends WebComponent("${component.tagName}")${allowedControlKeys ? ` with ControlledInput` : ''}`).block(() => {
     writer.blankLine();
 
     // JS Import
@@ -418,7 +420,7 @@ async function generateComponent(component: ComponentIR): Promise<string> {
     // All union types are now in SharedTypes.scala - no component-specific types needed
 
     // Tag override for controlled components
-    const allowedControlKeys = getAllowedControlKeys(component.tagName);
+    
     if (allowedControlKeys) {
       writer.writeLine('// -- Controlled Component --');
       writer.blankLine();
@@ -527,10 +529,17 @@ async function generateComponent(component: ComponentIR): Promise<string> {
       });
 
       // Extra attributes
+      
       if(component.tagName === 'wa-button') {
+        writer.writeLine('// -- Custom Attributes --');
         writer.writeLine('lazy val close: CustomKeys.Close.type = CustomKeys.Close');
         writer.blankLine();
         writer.writeLine('lazy val open: CustomKeys.Open.type = CustomKeys.Open');
+        writer.blankLine();
+      }
+      if(component.tagName === "wa-input") {
+        writer.writeLine('// -- Custom Attributes --');
+        writer.writeLine('lazy val name: HtmlAttr[String] = stringAttr("name")');
         writer.blankLine();
       }
     }

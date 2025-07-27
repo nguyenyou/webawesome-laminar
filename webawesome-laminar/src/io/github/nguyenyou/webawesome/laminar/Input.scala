@@ -18,7 +18,7 @@ import scala.scalajs.js.annotation.JSImport
   *
   * [[https://webawesome.com/docs/components/input WebAwesome docs]]
   */
-object Input extends WebComponent("wa-input") {
+object Input extends WebComponent("wa-input") with ControlledInput {
 
   @JSImport("@awesome.me/webawesome/dist/components/input/input.js", JSImport.Namespace)
   @js.native
@@ -169,6 +169,9 @@ object Input extends WebComponent("wa-input") {
 
   /** Used for SSR. Will determine if the SSRed component will have the hint slot rendered on initial paint. */
   lazy val withHint: HtmlAttr[Boolean] = boolAttr("with-hint")
+
+  // -- Custom Attributes --
+  lazy val name: HtmlAttr[String] = stringAttr("name")
 
   // -- Slots --
 
