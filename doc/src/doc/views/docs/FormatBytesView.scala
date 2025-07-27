@@ -3,10 +3,9 @@ package doc.views.docs
 import com.raquo.laminar.api.L.*
 import doc.components.Demo
 import doc.components.Locator.withLocator
+import doc.libs.scalawind.*
 import doc.macros.Source
 import io.github.nguyenyou.webawesome.laminar.*
-import doc.components.Markdown
-import doc.libs.scalawind.*
 
 case class FormatBytesView()
     extends ExampleView(
@@ -23,7 +22,7 @@ case class FormatBytesView()
           Input(
             _.`type` := "number",
             _.value <-- valueVar,
-            _.label := "Number to Format",
+            _.label := "Number to Format"
           )(
             onInput.mapToValue --> valueVar,
             maxWidth.px(180)
@@ -75,7 +74,7 @@ case class FormatBytesView()
             // <show>
             FormatBytes(_.value := "1200000", _.display.long)(),
             FormatBytes(_.value := "1200000", _.display.short)(),
-            FormatBytes(_.value := "1200000", _.display.narrow)(),
+            FormatBytes(_.value := "1200000", _.display.narrow)()
             // </show>
           )
         }

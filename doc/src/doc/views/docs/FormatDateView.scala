@@ -3,10 +3,10 @@ package doc.views.docs
 import com.raquo.laminar.api.L.*
 import doc.components.Demo
 import doc.components.Locator.withLocator
-import doc.macros.Source
-import io.github.nguyenyou.webawesome.laminar.*
 import doc.components.Markdown
 import doc.libs.scalawind.*
+import doc.macros.Source
+import io.github.nguyenyou.webawesome.laminar.*
 
 case class FormatDateView()
     extends ExampleView(
@@ -44,7 +44,8 @@ case class FormatDateView()
       ),
       Demo(
         title = "Date & Time Formatting",
-        description = "Formatting options are based on those found in the [`Intl.DateTimeFormat` API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat). When formatting options are provided, the date/time will be formatted according to those values. When no formatting options are provided, a localized, numeric date will be displayed instead.",
+        description =
+          "Formatting options are based on those found in the [`Intl.DateTimeFormat` API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat). When formatting options are provided, the date/time will be formatted according to those values. When no formatting options are provided, a localized, numeric date will be displayed instead.",
         content = Source.annotate {
           div(
             tw.flex.flexCol.gap2,
@@ -61,7 +62,8 @@ case class FormatDateView()
       )().withLocator,
       Demo(
         title = "Hour Formatting",
-        description = "By default, the browser will determine whether to use 12-hour or 24-hour time. To force one or the other, set the `hour-format` attribute to `12` or `24`.",
+        description =
+          "By default, the browser will determine whether to use 12-hour or 24-hour time. To force one or the other, set the `hour-format` attribute to `12` or `24`.",
         content = Source.annotate {
           div(
             tw.flex.flexCol.gap2,
@@ -80,7 +82,10 @@ case class FormatDateView()
             tw.flex.flexCol.gap2,
             // <show>
             div("UTC: ", FormatDate(_.hour := "numeric", _.minute := "numeric", _.timeZone := "UTC")()),
-            div("Pacific: ", FormatDate(_.hour := "numeric", _.minute := "numeric", _.timeZone := "America/Los_Angeles")()),
+            div(
+              "Pacific: ",
+              FormatDate(_.hour := "numeric", _.minute := "numeric", _.timeZone := "America/Los_Angeles")()
+            ),
             div("Tokyo: ", FormatDate(_.hour := "numeric", _.minute := "numeric", _.timeZone := "Asia/Tokyo")())
             // </show>
           )
@@ -88,4 +93,4 @@ case class FormatDateView()
       )().withLocator
     )
   }
-} 
+}

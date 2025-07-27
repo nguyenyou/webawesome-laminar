@@ -19,7 +19,7 @@ case class InputView()
       }
     )().withLocator
   }
-  
+
   def component: HtmlElement = {
     div(
       Demo(
@@ -32,7 +32,6 @@ case class InputView()
           )()
         }
       )().withLocator,
-      
       Demo(
         title = "Hint",
         description =
@@ -44,47 +43,40 @@ case class InputView()
           )()
         }
       )().withLocator,
-      
       Demo(
         title = "Placeholders",
-        description =
-          "Use the `placeholder` attribute to add a placeholder.",
+        description = "Use the `placeholder` attribute to add a placeholder.",
         content = Source.annotate {
           Input(
             _.placeholder := "Type something"
           )()
         }
       )().withLocator,
-      
       Demo(
         title = "Clearable",
-        description =
-          "Add the `with-clear` attribute to add a clear button when the input has content.",
+        description = "Add the `with-clear` attribute to add a clear button when the input has content.",
         content = Source.annotate {
           Input(
             _.placeholder := "Clearable",
-            _.withClear := true
+            _.withClear   := true
           )()
         }
       )().withLocator,
-      
       Demo(
         title = "Toggle Password",
         description =
           "Add the `password-toggle` attribute to add a toggle button that will show the password when activated.",
         content = Source.annotate {
           Input(
-            _.typ := "password",
-            _.placeholder := "Password Toggle",
+            _.typ            := "password",
+            _.placeholder    := "Password Toggle",
             _.passwordToggle := true
           )()
         }
       )().withLocator,
-      
       Demo(
         title = "Appearance",
-        description =
-          "Use the `appearance` attribute to change the input's visual appearance.",
+        description = "Use the `appearance` attribute to change the input's visual appearance.",
         content = Source.annotate {
           Input(
             _.placeholder := "Type something",
@@ -92,11 +84,9 @@ case class InputView()
           )()
         }
       )().withLocator,
-      
       Demo(
         title = "Disabled",
-        description =
-          "Use the `disabled` attribute to disable an input.",
+        description = "Use the `disabled` attribute to disable an input.",
         content = Source.annotate {
           Input(
             _.placeholder := "Disabled"
@@ -105,82 +95,75 @@ case class InputView()
           )
         }
       )().withLocator,
-      
       Demo(
         title = "Sizes",
-        description =
-          "Use the `size` attribute to change an input's size.",
+        description = "Use the `size` attribute to change an input's size.",
         content = Source.annotate {
           div(
             Input(
               _.placeholder := "Small",
-              _.size := "small"
+              _.size        := "small"
             )(),
             br(),
             Input(
               _.placeholder := "Medium",
-              _.size := "medium"
+              _.size        := "medium"
             )(),
             br(),
             Input(
               _.placeholder := "Large",
-              _.size := "large"
+              _.size        := "large"
             )()
           )
         }
       )().withLocator,
-      
       Demo(
         title = "Pill",
-        description =
-          "Use the `pill` attribute to give inputs rounded edges.",
+        description = "Use the `pill` attribute to give inputs rounded edges.",
         content = Source.annotate {
           div(
             Input(
               _.placeholder := "Small",
-              _.size := "small",
-              _.pill := true
+              _.size        := "small",
+              _.pill        := true
             )(),
             br(),
             Input(
               _.placeholder := "Medium",
-              _.size := "medium",
-              _.pill := true
+              _.size        := "medium",
+              _.pill        := true
             )(),
             br(),
             Input(
               _.placeholder := "Large",
-              _.size := "large",
-              _.pill := true
+              _.size        := "large",
+              _.pill        := true
             )()
           )
         }
       )().withLocator,
-      
       Demo(
         title = "Input Types",
-        description =
-          "The `type` attribute controls the type of input the browser renders.",
+        description = "The `type` attribute controls the type of input the browser renders.",
         content = Source.annotate {
           div(
             Input(
-              _.typ := "email",
+              _.typ         := "email",
               _.placeholder := "Email"
             )(),
             br(),
             Input(
-              _.typ := "number",
+              _.typ         := "number",
               _.placeholder := "Number"
             )(),
             br(),
             Input(
-              _.typ := "date",
+              _.typ         := "date",
               _.placeholder := "Date"
             )()
           )
         }
       )().withLocator,
-      
       Demo(
         title = "Start & End Decorations",
         description =
@@ -189,28 +172,27 @@ case class InputView()
           div(
             Input(
               _.placeholder := "Small",
-              _.size := "small",
+              _.size        := "small",
               _.slots.start(Icon(_.name := "house")()),
               _.slots.end(Icon(_.name := "comment")())
             )(),
             br(),
             Input(
               _.placeholder := "Medium",
-              _.size := "medium",
+              _.size        := "medium",
               _.slots.start(Icon(_.name := "house")()),
               _.slots.end(Icon(_.name := "comment")())
             )(),
             br(),
             Input(
               _.placeholder := "Large",
-              _.size := "large",
+              _.size        := "large",
               _.slots.start(Icon(_.name := "house")()),
               _.slots.end(Icon(_.name := "comment")())
             )()
           )
         }
       )().withLocator,
-      
       Demo(
         title = "Customizing Label Position",
         description =
@@ -246,16 +228,16 @@ case class InputView()
             """),
             Input(
               _.label := "Name",
-              _.hint := "Enter your name"
+              _.hint  := "Enter your name"
             )(),
             Input(
               _.label := "Email",
-              _.typ := "email",
-              _.hint := "Enter your email"
+              _.typ   := "email",
+              _.hint  := "Enter your email"
             )(),
             Textarea(
               _.label := "Bio",
-              _.hint := "Tell us something about yourself"
+              _.hint  := "Tell us something about yourself"
             )()
           )
         }

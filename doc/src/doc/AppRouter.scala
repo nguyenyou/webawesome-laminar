@@ -20,41 +20,42 @@ object Pages {
     def path: String = if (url.isEmpty) title.replaceAll(" ", "-").toLowerCase else url
   }
 
-  case object HomePage         extends Page("Home")
-  case object NotFoundPage     extends Page("Not Found")
-  case object AvatarPage       extends Page("Avatar")
-  case object BreadcrumbPage   extends Page("Breadcrumb")
-  case object ButtonPage       extends Page("Button")
-  case object ButtonGroupPage  extends Page("Button Group")
-  case object BadgePage        extends Page("Badge")
-  case object CardPage         extends Page("Card")
-  case object CheckboxPage     extends Page("Checkbox")
-  case object ColorPickerPage  extends Page("Color Picker")
-  case object CalloutPage      extends Page("Callout")
-  case object DropdownPage     extends Page("Dropdown")
-  case object DialogPage       extends Page("Dialog")
-  case object DrawerPage       extends Page("Drawer")
-  case object DetailsPage      extends Page("Details")
-  case object DividerPage      extends Page("Divider")
-  case object FormatBytesPage  extends Page("Format Bytes")
-  case object FormatDatePage   extends Page("Format Date")
-  case object FormatNumberPage extends Page("Format Number")
-  case object ProgressBarPage  extends Page("Progress Bar")
-  case object ProgressRingPage extends Page("Progress Ring")
-  case object InputPage        extends Page("Input")
-  case object RadioGroupPage   extends Page("RadioGroup")
-  case object SelectPage       extends Page("Select")
-  case object SwitchPage       extends Page("Switch")
-  case object SpinnerPage      extends Page("Spinner")
-  case object SliderPage       extends Page("Slider")
-  case object SkeletonPage     extends Page("Skeleton")
-  case object TagPage          extends Page("Tag")
-  case object PopoverPage      extends Page("Popover")
-  case object TreePage         extends Page("Tree")
-  case object TextAreaPage     extends Page("TextArea")
-  case object TabGroupPage     extends Page("TabGroup")
-  case object SplitPanelPage   extends Page("Split Panel")
-  case object TooltipPage      extends Page("Tooltip")
+  case object HomePage             extends Page("Home")
+  case object NotFoundPage         extends Page("Not Found")
+  case object AvatarPage           extends Page("Avatar")
+  case object BreadcrumbPage       extends Page("Breadcrumb")
+  case object ButtonPage           extends Page("Button")
+  case object ButtonGroupPage      extends Page("Button Group")
+  case object BadgePage            extends Page("Badge")
+  case object CardPage             extends Page("Card")
+  case object CheckboxPage         extends Page("Checkbox")
+  case object ColorPickerPage      extends Page("Color Picker")
+  case object CalloutPage          extends Page("Callout")
+  case object DropdownPage         extends Page("Dropdown")
+  case object DialogPage           extends Page("Dialog")
+  case object DrawerPage           extends Page("Drawer")
+  case object DetailsPage          extends Page("Details")
+  case object DividerPage          extends Page("Divider")
+  case object FormatBytesPage      extends Page("Format Bytes")
+  case object FormatDatePage       extends Page("Format Date")
+  case object FormatNumberPage     extends Page("Format Number")
+  case object MutationObserverPage extends Page("Mutation Observer")
+  case object ProgressBarPage      extends Page("Progress Bar")
+  case object ProgressRingPage     extends Page("Progress Ring")
+  case object InputPage            extends Page("Input")
+  case object RadioGroupPage       extends Page("RadioGroup")
+  case object SelectPage           extends Page("Select")
+  case object SwitchPage           extends Page("Switch")
+  case object SpinnerPage          extends Page("Spinner")
+  case object SliderPage           extends Page("Slider")
+  case object SkeletonPage         extends Page("Skeleton")
+  case object TagPage              extends Page("Tag")
+  case object PopoverPage          extends Page("Popover")
+  case object TreePage             extends Page("Tree")
+  case object TextAreaPage         extends Page("TextArea")
+  case object TabGroupPage         extends Page("TabGroup")
+  case object SplitPanelPage       extends Page("Split Panel")
+  case object TooltipPage          extends Page("Tooltip")
   given pageCodec: Codec[Page] = deriveAllCodecs
 }
 
@@ -84,6 +85,7 @@ val pageViews: Signal[HtmlElement] = AppRouter.currentPageSignal.splitMatchOne
   .handleValue(FormatBytesPage)(FormatBytesView()())
   .handleValue(FormatDatePage)(FormatDateView()())
   .handleValue(FormatNumberPage)(FormatNumberView()())
+  .handleValue(MutationObserverPage)(MutationObserverView()())
   .handleValue(ProgressBarPage)(ProgressBarView()())
   .handleValue(ProgressRingPage)(ProgressRingView()())
   .handleValue(NotFoundPage)(div("Not Found"))
@@ -125,6 +127,7 @@ val componentsPages: List[Page] = List(
   FormatBytesPage,
   FormatDatePage,
   FormatNumberPage,
+  MutationObserverPage,
   ProgressBarPage,
   ProgressRingPage,
   SliderPage,
@@ -239,6 +242,12 @@ object AppRouter
           .static(
             FormatNumberPage,
             root / FormatNumberPage.path / endOfSegments,
+            "/docs"
+          ),
+        Route
+          .static(
+            MutationObserverPage,
+            root / MutationObserverPage.path / endOfSegments,
             "/docs"
           ),
         Route

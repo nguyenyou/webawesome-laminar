@@ -3,6 +3,7 @@ package io.github.nguyenyou.webawesome.laminar
 import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.nodes.Slot
+import io.github.nguyenyou.webawesome.laminar.events.*
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -28,7 +29,7 @@ object MutationObserver extends WebComponent("wa-mutation-observer") {
   // -- Events --
 
   /** Emitted when a mutation occurs. */
-  lazy val onMutation: EventProp[dom.Event] = eventProp("wa-mutation")
+  lazy val onMutation: EventProp[dom.Event & EventDetail[WaMutationEvent]] = eventProp("wa-mutation")
 
   // -- Attributes --
 

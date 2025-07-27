@@ -3,10 +3,10 @@ package doc.views.docs
 import com.raquo.laminar.api.L.*
 import doc.components.Demo
 import doc.components.Locator.withLocator
-import doc.macros.Source
-import io.github.nguyenyou.webawesome.laminar.*
 import doc.components.Markdown
 import doc.libs.scalawind.*
+import doc.macros.Source
+import io.github.nguyenyou.webawesome.laminar.*
 
 case class DropdownView()
     extends ExampleView(
@@ -332,7 +332,9 @@ case class DropdownView()
             Divider()(),
             DropdownItem(
               _.slots.submenu(DropdownItem(_.`type` := "checkbox", _.value := "compress")("Compress files")),
-              _.slots.submenu(DropdownItem(_.`type` := "checkbox", _.checked := true, _.value := "metadata")("Include metadata")),
+              _.slots.submenu(
+                DropdownItem(_.`type` := "checkbox", _.checked := true, _.value := "metadata")("Include metadata")
+              ),
               _.slots.submenu(DropdownItem(_.`type` := "checkbox", _.value := "password")("Password protect"))
             )("Options")
           )

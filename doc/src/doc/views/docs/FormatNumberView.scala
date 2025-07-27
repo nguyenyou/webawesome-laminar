@@ -3,10 +3,10 @@ package doc.views.docs
 import com.raquo.laminar.api.L.*
 import doc.components.Demo
 import doc.components.Locator.withLocator
-import doc.macros.Source
-import io.github.nguyenyou.webawesome.laminar.*
 import doc.components.Markdown
 import doc.libs.scalawind.*
+import doc.macros.Source
+import io.github.nguyenyou.webawesome.laminar.*
 
 case class FormatNumberView()
     extends ExampleView(
@@ -15,7 +15,7 @@ case class FormatNumberView()
     ) {
   def playground: HtmlElement = {
     val valueVar = Var("1000")
-    
+
     Demo(
       content = Source.annotate {
         div(
@@ -61,7 +61,8 @@ case class FormatNumberView()
       )().withLocator,
       Demo(
         title = "Currency",
-        description = "To format a number as a monetary value, set the `type` attribute to `currency` and set the `currency` attribute to the desired ISO 4217 currency code.",
+        description =
+          "To format a number as a monetary value, set the `type` attribute to `currency` and set the `currency` attribute to the desired ISO 4217 currency code.",
         content = Source.annotate {
           div(
             tw.flex.flexCol.gap2,
@@ -85,7 +86,10 @@ case class FormatNumberView()
             div("Default: ", FormatNumber(_.value := "3.14159")()),
             div("Min 2 digits: ", FormatNumber(_.value := "3.14159", _.minimumFractionDigits := 2.0)()),
             div("Max 2 digits: ", FormatNumber(_.value := "3.14159", _.maximumFractionDigits := 2.0)()),
-            div("Min 0, Max 0: ", FormatNumber(_.value := "3.14159", _.minimumFractionDigits := 0.0, _.maximumFractionDigits := 0.0)())
+            div(
+              "Min 0, Max 0: ",
+              FormatNumber(_.value := "3.14159", _.minimumFractionDigits := 0.0, _.maximumFractionDigits := 0.0)()
+            )
             // </show>
           )
         }
@@ -105,4 +109,4 @@ case class FormatNumberView()
       )().withLocator
     )
   }
-} 
+}

@@ -443,6 +443,8 @@ async function generateComponent(component: ComponentIR): Promise<string> {
             writer.writeLine(`lazy val ${eventName}: EventProp[dom.Event & EventDetail[WaSelectEvent]] = eventProp("${event.name}")`);
           }  else if(event.eventType === 'WaHideEvent') {
             writer.writeLine(`lazy val ${eventName}: EventProp[dom.Event & EventDetail[WaHideEvent]] = eventProp("${event.name}")`);
+          } else if(event.eventType === 'WaMutationEvent') {
+            writer.writeLine(`lazy val ${eventName}: EventProp[dom.Event & EventDetail[WaMutationEvent]] = eventProp("${event.name}")`);
           } else {
             writer.writeLine(`lazy val ${eventName}: EventProp[dom.Event] = eventProp("${event.name}")`);
           }
