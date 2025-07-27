@@ -36,6 +36,7 @@ object Pages {
   case object DrawerPage       extends Page("Drawer")
   case object DetailsPage      extends Page("Details")
   case object DividerPage      extends Page("Divider")
+  case object FormatBytesPage  extends Page("Format Bytes")
   case object ProgressBarPage  extends Page("Progress Bar")
   case object ProgressRingPage extends Page("Progress Ring")
   case object InputPage        extends Page("Input")
@@ -78,6 +79,7 @@ val pageViews: Signal[HtmlElement] = AppRouter.currentPageSignal.splitMatchOne
   .handleValue(InputPage)(InputView()())
   .handleValue(DetailsPage)(DetailsView()())
   .handleValue(DividerPage)(DividerView()())
+  .handleValue(FormatBytesPage)(FormatBytesView()())
   .handleValue(ProgressBarPage)(ProgressBarView()())
   .handleValue(ProgressRingPage)(ProgressRingView()())
   .handleValue(NotFoundPage)(div("Not Found"))
@@ -116,6 +118,7 @@ val componentsPages: List[Page] = List(
   TagPage,
   DetailsPage,
   DividerPage,
+  FormatBytesPage,
   ProgressBarPage,
   ProgressRingPage,
   SliderPage,
@@ -212,6 +215,12 @@ object AppRouter
           .static(
             DividerPage,
             root / DividerPage.path / endOfSegments,
+            "/docs"
+          ),
+        Route
+          .static(
+            FormatBytesPage,
+            root / FormatBytesPage.path / endOfSegments,
             "/docs"
           ),
         Route
