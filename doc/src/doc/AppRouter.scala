@@ -40,6 +40,7 @@ object Pages {
   case object FormatDatePage       extends Page("Format Date")
   case object FormatNumberPage     extends Page("Format Number")
   case object MutationObserverPage extends Page("Mutation Observer")
+  case object RelativeTimePage     extends Page("Relative Time")
   case object ProgressBarPage      extends Page("Progress Bar")
   case object ProgressRingPage     extends Page("Progress Ring")
   case object PopupPage            extends Page("Popup")
@@ -90,6 +91,7 @@ val pageViews: Signal[HtmlElement] = AppRouter.currentPageSignal.splitMatchOne
   .handleValue(FormatDatePage)(FormatDateView()())
   .handleValue(FormatNumberPage)(FormatNumberView()())
   .handleValue(MutationObserverPage)(MutationObserverView()())
+  .handleValue(RelativeTimePage)(RelativeTimeView()())
   .handleValue(ProgressBarPage)(ProgressBarView()())
   .handleValue(ProgressRingPage)(ProgressRingView()())
   .handleValue(QrCodePage)(QrCodeView()())
@@ -135,6 +137,7 @@ val componentsPages: List[Page] = List(
   FormatDatePage,
   FormatNumberPage,
   MutationObserverPage,
+  RelativeTimePage,
   ProgressBarPage,
   ProgressRingPage,
   QrCodePage,
@@ -257,6 +260,12 @@ object AppRouter
           .static(
             MutationObserverPage,
             root / MutationObserverPage.path / endOfSegments,
+            "/docs/components"
+          ),
+        Route
+          .static(
+            RelativeTimePage,
+            root / RelativeTimePage.path / endOfSegments,
             "/docs/components"
           ),
         Route
