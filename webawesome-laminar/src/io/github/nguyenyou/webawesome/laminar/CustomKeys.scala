@@ -11,6 +11,8 @@ object CustomKeys {
     lazy val dialog: HtmlAttrSetter[String] = setter("dialog")
 
     lazy val drawer: HtmlAttrSetter[String] = setter("drawer")
+
+    lazy val popover: HtmlAttrSetter[String] = setter("popover")
   }
 
   object Open {
