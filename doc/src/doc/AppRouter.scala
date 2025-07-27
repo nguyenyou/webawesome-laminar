@@ -146,205 +146,205 @@ object AppRouter
           .static(
             ButtonPage,
             root / ButtonPage.path / endOfSegments,
-            "/docs"
+            "/docs/components"
           ),
         Route
           .static(
             ButtonGroupPage,
             root / ButtonGroupPage.path / endOfSegments,
-            "/docs"
+            "/docs/components"
           ),
         Route
           .static(
             BadgePage,
             root / BadgePage.path / endOfSegments,
-            "/docs"
+            "/docs/components"
           ),
         Route
           .static(
             CalloutPage,
             root / CalloutPage.path / endOfSegments,
-            "/docs"
+            "/docs/components"
           ),
         Route
           .static(
             AvatarPage,
             root / AvatarPage.path / endOfSegments,
-            "/docs"
+            "/docs/components"
           ),
         Route
           .static(
             BreadcrumbPage,
             root / BreadcrumbPage.path / endOfSegments,
-            "/docs"
+            "/docs/components"
           ),
         Route
           .static(
             CardPage,
             root / CardPage.path / endOfSegments,
-            "/docs"
+            "/docs/components"
           ),
         Route
           .static(
             CheckboxPage,
             root / CheckboxPage.path / endOfSegments,
-            "/docs"
+            "/docs/components"
           ),
         Route
           .static(
             ColorPickerPage,
             root / ColorPickerPage.path / endOfSegments,
-            "/docs"
+            "/docs/components"
           ),
         Route
           .static(
             DropdownPage,
             root / DropdownPage.path / endOfSegments,
-            "/docs"
+            "/docs/components"
           ),
         Route
           .static(
             DialogPage,
             root / DialogPage.path / endOfSegments,
-            "/docs"
+            "/docs/components"
           ),
         Route
           .static(
             DrawerPage,
             root / DrawerPage.path / endOfSegments,
-            "/docs"
+            "/docs/components"
           ),
         Route
           .static(
             DetailsPage,
             root / DetailsPage.path / endOfSegments,
-            "/docs"
+            "/docs/components"
           ),
         Route
           .static(
             DividerPage,
             root / DividerPage.path / endOfSegments,
-            "/docs"
+            "/docs/components"
           ),
         Route
           .static(
             FormatBytesPage,
             root / FormatBytesPage.path / endOfSegments,
-            "/docs"
+            "/docs/components"
           ),
         Route
           .static(
             FormatDatePage,
             root / FormatDatePage.path / endOfSegments,
-            "/docs"
+            "/docs/components"
           ),
         Route
           .static(
             FormatNumberPage,
             root / FormatNumberPage.path / endOfSegments,
-            "/docs"
+            "/docs/components"
           ),
         Route
           .static(
             MutationObserverPage,
             root / MutationObserverPage.path / endOfSegments,
-            "/docs"
+            "/docs/components"
           ),
         Route
           .static(
             ProgressBarPage,
             root / ProgressBarPage.path / endOfSegments,
-            "/docs"
+            "/docs/components"
           ),
         Route
           .static(
             ProgressRingPage,
             root / ProgressRingPage.path / endOfSegments,
-            "/docs"
+            "/docs/components"
           ),
         Route
           .static(
             InputPage,
             root / InputPage.path / endOfSegments,
-            "/docs"
+            "/docs/components"
           ),
         Route
           .static(
             RadioGroupPage,
             root / RadioGroupPage.path / endOfSegments,
-            "/docs"
+            "/docs/components"
           ),
         Route
           .static(
             SelectPage,
             root / SelectPage.path / endOfSegments,
-            "/docs"
+            "/docs/components"
           ),
         Route
           .static(
             SwitchPage,
             root / SwitchPage.path / endOfSegments,
-            "/docs"
+            "/docs/components"
           ),
         Route
           .static(
             SliderPage,
             root / SliderPage.path / endOfSegments,
-            "/docs"
+            "/docs/components"
           ),
         Route
           .static(
             SkeletonPage,
             root / SkeletonPage.path / endOfSegments,
-            "/docs"
+            "/docs/components"
           ),
         Route
           .static(
             TagPage,
             root / TagPage.path / endOfSegments,
-            "/docs"
+            "/docs/components"
           ),
         Route
           .static(
             PopoverPage,
             root / PopoverPage.path / endOfSegments,
-            "/docs"
+            "/docs/components"
           ),
         Route
           .static(
             TreePage,
             root / TreePage.path / endOfSegments,
-            "/docs"
+            "/docs/components"
           ),
         Route
           .static(
             TooltipPage,
             root / TooltipPage.path / endOfSegments,
-            "/docs"
+            "/docs/components"
           ),
         Route
           .static(
             TextAreaPage,
             root / TextAreaPage.path / endOfSegments,
-            "/docs"
+            "/docs/components"
           ),
         Route
           .static(
             TabGroupPage,
             root / TabGroupPage.path / endOfSegments,
-            "/docs"
+            "/docs/components"
           ),
         Route
           .static(
             SpinnerPage,
             root / SpinnerPage.path / endOfSegments,
-            "/docs"
+            "/docs/components"
           ),
         Route
           .static(
             SplitPanelPage,
             root / SplitPanelPage.path / endOfSegments,
-            "/docs"
+            "/docs/components"
           )
       ),
       getPageTitle = page => s"${page.title} | WebAwesome Laminar", // displayed in the browser tab next to favicon

@@ -389,6 +389,9 @@ code {
     p {
       font-size: 0.875rem;
     }
+    a {
+      text-decoration: underline !important;
+    }
 
     h2 {
       @apply font-semibold text-xl;

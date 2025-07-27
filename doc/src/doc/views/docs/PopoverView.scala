@@ -14,6 +14,9 @@ case class PopoverView()
   def playground: HtmlElement = {
     Demo(
       center = true,
+      description = """
+                      |Popovers display interactive content when their anchor element is clicked. Unlike [tooltips](/docs/components/tooltip), popovers can contain links, buttons, and form controls. They appear without an overlay and will close when you click outside or press [[Escape]]. Only one popover can be open at a time.
+                      |""".stripMargin,
       content = Source.annotate {
         import io.github.nguyenyou.webawesome.laminar.{Popover, Button}
 
