@@ -307,9 +307,9 @@ case class PopupView()
             ),
             Slider(
               _.label := "Skidding",
-              _.min  := -50,
-              _.max  := 50,
-              _.step := 1,
+              _.min   := -50,
+              _.max   := 50,
+              _.step  := 1,
               _.controlled(
                 _.value <-- skiddingVar.signal.map(_.toString),
                 _.onInput.map(_.target.value) --> skiddingVar
@@ -636,9 +636,9 @@ case class PopupView()
             br(),
             Slider(
               _.label := "Distance",
-              _.min  := 0,
-              _.max  := 50,
-              _.step := 1,
+              _.min   := 0,
+              _.max   := 50,
+              _.step  := 1,
               _.controlled(
                 _.value <-- distanceVar.signal.map(_.toString),
                 _.onInput.map(_.target.value) --> distanceVar
@@ -649,10 +649,10 @@ case class PopupView()
             ),
             Slider(
               _.label := "Skidding",
-              _.min  := -50,
-              _.max  := 50,
-              _.step := 1,
-              _.controlled( 
+              _.min   := -50,
+              _.max   := 50,
+              _.step  := 1,
+              _.controlled(
                 _.value <-- skiddingVar.signal.map(_.toString),
                 _.onInput.map(_.target.value) --> skiddingVar
               )

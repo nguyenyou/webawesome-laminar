@@ -34,7 +34,8 @@ case class ProgressRingView()
       )().withLocator,
       Demo(
         title = "Track and Indicator Width",
-        description = "Use the `--track-width` and `--indicator-width` custom properties to set the width of the progress ring's track and indicator.",
+        description =
+          "Use the `--track-width` and `--indicator-width` custom properties to set the width of the progress ring's track and indicator.",
         content = Source.annotate {
           ProgressRing(
             _.value := "50",
@@ -57,11 +58,11 @@ case class ProgressRingView()
         description = "Use the default slot to show a label inside the progress ring.",
         content = Source.annotate {
           val progressValue = Var(50.0)
-          
+
           div(
             tw.flex.flexCol.gap4,
             ProgressRing(
-              _.value <-- progressValue.signal.map(_.toString),
+              _.value <-- progressValue.signal.map(_.toString)
             )(
               child.text <-- progressValue.signal.map(v => s"${v.toInt}%")
             ),

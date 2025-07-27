@@ -24,7 +24,8 @@ case class ProgressBarView()
     div(
       Demo(
         title = "Labels",
-        description = "Use the `label` attribute to label the progress bar and tell assistive devices how to announce it.",
+        description =
+          "Use the `label` attribute to label the progress bar and tell assistive devices how to announce it.",
         content = Source.annotate {
           ProgressBar(
             _.value := "50",
@@ -47,7 +48,7 @@ case class ProgressBarView()
         description = "Use the default slot to show a value.",
         content = Source.annotate {
           val progressValue = Var(50.0)
-          
+
           div(
             tw.flex.flexCol.gap4,
             ProgressBar(
@@ -79,7 +80,8 @@ case class ProgressBarView()
       )().withLocator,
       Demo(
         title = "Indeterminate",
-        description = "The `indeterminate` attribute can be used to inform the user that the operation is pending, but its status cannot currently be determined. In this state, `value` is ignored and the label, if present, will not be shown.",
+        description =
+          "The `indeterminate` attribute can be used to inform the user that the operation is pending, but its status cannot currently be determined. In this state, `value` is ignored and the label, if present, will not be shown.",
         content = Source.annotate {
           ProgressBar(_.indeterminate := true)()
         }
