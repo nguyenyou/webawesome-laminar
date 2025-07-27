@@ -3,11 +3,11 @@ package doc.views.docs
 import com.raquo.laminar.api.L.*
 import doc.components.Demo
 import doc.components.Locator.withLocator
+import doc.libs.scalawind.*
 import doc.macros.Source
 import io.github.nguyenyou.webawesome.laminar.*
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import org.scalajs.dom
-import doc.libs.scalawind.*
 
 case class MutationObserverView()
     extends ExampleView(
@@ -72,7 +72,7 @@ case class MutationObserverView()
                   (1 to count).map { i =>
                     Button()(
                       onClick --> Observer[dom.MouseEvent] { event =>
-                        event.target.asInstanceOf[dom.Element].remove()
+                        event.target.asInstanceOf[dom.Element].remove() // scalafix:ok
                         event.stopPropagation()
                       },
                       i
