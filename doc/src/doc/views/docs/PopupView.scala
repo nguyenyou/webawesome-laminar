@@ -266,8 +266,10 @@ case class PopupView()
               _.min   := -50,
               _.max   := 50,
               _.step  := 1,
-              _.value <-- distanceVar.signal.map(_.toString),
-              _.onInput.map(_.target.value) --> distanceVar
+              _.controlled(
+                _.value <-- distanceVar.signal.map(_.toString),
+                _.onInput.map(_.target.value) --> distanceVar
+              )
             )(
               maxWidth := "260px"
             )
@@ -279,12 +281,12 @@ case class PopupView()
         description =
           "The `skidding` attribute is similar to `distance`, but instead allows you to offset the popup along the anchor's axis. Both positive and negative values are allowed.",
         content = Source.annotate {
-          val skiddingVar = Var("0")
+          val skiddingVar = Var(0.0)
 
           div(
             Popup(
               _.placement := "top",
-              _.skidding <-- skiddingVar.signal.map(_.toDouble),
+              _.skidding <-- skiddingVar,
               _.active := true,
               _.slots.anchor(
                 span(
@@ -304,12 +306,14 @@ case class PopupView()
               )
             ),
             Slider(
+              _.label := "Skidding",
               _.min  := -50,
               _.max  := 50,
               _.step := 1,
-              _.value <-- skiddingVar,
-              _.label := "Skidding",
-              _.onInput.mapToValue --> skiddingVar
+              _.controlled(
+                _.value <-- skiddingVar.signal.map(_.toString),
+                _.onInput.map(_.target.value) --> skiddingVar
+              )
             )(
               maxWidth := "260px"
             )
@@ -631,23 +635,27 @@ case class PopupView()
             )("Hover Bridge"),
             br(),
             Slider(
+              _.label := "Distance",
               _.min  := 0,
               _.max  := 50,
               _.step := 1,
-              _.value <-- distanceVar.signal.map(_.toString),
-              _.label := "Distance",
-              _.onInput.mapToValue.map(_.toDouble) --> distanceVar
+              _.controlled(
+                _.value <-- distanceVar.signal.map(_.toString),
+                _.onInput.map(_.target.value) --> distanceVar
+              )
             )(
               maxWidth  := "260px",
               marginTop := "0.5rem"
             ),
             Slider(
+              _.label := "Skidding",
               _.min  := -50,
               _.max  := 50,
               _.step := 1,
-              _.value <-- skiddingVar.signal.map(_.toString),
-              _.label := "Skidding",
-              _.onInput.mapToValue.map(_.toDouble) --> skiddingVar
+              _.controlled( 
+                _.value <-- skiddingVar.signal.map(_.toString),
+                _.onInput.map(_.target.value) --> skiddingVar
+              )
             )(
               maxWidth  := "260px",
               marginTop := "0.5rem"
