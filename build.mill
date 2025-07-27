@@ -1,5 +1,4 @@
-//| mill-version: 1.0.1-22-3ffc87
-//| mvnDeps: ["com.lihaoyi::mill-contrib-buildinfo:$MILL_VERSION", "com.goyeau::mill-scalafix::0.6.0"]
+//| mvnDeps: ["com.goyeau::mill-scalafix::0.6.0"]
 
 package build
 
@@ -13,22 +12,22 @@ import com.goyeau.mill.scalafix.ScalafixModule
 object Versions {
     val scala3 = "3.7.0"
     val sjs = "1.19.0"
-    val sjsdom = "2.8.0"
     val laminar = "17.2.1"
     val waypoint = "10.0.0-M1"
     val borer = "1.16.1"
-    val scalajsdom = "2.8.0"
+    val scalajsdom = "2.8.1"
     val `webawesome-laminar` = "0.0.1"
     val sourcecode = "0.4.3-M5"
 }
 
 object Constants {
-  val repoUrl = "https://github.com/nguyenyou/webawesome-laminar"
+  val projectName = "webawesome-laminar"
+  val repoUrl = s"https://github.com/nguyenyou/$projectName"
   val githubUsername = "nguyenyou"
   val githubProfile = s"https://github.com/$githubUsername"
   val author = "Tu Nguyen"
   val organization = "io.github.nguyenyou"
-  val description = "Laminar wrappers for WebAwesome"
+  val description = "Laminar bindings for WebAwesome web component library"
 }
 
 trait Scalafix extends ScalafixModule {
@@ -41,10 +40,6 @@ trait NoDoc extends ScalaModule {
     os.write(outPath, Array.emptyByteArray)
     PathRef(outPath)
   }
-}
-
-trait CommonPublish extends SonatypeCentralPublishModule {
-
 }
 
 
@@ -79,19 +74,7 @@ trait WebModule extends ScalaJSModule, NoDoc, Scalafix {
   def scalaVersion = Versions.scala3
   def scalaJSVersion = Versions.sjs
 
-  def mvnDeps = Seq(
-    mvn"com.raquo::laminar::${Versions.laminar}",
-    mvn"org.scala-js::scalajs-dom::${Versions.sjsdom}"
-  )
-
-  object test extends ScalaJSTests with TestModule.Utest {
-    def utestVersion = "0.8.5"
-    def moduleKind = ModuleKind.NoModule
-  }
-
-  def jsEnvConfig = Task {
-    JsEnvConfig.JsDom()
-  }
+  def mvnDeps = Deps.laminar ++ Deps.scalajsDom
 }
 
 object doc extends WebModule {
@@ -102,9 +85,7 @@ object doc extends WebModule {
   def mvnDeps = super.mvnDeps() ++ Deps.waypoint ++ Deps.borer ++ Deps.sourcecode
 }
 
-object `webawesome-laminar` extends WebModule, CommonPublish {
-  override def artifactName = "webawesome-laminar"
-
+object `webawesome-laminar` extends WebModule, SonatypeCentralPublishModule {
   def publishVersion = VcsVersion.vcsState().format()
 
   def pomSettings = PomSettings(
@@ -112,7 +93,7 @@ object `webawesome-laminar` extends WebModule, CommonPublish {
     organization = Constants.organization,
     url = Constants.repoUrl,
     licenses = Seq(License.MIT),
-    versionControl = VersionControl.github(Constants.githubUsername, "webawesome-laminar"),
+    versionControl = VersionControl.github(Constants.githubUsername, Constants.projectName),
     developers = Seq(Developer(Constants.githubUsername, Constants.author, Constants.githubProfile)),
   )
 }

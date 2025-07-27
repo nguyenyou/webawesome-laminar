@@ -1,7 +1,6 @@
 package doc.components
 
 import com.raquo.laminar.api.L.*
-import doc.facades.Marked
 import doc.libs.scalawind.*
 
 object Preview {
@@ -65,13 +64,7 @@ object Preview {
           )
         )
       ),
-      div(
-        tw.mb4,
-        cls("typography"),
-        onMountCallback { ctx =>
-          ctx.thisNode.ref.innerHTML = Marked.parse(description)
-        }
-      ),
+      Markdown(description)().amend(tw.mb4),
       div(
         tw.relative.flex.flexCol.gap2,
         div(
