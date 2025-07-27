@@ -34,6 +34,6 @@ object CodeToHtmlOptions {
     lang.foreach(options.lang = _)
     theme.foreach(options.theme = _)
     transformers.foreach(options.transformers = _)
-    options.asInstanceOf[CodeToHtmlOptions] // scalafix:ok
+    options.asInstanceOf[CodeToHtmlOptions]
   }
 }

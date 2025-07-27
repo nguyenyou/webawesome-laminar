@@ -14,11 +14,6 @@ trait Clipboard extends js.Object {
   def writeText(text: String): js.Promise[Unit] = js.native
 }
 
-@SuppressWarnings(
-  Array(
-    "scalafix:DisableSyntax.asInstanceOf"
-  )
-)
 object Clipboard {
 
   def writeText(text: String): Future[Unit] = {

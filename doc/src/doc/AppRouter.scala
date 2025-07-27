@@ -58,6 +58,7 @@ object Pages {
   case object TabGroupPage         extends Page("TabGroup")
   case object SplitPanelPage       extends Page("Split Panel")
   case object TooltipPage          extends Page("Tooltip")
+  case object RatingPage           extends Page("Rating")
   given pageCodec: Codec[Page] = deriveAllCodecs
 }
 
@@ -101,6 +102,7 @@ val pageViews: Signal[HtmlElement] = AppRouter.currentPageSignal.splitMatchOne
   .handleValue(SplitPanelPage)(SplitPanelView()())
   .handleValue(SkeletonPage)(SkeletonView()())
   .handleValue(CardPage)(CardView()())
+  .handleValue(RatingPage)(RatingView()())
   .toSignal
 
 // Step 3: Display in Sidebar
@@ -140,7 +142,8 @@ val componentsPages: List[Page] = List(
   TreePage,
   SplitPanelPage,
   SkeletonPage,
-  CardPage
+  CardPage,
+  RatingPage
 ).sortBy(_.getClass.getSimpleName.slice(0, 3))
 
 // Step 4: Map URL to Page
@@ -362,6 +365,12 @@ object AppRouter
           .static(
             SplitPanelPage,
             root / SplitPanelPage.path / endOfSegments,
+            "/docs/components"
+          ),
+        Route
+          .static(
+            RatingPage,
+            root / RatingPage.path / endOfSegments,
             "/docs/components"
           )
       ),

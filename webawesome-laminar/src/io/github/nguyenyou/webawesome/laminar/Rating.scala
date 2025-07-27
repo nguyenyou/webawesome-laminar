@@ -36,7 +36,7 @@ object Rating extends WebComponent("wa-rating") {
     * value, or ends. The `value` property tells what the rating's value would be if the user were to commit to the
     * hovered value.
     */
-  lazy val onHover: EventProp[CustomEvent[Ref]] = eventProp("wa-hover")
+  lazy val onHover: EventProp[CustomEvent[Ref] & EventDetail[WaHoverEvent]] = eventProp("wa-hover")
 
   // -- Props --
 

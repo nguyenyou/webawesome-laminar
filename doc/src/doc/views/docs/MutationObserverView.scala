@@ -72,7 +72,7 @@ case class MutationObserverView()
                   (1 to count).map { i =>
                     Button()(
                       onClick --> Observer[dom.MouseEvent] { event =>
-                        event.target.asInstanceOf[dom.Element].remove() // scalafix:ok
+                        event.target.asInstanceOf[dom.Element].remove()
                         event.stopPropagation()
                       },
                       i

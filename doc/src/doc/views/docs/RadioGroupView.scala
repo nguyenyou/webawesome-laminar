@@ -5,8 +5,8 @@ import doc.components.Demo
 import doc.components.Locator.withLocator
 import doc.macros.Source
 import io.github.nguyenyou.webawesome.laminar.*
-import org.scalajs.dom
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.ComponentSize
+import org.scalajs.dom
 
 case class RadioGroupView()
     extends ExampleView(

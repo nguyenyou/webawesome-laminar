@@ -11,11 +11,6 @@ case class Copy(
 
   private val isCopied = Var(false)
 
-  @SuppressWarnings(
-    Array(
-      "scalafix:DisableSyntax.asInstanceOf"
-    )
-  )
   private def copy(text: String) = {
     val textAreaEle =
       document.createElement("textarea").asInstanceOf[HTMLTextAreaElement]
