@@ -27,7 +27,7 @@ object Comparison extends WebComponent("wa-comparison") {
   // -- Events --
 
   /** Emitted when the position changes. */
-  lazy val change: EventProp[dom.Event] = eventProp("change")
+  lazy val onChange: EventProp[dom.Event] = eventProp("change")
 
   // -- Attributes --
 

@@ -31,22 +31,22 @@ object Switch extends WebComponent("wa-switch") {
   // -- Controlled Component --
 
   override protected lazy val tag: CustomHtmlTag[Ref] = {
-    tagWithControlledInput(checked, initial = false, input)
+    tagWithControlledInput(checked, initial = false, onInput)
   }
 
   // -- Events --
 
   /** Emitted when the control's checked state changes. */
-  lazy val change: EventProp[dom.Event] = eventProp("change")
+  lazy val onChange: EventProp[dom.Event] = eventProp("change")
 
   /** Emitted when the control receives input. */
-  lazy val input: EventProp[dom.Event] = eventProp("input")
+  lazy val onInput: EventProp[dom.Event] = eventProp("input")
 
   /** Emitted when the control loses focus. */
-  lazy val blur: EventProp[dom.Event] = eventProp("blur")
+  lazy val onBlur: EventProp[dom.Event] = eventProp("blur")
 
   /** Emitted when the control gains focus. */
-  lazy val focus: EventProp[dom.Event] = eventProp("focus")
+  lazy val onFocus: EventProp[dom.Event] = eventProp("focus")
 
   /** Emitted when the form control has been checked for validity and its constraints aren't satisfied. */
   lazy val onInvalid: EventProp[dom.Event] = eventProp("wa-invalid")

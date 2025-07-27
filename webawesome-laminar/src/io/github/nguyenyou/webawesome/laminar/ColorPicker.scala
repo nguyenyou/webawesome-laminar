@@ -32,16 +32,16 @@ object ColorPicker extends WebComponent("wa-color-picker") {
   // -- Controlled Component --
 
   override protected lazy val tag: CustomHtmlTag[Ref] = {
-    tagWithControlledInput(value, initial = "", input)
+    tagWithControlledInput(value, initial = "", onInput)
   }
 
   // -- Events --
 
   /** Emitted when the color picker's value changes. */
-  lazy val change: EventProp[dom.Event] = eventProp("change")
+  lazy val onChange: EventProp[dom.Event] = eventProp("change")
 
   /** Emitted when the color picker receives input. */
-  lazy val input: EventProp[dom.Event] = eventProp("input")
+  lazy val onInput: EventProp[dom.Event] = eventProp("input")
 
   lazy val onShow: EventProp[dom.Event] = eventProp("wa-show")
 
@@ -52,10 +52,10 @@ object ColorPicker extends WebComponent("wa-color-picker") {
   lazy val onAfterHide: EventProp[dom.Event] = eventProp("wa-after-hide")
 
   /** Emitted when the color picker loses focus. */
-  lazy val blur: EventProp[dom.Event] = eventProp("blur")
+  lazy val onBlur: EventProp[dom.Event] = eventProp("blur")
 
   /** Emitted when the color picker receives focus. */
-  lazy val focus: EventProp[dom.Event] = eventProp("focus")
+  lazy val onFocus: EventProp[dom.Event] = eventProp("focus")
 
   /** Emitted when the form control has been checked for validity and its constraints aren't satisfied. */
   lazy val onInvalid: EventProp[dom.Event] = eventProp("wa-invalid")

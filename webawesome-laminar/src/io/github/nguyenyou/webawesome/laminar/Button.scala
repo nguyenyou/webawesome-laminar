@@ -30,10 +30,10 @@ object Button extends WebComponent("wa-button") {
   // -- Events --
 
   /** Emitted when the button loses focus. */
-  lazy val blur: EventProp[dom.Event] = eventProp("blur")
+  lazy val onBlur: EventProp[dom.Event] = eventProp("blur")
 
   /** Emitted when the button gains focus. */
-  lazy val focus: EventProp[dom.Event] = eventProp("focus")
+  lazy val onFocus: EventProp[dom.Event] = eventProp("focus")
 
   /** Emitted when the form control has been checked for validity and its constraints aren't satisfied. */
   lazy val onInvalid: EventProp[dom.Event] = eventProp("wa-invalid")

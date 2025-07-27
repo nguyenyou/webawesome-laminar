@@ -324,13 +324,13 @@ function getAllowedControlKeys(tagName: string): { propName: string; eventPropNa
   const emptyStringRepr = '""';
   
   switch (tagName) {
-    case "wa-checkbox": return { propName: "checked", eventPropName: "input", initialValueRepr: falseRepr };
-    case "wa-color-picker": return { propName: "value", eventPropName: "input", initialValueRepr: emptyStringRepr };
-    case "wa-input": return { propName: "value", eventPropName: "input", initialValueRepr: emptyStringRepr };
-    case "wa-radio-group": return { propName: "value", eventPropName: "input", initialValueRepr: emptyStringRepr };
-    case "wa-select": return { propName: "value", eventPropName: "input", initialValueRepr: emptyStringRepr };
-    case "wa-switch": return { propName: "checked", eventPropName: "input", initialValueRepr: falseRepr };
-    case "wa-textarea": return { propName: "value", eventPropName: "input", initialValueRepr: emptyStringRepr };
+    case "wa-checkbox": return { propName: "checked", eventPropName: "onInput", initialValueRepr: falseRepr };
+    case "wa-color-picker": return { propName: "value", eventPropName: "onInput", initialValueRepr: emptyStringRepr };
+    case "wa-input": return { propName: "value", eventPropName: "onInput", initialValueRepr: emptyStringRepr };
+    case "wa-radio-group": return { propName: "value", eventPropName: "onInput", initialValueRepr: emptyStringRepr };
+    case "wa-select": return { propName: "value", eventPropName: "onInput", initialValueRepr: emptyStringRepr };
+    case "wa-switch": return { propName: "checked", eventPropName: "onInput", initialValueRepr: falseRepr };
+    case "wa-textarea": return { propName: "value", eventPropName: "onInput", initialValueRepr: emptyStringRepr };
     default: return null;
   }
 }
@@ -438,7 +438,7 @@ async function generateComponent(component: ComponentIR): Promise<string> {
           if (event.description) {
             writer.writeLine(`/** ${event.description} */`);
           }
-          const eventName = toCamelCase(event.name.replace('wa-', 'on-'));
+          const eventName = toCamelCase(event.name.startsWith('wa-') ? event.name.replace('wa-', 'on-') : `on-${event.name}`);
           const supportedEvents = ['WaSelectEvent', 'WaHideEvent', 'WaMutationEvent'];
           if(supportedEvents.includes(event.eventType || '')) {
             writer.writeLine(`lazy val ${eventName}: EventProp[dom.Event & EventDetail[${event.eventType}]] = eventProp("${event.name}")`);

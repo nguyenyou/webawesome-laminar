@@ -31,16 +31,16 @@ object RadioGroup extends WebComponent("wa-radio-group") {
   // -- Controlled Component --
 
   override protected lazy val tag: CustomHtmlTag[Ref] = {
-    tagWithControlledInput(value, initial = "", input)
+    tagWithControlledInput(value, initial = "", onInput)
   }
 
   // -- Events --
 
   /** Emitted when the radio group receives user input. */
-  lazy val input: EventProp[dom.Event] = eventProp("input")
+  lazy val onInput: EventProp[dom.Event] = eventProp("input")
 
   /** Emitted when the radio group's selected value changes. */
-  lazy val change: EventProp[dom.Event] = eventProp("change")
+  lazy val onChange: EventProp[dom.Event] = eventProp("change")
 
   /** Emitted when the form control has been checked for validity and its constraints aren't satisfied. */
   lazy val onInvalid: EventProp[dom.Event] = eventProp("wa-invalid")

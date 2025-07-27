@@ -30,10 +30,10 @@ object DropdownItem extends WebComponent("wa-dropdown-item") {
   // -- Events --
 
   /** Emitted when the dropdown item loses focus. */
-  lazy val blur: EventProp[dom.Event] = eventProp("blur")
+  lazy val onBlur: EventProp[dom.Event] = eventProp("blur")
 
   /** Emitted when the dropdown item gains focus. */
-  lazy val focus: EventProp[dom.Event] = eventProp("focus")
+  lazy val onFocus: EventProp[dom.Event] = eventProp("focus")
 
   // -- Props --
 

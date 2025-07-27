@@ -28,10 +28,10 @@ object ZoomableFrame extends WebComponent("wa-zoomable-frame") {
   // -- Events --
 
   /** Emitted when the internal iframe when it finishes loading. */
-  lazy val load: EventProp[dom.Event] = eventProp("load")
+  lazy val onLoad: EventProp[dom.Event] = eventProp("load")
 
   /** Emitted from the internal iframe when it fails to load. */
-  lazy val error: EventProp[dom.Event] = eventProp("error")
+  lazy val onError: EventProp[dom.Event] = eventProp("error")
 
   // -- Attributes --
 

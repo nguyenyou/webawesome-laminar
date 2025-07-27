@@ -29,7 +29,7 @@ object Rating extends WebComponent("wa-rating") {
   // -- Events --
 
   /** Emitted when the rating's value changes. */
-  lazy val change: EventProp[dom.Event] = eventProp("change")
+  lazy val onChange: EventProp[dom.Event] = eventProp("change")
 
   /** Emitted when the user hovers over a value. The `phase` property indicates when hovering starts, moves to a new
     * value, or ends. The `value` property tells what the rating's value would be if the user were to commit to the
