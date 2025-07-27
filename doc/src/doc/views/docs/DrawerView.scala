@@ -5,6 +5,7 @@ import doc.components.Demo
 import doc.components.Locator.withLocator
 import doc.macros.Source
 import io.github.nguyenyou.webawesome.laminar.*
+import org.scalajs.dom.window
 
 case class DrawerView()
     extends ExampleView(
@@ -256,7 +257,7 @@ case class DrawerView()
             )(
               div(
                 height.vh(150),
-                border := "2px dashed var(--wa-color-surface-border)",
+                border  := "2px dashed var(--wa-color-surface-border)",
                 padding := "0 1rem",
                 p(
                   "Scroll down and give it a try! 👇"
@@ -265,6 +266,131 @@ case class DrawerView()
             ),
             Button(
               _.open.drawer("drawer-scrolling")
+            )("Open Drawer")
+          )
+        }
+      )().withLocator,
+      Demo(
+        title = "Header Actions",
+        description = """
+          |The header shows a functional close button by default. You can use the `header-actions` slot to add additional [buttons](/docs/components/button) if needed.
+          """.stripMargin,
+        content = Source.annotate {
+          div(
+            Drawer(
+              _.id    := "drawer-header-actions",
+              _.label := "Drawer",
+              _.slots.headerActions(
+                Button(
+                  _.appearance := "plain"
+                )(
+                  onClick --> Observer { _ =>
+                    window.open(window.location.href)
+                  },
+                  Icon(
+                    _.name  := "arrow-up-right-from-square",
+                    _.label := "Open in new window"
+                  )()
+                )
+              ),
+              _.slots.footer(
+                Button(
+                  _.variant.brand,
+                  _.close.drawer
+                )("Close")
+              )
+            )(
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+            ),
+            Button(
+              _.open.drawer("drawer-header-actions")
+            )("Open Drawer")
+          )
+        }
+      )().withLocator,
+      Demo(
+        title = "Light Dismissal",
+        description = """
+          |If you want the drawer to close when the user clicks on the overlay, add the `light-dismiss` attribute.
+          """.stripMargin,
+        content = Source.annotate {
+          div(
+            Drawer(
+              _.id           := "drawer-light-dismiss",
+              _.lightDismiss := true,
+              _.label        := "Drawer",
+              _.slots.footer(
+                Button(
+                  _.variant.brand,
+                  _.close.drawer
+                )("Close")
+              )
+            )("This drawer closes when the user clicks on the overlay."),
+            Button(
+              _.open.drawer("drawer-light-dismiss")
+            )("Open Drawer")
+          )
+        }
+      )().withLocator,
+      Demo(
+        title = "Preventing the Drawer from Closing",
+        description = """
+        | By default, drawers will close when the user clicks the close button, clicks the overlay, or presses the [[Escape]] key. In most cases, the default behavior is the best behavior in terms of UX. However, there are situations where this may be undesirable, such as when data loss will occur.
+        |
+        | To keep the drawer open in such cases, you can cancel the `wa-hide` event. When canceled, the drawer will remain open and pulse briefly to draw the user's attention to it.
+        |
+        | You can use `event.detail.source` to determine which element triggered the request to close. This example prevents the dialog from closing when the overlay is clicked, but allows the close button or [[Escape]] to dismiss it.
+        """.stripMargin,
+        content = Source.annotate {
+
+          val closeDrawerButton = Button(
+            _.variant := "brand",
+            _.close.drawer
+          )("Only this button will close it")
+
+          div(
+            Drawer(
+              _.id    := "drawer-deny-close",
+              _.label := "Drawer",
+              _.onHide.map { event =>
+                if (event.detail.source != closeDrawerButton.ref) {
+                  event.preventDefault()
+                }
+              } --> Observer.empty,
+              _.slots.footer(
+                closeDrawerButton
+              )
+            )("This drawer will only close when you click the button below."),
+            Button(
+              _.open.drawer("drawer-deny-close")
+            )("Open Drawer")
+          )
+        }
+      )().withLocator,
+      Demo(
+        title = "Setting Initial Focus",
+        description = """
+          |To give focus to a specific element when the drawer opens, use the `autofocus` attribute.
+          """.stripMargin,
+        content = Source.annotate {
+          div(
+            Drawer(
+              _.id    := "drawer-autofocus",
+              _.label := "Drawer",
+              _.slots.footer(
+                Button(
+                  _.variant.brand,
+                  _.close.drawer
+                )("Close")
+              )
+            )(
+              Input(
+                _.autofocus := true,
+                _.placeholder := "I will have focus when the drawer is opened"
+              )()
+            ),
+            Button(
+              _.open.drawer("drawer-autofocus")
             )("Open Drawer")
           )
         }

@@ -1,4 +1,4 @@
-//| mill-version: 1.0.1-17-ad8e66
+//| mill-version: 1.0.1-22-3ffc87
 //| mvnDeps: ["com.lihaoyi::mill-contrib-buildinfo:$MILL_VERSION", "com.goyeau::mill-scalafix::0.6.0"]
 
 package build

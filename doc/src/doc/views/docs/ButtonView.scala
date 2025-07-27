@@ -6,6 +6,7 @@ import doc.components.Locator.withLocator
 import doc.libs.scalawind.*
 import doc.macros.Source
 import io.github.nguyenyou.webawesome.laminar.*
+import org.scalajs.dom
 
 case class ButtonView()
     extends ExampleView(
@@ -17,7 +18,13 @@ case class ButtonView()
     Demo(
       center = true,
       content = Source.annotate {
-        Button()("Button")
+        Button(
+        )(
+          onClick --> Observer[dom.MouseEvent] { event =>
+            dom.window.alert(s"Clicked at clientX ${event.clientX}, clientY ${event.clientY}")
+          },
+          "Button"
+        )
       }
     )().withLocator
   }
