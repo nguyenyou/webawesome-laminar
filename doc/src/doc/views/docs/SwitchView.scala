@@ -4,6 +4,8 @@ import com.raquo.laminar.api.L.*
 import doc.components.Demo
 import doc.components.Locator.withLocator
 import doc.macros.Source
+import io.github.nguyenyou.webawesome.laminar.*
+import doc.libs.scalawind.*
 
 case class SwitchView()
     extends ExampleView(
@@ -14,14 +16,55 @@ case class SwitchView()
     Demo(
       center = true,
       content = Source.annotate {
-        import io.github.nguyenyou.webawesome.laminar.Switch
-
         Switch()("Switch")
       }
     )().withLocator
   }
   def component: HtmlElement = {
     div(
+      Demo(
+        title = "Checked",
+        description = "Use the `checked` attribute to activate the switch.",
+        content = Source.annotate {
+          Switch(_.checked := true)("Switch")
+        }
+      )().withLocator,
+      Demo(
+        title = "Disabled",
+        description = "Use the `disabled` attribute to disable the switch.",
+        content = Source.annotate {
+          Switch(_.checked := true)("Switch")
+        }
+      )().withLocator,
+      Demo(
+        title = "Size",
+        description = "Use the `size` attribute to change a switch's size.",
+        content = Source.annotate {
+          div(
+            tw.flex.flexCol.gap2,
+            Switch(_.size.small)("Switch"),
+            Switch(_.size.medium)("Switch"),
+            Switch(_.size.large)("Switch")
+          )
+        }
+      )().withLocator,
+      Demo(
+        title = "Hint",
+        description =
+          "Add descriptive hint to a switch with the `hint` attribute. For hints that contain HTML, use the `hint` slot instead.",
+        content = Source.annotate {
+          Switch(_.hint := "What should the user know about the switch?")("Switch")
+        }
+      )().withLocator,
+      Demo(
+        title = "Custom Styles",
+        description = "Use the available custom properties to change how the switch is styled..",
+        content = Source.annotate {
+          Switch(
+            _.style := "--width: 80px; --height: 40px; --thumb-size: 36px;"
+          )("Really big")
+        }
+      )().withLocator
     )
   }
 
