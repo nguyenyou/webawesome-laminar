@@ -31,7 +31,7 @@ object CopyButton extends WebComponent("wa-copy-button") {
   // -- Events --
 
   /** Emitted when the data has been copied. */
-  lazy val onCopy: EventProp[CustomEvent[Ref]] = eventProp("wa-copy")
+  lazy val onCopy: EventProp[CustomEvent[Ref] & EventDetail[WaCopyEvent]] = eventProp("wa-copy")
 
   /** Emitted when the data could not be copied. */
   lazy val onError: EventProp[CustomEvent[Ref]] = eventProp("wa-error")

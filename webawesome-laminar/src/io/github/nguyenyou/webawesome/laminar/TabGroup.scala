@@ -29,10 +29,10 @@ object TabGroup extends WebComponent("wa-tab-group") {
   // -- Events --
 
   /** Emitted when a tab is shown. */
-  lazy val onTabShow: EventProp[CustomEvent[Ref]] = eventProp("wa-tab-show")
+  lazy val onTabShow: EventProp[CustomEvent[Ref] & EventDetail[WaTabShowEvent]] = eventProp("wa-tab-show")
 
   /** Emitted when a tab is hidden. */
-  lazy val onTabHide: EventProp[CustomEvent[Ref]] = eventProp("wa-tab-hide")
+  lazy val onTabHide: EventProp[CustomEvent[Ref] & EventDetail[WaTabHideEvent]] = eventProp("wa-tab-hide")
 
   // -- Attributes --
 

@@ -37,7 +37,8 @@ case class ComparisonView()
     div(
       Demo(
         title = "Initial Position",
-        description = "Use the `position` attribute to set the initial position of the slider. This is a percentage from `0` to `100`.",
+        description =
+          "Use the `position` attribute to set the initial position of the slider. This is a percentage from `0` to `100`.",
         content = Source.annotate {
           Comparison(
             _.position := 25,
@@ -58,4 +59,4 @@ case class ComparisonView()
       )().withLocator
     )
   }
-} 
+}

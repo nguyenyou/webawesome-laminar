@@ -3,9 +3,9 @@ package doc.views.docs
 import com.raquo.laminar.api.L.*
 import doc.components.Demo
 import doc.components.Locator.withLocator
+import doc.libs.scalawind.*
 import doc.macros.Source
 import io.github.nguyenyou.webawesome.laminar.*
-import doc.libs.scalawind.*
 
 case class SwitchView()
     extends ExampleView(

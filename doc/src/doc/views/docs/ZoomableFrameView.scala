@@ -16,7 +16,7 @@ case class ZoomableFrameView()
     Demo(
       content = Source.annotate {
         ZoomableFrame(
-          _.src := "https://webawesome.com/",
+          _.src  := "https://webawesome.com/",
           _.zoom := 0.5
         )()
       }
@@ -71,8 +71,8 @@ case class ZoomableFrameView()
         """.stripMargin,
         content = Source.annotate {
           ZoomableFrame(
-            _.src := "https://webawesome.com/",
-            _.zoom := 0.5,
+            _.src        := "https://webawesome.com/",
+            _.zoom       := 0.5,
             _.zoomLevels := "50% 0.75 100%"
           )()
         }
@@ -82,9 +82,9 @@ case class ZoomableFrameView()
         description = "Add the `without-controls` attribute to hide the zoom control interface from the frame.",
         content = Source.annotate {
           ZoomableFrame(
-            _.src := "https://webawesome.com/",
+            _.src             := "https://webawesome.com/",
             _.withoutControls := true,
-            _.zoom := 0.5
+            _.zoom            := 0.5
           )()
         }
       )().withLocator,
@@ -96,8 +96,8 @@ case class ZoomableFrameView()
         """.stripMargin,
         content = Source.annotate {
           ZoomableFrame(
-            _.src := "https://webawesome.com/",
-            _.zoom := 0.5,
+            _.src                := "https://webawesome.com/",
+            _.zoom               := 0.5,
             _.withoutInteraction := true
           )()
         }

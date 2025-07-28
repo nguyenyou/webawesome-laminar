@@ -29,7 +29,9 @@ object Tree extends WebComponent("wa-tree") {
   // -- Events --
 
   /** Emitted when a tree item is selected or deselected. */
-  lazy val onSelectionChange: EventProp[CustomEvent[Ref]] = eventProp("wa-selection-change")
+  lazy val onSelectionChange: EventProp[CustomEvent[Ref] & EventDetail[WaSelectionChangeEvent]] = eventProp(
+    "wa-selection-change"
+  )
 
   // -- Attributes --
 

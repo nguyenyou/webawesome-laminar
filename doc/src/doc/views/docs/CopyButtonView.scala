@@ -28,19 +28,21 @@ case class CopyButtonView()
     div(
       Demo(
         title = "Custom Labels",
-        description = "Copy Buttons display feedback in a tooltip. You can customize the labels using the `copy-label`, `success-label`, and `error-label` attributes.",
+        description =
+          "Copy Buttons display feedback in a tooltip. You can customize the labels using the `copy-label`, `success-label`, and `error-label` attributes.",
         content = Source.annotate {
           CopyButton(
-            _.value := "Custom labels are easy",
-            _.copyLabel := "Click to copy",
+            _.value        := "Custom labels are easy",
+            _.copyLabel    := "Click to copy",
             _.successLabel := "You did it!",
-            _.errorLabel := "Whoops, your browser doesn't support this!"
-          )()   
+            _.errorLabel   := "Whoops, your browser doesn't support this!"
+          )()
         }
       )().withLocator,
       Demo(
         title = "Custom Icons",
-        description = "Use the `copy-icon`, `success-icon`, and `error-icon` slots to customize the icons that get displayed for each state. You can use `<wa-icon>` or your own images.",
+        description =
+          "Use the `copy-icon`, `success-icon`, and `error-icon` slots to customize the icons that get displayed for each state. You can use `<wa-icon>` or your own images.",
         content = Source.annotate {
           CopyButton(
             _.value := "Copied from a custom button",
@@ -62,24 +64,23 @@ case class CopyButtonView()
             span(idAttr := "my-phone", "+1 (234) 456-7890"),
             " ",
             CopyButton(_.from := "my-phone")(),
-            
-            br(), br(),
-            
+            br(),
+            br(),
+
             // Copies the input's "value" property
             span(
               tw.flex.itemsCenter.gap1,
               Input(
-                _.id := "my-input",
-                _.tpe := "text",
+                _.id    := "my-input",
+                _.tpe   := "text",
                 _.value := "User input"
               )(
                 styleAttr := "display: inline-block; max-width: 300px;"
               ),
               CopyButton(_.from := "my-input.value")()
             ),
-            
             br(),
-            
+
             // Copies the link's "href" attribute
             a(idAttr := "my-link", href := "https://webawesome.com/", "Web Awesome Website"),
             " ",
@@ -102,17 +103,18 @@ case class CopyButtonView()
         description = "Copy buttons can be disabled by adding the `disabled` attribute.",
         content = Source.annotate {
           CopyButton(
-            _.value := "You can't copy me",
+            _.value    := "You can't copy me",
             _.disabled := true
           )()
         }
       )().withLocator,
       Demo(
         title = "Changing Feedback Duration",
-        description = "A success indicator is briefly shown after copying. You can customize the length of time the indicator is shown using the `feedback-duration` attribute.",
+        description =
+          "A success indicator is briefly shown after copying. You can customize the length of time the indicator is shown using the `feedback-duration` attribute.",
         content = Source.annotate {
           CopyButton(
-            _.value := "Web Awesome rocks!",
+            _.value            := "Web Awesome rocks!",
             _.feedbackDuration := 250
           )()
         }
@@ -130,7 +132,6 @@ case class CopyButtonView()
             )(
               className := "custom-styles"
             ),
-            
             styleTag("""
               .custom-styles,
               .custom-styles::part(success-icon),

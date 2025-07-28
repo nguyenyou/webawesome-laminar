@@ -27,7 +27,7 @@ object Carousel extends WebComponent("wa-carousel") {
   // -- Events --
 
   /** Emitted when the active slide changes. */
-  lazy val onSlideChange: EventProp[CustomEvent[Ref]] = eventProp("wa-slide-change")
+  lazy val onSlideChange: EventProp[CustomEvent[Ref] & EventDetail[WaSlideChangeEvent]] = eventProp("wa-slide-change")
 
   // -- Attributes --
 

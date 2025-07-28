@@ -3,7 +3,6 @@ package doc.views.docs
 import com.raquo.laminar.api.L.*
 import doc.components.Demo
 import doc.components.Locator.withLocator
-import doc.libs.scalawind.*
 import doc.macros.Source
 import io.github.nguyenyou.webawesome.laminar.*
 
@@ -231,7 +230,7 @@ case class CarouselView()
 
           div(
             Carousel(
-              _.pagination    := true,
+              _.pagination := true,
               _.mouseDragging <-- mouseDragging
             )(
               CarouselItem()(
@@ -450,6 +449,120 @@ case class CarouselView()
               img(
                 alt := "A scenic view of a mountain with clouds rolling in (by V2osk on Unsplash)",
                 src := "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=10"
+              )
+            )
+          )
+        }
+      )().withLocator,
+      Demo(
+        title = "Gallery Example",
+        description =
+          "The carousel has a robust API that makes it possible to extend and customize. This example syncs the active slide with a set of thumbnails, effectively creating a gallery-style carousel.",
+        content = Source.annotate {
+          div(
+            styleTag("""
+              .carousel-thumbnails {
+                --slide-aspect-ratio: 3 / 2;
+              }
+
+              .thumbnails {
+                display: flex;
+                justify-content: center;
+              }
+
+              .scroller {
+                display: flex;
+                gap: var(--wa-space-s);
+                overflow-x: auto;
+                scrollbar-width: none;
+                scroll-behavior: smooth;
+                scroll-padding: var(--wa-space-s);
+              }
+
+              .scroller::-webkit-scrollbar {
+                display: none;
+              }
+
+              .image {
+                width: 64px;
+                height: 64px;
+                object-fit: cover;
+
+                opacity: 0.3;
+                will-change: opacity;
+                transition: 250ms opacity;
+
+                cursor: pointer;
+              }
+
+              .image.active {
+                opacity: 1;
+              }
+            """),
+            Carousel(
+              _.navigation := true,
+              _.loop       := true
+            )(
+              CarouselItem()(
+                img(
+                  alt := "The sun shines on the mountains and trees (by Adam Kool on Unsplash)",
+                  src := "https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=10"
+                )
+              ),
+              CarouselItem()(
+                img(
+                  alt := "A river winding through an evergreen forest (by Luca Bravo on Unsplash)",
+                  src := "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=10"
+                )
+              ),
+              CarouselItem()(
+                img(
+                  alt := "The sun is setting over a lavender field (by Leonard Cotte on Unsplash)",
+                  src := "https://images.unsplash.com/photo-1499002238440-d264edd596ec?q=10"
+                )
+              ),
+              CarouselItem()(
+                img(
+                  alt := "A field of grass with the sun setting in the background (by Sapan Patel on Unsplash)",
+                  src := "https://images.unsplash.com/photo-1475113548554-5a36f1f523d6?q=10"
+                )
+              ),
+              CarouselItem()(
+                img(
+                  alt := "A scenic view of a mountain with clouds rolling in (by V2osk on Unsplash)",
+                  src := "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=10"
+                )
+              )
+            ),
+            div(
+              cls("thumbnails"),
+              div(
+                cls("scroller"),
+                img(
+                  alt := "Thumbnail by 1",
+                  cls("image active"),
+                  src := "https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=10"
+                ),
+                img(
+                  alt := "Thumbnail by 2",
+                  cls("image"),
+                  src := "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=10"
+                ),
+                img(
+                  alt := "Thumbnail by 3",
+                  cls("image"),
+                  src := "https://images.unsplash.com/photo-1499002238440-d264edd596ec?q=10"
+                ),
+                img(
+                  alt := "Thumbnail by 4",
+                  cls("image"),
+                  src := "https://images.unsplash.com/photo-1475113548554-5a36f1f523d6?q=10"
+                ),
+                img(
+                  alt := "Thumbnail by 5",
+                  cls("image"),
+                  src := "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=10"
+                )
               )
             )
           )
