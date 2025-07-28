@@ -173,6 +173,32 @@ case class TooltipView()
             )("Hover Me")
           )
         }
+      )().withLocator,
+      Demo(
+        title = "Manual Trigger",
+        description =
+          "Tooltips can be controller programmatically by setting the `trigger` attribute to `manual`. Use the `open` attribute to control when the tooltip is shown.",
+        content = Source.annotate {
+          val openVar = Var(false)
+          div(
+            Button(
+            )(
+              onClick --> Observer { _ =>
+                openVar.update(!_)
+              },
+              marginRight.rem(4),
+              "Toggle Manually"
+            ),
+            Tooltip(
+              _.open <-- openVar,
+              _.forId   := "manual-trigger-tooltip",
+              _.trigger := "manual"
+            )("This is an avatar!"),
+            Avatar(
+              _.id := "manual-trigger-tooltip"
+            )()
+          )
+        }
       )().withLocator
     )
   }
