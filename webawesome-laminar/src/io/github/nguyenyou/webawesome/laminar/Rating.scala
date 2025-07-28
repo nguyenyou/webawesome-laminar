@@ -134,7 +134,7 @@ object Rating extends WebComponent("wa-rating") {
     def handleIsHoveringChange(): js.Any = js.native
 
     /** Sets focus on the rating. */
-    def focus(options: js.Any = js.undefined): js.Any = js.native
+    def focus(options: js.UndefOr[js.Any]): js.Any = js.native
 
     /** Removes focus from the rating. */
     def blur(): js.Any = js.native

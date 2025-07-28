@@ -306,22 +306,22 @@ object ColorPicker extends WebComponent("wa-color-picker") with ControlledInput 
     var required: Boolean
 
     /** Generates a hex string from HSV values. Hue must be 0-360. All other arguments must be 0-100. */
-    def getHexString(hue: js.Any, saturation: js.Any, brightness: js.Any, alpha: js.Any): js.Any = js.native
+    def getHexString(hue: Double, saturation: Double, brightness: Double, alpha: js.Any): js.Any = js.native
 
     def handleFormatChange(): js.Any = js.native
 
     def handleOpacityChange(): js.Any = js.native
 
-    def handleValueChange(oldValue: js.Any, newValue: js.Any): js.Any = js.native
+    def handleValueChange(oldValue: js.Any, newValue: String): js.Any = js.native
 
     /** Sets focus on the color picker. */
-    def focus(options: js.Any = js.undefined): js.Any = js.native
+    def focus(options: js.UndefOr[js.Any]): js.Any = js.native
 
     /** Removes focus from the color picker. */
     def blur(): js.Any = js.native
 
     /** Returns the current value as a string in the specified format. */
-    def getFormattedValue(format: js.Any): js.Any = js.native
+    def getFormattedValue(format: String): js.Any = js.native
 
     /** Checks for validity and shows the browser's validation message if the control is invalid. */
     def reportValidity(): js.Any = js.native

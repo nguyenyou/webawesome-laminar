@@ -180,6 +180,12 @@ function mapTypeScriptToScala(tsType: string): string {
     File: "js.Object",
     FormData: "js.Object",
     void: "Unit",
+    // Add ScrollBehavior and other common DOM types
+    ScrollBehavior: "String", // ScrollBehavior is a string union type in DOM
+    // Scala
+    Double: "Double",
+    String: "String",
+    Boolean: "Boolean"
   };
 
   // Handle union types with null/undefined - simplify to js.Any
@@ -222,6 +228,20 @@ function mapTypeScriptToScala(tsType: string): string {
     }
   }
 
+  // For known DOM/Web API types that aren't in our typeMap, preserve them as String
+  // This handles types like ScrollBehavior, ResizeObserverBoxOptions, etc.
+  const knownDOMTypes = [
+    "ScrollBehavior", "ResizeObserverBoxOptions", "IntersectionObserverInit",
+    "MutationObserverInit", "KeyboardEventInit", "MouseEventInit", "TouchEventInit",
+    "FocusEventInit", "WheelEventInit", "InputEventInit", "CompositionEventInit"
+  ];
+
+  if (knownDOMTypes.includes(tsType)) {
+    return "String"; // Most DOM enum types are string-based
+  }
+
+  // Return the mapped type, or preserve the original type if not found
+  // This allows for proper type safety instead of defaulting to js.Any
   return typeMap[tsType] || "js.Any";
 }
 
@@ -895,12 +915,16 @@ async function generateComponent(component: ComponentIR): Promise<string> {
             (m) => m.public && m.name !== "constructor"
           );
           publicMethods.forEach((method) => {
+            
             if (method.description) {
               writer.writeLine(`/** ${method.description} */`);
             }
 
             const params = method.parameters
               .map((p) => {
+                if(method.name === "goToSlide") {
+                  console.log(p.type)
+                }
                 const paramType = mapTypeScriptToScala(p.type);
                 // Fix default value for js.Object types
                 let optionalSuffix = "";
@@ -917,7 +941,10 @@ async function generateComponent(component: ComponentIR): Promise<string> {
                 if (paramName.includes("{") || paramName.includes("}")) {
                   paramName = "options";
                 }
-
+                
+                if(optionalSuffix === " = js.undefined") {
+                  return `${paramName}: js.UndefOr[${paramType}]`;
+                }
                 return `${paramName}: ${paramType}${optionalSuffix}`;
               })
               .join(", ");

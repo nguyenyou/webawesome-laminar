@@ -270,7 +270,7 @@ object Textarea extends WebComponent("wa-textarea") with ControlledInput {
     def handleValueChange(): js.Any = js.native
 
     /** Sets focus on the textarea. */
-    def focus(options: js.Any = js.undefined): js.Any = js.native
+    def focus(options: js.UndefOr[js.Any]): js.Any = js.native
 
     /** Removes focus from the textarea. */
     def blur(): js.Any = js.native
@@ -282,14 +282,14 @@ object Textarea extends WebComponent("wa-textarea") with ControlledInput {
     def scrollPosition(position: js.Object = js.Object()): js.Any = js.native
 
     /** Sets the start and end positions of the text selection (0-based). */
-    def setSelectionRange(selectionStart: js.Any, selectionEnd: js.Any, selectionDirection: js.Any): js.Any = js.native
+    def setSelectionRange(selectionStart: Double, selectionEnd: Double, selectionDirection: String): js.Any = js.native
 
     /** Replaces a range of text with a new string. */
     def setRangeText(
-        replacement: js.Any,
-        start: js.Any = js.undefined,
-        end: js.Any = js.undefined,
-        selectMode: js.Any
+        replacement: String,
+        start: js.UndefOr[Double],
+        end: js.UndefOr[Double],
+        selectMode: String
     ): js.Any = js.native
 
     def formResetCallback(): js.Any = js.native

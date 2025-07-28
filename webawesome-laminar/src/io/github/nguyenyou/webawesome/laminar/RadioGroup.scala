@@ -163,7 +163,7 @@ object RadioGroup extends WebComponent("wa-radio-group") with ControlledInput {
     def formResetCallback(args: js.Any): js.Any = js.native
 
     /** Sets focus on the radio group. */
-    def focus(options: js.Any = js.undefined): js.Any = js.native
+    def focus(options: js.UndefOr[js.Any]): js.Any = js.native
 
   }
 }

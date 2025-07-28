@@ -533,7 +533,13 @@ case class CarouselView()
             Carousel(
               _.navigation := true,
               _.loop       := true,
+              _.onSlideChange.map(_.detail.index.toDouble) --> activeSlide
             )(
+              inContext { ctx =>
+                activeSlide --> Observer[Double] { slide =>
+                  ctx.ref.goToSlide(slide, "smooth")
+                }
+              },
               items.map { item =>
                 CarouselItem()(
                   img(
@@ -552,7 +558,8 @@ case class CarouselView()
                     alt := item.thumbnailAlt,
                     cls("image"),
                     cls("active") <-- activeSlide.signal.map(_ == index),
-                    src := item.imgSrc
+                    src := item.imgSrc,
+                    onClick.mapTo(index.toDouble) --> activeSlide
                   )
                 }
               )

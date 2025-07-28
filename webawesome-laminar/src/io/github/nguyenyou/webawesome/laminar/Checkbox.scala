@@ -188,7 +188,7 @@ object Checkbox extends WebComponent("wa-checkbox") with ControlledInput {
     def click(): js.Any = js.native
 
     /** Sets focus on the checkbox. */
-    def focus(options: js.Any = js.undefined): js.Any = js.native
+    def focus(options: js.UndefOr[js.Any]): js.Any = js.native
 
     /** Removes focus from the checkbox. */
     def blur(): js.Any = js.native

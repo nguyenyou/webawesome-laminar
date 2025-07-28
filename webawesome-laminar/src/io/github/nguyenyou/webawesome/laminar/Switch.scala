@@ -186,12 +186,12 @@ object Switch extends WebComponent("wa-switch") with ControlledInput {
     def click(): js.Any = js.native
 
     /** Sets focus on the switch. */
-    def focus(options: js.Any = js.undefined): js.Any = js.native
+    def focus(options: js.UndefOr[js.Any]): js.Any = js.native
 
     /** Removes focus from the switch. */
     def blur(): js.Any = js.native
 
-    def setValue(value: js.Any, stateValue: js.Any = js.undefined): Unit = js.native
+    def setValue(value: js.Any, stateValue: js.UndefOr[js.Any]): Unit = js.native
 
     def formResetCallback(): Unit = js.native
 

@@ -255,7 +255,7 @@ object Button extends WebComponent("wa-button") {
     def click(): js.Any = js.native
 
     /** Sets focus on the button. */
-    def focus(options: js.Any = js.undefined): js.Any = js.native
+    def focus(options: js.UndefOr[js.Any]): js.Any = js.native
 
     /** Removes focus from the button. */
     def blur(): js.Any = js.native

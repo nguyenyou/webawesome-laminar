@@ -181,13 +181,13 @@ object Carousel extends WebComponent("wa-carousel") {
     def handleAutoplayChange(): js.Any = js.native
 
     /** Move the carousel backward by `slides-per-move` slides. */
-    def previous(behavior: js.Any): js.Any = js.native
+    def previous(behavior: String): js.Any = js.native
 
     /** Move the carousel forward by `slides-per-move` slides. */
-    def next(behavior: js.Any): js.Any = js.native
+    def next(behavior: String): js.Any = js.native
 
     /** Scrolls the carousel to the slide specified by `index`. */
-    def goToSlide(index: js.Any, behavior: js.Any): js.Any = js.native
+    def goToSlide(index: Double, behavior: String): js.Any = js.native
 
   }
 }
