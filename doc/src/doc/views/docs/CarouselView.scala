@@ -459,6 +459,37 @@ case class CarouselView()
         description =
           "The carousel has a robust API that makes it possible to extend and customize. This example syncs the active slide with a set of thumbnails, effectively creating a gallery-style carousel.",
         content = Source.annotate {
+          type Item = (imgSrc: String, description: String, thumbnailAlt: String)
+
+          val activeSlide = Var(0.0)
+
+          val items: Seq[Item] = Seq(
+            (
+              "https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=10",
+              "The sun shines on the mountains and trees (by Adam Kool on Unsplash)",
+              "Thumbnail by 1"
+            ),
+            (
+              "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=10",
+              "A river winding through an evergreen forest (by Luca Bravo on Unsplash)",
+              "Thumbnail by 2"
+            ),
+            (
+              "https://images.unsplash.com/photo-1499002238440-d264edd596ec?q=10",
+              "The sun is setting over a lavender field (by Leonard Cotte on Unsplash)",
+              "Thumbnail by 3"
+            ),
+            (
+              "https://images.unsplash.com/photo-1475113548554-5a36f1f523d6?q=10",
+              "A field of grass with the sun setting in the background (by Sapan Patel on Unsplash)",
+              "Thumbnail by 4"
+            ),
+            (
+              "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=10",
+              "A scenic view of a mountain with clouds rolling in (by V2osk on Unsplash)",
+              "Thumbnail by 5"
+            )
+          )
           div(
             styleTag("""
               .carousel-thumbnails {
@@ -501,68 +532,29 @@ case class CarouselView()
             """),
             Carousel(
               _.navigation := true,
-              _.loop       := true
+              _.loop       := true,
             )(
-              CarouselItem()(
-                img(
-                  alt := "The sun shines on the mountains and trees (by Adam Kool on Unsplash)",
-                  src := "https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=10"
+              items.map { item =>
+                CarouselItem()(
+                  img(
+                    alt := item.description,
+                    src := item.imgSrc
+                  )
                 )
-              ),
-              CarouselItem()(
-                img(
-                  alt := "A river winding through an evergreen forest (by Luca Bravo on Unsplash)",
-                  src := "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=10"
-                )
-              ),
-              CarouselItem()(
-                img(
-                  alt := "The sun is setting over a lavender field (by Leonard Cotte on Unsplash)",
-                  src := "https://images.unsplash.com/photo-1499002238440-d264edd596ec?q=10"
-                )
-              ),
-              CarouselItem()(
-                img(
-                  alt := "A field of grass with the sun setting in the background (by Sapan Patel on Unsplash)",
-                  src := "https://images.unsplash.com/photo-1475113548554-5a36f1f523d6?q=10"
-                )
-              ),
-              CarouselItem()(
-                img(
-                  alt := "A scenic view of a mountain with clouds rolling in (by V2osk on Unsplash)",
-                  src := "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=10"
-                )
-              )
+              }
             ),
             div(
               cls("thumbnails"),
               div(
                 cls("scroller"),
-                img(
-                  alt := "Thumbnail by 1",
-                  cls("image active"),
-                  src := "https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=10"
-                ),
-                img(
-                  alt := "Thumbnail by 2",
-                  cls("image"),
-                  src := "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=10"
-                ),
-                img(
-                  alt := "Thumbnail by 3",
-                  cls("image"),
-                  src := "https://images.unsplash.com/photo-1499002238440-d264edd596ec?q=10"
-                ),
-                img(
-                  alt := "Thumbnail by 4",
-                  cls("image"),
-                  src := "https://images.unsplash.com/photo-1475113548554-5a36f1f523d6?q=10"
-                ),
-                img(
-                  alt := "Thumbnail by 5",
-                  cls("image"),
-                  src := "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=10"
-                )
+                items.zipWithIndex.map { case (item, index) =>
+                  img(
+                    alt := item.thumbnailAlt,
+                    cls("image"),
+                    cls("active") <-- activeSlide.signal.map(_ == index),
+                    src := item.imgSrc
+                  )
+                }
               )
             )
           )
