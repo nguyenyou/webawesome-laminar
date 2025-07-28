@@ -15,7 +15,6 @@ case class SkeletonView()
     Demo(
       content = Source.annotate {
         div(
-          cls := "skeleton-overview",
           styleTag("""
             .skeleton-overview .skeleton-header {
               display: flex;
@@ -49,13 +48,16 @@ case class SkeletonView()
             }
           """),
           div(
-            cls := "skeleton-header",
+            cls := "skeleton-overview",
+            div(
+              cls := "skeleton-header",
+              Skeleton(_.effect.sheen)(),
+              Skeleton(_.effect.sheen)()
+            ),
+            Skeleton(_.effect.sheen)(),
             Skeleton(_.effect.sheen)(),
             Skeleton(_.effect.sheen)()
-          ),
-          Skeleton(_.effect.sheen)(),
-          Skeleton(_.effect.sheen)(),
-          Skeleton(_.effect.sheen)()
+          )
         )
       }
     )().withLocator
