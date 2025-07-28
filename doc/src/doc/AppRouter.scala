@@ -28,6 +28,7 @@ object Pages {
   case object ButtonGroupPage      extends Page("Button Group")
   case object BadgePage            extends Page("Badge")
   case object CardPage             extends Page("Card")
+  case object CarouselPage         extends Page("Carousel")
   case object CheckboxPage         extends Page("Checkbox")
   case object ColorPickerPage      extends Page("Color Picker")
   case object CalloutPage          extends Page("Callout")
@@ -79,6 +80,7 @@ val pageViews: Signal[HtmlElement] = AppRouter.currentPageSignal.splitMatchOne
   .handleValue(CalloutPage)(CalloutView()())
   .handleValue(ComparisonPage)(ComparisonView()())
   .handleValue(CopyButtonPage)(CopyButtonView()())
+  .handleValue(CarouselPage)(CarouselView()())
   .handleValue(CheckboxPage)(CheckboxView()())
   .handleValue(ColorPickerPage)(ColorPickerView()())
   .handleValue(DialogPage)(DialogView()())
@@ -127,6 +129,7 @@ val componentsPages: List[Page] = List(
   CalloutPage,
   ComparisonPage,
   CopyButtonPage,
+  CarouselPage,
   CheckboxPage,
   ColorPickerPage,
   DialogPage,
@@ -203,6 +206,12 @@ object AppRouter
           .static(
             CopyButtonPage,
             root / CopyButtonPage.path / endOfSegments,
+            "/docs/components"
+          ),
+        Route
+          .static(
+            CarouselPage,
+            root / CarouselPage.path / endOfSegments,
             "/docs/components"
           ),
         Route

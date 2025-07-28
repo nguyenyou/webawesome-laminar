@@ -16,7 +16,13 @@ case class SwitchView()
     Demo(
       center = true,
       content = Source.annotate {
-        Switch()("Switch")
+        val checked = Var(false)
+        Switch(
+          _.controlled(
+            _.checked <-- checked,
+            _.onInput.mapToChecked --> checked
+          )
+        )("Switch")
       }
     )().withLocator
   }
