@@ -62,6 +62,7 @@ object Pages {
   case object RatingPage           extends Page("Rating")
   case object ResizeObserverPage   extends Page("Resize Observer")
   case object ScrollerPage         extends Page("Scroller")
+  case object ZoomableFramePage    extends Page("Zoomable Frame")
   given pageCodec: Codec[Page] = deriveAllCodecs
 }
 
@@ -109,6 +110,7 @@ val pageViews: Signal[HtmlElement] = AppRouter.currentPageSignal.splitMatchOne
   .handleValue(RatingPage)(RatingView()())
   .handleValue(ResizeObserverPage)(ResizeObserverView()())
   .handleValue(ScrollerPage)(ScrollerView()())
+  .handleValue(ZoomableFramePage)(ZoomableFrameView()())
   .toSignal
 
 // Step 3: Display in Sidebar
@@ -152,7 +154,8 @@ val componentsPages: List[Page] = List(
   CardPage,
   RatingPage,
   ResizeObserverPage,
-  ScrollerPage
+  ScrollerPage,
+  ZoomableFramePage
 ).sortBy(_.getClass.getSimpleName.slice(0, 3))
 
 // Step 4: Map URL to Page
@@ -398,6 +401,12 @@ object AppRouter
           .static(
             ScrollerPage,
             root / ScrollerPage.path / endOfSegments,
+            "/docs/components"
+          ),
+        Route
+          .static(
+            ZoomableFramePage,
+            root / ZoomableFramePage.path / endOfSegments,
             "/docs/components"
           )
       ),
