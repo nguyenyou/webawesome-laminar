@@ -164,8 +164,78 @@ case class SliderView()
               _.value := "40",
               _.orientation.vertical,
               _.style := "width: 80px"
-            )(),
+            )()
           )
+        }
+      )().withLocator,
+      Demo(
+        title = "Size",
+        description =
+          "Control the slider's size using the `size` attribute. Valid options include `small`, `medium`, and `large`.",
+        content = Source.annotate {
+          div(
+            tw.flex.flexCol.gap4,
+            Slider(
+              _.label := "Small",
+              _.size.small,
+              _.value := "50"
+            )(),
+            Slider(
+              _.label := "Medium",
+              _.size.medium,
+              _.value := "50"
+            )(),
+            Slider(
+              _.label := "Large",
+              _.size.large,
+              _.value := "50"
+            )()
+          )
+        }
+      )().withLocator,
+      Demo(
+        title = "Indicator Offset",
+        description =
+          "By default, the filled indicator extends from the minimum value to the current position. Use the `indicator-offset` attribute to change the starting point of this visual indicator.",
+        content = Source.annotate {
+          Slider(
+            _.label           := "User Friendliness",
+            _.hint            := "Did you find our product easy to use?",
+            _.name            := "value",
+            _.value           := "0",
+            _.min             := -5,
+            _.max             := 5,
+            _.indicatorOffset := 0,
+            _.withMarkers     := true,
+            _.withTooltip     := true,
+            _.slots.reference(span("Easy")),
+            _.slots.reference(span("Moderate")),
+            _.slots.reference(span("Difficult"))
+          )()
+        }
+      )().withLocator,
+      Demo(
+        title = "Disabled",
+        description = "Use the `disabled` attribute to disable a slider.",
+        content = Source.annotate {
+          Slider(
+            _.label    := "Disabled",
+            _.value    := "50",
+            _.disabled := true // [!code highlight]
+          )()
+        }
+      )().withLocator,
+      Demo(
+        title = "Required",
+        description =
+          "Mark a slider as required using the `required` attribute. Users must interact with required sliders before the form can be submitted.",
+        content = Source.annotate {
+          Slider(
+            _.label    := "Required slider",
+            _.min      := 0,
+            _.max      := 10,
+            _.required := true // [!code highlight]
+          )()
         }
       )().withLocator
     )
