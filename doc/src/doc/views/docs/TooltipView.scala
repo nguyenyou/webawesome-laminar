@@ -199,7 +199,22 @@ case class TooltipView()
             )()
           )
         }
-      )().withLocator
+      )().withLocator,
+      Demo(
+        title = "Removing Arrows",
+        description = "You can control the size of tooltip arrows by overriding the `--wa-tooltip-arrow-size` design token. To remove them, set the value to `0` as shown below.",
+        content = Source.annotate {
+          div(
+            Tooltip(
+              _.forId   := "no-arrow",
+              _.style := "--wa-tooltip-arrow-size: 0;",
+            )("This is a tooltip with no arrow"),
+            Button(
+              _.id := "no-arrow"
+            )("No Arrow")
+          )
+        }
+      )().withLocator,
     )
   }
 
