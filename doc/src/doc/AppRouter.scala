@@ -49,6 +49,7 @@ object Pages {
   case object PopupPage            extends Page("Popup")
   case object QrCodePage           extends Page("QR Code")
   case object InputPage            extends Page("Input")
+  case object IncludePage          extends Page("Include")
   case object RadioGroupPage       extends Page("RadioGroup")
   case object SelectPage           extends Page("Select")
   case object SwitchPage           extends Page("Switch")
@@ -94,6 +95,7 @@ val pageViews: Signal[HtmlElement] = AppRouter.currentPageSignal.splitMatchOne
   .handleValue(PopoverPage)(PopoverView()())
   .handleValue(PopupPage)(PopupView()())
   .handleValue(InputPage)(InputView()())
+  .handleValue(IncludePage)(IncludeView()())
   .handleValue(DetailsPage)(DetailsView()())
   .handleValue(DividerPage)(DividerView()())
   .handleValue(FormatBytesPage)(FormatBytesView()())
@@ -142,6 +144,7 @@ val componentsPages: List[Page] = List(
   PopoverPage,
   PopupPage,
   InputPage,
+  IncludePage,
   TabGroupPage,
   SpinnerPage,
   TextAreaPage,
@@ -332,6 +335,12 @@ object AppRouter
           .static(
             InputPage,
             root / InputPage.path / endOfSegments,
+            "/docs/components"
+          ),
+        Route
+          .static(
+            IncludePage,
+            root / IncludePage.path / endOfSegments,
             "/docs/components"
           ),
         Route
