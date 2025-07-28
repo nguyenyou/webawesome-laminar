@@ -29,7 +29,7 @@ case class TagView()
       }
     )().withLocator
   }
-  
+
   def component: HtmlElement = {
     div(
       Demo(
@@ -89,7 +89,6 @@ case class TagView()
           )
         }
       )().withLocator,
-      
       Demo(
         title = "Sizes",
         description = "Use the `size` attribute to change a tag's size.",
@@ -104,7 +103,6 @@ case class TagView()
           )
         }
       )().withLocator,
-      
       Demo(
         title = "Pill",
         description = "Use the `pill` attribute to give tags rounded edges.",
@@ -119,7 +117,6 @@ case class TagView()
           )
         }
       )().withLocator,
-      
       Demo(
         title = "Removable",
         description = "Use the `with-remove` attribute to add a remove button to the tag.",
