@@ -22,6 +22,7 @@ object Pages {
 
   case object HomePage             extends Page("Home")
   case object NotFoundPage         extends Page("Not Found")
+  case object AnimatedImagePage    extends Page("Animated Image")
   case object AvatarPage           extends Page("Avatar")
   case object AnimationPage        extends Page("Animation")
   case object BreadcrumbPage       extends Page("Breadcrumb")
@@ -75,6 +76,7 @@ object Pages {
 // Step 2: Map Page to View
 val pageViews: Signal[HtmlElement] = AppRouter.currentPageSignal.splitMatchOne
   .handleValue(HomePage)(HomeView())
+  .handleValue(AnimatedImagePage)(AnimatedImageView()())
   .handleValue(AnimationPage)(AnimationView()())
   .handleValue(ButtonPage)(ButtonView()())
   .handleValue(ButtonGroupPage)(ButtonGroupView()())
@@ -127,6 +129,7 @@ val pageViews: Signal[HtmlElement] = AppRouter.currentPageSignal.splitMatchOne
 
 // Step 3: Display in Sidebar
 val componentsPages: List[Page] = List(
+  AnimatedImagePage,
   AnimationPage,
   AvatarPage,
   BadgePage,
@@ -181,6 +184,12 @@ object AppRouter
     extends waypoint.Router[Page](
       routes = List(
         Route.static(HomePage, root / endOfSegments),
+        Route
+          .static(
+            AnimatedImagePage,
+            root / AnimatedImagePage.path / endOfSegments,
+            "/docs/components"
+          ),
         Route
           .static(
             AnimationPage,
