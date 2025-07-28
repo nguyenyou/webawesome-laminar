@@ -5,6 +5,7 @@ import doc.components.Demo
 import doc.components.Locator.withLocator
 import doc.macros.Source
 import io.github.nguyenyou.webawesome.laminar.*
+import doc.libs.scalawind.*
 
 case class SpinnerView()
     extends ExampleView(
@@ -27,6 +28,7 @@ case class SpinnerView()
           "Spinners are sized based on the current font size. To change their size, set the `font-size` property on the spinner itself or on a parent element as shown below.",
         content = Source.annotate {
           div(
+            tw.flex.gap2,
             Spinner()(),
             Spinner(
               _.style := "font-size: 2rem;"
@@ -35,6 +37,25 @@ case class SpinnerView()
               _.style := "font-size: 3rem;"
             )()
           )
+        }
+      )().withLocator,
+      Demo(
+        title = "Track Width",
+        description = "The width of the spinner's track can be changed by setting the `--track-width` custom property.",
+        content = Source.annotate {
+          Spinner(
+            _.style := "font-size: 50px; --track-width: 10px;"
+          )()
+        }
+      )().withLocator,
+      Demo(
+        title = "Color",
+        description =
+          "The spinner's colors can be changed by setting the `--indicator-color` and `--track-color` custom properties.",
+        content = Source.annotate {
+          Spinner(
+            _.style := "font-size: 3rem; --indicator-color: deeppink; --track-color: pink;"
+          )()
         }
       )().withLocator
     )
