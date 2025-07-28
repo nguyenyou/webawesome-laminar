@@ -3,7 +3,6 @@ package doc.views.docs
 import com.raquo.laminar.api.L.*
 import doc.components.Demo
 import doc.components.Locator.withLocator
-import doc.libs.scalawind.*
 import doc.macros.Source
 import io.github.nguyenyou.webawesome.laminar.*
 
@@ -53,7 +52,6 @@ case class TabGroupView()
         title = "Setting the Active Tab",
         description = "To make a tab active, set the `active` attribute to the name of the appropriate panel.",
         content = Source.annotate {
-          // <show>
           TabGroup(_.active := "advanced")(
             Tab(_.panel := "general")("General"),
             Tab(_.panel := "custom")("Custom"),
@@ -62,14 +60,12 @@ case class TabGroupView()
             TabPanel(_.name := "custom")("This is the custom tab panel."),
             TabPanel(_.name := "advanced")("This is the advanced tab panel.")
           )
-          // </show>
         }
       )().withLocator,
       Demo(
         title = "Tabs on Bottom",
         description = "Tabs can be shown on the bottom by setting `placement` to `bottom`.",
         content = Source.annotate {
-          // <show>
           TabGroup(_.placement := "bottom")(
             Tab(_.panel := "general")("General"),
             Tab(_.panel := "custom")("Custom"),
@@ -80,14 +76,12 @@ case class TabGroupView()
             TabPanel(_.name := "advanced")("This is the advanced tab panel."),
             TabPanel(_.name := "disabled")("This is a disabled tab panel.")
           )
-          // </show>
         }
       )().withLocator,
       Demo(
         title = "Tabs on Start",
         description = "Tabs can be shown on the starting side by setting `placement` to `start`.",
         content = Source.annotate {
-          // <show>
           TabGroup(_.placement := "start")(
             Tab(_.panel := "general")("General"),
             Tab(_.panel := "custom")("Custom"),
@@ -98,14 +92,12 @@ case class TabGroupView()
             TabPanel(_.name := "advanced")("This is the advanced tab panel."),
             TabPanel(_.name := "disabled")("This is a disabled tab panel.")
           )
-          // </show>
         }
       )().withLocator,
       Demo(
         title = "Tabs on End",
         description = "Tabs can be shown on the ending side by setting `placement` to `end`.",
         content = Source.annotate {
-          // <show>
           TabGroup(_.placement := "end")(
             Tab(_.panel := "general")("General"),
             Tab(_.panel := "custom")("Custom"),
@@ -116,14 +108,12 @@ case class TabGroupView()
             TabPanel(_.name := "advanced")("This is the advanced tab panel."),
             TabPanel(_.name := "disabled")("This is a disabled tab panel.")
           )
-          // </show>
         }
       )().withLocator,
       Demo(
         title = "Scrolling Tabs",
         description = "When there are more tabs than horizontal space allows, the nav will be scrollable.",
         content = Source.annotate {
-          // <show>
           TabGroup()(
             Tab(_.panel := "tab-1")("Tab 1"),
             Tab(_.panel := "tab-2")("Tab 2"),
@@ -166,7 +156,6 @@ case class TabGroupView()
             TabPanel(_.name := "tab-19")("Tab panel 19"),
             TabPanel(_.name := "tab-20")("Tab panel 20")
           )
-          // </show>
         }
       )().withLocator,
       Demo(
@@ -177,7 +166,6 @@ case class TabGroupView()
         | You can change this behavior by setting `activation="manual"` which will require the user to press [[Space]] or [[Enter]] before showing the tab panel (manual activation).
         """.stripMargin,
         content = Source.annotate {
-          // <show>
           TabGroup(_.activation := "manual")(
             Tab(_.panel := "general")("General"),
             Tab(_.panel := "custom")("Custom"),
@@ -188,7 +176,6 @@ case class TabGroupView()
             TabPanel(_.name := "advanced")("This is the advanced tab panel."),
             TabPanel(_.name := "disabled")("This is a disabled tab panel.")
           )
-          // </show>
         }
       )().withLocator
     )

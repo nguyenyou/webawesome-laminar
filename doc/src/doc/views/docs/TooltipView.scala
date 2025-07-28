@@ -202,12 +202,13 @@ case class TooltipView()
       )().withLocator,
       Demo(
         title = "Removing Arrows",
-        description = "You can control the size of tooltip arrows by overriding the `--wa-tooltip-arrow-size` design token. To remove them, set the value to `0` as shown below.",
+        description =
+          "You can control the size of tooltip arrows by overriding the `--wa-tooltip-arrow-size` design token. To remove them, set the value to `0` as shown below.",
         content = Source.annotate {
           div(
             Tooltip(
-              _.forId   := "no-arrow",
-              _.style := "--wa-tooltip-arrow-size: 0;",
+              _.forId := "no-arrow",
+              _.style := "--wa-tooltip-arrow-size: 0;"
             )("This is a tooltip with no arrow"),
             Button(
               _.id := "no-arrow"
@@ -215,6 +216,48 @@ case class TooltipView()
           )
         }
       )().withLocator,
+      Demo(
+        title = "HTML in Tooltips",
+        description =
+          "Use the default slot to create tooltips with HTML content. Tooltips are designed only for text and presentational elements. Avoid placing interactive content, such as buttons, links, and form controls, in a tooltip.",
+        content = Source.annotate {
+          div(
+            Tooltip(
+              _.forId := "rich-tooltip",
+              _.style := "--wa-tooltip-arrow-size: 0;"
+            )(
+              div(
+                "I'm not ",
+                strong("just"),
+                " a tooltip, I'm a ",
+                em("tooltip"),
+                " with HTML!"
+              )
+            ),
+            Button(
+              _.id := "rich-tooltip"
+            )("Hover me")
+          )
+        }
+      )().withLocator,
+      Demo(
+        title = "Setting a Maximum Width",
+        description =
+          "Use the `--max-width` custom property to change the width the tooltip can grow to before wrapping occurs.",
+        content = Source.annotate {
+          div(
+            Tooltip(
+              _.forId := "wrapping-tooltip",
+              _.style := "--max-width: 80px;"
+            )(
+              "This tooltip will wrap after only 80 pixels."
+            ),
+            Button(
+              _.id := "wrapping-tooltip"
+            )("Hover me")
+          )
+        }
+      )().withLocator
     )
   }
 
