@@ -94,7 +94,7 @@ case class ScrollerView()
         content = Source.annotate {
           Scroller()(
             div(
-              width.px := 1200,
+              width.px    := 1200,
               padding.rem := 1,
               h3("Superhero Team Roles Guide"),
               div(
