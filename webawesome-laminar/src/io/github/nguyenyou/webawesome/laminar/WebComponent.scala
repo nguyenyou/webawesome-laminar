@@ -8,9 +8,11 @@ import com.raquo.laminar.keys.HtmlProp
 import com.raquo.laminar.modifiers.Modifier
 import com.raquo.laminar.nodes.ReactiveHtmlElement
 import com.raquo.laminar.tags.CustomHtmlTag
+import com.raquo.laminar.api.Laminar
+import scala.language.implicitConversions
+
 import org.scalajs.dom
 
-import scala.language.implicitConversions
 import scala.scalajs.js
 
 /** Base trait for all WebAwesome components. */
@@ -57,4 +59,8 @@ abstract class WebComponent(tagName: String) extends CommonTypes { this: Self =>
     laminarMods.foreach(_(el))
     el
   }
+
+  given toL: Conversion[WebComponent, Laminar] with
+    override def apply(x: WebComponent): Laminar =
+      com.raquo.laminar.api.L
 }

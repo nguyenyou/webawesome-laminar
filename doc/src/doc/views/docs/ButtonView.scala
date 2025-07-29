@@ -19,10 +19,10 @@ case class ButtonView()
       center = true,
       content = Source.annotate {
         Button(
-        )(
-          onClick --> Observer[dom.MouseEvent] { event =>
+          _.onClick --> Observer[dom.MouseEvent] { event =>
             dom.window.alert(s"Clicked at clientX ${event.clientX}, clientY ${event.clientY}")
-          },
+          }
+        )(
           "Button"
         )
       }
