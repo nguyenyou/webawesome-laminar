@@ -331,8 +331,8 @@ case class CarouselView()
               }
             """),
             Carousel(
-              _.pagination  := true,
-              _.orientation := "vertical"
+              _.pagination := true,
+              _.orientation.vertical
             )(
               cls("vertical-carousel"),
               CarouselItem()(

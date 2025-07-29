@@ -22,7 +22,7 @@ case class FormatNumberView()
           cls := "format-number-overview",
           p(FormatNumber(_.value <-- valueVar)()),
           Input(
-            _.`type` := "number",
+            _.`type`.number,
             _.value <-- valueVar,
             _.label := "Number to Format"
           )(

@@ -4,10 +4,10 @@ import com.raquo.laminar.api.L.*
 import doc.AppRouter.navigateTo
 import doc.Pages.*
 import doc.components.Sidebar
-import doc.components.ThemeSwitcher
 import doc.components.TableOfContents
-import doc.libs.scalawind.*
+import doc.components.ThemeSwitcher
 import doc.components.UIComponent
+import doc.libs.scalawind.*
 
 case class App() extends UIComponent {
 

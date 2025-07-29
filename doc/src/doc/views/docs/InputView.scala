@@ -102,17 +102,17 @@ case class InputView()
           div(
             Input(
               _.placeholder := "Small",
-              _.size        := "small"
+              _.size.small
             )(),
             br(),
             Input(
               _.placeholder := "Medium",
-              _.size        := "medium"
+              _.size.medium
             )(),
             br(),
             Input(
               _.placeholder := "Large",
-              _.size        := "large"
+              _.size.large
             )()
           )
         }
@@ -124,20 +124,20 @@ case class InputView()
           div(
             Input(
               _.placeholder := "Small",
-              _.size        := "small",
-              _.pill        := true
+              _.size.small,
+              _.pill := true
             )(),
             br(),
             Input(
               _.placeholder := "Medium",
-              _.size        := "medium",
-              _.pill        := true
+              _.size.medium,
+              _.pill := true
             )(),
             br(),
             Input(
               _.placeholder := "Large",
-              _.size        := "large",
-              _.pill        := true
+              _.size.large,
+              _.pill := true
             )()
           )
         }
@@ -148,17 +148,17 @@ case class InputView()
         content = Source.annotate {
           div(
             Input(
-              _.typ         := "email",
+              _.typ.email,
               _.placeholder := "Email"
             )(),
             br(),
             Input(
-              _.typ         := "number",
+              _.typ.number,
               _.placeholder := "Number"
             )(),
             br(),
             Input(
-              _.typ         := "date",
+              _.typ.date,
               _.placeholder := "Date"
             )()
           )
@@ -172,21 +172,21 @@ case class InputView()
           div(
             Input(
               _.placeholder := "Small",
-              _.size        := "small",
+              _.size.small,
               _.slots.start(Icon(_.name := "house")()),
               _.slots.end(Icon(_.name := "comment")())
             )(),
             br(),
             Input(
               _.placeholder := "Medium",
-              _.size        := "medium",
+              _.size.medium,
               _.slots.start(Icon(_.name := "house")()),
               _.slots.end(Icon(_.name := "comment")())
             )(),
             br(),
             Input(
               _.placeholder := "Large",
-              _.size        := "large",
+              _.size.large,
               _.slots.start(Icon(_.name := "house")()),
               _.slots.end(Icon(_.name := "comment")())
             )()
@@ -232,8 +232,8 @@ case class InputView()
             )(),
             Input(
               _.label := "Email",
-              _.typ   := "email",
-              _.hint  := "Enter your email"
+              _.typ.email,
+              _.hint := "Enter your email"
             )(),
             Textarea(
               _.label := "Bio",

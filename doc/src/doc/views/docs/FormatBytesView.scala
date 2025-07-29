@@ -20,7 +20,7 @@ case class FormatBytesView()
         div(
           p("The file is ", FormatBytes(_.value <-- valueVar)(), " in size."),
           Input(
-            _.`type` := "number",
+            _.`type`.number,
             _.value <-- valueVar,
             _.label := "Number to Format"
           )(

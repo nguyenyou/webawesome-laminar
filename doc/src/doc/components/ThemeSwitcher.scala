@@ -2,8 +2,9 @@ package doc.components
 
 import com.raquo.laminar.api.L.*
 import io.github.nguyenyou.webawesome.laminar.*
-import scala.language.implicitConversions
 import org.scalajs.dom
+
+import scala.language.implicitConversions
 
 case class ThemeSwitcher() extends UIComponent {
 
@@ -16,7 +17,7 @@ case class ThemeSwitcher() extends UIComponent {
       _.appearance.plain,
       _.onClick --> Observer { _ =>
         themeVar.update {
-          case "dark" => "light"
+          case "dark"  => "light"
           case "light" => "dark"
         }
       }
@@ -33,7 +34,7 @@ case class ThemeSwitcher() extends UIComponent {
       },
       Icon(
         _.name <-- themeVar.signal.map {
-          case "dark" => "sun"
+          case "dark"  => "sun"
           case "light" => "moon"
         }
       )()

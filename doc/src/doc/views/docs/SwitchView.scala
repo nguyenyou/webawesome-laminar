@@ -48,9 +48,11 @@ case class SwitchView()
         content = Source.annotate {
           div(
             tw.flex.flexCol.gap2,
+            // <show>
             Switch(_.size.small)("Switch"),
             Switch(_.size.medium)("Switch"),
             Switch(_.size.large)("Switch")
+            // </show>
           )
         }
       )().withLocator,

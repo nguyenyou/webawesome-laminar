@@ -71,8 +71,8 @@ case class CopyButtonView()
             span(
               tw.flex.itemsCenter.gap1,
               Input(
-                _.id    := "my-input",
-                _.tpe   := "text",
+                _.id := "my-input",
+                _.`type`.text,
                 _.value := "User input"
               )(
                 styleAttr := "display: inline-block; max-width: 300px;"

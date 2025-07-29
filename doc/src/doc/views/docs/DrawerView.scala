@@ -78,7 +78,7 @@ case class DrawerView()
               _.label := "Drawer",
               _.slots.footer(
                 Button(
-                  _.variant := "brand",
+                  _.variant.brand,
                   _.close.drawer
                 )("Close")
               )
@@ -282,7 +282,7 @@ case class DrawerView()
               _.label := "Drawer",
               _.slots.headerActions(
                 Button(
-                  _.appearance := "plain"
+                  _.appearance.plain
                 )(
                   onClick --> Observer { _ =>
                     window.open(window.location.href)
@@ -344,7 +344,7 @@ case class DrawerView()
         content = Source.annotate {
 
           val closeDrawerButton = Button(
-            _.variant := "brand",
+            _.variant.brand,
             _.close.drawer
           )("Only this button will close it")
 

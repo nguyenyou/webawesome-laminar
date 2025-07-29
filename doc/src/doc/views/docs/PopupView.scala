@@ -6,9 +6,9 @@ import doc.components.Locator.withLocator
 import doc.libs.scalawind.*
 import doc.macros.Source
 import io.github.nguyenyou.webawesome.laminar.*
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.PopupArrowPlacement
-import io.github.nguyenyou.webawesome.laminar.SharedTypes
 import io.github.nguyenyou.webawesome.laminar.CommonKeys
+import io.github.nguyenyou.webawesome.laminar.SharedTypes
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.PopupArrowPlacement
 case class PopupView()
     extends ExampleView(
       "Popup",
@@ -73,18 +73,18 @@ case class PopupView()
               UOption(_.value := CommonKeys.Placement.leftEnd.value)("left-end")
             ),
             Input(
-              _.label  := "Distance",
-              _.`type` := "number",
-              _.name   := "distance",
+              _.label := "Distance",
+              _.`type`.number,
+              _.name := "distance",
               _.controlled(
                 _.value <-- distanceVar,
                 _.onInput.mapToValue --> distanceVar
               )
             )(),
             Input(
-              _.label  := "Skidding",
-              _.`type` := "number",
-              _.name   := "skidding",
+              _.label := "Skidding",
+              _.`type`.number,
+              _.name := "skidding",
               _.controlled(
                 _.value <-- skiddingVar,
                 _.onInput.mapToValue --> skiddingVar
@@ -168,9 +168,9 @@ case class PopupView()
               margin := "50px 0 0 50px"
             ),
             Popup(
-              _.anchor    := "external-anchor",
+              _.anchor := "external-anchor",
               _.placement.top,
-              _.active    := true
+              _.active := true
             )(
               div(
                 width.px(100),

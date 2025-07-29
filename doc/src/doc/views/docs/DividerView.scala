@@ -50,7 +50,7 @@ case class DividerView()
           "Use the `--spacing` custom property to change the amount of space between the divider and it's neighboring elements.",
         content = Source.annotate {
           div(
-            textAlign := "center",
+            textAlign.center,
             "Above",
             Divider(
               _.style := "--spacing: 2rem;" // [!code highlight]

@@ -38,16 +38,16 @@ case class DropdownView()
           )("Show images"),
           Divider()(),
           DropdownItem(
-            _.`type`  := "checkbox",
+            _.`type`.checkbox,
             _.checked := true
           )("Emoji Shortcuts"),
           DropdownItem(
-            _.`type`  := "checkbox",
+            _.`type`.checkbox,
             _.checked := true
           )("Word Wrap"),
           Divider()(),
           DropdownItem(
-            _.variant := "danger",
+            _.variant.danger,
             _.slots.icon(Icon(_.name := "trash")())
           )("Delete")
         )
@@ -174,9 +174,9 @@ case class DropdownView()
               Button(_.withCaret := true)("View")
             )
           )(
-            DropdownItem(_.`type` := "checkbox", _.value := "canvas", _.checked := true)("Show canvas"),
-            DropdownItem(_.`type` := "checkbox", _.value := "grid", _.checked := true)("Show grid"),
-            DropdownItem(_.`type` := "checkbox", _.value := "source")("Show source"),
+            DropdownItem(_.`type`.checkbox, _.value := "canvas", _.checked := true)("Show canvas"),
+            DropdownItem(_.`type`.checkbox, _.value := "grid", _.checked := true)("Show grid"),
+            DropdownItem(_.`type`.checkbox, _.value := "source")("Show source"),
             Divider()(),
             DropdownItem(_.value := "preferences")("Preferences…")
           )
@@ -331,11 +331,11 @@ case class DropdownView()
             )("Spreadsheets"),
             Divider()(),
             DropdownItem(
-              _.slots.submenu(DropdownItem(_.`type` := "checkbox", _.value := "compress")("Compress files")),
+              _.slots.submenu(DropdownItem(_.`type`.checkbox, _.value := "compress")("Compress files")),
               _.slots.submenu(
-                DropdownItem(_.`type` := "checkbox", _.checked := true, _.value := "metadata")("Include metadata")
+                DropdownItem(_.`type`.checkbox, _.checked := true, _.value := "metadata")("Include metadata")
               ),
-              _.slots.submenu(DropdownItem(_.`type` := "checkbox", _.value := "password")("Password protect"))
+              _.slots.submenu(DropdownItem(_.`type`.checkbox, _.value := "password")("Password protect"))
             )("Options")
           )
         }
@@ -346,7 +346,7 @@ case class DropdownView()
         "Dropdown items that have a submenu will not dispatch the `wa-select` event. However, items inside the submenu will, unless they also have a submenu."
       ),
       Callout(
-        _.variant := "warning",
+        _.variant.warning,
         _.slots.icon(Icon(_.name := "triangle-exclamation")())
       )(
         tw.mt2,

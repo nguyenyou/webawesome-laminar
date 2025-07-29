@@ -23,7 +23,7 @@ case class DialogView()
             _.label := "Dialog",
             _.slots.footer(
               Button(
-                _.variant := "brand",
+                _.variant.brand,
                 _.close.dialog
               )("Close")
             )
@@ -53,7 +53,7 @@ case class DialogView()
               _.withoutHeader := true,
               _.slots.footer(
                 Button(
-                  _.variant := "brand",
+                  _.variant.brand,
                   _.close.dialog
                 )("Close")
               )
@@ -79,7 +79,7 @@ case class DialogView()
               _.label := "Dialog",
               _.slots.footer(
                 Button(
-                  _.variant := "brand",
+                  _.variant.brand,
                   _.close.dialog
                 )("Close")
               )
@@ -119,7 +119,7 @@ case class DialogView()
               _.label := "Dialog",
               _.slots.footer(
                 Button(
-                  _.variant := "brand",
+                  _.variant.brand,
                   _.close.dialog // [!code highlight]
                 )("Close")
               )
@@ -143,7 +143,7 @@ case class DialogView()
               _.style := "--width: 50vw;", // [!code highlight]
               _.slots.footer(
                 Button(
-                  _.variant := "brand",
+                  _.variant.brand,
                   _.close.dialog
                 )("Close")
               )
@@ -168,7 +168,7 @@ case class DialogView()
               _.label := "Dialog",
               _.slots.footer(
                 Button(
-                  _.variant := "brand",
+                  _.variant.brand,
                   _.close.dialog
                 )("Close")
               )
@@ -200,7 +200,7 @@ case class DialogView()
               _.label := "Dialog",
               _.slots.headerActions(
                 Button(
-                  _.appearance := "plain"
+                  _.appearance.plain
                 )(
                   onClick --> Observer { _ =>
                     window.open(window.location.href)
@@ -213,7 +213,7 @@ case class DialogView()
               ),
               _.slots.footer(
                 Button(
-                  _.variant := "brand",
+                  _.variant.brand,
                   _.close.dialog
                 )("Close")
               )
@@ -239,7 +239,7 @@ case class DialogView()
               _.lightDismiss := true, // [!code highlight]
               _.slots.footer(
                 Button(
-                  _.variant := "brand",
+                  _.variant.brand,
                   _.close.dialog
                 )("Close")
               )
@@ -262,7 +262,7 @@ case class DialogView()
         content = Source.annotate {
 
           val closeDialogButton = Button(
-            _.variant := "brand",
+            _.variant.brand,
             _.close.dialog
           )("Only this button will close it")
 
@@ -297,7 +297,7 @@ case class DialogView()
               _.label := "Dialog",
               _.slots.footer(
                 Button(
-                  _.variant := "brand",
+                  _.variant.brand,
                   _.close.dialog
                 )("Close")
               )

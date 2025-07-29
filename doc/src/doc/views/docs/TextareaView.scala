@@ -80,9 +80,9 @@ case class TextareaView()
           div(
             tw.spaceY4,
             // <show>
-            Textarea(_.placeholder := "Small", _.size := "small")(),
-            Textarea(_.placeholder := "Medium", _.size := "medium")(),
-            Textarea(_.placeholder := "Large", _.size := "large")()
+            Textarea(_.placeholder := "Small", _.size.small)(),
+            Textarea(_.placeholder := "Medium", _.size.medium)(),
+            Textarea(_.placeholder := "Large", _.size.large)()
             // </show>
           )
         }
@@ -92,7 +92,7 @@ case class TextareaView()
         description =
           "By default, textareas can be resized vertically by the user. To prevent resizing, set the `resize` attribute to `none`.",
         content = Source.annotate {
-          Textarea(_.resize := "none")()
+          Textarea(_.resize.none)()
         }
       )().withLocator,
       Demo(
@@ -100,14 +100,14 @@ case class TextareaView()
         description =
           "Textareas will automatically resize to expand to fit their content when `resize` is set to `auto`.",
         content = Source.annotate {
-          Textarea(_.resize := "auto")()
+          Textarea(_.resize.auto)()
         }
       )().withLocator,
       Demo(
         title = "Resize horizontal",
         description = "Textareas can be made to resize horizontally when `resize` is set to `\"horizontal\"`",
         content = Source.annotate {
-          Textarea(_.resize := "horizontal")()
+          Textarea(_.resize.horizontal)()
         }
       )().withLocator,
       Demo(
@@ -115,7 +115,7 @@ case class TextareaView()
         description =
           "Textareas can be made to resize both vertically and horizontally when `resize` is set to `\"both\"`",
         content = Source.annotate {
-          Textarea(_.resize := "both")()
+          Textarea(_.resize.both)()
         }
       )().withLocator
     )

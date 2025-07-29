@@ -34,14 +34,12 @@ case class BreadcrumbView()
           | For websites, you'll probably want to use links instead. You can make any breadcrumb item a link by applying an `href` attribute to it.
         """.stripMargin,
         content = Source.annotate {
-          // <show>
           Breadcrumb()(
             BreadcrumbItem(_.href := "https://example.com/home")("Homepage"),
             BreadcrumbItem(_.href := "https://example.com/home/services")("Our Services"),
             BreadcrumbItem(_.href := "https://example.com/home/services/digital")("Digital Media"),
             BreadcrumbItem(_.href := "https://example.com/home/services/digital/web-design")("Web Design")
           )
-          // </show>
         }
       )().withLocator,
       Demo(
@@ -50,7 +48,6 @@ case class BreadcrumbView()
           | Use the `start` and `end` slots to add presentational elements like `<wa-icon>` next to any breadcrumb item.
         """.stripMargin,
         content = Source.annotate {
-          // <show>
           Breadcrumb()(
             BreadcrumbItem(
               _.slots.start(Icon(_.name := "house")())
@@ -60,7 +57,6 @@ case class BreadcrumbView()
               _.slots.end(Icon(_.name := "tree-palm")())
             )("Traveling")
           )
-          // </show>
         }
       )().withLocator,
       Demo(
@@ -74,21 +70,21 @@ case class BreadcrumbView()
             tw.spaceY4,
             // <show>
             Breadcrumb(
-              _.slots.separator(Icon(_.name := "angles-right", _.variant := "solid")())
+              _.slots.separator(Icon(_.name := "angles-right", _.variant := "solid")()) // [!code highlight]
             )(
               BreadcrumbItem()("First"),
               BreadcrumbItem()("Second"),
               BreadcrumbItem()("Third")
             ),
             Breadcrumb(
-              _.slots.separator(Icon(_.name := "arrow-right", _.variant := "solid")())
+              _.slots.separator(Icon(_.name := "arrow-right", _.variant := "solid")()) // [!code highlight]
             )(
               BreadcrumbItem()("First"),
               BreadcrumbItem()("Second"),
               BreadcrumbItem()("Third")
             ),
             Breadcrumb(
-              _.slots.separator(span("/"))
+              _.slots.separator(span("/")) // [!code highlight]
             )(
               BreadcrumbItem()("First"),
               BreadcrumbItem()("Second"),
@@ -123,7 +119,6 @@ case class BreadcrumbView()
               }
             """
             ),
-            // <show>
             Breadcrumb()(
               className := "redcrumbs",
               BreadcrumbItem(
@@ -132,7 +127,6 @@ case class BreadcrumbView()
               BreadcrumbItem()("Articles"),
               BreadcrumbItem()("Traveling")
             )
-            // </show>
           )
         }
       )().withLocator,
@@ -142,28 +136,23 @@ case class BreadcrumbView()
           | Dropdown menus can be placed in the default slot to provide additional options.
         """.stripMargin,
         content = Source.annotate {
-          div(
-            tw.spaceY4,
-            // <show>
-            Breadcrumb()(
-              BreadcrumbItem()("Homepage"),
-              BreadcrumbItem()(
-                Dropdown(
-                  _.slots.trigger(
-                    Button(_.size := "small", _.appearance := "filled", _.pill := true)(
-                      Icon(_.label := "More options", _.name := "ellipsis", _.variant := "solid")()
-                    )
+          Breadcrumb()(
+            BreadcrumbItem()("Homepage"),
+            BreadcrumbItem()(
+              Dropdown(
+                _.slots.trigger(
+                  Button(_.size.small, _.appearance.filled, _.pill := true)(
+                    Icon(_.label := "More options", _.name := "ellipsis", _.variant := "solid")() // [!code highlight]
                   )
-                )(
-                  DropdownItem(_.`type` := "checkbox", _.checked := true)("Web Design"),
-                  DropdownItem(_.`type` := "checkbox")("Web Development"),
-                  DropdownItem(_.`type` := "checkbox")("Marketing")
                 )
-              ),
-              BreadcrumbItem()("Our Services"),
-              BreadcrumbItem()("Digital Media")
-            )
-            // </show>
+              )(
+                DropdownItem(_.`type` := "checkbox", _.checked := true)("Web Design"),
+                DropdownItem(_.`type` := "checkbox")("Web Development"),
+                DropdownItem(_.`type` := "checkbox")("Marketing")
+              )
+            ),
+            BreadcrumbItem()("Our Services"),
+            BreadcrumbItem()("Digital Media")
           )
         }
       )().withLocator,
@@ -172,30 +161,25 @@ case class BreadcrumbView()
           | Alternative placement in end slot
         """.stripMargin,
         content = Source.annotate {
-          div(
-            tw.spaceY4,
-            // <show>
-            Breadcrumb()(
-              BreadcrumbItem()("Homepage"),
-              BreadcrumbItem()("Our Services"),
-              BreadcrumbItem()("Digital Media"),
-              BreadcrumbItem(
-                _.slots.end(
-                  Dropdown(
-                    _.slots.trigger(
-                      Button(_.size := "small", _.appearance := "filled", _.pill := true)(
-                        Icon(_.label := "More options", _.name := "ellipsis", _.variant := "solid")()
-                      )
+          Breadcrumb()(
+            BreadcrumbItem()("Homepage"),
+            BreadcrumbItem()("Our Services"),
+            BreadcrumbItem()("Digital Media"),
+            BreadcrumbItem(
+              _.slots.end(
+                Dropdown(
+                  _.slots.trigger(
+                    Button(_.size.small, _.appearance.filled, _.pill := true)(
+                      Icon(_.label := "More options", _.name := "ellipsis", _.variant := "solid")() // [!code highlight]
                     )
-                  )(
-                    DropdownItem(_.`type` := "checkbox", _.checked := true)("Web Design"),
-                    DropdownItem(_.`type` := "checkbox")("Web Development"),
-                    DropdownItem(_.`type` := "checkbox")("Marketing")
                   )
+                )(
+                  DropdownItem(_.`type` := "checkbox", _.checked := true)("Web Design"),
+                  DropdownItem(_.`type` := "checkbox")("Web Development"),
+                  DropdownItem(_.`type` := "checkbox")("Marketing")
                 )
-              )("Web Design")
-            )
-            // </show>
+              )
+            )("Web Design")
           )
         }
       )().withLocator

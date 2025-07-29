@@ -32,13 +32,13 @@ case class AvatarView()
           div(
             tw.flex.gap2,
             Avatar(
-              _.image := "https://images.unsplash.com/photo-1529778873920-4da4926a72c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
+              _.image := "https://images.unsplash.com/photo-1529778873920-4da4926a72c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80", // [!code highlight]
               _.label := "Avatar of a gray tabby kitten looking dow"
             )(),
             Avatar(
-              _.image := "https://images.unsplash.com/photo-1591871937573-74dbba515c4c?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
-              _.label   := "Avatar of a white and grey kitten on grey textile",
-              _.loading := "lazy"
+              _.image := "https://images.unsplash.com/photo-1591871937573-74dbba515c4c?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80", // [!code highlight]
+              _.label := "Avatar of a white and grey kitten on grey textile",
+              _.loading.`lazy`
             )()
           )
         }
@@ -50,7 +50,7 @@ case class AvatarView()
           |""".stripMargin,
         content = Source.annotate {
           Avatar(
-            _.initials := "WA",
+            _.initials := "WA", // [!code highlight]
             _.label    := "Avatar with initials: SL"
           )()
         }
@@ -65,6 +65,7 @@ case class AvatarView()
             tw.flex.gap2,
             Avatar(
               _.label := "Avatar with an image icon",
+              // [!code highlight:6]
               _.slots.icon(
                 Icon(
                   _.name    := "image",
@@ -102,15 +103,15 @@ case class AvatarView()
           div(
             tw.flex.gap2,
             Avatar(
-              _.shape := "square",
+              _.shape.square, // [!code highlight]
               _.label := "Square avatar"
             )(),
             Avatar(
-              _.shape := "rounded",
+              _.shape.rounded, // [!code highlight]
               _.label := "Rounded avatar"
             )(),
             Avatar(
-              _.shape := "circle",
+              _.shape.circle, // [!code highlight]
               _.label := "Circle avatar"
             )()
           )
@@ -123,7 +124,16 @@ case class AvatarView()
           |""".stripMargin,
         content = Source.annotate {
           div(
-            tw.flex.gap2,
+            cls("avatar-group"),
+            styleTag("""
+              .avatar-group wa-avatar:not(:first-of-type) {
+                margin-left: calc(-1 * var(--wa-space-m));
+              }
+
+              .avatar-group wa-avatar {
+                border: solid 2px var(--wa-color-surface-default);
+              }
+            """),
             Avatar(
               _.image := "https://images.unsplash.com/photo-1490150028299-bf57d78394e0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&h=256&q=80&crop=right",
               _.label := "Avatar 1 of 4"

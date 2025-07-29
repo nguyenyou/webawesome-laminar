@@ -3,9 +3,9 @@ package doc.views.docs
 import com.raquo.laminar.api.L.*
 import doc.components.Demo
 import doc.components.Locator.withLocator
+import doc.libs.scalawind.*
 import doc.macros.Source
 import io.github.nguyenyou.webawesome.laminar.*
-import io.github.nguyenyou.webawesome.laminar.SharedTypes.ComponentSize
 import org.scalajs.dom
 
 case class RadioGroupView()
@@ -50,28 +50,28 @@ case class RadioGroupView()
         content = Source.annotate {
           div(
             RadioGroup(
-              _.label       := "Horizontal options",
-              _.hint        := "Select an option that makes you proud.",
-              _.orientation := "horizontal",
-              _.name        := "a",
-              _.value       := "1"
+              _.label := "Horizontal options",
+              _.hint  := "Select an option that makes you proud.",
+              _.orientation.horizontal,
+              _.name  := "a",
+              _.value := "1"
             )(
-              Radio(_.appearance := "button", _.value := "1")("Option 1"),
-              Radio(_.appearance := "button", _.value := "2")("Option 2"),
-              Radio(_.appearance := "button", _.value := "3")("Option 3")
+              Radio(_.appearance.button, _.value := "1")("Option 1"),
+              Radio(_.appearance.button, _.value := "2")("Option 2"),
+              Radio(_.appearance.button, _.value := "3")("Option 3")
             ),
             br(),
             RadioGroup(
-              _.label       := "Vertical options",
-              _.hint        := "Select an option that makes you proud.",
-              _.orientation := "vertical",
-              _.name        := "a",
-              _.value       := "1"
+              _.label := "Vertical options",
+              _.hint  := "Select an option that makes you proud.",
+              _.orientation.vertical,
+              _.name  := "a",
+              _.value := "1"
             )(
               maxWidth.px(300),
-              Radio(_.appearance := "button", _.value := "1")("Option 1"),
-              Radio(_.appearance := "button", _.value := "2")("Option 2"),
-              Radio(_.appearance := "button", _.value := "3")("Option 3")
+              Radio(_.appearance.button, _.value := "1")("Option 1"),
+              Radio(_.appearance.button, _.value := "2")("Option 2"),
+              Radio(_.appearance.button, _.value := "3")("Option 3")
             )
           )
         }
@@ -106,11 +106,11 @@ case class RadioGroupView()
           "The default orientation for radio items is `vertical`. Set the `orientation` to `horizontal` to items on the same row.",
         content = Source.annotate {
           RadioGroup(
-            _.label       := "Select an option",
-            _.hint        := "Choose the most appropriate option.",
-            _.orientation := "horizontal",
-            _.name        := "a",
-            _.value       := "1"
+            _.label := "Select an option",
+            _.hint  := "Choose the most appropriate option.",
+            _.orientation.horizontal,
+            _.name  := "a",
+            _.value := "1"
           )(
             Radio(_.value := "1")("Option 1"),
             Radio(_.value := "2")("Option 2"),
@@ -122,19 +122,29 @@ case class RadioGroupView()
         title = "Sizing Options",
         description = "The size of Radios will be determined by the Radio Group's `size` attribute.",
         content = Source.annotate {
-          val currentSize = Var("medium")
-
-          RadioGroup(
-            _.label := "Select an optionn",
-            _.size <-- currentSize.signal.map(_.asInstanceOf[ComponentSize]),
-            _.controlled(
-              _.value <-- currentSize.signal,
-              _.onInput.mapToValue --> currentSize.writer
+          div(
+            tw.flex.flexWrap.gap2,
+            RadioGroup(
+              _.size.small
+            )(
+              Radio(_.value := "small")("Small"),
+              Radio(_.value := "medium")("Medium"),
+              Radio(_.value := "large")("Large")
+            ),
+            RadioGroup(
+              _.size.medium
+            )(
+              Radio(_.value := "small")("Small"),
+              Radio(_.value := "medium")("Medium"),
+              Radio(_.value := "large")("Large")
+            ),
+            RadioGroup(
+              _.size.large
+            )(
+              Radio(_.value := "small")("Small"),
+              Radio(_.value := "medium")("Medium"),
+              Radio(_.value := "large")("Large")
             )
-          )(
-            Radio(_.value := "small")("Small"),
-            Radio(_.value := "medium")("Medium"),
-            Radio(_.value := "large")("Large")
           )
         }
       )().withLocator,
@@ -158,8 +168,8 @@ case class RadioGroupView()
             ),
             br(),
             Button(
-              _.typ     := "submit",
-              _.variant := "brand"
+              _.typ.submit,
+              _.variant.brand
             )("Submit")
           )
         }

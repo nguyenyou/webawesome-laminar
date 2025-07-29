@@ -36,7 +36,7 @@ case class CalloutView()
             tw.spaceY4,
             // <show>
             Callout(
-              _.variant := "brand",
+              _.variant.brand,
               _.slots.icon(Icon(_.name := "circle-info")())
             )(
               strong("This is super informative"),
@@ -44,7 +44,7 @@ case class CalloutView()
               "You can tell by how pretty the callout is."
             ),
             Callout(
-              _.variant := "success",
+              _.variant.success,
               _.slots.icon(Icon(_.name := "circle-check")())
             )(
               strong("Your changes have been saved"),
@@ -52,7 +52,7 @@ case class CalloutView()
               "You can safely exit the app now."
             ),
             Callout(
-              _.variant := "neutral",
+              _.variant.neutral,
               _.slots.icon(Icon(_.name := "gear")())
             )(
               strong("Your settings have been updated"),
@@ -60,7 +60,7 @@ case class CalloutView()
               "Settings will take effect on next login."
             ),
             Callout(
-              _.variant := "warning",
+              _.variant.warning,
               _.slots.icon(Icon(_.name := "triangle-exclamation")())
             )(
               strong("Your session has ended"),
@@ -68,7 +68,7 @@ case class CalloutView()
               "Please login again to continue."
             ),
             Callout(
-              _.variant := "danger",
+              _.variant.danger,
               _.slots.icon(Icon(_.name := "circle-exclamation")())
             )(
               strong("Your account has been deleted"),
@@ -88,8 +88,8 @@ case class CalloutView()
             tw.spaceY4,
             // <show>
             Callout(
-              _.variant    := "brand",
-              _.appearance := "accent",
+              _.variant.brand,
+              _.appearance.accent,
               _.slots.icon(Icon(_.name := "square-check")())
             )(
               "This ",
@@ -97,7 +97,7 @@ case class CalloutView()
               " callout draws attention"
             ),
             Callout(
-              _.variant    := "brand",
+              _.variant.brand,
               _.appearance.filledOutlined,
               _.slots.icon(Icon(_.name := "fill-drip")())
             )(
@@ -107,16 +107,16 @@ case class CalloutView()
               strong("outlined")
             ),
             Callout(
-              _.variant    := "brand",
-              _.appearance := "filled",
+              _.variant.brand,
+              _.appearance.filled,
               _.slots.icon(Icon(_.name := "fill")())
             )(
               "This callout is only ",
               strong("filled")
             ),
             Callout(
-              _.variant    := "brand",
-              _.appearance := "outlined",
+              _.variant.brand,
+              _.appearance.outlined,
               _.slots.icon(Icon(_.name := "lines-leaning")())
             )(
               "Here's an ",
@@ -124,8 +124,8 @@ case class CalloutView()
               " callout"
             ),
             Callout(
-              _.variant    := "brand",
-              _.appearance := "plain",
+              _.variant.brand,
+              _.appearance.plain,
               _.slots.icon(Icon(_.name := "font")())
             )(
               "No bells and whistles on this ",
@@ -144,19 +144,19 @@ case class CalloutView()
             tw.spaceY4,
             // <show>
             Callout(
-              _.size := "large",
+              _.size.large,
               _.slots.icon(Icon(_.name := "circle-info")())
             )(
               "This is meant to be very emphasized."
             ),
             Callout(
-              _.size := "medium",
+              _.size.medium,
               _.slots.icon(Icon(_.name := "circle-info")())
             )(
               "Normal-sized callout."
             ),
             Callout(
-              _.size := "small",
+              _.size.small,
               _.slots.icon(Icon(_.name := "circle-info")())
             )(
               "Just a small tip!"
@@ -169,11 +169,9 @@ case class CalloutView()
         title = "Without Icons",
         description = "Icons are optional. Simply omit the `icon` slot if you don't want them.",
         content = Source.annotate {
-          // <show>
-          Callout(_.variant := "brand")(
+          Callout(_.variant.brand)(
             "Nothing fancy here, just a simple callout."
           )
-          // </show>
         }
       )().withLocator
     )

@@ -31,14 +31,12 @@ case class DetailsView()
         title = "Disabled",
         description = "Use the `disabled` attribute to prevent the details from expanding.",
         content = Source.annotate {
-          // <show>
           Details(
             _.summary  := "Disabled",
             _.disabled := true
           )(
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
           )
-          // </show>
         }
       )().withLocator,
       Demo(
@@ -46,7 +44,6 @@ case class DetailsView()
         description =
           "Use the `expand-icon` and `collapse-icon` slots to change the expand and collapse icons, respectively.",
         content = Source.annotate {
-          // <show>
           Details(
             _.summary := "Toggle Me",
             _.slots.expandIcon(Icon(_.name := "square-plus", _.variant := "regular")()),
@@ -54,7 +51,6 @@ case class DetailsView()
           )(
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
           )
-          // </show>
         }
       )().withLocator,
       Demo(
@@ -62,7 +58,6 @@ case class DetailsView()
         description =
           "To use HTML in the summary, use the `summary` slot. Links and other interactive elements will still retain their behavior.",
         content = Source.annotate {
-          // <show>
           Details(
             _.slots.summary(
               span(
@@ -74,14 +69,12 @@ case class DetailsView()
           )(
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
           )
-          // </show>
         }
       )().withLocator,
       Demo(
         title = "Right-to-Left Languages",
         description = "The details component automatically adapts to right-to-left languages.",
         content = Source.annotate {
-          // <show>
           Details(
             _.summary := "تبديلني"
           )(
@@ -89,7 +82,6 @@ case class DetailsView()
             dir  := "rtl",
             "استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن"
           )
-          // </show>
         }
       )().withLocator,
       Demo(
@@ -105,20 +97,20 @@ case class DetailsView()
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
             ),
             Details(
-              _.summary    := "Filled + Outlined",
-              _.appearance := "filled outlined"
+              _.summary := "Filled + Outlined",
+              _.appearance.filledOutlined
             )(
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
             ),
             Details(
-              _.summary    := "Filled",
-              _.appearance := "filled"
+              _.summary := "Filled",
+              _.appearance.filled
             )(
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
             ),
             Details(
-              _.summary    := "Plain",
-              _.appearance := "plain"
+              _.summary := "Plain",
+              _.appearance.plain
             )(
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
             )

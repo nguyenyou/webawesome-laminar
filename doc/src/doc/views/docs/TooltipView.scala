@@ -54,7 +54,6 @@ case class TooltipView()
             .tooltip-placement-example-row:nth-child(5) {
               justify-content: center;
             }""".stripMargin),
-            // <show> 
             div(
               cls("tooltip-placement-example"),
               div(
@@ -110,54 +109,53 @@ case class TooltipView()
               )
             ),
             Tooltip(
-              _.forId     := "tooltip-top-start",
+              _.forId := "tooltip-top-start",
               _.placement.topStart
             )("top-start"),
             Tooltip(
-              _.forId     := "tooltip-top",
+              _.forId := "tooltip-top",
               _.placement.top
             )("top"),
             Tooltip(
-              _.forId     := "tooltip-top-end",
+              _.forId := "tooltip-top-end",
               _.placement.topEnd
             )("top-end"),
             Tooltip(
-              _.forId     := "tooltip-left-start",
+              _.forId := "tooltip-left-start",
               _.placement.leftStart
             )("left-start"),
             Tooltip(
-              _.forId     := "tooltip-right-start",
+              _.forId := "tooltip-right-start",
               _.placement.rightStart
             )("right-start"),
             Tooltip(
-              _.forId     := "tooltip-left",
+              _.forId := "tooltip-left",
               _.placement.left
             )("left"),
             Tooltip(
-              _.forId     := "tooltip-right",
+              _.forId := "tooltip-right",
               _.placement.right
             )("right"),
             Tooltip(
-              _.forId     := "tooltip-left-end",
+              _.forId := "tooltip-left-end",
               _.placement.leftEnd
             )("left-end"),
             Tooltip(
-              _.forId     := "tooltip-right-end",
+              _.forId := "tooltip-right-end",
               _.placement.rightEnd
             )("right-end"),
             Tooltip(
-              _.forId     := "tooltip-bottom-start",
+              _.forId := "tooltip-bottom-start",
               _.placement.bottomStart
             )("bottom-start"),
             Tooltip(
-              _.forId     := "tooltip-bottom",
+              _.forId := "tooltip-bottom",
               _.placement.bottom
             )("bottom"),
             Tooltip(
-              _.forId     := "tooltip-bottom-end",
+              _.forId := "tooltip-bottom-end",
               _.placement.bottomEnd
             )("bottom-end")
-            // </show>
           )
         }
       )().withLocator,

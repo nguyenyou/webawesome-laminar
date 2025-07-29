@@ -17,7 +17,7 @@ case class TreeView()
   def playground: HtmlElement = {
     Demo(
       content = Source.annotate {
-        Tree(_.selection := "multiple")(
+        Tree(_.selection.multiple)(
           TreeItem()(
             "Parent Node",
             TreeItem(_.selected := true)("Child Node 1"),

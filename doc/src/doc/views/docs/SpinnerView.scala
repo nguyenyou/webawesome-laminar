@@ -29,6 +29,7 @@ case class SpinnerView()
         content = Source.annotate {
           div(
             tw.flex.gap2,
+            // <show>
             Spinner()(),
             Spinner(
               _.style := "font-size: 2rem;"
@@ -36,6 +37,7 @@ case class SpinnerView()
             Spinner(
               _.style := "font-size: 3rem;"
             )()
+            // </show>
           )
         }
       )().withLocator,

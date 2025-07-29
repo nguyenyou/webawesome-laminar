@@ -7,6 +7,7 @@ import doc.libs.scalawind.*
 import doc.macros.Source
 import io.github.nguyenyou.webawesome.laminar.*
 import org.scalajs.dom
+
 import scala.language.implicitConversions
 
 case class ButtonView()
@@ -23,9 +24,7 @@ case class ButtonView()
           _.onClick --> Observer[dom.MouseEvent] { event =>
             dom.window.alert(s"Clicked at clientX ${event.clientX}, clientY ${event.clientY}")
           }
-        )(
-          "Button"
-        )
+        )("Button")
       }
     )().withLocator
   }
@@ -70,48 +69,48 @@ case class ButtonView()
               tw.flex.flexWrap.gap2,
               // <show>
               Button(_.appearance.accent, _.variant.brand)("Accent"),
-              Button(_.appearance := "filled outlined", _.variant := "brand")("Filled + Outlined"),
-              Button(_.appearance := "filled", _.variant := "brand")("Filled"),
-              Button(_.appearance := "outlined", _.variant := "brand")(
+              Button(_.appearance.filledOutlined, _.variant.brand)("Filled + Outlined"),
+              Button(_.appearance.filled, _.variant.brand)("Filled"),
+              Button(_.appearance.outlined, _.variant.brand)(
                 "Outlined"
               ),
-              Button(_.appearance := "plain", _.variant := "brand")("Plain")
+              Button(_.appearance.plain, _.variant.brand)("Plain")
               // </show>
             ),
             div(
               tw.flex.flexWrap.gap2,
               // <show>
-              Button(_.appearance := "accent", _.variant := "success")("Accent"),
-              Button(_.appearance := "filled outlined", _.variant := "success")("Filled + Outlined"),
-              Button(_.appearance := "filled", _.variant := "success")("Filled"),
-              Button(_.appearance := "outlined", _.variant := "success")(
+              Button(_.appearance.accent, _.variant.success)("Accent"),
+              Button(_.appearance.filledOutlined, _.variant.success)("Filled + Outlined"),
+              Button(_.appearance.filled, _.variant.success)("Filled"),
+              Button(_.appearance.outlined, _.variant.success)(
                 "Outlined"
               ),
-              Button(_.appearance := "plain", _.variant := "success")("Plain")
+              Button(_.appearance.plain, _.variant.success)("Plain")
               // </show>
             ),
             div(
               tw.flex.flexWrap.gap2,
               // <show>
-              Button(_.appearance := "accent", _.variant := "warning")("Accent"),
-              Button(_.appearance := "filled outlined", _.variant := "warning")("Filled + Outlined"),
-              Button(_.appearance := "filled", _.variant := "warning")("Filled"),
-              Button(_.appearance := "outlined", _.variant := "warning")(
+              Button(_.appearance.accent, _.variant.warning)("Accent"),
+              Button(_.appearance.filledOutlined, _.variant.warning)("Filled + Outlined"),
+              Button(_.appearance.filled, _.variant.warning)("Filled"),
+              Button(_.appearance.outlined, _.variant.warning)(
                 "Outlined"
               ),
-              Button(_.appearance := "plain", _.variant := "warning")("Plain")
+              Button(_.appearance.plain, _.variant.warning)("Plain")
               // </show>
             ),
             div(
               tw.flex.flexWrap.gap2,
               // <show>
-              Button(_.appearance := "accent", _.variant := "danger")("Accent"),
-              Button(_.appearance := "filled outlined", _.variant := "danger")("Filled + Outlined"),
-              Button(_.appearance := "filled", _.variant := "danger")("Filled"),
-              Button(_.appearance := "outlined", _.variant := "danger")(
+              Button(_.appearance.accent, _.variant.danger)("Accent"),
+              Button(_.appearance.filledOutlined, _.variant.danger)("Filled + Outlined"),
+              Button(_.appearance.filled, _.variant.danger)("Filled"),
+              Button(_.appearance.outlined, _.variant.danger)(
                 "Outlined"
               ),
-              Button(_.appearance := "plain", _.variant := "danger")("Plain")
+              Button(_.appearance.plain, _.variant.danger)("Plain")
               // </show>
             )
           )
@@ -138,9 +137,9 @@ case class ButtonView()
           div(
             tw.flex.flexWrap.gap2,
             // <show>
-            Button(_.size := "small", _.pill := true)("Small"),
-            Button(_.size := "medium", _.pill := true)("Medium"),
-            Button(_.size := "large", _.pill := true)("Large")
+            Button(_.size.small, _.pill := true)("Small"),
+            Button(_.size.medium, _.pill := true)("Medium"),
+            Button(_.size.large, _.pill := true)("Large")
             // </show>
           )
         }
@@ -174,16 +173,16 @@ case class ButtonView()
           div(
             tw.flex.flexWrap.gap2,
             // <show>
-            Button(_.appearance := "accent", _.variant := "neutral")(
+            Button(_.appearance.accent, _.variant.neutral)(
               Icon(_.name := "house", _.label := "Home")()
             ),
-            Button(_.appearance := "filled", _.variant := "neutral")(
+            Button(_.appearance.filled, _.variant.neutral)(
               Icon(_.name := "house", _.label := "Home")()
             ),
-            Button(_.appearance := "outlined", _.variant := "neutral")(
+            Button(_.appearance.outlined, _.variant.neutral)(
               Icon(_.name := "house", _.label := "Home")()
             ),
-            Button(_.appearance := "plain", _.variant := "neutral")(
+            Button(_.appearance.plain, _.variant.neutral)(
               Icon(_.name := "house", _.label := "Home")()
             )
             // </show>
@@ -196,9 +195,9 @@ case class ButtonView()
           div(
             tw.flex.flexWrap.gap2,
             // <show>
-            Button(_.size := "small")(tw.wFull, "Small"),
-            Button(_.size := "medium")(tw.wFull, "Medium"),
-            Button(_.size := "large")(tw.wFull, "Large")
+            Button(_.size.small)(tw.wFull, "Small"),
+            Button(_.size.medium)(tw.wFull, "Medium"),
+            Button(_.size.large)(tw.wFull, "Large")
             // </show>
           )
         }
@@ -238,15 +237,15 @@ case class ButtonView()
               tw.flex.flexWrap.gap2,
               // <show>
               Button(
-                _.size := "medium",
+                _.size.medium,
                 _.slots.start(Icon(_.name := "gear", _.label := "Settings")())
               )("Settings"),
               Button(
-                _.size := "medium",
+                _.size.medium,
                 _.slots.end(Icon(_.name := "undo", _.label := "Refresh")())
               )("Refresh"),
               Button(
-                _.size := "medium",
+                _.size.medium,
                 _.slots.start(Icon(_.name := "link", _.label := "Link")()),
                 _.slots.end(
                   Icon(
@@ -261,15 +260,15 @@ case class ButtonView()
               tw.flex.flexWrap.gap2,
               // <show>
               Button(
-                _.size := "large",
+                _.size.large,
                 _.slots.start(Icon(_.name := "gear", _.label := "Settings")())
               )("Settings"),
               Button(
-                _.size := "large",
+                _.size.large,
                 _.slots.end(Icon(_.name := "undo", _.label := "Refresh")())
               )("Refresh"),
               Button(
-                _.size := "large",
+                _.size.large,
                 _.slots.start(Icon(_.name := "link", _.label := "Link")()),
                 _.slots.end(
                   Icon(
@@ -291,9 +290,9 @@ case class ButtonView()
           div(
             tw.flex.flexWrap.gap2,
             // <show>
-            Button(_.size := "small", _.withCaret := true)("Small"),
-            Button(_.size := "medium", _.withCaret := true)("Medium"),
-            Button(_.size := "large", _.withCaret := true)("Large")
+            Button(_.size.small, _.withCaret := true)("Small"),
+            Button(_.size.medium, _.withCaret := true)("Medium"),
+            Button(_.size.large, _.withCaret := true)("Large")
             // </show>
           )
         }
@@ -306,11 +305,11 @@ case class ButtonView()
           div(
             tw.flex.flexWrap.gap2,
             // <show>
-            Button(_.variant := "brand", _.loading := true)("Brand"),
-            Button(_.variant := "danger", _.loading := true)("Danger"),
-            Button(_.variant := "neutral", _.loading := true)("Neutral"),
-            Button(_.variant := "success", _.loading := true)("Success"),
-            Button(_.variant := "warning", _.loading := true)("Warning")
+            Button(_.variant.brand, _.loading := true)("Brand"),
+            Button(_.variant.danger, _.loading := true)("Danger"),
+            Button(_.variant.neutral, _.loading := true)("Neutral"),
+            Button(_.variant.success, _.loading := true)("Success"),
+            Button(_.variant.warning, _.loading := true)("Warning")
             // </show>
           )
         }
@@ -322,11 +321,11 @@ case class ButtonView()
           div(
             tw.flex.flexWrap.gap2,
             // <show>
-            Button(_.variant := "brand", _.disabled := true)("Brand"),
-            Button(_.variant := "danger", _.disabled := true)("Danger"),
-            Button(_.variant := "neutral", _.disabled := true)("Neutral"),
-            Button(_.variant := "success", _.disabled := true)("Success"),
-            Button(_.variant := "warning", _.disabled := true)("Warning")
+            Button(_.variant.brand, _.disabled := true)("Brand"),
+            Button(_.variant.danger, _.disabled := true)("Danger"),
+            Button(_.variant.neutral, _.disabled := true)("Neutral"),
+            Button(_.variant.success, _.disabled := true)("Success"),
+            Button(_.variant.warning, _.disabled := true)("Warning")
             // </show>
           )
         }

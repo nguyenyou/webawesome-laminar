@@ -50,11 +50,11 @@ case class FormatDateView()
           div(
             tw.flex.flexCol.gap2,
             // <show>
-            div("Human-readable date: ", FormatDate(_.month := "long", _.day := "numeric", _.year := "numeric")()),
-            div("Time: ", FormatDate(_.hour := "numeric", _.minute := "numeric")()),
-            div("Weekday: ", FormatDate(_.weekday := "long")()),
-            div("Month: ", FormatDate(_.month := "long")()),
-            div("Year: ", FormatDate(_.year := "numeric")()),
+            div("Human-readable date: ", FormatDate(_.month.long, _.day.numeric, _.year.numeric)()),
+            div("Time: ", FormatDate(_.hour.numeric, _.minute.numeric)()),
+            div("Weekday: ", FormatDate(_.weekday.long)()),
+            div("Month: ", FormatDate(_.month.long)()),
+            div("Year: ", FormatDate(_.year.numeric)()),
             div("No formatting options: ", FormatDate()())
             // </show>
           )
@@ -68,8 +68,8 @@ case class FormatDateView()
           div(
             tw.flex.flexCol.gap2,
             // <show>
-            div("12-hour: ", FormatDate(_.hour := "numeric", _.minute := "numeric", _.hourFormat := "12")()),
-            div("24-hour: ", FormatDate(_.hour := "numeric", _.minute := "numeric", _.hourFormat := "24")())
+            div("12-hour: ", FormatDate(_.hour.numeric, _.minute.numeric, _.hourFormat := "12")()),
+            div("24-hour: ", FormatDate(_.hour.numeric, _.minute.numeric, _.hourFormat := "24")())
             // </show>
           )
         }
@@ -81,12 +81,12 @@ case class FormatDateView()
           div(
             tw.flex.flexCol.gap2,
             // <show>
-            div("UTC: ", FormatDate(_.hour := "numeric", _.minute := "numeric", _.timeZone := "UTC")()),
+            div("UTC: ", FormatDate(_.hour.numeric, _.minute.numeric, _.timeZone := "UTC")()),
             div(
               "Pacific: ",
-              FormatDate(_.hour := "numeric", _.minute := "numeric", _.timeZone := "America/Los_Angeles")()
+              FormatDate(_.hour.numeric, _.minute.numeric, _.timeZone := "America/Los_Angeles")()
             ),
-            div("Tokyo: ", FormatDate(_.hour := "numeric", _.minute := "numeric", _.timeZone := "Asia/Tokyo")())
+            div("Tokyo: ", FormatDate(_.hour.numeric, _.minute.numeric, _.timeZone := "Asia/Tokyo")())
             // </show>
           )
         }

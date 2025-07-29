@@ -28,12 +28,10 @@ case class ColorPickerView()
         title = "Initial Value",
         description = "Use the `value` attribute to set an initial value for the color picker.",
         content = Source.annotate {
-          // <show>
           ColorPicker(
             _.value := "#4a90e2",
             _.label := "Select a color"
           )()
-          // </show>
         }
       )().withLocator,
       Demo(
@@ -41,13 +39,11 @@ case class ColorPickerView()
         description =
           "Use the `opacity` attribute to enable the opacity slider. When this is enabled, the value will be displayed as HEXA, RGBA, HSLA, or HSVA based on `format`.",
         content = Source.annotate {
-          // <show>
           ColorPicker(
             _.value   := "#f5a623ff",
             _.opacity := true,
             _.label   := "Select a color"
           )()
-          // </show>
         }
       )().withLocator,
       Demo(
@@ -62,24 +58,24 @@ case class ColorPickerView()
             tw.grid.gridCols2.gap4,
             // <show>
             ColorPicker(
-              _.format := "hex",
-              _.value  := "#4a90e2",
-              _.label  := "Pick a hex color"
+              _.format.hex,
+              _.value := "#4a90e2",
+              _.label := "Pick a hex color"
             )(),
             ColorPicker(
-              _.format := "rgb",
-              _.value  := "rgb(80, 227, 194)",
-              _.label  := "Pick an RGB color"
+              _.format.rgb,
+              _.value := "rgb(80, 227, 194)",
+              _.label := "Pick an RGB color"
             )(),
             ColorPicker(
-              _.format := "hsl",
-              _.value  := "hsl(290, 87%, 47%)",
-              _.label  := "Pick an HSL color"
+              _.format.hsl,
+              _.value := "hsl(290, 87%, 47%)",
+              _.label := "Pick an HSL color"
             )(),
             ColorPicker(
-              _.format := "hsv",
-              _.value  := "hsv(55, 89%, 97%)",
-              _.label  := "Pick an HSV color"
+              _.format.hsv,
+              _.value := "hsv(55, 89%, 97%)",
+              _.label := "Pick an HSV color"
             )()
             // </show>
           )
@@ -93,12 +89,10 @@ case class ColorPickerView()
         | but each value must be separated by a semicolon (`;`).
         """.stripMargin,
         content = Source.annotate {
-          // <show>
           ColorPicker(
             _.label := "Select a color",
             _.swatches := "#d0021b; #f5a623; #f8e71c; #8b572a; #7ed321; #417505; #bd10e0; #9013fe; #4a90e2; #50e3c2; #b8e986; #000; #444; #888; #ccc; #fff;"
           )()
-          // </show>
         }
       )().withLocator,
       Demo(
@@ -109,15 +103,15 @@ case class ColorPickerView()
             tw.flex.itemsEnd.gap4,
             // <show>
             ColorPicker(
-              _.size  := "small",
+              _.size.small,
               _.label := "Select a color"
             )(),
             ColorPicker(
-              _.size  := "medium",
+              _.size.medium,
               _.label := "Select a color"
             )(),
             ColorPicker(
-              _.size  := "large",
+              _.size.large,
               _.label := "Select a color"
             )()
             // </show>
@@ -128,12 +122,10 @@ case class ColorPickerView()
         title = "Disabled",
         description = "The color picker can be rendered as disabled.",
         content = Source.annotate {
-          // <show>
           ColorPicker(
             _.disabled := true,
             _.label    := "Select a color"
           )()
-          // </show>
         }
       )().withLocator,
       Demo(
@@ -141,12 +133,10 @@ case class ColorPickerView()
         description =
           "Add descriptive hint to a color picker with the `hint` attribute. For hints that contain HTML, use the `hint` slot instead.",
         content = Source.annotate {
-          // <show>
           ColorPicker(
             _.label := "Select a color",
             _.hint  := "Choose a color with appropriate contrast!"
           )()
-          // </show>
         }
       )().withLocator
     )

@@ -50,9 +50,11 @@ case class RatingView()
         content = Source.annotate {
           div(
             tw.flex.flexCol.gap2,
-            Rating(_.label := "Rating", _.size := "small")(),
-            Rating(_.label := "Rating", _.size := "medium")(),
-            Rating(_.label := "Rating", _.size := "large")()
+            // <show>
+            Rating(_.label := "Rating", _.size.small)(),
+            Rating(_.label := "Rating", _.size.medium)(),
+            Rating(_.label := "Rating", _.size.large)()
+            // </show>
           )
         }
       )().withLocator,

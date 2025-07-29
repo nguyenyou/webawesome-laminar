@@ -31,11 +31,11 @@ case class BadgeView()
           div(
             tw.flex.gap2,
             // <show>
-            Badge(_.variant := "brand")("Brand"),
-            Badge(_.variant := "success")("Success"),
-            Badge(_.variant := "neutral")("Neutral"),
-            Badge(_.variant := "warning")("Warning"),
-            Badge(_.variant := "danger")("Danger")
+            Badge(_.variant.brand)("Brand"),
+            Badge(_.variant.success)("Success"),
+            Badge(_.variant.neutral)("Neutral"),
+            Badge(_.variant.warning)("Warning"),
+            Badge(_.variant.danger)("Danger")
             // </show>
           )
         }
@@ -51,46 +51,46 @@ case class BadgeView()
             div(
               tw.flex.gap2,
               // <show>
-              Badge(_.appearance := "accent", _.variant := "neutral")("Accent"),
-              Badge(_.appearance := "filled outlined", _.variant := "neutral")("Filled + Outlined"),
-              Badge(_.appearance := "filled", _.variant := "neutral")("Filled"),
-              Badge(_.appearance := "outlined", _.variant := "neutral")("Outlined")
+              Badge(_.appearance.accent, _.variant.neutral)("Accent"),
+              Badge(_.appearance.filledOutlined, _.variant.neutral)("Filled + Outlined"),
+              Badge(_.appearance.filled, _.variant.neutral)("Filled"),
+              Badge(_.appearance.outlined, _.variant.neutral)("Outlined")
               // </show>
             ),
             div(
               tw.flex.gap2,
               // <show>
-              Badge(_.appearance := "accent", _.variant := "brand")("Accent"),
-              Badge(_.appearance := "filled outlined", _.variant := "brand")("Filled + Outlined"),
-              Badge(_.appearance := "filled", _.variant := "brand")("Filled"),
-              Badge(_.appearance := "outlined", _.variant := "brand")("Outlined")
+              Badge(_.appearance.accent, _.variant.brand)("Accent"),
+              Badge(_.appearance.filledOutlined, _.variant.brand)("Filled + Outlined"),
+              Badge(_.appearance.filled, _.variant.brand)("Filled"),
+              Badge(_.appearance.outlined, _.variant.brand)("Outlined")
               // </show>
             ),
             div(
               tw.flex.gap2,
               // <show>
-              Badge(_.appearance := "accent", _.variant := "success")("Accent"),
-              Badge(_.appearance := "filled outlined", _.variant := "success")("Filled + Outlined"),
-              Badge(_.appearance := "filled", _.variant := "success")("Filled"),
-              Badge(_.appearance := "outlined", _.variant := "success")("Outlined")
+              Badge(_.appearance.accent, _.variant.success)("Accent"),
+              Badge(_.appearance.filledOutlined, _.variant.success)("Filled + Outlined"),
+              Badge(_.appearance.filled, _.variant.success)("Filled"),
+              Badge(_.appearance.outlined, _.variant.success)("Outlined")
               // </show>
             ),
             div(
               tw.flex.gap2,
               // <show>
-              Badge(_.appearance := "accent", _.variant := "warning")("Accent"),
-              Badge(_.appearance := "filled outlined", _.variant := "warning")("Filled + Outlined"),
-              Badge(_.appearance := "filled", _.variant := "warning")("Filled"),
-              Badge(_.appearance := "outlined", _.variant := "warning")("Outlined")
+              Badge(_.appearance.accent, _.variant.warning)("Accent"),
+              Badge(_.appearance.filledOutlined, _.variant.warning)("Filled + Outlined"),
+              Badge(_.appearance.filled, _.variant.warning)("Filled"),
+              Badge(_.appearance.outlined, _.variant.warning)("Outlined")
               // </show>
             ),
             div(
               tw.flex.gap2,
               // <show>
-              Badge(_.appearance := "accent", _.variant := "danger")("Accent"),
-              Badge(_.appearance := "filled outlined", _.variant := "danger")("Filled + Outlined"),
-              Badge(_.appearance := "filled", _.variant := "danger")("Filled"),
-              Badge(_.appearance := "outlined", _.variant := "danger")("Outlined")
+              Badge(_.appearance.accent, _.variant.danger)("Accent"),
+              Badge(_.appearance.filledOutlined, _.variant.danger)("Filled + Outlined"),
+              Badge(_.appearance.filled, _.variant.danger)("Filled"),
+              Badge(_.appearance.outlined, _.variant.danger)("Outlined")
               // </show>
             )
           )
@@ -106,30 +106,33 @@ case class BadgeView()
             tw.flex.gap2.itemsCenter,
             // <show>
             Badge(
-              _.variant := "brand"
+              _.variant.brand
             )(
-              fontSize.px(12),
+              fontSize.px(12), // [!code highlight]
               "Brand"
             ),
             Badge(
-              _.variant := "brand"
-            )(fontSize.px(14), "Brand"),
-            Badge(
-              _.variant := "brand"
+              _.variant.brand
             )(
-              fontSize.px(16),
+              fontSize.px(14), // [!code highlight]
               "Brand"
             ),
             Badge(
-              _.variant := "brand"
+              _.variant.brand
             )(
-              fontSize.px(18),
+              fontSize.px(16), // [!code highlight]
               "Brand"
             ),
             Badge(
-              _.variant := "brand"
+              _.variant.brand
             )(
-              fontSize.px(20),
+              fontSize.px(18), // [!code highlight]
+              "Brand"
+            ),
+            Badge(
+              _.variant.brand
+            )(
+              fontSize.px(20), // [!code highlight]
               "Brand"
             )
             // </show>
@@ -145,11 +148,11 @@ case class BadgeView()
           div(
             tw.flex.gap2,
             // <show>
-            Badge(_.variant := "brand", _.pill := true)("Brand"),
-            Badge(_.variant := "success", _.pill := true)("Success"),
-            Badge(_.variant := "neutral", _.pill := true)("Neutral"),
-            Badge(_.variant := "warning", _.pill := true)("Warning"),
-            Badge(_.variant := "danger", _.pill := true)("Danger")
+            Badge(_.variant.brand, _.pill := true)("Brand"),
+            Badge(_.variant.success, _.pill := true)("Success"),
+            Badge(_.variant.neutral, _.pill := true)("Neutral"),
+            Badge(_.variant.warning, _.pill := true)("Warning"),
+            Badge(_.variant.danger, _.pill := true)("Danger")
             // </show>
           )
         }
@@ -165,21 +168,21 @@ case class BadgeView()
             div(
               tw.flex.gap2,
               // <show>
-              Badge(_.variant := "brand", _.attention := "pulse", _.pill := true)("1"),
-              Badge(_.variant := "success", _.attention := "pulse", _.pill := true)("1"),
-              Badge(_.variant := "neutral", _.attention := "pulse", _.pill := true)("1"),
-              Badge(_.variant := "warning", _.attention := "pulse", _.pill := true)("1"),
-              Badge(_.variant := "danger", _.attention := "pulse", _.pill := true)("1")
+              Badge(_.variant.brand, _.attention.pulse, _.pill := true)("1"),
+              Badge(_.variant.success, _.attention.pulse, _.pill := true)("1"),
+              Badge(_.variant.neutral, _.attention.pulse, _.pill := true)("1"),
+              Badge(_.variant.warning, _.attention.pulse, _.pill := true)("1"),
+              Badge(_.variant.danger, _.attention.pulse, _.pill := true)("1")
               // </show>
             ),
             div(
               tw.flex.gap2,
               // <show>
-              Badge(_.variant := "brand", _.attention := "bounce", _.pill := true)("1"),
-              Badge(_.variant := "success", _.attention := "bounce", _.pill := true)("1"),
-              Badge(_.variant := "neutral", _.attention := "bounce", _.pill := true)("1"),
-              Badge(_.variant := "warning", _.attention := "bounce", _.pill := true)("1"),
-              Badge(_.variant := "danger", _.attention := "bounce", _.pill := true)("1")
+              Badge(_.variant.brand, _.attention.bounce, _.pill := true)("1"),
+              Badge(_.variant.success, _.attention.bounce, _.pill := true)("1"),
+              Badge(_.variant.neutral, _.attention.bounce, _.pill := true)("1"),
+              Badge(_.variant.warning, _.attention.bounce, _.pill := true)("1"),
+              Badge(_.variant.danger, _.attention.bounce, _.pill := true)("1")
               // </show>
             )
           )
@@ -200,11 +203,11 @@ case class BadgeView()
             ),
             Button()(
               "Warnings",
-              Badge(_.variant := "warning", _.pill := true)("8")
+              Badge(_.variant.warning, _.pill := true)("8")
             ),
             Button()(
               "Errors",
-              Badge(_.variant := "danger", _.pill := true)("6")
+              Badge(_.variant.danger, _.pill := true)("6")
             )
             // </show>
           )

@@ -28,27 +28,21 @@ case class CheckboxView()
         title = "Checked",
         description = "Use the `checked` attribute to activate the checkbox.",
         content = Source.annotate {
-          // <show>
           Checkbox(_.checked := true)("Checked")
-          // </show>
         }
       )().withLocator,
       Demo(
         title = "Indeterminate",
         description = "Use the `indeterminate` attribute to make the checkbox indeterminate.",
         content = Source.annotate {
-          // <show>
           Checkbox(_.indeterminate := true)("Indeterminate")
-          // </show>
         }
       )().withLocator,
       Demo(
         title = "Disabled",
         description = "Use the `disabled` attribute to disable the checkbox.",
         content = Source.annotate {
-          // <show>
           Checkbox(_.disabled := true)("Disabled")
-          // </show>
         }
       )().withLocator,
       Demo(
@@ -58,9 +52,9 @@ case class CheckboxView()
           div(
             tw.flex.flexCol.gap4,
             // <show>
-            Checkbox(_.size := "small")("Small"),
-            Checkbox(_.size := "medium")("Medium"),
-            Checkbox(_.size := "large")("Large")
+            Checkbox(_.size.small)("Small"),
+            Checkbox(_.size.medium)("Medium"),
+            Checkbox(_.size.large)("Large")
             // </show>
           )
         }
@@ -81,7 +75,6 @@ case class CheckboxView()
         | To clear the error, call this function with an empty string.
         """.stripMargin,
         content = Source.annotate {
-          // <show>
           form(
             tw.flex.flexCol.itemsStart.gap4,
             Checkbox(
@@ -89,11 +82,10 @@ case class CheckboxView()
               _.required := true
             )("Check me"),
             Button(
-              _.`type`  := "submit",
-              _.variant := "brand"
+              _.`type`.submit,
+              _.variant.brand
             )("Submit")
           )
-          // </show>
         }
       )().withLocator
     )

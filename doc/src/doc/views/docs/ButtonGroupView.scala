@@ -35,17 +35,17 @@ case class ButtonGroupView()
           div(
             tw.flex.flexCol.gap4,
             // <show>
-            ButtonGroup(_.size := "small", _.label := "Alignment")(
+            ButtonGroup(_.size.small, _.label := "Alignment")(
               Button()("Left"),
               Button()("Center"),
               Button()("Right")
             ),
-            ButtonGroup(_.size := "medium", _.label := "Alignment")(
+            ButtonGroup(_.size.medium, _.label := "Alignment")(
               Button()("Left"),
               Button()("Center"),
               Button()("Right")
             ),
-            ButtonGroup(_.size := "large", _.label := "Alignment")(
+            ButtonGroup(_.size.large, _.label := "Alignment")(
               Button()("Left"),
               Button()("Center"),
               Button()("Right")
@@ -60,8 +60,7 @@ case class ButtonGroupView()
           | Set the `orientation` attribute to `vertical` to make a vertical button group.
         """.stripMargin,
         content = Source.annotate {
-          // <show>
-          ButtonGroup(_.orientation := "vertical", _.label := "Options")(
+          ButtonGroup(_.orientation.vertical, _.label := "Options")(
             maxWidth.px(120),
             Button(
               _.slots.start(Icon(_.name := "plus")())
@@ -76,7 +75,6 @@ case class ButtonGroupView()
               _.slots.start(Icon(_.name := "print")())
             )("Print")
           )
-          // </show>
         }
       )().withLocator,
       Demo(
@@ -88,12 +86,12 @@ case class ButtonGroupView()
           div(
             tw.flex.flexCol.gap4,
             // <show>
-            ButtonGroup(_.label := "Alignment", _.variant := "brand")(
+            ButtonGroup(_.label := "Alignment", _.variant.brand)(
               Button()("Left"),
               Button()("Center"),
               Button()("Right")
             ),
-            ButtonGroup(_.label := "Alignment", _.variant := "success")(
+            ButtonGroup(_.label := "Alignment", _.variant.success)(
               Button()("Left"),
               Button()("Center"),
               Button()("Right")
@@ -103,12 +101,12 @@ case class ButtonGroupView()
               Button()("Center"),
               Button()("Right")
             ),
-            ButtonGroup(_.label := "Alignment", _.variant := "warning")(
+            ButtonGroup(_.label := "Alignment", _.variant.warning)(
               Button()("Left"),
               Button()("Center"),
               Button()("Right")
             ),
-            ButtonGroup(_.label := "Alignment", _.variant := "danger")(
+            ButtonGroup(_.label := "Alignment", _.variant.danger)(
               Button()("Left"),
               Button()("Center"),
               Button()("Right")
@@ -122,13 +120,11 @@ case class ButtonGroupView()
           | You can still use the buttons' own `variant` attribute to override the inherited variant.
         """.stripMargin,
         content = Source.annotate {
-          // <show>
-          ButtonGroup(_.label := "Alignment", _.variant := "brand")(
+          ButtonGroup(_.label := "Alignment", _.variant.brand)(
             Button()("Left"),
             Button()("Center"),
-            Button(_.variant := "neutral")("Right")
+            Button(_.variant.neutral)("Right")
           )
-          // </show>
         }
       )().withLocator,
       Demo(
@@ -141,19 +137,19 @@ case class ButtonGroupView()
             tw.flex.flexCol.gap4,
             // <show>
             ButtonGroup(_.label := "Alignment")(
-              Button(_.size := "small", _.pill := true)("Left"),
-              Button(_.size := "small", _.pill := true)("Center"),
-              Button(_.size := "small", _.pill := true)("Right")
+              Button(_.size.small, _.pill := true)("Left"),
+              Button(_.size.small, _.pill := true)("Center"),
+              Button(_.size.small, _.pill := true)("Right")
             ),
             ButtonGroup(_.label := "Alignment")(
-              Button(_.size := "medium", _.pill := true)("Left"),
-              Button(_.size := "medium", _.pill := true)("Center"),
-              Button(_.size := "medium", _.pill := true)("Right")
+              Button(_.size.medium, _.pill := true)("Left"),
+              Button(_.size.medium, _.pill := true)("Center"),
+              Button(_.size.medium, _.pill := true)("Right")
             ),
             ButtonGroup(_.label := "Alignment")(
-              Button(_.size := "large", _.pill := true)("Left"),
-              Button(_.size := "large", _.pill := true)("Center"),
-              Button(_.size := "large", _.pill := true)("Right")
+              Button(_.size.large, _.pill := true)("Left"),
+              Button(_.size.large, _.pill := true)("Center"),
+              Button(_.size.large, _.pill := true)("Right")
             )
             // </show>
           )
@@ -165,7 +161,6 @@ case class ButtonGroupView()
           | Dropdowns can be placed into button groups.
         """.stripMargin,
         content = Source.annotate {
-          // <show>
           ButtonGroup(_.label := "Example Button Group")(
             Button()("Button"),
             Dropdown(
@@ -179,7 +174,6 @@ case class ButtonGroupView()
             ),
             Button()("Button")
           )
-          // </show>
         }
       )().withLocator,
       Demo(
@@ -189,14 +183,13 @@ case class ButtonGroupView()
           | the dropdown is accessible to users with assistive devices.
         """.stripMargin,
         content = Source.annotate {
-          // <show>
           ButtonGroup(_.label := "Example Button Group")(
-            Button(_.variant := "brand")("Save"),
+            Button(_.variant.brand)("Save"),
             Dropdown(
               _.placement.bottomEnd,
               _.slots.trigger(
-                Button(_.variant := "brand")(
-                  Icon(_.name := "chevron-down", _.label := "More options")()
+                Button(_.variant.brand)(
+                  Icon(_.name := "chevron-down", _.label := "More options")() // [!code highlight]
                 )
               )
             )(
@@ -205,7 +198,6 @@ case class ButtonGroupView()
               DropdownItem()("Save all")
             )
           )
-          // </show>
         }
       )().withLocator,
       Demo(
@@ -215,7 +207,6 @@ case class ButtonGroupView()
         """.stripMargin,
         content = Source.annotate {
           div(
-            // <show>
             ButtonGroup(_.label := "Alignment")(
               Button(_.id := "button-left")("Left"),
               Button(_.id := "button-center")("Center"),
@@ -224,7 +215,6 @@ case class ButtonGroupView()
             Tooltip(_.forId := "button-left")("I'm on the left"),
             Tooltip(_.forId := "button-center")("I'm in the middle"),
             Tooltip(_.forId := "button-right")("I'm on the right")
-            // </show>
           )
         }
       )().withLocator,
@@ -244,7 +234,6 @@ case class ButtonGroupView()
             ),
             div(
               className := "button-group-toolbar",
-              // <show>
               ButtonGroup(_.label := "History")(
                 Button(_.id := "undo-button")(
                   Icon(_.name := "undo", _.variant := "solid", _.label := "Undo")()
@@ -275,7 +264,6 @@ case class ButtonGroupView()
                   Icon(_.name := "align-right", _.variant := "solid", _.label := "Align Right")()
                 )
               )
-              // </show>
             ),
             Tooltip(_.forId := "undo-button")("Undo"),
             Tooltip(_.forId := "redo-button")("Redo"),

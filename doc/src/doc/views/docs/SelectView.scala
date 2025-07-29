@@ -153,7 +153,7 @@ case class SelectView()
         }
       )().withLocator,
       Callout(
-        _.variant := "brand",
+        _.variant.brand,
         _.slots.icon(Icon(_.name := "circle-info")())
       )(
         "Selecting multiple options may result in wrapping, causing the control to expand vertically. You can use the `max-options-visible` attribute to control the maximum number of selected options to show at once."

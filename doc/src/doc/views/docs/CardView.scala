@@ -20,7 +20,7 @@ case class CardView()
           _.slots.footer(
             div(
               tw.flex.justifyBetween.itemsCenter,
-              Button(_.variant := "brand", _.pill := true)("More Info"),
+              Button(_.variant.brand, _.pill := true)("More Info"),
               Rating()()
             )
           ),
@@ -70,7 +70,7 @@ case class CardView()
                 tw.flex.justifyBetween.itemsCenter,
                 "Header Title",
                 Button(
-                  _.appearance := "plain",
+                  _.appearance.plain,
                   _.slots.start(Icon(_.name := "gear", _.variant := "solid", _.label := "Settings")())
                 )()
               )
@@ -89,20 +89,18 @@ case class CardView()
         | If using SSR, you need to also use the `with-footer` attribute to add a footer to the card (if not, it is added automatically).
         """.stripMargin,
         content = Source.annotate {
-          // <show>
           Card(
             _.slots.footer(
               div(
                 tw.flex.justifyBetween.itemsCenter,
                 Rating()(),
-                Button(_.variant := "brand")("Preview")
+                Button(_.variant.brand)("Preview")
               )
             )
           )(
             maxWidth.px(300),
             "This card has a footer. You can put all sorts of things in it!"
           )
-          // </show>
         }
       )().withLocator,
       Demo(

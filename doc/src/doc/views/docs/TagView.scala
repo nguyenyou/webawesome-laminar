@@ -19,11 +19,11 @@ case class TagView()
         div(
           tw.flex.flexWrap.gap2,
           // <show>
-          Tag(_.variant := "brand")("Brand"),
-          Tag(_.variant := "success")("Success"),
-          Tag(_.variant := "neutral")("Neutral"),
-          Tag(_.variant := "warning")("Warning"),
-          Tag(_.variant := "danger")("Danger")
+          Tag(_.variant.brand)("Brand"),
+          Tag(_.variant.success)("Success"),
+          Tag(_.variant.neutral)("Neutral"),
+          Tag(_.variant.warning)("Warning"),
+          Tag(_.variant.danger)("Danger")
           // </show>
         )
       }
@@ -44,46 +44,46 @@ case class TagView()
             p(
               tw.flex.flexWrap.gap2,
               // <show>
-              Tag(_.variant := "brand", _.appearance := "accent")("Accent"),
-              Tag(_.variant := "brand", _.appearance := "filled outlined")("Filled + Outlined"),
-              Tag(_.variant := "brand", _.appearance := "filled")("Filled"),
-              Tag(_.variant := "brand", _.appearance := "outlined")("Outlined")
+              Tag(_.variant.brand, _.appearance.accent)("Accent"),
+              Tag(_.variant.brand, _.appearance.filledOutlined)("Filled + Outlined"),
+              Tag(_.variant.brand, _.appearance.filled)("Filled"),
+              Tag(_.variant.brand, _.appearance.outlined)("Outlined")
               // </show>
             ),
             p(
               tw.flex.flexWrap.gap2,
               // <show>
-              Tag(_.variant := "success", _.appearance := "accent")("Accent"),
-              Tag(_.variant := "success", _.appearance := "filled outlined")("Filled + Outlined"),
-              Tag(_.variant := "success", _.appearance := "filled")("Filled"),
-              Tag(_.variant := "success", _.appearance := "outlined")("Outlined")
+              Tag(_.variant.success, _.appearance.accent)("Accent"),
+              Tag(_.variant.success, _.appearance.filledOutlined)("Filled + Outlined"),
+              Tag(_.variant.success, _.appearance.filled)("Filled"),
+              Tag(_.variant.success, _.appearance.outlined)("Outlined")
               // </show>
             ),
             p(
               tw.flex.flexWrap.gap2,
               // <show>
-              Tag(_.variant := "neutral", _.appearance := "accent")("Accent"),
-              Tag(_.variant := "neutral", _.appearance := "filled outlined")("Filled + Outlined"),
-              Tag(_.variant := "neutral", _.appearance := "filled")("Filled"),
-              Tag(_.variant := "neutral", _.appearance := "outlined")("Outlined")
+              Tag(_.variant.neutral, _.appearance.accent)("Accent"),
+              Tag(_.variant.neutral, _.appearance.filledOutlined)("Filled + Outlined"),
+              Tag(_.variant.neutral, _.appearance.filled)("Filled"),
+              Tag(_.variant.neutral, _.appearance.outlined)("Outlined")
               // </show>
             ),
             p(
               tw.flex.flexWrap.gap2,
               // <show>
-              Tag(_.variant := "warning", _.appearance := "accent")("Accent"),
-              Tag(_.variant := "warning", _.appearance := "filled outlined")("Filled + Outlined"),
-              Tag(_.variant := "warning", _.appearance := "filled")("Filled"),
-              Tag(_.variant := "warning", _.appearance := "outlined")("Outlined")
+              Tag(_.variant.warning, _.appearance.accent)("Accent"),
+              Tag(_.variant.warning, _.appearance.filledOutlined)("Filled + Outlined"),
+              Tag(_.variant.warning, _.appearance.filled)("Filled"),
+              Tag(_.variant.warning, _.appearance.outlined)("Outlined")
               // </show>
             ),
             p(
               tw.flex.flexWrap.gap2,
               // <show>
-              Tag(_.variant := "danger", _.appearance := "accent")("Accent"),
-              Tag(_.variant := "danger", _.appearance := "filled outlined")("Filled + Outlined"),
-              Tag(_.variant := "danger", _.appearance := "filled")("Filled"),
-              Tag(_.variant := "danger", _.appearance := "outlined")("Outlined")
+              Tag(_.variant.danger, _.appearance.accent)("Accent"),
+              Tag(_.variant.danger, _.appearance.filledOutlined)("Filled + Outlined"),
+              Tag(_.variant.danger, _.appearance.filled)("Filled"),
+              Tag(_.variant.danger, _.appearance.outlined)("Outlined")
               // </show>
             )
           )
@@ -96,9 +96,9 @@ case class TagView()
           div(
             tw.flex.flexWrap.gap2,
             // <show>
-            Tag(_.size := "small")("Small"),
-            Tag(_.size := "medium")("Medium"),
-            Tag(_.size := "large")("Large")
+            Tag(_.size.small)("Small"),
+            Tag(_.size.medium)("Medium"),
+            Tag(_.size.large)("Large")
             // </show>
           )
         }
@@ -110,9 +110,9 @@ case class TagView()
           div(
             tw.flex.flexWrap.gap2,
             // <show>
-            Tag(_.size := "small", _.pill := true)("Small"),
-            Tag(_.size := "medium", _.pill := true)("Medium"),
-            Tag(_.size := "large", _.pill := true)("Large")
+            Tag(_.size.small, _.pill := true)("Small"),
+            Tag(_.size.medium, _.pill := true)("Medium"),
+            Tag(_.size.large, _.pill := true)("Large")
             // </show>
           )
         }
@@ -125,9 +125,9 @@ case class TagView()
             div(
               tw.flex.flexWrap.gap2,
               // <show>
-              Tag(_.size := "small", _.withRemove := true)("Small"),
-              Tag(_.size := "medium", _.withRemove := true)("Medium"),
-              Tag(_.size := "large", _.withRemove := true)("Large")
+              Tag(_.size.small, _.withRemove := true)("Small"),
+              Tag(_.size.medium, _.withRemove := true)("Medium"),
+              Tag(_.size.large, _.withRemove := true)("Large")
               // </show>
             )
           )

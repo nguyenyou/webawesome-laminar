@@ -197,7 +197,7 @@ case class ScrollerView()
         }
       )().withLocator,
       Callout(
-        _.variant := "warning",
+        _.variant.warning,
         _.slots.icon(Icon(_.name := "warning")())
       )(
         "Hiding scrollbars can negatively impact accessibility. Users who rely on visible scrollbars to navigate content may have difficulty recognizing that content is scrollable or controlling their scrolling position. Consider the needs of all users when implementing this option."
