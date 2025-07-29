@@ -193,7 +193,7 @@ case class ButtonGroupView()
           ButtonGroup(_.label := "Example Button Group")(
             Button(_.variant := "brand")("Save"),
             Dropdown(
-              _.placement := "bottom-end",
+              _.placement.bottomEnd,
               _.slots.trigger(
                 Button(_.variant := "brand")(
                   Icon(_.name := "chevron-down", _.label := "More options")()

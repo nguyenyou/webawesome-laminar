@@ -114,7 +114,7 @@ case class PopoverView()
               )("Top"),
               Popover(
                 _.forId     := "popover__top",
-                _.placement := "top"
+                _.placement.top
               )("I'm on the top")
             ),
             div(
@@ -123,7 +123,7 @@ case class PopoverView()
               )("Bottom"),
               Popover(
                 _.forId     := "popover__bottom",
-                _.placement := "bottom"
+                _.placement.bottom
               )("I'm on the bottom")
             ),
             div(
@@ -132,7 +132,7 @@ case class PopoverView()
               )("Left"),
               Popover(
                 _.forId     := "popover__left",
-                _.placement := "left"
+                _.placement.left
               )("I'm on the left")
             ),
             div(
@@ -141,7 +141,7 @@ case class PopoverView()
               )("Right"),
               Popover(
                 _.forId     := "popover__right",
-                _.placement := "right"
+                _.placement.right
               )("I'm on the right")
             )
           )

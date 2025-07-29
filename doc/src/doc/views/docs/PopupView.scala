@@ -124,7 +124,7 @@ case class PopupView()
 
           div(
             Popup(
-              _.placement := "top",
+              _.placement.top,
               _.active <-- activeVar,
               _.slots.anchor(
                 span(
@@ -169,7 +169,7 @@ case class PopupView()
             ),
             Popup(
               _.anchor    := "external-anchor",
-              _.placement := "top",
+              _.placement.top,
               _.active    := true
             )(
               div(
@@ -243,7 +243,7 @@ case class PopupView()
 
           div(
             Popup(
-              _.placement := "top",
+              _.placement.top,
               _.distance <-- distanceVar,
               _.active := true,
               _.slots.anchor(
@@ -287,7 +287,7 @@ case class PopupView()
 
           div(
             Popup(
-              _.placement := "top",
+              _.placement.top,
               _.skidding <-- skiddingVar,
               _.active := true,
               _.slots.anchor(
@@ -426,7 +426,7 @@ case class PopupView()
               border := "2px solid var(--wa-color-surface-border)",
               overflow.auto,
               Popup(
-                _.placement := "top",
+                _.placement.top,
                 _.flip <-- flipVar,
                 _.active := true,
                 _.boundary.scroll,
@@ -470,7 +470,7 @@ case class PopupView()
               border := "2px solid var(--wa-color-surface-border)",
               overflow.auto,
               Popup(
-                _.placement              := "top",
+                _.placement.top,
                 _.flip                   := true,
                 _.flipFallbackPlacements := "right bottom",
                 _.flipFallbackStrategy.initial,
@@ -510,7 +510,7 @@ case class PopupView()
               border := "2px solid var(--wa-color-surface-border)",
               overflow.auto,
               Popup(
-                _.placement := "top",
+                _.placement.top,
                 _.shift <-- shiftVar,
                 _.shiftPadding := 10,
                 _.active       := true,
@@ -556,7 +556,7 @@ case class PopupView()
               border := "2px solid var(--wa-color-surface-border)",
               overflow.auto,
               Popup(
-                _.placement := "top",
+                _.placement.top,
                 _.autoSize <-- autoSizeVar.signal.map(if (_) "both" else "vertical"),
                 _.autoSizePadding := 10,
                 _.active          := true,
@@ -603,7 +603,7 @@ case class PopupView()
 
           div(
             Popup(
-              _.placement := "top",
+              _.placement.top,
               _.hoverBridge <-- hoverBridgeVar,
               _.distance <-- distanceVar,
               _.skidding <-- skiddingVar,
@@ -676,7 +676,7 @@ case class PopupView()
 
           div(
             Popup(
-              _.placement := "right-start",
+              _.placement.rightStart,
               _.active <-- enabledVar,
               // Note: Setting virtual element would need to be done via ref in real implementation
               _.style := "z-index: 1000; pointer-events: none;"

@@ -66,7 +66,7 @@ case class TabGroupView()
         title = "Tabs on Bottom",
         description = "Tabs can be shown on the bottom by setting `placement` to `bottom`.",
         content = Source.annotate {
-          TabGroup(_.placement := "bottom")(
+          TabGroup(_.placement.bottom)(
             Tab(_.panel := "general")("General"),
             Tab(_.panel := "custom")("Custom"),
             Tab(_.panel := "advanced")("Advanced"),
@@ -82,7 +82,7 @@ case class TabGroupView()
         title = "Tabs on Start",
         description = "Tabs can be shown on the starting side by setting `placement` to `start`.",
         content = Source.annotate {
-          TabGroup(_.placement := "start")(
+          TabGroup(_.placement.start)(
             Tab(_.panel := "general")("General"),
             Tab(_.panel := "custom")("Custom"),
             Tab(_.panel := "advanced")("Advanced"),
@@ -98,7 +98,7 @@ case class TabGroupView()
         title = "Tabs on End",
         description = "Tabs can be shown on the ending side by setting `placement` to `end`.",
         content = Source.annotate {
-          TabGroup(_.placement := "end")(
+          TabGroup(_.placement.end)(
             Tab(_.panel := "general")("General"),
             Tab(_.panel := "custom")("Custom"),
             Tab(_.panel := "advanced")("Advanced"),
@@ -166,7 +166,7 @@ case class TabGroupView()
         | You can change this behavior by setting `activation="manual"` which will require the user to press [[Space]] or [[Enter]] before showing the tab panel (manual activation).
         """.stripMargin,
         content = Source.annotate {
-          TabGroup(_.activation := "manual")(
+          TabGroup(_.activation.manual)(
             Tab(_.panel := "general")("General"),
             Tab(_.panel := "custom")("Custom"),
             Tab(_.panel := "advanced")("Advanced"),
