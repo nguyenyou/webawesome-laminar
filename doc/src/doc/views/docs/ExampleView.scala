@@ -25,7 +25,7 @@ trait ExampleView(
         ),
         h2(
           tw.fontSemibold.textXl.mt4.mb0,
-          "Exampless"
+          "Examples"
         ),
         div(
           component
