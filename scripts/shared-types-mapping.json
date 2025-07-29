@@ -81,6 +81,31 @@
       ]
     },
     {
+      "name": "Placement",
+      "signature": "bottom|bottom-end|bottom-start|left|left-end|left-start|right|right-end|right-start|top|top-end|top-start",
+      "values": [
+        "bottom",
+        "bottom-end",
+        "bottom-start",
+        "left",
+        "left-end",
+        "left-start",
+        "right",
+        "right-end",
+        "right-start",
+        "top",
+        "top-end",
+        "top-start"
+      ],
+      "frequency": 4,
+      "components": [
+        "WaDropdown",
+        "WaPopover",
+        "WaPopup",
+        "WaTooltip"
+      ]
+    },
+    {
       "name": "DisplayFormat",
       "signature": "long|narrow|short",
       "values": [
@@ -317,6 +342,22 @@
       ]
     },
     {
+      "name": "CalloutExtendedAppearance",
+      "signature": "accent|filled|outlined|outlined accent|outlined filled|plain",
+      "values": [
+        "accent",
+        "filled",
+        "outlined",
+        "outlined accent",
+        "plain",
+        "filled outlined"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaCallout"
+      ]
+    },
+    {
       "name": "ColorPickerFormat",
       "signature": "hex|hsl|hsv|rgb",
       "values": [
@@ -458,6 +499,26 @@
       "frequency": 1,
       "components": [
         "WaInclude"
+      ]
+    },
+    {
+      "name": "InputInputType",
+      "signature": "date|datetime-local|email|number|password|search|tel|text|time|url",
+      "values": [
+        "date",
+        "datetime-local",
+        "email",
+        "number",
+        "password",
+        "search",
+        "tel",
+        "text",
+        "time",
+        "url"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaInput"
       ]
     },
     {

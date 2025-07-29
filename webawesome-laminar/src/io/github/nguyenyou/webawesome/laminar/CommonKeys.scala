@@ -48,6 +48,34 @@ object CommonKeys extends CommonTypes {
     lazy val numeric: HtmlAttrSetter[DateYearFormat] = DateYearFormat("numeric")
   }
 
+  /** placement attribute - Placement */
+  object Placement extends HtmlAttr[Placement]("placement", UnionAsStringCodec[Placement]) {
+
+    lazy val bottom: HtmlAttrSetter[Placement] = Placement("bottom")
+
+    lazy val bottomEnd: HtmlAttrSetter[Placement] = Placement("bottom-end")
+
+    lazy val bottomStart: HtmlAttrSetter[Placement] = Placement("bottom-start")
+
+    lazy val left: HtmlAttrSetter[Placement] = Placement("left")
+
+    lazy val leftEnd: HtmlAttrSetter[Placement] = Placement("left-end")
+
+    lazy val leftStart: HtmlAttrSetter[Placement] = Placement("left-start")
+
+    lazy val right: HtmlAttrSetter[Placement] = Placement("right")
+
+    lazy val rightEnd: HtmlAttrSetter[Placement] = Placement("right-end")
+
+    lazy val rightStart: HtmlAttrSetter[Placement] = Placement("right-start")
+
+    lazy val top: HtmlAttrSetter[Placement] = Placement("top")
+
+    lazy val topEnd: HtmlAttrSetter[Placement] = Placement("top-end")
+
+    lazy val topStart: HtmlAttrSetter[Placement] = Placement("top-start")
+  }
+
   /** display attribute - DisplayFormat */
   object DisplayFormat extends HtmlAttr[DisplayFormat]("display", UnionAsStringCodec[DisplayFormat]) {
 
@@ -245,6 +273,23 @@ object CommonKeys extends CommonTypes {
     lazy val pulse: HtmlAttrSetter[BadgeAttention] = BadgeAttention("pulse")
   }
 
+  /** appearance attribute - CalloutExtendedAppearance */
+  object CalloutExtendedAppearance
+      extends HtmlAttr[CalloutExtendedAppearance]("appearance", UnionAsStringCodec[CalloutExtendedAppearance]) {
+
+    lazy val accent: HtmlAttrSetter[CalloutExtendedAppearance] = CalloutExtendedAppearance("accent")
+
+    lazy val filled: HtmlAttrSetter[CalloutExtendedAppearance] = CalloutExtendedAppearance("filled")
+
+    lazy val outlined: HtmlAttrSetter[CalloutExtendedAppearance] = CalloutExtendedAppearance("outlined")
+
+    lazy val outlinedAccent: HtmlAttrSetter[CalloutExtendedAppearance] = CalloutExtendedAppearance("outlined accent")
+
+    lazy val plain: HtmlAttrSetter[CalloutExtendedAppearance] = CalloutExtendedAppearance("plain")
+
+    lazy val filledOutlined: HtmlAttrSetter[CalloutExtendedAppearance] = CalloutExtendedAppearance("filled outlined")
+  }
+
   /** format attribute - ColorPickerFormat */
   object ColorPickerFormat extends HtmlAttr[ColorPickerFormat]("format", UnionAsStringCodec[ColorPickerFormat]) {
 
@@ -364,6 +409,30 @@ object CommonKeys extends CommonTypes {
     lazy val noCors: HtmlAttrSetter[IncludeMode] = IncludeMode("no-cors")
 
     lazy val sameOrigin: HtmlAttrSetter[IncludeMode] = IncludeMode("same-origin")
+  }
+
+  /** type attribute - InputInputType */
+  object InputInputType extends HtmlAttr[InputInputType]("type", UnionAsStringCodec[InputInputType]) {
+
+    lazy val date: HtmlAttrSetter[InputInputType] = InputInputType("date")
+
+    lazy val datetimeLocal: HtmlAttrSetter[InputInputType] = InputInputType("datetime-local")
+
+    lazy val email: HtmlAttrSetter[InputInputType] = InputInputType("email")
+
+    lazy val number: HtmlAttrSetter[InputInputType] = InputInputType("number")
+
+    lazy val password: HtmlAttrSetter[InputInputType] = InputInputType("password")
+
+    lazy val search: HtmlAttrSetter[InputInputType] = InputInputType("search")
+
+    lazy val tel: HtmlAttrSetter[InputInputType] = InputInputType("tel")
+
+    lazy val text: HtmlAttrSetter[InputInputType] = InputInputType("text")
+
+    lazy val time: HtmlAttrSetter[InputInputType] = InputInputType("time")
+
+    lazy val url: HtmlAttrSetter[InputInputType] = InputInputType("url")
   }
 
   /** autocorrect attribute - InputAutocorrect */

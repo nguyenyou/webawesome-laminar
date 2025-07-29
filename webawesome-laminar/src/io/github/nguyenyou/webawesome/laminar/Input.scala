@@ -65,13 +65,14 @@ object Input extends WebComponent("wa-input") with ControlledInput {
   lazy val title: HtmlAttr[String] = stringAttr("title")
 
   /** The type of input. Works the same as a native `<input>` element, but only a subset of types are supported.
-    * Defaults to `text`.
+    * Defaults to `text`. Valid values: "date", "datetime-local", "email", "number", "password", "search", "tel",
+    * "text", "time", "url".
     */
-  lazy val `type`: HtmlAttr[String] = stringAttr("type")
+  lazy val `type`: CommonKeys.InputInputType.type = CommonKeys.InputInputType
 
-  lazy val typ: HtmlAttr[String] = `type`
+  lazy val typ: CommonKeys.InputInputType.type = `type`
 
-  lazy val tpe: HtmlAttr[String] = `type`
+  lazy val tpe: CommonKeys.InputInputType.type = `type`
 
   /** The input's size. Valid values: "small", "medium", "large". */
   lazy val size: CommonKeys.ComponentSize.type = CommonKeys.ComponentSize
@@ -241,9 +242,10 @@ object Input extends WebComponent("wa-input") with ControlledInput {
     var title: String
 
     /** The type of input. Works the same as a native `<input>` element, but only a subset of types are supported.
-      * Defaults to `text`.
+      * Defaults to `text`. Valid values: "date", "datetime-local", "email", "number", "password", "search", "tel",
+      * "text", "time", "url".
       */
-    var `type`: Double
+    var `type`: InputInputType
 
     /** The input's size. Valid values: "small", "medium", "large". */
     var size: ComponentSize

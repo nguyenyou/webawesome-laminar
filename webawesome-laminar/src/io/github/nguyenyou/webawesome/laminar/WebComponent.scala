@@ -2,17 +2,16 @@ package io.github.nguyenyou.webawesome.laminar
 
 import com.raquo.laminar.api.L.idAttr
 import com.raquo.laminar.api.L.styleAttr
+import com.raquo.laminar.api.Laminar
 import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.keys.HtmlProp
 import com.raquo.laminar.modifiers.Modifier
 import com.raquo.laminar.nodes.ReactiveHtmlElement
 import com.raquo.laminar.tags.CustomHtmlTag
-import com.raquo.laminar.api.Laminar
-import scala.language.implicitConversions
-
 import org.scalajs.dom
 
+import scala.language.implicitConversions
 import scala.scalajs.js
 
 /** Base trait for all WebAwesome components. */

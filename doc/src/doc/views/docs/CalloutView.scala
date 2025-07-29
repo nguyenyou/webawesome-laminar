@@ -98,7 +98,7 @@ case class CalloutView()
             ),
             Callout(
               _.variant    := "brand",
-              _.appearance := "outlined filled",
+              _.appearance.filledOutlined,
               _.slots.icon(Icon(_.name := "fill-drip")())
             )(
               "This callout is both ",

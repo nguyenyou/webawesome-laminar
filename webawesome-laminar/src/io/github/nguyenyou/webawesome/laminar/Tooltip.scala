@@ -3,6 +3,7 @@ package io.github.nguyenyou.webawesome.laminar
 import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.nodes.Slot
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import io.github.nguyenyou.webawesome.laminar.events.*
 import org.scalajs.dom
 
@@ -42,9 +43,10 @@ object Tooltip extends WebComponent("wa-tooltip") {
   // -- Attributes --
 
   /** The preferred placement of the tooltip. Note that the actual placement may vary as needed to keep the tooltip
-    * inside of the viewport.
+    * inside of the viewport. Valid values: "top", "top-start", "top-end", "right", "right-start", "right-end",
+    * "bottom", "bottom-start", "bottom-end", "left", "left-start", "left-end".
     */
-  lazy val placement: HtmlAttr[String] = stringAttr("placement")
+  lazy val placement: CommonKeys.Placement.type = CommonKeys.Placement
 
   /** Disables the tooltip so it won't show when triggered. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
@@ -121,9 +123,10 @@ object Tooltip extends WebComponent("wa-tooltip") {
     this: dom.HTMLElement =>
 
     /** The preferred placement of the tooltip. Note that the actual placement may vary as needed to keep the tooltip
-      * inside of the viewport.
+      * inside of the viewport. Valid values: "top", "top-start", "top-end", "right", "right-start", "right-end",
+      * "bottom", "bottom-start", "bottom-end", "left", "left-start", "left-end".
       */
-    var placement: js.Any
+    var placement: Placement
 
     /** Disables the tooltip so it won't show when triggered. */
     var disabled: Boolean

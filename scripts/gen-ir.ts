@@ -80,9 +80,24 @@ type Declaration = Module['declarations'][number];
 
 // Helper functions for type mapping
 function extractUnionValues(tsType: string): string[] | undefined {
-  // Handle union types like 'small' | 'medium' | 'large'
-  if (tsType.includes(' | ')) {
-    const unionTypes = tsType.split(' | ').map(t => t.trim());
+  // Handle union types like 'small' | 'medium' | 'large' 
+  // or union types that start with | like:
+  // | 'top'
+  //     | 'top-start'
+  //     | 'top-end'
+  
+  // First normalize the type by removing extra whitespace and newlines
+  const normalizedType = tsType.replace(/\s+/g, ' ').trim();
+  
+  // Check if it's a union type (contains | operator)
+  if (normalizedType.includes(' | ') || normalizedType.startsWith('| ')) {
+    // Remove leading pipe if present and split on |
+    const cleanedType = normalizedType.startsWith('| ') 
+      ? normalizedType.substring(2) 
+      : normalizedType;
+    
+    const unionTypes = cleanedType.split(' | ').map(t => t.trim());
+    
     // For string literal unions, extract the literal values
     if (unionTypes.every(t => (t.startsWith("'") && t.endsWith("'")) || (t.startsWith('"') && t.endsWith('"')))) {
       return unionTypes.map(t => t.slice(1, -1)); // Remove quotes
@@ -111,11 +126,23 @@ function mapTypeScriptToScala(tsType: string, unionValues?: string[]): string {
   };
 
   // Handle union types like 'small' | 'medium' | 'large'
-  if (tsType.includes(' | ')) {
-    const unionTypes = tsType.split(' | ').map(t => t.trim().replace(/'/g, '"'));
-    // For string literal unions, we'll use String in Scala but preserve union info
-    if (unionTypes.every(t => t.startsWith('"') && t.endsWith('"'))) {
-      return 'String'; // Still return String, but unionValues will contain the actual values
+  // or union types that start with | like:
+  // | 'top'
+  //     | 'top-start'
+  //     | 'top-end'
+  
+  // First normalize the type by removing extra whitespace and newlines
+  const normalizedType = tsType.replace(/\s+/g, ' ').trim();
+  
+  // Check if it's a union type (contains | operator)
+  if (normalizedType.includes(' | ') || normalizedType.startsWith('| ')) {
+    const unionTypes = normalizedType.startsWith('| ') 
+      ? normalizedType.substring(2).split(' | ').map(t => t.trim())
+      : normalizedType.split(' | ').map(t => t.trim());
+    
+    // For string literal unions, we'll use String in Scala but preserve union info in unionValues
+    if (unionTypes.every(t => (t.startsWith("'") && t.endsWith("'")) || (t.startsWith('"') && t.endsWith('"')))) {
+      return 'String'; // Return String for union types so shouldUseUnionType can detect them
     }
   }
 

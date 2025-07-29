@@ -16,6 +16,10 @@ object SharedTypes {
   /** Used by 5 components for "year" attribute. Components: WaFormatDate, WaFormatDate, WaFormatDate, ... */
   type DateYearFormat = "2-digit" | "numeric"
 
+  /** Used by 4 components for "placement" attribute. Components: WaDropdown, WaPopover, WaPopup, ... */
+  type Placement = "bottom" | "bottom-end" | "bottom-start" | "left" | "left-end" | "left-start" | "right" |
+    "right-end" | "right-start" | "top" | "top-end" | "top-start"
+
   /** Used by 4 components for "display" attribute. Components: WaFormatBytes, WaFormatDate, WaFormatDate, ... */
   type DisplayFormat = "long" | "narrow" | "short"
 
@@ -64,6 +68,9 @@ object SharedTypes {
   /** Used by WaBadge for "attention" attribute. Components: WaBadge */
   type BadgeAttention = "bounce" | "none" | "pulse"
 
+  /** Used by WaCallout for "appearance" attribute. Components: WaCallout */
+  type CalloutExtendedAppearance = "accent" | "filled" | "outlined" | "outlined accent" | "plain" | "filled outlined"
+
   /** Used by WaColorPicker for "format" attribute. Components: WaColorPicker */
   type ColorPickerFormat = "hex" | "hsl" | "hsv" | "rgb"
 
@@ -96,6 +103,10 @@ object SharedTypes {
 
   /** Used by WaInclude for "mode" attribute. Components: WaInclude */
   type IncludeMode = "cors" | "no-cors" | "same-origin"
+
+  /** Used by WaInput for "type" attribute. Components: WaInput */
+  type InputInputType = "date" | "datetime-local" | "email" | "number" | "password" | "search" | "tel" | "text" |
+    "time" | "url"
 
   /** Used by WaInput for "autocorrect" attribute. Components: WaInput */
   type InputAutocorrect = "off" | "on"

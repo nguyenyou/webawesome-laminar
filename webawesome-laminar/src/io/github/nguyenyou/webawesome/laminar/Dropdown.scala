@@ -53,9 +53,10 @@ object Dropdown extends WebComponent("wa-dropdown") {
   lazy val size: CommonKeys.ComponentSize.type = CommonKeys.ComponentSize
 
   /** The placement of the dropdown menu in reference to the trigger. The menu will shift to a more optimal location if
-    * the preferred placement doesn't have enough room.
+    * the preferred placement doesn't have enough room. Valid values: "top", "top-start", "top-end", "bottom",
+    * "bottom-start", "bottom-end", "right", "right-start", "right-end", "left", "left-start", "left-end".
     */
-  lazy val placement: HtmlAttr[String] = stringAttr("placement")
+  lazy val placement: CommonKeys.Placement.type = CommonKeys.Placement
 
   /** The distance of the dropdown menu from its trigger. */
   lazy val distance: HtmlAttr[Double] = doubleAttr("distance")
@@ -116,9 +117,10 @@ object Dropdown extends WebComponent("wa-dropdown") {
     var size: ComponentSize
 
     /** The placement of the dropdown menu in reference to the trigger. The menu will shift to a more optimal location
-      * if the preferred placement doesn't have enough room.
+      * if the preferred placement doesn't have enough room. Valid values: "top", "top-start", "top-end", "bottom",
+      * "bottom-start", "bottom-end", "right", "right-start", "right-end", "left", "left-start", "left-end".
       */
-    var placement: js.Any
+    var placement: Placement
 
     /** The distance of the dropdown menu from its trigger. */
     var distance: Double

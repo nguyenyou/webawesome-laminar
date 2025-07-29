@@ -47,9 +47,10 @@ object Popup extends WebComponent("wa-popup") {
   lazy val active: HtmlAttr[Boolean] = boolAttr("active")
 
   /** The preferred placement of the popup. Note that the actual placement will vary as configured to keep the panel
-    * inside of the viewport.
+    * inside of the viewport. Valid values: "top", "top-start", "top-end", "bottom", "bottom-start", "bottom-end",
+    * "right", "right-start", "right-end", "left", "left-start", "left-end".
     */
-  lazy val placement: HtmlAttr[String] = stringAttr("placement")
+  lazy val placement: CommonKeys.Placement.type = CommonKeys.Placement
 
   /** The bounding box to use for flipping, shifting, and auto-sizing. Valid values: "viewport", "scroll". */
   lazy val boundary: CommonKeys.PopupBoundary.type = CommonKeys.PopupBoundary
@@ -220,9 +221,10 @@ object Popup extends WebComponent("wa-popup") {
     var active: Boolean
 
     /** The preferred placement of the popup. Note that the actual placement will vary as configured to keep the panel
-      * inside of the viewport.
+      * inside of the viewport. Valid values: "top", "top-start", "top-end", "bottom", "bottom-start", "bottom-end",
+      * "right", "right-start", "right-end", "left", "left-start", "left-end".
       */
-    var placement: js.Any
+    var placement: Placement
 
     /** The bounding box to use for flipping, shifting, and auto-sizing. Valid values: "viewport", "scroll". */
     var boundary: PopupBoundary

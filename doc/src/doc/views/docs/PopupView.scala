@@ -7,13 +7,15 @@ import doc.libs.scalawind.*
 import doc.macros.Source
 import io.github.nguyenyou.webawesome.laminar.*
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.PopupArrowPlacement
+import io.github.nguyenyou.webawesome.laminar.SharedTypes
+import io.github.nguyenyou.webawesome.laminar.CommonKeys
 case class PopupView()
     extends ExampleView(
       "Popup",
       Some("https://webawesome.com/docs/components/popup/")
     ) {
   def playground: HtmlElement = {
-    val placementVar = Var("top")
+    val placementVar = Var[SharedTypes.Placement]("top")
     val distanceVar  = Var("0")
     val skiddingVar  = Var("0")
     val activeVar    = Var(true)
@@ -54,21 +56,21 @@ case class PopupView()
               _.name  := "placement",
               _.controlled(
                 _.value <-- placementVar,
-                _.onInput.mapToValue --> placementVar
+                _.onInput.mapToValue.map(_.asInstanceOf[SharedTypes.Placement]) --> placementVar
               )
             )(
-              UOption(_.value := "top")("top"),
-              UOption(_.value := "top-start")("top-start"),
-              UOption(_.value := "top-end")("top-end"),
-              UOption(_.value := "bottom")("bottom"),
-              UOption(_.value := "bottom-start")("bottom-start"),
-              UOption(_.value := "bottom-end")("bottom-end"),
-              UOption(_.value := "right")("right"),
-              UOption(_.value := "right-start")("right-start"),
-              UOption(_.value := "right-end")("right-end"),
-              UOption(_.value := "left")("left"),
-              UOption(_.value := "left-start")("left-start"),
-              UOption(_.value := "left-end")("left-end")
+              UOption(_.value := CommonKeys.Placement.top.value)("top"),
+              UOption(_.value := CommonKeys.Placement.topStart.value)("top-start"),
+              UOption(_.value := CommonKeys.Placement.topEnd.value)("top-end"),
+              UOption(_.value := CommonKeys.Placement.bottom.value)("bottom"),
+              UOption(_.value := CommonKeys.Placement.bottomStart.value)("bottom-start"),
+              UOption(_.value := CommonKeys.Placement.bottomEnd.value)("bottom-end"),
+              UOption(_.value := CommonKeys.Placement.right.value)("right"),
+              UOption(_.value := CommonKeys.Placement.rightStart.value)("right-start"),
+              UOption(_.value := CommonKeys.Placement.rightEnd.value)("right-end"),
+              UOption(_.value := CommonKeys.Placement.left.value)("left"),
+              UOption(_.value := CommonKeys.Placement.leftStart.value)("left-start"),
+              UOption(_.value := CommonKeys.Placement.leftEnd.value)("left-end")
             ),
             Input(
               _.label  := "Distance",
@@ -185,7 +187,7 @@ case class PopupView()
         description =
           "Use the `placement` attribute to tell the popup the preferred placement of the popup. Note that the actual position will vary to ensure the panel remains in the viewport.",
         content = Source.annotate {
-          val placementVar = Var("top")
+          val placementVar = Var[SharedTypes.Placement]("top")
 
           div(
             Popup(
@@ -212,22 +214,22 @@ case class PopupView()
               _.label := "Placement",
               _.controlled(
                 _.value <-- placementVar,
-                _.onInput.mapToValue --> placementVar
+                _.onInput.mapToValue.map(_.asInstanceOf[SharedTypes.Placement]) --> placementVar
               ),
               _.style := "max-width: 280px;"
             )(
-              UOption(_.value := "top")("top"),
-              UOption(_.value := "top-start")("top-start"),
-              UOption(_.value := "top-end")("top-end"),
-              UOption(_.value := "bottom")("bottom"),
-              UOption(_.value := "bottom-start")("bottom-start"),
-              UOption(_.value := "bottom-end")("bottom-end"),
-              UOption(_.value := "right")("right"),
-              UOption(_.value := "right-start")("right-start"),
-              UOption(_.value := "right-end")("right-end"),
-              UOption(_.value := "left")("left"),
-              UOption(_.value := "left-start")("left-start"),
-              UOption(_.value := "left-end")("left-end")
+              UOption(_.value := CommonKeys.Placement.top.value)("top"),
+              UOption(_.value := CommonKeys.Placement.topStart.value)("top-start"),
+              UOption(_.value := CommonKeys.Placement.topEnd.value)("top-end"),
+              UOption(_.value := CommonKeys.Placement.bottom.value)("bottom"),
+              UOption(_.value := CommonKeys.Placement.bottomStart.value)("bottom-start"),
+              UOption(_.value := CommonKeys.Placement.bottomEnd.value)("bottom-end"),
+              UOption(_.value := CommonKeys.Placement.right.value)("right"),
+              UOption(_.value := CommonKeys.Placement.rightStart.value)("right-start"),
+              UOption(_.value := CommonKeys.Placement.rightEnd.value)("right-end"),
+              UOption(_.value := CommonKeys.Placement.left.value)("left"),
+              UOption(_.value := CommonKeys.Placement.leftStart.value)("left-start"),
+              UOption(_.value := CommonKeys.Placement.leftEnd.value)("left-end")
             )
           )
         }
@@ -325,7 +327,7 @@ case class PopupView()
         description =
           "Add an arrow to your popup with the `arrow` attribute. It's usually a good idea to set a `distance` to make room for the arrow. To adjust the arrow's color and size, use the `--arrow-color` and `--arrow-size` custom properties.",
         content = Source.annotate {
-          val placementVar      = Var("top")
+          val placementVar      = Var[SharedTypes.Placement]("top")
           val arrowPlacementVar = Var[PopupArrowPlacement]("anchor")
           val arrowVar          = Var(true)
 
@@ -361,22 +363,22 @@ case class PopupView()
                 _.name  := "placement",
                 _.controlled(
                   _.value <-- placementVar,
-                  _.onInput.mapToValue --> placementVar
+                  _.onInput.mapToValue.map(_.asInstanceOf[SharedTypes.Placement]) --> placementVar
                 )
               )(
                 width := "160px",
-                UOption(_.value := "top")("top"),
-                UOption(_.value := "top-start")("top-start"),
-                UOption(_.value := "top-end")("top-end"),
-                UOption(_.value := "bottom")("bottom"),
-                UOption(_.value := "bottom-start")("bottom-start"),
-                UOption(_.value := "bottom-end")("bottom-end"),
-                UOption(_.value := "right")("right"),
-                UOption(_.value := "right-start")("right-start"),
-                UOption(_.value := "right-end")("right-end"),
-                UOption(_.value := "left")("left"),
-                UOption(_.value := "left-start")("left-start"),
-                UOption(_.value := "left-end")("left-end")
+                UOption(_.value := CommonKeys.Placement.top.value)("top"),
+                UOption(_.value := CommonKeys.Placement.topStart.value)("top-start"),
+                UOption(_.value := CommonKeys.Placement.topEnd.value)("top-end"),
+                UOption(_.value := CommonKeys.Placement.bottom.value)("bottom"),
+                UOption(_.value := CommonKeys.Placement.bottomStart.value)("bottom-start"),
+                UOption(_.value := CommonKeys.Placement.bottomEnd.value)("bottom-end"),
+                UOption(_.value := CommonKeys.Placement.right.value)("right"),
+                UOption(_.value := CommonKeys.Placement.rightStart.value)("right-start"),
+                UOption(_.value := CommonKeys.Placement.rightEnd.value)("right-end"),
+                UOption(_.value := CommonKeys.Placement.left.value)("left"),
+                UOption(_.value := CommonKeys.Placement.leftStart.value)("left-start"),
+                UOption(_.value := CommonKeys.Placement.leftEnd.value)("left-end")
               ),
               Select(
                 _.label := "Arrow Placement",

@@ -3,6 +3,7 @@ package io.github.nguyenyou.webawesome.laminar
 import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.nodes.Slot
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import io.github.nguyenyou.webawesome.laminar.events.*
 import org.scalajs.dom
 
@@ -42,9 +43,10 @@ object Popover extends WebComponent("wa-popover") {
   // -- Attributes --
 
   /** The preferred placement of the popover. Note that the actual placement may vary as needed to keep the popover
-    * inside of the viewport.
+    * inside of the viewport. Valid values: "top", "top-start", "top-end", "right", "right-start", "right-end",
+    * "bottom", "bottom-start", "bottom-end", "left", "left-start", "left-end".
     */
-  lazy val placement: HtmlAttr[String] = stringAttr("placement")
+  lazy val placement: CommonKeys.Placement.type = CommonKeys.Placement
 
   /** Shows or hides the popover. */
   lazy val open: HtmlAttr[Boolean] = boolAttr("open")
@@ -119,9 +121,10 @@ object Popover extends WebComponent("wa-popover") {
     this: dom.HTMLElement =>
 
     /** The preferred placement of the popover. Note that the actual placement may vary as needed to keep the popover
-      * inside of the viewport.
+      * inside of the viewport. Valid values: "top", "top-start", "top-end", "right", "right-start", "right-end",
+      * "bottom", "bottom-start", "bottom-end", "left", "left-start", "left-end".
       */
-    var placement: js.Any
+    var placement: Placement
 
     /** Shows or hides the popover. */
     var open: Boolean
