@@ -199,9 +199,10 @@ code {
 }
 
 .shiki {
-  @apply m-0 text-sm rounded-md overflow-x-auto leading-6;
+  @apply m-0 text-sm overflow-x-auto leading-6;
   text-wrap-mode: nowrap;
   white-space-collapse: preserve;
+  border-radius: 12px;
 }
 
 .shiki code {

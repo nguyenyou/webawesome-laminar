@@ -78,7 +78,8 @@ object Preview {
         div(
           div(
             tw.relative.roundedXl.overflowHidden.flex.flexCol.gap1.p1,
-            cls("bg-gray-800/20 inset-ring inset-ring-gray-800/20"),
+            background := "var(--wa-color-surface-border)",
+            cls(""),
             tw.hidden <-- activeTabSignal.map(_ == "Preview").not,
             PreviewContainer(
               resizable = resizable,
@@ -88,7 +89,7 @@ object Preview {
           ),
           div(
             tw.relative.shadowMd.roundedXl.overflowHidden.p1,
-            cls("bg-gray-800/60"),
+            background := "var(--wa-color-surface-border)",
             tw.hidden <-- activeTabSignal.map(_ == "Code").not,
             Codeblock(source = sourceCode, fullSource = fullSourceCode)
           )

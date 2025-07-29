@@ -4,48 +4,12 @@ import com.raquo.laminar.api.L.*
 import doc.AppRouter.navigateTo
 import doc.Pages.*
 import doc.components.Sidebar
+import doc.components.ThemeSwitcher
 import doc.components.TableOfContents
 import doc.libs.scalawind.*
+import doc.components.UIComponent
 
-case class App() {
-
-  enum Layout derives CanEqual {
-    case Docs
-  }
-
-  val layoutSignal = AppRouter.currentPageSignal.map { page =>
-    page match
-      case _ => Layout.Docs
-  }.distinct
-
-  def renderIconsLayout() = {
-    mainTag(
-      tw.flex.flex1.flexCol,
-      sectionTag(
-        div(
-          tw.containerWrapper,
-          div(
-            tw.container.flex.flexCol.itemsStart.gap1.py8.md(tw.py10).lg(tw.py12),
-            h1(
-              tw.text2xl.fontBold.leadingTight.trackingTighter.sm(tw.text3xl).md(tw.text4xl).m0.p0,
-              "Icons"
-            ),
-            p(
-              tw.maxW2xl.textBase.fontLight.sm(tw.textLg).m0.p0,
-              "Icons are a great way to add visual identity to your application. They can be used to represent actions, entities, or concepts."
-            )
-          )
-        )
-      ),
-      div(
-        tw.containerWrapper.flex1,
-        div(
-          tw.container.py6,
-          child <-- pageViews
-        )
-      )
-    )
-  }
+case class App() extends UIComponent {
 
   def renderDocsLayout(): HtmlElement = {
     mainTag(
@@ -117,15 +81,14 @@ case class App() {
               div(
                 tw.mlAuto.flex.itemsCenter.gap2.md(tw.flex1.justifyEnd),
                 navTag(
-                  tw.flex.itemsCenter.gap2
+                  tw.flex.itemsCenter.gap2,
+                  ThemeSwitcher()()
                 )
               )
             )
           )
         ),
-        child <-- layoutSignal.map { case Layout.Docs =>
-          renderDocsLayout()
-        },
+        renderDocsLayout(),
         footerTag(
           tw.py6.md(tw.py0),
           div(
@@ -158,7 +121,7 @@ case class App() {
     )
   }
 
-  def apply(): HtmlElement = {
+  def render(): HtmlElement = {
     renderApp()
   }
 
