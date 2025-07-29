@@ -413,6 +413,7 @@ case class Tailwind() {
   def mt0                             = this
   def mt2                             = this
   def mt4                             = this
+  def mb0                             = this
   def textGray500                     = this
   def pl4                             = this
   def pl10                            = this
