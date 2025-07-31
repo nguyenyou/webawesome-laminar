@@ -1,8 +1,6 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.api.L
 import com.raquo.laminar.keys.HtmlAttr
-import com.raquo.laminar.keys.HtmlProp
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import org.scalajs.dom
 
@@ -26,12 +24,10 @@ object QrCode extends WebComponent("wa-qr-code") {
 
   type Ref = WaQrCodeComponent & dom.HTMLElement
 
-  // -- Props --
+  // -- Attributes --
 
   /** The QR code's value. */
-  lazy val value: HtmlProp[String, ?] = L.value
-
-  // -- Attributes --
+  lazy val value: HtmlAttr[String] = stringAttr("value")
 
   /** The label for assistive devices to announce. If unspecified, the value will be used instead. */
   lazy val label: HtmlAttr[String] = stringAttr("label")
@@ -68,6 +64,9 @@ object QrCode extends WebComponent("wa-qr-code") {
   @js.native
   trait WaQrCodeComponent extends js.Object {
     this: dom.HTMLElement =>
+
+    /** The QR code's value. */
+    var value: String
 
     /** The label for assistive devices to announce. If unspecified, the value will be used instead. */
     var label: String

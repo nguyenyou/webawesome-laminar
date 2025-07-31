@@ -20,7 +20,7 @@ case class FormatNumberView()
       content = Source.annotate {
         div(
           cls := "format-number-overview",
-          p(FormatNumber(_.value <-- valueVar)()),
+          p(FormatNumber(_.value <-- valueVar.signal.map(_.toDouble))()),
           Input(
             _.`type`.number,
             _.value <-- valueVar,
@@ -50,11 +50,11 @@ case class FormatNumberView()
           div(
             tw.flex.flexCol.gap2,
             // <show>
-            FormatNumber(_.`type`.percent, _.value := "0")(),
-            FormatNumber(_.`type`.percent, _.value := "0.25")(),
-            FormatNumber(_.`type`.percent, _.value := "0.50")(),
-            FormatNumber(_.`type`.percent, _.value := "0.75")(),
-            FormatNumber(_.`type`.percent, _.value := "1")()
+            FormatNumber(_.`type`.percent, _.value := 0)(),
+            FormatNumber(_.`type`.percent, _.value := 0.25)(),
+            FormatNumber(_.`type`.percent, _.value := 0.50)(),
+            FormatNumber(_.`type`.percent, _.value := 0.75)(),
+            FormatNumber(_.`type`.percent, _.value := 1)()
             // </show>
           )
         }
@@ -67,11 +67,11 @@ case class FormatNumberView()
           div(
             tw.flex.flexCol.gap2,
             // <show>
-            div("USD: ", FormatNumber(_.`type`.currency, _.currency := "USD", _.value := "2000")()),
-            div("GBP: ", FormatNumber(_.`type`.currency, _.currency := "GBP", _.value := "2000")()),
-            div("EUR: ", FormatNumber(_.`type`.currency, _.currency := "EUR", _.value := "2000")()),
-            div("JPY: ", FormatNumber(_.`type`.currency, _.currency := "JPY", _.value := "2000")()),
-            div("CNY: ", FormatNumber(_.`type`.currency, _.currency := "CNY", _.value := "2000")())
+            div("USD: ", FormatNumber(_.`type`.currency, _.currency := "USD", _.value := 2000)()),
+            div("GBP: ", FormatNumber(_.`type`.currency, _.currency := "GBP", _.value := 2000)()),
+            div("EUR: ", FormatNumber(_.`type`.currency, _.currency := "EUR", _.value := 2000)()),
+            div("JPY: ", FormatNumber(_.`type`.currency, _.currency := "JPY", _.value := 2000)()),
+            div("CNY: ", FormatNumber(_.`type`.currency, _.currency := "CNY", _.value := 2000)())
             // </show>
           )
         }
@@ -83,12 +83,12 @@ case class FormatNumberView()
           div(
             tw.flex.flexCol.gap2,
             // <show>
-            div("Default: ", FormatNumber(_.value := "3.14159")()),
-            div("Min 2 digits: ", FormatNumber(_.value := "3.14159", _.minimumFractionDigits := 2.0)()),
-            div("Max 2 digits: ", FormatNumber(_.value := "3.14159", _.maximumFractionDigits := 2.0)()),
+            div("Default: ", FormatNumber(_.value := 3.14159)()),
+            div("Min 2 digits: ", FormatNumber(_.value := 3.14159, _.minimumFractionDigits := 2.0)()),
+            div("Max 2 digits: ", FormatNumber(_.value := 3.14159, _.maximumFractionDigits := 2.0)()),
             div(
               "Min 0, Max 0: ",
-              FormatNumber(_.value := "3.14159", _.minimumFractionDigits := 0.0, _.maximumFractionDigits := 0.0)()
+              FormatNumber(_.value := 3.14159, _.minimumFractionDigits := 0.0, _.maximumFractionDigits := 0.0)()
             )
             // </show>
           )
@@ -101,8 +101,8 @@ case class FormatNumberView()
           div(
             tw.flex.flexCol.gap2,
             // <show>
-            div("With grouping: ", FormatNumber(_.value := "1000000")()),
-            div("Without grouping: ", FormatNumber(_.value := "1000000", _.withoutGrouping := true)())
+            div("With grouping: ", FormatNumber(_.value := 1000000)()),
+            div("Without grouping: ", FormatNumber(_.value := 1000000, _.withoutGrouping := true)())
             // </show>
           )
         }

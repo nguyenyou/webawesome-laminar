@@ -18,7 +18,7 @@ case class FormatBytesView()
     Demo(
       content = Source.annotate {
         div(
-          p("The file is ", FormatBytes(_.value <-- valueVar)(), " in size."),
+          p("The file is ", FormatBytes(_.value <-- valueVar.signal.map(_.toDouble))(), " in size."),
           Input(
             _.`type`.number,
             _.value <-- valueVar,
@@ -41,10 +41,10 @@ case class FormatBytesView()
           div(
             tw.flex.flexCol.gap2,
             // <show>
-            FormatBytes(_.value := "12")(),
-            FormatBytes(_.value := "1200")(),
-            FormatBytes(_.value := "1200000")(),
-            FormatBytes(_.value := "1200000000")()
+            FormatBytes(_.value := 12)(),
+            FormatBytes(_.value := 1200)(),
+            FormatBytes(_.value := 1200000)(),
+            FormatBytes(_.value := 1200000000)()
             // </show>
           )
         }
@@ -56,10 +56,10 @@ case class FormatBytesView()
           div(
             tw.flex.flexCol.gap2,
             // <show>
-            FormatBytes(_.value := "12", _.unit.bit)(),
-            FormatBytes(_.value := "1200", _.unit.bit)(),
-            FormatBytes(_.value := "1200000", _.unit.bit)(),
-            FormatBytes(_.value := "1200000000", _.unit.bit)()
+            FormatBytes(_.value := 12, _.unit.bit)(),
+            FormatBytes(_.value := 1200, _.unit.bit)(),
+            FormatBytes(_.value := 1200000, _.unit.bit)(),
+            FormatBytes(_.value := 1200000000, _.unit.bit)()
             // </show>
           )
         }
@@ -72,9 +72,9 @@ case class FormatBytesView()
           div(
             tw.flex.flexCol.gap2,
             // <show>
-            FormatBytes(_.value := "1200000", _.display.long)(),
-            FormatBytes(_.value := "1200000", _.display.short)(),
-            FormatBytes(_.value := "1200000", _.display.narrow)()
+            FormatBytes(_.value := 1200000, _.display.long)(),
+            FormatBytes(_.value := 1200000, _.display.short)(),
+            FormatBytes(_.value := 1200000, _.display.narrow)()
             // </show>
           )
         }

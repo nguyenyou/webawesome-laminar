@@ -1,9 +1,7 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.api.L
 import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
-import com.raquo.laminar.keys.HtmlProp
 import com.raquo.laminar.nodes.Slot
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import io.github.nguyenyou.webawesome.laminar.events.*
@@ -36,20 +34,15 @@ object DropdownItem extends WebComponent("wa-dropdown-item") {
   /** Emitted when the dropdown item gains focus. */
   lazy val onFocus: EventProp[CustomEvent[Ref]] = eventProp("focus")
 
-  // -- Props --
-
-  /** Set to true to check the dropdown item. Only valid when `type` is `checkbox`. */
-  lazy val checked: HtmlProp[Boolean, ?] = L.checked
-
-  /** An optional value for the menu item. This is useful for determining which item was selected when listening to the
-    * dropdown's `wa-select` event.
-    */
-  lazy val value: HtmlProp[String, ?] = L.value
-
   // -- Attributes --
 
   /** The type of menu item to render. Valid values: "danger", "default". */
   lazy val variant: CommonKeys.DropdownItemVariant.type = CommonKeys.DropdownItemVariant
+
+  /** An optional value for the menu item. This is useful for determining which item was selected when listening to the
+    * dropdown's `wa-select` event.
+    */
+  lazy val value: HtmlAttr[String] = stringAttr("value")
 
   /** Set to `checkbox` to make the item a checkbox. Valid values: "normal", "checkbox". */
   lazy val `type`: CommonKeys.DropdownItemElementType.type = CommonKeys.DropdownItemElementType
@@ -57,6 +50,9 @@ object DropdownItem extends WebComponent("wa-dropdown-item") {
   lazy val typ: CommonKeys.DropdownItemElementType.type = `type`
 
   lazy val tpe: CommonKeys.DropdownItemElementType.type = `type`
+
+  /** Set to true to check the dropdown item. Only valid when `type` is `checkbox`. */
+  lazy val checked: HtmlAttr[Boolean] = boolAttr("checked")
 
   /** Disables the dropdown item. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
@@ -116,8 +112,16 @@ object DropdownItem extends WebComponent("wa-dropdown-item") {
     /** The type of menu item to render. Valid values: "danger", "default". */
     var variant: DropdownItemVariant
 
+    /** An optional value for the menu item. This is useful for determining which item was selected when listening to
+      * the dropdown's `wa-select` event.
+      */
+    var value: String
+
     /** Set to `checkbox` to make the item a checkbox. Valid values: "normal", "checkbox". */
     var `type`: DropdownItemElementType
+
+    /** Set to true to check the dropdown item. Only valid when `type` is `checkbox`. */
+    var checked: Boolean
 
     /** Disables the dropdown item. */
     var disabled: Boolean

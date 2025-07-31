@@ -1,9 +1,7 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.api.L
 import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
-import com.raquo.laminar.keys.HtmlProp
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import io.github.nguyenyou.webawesome.laminar.events.*
 import org.scalajs.dom
@@ -38,15 +36,13 @@ object Rating extends WebComponent("wa-rating") {
     */
   lazy val onHover: EventProp[CustomEvent[Ref] & EventDetail[WaHoverEvent]] = eventProp("wa-hover")
 
-  // -- Props --
-
-  /** The current rating. */
-  lazy val value: HtmlProp[String, ?] = L.value
-
   // -- Attributes --
 
   /** A label that describes the rating to assistive devices. */
   lazy val label: HtmlAttr[String] = stringAttr("label")
+
+  /** The current rating. */
+  lazy val value: HtmlAttr[Double] = doubleAttr("value")
 
   /** The highest rating to show. */
   lazy val max: HtmlAttr[Double] = doubleAttr("max")
@@ -105,6 +101,9 @@ object Rating extends WebComponent("wa-rating") {
 
     /** A label that describes the rating to assistive devices. */
     var label: String
+
+    /** The current rating. */
+    var value: Double
 
     /** The highest rating to show. */
     var max: Double

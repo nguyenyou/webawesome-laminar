@@ -1,7 +1,6 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.api.L
-import com.raquo.laminar.keys.HtmlProp
+import com.raquo.laminar.keys.HtmlAttr
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import org.scalajs.dom
 
@@ -24,12 +23,10 @@ object FormatBytes extends WebComponent("wa-format-bytes") {
 
   type Ref = WaFormatBytesComponent & dom.HTMLElement
 
-  // -- Props --
+  // -- Attributes --
 
   /** The number to format in bytes. */
-  lazy val value: HtmlProp[String, ?] = L.value
-
-  // -- Attributes --
+  lazy val value: HtmlAttr[Double] = doubleAttr("value")
 
   /** The type of unit to display. Valid values: "byte", "bit". */
   lazy val unit: CommonKeys.FormatBytesUnit.type = CommonKeys.FormatBytesUnit
@@ -44,6 +41,9 @@ object FormatBytes extends WebComponent("wa-format-bytes") {
   @js.native
   trait WaFormatBytesComponent extends js.Object {
     this: dom.HTMLElement =>
+
+    /** The number to format in bytes. */
+    var value: Double
 
     /** The type of unit to display. Valid values: "byte", "bit". */
     var unit: FormatBytesUnit

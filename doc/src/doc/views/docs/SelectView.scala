@@ -20,10 +20,8 @@ case class SelectView()
       content = Source.annotate {
         val selectedVar = Var("")
         Select(
-          _.controlled(
-            _.value <-- selectedVar,
-            _.onInput.mapToValue --> selectedVar
-          )
+          _.value <-- selectedVar,
+          _.onInput.mapToValue --> selectedVar
         )(
           UOption(_.value := "")("Option 1"),
           UOption(_.value := "option-2")("Option 2"),

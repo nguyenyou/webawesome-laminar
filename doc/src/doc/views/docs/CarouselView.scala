@@ -266,10 +266,8 @@ case class CarouselView()
             ),
             Divider()(),
             Switch(
-              _.controlled(
-                _.checked <-- mouseDragging,
-                _.onInput.mapToChecked --> mouseDragging
-              )
+              _.checked <-- mouseDragging,
+              _.onInput.mapToChecked --> mouseDragging
             )("Enable mouse dragging")
           )
         }

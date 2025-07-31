@@ -80,10 +80,8 @@ case class TreeView()
             tw.spaceY4,
             Select(
               _.label := "Selection",
-              _.controlled(
-                _.value <-- selectionMode,
-                _.onInput.mapToValue.map(_.asInstanceOf[SharedTypes.TreeSelection]) --> selectionMode
-              )
+              _.value <-- selectionMode,
+              _.onInput.mapToValue.map(_.asInstanceOf[SharedTypes.TreeSelection]) --> selectionMode
             )(
               UOption(_.value := TreeSelection.single.value)("Single"),
               UOption(_.value := TreeSelection.multiple.value)("Multiple"),

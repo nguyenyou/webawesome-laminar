@@ -9,6 +9,8 @@ import io.github.nguyenyou.webawesome.laminar.*
 import io.github.nguyenyou.webawesome.laminar.CommonKeys
 import io.github.nguyenyou.webawesome.laminar.SharedTypes
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.PopupArrowPlacement
+import scala.language.implicitConversions
+
 case class PopupView()
     extends ExampleView(
       "Popup",
@@ -54,10 +56,8 @@ case class PopupView()
             Select(
               _.label := "Placement",
               _.name  := "placement",
-              _.controlled(
-                _.value <-- placementVar,
-                _.onInput.mapToValue.map(_.asInstanceOf[SharedTypes.Placement]) --> placementVar
-              )
+              _.value <-- placementVar,
+              _.onInput.mapToValue.map(_.asInstanceOf[SharedTypes.Placement]) --> placementVar
             )(
               UOption(_.value := CommonKeys.Placement.top.value)("top"),
               UOption(_.value := CommonKeys.Placement.topStart.value)("top-start"),
@@ -76,36 +76,28 @@ case class PopupView()
               _.label := "Distance",
               _.`type`.number,
               _.name := "distance",
-              _.controlled(
-                _.value <-- distanceVar,
-                _.onInput.mapToValue --> distanceVar
-              )
+              _.value <-- distanceVar,
+              _.onInput.mapToValue --> distanceVar
             )(),
             Input(
               _.label := "Skidding",
               _.`type`.number,
               _.name := "skidding",
-              _.controlled(
-                _.value <-- skiddingVar,
-                _.onInput.mapToValue --> skiddingVar
-              )
+              _.value <-- skiddingVar,
+              _.onInput.mapToValue --> skiddingVar
             )()
           ),
           div(
             tw.flex.gap2.mt2,
             Switch(
               _.name := "active",
-              _.controlled(
-                _.checked <-- activeVar,
-                _.onInput.mapToChecked --> activeVar
-              )
+              _.checked <-- activeVar,
+              _.onInput.mapToChecked --> activeVar
             )("Active"),
             Switch(
               _.name := "arrow",
-              _.controlled(
-                _.checked <-- arrowVar,
-                _.onInput.mapToChecked --> arrowVar
-              )
+              _.checked <-- arrowVar,
+              _.onInput.mapToChecked --> arrowVar
             )("Arrow")
           )
         )
@@ -145,10 +137,8 @@ case class PopupView()
             ),
             br(),
             Switch(
-              _.controlled(
-                _.checked <-- activeVar,
-                _.onInput.mapToChecked --> activeVar
-              )
+              _.checked <-- activeVar,
+              _.onInput.mapToChecked --> activeVar
             )("Active")
           )
         }
@@ -212,10 +202,8 @@ case class PopupView()
             ),
             Select(
               _.label := "Placement",
-              _.controlled(
-                _.value <-- placementVar,
-                _.onInput.mapToValue.map(_.asInstanceOf[SharedTypes.Placement]) --> placementVar
-              ),
+              _.value <-- placementVar,
+              _.onInput.mapToValue.map(_.asInstanceOf[SharedTypes.Placement]) --> placementVar,
               _.style := "max-width: 280px;"
             )(
               UOption(_.value := CommonKeys.Placement.top.value)("top"),
@@ -268,10 +256,8 @@ case class PopupView()
               _.min   := -50,
               _.max   := 50,
               _.step  := 1,
-              _.controlled(
-                _.value <-- distanceVar.signal.map(_.toString),
-                _.onInput.map(_.target.value) --> distanceVar
-              )
+              _.value <-- distanceVar.signal.map(_.toString),
+              _.onInput.map(_.target.value) --> distanceVar
             )(
               maxWidth := "260px"
             )
@@ -312,10 +298,8 @@ case class PopupView()
               _.min   := -50,
               _.max   := 50,
               _.step  := 1,
-              _.controlled(
-                _.value <-- skiddingVar.signal.map(_.toString),
-                _.onInput.map(_.target.value) --> skiddingVar
-              )
+              _.value <-- skiddingVar.signal.map(_.toString),
+              _.onInput.map(_.target.value) --> skiddingVar
             )(
               maxWidth := "260px"
             )
@@ -361,10 +345,8 @@ case class PopupView()
               Select(
                 _.label := "Placement",
                 _.name  := "placement",
-                _.controlled(
-                  _.value <-- placementVar,
-                  _.onInput.mapToValue.map(_.asInstanceOf[SharedTypes.Placement]) --> placementVar
-                )
+                _.value <-- placementVar,
+                _.onInput.mapToValue.map(_.asInstanceOf[SharedTypes.Placement]) --> placementVar
               )(
                 width := "160px",
                 UOption(_.value := CommonKeys.Placement.top.value)("top"),
@@ -383,14 +365,12 @@ case class PopupView()
               Select(
                 _.label := "Arrow Placement",
                 _.name  := "arrow-placement",
-                _.controlled(
-                  _.value <-- arrowPlacementVar,
-                  _.onInput.mapToValue.map {
-                    case p: PopupArrowPlacement =>
-                      arrowPlacementVar.set(p)
-                    case _ => ()
-                  } --> Observer.empty
-                )
+                _.value <-- arrowPlacementVar,
+                _.onInput.mapToValue.map {
+                  case p: PopupArrowPlacement =>
+                    arrowPlacementVar.set(p)
+                  case _ => ()
+                } --> Observer.empty
               )(
                 width := "160px",
                 UOption(_.value := "anchor")("anchor"),
@@ -403,10 +383,8 @@ case class PopupView()
               tw.flex.gap4.mt4,
               Switch(
                 _.name := "arrow",
-                _.controlled(
-                  _.checked <-- arrowVar,
-                  _.onInput.mapToChecked --> arrowVar
-                )
+                _.checked <-- arrowVar,
+                _.onInput.mapToChecked --> arrowVar
               )("Arrow")
             )
           )
@@ -450,10 +428,8 @@ case class PopupView()
             ),
             br(),
             Switch(
-              _.controlled(
-                _.checked <-- flipVar,
-                _.onInput.mapToChecked --> flipVar
-              )
+              _.checked <-- flipVar,
+              _.onInput.mapToChecked --> flipVar
             )("Flip")
           )
         }
@@ -534,10 +510,8 @@ case class PopupView()
               )
             ),
             Switch(
-              _.controlled(
-                _.checked <-- shiftVar,
-                _.onInput.mapToChecked --> shiftVar
-              )
+              _.checked <-- shiftVar,
+              _.onInput.mapToChecked --> shiftVar
             )("Shift")
           )
         }
@@ -584,10 +558,8 @@ case class PopupView()
             ),
             br(),
             Switch(
-              _.controlled(
-                _.checked <-- autoSizeVar,
-                _.onInput.mapToChecked --> autoSizeVar
-              )
+              _.checked <-- autoSizeVar,
+              _.onInput.mapToChecked --> autoSizeVar
             )("Auto-size")
           )
         }
@@ -630,10 +602,8 @@ case class PopupView()
             ),
             br(),
             Switch(
-              _.controlled(
-                _.checked <-- hoverBridgeVar,
-                _.onInput.mapToChecked --> hoverBridgeVar
-              )
+              _.checked <-- hoverBridgeVar,
+              _.onInput.mapToChecked --> hoverBridgeVar
             )("Hover Bridge"),
             br(),
             Slider(
@@ -641,10 +611,8 @@ case class PopupView()
               _.min   := 0,
               _.max   := 50,
               _.step  := 1,
-              _.controlled(
-                _.value <-- distanceVar.signal.map(_.toString),
-                _.onInput.map(_.target.value) --> distanceVar
-              )
+              _.value <-- distanceVar.signal.map(_.toString),
+              _.onInput.map(_.target.value) --> distanceVar
             )(
               maxWidth  := "260px",
               marginTop := "0.5rem"
@@ -654,10 +622,8 @@ case class PopupView()
               _.min   := -50,
               _.max   := 50,
               _.step  := 1,
-              _.controlled(
-                _.value <-- skiddingVar.signal.map(_.toString),
-                _.onInput.map(_.target.value) --> skiddingVar
-              )
+              _.value <-- skiddingVar.signal.map(_.toString),
+              _.onInput.map(_.target.value) --> skiddingVar
             )(
               maxWidth  := "260px",
               marginTop := "0.5rem"
@@ -691,10 +657,8 @@ case class PopupView()
               )
             ),
             Switch(
-              _.controlled(
-                _.checked <-- enabledVar,
-                _.onInput.mapToChecked --> enabledVar
-              )
+              _.checked <-- enabledVar,
+              _.onInput.mapToChecked --> enabledVar
             )("Highlight mouse cursor"),
             // Note: Mouse tracking would need to be implemented via onMouseMove
             styleTag("""

@@ -1,9 +1,7 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.api.L
 import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
-import com.raquo.laminar.keys.HtmlProp
 import com.raquo.laminar.nodes.Slot
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import io.github.nguyenyou.webawesome.laminar.events.*
@@ -36,12 +34,10 @@ object CopyButton extends WebComponent("wa-copy-button") {
   /** Emitted when the data could not be copied. */
   lazy val onError: EventProp[CustomEvent[Ref]] = eventProp("wa-error")
 
-  // -- Props --
+  // -- Attributes --
 
   /** The text value to copy. */
-  lazy val value: HtmlProp[String, ?] = L.value
-
-  // -- Attributes --
+  lazy val value: HtmlAttr[String] = stringAttr("value")
 
   /** An id that references an element in the same document from which data will be copied. If both this and `value` are
     * present, this value will take precedence. By default, the target element's `textContent` will be copied. To copy
@@ -119,6 +115,9 @@ object CopyButton extends WebComponent("wa-copy-button") {
   @js.native
   trait WaCopyButtonComponent extends js.Object {
     this: dom.HTMLElement =>
+
+    /** The text value to copy. */
+    var value: String
 
     /** An id that references an element in the same document from which data will be copied. If both this and `value`
       * are present, this value will take precedence. By default, the target element's `textContent` will be copied. To

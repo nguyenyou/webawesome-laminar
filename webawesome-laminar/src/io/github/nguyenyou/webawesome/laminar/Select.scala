@@ -1,11 +1,8 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.api.L
 import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
-import com.raquo.laminar.keys.HtmlProp
 import com.raquo.laminar.nodes.Slot
-import com.raquo.laminar.tags.CustomHtmlTag
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import io.github.nguyenyou.webawesome.laminar.events.*
 import org.scalajs.dom
@@ -19,7 +16,7 @@ import scala.scalajs.js.annotation.JSImport
   *
   * [[https://webawesome.com/docs/components/select WebAwesome docs]]
   */
-object Select extends WebComponent("wa-select") with ControlledInput {
+object Select extends WebComponent("wa-select") {
 
   @JSImport("@awesome.me/webawesome/dist/components/select/select.js", JSImport.Namespace)
   @js.native
@@ -28,12 +25,6 @@ object Select extends WebComponent("wa-select") with ControlledInput {
   type Self = Select.type
 
   type Ref = WaSelectComponent & dom.HTMLElement
-
-  // -- Controlled Component --
-
-  override protected lazy val tag: CustomHtmlTag[Ref] = {
-    tagWithControlledInput(value, initial = "", onInput)
-  }
 
   // -- Events --
 
@@ -67,15 +58,13 @@ object Select extends WebComponent("wa-select") with ControlledInput {
   /** Emitted when the form control has been checked for validity and its constraints aren't satisfied. */
   lazy val onInvalid: EventProp[CustomEvent[Ref]] = eventProp("wa-invalid")
 
-  // -- Props --
-
-  /** The select's value. This will be a string for single select or an array for multi-select. */
-  lazy val value: HtmlProp[String, ?] = L.value
-
   // -- Attributes --
 
   /** The name of the select, submitted as a name/value pair with form data. */
   lazy val name: HtmlAttr[String] = stringAttr("name")
+
+  /** The select's value. This will be a string for single select or an array for multi-select. */
+  lazy val value: HtmlAttr[String] = stringAttr("value")
 
   /** The select's size. Valid values: "small", "medium", "large". */
   lazy val size: CommonKeys.ComponentSize.type = CommonKeys.ComponentSize
@@ -236,6 +225,9 @@ object Select extends WebComponent("wa-select") with ControlledInput {
 
     /** The name of the select, submitted as a name/value pair with form data. */
     var name: String
+
+    /** The select's value. This will be a string for single select or an array for multi-select. */
+    var value: String
 
     /** The select's size. Valid values: "small", "medium", "large". */
     var size: ComponentSize

@@ -22,10 +22,8 @@ case class SliderView()
           _.label := "Number of cats",
           _.hint  := "Limit six per household",
           _.name  := "value",
-          _.controlled(
-            _.value <-- valueVar.signal.map(_.toString),
-            _.onInput.map(_.target.value) --> valueVar
-          ),
+          _.value <-- valueVar.signal.map(_.toString),
+          _.onInput.map(_.target.value) --> valueVar,
           _.min         := 0,
           _.max         := 6,
           _.withMarkers := true,

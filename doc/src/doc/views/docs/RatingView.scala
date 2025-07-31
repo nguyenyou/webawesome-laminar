@@ -41,7 +41,7 @@ case class RatingView()
         title = "Precision",
         description = "Use the `precision` attribute to let users select fractional ratings.",
         content = Source.annotate {
-          Rating(_.label := "Rating", _.precision := 0.5, _.value := "2.5")()
+          Rating(_.label := "Rating", _.precision := 0.5, _.value := 2.5)()
         }
       )().withLocator,
       Demo(
@@ -71,14 +71,14 @@ case class RatingView()
         title = "Readonly",
         description = "Use the `readonly` attribute to display a rating that users can't change.",
         content = Source.annotate {
-          Rating(_.label := "Rating", _.readonly := true, _.value := "3")()
+          Rating(_.label := "Rating", _.readonly := true, _.value := 3)()
         }
       )().withLocator,
       Demo(
         title = "Disabled",
         description = "Use the `disabled` attribute to disable the rating.",
         content = Source.annotate {
-          Rating(_.label := "Rating", _.disabled := true, _.value := "3")()
+          Rating(_.label := "Rating", _.disabled := true, _.value := 3)()
         }
       )().withLocator,
       Demo(

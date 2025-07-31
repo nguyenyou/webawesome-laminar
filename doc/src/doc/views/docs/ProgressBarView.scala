@@ -16,7 +16,7 @@ case class ProgressBarView()
   def playground: HtmlElement = {
     Demo(
       content = Source.annotate {
-        ProgressBar(_.value := "40")()
+        ProgressBar(_.value := 40)()
       }
     )().withLocator
   }
@@ -28,7 +28,7 @@ case class ProgressBarView()
           "Use the `label` attribute to label the progress bar and tell assistive devices how to announce it.",
         content = Source.annotate {
           ProgressBar(
-            _.value := "50",
+            _.value := 50,
             _.label := "Upload progress"
           )()
         }
@@ -38,7 +38,7 @@ case class ProgressBarView()
         description = "Use the `height` CSS property to set the progress bar's height.",
         content = Source.annotate {
           ProgressBar(
-            _.value := "50",
+            _.value := 50,
             _.style := "--track-height: 6px;"
           )()
         }
@@ -52,7 +52,7 @@ case class ProgressBarView()
           div(
             tw.flex.flexCol.gap4,
             ProgressBar(
-              _.value <-- progressValue.signal.map(_.toString)
+              _.value <-- progressValue.signal
             )(
               child.text <-- progressValue.signal.map(v => s"${v.toInt}%")
             ),

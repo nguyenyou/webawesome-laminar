@@ -1,11 +1,8 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.api.L
 import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
-import com.raquo.laminar.keys.HtmlProp
 import com.raquo.laminar.nodes.Slot
-import com.raquo.laminar.tags.CustomHtmlTag
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import io.github.nguyenyou.webawesome.laminar.events.*
 import org.scalajs.dom
@@ -19,7 +16,7 @@ import scala.scalajs.js.annotation.JSImport
   *
   * [[https://webawesome.com/docs/components/range WebAwesome docs]]
   */
-object Slider extends WebComponent("wa-slider") with ControlledInput {
+object Slider extends WebComponent("wa-slider") {
 
   @JSImport("@awesome.me/webawesome/dist/components/slider/slider.js", JSImport.Namespace)
   @js.native
@@ -28,12 +25,6 @@ object Slider extends WebComponent("wa-slider") with ControlledInput {
   type Self = Slider.type
 
   type Ref = WaSliderComponent & dom.HTMLElement
-
-  // -- Controlled Component --
-
-  override protected lazy val tag: CustomHtmlTag[Ref] = {
-    tagWithControlledInput(value, initial = "", onInput)
-  }
 
   // -- Events --
 
@@ -51,11 +42,6 @@ object Slider extends WebComponent("wa-slider") with ControlledInput {
 
   /** Emitted when the form control has been checked for validity and its constraints aren't satisfied. */
   lazy val onInvalid: EventProp[CustomEvent[Ref]] = eventProp("wa-invalid")
-
-  // -- Props --
-
-  /** The default value of the form control. Primarily used for resetting the form control. */
-  lazy val value: HtmlProp[String, ?] = L.value
 
   // -- Attributes --
 

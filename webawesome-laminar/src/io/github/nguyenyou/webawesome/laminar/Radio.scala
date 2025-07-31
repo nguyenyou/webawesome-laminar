@@ -1,9 +1,7 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.api.L
 import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
-import com.raquo.laminar.keys.HtmlProp
 import com.raquo.laminar.nodes.Slot
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import io.github.nguyenyou.webawesome.laminar.events.*
@@ -36,15 +34,13 @@ object Radio extends WebComponent("wa-radio") {
   /** Emitted when the control gains focus. */
   lazy val onFocus: EventProp[CustomEvent[Ref]] = eventProp("focus")
 
-  // -- Props --
-
-  /** The radio's value. When selected, the radio group will receive this value. */
-  lazy val value: HtmlProp[String, ?] = L.value
-
   // -- Attributes --
 
   /** The string pointing to a form's id. */
   lazy val form: HtmlAttr[String] = stringAttr("form")
+
+  /** The radio's value. When selected, the radio group will receive this value. */
+  lazy val value: HtmlAttr[String] = stringAttr("value")
 
   /** The radio's value. When selected, the radio group will receive this value. Valid values: "default", "button". */
   lazy val appearance: CommonKeys.RadioAppearance.type = CommonKeys.RadioAppearance
@@ -103,6 +99,9 @@ object Radio extends WebComponent("wa-radio") {
 
     /** The string pointing to a form's id. */
     var form: String
+
+    /** The radio's value. When selected, the radio group will receive this value. */
+    var value: String
 
     /** The radio's value. When selected, the radio group will receive this value. Valid values: "default", "button". */
     var appearance: RadioAppearance

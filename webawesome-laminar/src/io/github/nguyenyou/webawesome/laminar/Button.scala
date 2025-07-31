@@ -1,9 +1,7 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.api.L
 import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
-import com.raquo.laminar.keys.HtmlProp
 import com.raquo.laminar.nodes.Slot
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import io.github.nguyenyou.webawesome.laminar.events.*
@@ -38,13 +36,6 @@ object Button extends WebComponent("wa-button") {
 
   /** Emitted when the form control has been checked for validity and its constraints aren't satisfied. */
   lazy val onInvalid: EventProp[CustomEvent[Ref]] = eventProp("wa-invalid")
-
-  // -- Props --
-
-  /** The value of the button, submitted as a pair with the button's name as part of the form data, but only when this
-    * button is the submitter. This attribute is ignored when `href` is present.
-    */
-  lazy val value: HtmlProp[String, ?] = L.value
 
   // -- Attributes --
 
@@ -87,6 +78,11 @@ object Button extends WebComponent("wa-button") {
     * This attribute is ignored when `href` is present.
     */
   lazy val name: HtmlAttr[String] = stringAttr("name")
+
+  /** The value of the button, submitted as a pair with the button's name as part of the form data, but only when this
+    * button is the submitter. This attribute is ignored when `href` is present.
+    */
+  lazy val value: HtmlAttr[String] = stringAttr("value")
 
   /** When set, the underlying button will be rendered as an `<a>` with this `href` instead of a `<button>`. */
   lazy val href: HtmlAttr[String] = stringAttr("href")
@@ -210,6 +206,11 @@ object Button extends WebComponent("wa-button") {
       * submitter. This attribute is ignored when `href` is present.
       */
     var name: String
+
+    /** The value of the button, submitted as a pair with the button's name as part of the form data, but only when this
+      * button is the submitter. This attribute is ignored when `href` is present.
+      */
+    var value: String
 
     /** When set, the underlying button will be rendered as an `<a>` with this `href` instead of a `<button>`. */
     var href: String

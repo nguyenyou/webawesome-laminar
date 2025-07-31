@@ -1,8 +1,6 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.api.L
 import com.raquo.laminar.keys.HtmlAttr
-import com.raquo.laminar.keys.HtmlProp
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import org.scalajs.dom
 
@@ -25,12 +23,10 @@ object FormatNumber extends WebComponent("wa-format-number") {
 
   type Ref = WaFormatNumberComponent & dom.HTMLElement
 
-  // -- Props --
+  // -- Attributes --
 
   /** The number to format. */
-  lazy val value: HtmlProp[String, ?] = L.value
-
-  // -- Attributes --
+  lazy val value: HtmlAttr[Double] = doubleAttr("value")
 
   /** The formatting style to use. Valid values: "currency", "decimal", "percent". */
   lazy val `type`: CommonKeys.FormatNumberElementType.type = CommonKeys.FormatNumberElementType
@@ -68,6 +64,9 @@ object FormatNumber extends WebComponent("wa-format-number") {
   @js.native
   trait WaFormatNumberComponent extends js.Object {
     this: dom.HTMLElement =>
+
+    /** The number to format. */
+    var value: Double
 
     /** The formatting style to use. Valid values: "currency", "decimal", "percent". */
     var `type`: FormatNumberElementType

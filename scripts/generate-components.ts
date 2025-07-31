@@ -442,69 +442,7 @@ function escapeScalaKeyword(name: string): string {
   return name;
 }
 
-function getAllowedControlKeys(
-  tagName: string
-): {
-  propName: string;
-  eventPropName: string;
-  initialValueRepr: string;
-} | null {
-  const falseRepr = "false";
-  const emptyStringRepr = '""';
 
-  switch (tagName) {
-    case "wa-checkbox":
-      return {
-        propName: "checked",
-        eventPropName: "onInput",
-        initialValueRepr: falseRepr,
-      };
-    case "wa-color-picker":
-      return {
-        propName: "value",
-        eventPropName: "onInput",
-        initialValueRepr: emptyStringRepr,
-      };
-    case "wa-input":
-      return {
-        propName: "value",
-        eventPropName: "onInput",
-        initialValueRepr: emptyStringRepr,
-      };
-    case "wa-radio-group":
-      return {
-        propName: "value",
-        eventPropName: "onInput",
-        initialValueRepr: emptyStringRepr,
-      };
-    case "wa-select":
-      return {
-        propName: "value",
-        eventPropName: "onInput",
-        initialValueRepr: emptyStringRepr,
-      };
-    case "wa-switch":
-      return {
-        propName: "checked",
-        eventPropName: "onInput",
-        initialValueRepr: falseRepr,
-      };
-    case "wa-textarea":
-      return {
-        propName: "value",
-        eventPropName: "onInput",
-        initialValueRepr: emptyStringRepr,
-      };
-    case "wa-slider":
-      return {
-        propName: "value",
-        eventPropName: "onInput",
-        initialValueRepr: emptyStringRepr,
-      };
-    default:
-      return null;
-  }
-}
 
 function generateScalaDoc(
   description?: string,
@@ -581,14 +519,10 @@ async function generateComponent(component: ComponentIR): Promise<string> {
     writer.writeLine(scalaDoc);
   }
 
-  const allowedControlKeys = getAllowedControlKeys(component.tagName);
-
   // Object declaration
   writer
     .write(
-      `object ${className} extends WebComponent("${component.tagName}")${
-        allowedControlKeys ? ` with ControlledInput` : ""
-      }`
+      `object ${className} extends WebComponent("${component.tagName}")`
     )
     .block(() => {
       writer.blankLine();
@@ -612,20 +546,7 @@ async function generateComponent(component: ComponentIR): Promise<string> {
 
       // All union types are now in SharedTypes.scala - no component-specific types needed
 
-      // Tag override for controlled components
 
-      if (allowedControlKeys) {
-        writer.writeLine("// -- Controlled Component --");
-        writer.blankLine();
-        writer
-          .write("override protected lazy val tag: CustomHtmlTag[Ref] = ")
-          .block(() => {
-            writer.writeLine(
-              `tagWithControlledInput(${allowedControlKeys.propName}, initial = ${allowedControlKeys.initialValueRepr}, ${allowedControlKeys.eventPropName})`
-            );
-          });
-        writer.blankLine();
-      }
 
       // Events section
       if (component.events.length > 0) {
@@ -668,65 +589,19 @@ async function generateComponent(component: ComponentIR): Promise<string> {
         });
       }
 
-      // Props section (for checked and value)
-      // Check if any component has any form of checked attribute (regular or defaultChecked)
-      const hasAnyCheckedAttr = component.attributes.some(
-        (attr) => attr.name === "checked"
-      );
-      // Check if any component has any form of value attribute (regular or defaultValue)
-      const hasAnyValueAttr = component.attributes.some(
-        (attr) => attr.name === "value"
-      );
 
-      if (hasAnyCheckedAttr || hasAnyValueAttr) {
-        writer.writeLine("// -- Props --");
-        writer.blankLine();
-
-        if (hasAnyCheckedAttr) {
-          // Find the regular checked attribute (not defaultChecked) to get its description
-          const checkedAttr = component.attributes.find(
-            (attr) => attr.name === "checked" && (!attr.fieldName || attr.fieldName === "checked")
-          );
-          
-          if (checkedAttr && checkedAttr.description) {
-            writer.writeLine(`/** ${checkedAttr.description} */`);
-          } else {
-            writer.writeLine("/** The default value of the form control. Primarily used for resetting the form control. */");
-          }
-          writer.writeLine(
-            "lazy val checked: HtmlProp[Boolean, ?] = L.checked"
-          );
-          writer.blankLine();
-        }
-
-        if (hasAnyValueAttr) {
-          // Find any value attribute to get its description (prefer regular value over defaultValue)
-          const regularValueAttr = component.attributes.find(
-            (attr) => attr.name === "value" && (!attr.fieldName || attr.fieldName === "value")
-          );
-          const defaultValueAttr = component.attributes.find(
-            (attr) => attr.name === "value" && attr.fieldName === "defaultValue"
-          );
-          
-          const valueAttr = regularValueAttr || defaultValueAttr;
-          
-          if (valueAttr && valueAttr.description) {
-            writer.writeLine(`/** ${valueAttr.description} */`);
-          } else {
-            writer.writeLine("/** The default value of the form control. Primarily used for resetting the form control. */");
-          }
-          writer.writeLine("lazy val value: HtmlProp[String, ?] = L.value");
-          writer.blankLine();
-        }
-      }
 
       // Attributes section
-      // Include defaultChecked and defaultValue attributes, but exclude regular checked and value props
-      const regularAttributes = component.attributes.filter(
-        (attr) => 
-          !(attr.name === "checked" && (!attr.fieldName || attr.fieldName === "checked")) && 
-          !(attr.name === "value" && (!attr.fieldName || attr.fieldName === "value"))
-      );
+      const regularAttributes = component.attributes.map((attr) => {
+        // Convert defaultChecked to regular checked attribute
+        if (attr.name === "checked" && attr.fieldName === "defaultChecked") {
+          return {
+            ...attr,
+            fieldName: "checked"
+          };
+        }
+        return attr;
+      });
       if (regularAttributes.length > 0) {
         writer.writeLine("// -- Attributes --");
         writer.blankLine();
@@ -900,13 +775,17 @@ async function generateComponent(component: ComponentIR): Promise<string> {
           writer.writeLine("this: dom.HTMLElement =>");
           writer.blankLine();
 
-          // Add component-specific properties (excluding checked and value which are handled as props)
-          // But include 'defaultChecked' and 'defaultValue' fields
-          const jsAttributes = component.attributes.filter(
-            (attr) => 
-              !(attr.name === "checked" && (!attr.fieldName || attr.fieldName === "checked")) && 
-              !(attr.name === "value" && (!attr.fieldName || attr.fieldName === "value"))
-          );
+          // Add component-specific properties
+          const jsAttributes = component.attributes.map((attr) => {
+            // Convert defaultChecked to regular checked attribute
+            if (attr.name === "checked" && attr.fieldName === "defaultChecked") {
+              return {
+                ...attr,
+                fieldName: "checked"
+              };
+            }
+            return attr;
+          });
           jsAttributes.forEach((attr) => {
             // Generate enhanced documentation for union types in JS facade
             let documentation = attr.description || "";

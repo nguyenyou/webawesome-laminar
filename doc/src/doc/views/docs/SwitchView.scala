@@ -7,6 +7,8 @@ import doc.libs.scalawind.*
 import doc.macros.Source
 import io.github.nguyenyou.webawesome.laminar.*
 
+import scala.language.implicitConversions
+
 case class SwitchView()
     extends ExampleView(
       "Switch",
@@ -18,11 +20,8 @@ case class SwitchView()
       content = Source.annotate {
         val checked = Var(true)
         Switch(
-          _.defaultChecked <-- checked,
-          _.controlled(
-            _.checked <-- checked,
-            _.onInput.mapToChecked --> checked
-          )
+          _.checked <-- checked,
+          _.onInput.mapToChecked --> checked
         )("Switch")
       }
     )().withLocator
@@ -33,7 +32,7 @@ case class SwitchView()
         title = "Checked",
         description = "Use the `defaultChecked` attribute to activate the switch.",
         content = Source.annotate {
-          Switch(_.defaultChecked := true)("Switch")
+          Switch(_.checked := true)("Switch")
         }
       )().withLocator,
       Demo(

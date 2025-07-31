@@ -1,8 +1,6 @@
 package io.github.nguyenyou.webawesome.laminar
 
-import com.raquo.laminar.api.L
 import com.raquo.laminar.keys.HtmlAttr
-import com.raquo.laminar.keys.HtmlProp
 import com.raquo.laminar.nodes.Slot
 import org.scalajs.dom
 
@@ -25,12 +23,10 @@ object ProgressBar extends WebComponent("wa-progress-bar") {
 
   type Ref = WaProgressBarComponent & dom.HTMLElement
 
-  // -- Props --
+  // -- Attributes --
 
   /** The current progress as a percentage, 0 to 100. */
-  lazy val value: HtmlProp[String, ?] = L.value
-
-  // -- Attributes --
+  lazy val value: HtmlAttr[Double] = doubleAttr("value")
 
   /** When true, percentage is ignored, the label is hidden, and the progress bar is drawn in an indeterminate state. */
   lazy val indeterminate: HtmlAttr[Boolean] = boolAttr("indeterminate")
@@ -86,6 +82,9 @@ object ProgressBar extends WebComponent("wa-progress-bar") {
   @js.native
   trait WaProgressBarComponent extends js.Object {
     this: dom.HTMLElement =>
+
+    /** The current progress as a percentage, 0 to 100. */
+    var value: Double
 
     /** When true, percentage is ignored, the label is hidden, and the progress bar is drawn in an indeterminate state.
       */

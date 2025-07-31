@@ -16,7 +16,7 @@ case class ProgressRingView()
   def playground: HtmlElement = {
     Demo(
       content = Source.annotate {
-        ProgressRing(_.value := "25")()
+        ProgressRing(_.value := 25)()
       }
     )().withLocator
   }
@@ -27,7 +27,7 @@ case class ProgressRingView()
         description = "Use the `--size` custom property to set the diameter of the progress ring.",
         content = Source.annotate {
           ProgressRing(
-            _.value := "50",
+            _.value := 50,
             _.style := "--size: 200px;"
           )()
         }
@@ -38,7 +38,7 @@ case class ProgressRingView()
           "Use the `--track-width` and `--indicator-width` custom properties to set the width of the progress ring's track and indicator.",
         content = Source.annotate {
           ProgressRing(
-            _.value := "50",
+            _.value := 50,
             _.style := "--track-width: 6px; --indicator-width: 12px;"
           )()
         }
@@ -48,7 +48,7 @@ case class ProgressRingView()
         description = "To change the color, use the `--track-color` and `--indicator-color` custom properties.",
         content = Source.annotate {
           ProgressRing(
-            _.value := "50",
+            _.value := 50,
             _.style := "--track-color: pink; --indicator-color: deeppink;"
           )()
         }
@@ -62,7 +62,7 @@ case class ProgressRingView()
           div(
             tw.flex.flexCol.gap4,
             ProgressRing(
-              _.value <-- progressValue.signal.map(_.toString)
+              _.value <-- progressValue.signal
             )(
               child.text <-- progressValue.signal.map(v => s"${v.toInt}%")
             ),
