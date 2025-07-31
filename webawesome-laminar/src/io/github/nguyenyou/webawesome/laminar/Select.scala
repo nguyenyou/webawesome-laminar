@@ -69,7 +69,7 @@ object Select extends WebComponent("wa-select") with ControlledInput {
 
   // -- Props --
 
-  /** The select's value. This will be a string for single select or an array for multi-select. */
+  /** The default value of the form control. Primarily used for resetting the form control. */
   lazy val value: HtmlProp[String, ?] = L.value
 
   // -- Attributes --

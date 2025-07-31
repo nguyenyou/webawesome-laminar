@@ -40,7 +40,7 @@ object Rating extends WebComponent("wa-rating") {
 
   // -- Props --
 
-  /** The current rating. */
+  /** The default value of the form control. Primarily used for resetting the form control. */
   lazy val value: HtmlProp[String, ?] = L.value
 
   // -- Attributes --

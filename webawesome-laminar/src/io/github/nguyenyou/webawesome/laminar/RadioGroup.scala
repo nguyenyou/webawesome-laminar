@@ -70,6 +70,9 @@ object RadioGroup extends WebComponent("wa-radio-group") with ControlledInput {
   /** The orientation in which to show radio items. Valid values: "horizontal", "vertical". */
   lazy val orientation: CommonKeys.Orientation.type = CommonKeys.Orientation
 
+  /** The default value of the form control. Primarily used for resetting the form control. */
+  lazy val defaultValue: HtmlAttr[String] = stringAttr("value")
+
   /** The radio group's size. This size will be applied to all child radios and radio buttons, except when explicitly
     * overridden. Valid values: "small", "medium", "large".
     */
@@ -145,6 +148,9 @@ object RadioGroup extends WebComponent("wa-radio-group") with ControlledInput {
 
     /** The orientation in which to show radio items. Valid values: "horizontal", "vertical". */
     var orientation: Orientation
+
+    /** The default value of the form control. Primarily used for resetting the form control. */
+    var defaultValue: String
 
     /** The radio group's size. This size will be applied to all child radios and radio buttons, except when explicitly
       * overridden. Valid values: "small", "medium", "large".

@@ -38,7 +38,7 @@ object Radio extends WebComponent("wa-radio") {
 
   // -- Props --
 
-  /** The radio's value. When selected, the radio group will receive this value. */
+  /** The default value of the form control. Primarily used for resetting the form control. */
   lazy val value: HtmlProp[String, ?] = L.value
 
   // -- Attributes --

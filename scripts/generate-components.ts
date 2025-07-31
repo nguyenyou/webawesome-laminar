@@ -673,11 +673,12 @@ async function generateComponent(component: ComponentIR): Promise<string> {
       const hasAnyCheckedAttr = component.attributes.some(
         (attr) => attr.name === "checked"
       );
-      const valueAttr = component.attributes.find(
+      // Check if any component has any form of value attribute (regular or defaultValue)
+      const hasAnyValueAttr = component.attributes.some(
         (attr) => attr.name === "value"
       );
 
-      if (hasAnyCheckedAttr || valueAttr) {
+      if (hasAnyCheckedAttr || hasAnyValueAttr) {
         writer.writeLine("// -- Props --");
         writer.blankLine();
 
@@ -690,21 +691,20 @@ async function generateComponent(component: ComponentIR): Promise<string> {
           writer.blankLine();
         }
 
-        if (valueAttr) {
-          if (valueAttr.description) {
-            writer.writeLine(`/** ${valueAttr.description} */`);
-          }
+        if (hasAnyValueAttr) {
+          // Always add value prop for components that have any form of value attribute
+          writer.writeLine("/** The default value of the form control. Primarily used for resetting the form control. */");
           writer.writeLine("lazy val value: HtmlProp[String, ?] = L.value");
           writer.blankLine();
         }
       }
 
       // Attributes section
-      // Include defaultChecked attributes, but exclude regular checked props and value
+      // Include defaultChecked and defaultValue attributes, but exclude regular checked and value props
       const regularAttributes = component.attributes.filter(
         (attr) => 
           !(attr.name === "checked" && (!attr.fieldName || attr.fieldName === "checked")) && 
-          attr.name !== "value"
+          !(attr.name === "value" && (!attr.fieldName || attr.fieldName === "value"))
       );
       if (regularAttributes.length > 0) {
         writer.writeLine("// -- Attributes --");
@@ -880,11 +880,11 @@ async function generateComponent(component: ComponentIR): Promise<string> {
           writer.blankLine();
 
           // Add component-specific properties (excluding checked and value which are handled as props)
-          // But include 'defaultChecked' fields (checked attributes with fieldName 'defaultChecked')
+          // But include 'defaultChecked' and 'defaultValue' fields
           const jsAttributes = component.attributes.filter(
             (attr) => 
               !(attr.name === "checked" && (!attr.fieldName || attr.fieldName === "checked")) && 
-              attr.name !== "value"
+              !(attr.name === "value" && (!attr.fieldName || attr.fieldName === "value"))
           );
           jsAttributes.forEach((attr) => {
             // Generate enhanced documentation for union types in JS facade

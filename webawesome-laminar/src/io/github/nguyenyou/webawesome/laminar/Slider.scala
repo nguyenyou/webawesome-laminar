@@ -74,6 +74,9 @@ object Slider extends WebComponent("wa-slider") with ControlledInput {
   /** The maximum value of a range selection. Used only when range attribute is set. */
   lazy val maxValue: HtmlAttr[Double] = doubleAttr("max-value")
 
+  /** The default value of the form control. Primarily used for resetting the form control. */
+  lazy val defaultValue: HtmlAttr[Double] = doubleAttr("value")
+
   /** Converts the slider to a range slider with two thumbs. */
   lazy val range: HtmlAttr[Boolean] = boolAttr("range")
 
@@ -234,6 +237,9 @@ object Slider extends WebComponent("wa-slider") with ControlledInput {
 
     /** The maximum value of a range selection. Used only when range attribute is set. */
     var maxValue: Double
+
+    /** The default value of the form control. Primarily used for resetting the form control. */
+    var defaultValue: Double
 
     /** Converts the slider to a range slider with two thumbs. */
     var range: Boolean

@@ -57,7 +57,7 @@ object Checkbox extends WebComponent("wa-checkbox") with ControlledInput {
   /** The default value of the form control. Primarily used for resetting the form control. */
   lazy val checked: HtmlProp[Boolean, ?] = L.checked
 
-  /** The value of the checkbox, submitted as a name/value pair with form data. */
+  /** The default value of the form control. Primarily used for resetting the form control. */
   lazy val value: HtmlProp[String, ?] = L.value
 
   // -- Attributes --

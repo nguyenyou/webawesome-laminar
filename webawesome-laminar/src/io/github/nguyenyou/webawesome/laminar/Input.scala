@@ -74,6 +74,9 @@ object Input extends WebComponent("wa-input") with ControlledInput {
 
   lazy val tpe: CommonKeys.InputInputType.type = `type`
 
+  /** The default value of the form control. Primarily used for resetting the form control. */
+  lazy val defaultValue: HtmlAttr[String] = stringAttr("value")
+
   /** The input's size. Valid values: "small", "medium", "large". */
   lazy val size: CommonKeys.ComponentSize.type = CommonKeys.ComponentSize
 
@@ -246,6 +249,9 @@ object Input extends WebComponent("wa-input") with ControlledInput {
       * "text", "time", "url".
       */
     var `type`: InputInputType
+
+    /** The default value of the form control. Primarily used for resetting the form control. */
+    var defaultValue: String
 
     /** The input's size. Valid values: "small", "medium", "large". */
     var size: ComponentSize

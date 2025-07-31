@@ -64,6 +64,9 @@ object Textarea extends WebComponent("wa-textarea") with ControlledInput {
   /** The name of the textarea, submitted as a name/value pair with form data. */
   lazy val name: HtmlAttr[String] = stringAttr("name")
 
+  /** The default value of the form control. Primarily used for resetting the form control. */
+  lazy val defaultValue: HtmlAttr[String] = stringAttr("value")
+
   /** The textarea's size. Valid values: "small", "medium", "large". */
   lazy val size: CommonKeys.ComponentSize.type = CommonKeys.ComponentSize
 
@@ -186,6 +189,9 @@ object Textarea extends WebComponent("wa-textarea") with ControlledInput {
 
     /** The name of the textarea, submitted as a name/value pair with form data. */
     var name: String
+
+    /** The default value of the form control. Primarily used for resetting the form control. */
+    var defaultValue: String
 
     /** The textarea's size. Valid values: "small", "medium", "large". */
     var size: ComponentSize

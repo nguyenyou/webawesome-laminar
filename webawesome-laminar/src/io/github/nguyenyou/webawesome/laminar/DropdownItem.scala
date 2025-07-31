@@ -41,9 +41,7 @@ object DropdownItem extends WebComponent("wa-dropdown-item") {
   /** The default value of the form control. Primarily used for resetting the form control. */
   lazy val checked: HtmlProp[Boolean, ?] = L.checked
 
-  /** An optional value for the menu item. This is useful for determining which item was selected when listening to the
-    * dropdown's `wa-select` event.
-    */
+  /** The default value of the form control. Primarily used for resetting the form control. */
   lazy val value: HtmlProp[String, ?] = L.value
 
   // -- Attributes --

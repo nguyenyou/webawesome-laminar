@@ -67,6 +67,9 @@ object ColorPicker extends WebComponent("wa-color-picker") with ControlledInput 
 
   // -- Attributes --
 
+  /** The default value of the form control. Primarily used for resetting the form control. */
+  lazy val defaultValue: HtmlAttr[String] = stringAttr("value")
+
   lazy val withLabel: HtmlAttr[Boolean] = boolAttr("with-label")
 
   lazy val withHint: HtmlAttr[Boolean] = boolAttr("with-hint")
@@ -247,6 +250,9 @@ object ColorPicker extends WebComponent("wa-color-picker") with ControlledInput 
   @js.native
   trait WaColorPickerComponent extends js.Object {
     this: dom.HTMLElement =>
+
+    /** The default value of the form control. Primarily used for resetting the form control. */
+    var defaultValue: String
 
     var withLabel: Boolean
 
