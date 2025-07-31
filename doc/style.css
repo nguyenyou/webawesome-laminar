@@ -364,14 +364,14 @@ code {
   cursor: ew-resize;
   background-color: color-mix(
     in oklab,
-    var(--color-background) 20%,
+    var(--color-foreground) 20%,
     transparent
   );
 }
 .resize-handle:hover {
   background-color: color-mix(
     in oklab,
-    var(--color-background) 40%,
+    var(--color-foreground) 40%,
     transparent
   );
 }

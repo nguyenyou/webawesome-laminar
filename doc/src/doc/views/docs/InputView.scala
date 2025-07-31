@@ -15,7 +15,13 @@ case class InputView()
     Demo(
       center = true,
       content = Source.annotate {
-        Input()()
+        val valueVar = Var("Enter something...")
+        Input(
+          _.controlled(
+            _.value <-- valueVar,
+            _.onInput.mapToValue --> valueVar
+          )
+        )()
       }
     )().withLocator
   }

@@ -108,21 +108,21 @@ object Button extends WebComponent("wa-button") {
   lazy val form: HtmlAttr[String] = stringAttr("form")
 
   /** Used to override the form owner's `action` attribute. */
-  lazy val formaction: HtmlAttr[String] = stringAttr("formaction")
+  lazy val formAction: HtmlAttr[String] = stringAttr("formaction")
 
   /** Used to override the form owner's `enctype` attribute. Valid values: "application/x-www-form-urlencoded",
     * "multipart/form-data", "text/plain".
     */
-  lazy val formenctype: CommonKeys.ButtonFormenctype.type = CommonKeys.ButtonFormenctype
+  lazy val formEnctype: CommonKeys.ButtonFormenctype.type = CommonKeys.ButtonFormenctype
 
   /** Used to override the form owner's `method` attribute. Valid values: "post", "get". */
-  lazy val formmethod: CommonKeys.ButtonFormmethod.type = CommonKeys.ButtonFormmethod
+  lazy val formMethod: CommonKeys.ButtonFormmethod.type = CommonKeys.ButtonFormmethod
 
   /** Used to override the form owner's `novalidate` attribute. */
-  lazy val formnovalidate: HtmlAttr[Boolean] = boolAttr("formnovalidate")
+  lazy val formNoValidate: HtmlAttr[Boolean] = boolAttr("formnovalidate")
 
   /** Used to override the form owner's `target` attribute. */
-  lazy val formtarget: HtmlAttr[String] = stringAttr("formtarget")
+  lazy val formTarget: HtmlAttr[String] = stringAttr("formtarget")
 
   // -- Custom Attributes --
   lazy val close: CustomKeys.Close.type = CustomKeys.Close

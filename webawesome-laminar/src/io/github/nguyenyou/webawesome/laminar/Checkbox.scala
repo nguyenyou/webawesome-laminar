@@ -78,6 +78,9 @@ object Checkbox extends WebComponent("wa-checkbox") with ControlledInput {
     */
   lazy val indeterminate: HtmlAttr[Boolean] = boolAttr("indeterminate")
 
+  /** The default value of the form control. Primarily used for resetting the form control. */
+  lazy val defaultChecked: HtmlAttr[Boolean] = boolAttr("checked")
+
   /** By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
     * to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
     * the same document or shadow root for this to work.
@@ -161,6 +164,9 @@ object Checkbox extends WebComponent("wa-checkbox") with ControlledInput {
       * all/none" behavior when associated checkboxes have a mix of checked and unchecked states.
       */
     var indeterminate: Boolean
+
+    /** The default value of the form control. Primarily used for resetting the form control. */
+    var defaultChecked: Boolean
 
     /** By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
       * to place the form control outside of a form and associate it with the form that has this `id`. The form must be

@@ -16,8 +16,9 @@ case class SwitchView()
     Demo(
       center = true,
       content = Source.annotate {
-        val checked = Var(false)
+        val checked = Var(true)
         Switch(
+          _.defaultChecked <-- checked,
           _.controlled(
             _.checked <-- checked,
             _.onInput.mapToChecked --> checked
@@ -30,16 +31,16 @@ case class SwitchView()
     div(
       Demo(
         title = "Checked",
-        description = "Use the `checked` attribute to activate the switch.",
+        description = "Use the `defaultChecked` attribute to activate the switch.",
         content = Source.annotate {
-          Switch(_.checked := true)("Switch")
+          Switch(_.defaultChecked := true)("Switch")
         }
       )().withLocator,
       Demo(
         title = "Disabled",
         description = "Use the `disabled` attribute to disable the switch.",
         content = Source.annotate {
-          Switch(_.checked := true)("Switch")
+          Switch(_.disabled := true)("Switch")
         }
       )().withLocator,
       Demo(

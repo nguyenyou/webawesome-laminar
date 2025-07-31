@@ -38,7 +38,7 @@ object DropdownItem extends WebComponent("wa-dropdown-item") {
 
   // -- Props --
 
-  /** Set to true to check the dropdown item. Only valid when `type` is `checkbox`. */
+  /** The default value of the form control. Primarily used for resetting the form control. */
   lazy val checked: HtmlProp[Boolean, ?] = L.checked
 
   /** An optional value for the menu item. This is useful for determining which item was selected when listening to the

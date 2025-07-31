@@ -669,21 +669,21 @@ async function generateComponent(component: ComponentIR): Promise<string> {
       }
 
       // Props section (for checked and value)
-      const checkedAttr = component.attributes.find(
+      // Check if any component has any form of checked attribute (regular or defaultChecked)
+      const hasAnyCheckedAttr = component.attributes.some(
         (attr) => attr.name === "checked"
       );
       const valueAttr = component.attributes.find(
         (attr) => attr.name === "value"
       );
 
-      if (checkedAttr || valueAttr) {
+      if (hasAnyCheckedAttr || valueAttr) {
         writer.writeLine("// -- Props --");
         writer.blankLine();
 
-        if (checkedAttr) {
-          if (checkedAttr.description) {
-            writer.writeLine(`/** ${checkedAttr.description} */`);
-          }
+        if (hasAnyCheckedAttr) {
+          // Always add checked prop for components that have any form of checked attribute
+          writer.writeLine("/** The default value of the form control. Primarily used for resetting the form control. */");
           writer.writeLine(
             "lazy val checked: HtmlProp[Boolean, ?] = L.checked"
           );
@@ -700,8 +700,11 @@ async function generateComponent(component: ComponentIR): Promise<string> {
       }
 
       // Attributes section
+      // Include defaultChecked attributes, but exclude regular checked props and value
       const regularAttributes = component.attributes.filter(
-        (attr) => attr.name !== "checked" && attr.name !== "value"
+        (attr) => 
+          !(attr.name === "checked" && (!attr.fieldName || attr.fieldName === "checked")) && 
+          attr.name !== "value"
       );
       if (regularAttributes.length > 0) {
         writer.writeLine("// -- Attributes --");
@@ -725,7 +728,9 @@ async function generateComponent(component: ComponentIR): Promise<string> {
             writer.writeLine(`/** ${documentation} */`);
           }
 
-          const attrName = escapeScalaKeyword(toCamelCase(attr.name));
+          // Use fieldName if available (e.g., for defaultChecked), otherwise use the attribute name
+          const displayName = attr.fieldName || attr.name;
+          const attrName = escapeScalaKeyword(toCamelCase(displayName));
           const scalaType = getScalaAttributeType(
             attr.type,
             attr.unionValues,
@@ -875,8 +880,11 @@ async function generateComponent(component: ComponentIR): Promise<string> {
           writer.blankLine();
 
           // Add component-specific properties (excluding checked and value which are handled as props)
+          // But include 'defaultChecked' fields (checked attributes with fieldName 'defaultChecked')
           const jsAttributes = component.attributes.filter(
-            (attr) => attr.name !== "checked" && attr.name !== "value"
+            (attr) => 
+              !(attr.name === "checked" && (!attr.fieldName || attr.fieldName === "checked")) && 
+              attr.name !== "value"
           );
           jsAttributes.forEach((attr) => {
             // Generate enhanced documentation for union types in JS facade

@@ -39,7 +39,7 @@ object UOption extends WebComponent("wa-option") {
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
 
   /** Selects an option initially. */
-  lazy val selected: HtmlAttr[Boolean] = boolAttr("selected")
+  lazy val defaultSelected: HtmlAttr[Boolean] = boolAttr("selected")
 
   /** The option’s plain text label. Usually automatically generated, but can be useful to provide manually for cases
     * involving complex content.
