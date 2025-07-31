@@ -38,7 +38,7 @@ object CopyButton extends WebComponent("wa-copy-button") {
 
   // -- Props --
 
-  /** The default value of the form control. Primarily used for resetting the form control. */
+  /** The text value to copy. */
   lazy val value: HtmlProp[String, ?] = L.value
 
   // -- Attributes --

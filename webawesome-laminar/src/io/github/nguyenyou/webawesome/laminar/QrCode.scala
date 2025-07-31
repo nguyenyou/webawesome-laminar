@@ -28,7 +28,7 @@ object QrCode extends WebComponent("wa-qr-code") {
 
   // -- Props --
 
-  /** The default value of the form control. Primarily used for resetting the form control. */
+  /** The QR code's value. */
   lazy val value: HtmlProp[String, ?] = L.value
 
   // -- Attributes --

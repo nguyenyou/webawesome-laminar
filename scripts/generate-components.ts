@@ -683,8 +683,16 @@ async function generateComponent(component: ComponentIR): Promise<string> {
         writer.blankLine();
 
         if (hasAnyCheckedAttr) {
-          // Always add checked prop for components that have any form of checked attribute
-          writer.writeLine("/** The default value of the form control. Primarily used for resetting the form control. */");
+          // Find the regular checked attribute (not defaultChecked) to get its description
+          const checkedAttr = component.attributes.find(
+            (attr) => attr.name === "checked" && (!attr.fieldName || attr.fieldName === "checked")
+          );
+          
+          if (checkedAttr && checkedAttr.description) {
+            writer.writeLine(`/** ${checkedAttr.description} */`);
+          } else {
+            writer.writeLine("/** The default value of the form control. Primarily used for resetting the form control. */");
+          }
           writer.writeLine(
             "lazy val checked: HtmlProp[Boolean, ?] = L.checked"
           );
@@ -692,8 +700,21 @@ async function generateComponent(component: ComponentIR): Promise<string> {
         }
 
         if (hasAnyValueAttr) {
-          // Always add value prop for components that have any form of value attribute
-          writer.writeLine("/** The default value of the form control. Primarily used for resetting the form control. */");
+          // Find any value attribute to get its description (prefer regular value over defaultValue)
+          const regularValueAttr = component.attributes.find(
+            (attr) => attr.name === "value" && (!attr.fieldName || attr.fieldName === "value")
+          );
+          const defaultValueAttr = component.attributes.find(
+            (attr) => attr.name === "value" && attr.fieldName === "defaultValue"
+          );
+          
+          const valueAttr = regularValueAttr || defaultValueAttr;
+          
+          if (valueAttr && valueAttr.description) {
+            writer.writeLine(`/** ${valueAttr.description} */`);
+          } else {
+            writer.writeLine("/** The default value of the form control. Primarily used for resetting the form control. */");
+          }
           writer.writeLine("lazy val value: HtmlProp[String, ?] = L.value");
           writer.blankLine();
         }

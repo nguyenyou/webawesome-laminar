@@ -27,7 +27,7 @@ object ProgressBar extends WebComponent("wa-progress-bar") {
 
   // -- Props --
 
-  /** The default value of the form control. Primarily used for resetting the form control. */
+  /** The current progress as a percentage, 0 to 100. */
   lazy val value: HtmlProp[String, ?] = L.value
 
   // -- Attributes --

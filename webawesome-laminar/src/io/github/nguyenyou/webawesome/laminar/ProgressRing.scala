@@ -27,7 +27,7 @@ object ProgressRing extends WebComponent("wa-progress-ring") {
 
   // -- Props --
 
-  /** The default value of the form control. Primarily used for resetting the form control. */
+  /** The current progress as a percentage, 0 to 100. */
   lazy val value: HtmlProp[String, ?] = L.value
 
   // -- Attributes --

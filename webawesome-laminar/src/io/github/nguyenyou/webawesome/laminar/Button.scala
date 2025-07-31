@@ -41,7 +41,9 @@ object Button extends WebComponent("wa-button") {
 
   // -- Props --
 
-  /** The default value of the form control. Primarily used for resetting the form control. */
+  /** The value of the button, submitted as a pair with the button's name as part of the form data, but only when this
+    * button is the submitter. This attribute is ignored when `href` is present.
+    */
   lazy val value: HtmlProp[String, ?] = L.value
 
   // -- Attributes --

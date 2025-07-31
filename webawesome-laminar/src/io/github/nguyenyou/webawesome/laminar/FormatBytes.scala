@@ -26,7 +26,7 @@ object FormatBytes extends WebComponent("wa-format-bytes") {
 
   // -- Props --
 
-  /** The default value of the form control. Primarily used for resetting the form control. */
+  /** The number to format in bytes. */
   lazy val value: HtmlProp[String, ?] = L.value
 
   // -- Attributes --

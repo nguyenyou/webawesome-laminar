@@ -27,7 +27,7 @@ object FormatNumber extends WebComponent("wa-format-number") {
 
   // -- Props --
 
-  /** The default value of the form control. Primarily used for resetting the form control. */
+  /** The number to format. */
   lazy val value: HtmlProp[String, ?] = L.value
 
   // -- Attributes --
