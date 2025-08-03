@@ -1,0 +1,21 @@
+{
+  "name": "quickstart",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "npm run dev:scala && concurrently -c \"auto\" \"npm run dev:js\" \"npm run dev:scala:watch\"",
+    "dev:js": "vite",
+    "dev:scala": "./mill myapp.fastLinkJS",
+    "dev:scala:watch": "./mill -w myapp.fastLinkJS",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "concurrently": "9.2.0",
+    "vite": "7.0.4"
+  },
+  "dependencies": {
+    "@awesome.me/webawesome": "3.0.0-beta.3"
+  }
+}

@@ -1,0 +1,17 @@
+//| mill-version: 1.0.2
+
+import mill.*, scalalib.*, scalajslib.*, scalajslib.api.*
+
+object myapp extends ScalaJSModule {
+  def scalaVersion = "3.7.1"
+  def scalaJSVersion = "1.19.0"
+
+  def moduleKind = ModuleKind.ESModule
+  def moduleSplitStyle = ModuleSplitStyle.FewestModules
+
+  def mvnDeps = Seq(
+    mvn"org.scala-js::scalajs-dom::2.8.1",
+    mvn"com.raquo::laminar::17.2.1",
+    mvn"io.github.nguyenyou::webawesome-laminar::0.3.0",
+  )
+}
