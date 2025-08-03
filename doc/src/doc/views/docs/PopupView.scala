@@ -9,7 +9,6 @@ import io.github.nguyenyou.webawesome.laminar.*
 import io.github.nguyenyou.webawesome.laminar.CommonKeys
 import io.github.nguyenyou.webawesome.laminar.SharedTypes
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.PopupArrowPlacement
-import scala.language.implicitConversions
 
 case class PopupView()
     extends ExampleView(

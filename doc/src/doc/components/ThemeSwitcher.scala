@@ -4,8 +4,6 @@ import com.raquo.laminar.api.L.*
 import io.github.nguyenyou.webawesome.laminar.*
 import org.scalajs.dom
 
-import scala.language.implicitConversions
-
 case class ThemeSwitcher() extends UIComponent {
 
   type Theme = "dark" | "light"

@@ -10,13 +10,12 @@ import mill.util.VcsVersion
 import com.goyeau.mill.scalafix.ScalafixModule
 
 object Versions {
-    val scala3 = "3.7.0"
+    val scala3 = "3.7.1"
     val sjs = "1.19.0"
     val laminar = "17.2.1"
     val waypoint = "10.0.0-M1"
     val borer = "1.16.1"
     val scalajsdom = "2.8.1"
-    val `webawesome-laminar` = "0.0.1"
     val sourcecode = "0.4.3-M5"
 }
 
@@ -75,6 +74,10 @@ trait WebModule extends ScalaJSModule, NoDoc, Scalafix {
   def scalaJSVersion = Versions.sjs
 
   def mvnDeps = Deps.laminar ++ Deps.scalajsDom
+
+  def scalacOptions = super.scalacOptions() ++ Seq(
+    "-language:implicitConversions"
+  )
 }
 
 object doc extends WebModule {

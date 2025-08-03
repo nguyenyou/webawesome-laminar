@@ -11,7 +11,6 @@ import com.raquo.laminar.nodes.ReactiveHtmlElement
 import com.raquo.laminar.tags.CustomHtmlTag
 import org.scalajs.dom
 
-import scala.language.implicitConversions
 import scala.scalajs.js
 
 /** Base trait for all WebAwesome components. */

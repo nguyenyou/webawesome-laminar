@@ -7,8 +7,6 @@ import doc.libs.scalawind.*
 import doc.macros.Source
 import io.github.nguyenyou.webawesome.laminar.*
 
-import scala.language.implicitConversions
-
 case class SwitchView()
     extends ExampleView(
       "Switch",

@@ -5,7 +5,6 @@ import com.raquo.laminar.nodes.ReactiveHtmlElement
 import org.scalajs.dom.HTMLHeadingElement
 
 import scala.annotation.unused
-import scala.language.implicitConversions
 import scala.quoted.*
 
 // Create a priority hierarchy for implicit conversions
