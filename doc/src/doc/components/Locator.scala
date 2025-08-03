@@ -14,7 +14,7 @@ trait Locator(using
       Locator.scalaFileName   := n.value,
       Locator.scalaSourcePath := f.value,
       Locator.scalaLineNumber := l.value,
-      dataAttr("source-path") := f.value
+      dataAttr("scala") := f.value
     )
   }
 
@@ -41,7 +41,7 @@ object Locator {
         scalaFileName           := fileName,
         scalaSourcePath         := file,
         scalaLineNumber         := line,
-        dataAttr("source-path") := s"${fileName}:${line}"
+        dataAttr("scala") := s"${fileName}:${line}"
       )
     }
   }

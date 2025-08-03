@@ -31,6 +31,7 @@ case class ThemeSwitcher() extends UIComponent {
         }
       },
       Icon(
+        _.label := "Toggle theme",
         _.name <-- themeVar.signal.map {
           case "dark"  => "sun"
           case "light" => "moon"

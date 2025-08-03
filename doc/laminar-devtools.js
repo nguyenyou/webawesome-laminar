@@ -2740,7 +2740,7 @@
             childList: true,
             subtree: true,
             attributes: true,
-            attributeFilter: ['data-source-path', DEVTOOLS_PROPERTIES.SCALA_SOURCE_PATH]
+            attributeFilter: ['data-scala', DEVTOOLS_PROPERTIES.SCALA_SOURCE_PATH]
           });
         }
       }
