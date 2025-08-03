@@ -88,3 +88,15 @@ Button(
 
 One advantage of this syntax is that it allows for faster typing.
 
+
+## Credits
+
+While building this library, I learned a lot and borrowed many ideas from Nikita’s [laminar-shoelace-components](https://github.com/raquo/laminar-shoelace-components) library.
+
+## Author
+
+[Nguyen You](https://github.com/nguyenyou)
+
+## License
+This project is provided under the MIT license.
+
