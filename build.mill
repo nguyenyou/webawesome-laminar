@@ -63,6 +63,10 @@ object Deps {
   val sourcecode = Seq(
     mvn"com.lihaoyi::sourcecode::${Versions.sourcecode}"
   )
+
+  val webawesome = Seq(
+    mvn"io.github.nguyenyou::webawesome-laminar::0.3.0"
+  )
 }
 
 
@@ -81,11 +85,11 @@ trait WebModule extends ScalaJSModule, NoDoc, Scalafix {
 }
 
 object doc extends WebModule {
-  def moduleDeps = Seq(
-    `webawesome-laminar`
-  )
+  // def moduleDeps = Seq(
+  //   `webawesome-laminar`
+  // )
 
-  def mvnDeps = super.mvnDeps() ++ Deps.waypoint ++ Deps.borer ++ Deps.sourcecode
+  def mvnDeps = super.mvnDeps() ++ Deps.waypoint ++ Deps.borer ++ Deps.sourcecode ++ Deps.webawesome
 }
 
 object `webawesome-laminar` extends WebModule, SonatypeCentralPublishModule {
