@@ -62,7 +62,7 @@ Button()("Click me")
 
 For attributes that accept a fixed set of string values, this library offers two ergonomic ways to work with them:
 
-1. Union Types (Type-Safe Strings)
+### 1. Union Types (Type-Safe Strings)
 
 You can assign string values directly while still enjoying full type safety via Scala’s union types. This works both for `String` and `Signal[String]`.
 
@@ -76,7 +76,7 @@ Button(
 )("Click me")
 ```
 
-### Dot notation
+### 2. Dot notation
 
 For cases where the attribute value is static and known at compile time, you can use dot notation for better discoverability and cleaner syntax:
 
