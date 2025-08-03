@@ -57,3 +57,34 @@ import io.github.nguyenyou.webawesome.laminar.*
 
 Button()("Click me")
 ```
+
+## Notable feature
+
+For attributes that accept a fixed set of string values, this library offers two ergonomic ways to work with them:
+
+1. Union Types (Type-Safe Strings)
+
+You can assign string values directly while still enjoying full type safety via Scala’s union types. This works both for `String` and `Signal[String]`.
+
+```scala
+Button(
+  _.variant := "success" // String
+)("Click me")
+
+Button(
+  _.variant <-- Val("success") // Signal[String]
+)("Click me")
+```
+
+### Dot notation
+
+For cases where the attribute value is static and known at compile time, you can use dot notation for better discoverability and cleaner syntax:
+
+```scala
+Button(
+  _.variant.success
+)()
+```
+
+One advantage of this syntax is that it allows for faster typing.
+
