@@ -95,7 +95,7 @@ While building this library, I learned a lot and borrowed many ideas from Nikita
 
 ## Author
 
-[Nguyen You](https://github.com/nguyenyou)
+Tu Nguyen - [@younguyen95](https://x.com/younguyen95)
 
 ## License
 This project is provided under the MIT license.
