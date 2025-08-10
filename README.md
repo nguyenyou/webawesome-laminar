@@ -1,3 +1,5 @@
+![Maven Central Version](https://img.shields.io/maven-central/v/io.github.nguyenyou/webawesome-laminar_sjs1_3)
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/nguyenyou/webawesome-laminar/main/.github/assets/logo.png" />
   <br/>
