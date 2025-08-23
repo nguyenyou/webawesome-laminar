@@ -18,6 +18,8 @@ npm install
 npm run dev
 ```
 
+Open: http://localhost:5173/
+
 ## Manual Setup
 
 Follow these steps to manually set up the Laminar bindings for WebAwesome:
