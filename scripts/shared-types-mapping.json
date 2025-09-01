@@ -57,8 +57,8 @@
       ],
       "frequency": 5,
       "components": [
-        "WaButton",
         "WaBadge",
+        "WaButton",
         "WaButtonGroup",
         "WaCallout",
         "WaTag"
@@ -181,6 +181,19 @@
       ]
     },
     {
+      "name": "IconPosition",
+      "signature": "end|start",
+      "values": [
+        "end",
+        "start"
+      ],
+      "frequency": 2,
+      "components": [
+        "WaDetails",
+        "WaPage"
+      ]
+    },
+    {
       "name": "ComponentPlacement",
       "signature": "bottom|end|start|top",
       "values": [
@@ -263,6 +276,33 @@
       ]
     },
     {
+      "name": "BadgeExtendedAppearance",
+      "signature": "accent|filled|outlined",
+      "values": [
+        "accent",
+        "filled",
+        "outlined",
+        "filled outlined"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaBadge"
+      ]
+    },
+    {
+      "name": "BadgeAttention",
+      "signature": "bounce|none|pulse",
+      "values": [
+        "bounce",
+        "none",
+        "pulse"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaBadge"
+      ]
+    },
+    {
       "name": "ButtonButtonType",
       "signature": "button|reset|submit",
       "values": [
@@ -312,33 +352,6 @@
       "frequency": 1,
       "components": [
         "WaButton"
-      ]
-    },
-    {
-      "name": "BadgeExtendedAppearance",
-      "signature": "accent|filled|outlined",
-      "values": [
-        "accent",
-        "filled",
-        "outlined",
-        "filled outlined"
-      ],
-      "frequency": 1,
-      "components": [
-        "WaBadge"
-      ]
-    },
-    {
-      "name": "BadgeAttention",
-      "signature": "bounce|none|pulse",
-      "values": [
-        "bounce",
-        "none",
-        "pulse"
-      ],
-      "frequency": 1,
-      "components": [
-        "WaBadge"
       ]
     },
     {
@@ -422,33 +435,6 @@
       ]
     },
     {
-      "name": "FormatNumberElementType",
-      "signature": "currency|decimal|percent",
-      "values": [
-        "currency",
-        "decimal",
-        "percent"
-      ],
-      "frequency": 1,
-      "components": [
-        "WaFormatNumber"
-      ]
-    },
-    {
-      "name": "FormatNumberCurrencyDisplay",
-      "signature": "code|name|narrowSymbol|symbol",
-      "values": [
-        "code",
-        "name",
-        "narrowSymbol",
-        "symbol"
-      ],
-      "frequency": 1,
-      "components": [
-        "WaFormatNumber"
-      ]
-    },
-    {
       "name": "FormatDateDateMonthFormat",
       "signature": "2-digit|long|narrow|numeric|short",
       "values": [
@@ -486,6 +472,33 @@
       "frequency": 1,
       "components": [
         "WaFormatDate"
+      ]
+    },
+    {
+      "name": "FormatNumberElementType",
+      "signature": "currency|decimal|percent",
+      "values": [
+        "currency",
+        "decimal",
+        "percent"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaFormatNumber"
+      ]
+    },
+    {
+      "name": "FormatNumberCurrencyDisplay",
+      "signature": "code|name|narrowSymbol|symbol",
+      "values": [
+        "code",
+        "name",
+        "narrowSymbol",
+        "symbol"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaFormatNumber"
       ]
     },
     {
@@ -539,18 +552,6 @@
       "values": [
         "desktop",
         "mobile"
-      ],
-      "frequency": 1,
-      "components": [
-        "WaPage"
-      ]
-    },
-    {
-      "name": "PageNavigationPlacement",
-      "signature": "end|start",
-      "values": [
-        "end",
-        "start"
       ],
       "frequency": 1,
       "components": [

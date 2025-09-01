@@ -132,6 +132,14 @@ object CommonKeys extends CommonTypes {
     lazy val top: HtmlAttrSetter[TooltipPlacement] = TooltipPlacement("top")
   }
 
+  /** icon-position attribute - IconPosition */
+  object IconPosition extends HtmlAttr[IconPosition]("icon-position", UnionAsStringCodec[IconPosition]) {
+
+    lazy val end: HtmlAttrSetter[IconPosition] = IconPosition("end")
+
+    lazy val start: HtmlAttrSetter[IconPosition] = IconPosition("start")
+  }
+
   /** placement attribute - ComponentPlacement */
   object ComponentPlacement extends HtmlAttr[ComponentPlacement]("placement", UnionAsStringCodec[ComponentPlacement]) {
 
@@ -208,6 +216,29 @@ object CommonKeys extends CommonTypes {
     lazy val square: HtmlAttrSetter[AvatarShape] = AvatarShape("square")
   }
 
+  /** appearance attribute - BadgeExtendedAppearance */
+  object BadgeExtendedAppearance
+      extends HtmlAttr[BadgeExtendedAppearance]("appearance", UnionAsStringCodec[BadgeExtendedAppearance]) {
+
+    lazy val accent: HtmlAttrSetter[BadgeExtendedAppearance] = BadgeExtendedAppearance("accent")
+
+    lazy val filled: HtmlAttrSetter[BadgeExtendedAppearance] = BadgeExtendedAppearance("filled")
+
+    lazy val outlined: HtmlAttrSetter[BadgeExtendedAppearance] = BadgeExtendedAppearance("outlined")
+
+    lazy val filledOutlined: HtmlAttrSetter[BadgeExtendedAppearance] = BadgeExtendedAppearance("filled outlined")
+  }
+
+  /** attention attribute - BadgeAttention */
+  object BadgeAttention extends HtmlAttr[BadgeAttention]("attention", UnionAsStringCodec[BadgeAttention]) {
+
+    lazy val bounce: HtmlAttrSetter[BadgeAttention] = BadgeAttention("bounce")
+
+    lazy val none: HtmlAttrSetter[BadgeAttention] = BadgeAttention("none")
+
+    lazy val pulse: HtmlAttrSetter[BadgeAttention] = BadgeAttention("pulse")
+  }
+
   /** type attribute - ButtonButtonType */
   object ButtonButtonType extends HtmlAttr[ButtonButtonType]("type", UnionAsStringCodec[ButtonButtonType]) {
 
@@ -248,29 +279,6 @@ object CommonKeys extends CommonTypes {
     lazy val get: HtmlAttrSetter[ButtonFormmethod] = ButtonFormmethod("get")
 
     lazy val post: HtmlAttrSetter[ButtonFormmethod] = ButtonFormmethod("post")
-  }
-
-  /** appearance attribute - BadgeExtendedAppearance */
-  object BadgeExtendedAppearance
-      extends HtmlAttr[BadgeExtendedAppearance]("appearance", UnionAsStringCodec[BadgeExtendedAppearance]) {
-
-    lazy val accent: HtmlAttrSetter[BadgeExtendedAppearance] = BadgeExtendedAppearance("accent")
-
-    lazy val filled: HtmlAttrSetter[BadgeExtendedAppearance] = BadgeExtendedAppearance("filled")
-
-    lazy val outlined: HtmlAttrSetter[BadgeExtendedAppearance] = BadgeExtendedAppearance("outlined")
-
-    lazy val filledOutlined: HtmlAttrSetter[BadgeExtendedAppearance] = BadgeExtendedAppearance("filled outlined")
-  }
-
-  /** attention attribute - BadgeAttention */
-  object BadgeAttention extends HtmlAttr[BadgeAttention]("attention", UnionAsStringCodec[BadgeAttention]) {
-
-    lazy val bounce: HtmlAttrSetter[BadgeAttention] = BadgeAttention("bounce")
-
-    lazy val none: HtmlAttrSetter[BadgeAttention] = BadgeAttention("none")
-
-    lazy val pulse: HtmlAttrSetter[BadgeAttention] = BadgeAttention("pulse")
   }
 
   /** appearance attribute - CalloutExtendedAppearance */
@@ -339,33 +347,6 @@ object CommonKeys extends CommonTypes {
     lazy val byte: HtmlAttrSetter[FormatBytesUnit] = FormatBytesUnit("byte")
   }
 
-  /** type attribute - FormatNumberElementType */
-  object FormatNumberElementType
-      extends HtmlAttr[FormatNumberElementType]("type", UnionAsStringCodec[FormatNumberElementType]) {
-
-    lazy val currency: HtmlAttrSetter[FormatNumberElementType] = FormatNumberElementType("currency")
-
-    lazy val decimal: HtmlAttrSetter[FormatNumberElementType] = FormatNumberElementType("decimal")
-
-    lazy val percent: HtmlAttrSetter[FormatNumberElementType] = FormatNumberElementType("percent")
-  }
-
-  /** currency-display attribute - FormatNumberCurrencyDisplay */
-  object FormatNumberCurrencyDisplay
-      extends HtmlAttr[FormatNumberCurrencyDisplay](
-        "currency-display",
-        UnionAsStringCodec[FormatNumberCurrencyDisplay]
-      ) {
-
-    lazy val code: HtmlAttrSetter[FormatNumberCurrencyDisplay] = FormatNumberCurrencyDisplay("code")
-
-    lazy val _name: HtmlAttrSetter[FormatNumberCurrencyDisplay] = FormatNumberCurrencyDisplay("name")
-
-    lazy val narrowSymbol: HtmlAttrSetter[FormatNumberCurrencyDisplay] = FormatNumberCurrencyDisplay("narrowSymbol")
-
-    lazy val symbol: HtmlAttrSetter[FormatNumberCurrencyDisplay] = FormatNumberCurrencyDisplay("symbol")
-  }
-
   /** month attribute - FormatDateDateMonthFormat */
   object FormatDateDateMonthFormat
       extends HtmlAttr[FormatDateDateMonthFormat]("month", UnionAsStringCodec[FormatDateDateMonthFormat]) {
@@ -399,6 +380,33 @@ object CommonKeys extends CommonTypes {
     lazy val `24`: HtmlAttrSetter[FormatDateHourFormat] = FormatDateHourFormat("24")
 
     lazy val auto: HtmlAttrSetter[FormatDateHourFormat] = FormatDateHourFormat("auto")
+  }
+
+  /** type attribute - FormatNumberElementType */
+  object FormatNumberElementType
+      extends HtmlAttr[FormatNumberElementType]("type", UnionAsStringCodec[FormatNumberElementType]) {
+
+    lazy val currency: HtmlAttrSetter[FormatNumberElementType] = FormatNumberElementType("currency")
+
+    lazy val decimal: HtmlAttrSetter[FormatNumberElementType] = FormatNumberElementType("decimal")
+
+    lazy val percent: HtmlAttrSetter[FormatNumberElementType] = FormatNumberElementType("percent")
+  }
+
+  /** currency-display attribute - FormatNumberCurrencyDisplay */
+  object FormatNumberCurrencyDisplay
+      extends HtmlAttr[FormatNumberCurrencyDisplay](
+        "currency-display",
+        UnionAsStringCodec[FormatNumberCurrencyDisplay]
+      ) {
+
+    lazy val code: HtmlAttrSetter[FormatNumberCurrencyDisplay] = FormatNumberCurrencyDisplay("code")
+
+    lazy val _name: HtmlAttrSetter[FormatNumberCurrencyDisplay] = FormatNumberCurrencyDisplay("name")
+
+    lazy val narrowSymbol: HtmlAttrSetter[FormatNumberCurrencyDisplay] = FormatNumberCurrencyDisplay("narrowSymbol")
+
+    lazy val symbol: HtmlAttrSetter[FormatNumberCurrencyDisplay] = FormatNumberCurrencyDisplay("symbol")
   }
 
   /** mode attribute - IncludeMode */
@@ -449,15 +457,6 @@ object CommonKeys extends CommonTypes {
     lazy val desktop: HtmlAttrSetter[PageView] = PageView("desktop")
 
     lazy val mobile: HtmlAttrSetter[PageView] = PageView("mobile")
-  }
-
-  /** navigation-placement attribute - PageNavigationPlacement */
-  object PageNavigationPlacement
-      extends HtmlAttr[PageNavigationPlacement]("navigation-placement", UnionAsStringCodec[PageNavigationPlacement]) {
-
-    lazy val end: HtmlAttrSetter[PageNavigationPlacement] = PageNavigationPlacement("end")
-
-    lazy val start: HtmlAttrSetter[PageNavigationPlacement] = PageNavigationPlacement("start")
   }
 
   /** boundary attribute - PopupBoundary */

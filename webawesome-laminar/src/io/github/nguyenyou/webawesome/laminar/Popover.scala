@@ -62,6 +62,9 @@ object Popover extends WebComponent("wa-popover") {
 
   lazy val forId: HtmlAttr[String] = `for`
 
+  /** Removes the arrow from the popover. */
+  lazy val withoutArrow: HtmlAttr[Boolean] = boolAttr("without-arrow")
+
   // -- Slots --
 
   object slots {
@@ -137,6 +140,9 @@ object Popover extends WebComponent("wa-popover") {
 
     /** The ID of the popover's anchor element. This must be an interactive/focusable element such as a button. */
     var `for`: String
+
+    /** Removes the arrow from the popover. */
+    var withoutArrow: Boolean
 
     def handleOpenChange(): js.Any = js.native
 

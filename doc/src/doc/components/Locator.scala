@@ -14,7 +14,7 @@ trait Locator(using
       Locator.scalaFileName   := n.value,
       Locator.scalaSourcePath := f.value,
       Locator.scalaLineNumber := l.value,
-      dataAttr("scala") := f.value
+      dataAttr("scala")       := f.value
     )
   }
 
@@ -38,9 +38,9 @@ object Locator {
       val line     = sourcecode.Line()
 
       element.amend(
-        scalaFileName           := fileName,
-        scalaSourcePath         := file,
-        scalaLineNumber         := line,
+        scalaFileName     := fileName,
+        scalaSourcePath   := file,
+        scalaLineNumber   := line,
         dataAttr("scala") := s"${fileName}:${line}"
       )
     }

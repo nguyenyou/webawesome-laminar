@@ -10,7 +10,9 @@ import mill.util.VcsVersion
 import com.goyeau.mill.scalafix.ScalafixModule
 
 object Versions {
-    val scala3 = "3.7.1"
+    val scalalatest = "3.7.2"
+    val scalalts = "3.3.6"
+    val scalaversion = scalalatest
     val sjs = "1.19.0"
     val laminar = "17.2.1"
     val waypoint = "10.0.0-M1"
@@ -74,7 +76,7 @@ trait WebModule extends ScalaJSModule, NoDoc, Scalafix {
   def moduleKind = ModuleKind.ESModule
   def moduleSplitStyle = ModuleSplitStyle.FewestModules
 
-  def scalaVersion = Versions.scala3
+  def scalaVersion = Versions.scalaversion
   def scalaJSVersion = Versions.sjs
 
   def mvnDeps = Deps.laminar ++ Deps.scalajsDom
@@ -85,14 +87,15 @@ trait WebModule extends ScalaJSModule, NoDoc, Scalafix {
 }
 
 object doc extends WebModule {
-  // def moduleDeps = Seq(
-  //   `webawesome-laminar`
-  // )
+  def moduleDeps = Seq(
+    `webawesome-laminar`
+  )
 
-  def mvnDeps = super.mvnDeps() ++ Deps.waypoint ++ Deps.borer ++ Deps.sourcecode ++ Deps.webawesome
+  def mvnDeps = super.mvnDeps() ++ Deps.waypoint ++ Deps.borer ++ Deps.sourcecode
 }
 
 object `webawesome-laminar` extends WebModule, SonatypeCentralPublishModule {
+  def scalaVersion = Versions.scalalts
   def publishVersion = VcsVersion.vcsState().format()
 
   def pomSettings = PomSettings(

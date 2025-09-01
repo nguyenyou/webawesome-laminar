@@ -1,10 +1,10 @@
 {
   "version": "1.0.0",
-  "generated": "2025-07-31T08:16:56.145Z",
+  "generated": "2025-09-01T07:08:44.390Z",
   "source": {
-    "version": "3.0.0-beta.3",
-    "path": "/Users/tunguyen/Documents/GitHub/webawesome-laminar/node_modules/@awesome.me/webawesome/dist/custom-elements.json",
-    "checksum": "724048-67f63c10"
+    "version": "3.0.0-beta.4",
+    "path": "/Users/tunguyen/Desktop/DELETEME/webawesome-laminar/node_modules/@awesome.me/webawesome/dist/custom-elements.json",
+    "checksum": "748678-4e80cb22"
   },
   "components": {
     "total": 57,

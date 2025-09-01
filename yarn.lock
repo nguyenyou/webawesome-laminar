@@ -28,12 +28,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@awesome.me/webawesome@npm:^3.0.0-beta.3":
-  version: 3.0.0-beta.3
-  resolution: "@awesome.me/webawesome@npm:3.0.0-beta.3"
+"@awesome.me/webawesome@npm:3.0.0-beta.4":
+  version: 3.0.0-beta.4
+  resolution: "@awesome.me/webawesome@npm:3.0.0-beta.4"
   dependencies:
     "@ctrl/tinycolor": "npm:^4.1.0"
     "@floating-ui/dom": "npm:^1.6.13"
+    "@lit/react": "npm:^1.0.8"
     "@shoelace-style/animations": "npm:^1.2.0"
     "@shoelace-style/localize": "npm:^3.2.1"
     composed-offset-position: "npm:^0.0.6"
@@ -41,7 +42,7 @@ __metadata:
     nanoid: "npm:^5.1.5"
     qr-creator: "npm:^1.0.0"
     style-observer: "npm:^0.0.7"
-  checksum: 10c0/74cef2a6aae4e5af4e1c31e28307809b5415e5acd1a0d8875d18bd8be572d749825627d92a901c2aa44b875076c31136e618d25c34445d9c1561d78598dab573
+  checksum: 10c0/4bc9a8352b024977430dddde8c33011b2068ebe9536e5430fea7ecda9a690e466d3c3e03d8cad43c1e12a09e0176e14341b6b5c2fd0e8678f6fc7ec9aea7f845
   languageName: node
   linkType: hard
 
@@ -395,6 +396,15 @@ __metadata:
   version: 1.4.0
   resolution: "@lit-labs/ssr-dom-shim@npm:1.4.0"
   checksum: 10c0/eb8b4c6ed83db48e2f2c8c038f88e0ac302214918e5c1209458cb82a35ce27ce586100c5692885b2c5520f6941b2c3512f26c4d7b7dd48f13f17f1668553395a
+  languageName: node
+  linkType: hard
+
+"@lit/react@npm:^1.0.8":
+  version: 1.0.8
+  resolution: "@lit/react@npm:1.0.8"
+  peerDependencies:
+    "@types/react": 17 || 18 || 19
+  checksum: 10c0/18bf3eb6584fa989e0ad40988b349a4401da1cecd5bf1c6edfc1c5caed80037852a4ebe5685b04941e5b28ccf93e740676dae32773d7ae44b1479b96538392b1
   languageName: node
   linkType: hard
 
@@ -969,7 +979,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "awesome-laminar@workspace:."
   dependencies:
-    "@awesome.me/webawesome": "npm:^3.0.0-beta.3"
+    "@awesome.me/webawesome": "npm:3.0.0-beta.4"
     "@types/node": "npm:^24.0.15"
     code-block-writer: "npm:^13.0.3"
     jsdom: "npm:^26.1.0"
