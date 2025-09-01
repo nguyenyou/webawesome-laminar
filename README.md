@@ -38,7 +38,7 @@ If you’re using Mill, add the dependency as follows:
 
 ```scala
 def mvnDeps = Seq(
-  mvn"io.github.nguyenyou::webawesome-laminar::0.3.0",
+  mvn"io.github.nguyenyou::webawesome-laminar::0.4.0",
 )
 ```
 
