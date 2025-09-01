@@ -10,7 +10,7 @@ object SharedTypes {
   /** Used by 7 components for "orientation" attribute. Components: WaButtonGroup, WaCarousel, WaDivider, ... */
   type Orientation = "horizontal" | "vertical"
 
-  /** Used by 5 components for "variant" attribute. Components: WaButton, WaBadge, WaButtonGroup, ... */
+  /** Used by 5 components for "variant" attribute. Components: WaBadge, WaButton, WaButtonGroup, ... */
   type ThemeVariant = "brand" | "danger" | "neutral" | "success" | "warning"
 
   /** Used by 5 components for "year" attribute. Components: WaFormatDate, WaFormatDate, WaFormatDate, ... */
@@ -35,6 +35,9 @@ object SharedTypes {
   /** Used by 2 components for "tooltip-placement" attribute. Components: WaCopyButton, WaSlider */
   type TooltipPlacement = "bottom" | "left" | "right" | "top"
 
+  /** Used by 2 components for "icon-position" attribute. Components: WaDetails, WaPage */
+  type IconPosition = "end" | "start"
+
   /** Used by 2 components for "placement" attribute. Components: WaDrawer, WaTabGroup */
   type ComponentPlacement = "bottom" | "end" | "start" | "top"
 
@@ -50,6 +53,12 @@ object SharedTypes {
   /** Used by WaAvatar for "shape" attribute. Components: WaAvatar */
   type AvatarShape = "circle" | "rounded" | "square"
 
+  /** Used by WaBadge for "appearance" attribute. Components: WaBadge */
+  type BadgeExtendedAppearance = "accent" | "filled" | "outlined" | "filled outlined"
+
+  /** Used by WaBadge for "attention" attribute. Components: WaBadge */
+  type BadgeAttention = "bounce" | "none" | "pulse"
+
   /** Used by WaButton for "type" attribute. Components: WaButton */
   type ButtonButtonType = "button" | "reset" | "submit"
 
@@ -61,12 +70,6 @@ object SharedTypes {
 
   /** Used by WaButton for "formmethod" attribute. Components: WaButton */
   type ButtonFormmethod = "get" | "post"
-
-  /** Used by WaBadge for "appearance" attribute. Components: WaBadge */
-  type BadgeExtendedAppearance = "accent" | "filled" | "outlined" | "filled outlined"
-
-  /** Used by WaBadge for "attention" attribute. Components: WaBadge */
-  type BadgeAttention = "bounce" | "none" | "pulse"
 
   /** Used by WaCallout for "appearance" attribute. Components: WaCallout */
   type CalloutExtendedAppearance = "accent" | "filled" | "outlined" | "outlined accent" | "plain" | "filled outlined"
@@ -86,12 +89,6 @@ object SharedTypes {
   /** Used by WaFormatBytes for "unit" attribute. Components: WaFormatBytes */
   type FormatBytesUnit = "bit" | "byte"
 
-  /** Used by WaFormatNumber for "type" attribute. Components: WaFormatNumber */
-  type FormatNumberElementType = "currency" | "decimal" | "percent"
-
-  /** Used by WaFormatNumber for "currency-display" attribute. Components: WaFormatNumber */
-  type FormatNumberCurrencyDisplay = "code" | "name" | "narrowSymbol" | "symbol"
-
   /** Used by WaFormatDate for "month" attribute. Components: WaFormatDate */
   type FormatDateDateMonthFormat = "2-digit" | "long" | "narrow" | "numeric" | "short"
 
@@ -100,6 +97,12 @@ object SharedTypes {
 
   /** Used by WaFormatDate for "hour-format" attribute. Components: WaFormatDate */
   type FormatDateHourFormat = "12" | "24" | "auto"
+
+  /** Used by WaFormatNumber for "type" attribute. Components: WaFormatNumber */
+  type FormatNumberElementType = "currency" | "decimal" | "percent"
+
+  /** Used by WaFormatNumber for "currency-display" attribute. Components: WaFormatNumber */
+  type FormatNumberCurrencyDisplay = "code" | "name" | "narrowSymbol" | "symbol"
 
   /** Used by WaInclude for "mode" attribute. Components: WaInclude */
   type IncludeMode = "cors" | "no-cors" | "same-origin"
@@ -113,9 +116,6 @@ object SharedTypes {
 
   /** Used by WaPage for "view" attribute. Components: WaPage */
   type PageView = "desktop" | "mobile"
-
-  /** Used by WaPage for "navigation-placement" attribute. Components: WaPage */
-  type PageNavigationPlacement = "end" | "start"
 
   /** Used by WaPopup for "boundary" attribute. Components: WaPopup */
   type PopupBoundary = "scroll" | "viewport"

@@ -72,6 +72,9 @@ object Tooltip extends WebComponent("wa-tooltip") {
     */
   lazy val trigger: HtmlAttr[String] = stringAttr("trigger")
 
+  /** Removes the arrow from the tooltip. */
+  lazy val withoutArrow: HtmlAttr[Boolean] = boolAttr("without-arrow")
+
   lazy val `for`: HtmlAttr[String] = stringAttr("for")
 
   lazy val forId: HtmlAttr[String] = `for`
@@ -151,6 +154,9 @@ object Tooltip extends WebComponent("wa-tooltip") {
       * activated programmatically.
       */
     var trigger: String
+
+    /** Removes the arrow from the tooltip. */
+    var withoutArrow: Boolean
 
     var `for`: String
 

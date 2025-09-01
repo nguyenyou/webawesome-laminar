@@ -59,6 +59,9 @@ object Details extends WebComponent("wa-details") {
   /** The element's visual appearance. Valid values: "filled", "outlined", "plain". */
   lazy val appearance: CommonKeys.DetailsAppearance.type = CommonKeys.DetailsAppearance
 
+  /** The position of the expand/collapse icon. Valid values: "start", "end". */
+  lazy val iconPosition: CommonKeys.IconPosition.type = CommonKeys.IconPosition
+
   // -- Slots --
 
   object slots {
@@ -139,6 +142,9 @@ object Details extends WebComponent("wa-details") {
 
     /** The element's visual appearance. Valid values: "filled", "outlined", "plain". */
     var appearance: DetailsAppearance
+
+    /** The position of the expand/collapse icon. Valid values: "start", "end". */
+    var iconPosition: IconPosition
 
     def handleOpenChange(): js.Any = js.native
 

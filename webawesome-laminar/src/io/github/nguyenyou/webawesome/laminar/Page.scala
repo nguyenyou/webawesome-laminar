@@ -43,7 +43,7 @@ object Page extends WebComponent("wa-page") {
   lazy val mobileBreakpoint: HtmlAttr[String] = stringAttr("mobile-breakpoint")
 
   /** Where to place the navigation when in the mobile viewport. Valid values: "start", "end". */
-  lazy val navigationPlacement: CommonKeys.PageNavigationPlacement.type = CommonKeys.PageNavigationPlacement
+  lazy val navigationPlacement: CommonKeys.IconPosition.type = CommonKeys.IconPosition
 
   /** Determines whether or not to hide the default hamburger button. This will automatically flip to "true" if you add
     * an element with `data-toggle-nav` anywhere in the element light DOM. Generally this will be set for you and you
@@ -236,7 +236,7 @@ object Page extends WebComponent("wa-page") {
     var mobileBreakpoint: String
 
     /** Where to place the navigation when in the mobile viewport. Valid values: "start", "end". */
-    var navigationPlacement: PageNavigationPlacement
+    var navigationPlacement: IconPosition
 
     /** Determines whether or not to hide the default hamburger button. This will automatically flip to "true" if you
       * add an element with `data-toggle-nav` anywhere in the element light DOM. Generally this will be set for you and

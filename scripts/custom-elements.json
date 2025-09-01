@@ -130,11 +130,17 @@
             },
             {
               "kind": "method",
-              "name": "handlePlayChange"
+              "name": "handlePlayChange",
+              "type": {
+                "text": "handlePlayChange() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "handleSrcChange"
+              "name": "handleSrcChange",
+              "type": {
+                "text": "handleSrcChange() => void"
+              }
             }
           ],
           "events": [
@@ -195,7 +201,9 @@
             "wa-icon"
           ],
           "tagName": "wa-animated-image",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/animated-image/animated-image.js",
+          "definitionPath": "components/animated-image/animated-image.js"
         }
       ],
       "exports": [
@@ -416,25 +424,40 @@
             },
             {
               "kind": "method",
-              "name": "handleAnimationChange"
+              "name": "handleAnimationChange",
+              "type": {
+                "text": "handleAnimationChange() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "handlePlayChange"
+              "name": "handlePlayChange",
+              "type": {
+                "text": "handlePlayChange() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "handlePlaybackRateChange"
+              "name": "handlePlaybackRateChange",
+              "type": {
+                "text": "handlePlaybackRateChange() => void"
+              }
             },
             {
               "kind": "method",
               "name": "cancel",
-              "description": "Clears all keyframe effects caused by this animation and aborts its playback."
+              "description": "Clears all keyframe effects caused by this animation and aborts its playback.",
+              "type": {
+                "text": "cancel() => void"
+              }
             },
             {
               "kind": "method",
               "name": "finish",
-              "description": "Sets the playback time to the end of the animation corresponding to the current playback direction."
+              "description": "Sets the playback time to the end of the animation corresponding to the current playback direction.",
+              "type": {
+                "text": "finish() => void"
+              }
             }
           ],
           "events": [
@@ -573,7 +596,9 @@
           "status": "stable",
           "since": "2.0",
           "tagName": "wa-animation",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/animation/animation.js",
+          "definitionPath": "components/animation/animation.js"
         }
       ],
       "exports": [
@@ -633,298 +658,6 @@
           "declaration": {
             "name": "getEasingNames",
             "module": "components/animation/animations.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/breadcrumb/breadcrumb.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "WaBreadcrumb",
-          "cssParts": [
-            {
-              "description": "The component's base wrapper.",
-              "name": "base"
-            }
-          ],
-          "slots": [
-            {
-              "description": "One or more breadcrumb items to display.",
-              "name": ""
-            },
-            {
-              "description": "The separator to use between breadcrumb items. Works best with `<wa-icon>`.",
-              "name": "separator"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "css",
-              "static": true,
-              "default": "styles"
-            },
-            {
-              "kind": "field",
-              "name": "localize",
-              "privacy": "private",
-              "readonly": true,
-              "default": "new LocalizeController(this)"
-            },
-            {
-              "kind": "field",
-              "name": "separatorDir",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "defaultSlot",
-              "type": {
-                "text": "HTMLSlotElement"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "separatorSlot",
-              "type": {
-                "text": "HTMLSlotElement"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "description": "The label to use for the breadcrumb control. This will not be shown on the screen, but it will be announced by\nscreen readers and other assistive devices to provide more context for users.",
-              "attribute": "label"
-            },
-            {
-              "kind": "method",
-              "name": "getSeparator",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleSlotChange",
-              "privacy": "private"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "description": "The label to use for the breadcrumb control. This will not be shown on the screen, but it will be announced by\nscreen readers and other assistive devices to provide more context for users.",
-              "fieldName": "label"
-            }
-          ],
-          "superclass": {
-            "name": "WebAwesomeElement",
-            "module": "/src/internal/webawesome-element.js"
-          },
-          "summary": "Breadcrumbs provide a group of links so users can easily navigate a website's hierarchy.",
-          "jsDoc": "/**\n * @summary Breadcrumbs provide a group of links so users can easily navigate a website's hierarchy.\n * @documentation https://webawesome.com/docs/components/breadcrumb\n * @status stable\n * @since 2.0\n *\n * @slot - One or more breadcrumb items to display.\n * @slot separator - The separator to use between breadcrumb items. Works best with `<wa-icon>`.\n *\n * @dependency wa-icon\n *\n * @csspart base - The component's base wrapper.\n */",
-          "documentation": "https://webawesome.com/docs/components/breadcrumb",
-          "status": "stable",
-          "since": "2.0",
-          "dependencies": [
-            "wa-icon"
-          ],
-          "tagName": "wa-breadcrumb",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "WaBreadcrumb",
-            "module": "components/breadcrumb/breadcrumb.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wa-breadcrumb",
-          "declaration": {
-            "name": "WaBreadcrumb",
-            "module": "components/breadcrumb/breadcrumb.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/breadcrumb-item/breadcrumb-item.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "WaBreadcrumbItem",
-          "cssParts": [
-            {
-              "description": "The breadcrumb item's label.",
-              "name": "label"
-            },
-            {
-              "description": "The container that wraps the `start` slot.",
-              "name": "start"
-            },
-            {
-              "description": "The container that wraps the `end` slot.",
-              "name": "end"
-            },
-            {
-              "description": "The container that wraps the separator.",
-              "name": "separator"
-            }
-          ],
-          "slots": [
-            {
-              "description": "The breadcrumb item's label.",
-              "name": ""
-            },
-            {
-              "description": "An element, such as `<wa-icon>`, placed before the label.",
-              "name": "start"
-            },
-            {
-              "description": "An element, such as `<wa-icon>`, placed after the label.",
-              "name": "end"
-            },
-            {
-              "description": "The separator to use for the breadcrumb item. This will only change the separator for this item. If you want to change it for all items in the group, set the separator on `<wa-breadcrumb>` instead.",
-              "name": "separator"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "css",
-              "static": true,
-              "default": "styles"
-            },
-            {
-              "kind": "field",
-              "name": "defaultSlot",
-              "type": {
-                "text": "HTMLSlotElement"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "renderType",
-              "type": {
-                "text": "'button' | 'link' | 'dropdown'"
-              },
-              "privacy": "private",
-              "default": "'button'"
-            },
-            {
-              "kind": "field",
-              "name": "href",
-              "type": {
-                "text": "string | undefined"
-              },
-              "description": "Optional URL to direct the user to when the breadcrumb item is activated. When set, a link will be rendered\ninternally. When unset, a button will be rendered instead.",
-              "attribute": "href"
-            },
-            {
-              "kind": "field",
-              "name": "target",
-              "type": {
-                "text": "'_blank' | '_parent' | '_self' | '_top' | undefined"
-              },
-              "description": "Tells the browser where to open the link. Only used when `href` is set.",
-              "attribute": "target"
-            },
-            {
-              "kind": "field",
-              "name": "rel",
-              "type": {
-                "text": "string"
-              },
-              "default": "'noreferrer noopener'",
-              "description": "The `rel` attribute to use on the link. Only used when `href` is set.",
-              "attribute": "rel"
-            },
-            {
-              "kind": "method",
-              "name": "setRenderType",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "hrefChanged"
-            },
-            {
-              "kind": "method",
-              "name": "handleSlotChange"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "href",
-              "type": {
-                "text": "string | undefined"
-              },
-              "description": "Optional URL to direct the user to when the breadcrumb item is activated. When set, a link will be rendered\ninternally. When unset, a button will be rendered instead.",
-              "fieldName": "href"
-            },
-            {
-              "name": "target",
-              "type": {
-                "text": "'_blank' | '_parent' | '_self' | '_top' | undefined"
-              },
-              "description": "Tells the browser where to open the link. Only used when `href` is set.",
-              "fieldName": "target"
-            },
-            {
-              "name": "rel",
-              "type": {
-                "text": "string"
-              },
-              "default": "'noreferrer noopener'",
-              "description": "The `rel` attribute to use on the link. Only used when `href` is set.",
-              "fieldName": "rel"
-            }
-          ],
-          "superclass": {
-            "name": "WebAwesomeElement",
-            "module": "/src/internal/webawesome-element.js"
-          },
-          "summary": "Breadcrumb Items are used inside breadcrumbs to represent different links.",
-          "jsDoc": "/**\n * @summary Breadcrumb Items are used inside breadcrumbs to represent different links.\n * @documentation https://webawesome.com/docs/components/breadcrumb-item\n * @status stable\n * @since 2.0\n *\n * @slot - The breadcrumb item's label.\n * @slot start - An element, such as `<wa-icon>`, placed before the label.\n * @slot end - An element, such as `<wa-icon>`, placed after the label.\n * @slot separator - The separator to use for the breadcrumb item. This will only change the separator for this item. If\n * you want to change it for all items in the group, set the separator on `<wa-breadcrumb>` instead.\n *\n * @csspart label - The breadcrumb item's label.\n * @csspart start - The container that wraps the `start` slot.\n * @csspart end - The container that wraps the `end` slot.\n * @csspart separator - The container that wraps the separator.\n */",
-          "documentation": "https://webawesome.com/docs/components/breadcrumb-item",
-          "status": "stable",
-          "since": "2.0",
-          "tagName": "wa-breadcrumb-item",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "WaBreadcrumbItem",
-            "module": "components/breadcrumb-item/breadcrumb-item.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wa-breadcrumb-item",
-          "declaration": {
-            "name": "WaBreadcrumbItem",
-            "module": "components/breadcrumb-item/breadcrumb-item.js"
           }
         }
       ]
@@ -1032,7 +765,10 @@
             },
             {
               "kind": "method",
-              "name": "handleImageChange"
+              "name": "handleImageChange",
+              "type": {
+                "text": "handleImageChange() => void"
+              }
             },
             {
               "kind": "method",
@@ -1113,7 +849,9 @@
             "wa-icon"
           ],
           "tagName": "wa-avatar",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/avatar/avatar.js",
+          "definitionPath": "components/avatar/avatar.js"
         }
       ],
       "exports": [
@@ -1131,6 +869,159 @@
           "declaration": {
             "name": "WaAvatar",
             "module": "components/avatar/avatar.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/badge/badge.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "WaBadge",
+          "cssProperties": [
+            {
+              "description": "The color of the badge's pulse effect when using `attention=\"pulse\"`.",
+              "name": "--pulse-color"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "The component's base wrapper.",
+              "name": "base"
+            }
+          ],
+          "slots": [
+            {
+              "description": "The badge's content.",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "css",
+              "type": {
+                "text": "array"
+              },
+              "static": true,
+              "default": "[variantStyles, styles]"
+            },
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "'brand' | 'neutral' | 'success' | 'warning' | 'danger'"
+              },
+              "default": "'brand'",
+              "description": "The badge's theme variant. Defaults to `brand` if not within another element with a variant.",
+              "attribute": "variant",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "appearance",
+              "type": {
+                "text": "'accent' | 'filled' | 'outlined'"
+              },
+              "default": "'accent'",
+              "description": "The badge's visual appearance.",
+              "attribute": "appearance",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "pill",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Draws a pill-style badge with rounded edges.",
+              "attribute": "pill",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "attention",
+              "type": {
+                "text": "'none' | 'pulse' | 'bounce'"
+              },
+              "default": "'none'",
+              "description": "Adds an animation to draw attention to the badge.",
+              "attribute": "attention",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "variant",
+              "type": {
+                "text": "'brand' | 'neutral' | 'success' | 'warning' | 'danger'"
+              },
+              "default": "'brand'",
+              "description": "The badge's theme variant. Defaults to `brand` if not within another element with a variant.",
+              "fieldName": "variant"
+            },
+            {
+              "name": "appearance",
+              "type": {
+                "text": "'accent' | 'filled' | 'outlined'"
+              },
+              "default": "'accent'",
+              "description": "The badge's visual appearance.",
+              "fieldName": "appearance"
+            },
+            {
+              "name": "pill",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Draws a pill-style badge with rounded edges.",
+              "fieldName": "pill"
+            },
+            {
+              "name": "attention",
+              "type": {
+                "text": "'none' | 'pulse' | 'bounce'"
+              },
+              "default": "'none'",
+              "description": "Adds an animation to draw attention to the badge.",
+              "fieldName": "attention"
+            }
+          ],
+          "superclass": {
+            "name": "WebAwesomeElement",
+            "module": "/src/internal/webawesome-element.js"
+          },
+          "summary": "Badges are used to draw attention and display statuses or counts.",
+          "jsDoc": "/**\n * @summary Badges are used to draw attention and display statuses or counts.\n * @documentation https://webawesome.com/docs/components/badge\n * @status stable\n * @since 2.0\n *\n * @slot - The badge's content.\n *\n * @csspart base - The component's base wrapper.\n *\n * @cssproperty --pulse-color - The color of the badge's pulse effect when using `attention=\"pulse\"`.\n *\n */",
+          "documentation": "https://webawesome.com/docs/components/badge",
+          "status": "stable",
+          "since": "2.0",
+          "tagName": "wa-badge",
+          "customElement": true,
+          "modulePath": "components/badge/badge.js",
+          "definitionPath": "components/badge/badge.js"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "WaBadge",
+            "module": "components/badge/badge.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wa-badge",
+          "declaration": {
+            "name": "WaBadge",
+            "module": "components/badge/badge.js"
           }
         }
       ]
@@ -1491,7 +1382,10 @@
             },
             {
               "kind": "method",
-              "name": "handleDisabledChange"
+              "name": "handleDisabledChange",
+              "type": {
+                "text": "handleDisabledChange() => void"
+              }
             },
             {
               "kind": "method",
@@ -1503,12 +1397,18 @@
                     "text": "Parameters<WebAwesomeFormAssociatedElement['setValue']>"
                   }
                 }
-              ]
+              ],
+              "type": {
+                "text": "setValue(_args: Parameters<WebAwesomeFormAssociatedElement['setValue']>) => void"
+              }
             },
             {
               "kind": "method",
               "name": "click",
-              "description": "Simulates a click on the button."
+              "description": "Simulates a click on the button.",
+              "type": {
+                "text": "click() => void"
+              }
             },
             {
               "kind": "method",
@@ -1522,12 +1422,18 @@
                   }
                 }
               ],
-              "description": "Sets focus on the button."
+              "description": "Sets focus on the button.",
+              "type": {
+                "text": "focus(options?: FocusOptions) => void"
+              }
             },
             {
               "kind": "method",
               "name": "blur",
-              "description": "Removes focus from the button."
+              "description": "Removes focus from the button.",
+              "type": {
+                "text": "blur() => void"
+              }
             }
           ],
           "events": [
@@ -1748,7 +1654,9 @@
             "wa-spinner"
           ],
           "tagName": "wa-button",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/button/button.js",
+          "definitionPath": "components/button/button.js"
         }
       ],
       "exports": [
@@ -1772,134 +1680,159 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/badge/badge.js",
+      "path": "components/breadcrumb-item/breadcrumb-item.js",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "WaBadge",
-          "cssProperties": [
-            {
-              "description": "The color of the badge's pulse effect when using `attention=\"pulse\"`.",
-              "name": "--pulse-color"
-            }
-          ],
+          "name": "WaBreadcrumbItem",
           "cssParts": [
             {
-              "description": "The component's base wrapper.",
-              "name": "base"
+              "description": "The breadcrumb item's label.",
+              "name": "label"
+            },
+            {
+              "description": "The container that wraps the `start` slot.",
+              "name": "start"
+            },
+            {
+              "description": "The container that wraps the `end` slot.",
+              "name": "end"
+            },
+            {
+              "description": "The container that wraps the separator.",
+              "name": "separator"
             }
           ],
           "slots": [
             {
-              "description": "The badge's content.",
+              "description": "The breadcrumb item's label.",
               "name": ""
+            },
+            {
+              "description": "An element, such as `<wa-icon>`, placed before the label.",
+              "name": "start"
+            },
+            {
+              "description": "An element, such as `<wa-icon>`, placed after the label.",
+              "name": "end"
+            },
+            {
+              "description": "The separator to use for the breadcrumb item. This will only change the separator for this item. If you want to change it for all items in the group, set the separator on `<wa-breadcrumb>` instead.",
+              "name": "separator"
             }
           ],
           "members": [
             {
               "kind": "field",
               "name": "css",
-              "type": {
-                "text": "array"
-              },
               "static": true,
-              "default": "[variantStyles, styles]"
+              "default": "styles"
             },
             {
               "kind": "field",
-              "name": "variant",
+              "name": "defaultSlot",
               "type": {
-                "text": "'brand' | 'neutral' | 'success' | 'warning' | 'danger'"
-              },
-              "default": "'brand'",
-              "description": "The badge's theme variant. Defaults to `brand` if not within another element with a variant.",
-              "attribute": "variant",
-              "reflects": true
+                "text": "HTMLSlotElement"
+              }
             },
             {
               "kind": "field",
-              "name": "appearance",
+              "name": "renderType",
               "type": {
-                "text": "'accent' | 'filled' | 'outlined'"
+                "text": "'button' | 'link' | 'dropdown'"
               },
-              "default": "'accent'",
-              "description": "The badge's visual appearance.",
-              "attribute": "appearance",
-              "reflects": true
+              "privacy": "private",
+              "default": "'button'"
             },
             {
               "kind": "field",
-              "name": "pill",
+              "name": "href",
               "type": {
-                "text": "boolean"
+                "text": "string | undefined"
               },
-              "default": "false",
-              "description": "Draws a pill-style badge with rounded edges.",
-              "attribute": "pill",
-              "reflects": true
+              "description": "Optional URL to direct the user to when the breadcrumb item is activated. When set, a link will be rendered\ninternally. When unset, a button will be rendered instead.",
+              "attribute": "href"
             },
             {
               "kind": "field",
-              "name": "attention",
+              "name": "target",
               "type": {
-                "text": "'none' | 'pulse' | 'bounce'"
+                "text": "'_blank' | '_parent' | '_self' | '_top' | undefined"
               },
-              "default": "'none'",
-              "description": "Adds an animation to draw attention to the badge.",
-              "attribute": "attention",
-              "reflects": true
+              "description": "Tells the browser where to open the link. Only used when `href` is set.",
+              "attribute": "target"
+            },
+            {
+              "kind": "field",
+              "name": "rel",
+              "type": {
+                "text": "string"
+              },
+              "default": "'noreferrer noopener'",
+              "description": "The `rel` attribute to use on the link. Only used when `href` is set.",
+              "attribute": "rel"
+            },
+            {
+              "kind": "method",
+              "name": "setRenderType",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "hrefChanged",
+              "type": {
+                "text": "hrefChanged() => void"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleSlotChange",
+              "type": {
+                "text": "handleSlotChange() => void"
+              }
             }
           ],
           "attributes": [
             {
-              "name": "variant",
+              "name": "href",
               "type": {
-                "text": "'brand' | 'neutral' | 'success' | 'warning' | 'danger'"
+                "text": "string | undefined"
               },
-              "default": "'brand'",
-              "description": "The badge's theme variant. Defaults to `brand` if not within another element with a variant.",
-              "fieldName": "variant"
+              "description": "Optional URL to direct the user to when the breadcrumb item is activated. When set, a link will be rendered\ninternally. When unset, a button will be rendered instead.",
+              "fieldName": "href"
             },
             {
-              "name": "appearance",
+              "name": "target",
               "type": {
-                "text": "'accent' | 'filled' | 'outlined'"
+                "text": "'_blank' | '_parent' | '_self' | '_top' | undefined"
               },
-              "default": "'accent'",
-              "description": "The badge's visual appearance.",
-              "fieldName": "appearance"
+              "description": "Tells the browser where to open the link. Only used when `href` is set.",
+              "fieldName": "target"
             },
             {
-              "name": "pill",
+              "name": "rel",
               "type": {
-                "text": "boolean"
+                "text": "string"
               },
-              "default": "false",
-              "description": "Draws a pill-style badge with rounded edges.",
-              "fieldName": "pill"
-            },
-            {
-              "name": "attention",
-              "type": {
-                "text": "'none' | 'pulse' | 'bounce'"
-              },
-              "default": "'none'",
-              "description": "Adds an animation to draw attention to the badge.",
-              "fieldName": "attention"
+              "default": "'noreferrer noopener'",
+              "description": "The `rel` attribute to use on the link. Only used when `href` is set.",
+              "fieldName": "rel"
             }
           ],
           "superclass": {
             "name": "WebAwesomeElement",
             "module": "/src/internal/webawesome-element.js"
           },
-          "summary": "Badges are used to draw attention and display statuses or counts.",
-          "jsDoc": "/**\n * @summary Badges are used to draw attention and display statuses or counts.\n * @documentation https://webawesome.com/docs/components/badge\n * @status stable\n * @since 2.0\n *\n * @slot - The badge's content.\n *\n * @csspart base - The component's base wrapper.\n *\n * @cssproperty --pulse-color - The color of the badge's pulse effect when using `attention=\"pulse\"`.\n *\n */",
-          "documentation": "https://webawesome.com/docs/components/badge",
+          "summary": "Breadcrumb Items are used inside breadcrumbs to represent different links.",
+          "jsDoc": "/**\n * @summary Breadcrumb Items are used inside breadcrumbs to represent different links.\n * @documentation https://webawesome.com/docs/components/breadcrumb-item\n * @status stable\n * @since 2.0\n *\n * @slot - The breadcrumb item's label.\n * @slot start - An element, such as `<wa-icon>`, placed before the label.\n * @slot end - An element, such as `<wa-icon>`, placed after the label.\n * @slot separator - The separator to use for the breadcrumb item. This will only change the separator for this item. If\n * you want to change it for all items in the group, set the separator on `<wa-breadcrumb>` instead.\n *\n * @csspart label - The breadcrumb item's label.\n * @csspart start - The container that wraps the `start` slot.\n * @csspart end - The container that wraps the `end` slot.\n * @csspart separator - The container that wraps the separator.\n */",
+          "documentation": "https://webawesome.com/docs/components/breadcrumb-item",
           "status": "stable",
           "since": "2.0",
-          "tagName": "wa-badge",
-          "customElement": true
+          "tagName": "wa-breadcrumb-item",
+          "customElement": true,
+          "modulePath": "components/breadcrumb-item/breadcrumb-item.js",
+          "definitionPath": "components/breadcrumb-item/breadcrumb-item.js"
         }
       ],
       "exports": [
@@ -1907,16 +1840,16 @@
           "kind": "js",
           "name": "default",
           "declaration": {
-            "name": "WaBadge",
-            "module": "components/badge/badge.js"
+            "name": "WaBreadcrumbItem",
+            "module": "components/breadcrumb-item/breadcrumb-item.js"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "wa-badge",
+          "name": "wa-breadcrumb-item",
           "declaration": {
-            "name": "WaBadge",
-            "module": "components/badge/badge.js"
+            "name": "WaBreadcrumbItem",
+            "module": "components/breadcrumb-item/breadcrumb-item.js"
           }
         }
       ]
@@ -2126,7 +2059,9 @@
           "status": "stable",
           "since": "2.0",
           "tagName": "wa-button-group",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/button-group/button-group.js",
+          "definitionPath": "components/button-group/button-group.js"
         }
       ],
       "exports": [
@@ -2144,6 +2079,132 @@
           "declaration": {
             "name": "WaButtonGroup",
             "module": "components/button-group/button-group.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/breadcrumb/breadcrumb.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "WaBreadcrumb",
+          "cssParts": [
+            {
+              "description": "The component's base wrapper.",
+              "name": "base"
+            }
+          ],
+          "slots": [
+            {
+              "description": "One or more breadcrumb items to display.",
+              "name": ""
+            },
+            {
+              "description": "The separator to use between breadcrumb items. Works best with `<wa-icon>`.",
+              "name": "separator"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "css",
+              "static": true,
+              "default": "styles"
+            },
+            {
+              "kind": "field",
+              "name": "localize",
+              "privacy": "private",
+              "readonly": true,
+              "default": "new LocalizeController(this)"
+            },
+            {
+              "kind": "field",
+              "name": "separatorDir",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "defaultSlot",
+              "type": {
+                "text": "HTMLSlotElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "separatorSlot",
+              "type": {
+                "text": "HTMLSlotElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "The label to use for the breadcrumb control. This will not be shown on the screen, but it will be announced by\nscreen readers and other assistive devices to provide more context for users.",
+              "attribute": "label"
+            },
+            {
+              "kind": "method",
+              "name": "getSeparator",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleSlotChange",
+              "privacy": "private"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "The label to use for the breadcrumb control. This will not be shown on the screen, but it will be announced by\nscreen readers and other assistive devices to provide more context for users.",
+              "fieldName": "label"
+            }
+          ],
+          "superclass": {
+            "name": "WebAwesomeElement",
+            "module": "/src/internal/webawesome-element.js"
+          },
+          "summary": "Breadcrumbs provide a group of links so users can easily navigate a website's hierarchy.",
+          "jsDoc": "/**\n * @summary Breadcrumbs provide a group of links so users can easily navigate a website's hierarchy.\n * @documentation https://webawesome.com/docs/components/breadcrumb\n * @status stable\n * @since 2.0\n *\n * @slot - One or more breadcrumb items to display.\n * @slot separator - The separator to use between breadcrumb items. Works best with `<wa-icon>`.\n *\n * @dependency wa-icon\n *\n * @csspart base - The component's base wrapper.\n */",
+          "documentation": "https://webawesome.com/docs/components/breadcrumb",
+          "status": "stable",
+          "since": "2.0",
+          "dependencies": [
+            "wa-icon"
+          ],
+          "tagName": "wa-breadcrumb",
+          "customElement": true,
+          "modulePath": "components/breadcrumb/breadcrumb.js",
+          "definitionPath": "components/breadcrumb/breadcrumb.js"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "WaBreadcrumb",
+            "module": "components/breadcrumb/breadcrumb.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wa-breadcrumb",
+          "declaration": {
+            "name": "WaBreadcrumb",
+            "module": "components/breadcrumb/breadcrumb.js"
           }
         }
       ]
@@ -2259,7 +2320,9 @@
           "status": "stable",
           "since": "2.0",
           "tagName": "wa-callout",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/callout/callout.js",
+          "definitionPath": "components/callout/callout.js"
         }
       ],
       "exports": [
@@ -2442,7 +2505,9 @@
           "status": "stable",
           "since": "2.0",
           "tagName": "wa-card",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/card/card.js",
+          "definitionPath": "components/card/card.js"
         }
       ],
       "exports": [
@@ -2971,7 +3036,10 @@
             },
             {
               "kind": "method",
-              "name": "initializeSlides"
+              "name": "initializeSlides",
+              "type": {
+                "text": "initializeSlides() => void"
+              }
             },
             {
               "kind": "method",
@@ -2980,15 +3048,24 @@
             },
             {
               "kind": "method",
-              "name": "handleSlideChange"
+              "name": "handleSlideChange",
+              "type": {
+                "text": "handleSlideChange() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "updateSlidesSnap"
+              "name": "updateSlidesSnap",
+              "type": {
+                "text": "updateSlidesSnap() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "handleAutoplayChange"
+              "name": "handleAutoplayChange",
+              "type": {
+                "text": "handleAutoplayChange() => void"
+              }
             },
             {
               "kind": "method",
@@ -3003,7 +3080,10 @@
                   "description": "The behavior used for scrolling."
                 }
               ],
-              "description": "Move the carousel backward by `slides-per-move` slides."
+              "description": "Move the carousel backward by `slides-per-move` slides.",
+              "type": {
+                "text": "previous(behavior: ScrollBehavior = 'smooth') => void"
+              }
             },
             {
               "kind": "method",
@@ -3018,7 +3098,10 @@
                   "description": "The behavior used for scrolling."
                 }
               ],
-              "description": "Move the carousel forward by `slides-per-move` slides."
+              "description": "Move the carousel forward by `slides-per-move` slides.",
+              "type": {
+                "text": "next(behavior: ScrollBehavior = 'smooth') => void"
+              }
             },
             {
               "kind": "method",
@@ -3040,7 +3123,10 @@
                   "description": "The behavior used for scrolling."
                 }
               ],
-              "description": "Scrolls the carousel to the slide specified by `index`."
+              "description": "Scrolls the carousel to the slide specified by `index`.",
+              "type": {
+                "text": "goToSlide(index: number, behavior: ScrollBehavior = 'smooth') => void"
+              }
             },
             {
               "kind": "method",
@@ -3190,7 +3276,9 @@
             "wa-icon"
           ],
           "tagName": "wa-carousel",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/carousel/carousel.js",
+          "definitionPath": "components/carousel/carousel.js"
         }
       ],
       "exports": [
@@ -3359,7 +3447,9 @@
           "since": "2.0",
           "status": "experimental",
           "tagName": "wa-carousel-item",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/carousel-item/carousel-item.js",
+          "definitionPath": "components/carousel-item/carousel-item.js"
         }
       ],
       "exports": [
@@ -3601,28 +3691,46 @@
             },
             {
               "kind": "method",
-              "name": "handleDefaultCheckedChange"
+              "name": "handleDefaultCheckedChange",
+              "type": {
+                "text": "handleDefaultCheckedChange() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "handleValueOrCheckedChange"
+              "name": "handleValueOrCheckedChange",
+              "type": {
+                "text": "handleValueOrCheckedChange() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "handleStateChange"
+              "name": "handleStateChange",
+              "type": {
+                "text": "handleStateChange() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "handleDisabledChange"
+              "name": "handleDisabledChange",
+              "type": {
+                "text": "handleDisabledChange() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "formResetCallback"
+              "name": "formResetCallback",
+              "type": {
+                "text": "formResetCallback() => void"
+              }
             },
             {
               "kind": "method",
               "name": "click",
-              "description": "Simulates a click on the checkbox."
+              "description": "Simulates a click on the checkbox.",
+              "type": {
+                "text": "click() => void"
+              }
             },
             {
               "kind": "method",
@@ -3636,12 +3744,18 @@
                   }
                 }
               ],
-              "description": "Sets focus on the checkbox."
+              "description": "Sets focus on the checkbox.",
+              "type": {
+                "text": "focus(options?: FocusOptions) => void"
+              }
             },
             {
               "kind": "method",
               "name": "blur",
-              "description": "Removes focus from the checkbox."
+              "description": "Removes focus from the checkbox.",
+              "type": {
+                "text": "blur() => void"
+              }
             }
           ],
           "events": [
@@ -3795,7 +3909,9 @@
             "wa-icon"
           ],
           "tagName": "wa-checkbox",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/checkbox/checkbox.js",
+          "definitionPath": "components/checkbox/checkbox.js"
         }
       ],
       "exports": [
@@ -4574,7 +4690,10 @@
                   "default": "100"
                 }
               ],
-              "description": "Generates a hex string from HSV values. Hue must be 0-360. All other arguments must be 0-100."
+              "description": "Generates a hex string from HSV values. Hue must be 0-360. All other arguments must be 0-100.",
+              "type": {
+                "text": "getHexString(hue: number, saturation: number, brightness: number, alpha = 100) => void"
+              }
             },
             {
               "kind": "method",
@@ -4591,11 +4710,17 @@
             },
             {
               "kind": "method",
-              "name": "handleFormatChange"
+              "name": "handleFormatChange",
+              "type": {
+                "text": "handleFormatChange() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "handleOpacityChange"
+              "name": "handleOpacityChange",
+              "type": {
+                "text": "handleOpacityChange() => void"
+              }
             },
             {
               "kind": "method",
@@ -4613,7 +4738,10 @@
                     "text": "string"
                   }
                 }
-              ]
+              ],
+              "type": {
+                "text": "handleValueChange(oldValue: string | undefined, newValue: string) => void"
+              }
             },
             {
               "kind": "method",
@@ -4627,12 +4755,18 @@
                   }
                 }
               ],
-              "description": "Sets focus on the color picker."
+              "description": "Sets focus on the color picker.",
+              "type": {
+                "text": "focus(options?: FocusOptions) => void"
+              }
             },
             {
               "kind": "method",
               "name": "blur",
-              "description": "Removes focus from the color picker."
+              "description": "Removes focus from the color picker.",
+              "type": {
+                "text": "blur() => void"
+              }
             },
             {
               "kind": "method",
@@ -4646,7 +4780,10 @@
                   }
                 }
               ],
-              "description": "Returns the current value as a string in the specified format."
+              "description": "Returns the current value as a string in the specified format.",
+              "type": {
+                "text": "getFormattedValue(format: 'hex' | 'hexa' | 'rgb' | 'rgba' | 'hsl' | 'hsla' | 'hsv' | 'hsva' = 'hex') => void"
+              }
             },
             {
               "kind": "field",
@@ -4656,11 +4793,17 @@
             {
               "kind": "method",
               "name": "reportValidity",
-              "description": "Checks for validity and shows the browser's validation message if the control is invalid."
+              "description": "Checks for validity and shows the browser's validation message if the control is invalid.",
+              "type": {
+                "text": "reportValidity() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "formResetCallback"
+              "name": "formResetCallback",
+              "type": {
+                "text": "formResetCallback() => void"
+              }
             },
             {
               "kind": "field",
@@ -4679,7 +4822,10 @@
             },
             {
               "kind": "method",
-              "name": "handleTriggerClick"
+              "name": "handleTriggerClick",
+              "type": {
+                "text": "handleTriggerClick() => void"
+              }
             },
             {
               "kind": "method",
@@ -4691,7 +4837,10 @@
                     "text": "KeyboardEvent"
                   }
                 }
-              ]
+              ],
+              "type": {
+                "text": "handleTriggerKeyDown(event: KeyboardEvent) => void"
+              }
             },
             {
               "kind": "method",
@@ -4703,33 +4852,54 @@
                     "text": "KeyboardEvent"
                   }
                 }
-              ]
+              ],
+              "type": {
+                "text": "handleTriggerKeyUp(event: KeyboardEvent) => void"
+              }
             },
             {
               "kind": "method",
-              "name": "updateAccessibleTrigger"
+              "name": "updateAccessibleTrigger",
+              "type": {
+                "text": "updateAccessibleTrigger() => void"
+              }
             },
             {
               "kind": "method",
               "name": "show",
-              "description": "Shows the color picker panel."
+              "description": "Shows the color picker panel.",
+              "type": {
+                "text": "show() => void"
+              }
             },
             {
               "kind": "method",
               "name": "hide",
-              "description": "Hides the color picker panel"
+              "description": "Hides the color picker panel",
+              "type": {
+                "text": "hide() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "addOpenListeners"
+              "name": "addOpenListeners",
+              "type": {
+                "text": "addOpenListeners() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "removeOpenListeners"
+              "name": "removeOpenListeners",
+              "type": {
+                "text": "removeOpenListeners() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "handleOpenChange"
+              "name": "handleOpenChange",
+              "type": {
+                "text": "handleOpenChange() => void"
+              }
             }
           ],
           "events": [
@@ -4967,7 +5137,9 @@
             "wa-visually-hidden"
           ],
           "tagName": "wa-color-picker",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/color-picker/color-picker.js",
+          "definitionPath": "components/color-picker/color-picker.js"
         }
       ],
       "exports": [
@@ -5103,7 +5275,10 @@
             },
             {
               "kind": "method",
-              "name": "handlePositionChange"
+              "name": "handlePositionChange",
+              "type": {
+                "text": "handlePositionChange() => void"
+              }
             }
           ],
           "events": [
@@ -5147,7 +5322,9 @@
             "wa-icon"
           ],
           "tagName": "wa-comparison",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/comparison/comparison.js",
+          "definitionPath": "components/comparison/comparison.js"
         }
       ],
       "exports": [
@@ -5499,7 +5676,9 @@
             "wa-tooltip"
           ],
           "tagName": "wa-copy-button",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/copy-button/copy-button.js",
+          "definitionPath": "components/copy-button/copy-button.js"
         }
       ],
       "exports": [
@@ -5637,6 +5816,14 @@
             },
             {
               "kind": "field",
+              "name": "isAnimating",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
               "name": "open",
               "type": {
                 "text": "boolean"
@@ -5687,6 +5874,17 @@
               "reflects": true
             },
             {
+              "kind": "field",
+              "name": "iconPosition",
+              "type": {
+                "text": "'start' | 'end'"
+              },
+              "default": "'end'",
+              "description": "The position of the expand/collapse icon.",
+              "attribute": "icon-position",
+              "reflects": true
+            },
+            {
               "kind": "method",
               "name": "handleSummaryClick",
               "privacy": "private",
@@ -5720,17 +5918,26 @@
             },
             {
               "kind": "method",
-              "name": "handleOpenChange"
+              "name": "handleOpenChange",
+              "type": {
+                "text": "handleOpenChange() => void"
+              }
             },
             {
               "kind": "method",
               "name": "show",
-              "description": "Shows the details."
+              "description": "Shows the details.",
+              "type": {
+                "text": "show() => void"
+              }
             },
             {
               "kind": "method",
               "name": "hide",
-              "description": "Hides the details"
+              "description": "Hides the details",
+              "type": {
+                "text": "hide() => void"
+              }
             }
           ],
           "events": [
@@ -5807,6 +6014,21 @@
               "default": "'outlined'",
               "description": "The element's visual appearance.",
               "fieldName": "appearance"
+            },
+            {
+              "name": "icon-position",
+              "type": {
+                "text": "'start' | 'end'"
+              },
+              "default": "'end'",
+              "description": "The position of the expand/collapse icon.",
+              "fieldName": "iconPosition"
+            }
+          ],
+          "cssStates": [
+            {
+              "description": "Applied when the details is animating expand/collapse.",
+              "name": "animating"
             }
           ],
           "superclass": {
@@ -5814,7 +6036,7 @@
             "module": "/src/internal/webawesome-element.js"
           },
           "summary": "Details show a brief summary and expand to show additional content.",
-          "jsDoc": "/**\n * @summary Details show a brief summary and expand to show additional content.\n * @documentation https://webawesome.com/docs/components/details\n * @status stable\n * @since 2.0\n *\n * @dependency wa-icon\n *\n * @slot - The details' main content.\n * @slot summary - The details' summary. Alternatively, you can use the `summary` attribute.\n * @slot expand-icon - Optional expand icon to use instead of the default. Works best with `<wa-icon>`.\n * @slot collapse-icon - Optional collapse icon to use instead of the default. Works best with `<wa-icon>`.\n *\n * @event wa-show - Emitted when the details opens.\n * @event wa-after-show - Emitted after the details opens and all animations are complete.\n * @event wa-hide - Emitted when the details closes.\n * @event wa-after-hide - Emitted after the details closes and all animations are complete.\n *\n * @csspart base - The inner `<details>` element used to render the component.\n *                 Styles you apply to the component are automatically applied to this part, so you usually don't need to deal with it unless you need to set the `display` property.\n * @csspart header - The header that wraps both the summary and the expand/collapse icon.\n * @csspart summary - The container that wraps the summary.\n * @csspart icon - The container that wraps the expand/collapse icons.\n * @csspart content - The details content.\n *\n * @cssproperty --spacing - The amount of space around and between the details' content. Expects a single value.\n * @cssproperty [--show-duration=200ms] - The show duration to use when applying built-in animation classes.\n * @cssproperty [--hide-duration=200ms] - The hide duration to use when applying built-in animation classes.\n */",
+          "jsDoc": "/**\n * @summary Details show a brief summary and expand to show additional content.\n * @documentation https://webawesome.com/docs/components/details\n * @status stable\n * @since 2.0\n *\n * @dependency wa-icon\n *\n * @slot - The details' main content.\n * @slot summary - The details' summary. Alternatively, you can use the `summary` attribute.\n * @slot expand-icon - Optional expand icon to use instead of the default. Works best with `<wa-icon>`.\n * @slot collapse-icon - Optional collapse icon to use instead of the default. Works best with `<wa-icon>`.\n *\n * @event wa-show - Emitted when the details opens.\n * @event wa-after-show - Emitted after the details opens and all animations are complete.\n * @event wa-hide - Emitted when the details closes.\n * @event wa-after-hide - Emitted after the details closes and all animations are complete.\n *\n * @csspart base - The inner `<details>` element used to render the component.\n *                 Styles you apply to the component are automatically applied to this part, so you usually don't need to deal with it unless you need to set the `display` property.\n * @csspart header - The header that wraps both the summary and the expand/collapse icon.\n * @csspart summary - The container that wraps the summary.\n * @csspart icon - The container that wraps the expand/collapse icons.\n * @csspart content - The details content.\n *\n * @cssproperty --spacing - The amount of space around and between the details' content. Expects a single value.\n * @cssproperty [--show-duration=200ms] - The show duration to use when applying built-in animation classes.\n * @cssproperty [--hide-duration=200ms] - The hide duration to use when applying built-in animation classes.\n *\n * @cssstate animating - Applied when the details is animating expand/collapse.\n */",
           "documentation": "https://webawesome.com/docs/components/details",
           "status": "stable",
           "since": "2.0",
@@ -5822,7 +6044,9 @@
             "wa-icon"
           ],
           "tagName": "wa-details",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/details/details.js",
+          "definitionPath": "components/details/details.js"
         }
       ],
       "exports": [
@@ -6068,7 +6292,10 @@
             },
             {
               "kind": "method",
-              "name": "handleOpenChange"
+              "name": "handleOpenChange",
+              "type": {
+                "text": "handleOpenChange() => void"
+              }
             },
             {
               "kind": "method",
@@ -6162,7 +6389,9 @@
             "wa-button"
           ],
           "tagName": "wa-dialog",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/dialog/dialog.js",
+          "definitionPath": "components/dialog/dialog.js"
         }
       ],
       "exports": [
@@ -6226,7 +6455,10 @@
             },
             {
               "kind": "method",
-              "name": "handleVerticalChange"
+              "name": "handleVerticalChange",
+              "type": {
+                "text": "handleVerticalChange() => void"
+              }
             }
           ],
           "attributes": [
@@ -6250,7 +6482,9 @@
           "status": "stable",
           "since": "2.0",
           "tagName": "wa-divider",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/divider/divider.js",
+          "definitionPath": "components/divider/divider.js"
         }
       ],
       "exports": [
@@ -6507,7 +6741,10 @@
             },
             {
               "kind": "method",
-              "name": "handleOpenChange"
+              "name": "handleOpenChange",
+              "type": {
+                "text": "handleOpenChange() => void"
+              }
             },
             {
               "kind": "method",
@@ -6615,7 +6852,9 @@
             "wa-button"
           ],
           "tagName": "wa-drawer",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/drawer/drawer.js",
+          "definitionPath": "components/drawer/drawer.js"
         }
       ],
       "exports": [
@@ -7183,7 +7422,9 @@
             "wa-popup"
           ],
           "tagName": "wa-dropdown",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/dropdown/dropdown.js",
+          "definitionPath": "components/dropdown/dropdown.js"
         }
       ],
       "exports": [
@@ -7355,7 +7596,10 @@
             {
               "kind": "method",
               "name": "openSubmenu",
-              "description": "Opens the submenu."
+              "description": "Opens the submenu.",
+              "type": {
+                "text": "openSubmenu() => void"
+              }
             },
             {
               "kind": "method",
@@ -7366,7 +7610,10 @@
             {
               "kind": "method",
               "name": "closeSubmenu",
-              "description": "Closes the submenu."
+              "description": "Closes the submenu.",
+              "type": {
+                "text": "closeSubmenu() => void"
+              }
             },
             {
               "kind": "method",
@@ -7468,7 +7715,9 @@
             "wa-icon"
           ],
           "tagName": "wa-dropdown-item",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/dropdown-item/dropdown-item.js",
+          "definitionPath": "components/dropdown-item/dropdown-item.js"
         }
       ],
       "exports": [
@@ -7576,7 +7825,9 @@
           "status": "stable",
           "since": "2.0",
           "tagName": "wa-format-bytes",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/format-bytes/format-bytes.js",
+          "definitionPath": "components/format-bytes/format-bytes.js"
         }
       ],
       "exports": [
@@ -7594,237 +7845,6 @@
           "declaration": {
             "name": "WaFormatBytes",
             "module": "components/format-bytes/format-bytes.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/format-number/format-number.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "WaFormatNumber",
-          "members": [
-            {
-              "kind": "field",
-              "name": "localize",
-              "privacy": "private",
-              "readonly": true,
-              "default": "new LocalizeController(this)"
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "The number to format.",
-              "attribute": "value"
-            },
-            {
-              "kind": "field",
-              "name": "type",
-              "type": {
-                "text": "'currency' | 'decimal' | 'percent'"
-              },
-              "default": "'decimal'",
-              "description": "The formatting style to use.",
-              "attribute": "type"
-            },
-            {
-              "kind": "field",
-              "name": "withoutGrouping",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Turns off grouping separators.",
-              "attribute": "without-grouping"
-            },
-            {
-              "kind": "field",
-              "name": "currency",
-              "type": {
-                "text": "string"
-              },
-              "default": "'USD'",
-              "description": "The [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code to use when formatting.",
-              "attribute": "currency"
-            },
-            {
-              "kind": "field",
-              "name": "currencyDisplay",
-              "type": {
-                "text": "'symbol' | 'narrowSymbol' | 'code' | 'name'"
-              },
-              "default": "'symbol'",
-              "description": "How to display the currency.",
-              "attribute": "currency-display"
-            },
-            {
-              "kind": "field",
-              "name": "minimumIntegerDigits",
-              "type": {
-                "text": "number"
-              },
-              "description": "The minimum number of integer digits to use. Possible values are 1-21.",
-              "attribute": "minimum-integer-digits"
-            },
-            {
-              "kind": "field",
-              "name": "minimumFractionDigits",
-              "type": {
-                "text": "number"
-              },
-              "description": "The minimum number of fraction digits to use. Possible values are 0-100.",
-              "attribute": "minimum-fraction-digits"
-            },
-            {
-              "kind": "field",
-              "name": "maximumFractionDigits",
-              "type": {
-                "text": "number"
-              },
-              "description": "The maximum number of fraction digits to use. Possible values are 0-100.",
-              "attribute": "maximum-fraction-digits"
-            },
-            {
-              "kind": "field",
-              "name": "minimumSignificantDigits",
-              "type": {
-                "text": "number"
-              },
-              "description": "The minimum number of significant digits to use. Possible values are 1-21.",
-              "attribute": "minimum-significant-digits"
-            },
-            {
-              "kind": "field",
-              "name": "maximumSignificantDigits",
-              "type": {
-                "text": "number"
-              },
-              "description": "The maximum number of significant digits to use,. Possible values are 1-21.",
-              "attribute": "maximum-significant-digits"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "value",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "The number to format.",
-              "fieldName": "value"
-            },
-            {
-              "name": "type",
-              "type": {
-                "text": "'currency' | 'decimal' | 'percent'"
-              },
-              "default": "'decimal'",
-              "description": "The formatting style to use.",
-              "fieldName": "type"
-            },
-            {
-              "name": "without-grouping",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Turns off grouping separators.",
-              "fieldName": "withoutGrouping"
-            },
-            {
-              "name": "currency",
-              "type": {
-                "text": "string"
-              },
-              "default": "'USD'",
-              "description": "The [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code to use when formatting.",
-              "fieldName": "currency"
-            },
-            {
-              "name": "currency-display",
-              "type": {
-                "text": "'symbol' | 'narrowSymbol' | 'code' | 'name'"
-              },
-              "default": "'symbol'",
-              "description": "How to display the currency.",
-              "fieldName": "currencyDisplay"
-            },
-            {
-              "name": "minimum-integer-digits",
-              "type": {
-                "text": "number"
-              },
-              "description": "The minimum number of integer digits to use. Possible values are 1-21.",
-              "fieldName": "minimumIntegerDigits"
-            },
-            {
-              "name": "minimum-fraction-digits",
-              "type": {
-                "text": "number"
-              },
-              "description": "The minimum number of fraction digits to use. Possible values are 0-100.",
-              "fieldName": "minimumFractionDigits"
-            },
-            {
-              "name": "maximum-fraction-digits",
-              "type": {
-                "text": "number"
-              },
-              "description": "The maximum number of fraction digits to use. Possible values are 0-100.",
-              "fieldName": "maximumFractionDigits"
-            },
-            {
-              "name": "minimum-significant-digits",
-              "type": {
-                "text": "number"
-              },
-              "description": "The minimum number of significant digits to use. Possible values are 1-21.",
-              "fieldName": "minimumSignificantDigits"
-            },
-            {
-              "name": "maximum-significant-digits",
-              "type": {
-                "text": "number"
-              },
-              "description": "The maximum number of significant digits to use,. Possible values are 1-21.",
-              "fieldName": "maximumSignificantDigits"
-            }
-          ],
-          "superclass": {
-            "name": "WebAwesomeElement",
-            "module": "/src/internal/webawesome-element.js"
-          },
-          "summary": "Formats a number using the specified locale and options.",
-          "jsDoc": "/**\n * @summary Formats a number using the specified locale and options.\n * @documentation https://webawesome.com/docs/components/format-number\n * @status stable\n * @since 2.0\n */",
-          "documentation": "https://webawesome.com/docs/components/format-number",
-          "status": "stable",
-          "since": "2.0",
-          "tagName": "wa-format-number",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "WaFormatNumber",
-            "module": "components/format-number/format-number.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wa-format-number",
-          "declaration": {
-            "name": "WaFormatNumber",
-            "module": "components/format-number/format-number.js"
           }
         }
       ]
@@ -8066,7 +8086,9 @@
           "status": "stable",
           "since": "2.0",
           "tagName": "wa-format-date",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/format-date/format-date.js",
+          "definitionPath": "components/format-date/format-date.js"
         }
       ],
       "exports": [
@@ -8084,6 +8106,239 @@
           "declaration": {
             "name": "WaFormatDate",
             "module": "components/format-date/format-date.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/format-number/format-number.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "WaFormatNumber",
+          "members": [
+            {
+              "kind": "field",
+              "name": "localize",
+              "privacy": "private",
+              "readonly": true,
+              "default": "new LocalizeController(this)"
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "The number to format.",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "type",
+              "type": {
+                "text": "'currency' | 'decimal' | 'percent'"
+              },
+              "default": "'decimal'",
+              "description": "The formatting style to use.",
+              "attribute": "type"
+            },
+            {
+              "kind": "field",
+              "name": "withoutGrouping",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Turns off grouping separators.",
+              "attribute": "without-grouping"
+            },
+            {
+              "kind": "field",
+              "name": "currency",
+              "type": {
+                "text": "string"
+              },
+              "default": "'USD'",
+              "description": "The [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code to use when formatting.",
+              "attribute": "currency"
+            },
+            {
+              "kind": "field",
+              "name": "currencyDisplay",
+              "type": {
+                "text": "'symbol' | 'narrowSymbol' | 'code' | 'name'"
+              },
+              "default": "'symbol'",
+              "description": "How to display the currency.",
+              "attribute": "currency-display"
+            },
+            {
+              "kind": "field",
+              "name": "minimumIntegerDigits",
+              "type": {
+                "text": "number"
+              },
+              "description": "The minimum number of integer digits to use. Possible values are 1-21.",
+              "attribute": "minimum-integer-digits"
+            },
+            {
+              "kind": "field",
+              "name": "minimumFractionDigits",
+              "type": {
+                "text": "number"
+              },
+              "description": "The minimum number of fraction digits to use. Possible values are 0-100.",
+              "attribute": "minimum-fraction-digits"
+            },
+            {
+              "kind": "field",
+              "name": "maximumFractionDigits",
+              "type": {
+                "text": "number"
+              },
+              "description": "The maximum number of fraction digits to use. Possible values are 0-100.",
+              "attribute": "maximum-fraction-digits"
+            },
+            {
+              "kind": "field",
+              "name": "minimumSignificantDigits",
+              "type": {
+                "text": "number"
+              },
+              "description": "The minimum number of significant digits to use. Possible values are 1-21.",
+              "attribute": "minimum-significant-digits"
+            },
+            {
+              "kind": "field",
+              "name": "maximumSignificantDigits",
+              "type": {
+                "text": "number"
+              },
+              "description": "The maximum number of significant digits to use,. Possible values are 1-21.",
+              "attribute": "maximum-significant-digits"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "value",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "The number to format.",
+              "fieldName": "value"
+            },
+            {
+              "name": "type",
+              "type": {
+                "text": "'currency' | 'decimal' | 'percent'"
+              },
+              "default": "'decimal'",
+              "description": "The formatting style to use.",
+              "fieldName": "type"
+            },
+            {
+              "name": "without-grouping",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Turns off grouping separators.",
+              "fieldName": "withoutGrouping"
+            },
+            {
+              "name": "currency",
+              "type": {
+                "text": "string"
+              },
+              "default": "'USD'",
+              "description": "The [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code to use when formatting.",
+              "fieldName": "currency"
+            },
+            {
+              "name": "currency-display",
+              "type": {
+                "text": "'symbol' | 'narrowSymbol' | 'code' | 'name'"
+              },
+              "default": "'symbol'",
+              "description": "How to display the currency.",
+              "fieldName": "currencyDisplay"
+            },
+            {
+              "name": "minimum-integer-digits",
+              "type": {
+                "text": "number"
+              },
+              "description": "The minimum number of integer digits to use. Possible values are 1-21.",
+              "fieldName": "minimumIntegerDigits"
+            },
+            {
+              "name": "minimum-fraction-digits",
+              "type": {
+                "text": "number"
+              },
+              "description": "The minimum number of fraction digits to use. Possible values are 0-100.",
+              "fieldName": "minimumFractionDigits"
+            },
+            {
+              "name": "maximum-fraction-digits",
+              "type": {
+                "text": "number"
+              },
+              "description": "The maximum number of fraction digits to use. Possible values are 0-100.",
+              "fieldName": "maximumFractionDigits"
+            },
+            {
+              "name": "minimum-significant-digits",
+              "type": {
+                "text": "number"
+              },
+              "description": "The minimum number of significant digits to use. Possible values are 1-21.",
+              "fieldName": "minimumSignificantDigits"
+            },
+            {
+              "name": "maximum-significant-digits",
+              "type": {
+                "text": "number"
+              },
+              "description": "The maximum number of significant digits to use,. Possible values are 1-21.",
+              "fieldName": "maximumSignificantDigits"
+            }
+          ],
+          "superclass": {
+            "name": "WebAwesomeElement",
+            "module": "/src/internal/webawesome-element.js"
+          },
+          "summary": "Formats a number using the specified locale and options.",
+          "jsDoc": "/**\n * @summary Formats a number using the specified locale and options.\n * @documentation https://webawesome.com/docs/components/format-number\n * @status stable\n * @since 2.0\n */",
+          "documentation": "https://webawesome.com/docs/components/format-number",
+          "status": "stable",
+          "since": "2.0",
+          "tagName": "wa-format-number",
+          "customElement": true,
+          "modulePath": "components/format-number/format-number.js",
+          "definitionPath": "components/format-number/format-number.js"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "WaFormatNumber",
+            "module": "components/format-number/format-number.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wa-format-number",
+          "declaration": {
+            "name": "WaFormatNumber",
+            "module": "components/format-number/format-number.js"
           }
         }
       ]
@@ -8248,11 +8503,17 @@
             },
             {
               "kind": "method",
-              "name": "handleLabelChange"
+              "name": "handleLabelChange",
+              "type": {
+                "text": "handleLabelChange() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "setIcon"
+              "name": "setIcon",
+              "type": {
+                "text": "setIcon() => void"
+              }
             }
           ],
           "events": [
@@ -8344,7 +8605,9 @@
           "status": "stable",
           "since": "2.0",
           "tagName": "wa-icon",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/icon/icon.js",
+          "definitionPath": "components/icon/icon.js"
         }
       ],
       "exports": [
@@ -8643,7 +8906,10 @@
             },
             {
               "kind": "method",
-              "name": "handleSrcChange"
+              "name": "handleSrcChange",
+              "type": {
+                "text": "handleSrcChange() => void"
+              }
             }
           ],
           "events": [
@@ -8706,7 +8972,9 @@
           "status": "stable",
           "since": "2.0",
           "tagName": "wa-include",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/include/include.js",
+          "definitionPath": "components/include/include.js"
         }
       ],
       "exports": [
@@ -8765,459 +9033,6 @@
           "declaration": {
             "name": "requestInclude",
             "module": "components/include/request.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/option/option.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "WaOption",
-          "cssParts": [
-            {
-              "description": "The checked icon, a `<wa-icon>` element.",
-              "name": "checked-icon"
-            },
-            {
-              "description": "The option's label.",
-              "name": "label"
-            },
-            {
-              "description": "The container that wraps the `start` slot.",
-              "name": "start"
-            },
-            {
-              "description": "The container that wraps the `end` slot.",
-              "name": "end"
-            }
-          ],
-          "slots": [
-            {
-              "description": "The option's label.",
-              "name": ""
-            },
-            {
-              "description": "An element, such as `<wa-icon>`, placed before the label.",
-              "name": "start"
-            },
-            {
-              "description": "An element, such as `<wa-icon>`, placed after the label.",
-              "name": "end"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "css",
-              "static": true,
-              "default": "styles"
-            },
-            {
-              "kind": "field",
-              "name": "localize",
-              "privacy": "private",
-              "readonly": true,
-              "default": "new LocalizeController(this)"
-            },
-            {
-              "kind": "field",
-              "name": "isInitialized",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "defaultSlot",
-              "type": {
-                "text": "HTMLSlotElement"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "current",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "description": "The option's value. When selected, the containing form control will receive this value. The value must be unique\nfrom other options in the same group. Values may not contain spaces, as spaces are used as delimiters when listing\nmultiple values.",
-              "attribute": "value",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Draws the option in a disabled state, preventing selection.",
-              "attribute": "disabled"
-            },
-            {
-              "kind": "field",
-              "name": "defaultSelected",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Selects an option initially.",
-              "attribute": "selected"
-            },
-            {
-              "kind": "field",
-              "name": "_label",
-              "type": {
-                "text": "string"
-              },
-              "default": "''"
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "description": "The option’s plain text label.\nUsually automatically generated, but can be useful to provide manually for cases involving complex content.",
-              "type": {
-                "text": "string"
-              },
-              "attribute": "label"
-            },
-            {
-              "kind": "field",
-              "name": "defaultLabel",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "description": "The default label, generated from the element contents. Will be equal to `label` in most cases."
-            },
-            {
-              "kind": "method",
-              "name": "handleDefaultSlotChange",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "handleHover",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "updateDefaultLabel",
-              "privacy": "private"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "value",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "description": "The option's value. When selected, the containing form control will receive this value. The value must be unique\nfrom other options in the same group. Values may not contain spaces, as spaces are used as delimiters when listing\nmultiple values.",
-              "fieldName": "value"
-            },
-            {
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Draws the option in a disabled state, preventing selection.",
-              "fieldName": "disabled"
-            },
-            {
-              "name": "selected",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Selects an option initially.",
-              "fieldName": "defaultSelected"
-            },
-            {
-              "name": "label",
-              "description": "The option’s plain text label.\nUsually automatically generated, but can be useful to provide manually for cases involving complex content.",
-              "type": {
-                "text": "string"
-              },
-              "fieldName": "label"
-            }
-          ],
-          "cssStates": [
-            {
-              "description": "The user has keyed into the option, but hasn't selected it yet (shows a highlight)",
-              "name": "current"
-            },
-            {
-              "description": "The option is selected and has aria-selected=\"true\"",
-              "name": "selected"
-            },
-            {
-              "description": "Like `:hover` but works while dragging in Safari",
-              "name": "hover"
-            }
-          ],
-          "superclass": {
-            "name": "WebAwesomeElement",
-            "module": "/src/internal/webawesome-element.js"
-          },
-          "summary": "Options define the selectable items within a select component.",
-          "jsDoc": "/**\n * @summary Options define the selectable items within a select component.\n * @documentation https://webawesome.com/docs/components/option\n * @status stable\n * @since 2.0\n *\n * @dependency wa-icon\n *\n * @slot - The option's label.\n * @slot start - An element, such as `<wa-icon>`, placed before the label.\n * @slot end - An element, such as `<wa-icon>`, placed after the label.\n *\n * @csspart checked-icon - The checked icon, a `<wa-icon>` element.\n * @csspart label - The option's label.\n * @csspart start - The container that wraps the `start` slot.\n * @csspart end - The container that wraps the `end` slot.\n *\n * @cssstate current - The user has keyed into the option, but hasn't selected it yet (shows a highlight)\n * @cssstate selected - The option is selected and has aria-selected=\"true\"\n * @cssstate hover - Like `:hover` but works while dragging in Safari\n */",
-          "documentation": "https://webawesome.com/docs/components/option",
-          "status": "stable",
-          "since": "2.0",
-          "dependencies": [
-            "wa-icon"
-          ],
-          "tagName": "wa-option",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "WaOption",
-            "module": "components/option/option.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wa-option",
-          "declaration": {
-            "name": "WaOption",
-            "module": "components/option/option.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/mutation-observer/mutation-observer.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "WaMutationObserver",
-          "slots": [
-            {
-              "description": "The content to watch for mutations.",
-              "name": ""
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "css",
-              "static": true,
-              "default": "styles"
-            },
-            {
-              "kind": "field",
-              "name": "mutationObserver",
-              "type": {
-                "text": "MutationObserver"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "attr",
-              "type": {
-                "text": "string"
-              },
-              "description": "Watches for changes to attributes. To watch only specific attributes, separate them by a space, e.g.\n`attr=\"class id title\"`. To watch all attributes, use `*`.",
-              "attribute": "attr",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "attrOldValue",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Indicates whether or not the attribute's previous value should be recorded when monitoring changes.",
-              "attribute": "attr-old-value",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "charData",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Watches for changes to the character data contained within the node.",
-              "attribute": "char-data",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "charDataOldValue",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Indicates whether or not the previous value of the node's text should be recorded.",
-              "attribute": "char-data-old-value",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "childList",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Watches for the addition or removal of new child nodes.",
-              "attribute": "child-list",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Disables the observer.",
-              "attribute": "disabled",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "handleMutation",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "startObserver",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "stopObserver",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleDisabledChange"
-            },
-            {
-              "kind": "method",
-              "name": "handleChange"
-            }
-          ],
-          "events": [
-            {
-              "type": {
-                "text": "{ mutationList: MutationRecord[] }"
-              },
-              "description": "Emitted when a mutation occurs.",
-              "name": "wa-mutation",
-              "reactName": "onWaMutation",
-              "eventName": "WaMutationEvent"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "attr",
-              "type": {
-                "text": "string"
-              },
-              "description": "Watches for changes to attributes. To watch only specific attributes, separate them by a space, e.g.\n`attr=\"class id title\"`. To watch all attributes, use `*`.",
-              "fieldName": "attr"
-            },
-            {
-              "name": "attr-old-value",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Indicates whether or not the attribute's previous value should be recorded when monitoring changes.",
-              "fieldName": "attrOldValue"
-            },
-            {
-              "name": "char-data",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Watches for changes to the character data contained within the node.",
-              "fieldName": "charData"
-            },
-            {
-              "name": "char-data-old-value",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Indicates whether or not the previous value of the node's text should be recorded.",
-              "fieldName": "charDataOldValue"
-            },
-            {
-              "name": "child-list",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Watches for the addition or removal of new child nodes.",
-              "fieldName": "childList"
-            },
-            {
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Disables the observer.",
-              "fieldName": "disabled"
-            }
-          ],
-          "superclass": {
-            "name": "WebAwesomeElement",
-            "module": "/src/internal/webawesome-element.js"
-          },
-          "summary": "The Mutation Observer component offers a thin, declarative interface to the [`MutationObserver API`](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver).",
-          "jsDoc": "/**\n * @summary The Mutation Observer component offers a thin, declarative interface to the [`MutationObserver API`](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver).\n * @documentation https://webawesome.com/docs/components/mutation-observer\n * @status stable\n * @since 2.0\n *\n * @event {{ mutationList: MutationRecord[] }} wa-mutation - Emitted when a mutation occurs.\n *\n * @slot - The content to watch for mutations.\n */",
-          "documentation": "https://webawesome.com/docs/components/mutation-observer",
-          "status": "stable",
-          "since": "2.0",
-          "tagName": "wa-mutation-observer",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "WaMutationObserver",
-            "module": "components/mutation-observer/mutation-observer.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wa-mutation-observer",
-          "declaration": {
-            "name": "WaMutationObserver",
-            "module": "components/mutation-observer/mutation-observer.js"
           }
         }
       ]
@@ -9717,7 +9532,10 @@
             },
             {
               "kind": "method",
-              "name": "handleStepChange"
+              "name": "handleStepChange",
+              "type": {
+                "text": "handleStepChange() => void"
+              }
             },
             {
               "kind": "method",
@@ -9731,17 +9549,26 @@
                   }
                 }
               ],
-              "description": "Sets focus on the input."
+              "description": "Sets focus on the input.",
+              "type": {
+                "text": "focus(options?: FocusOptions) => void"
+              }
             },
             {
               "kind": "method",
               "name": "blur",
-              "description": "Removes focus from the input."
+              "description": "Removes focus from the input.",
+              "type": {
+                "text": "blur() => void"
+              }
             },
             {
               "kind": "method",
               "name": "select",
-              "description": "Selects all the text in the input."
+              "description": "Selects all the text in the input.",
+              "type": {
+                "text": "select() => void"
+              }
             },
             {
               "kind": "method",
@@ -9767,7 +9594,10 @@
                   }
                 }
               ],
-              "description": "Sets the start and end positions of the text selection (0-based)."
+              "description": "Sets the start and end positions of the text selection (0-based).",
+              "type": {
+                "text": "setSelectionRange(selectionStart: number, selectionEnd: number, selectionDirection: 'forward' | 'backward' | 'none' = 'none') => void"
+              }
             },
             {
               "kind": "method",
@@ -9801,26 +9631,41 @@
                   }
                 }
               ],
-              "description": "Replaces a range of text with a new string."
+              "description": "Replaces a range of text with a new string.",
+              "type": {
+                "text": "setRangeText(replacement: string, start?: number, end?: number, selectMode: 'select' | 'start' | 'end' | 'preserve' = 'preserve') => void"
+              }
             },
             {
               "kind": "method",
               "name": "showPicker",
-              "description": "Displays the browser picker for an input element (only works if the browser supports it for the input type)."
+              "description": "Displays the browser picker for an input element (only works if the browser supports it for the input type).",
+              "type": {
+                "text": "showPicker() => void"
+              }
             },
             {
               "kind": "method",
               "name": "stepUp",
-              "description": "Increments the value of a numeric input type by the value of the step attribute."
+              "description": "Increments the value of a numeric input type by the value of the step attribute.",
+              "type": {
+                "text": "stepUp() => void"
+              }
             },
             {
               "kind": "method",
               "name": "stepDown",
-              "description": "Decrements the value of a numeric input type by the value of the step attribute."
+              "description": "Decrements the value of a numeric input type by the value of the step attribute.",
+              "type": {
+                "text": "stepDown() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "formResetCallback"
+              "name": "formResetCallback",
+              "type": {
+                "text": "formResetCallback() => void"
+              }
             }
           ],
           "events": [
@@ -10158,7 +10003,9 @@
             "wa-icon"
           ],
           "tagName": "wa-input",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/input/input.js",
+          "definitionPath": "components/input/input.js"
         }
       ],
       "exports": [
@@ -10176,6 +10023,469 @@
           "declaration": {
             "name": "WaInput",
             "module": "components/input/input.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/mutation-observer/mutation-observer.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "WaMutationObserver",
+          "slots": [
+            {
+              "description": "The content to watch for mutations.",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "css",
+              "static": true,
+              "default": "styles"
+            },
+            {
+              "kind": "field",
+              "name": "mutationObserver",
+              "type": {
+                "text": "MutationObserver"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "attr",
+              "type": {
+                "text": "string"
+              },
+              "description": "Watches for changes to attributes. To watch only specific attributes, separate them by a space, e.g.\n`attr=\"class id title\"`. To watch all attributes, use `*`.",
+              "attribute": "attr",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "attrOldValue",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Indicates whether or not the attribute's previous value should be recorded when monitoring changes.",
+              "attribute": "attr-old-value",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "charData",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Watches for changes to the character data contained within the node.",
+              "attribute": "char-data",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "charDataOldValue",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Indicates whether or not the previous value of the node's text should be recorded.",
+              "attribute": "char-data-old-value",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "childList",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Watches for the addition or removal of new child nodes.",
+              "attribute": "child-list",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Disables the observer.",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "handleMutation",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "startObserver",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "stopObserver",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleDisabledChange",
+              "type": {
+                "text": "handleDisabledChange() => void"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleChange",
+              "type": {
+                "text": "handleChange() => void"
+              }
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "{ mutationList: MutationRecord[] }"
+              },
+              "description": "Emitted when a mutation occurs.",
+              "name": "wa-mutation",
+              "reactName": "onWaMutation",
+              "eventName": "WaMutationEvent"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "attr",
+              "type": {
+                "text": "string"
+              },
+              "description": "Watches for changes to attributes. To watch only specific attributes, separate them by a space, e.g.\n`attr=\"class id title\"`. To watch all attributes, use `*`.",
+              "fieldName": "attr"
+            },
+            {
+              "name": "attr-old-value",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Indicates whether or not the attribute's previous value should be recorded when monitoring changes.",
+              "fieldName": "attrOldValue"
+            },
+            {
+              "name": "char-data",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Watches for changes to the character data contained within the node.",
+              "fieldName": "charData"
+            },
+            {
+              "name": "char-data-old-value",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Indicates whether or not the previous value of the node's text should be recorded.",
+              "fieldName": "charDataOldValue"
+            },
+            {
+              "name": "child-list",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Watches for the addition or removal of new child nodes.",
+              "fieldName": "childList"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Disables the observer.",
+              "fieldName": "disabled"
+            }
+          ],
+          "superclass": {
+            "name": "WebAwesomeElement",
+            "module": "/src/internal/webawesome-element.js"
+          },
+          "summary": "The Mutation Observer component offers a thin, declarative interface to the [`MutationObserver API`](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver).",
+          "jsDoc": "/**\n * @summary The Mutation Observer component offers a thin, declarative interface to the [`MutationObserver API`](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver).\n * @documentation https://webawesome.com/docs/components/mutation-observer\n * @status stable\n * @since 2.0\n *\n * @event {{ mutationList: MutationRecord[] }} wa-mutation - Emitted when a mutation occurs.\n *\n * @slot - The content to watch for mutations.\n */",
+          "documentation": "https://webawesome.com/docs/components/mutation-observer",
+          "status": "stable",
+          "since": "2.0",
+          "tagName": "wa-mutation-observer",
+          "customElement": true,
+          "modulePath": "components/mutation-observer/mutation-observer.js",
+          "definitionPath": "components/mutation-observer/mutation-observer.js"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "WaMutationObserver",
+            "module": "components/mutation-observer/mutation-observer.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wa-mutation-observer",
+          "declaration": {
+            "name": "WaMutationObserver",
+            "module": "components/mutation-observer/mutation-observer.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/option/option.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "WaOption",
+          "cssParts": [
+            {
+              "description": "The checked icon, a `<wa-icon>` element.",
+              "name": "checked-icon"
+            },
+            {
+              "description": "The option's label.",
+              "name": "label"
+            },
+            {
+              "description": "The container that wraps the `start` slot.",
+              "name": "start"
+            },
+            {
+              "description": "The container that wraps the `end` slot.",
+              "name": "end"
+            }
+          ],
+          "slots": [
+            {
+              "description": "The option's label.",
+              "name": ""
+            },
+            {
+              "description": "An element, such as `<wa-icon>`, placed before the label.",
+              "name": "start"
+            },
+            {
+              "description": "An element, such as `<wa-icon>`, placed after the label.",
+              "name": "end"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "css",
+              "static": true,
+              "default": "styles"
+            },
+            {
+              "kind": "field",
+              "name": "localize",
+              "privacy": "private",
+              "readonly": true,
+              "default": "new LocalizeController(this)"
+            },
+            {
+              "kind": "field",
+              "name": "isInitialized",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "defaultSlot",
+              "type": {
+                "text": "HTMLSlotElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "current",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "The option's value. When selected, the containing form control will receive this value. The value must be unique\nfrom other options in the same group. Values may not contain spaces, as spaces are used as delimiters when listing\nmultiple values.",
+              "attribute": "value",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Draws the option in a disabled state, preventing selection.",
+              "attribute": "disabled"
+            },
+            {
+              "kind": "field",
+              "name": "defaultSelected",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Selects an option initially.",
+              "attribute": "selected"
+            },
+            {
+              "kind": "field",
+              "name": "_label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "description": "The option’s plain text label.\nUsually automatically generated, but can be useful to provide manually for cases involving complex content.",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "defaultLabel",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "The default label, generated from the element contents. Will be equal to `label` in most cases."
+            },
+            {
+              "kind": "method",
+              "name": "handleDefaultSlotChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleHover",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "updateDefaultLabel",
+              "privacy": "private"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "The option's value. When selected, the containing form control will receive this value. The value must be unique\nfrom other options in the same group. Values may not contain spaces, as spaces are used as delimiters when listing\nmultiple values.",
+              "fieldName": "value"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Draws the option in a disabled state, preventing selection.",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "selected",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Selects an option initially.",
+              "fieldName": "defaultSelected"
+            },
+            {
+              "name": "label",
+              "description": "The option’s plain text label.\nUsually automatically generated, but can be useful to provide manually for cases involving complex content.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "label"
+            }
+          ],
+          "cssStates": [
+            {
+              "description": "The user has keyed into the option, but hasn't selected it yet (shows a highlight)",
+              "name": "current"
+            },
+            {
+              "description": "The option is selected and has aria-selected=\"true\"",
+              "name": "selected"
+            },
+            {
+              "description": "Like `:hover` but works while dragging in Safari",
+              "name": "hover"
+            }
+          ],
+          "superclass": {
+            "name": "WebAwesomeElement",
+            "module": "/src/internal/webawesome-element.js"
+          },
+          "summary": "Options define the selectable items within a select component.",
+          "jsDoc": "/**\n * @summary Options define the selectable items within a select component.\n * @documentation https://webawesome.com/docs/components/option\n * @status stable\n * @since 2.0\n *\n * @dependency wa-icon\n *\n * @slot - The option's label.\n * @slot start - An element, such as `<wa-icon>`, placed before the label.\n * @slot end - An element, such as `<wa-icon>`, placed after the label.\n *\n * @csspart checked-icon - The checked icon, a `<wa-icon>` element.\n * @csspart label - The option's label.\n * @csspart start - The container that wraps the `start` slot.\n * @csspart end - The container that wraps the `end` slot.\n *\n * @cssstate current - The user has keyed into the option, but hasn't selected it yet (shows a highlight)\n * @cssstate selected - The option is selected and has aria-selected=\"true\"\n * @cssstate hover - Like `:hover` but works while dragging in Safari\n */",
+          "documentation": "https://webawesome.com/docs/components/option",
+          "status": "stable",
+          "since": "2.0",
+          "dependencies": [
+            "wa-icon"
+          ],
+          "tagName": "wa-option",
+          "customElement": true,
+          "modulePath": "components/option/option.js",
+          "definitionPath": "components/option/option.js"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "WaOption",
+            "module": "components/option/option.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wa-option",
+          "declaration": {
+            "name": "WaOption",
+            "module": "components/option/option.js"
           }
         }
       ]
@@ -10512,17 +10822,26 @@
             {
               "kind": "method",
               "name": "showNavigation",
-              "description": "Shows the mobile navigation drawer"
+              "description": "Shows the mobile navigation drawer",
+              "type": {
+                "text": "showNavigation() => void"
+              }
             },
             {
               "kind": "method",
               "name": "hideNavigation",
-              "description": "Hides the mobile navigation drawer"
+              "description": "Hides the mobile navigation drawer",
+              "type": {
+                "text": "hideNavigation() => void"
+              }
             },
             {
               "kind": "method",
               "name": "toggleNavigation",
-              "description": "Toggles the mobile navigation drawer"
+              "description": "Toggles the mobile navigation drawer",
+              "type": {
+                "text": "toggleNavigation() => void"
+              }
             }
           ],
           "attributes": [
@@ -10582,7 +10901,9 @@
           "status": "experimental",
           "since": "3.0",
           "tagName": "wa-page",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/page/page.js",
+          "definitionPath": "components/page/page.js"
         }
       ],
       "exports": [
@@ -10760,6 +11081,17 @@
             },
             {
               "kind": "field",
+              "name": "withoutArrow",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Removes the arrow from the popover.",
+              "attribute": "without-arrow",
+              "reflects": true
+            },
+            {
+              "kind": "field",
               "name": "eventController",
               "privacy": "private",
               "default": "new AbortController()"
@@ -10786,25 +11118,40 @@
             },
             {
               "kind": "method",
-              "name": "handleOpenChange"
+              "name": "handleOpenChange",
+              "type": {
+                "text": "handleOpenChange() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "handleForChange"
+              "name": "handleForChange",
+              "type": {
+                "text": "handleForChange() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "handleOptionsChange"
+              "name": "handleOptionsChange",
+              "type": {
+                "text": "handleOptionsChange() => void"
+              }
             },
             {
               "kind": "method",
               "name": "show",
-              "description": "Shows the popover."
+              "description": "Shows the popover.",
+              "type": {
+                "text": "show() => void"
+              }
             },
             {
               "kind": "method",
               "name": "hide",
-              "description": "Hides the popover."
+              "description": "Hides the popover.",
+              "type": {
+                "text": "hide() => void"
+              }
             }
           ],
           "events": [
@@ -10883,6 +11230,15 @@
               "default": "null",
               "description": "The ID of the popover's anchor element. This must be an interactive/focusable element such as a button.",
               "fieldName": "for"
+            },
+            {
+              "name": "without-arrow",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Removes the arrow from the popover.",
+              "fieldName": "withoutArrow"
             }
           ],
           "cssStates": [
@@ -10904,7 +11260,9 @@
             "wa-popup"
           ],
           "tagName": "wa-popover",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/popover/popover.js",
+          "definitionPath": "components/popover/popover.js"
         }
       ],
       "exports": [
@@ -11273,7 +11631,10 @@
             {
               "kind": "method",
               "name": "reposition",
-              "description": "Forces the popup to recalculate and reposition itself."
+              "description": "Forces the popup to recalculate and reposition itself.",
+              "type": {
+                "text": "reposition() => void"
+              }
             },
             {
               "kind": "field",
@@ -11498,7 +11859,9 @@
           "status": "stable",
           "since": "2.0",
           "tagName": "wa-popup",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/popup/popup.js",
+          "definitionPath": "components/popup/popup.js"
         }
       ],
       "exports": [
@@ -11651,7 +12014,9 @@
           "status": "stable",
           "since": "2.0",
           "tagName": "wa-progress-bar",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/progress-bar/progress-bar.js",
+          "definitionPath": "components/progress-bar/progress-bar.js"
         }
       ],
       "exports": [
@@ -11669,216 +12034,6 @@
           "declaration": {
             "name": "WaProgressBar",
             "module": "components/progress-bar/progress-bar.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/qr-code/qr-code.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "WaQrCode",
-          "cssParts": [
-            {
-              "description": "The component's base wrapper.",
-              "name": "base"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "css",
-              "static": true,
-              "default": "styles"
-            },
-            {
-              "kind": "field",
-              "name": "canvas",
-              "type": {
-                "text": "HTMLElement"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "description": "The QR code's value.",
-              "attribute": "value"
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "description": "The label for assistive devices to announce. If unspecified, the value will be used instead.",
-              "attribute": "label"
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "number"
-              },
-              "default": "128",
-              "description": "The size of the QR code, in pixels.",
-              "attribute": "size"
-            },
-            {
-              "kind": "field",
-              "name": "fill",
-              "type": {
-                "text": "string"
-              },
-              "default": "'black'",
-              "description": "The fill color. This can be any valid CSS color, but not a CSS custom property.",
-              "attribute": "fill"
-            },
-            {
-              "kind": "field",
-              "name": "background",
-              "type": {
-                "text": "string"
-              },
-              "default": "'white'",
-              "description": "The background color. This can be any valid CSS color or `transparent`. It cannot be a CSS custom property.",
-              "attribute": "background"
-            },
-            {
-              "kind": "field",
-              "name": "radius",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "The edge radius of each module. Must be between 0 and 0.5.",
-              "attribute": "radius"
-            },
-            {
-              "kind": "field",
-              "name": "errorCorrection",
-              "type": {
-                "text": "'L' | 'M' | 'Q' | 'H'"
-              },
-              "default": "'H'",
-              "description": "The level of error correction to use. [Learn more](https://www.qrcode.com/en/about/error_correction.html)",
-              "attribute": "error-correction"
-            },
-            {
-              "kind": "field",
-              "name": "generated",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false",
-              "description": "Whether or not the qr-code generated."
-            },
-            {
-              "kind": "method",
-              "name": "generate"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "value",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "description": "The QR code's value.",
-              "fieldName": "value"
-            },
-            {
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "description": "The label for assistive devices to announce. If unspecified, the value will be used instead.",
-              "fieldName": "label"
-            },
-            {
-              "name": "size",
-              "type": {
-                "text": "number"
-              },
-              "default": "128",
-              "description": "The size of the QR code, in pixels.",
-              "fieldName": "size"
-            },
-            {
-              "name": "fill",
-              "type": {
-                "text": "string"
-              },
-              "default": "'black'",
-              "description": "The fill color. This can be any valid CSS color, but not a CSS custom property.",
-              "fieldName": "fill"
-            },
-            {
-              "name": "background",
-              "type": {
-                "text": "string"
-              },
-              "default": "'white'",
-              "description": "The background color. This can be any valid CSS color or `transparent`. It cannot be a CSS custom property.",
-              "fieldName": "background"
-            },
-            {
-              "name": "radius",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "The edge radius of each module. Must be between 0 and 0.5.",
-              "fieldName": "radius"
-            },
-            {
-              "name": "error-correction",
-              "type": {
-                "text": "'L' | 'M' | 'Q' | 'H'"
-              },
-              "default": "'H'",
-              "description": "The level of error correction to use. [Learn more](https://www.qrcode.com/en/about/error_correction.html)",
-              "fieldName": "errorCorrection"
-            }
-          ],
-          "superclass": {
-            "name": "WebAwesomeElement",
-            "module": "/src/internal/webawesome-element.js"
-          },
-          "summary": "Generates a [QR code](https://www.qrcode.com/) and renders it using the [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API).",
-          "jsDoc": "/**\n * @summary Generates a [QR code](https://www.qrcode.com/) and renders it using the [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API).\n * @documentation https://webawesome.com/docs/components/qr-code\n * @status stable\n * @since 2.0\n *\n * @csspart base - The component's base wrapper.\n */",
-          "documentation": "https://webawesome.com/docs/components/qr-code",
-          "status": "stable",
-          "since": "2.0",
-          "tagName": "wa-qr-code",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "WaQrCode",
-            "module": "components/qr-code/qr-code.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wa-qr-code",
-          "declaration": {
-            "name": "WaQrCode",
-            "module": "components/qr-code/qr-code.js"
           }
         }
       ]
@@ -12013,7 +12168,9 @@
           "status": "stable",
           "since": "2.0",
           "tagName": "wa-progress-ring",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/progress-ring/progress-ring.js",
+          "definitionPath": "components/progress-ring/progress-ring.js"
         }
       ],
       "exports": [
@@ -12031,6 +12188,221 @@
           "declaration": {
             "name": "WaProgressRing",
             "module": "components/progress-ring/progress-ring.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/qr-code/qr-code.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "WaQrCode",
+          "cssParts": [
+            {
+              "description": "The component's base wrapper.",
+              "name": "base"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "css",
+              "static": true,
+              "default": "styles"
+            },
+            {
+              "kind": "field",
+              "name": "canvas",
+              "type": {
+                "text": "HTMLElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "The QR code's value.",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "The label for assistive devices to announce. If unspecified, the value will be used instead.",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "number"
+              },
+              "default": "128",
+              "description": "The size of the QR code, in pixels.",
+              "attribute": "size"
+            },
+            {
+              "kind": "field",
+              "name": "fill",
+              "type": {
+                "text": "string"
+              },
+              "default": "'black'",
+              "description": "The fill color. This can be any valid CSS color, but not a CSS custom property.",
+              "attribute": "fill"
+            },
+            {
+              "kind": "field",
+              "name": "background",
+              "type": {
+                "text": "string"
+              },
+              "default": "'white'",
+              "description": "The background color. This can be any valid CSS color or `transparent`. It cannot be a CSS custom property.",
+              "attribute": "background"
+            },
+            {
+              "kind": "field",
+              "name": "radius",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "The edge radius of each module. Must be between 0 and 0.5.",
+              "attribute": "radius"
+            },
+            {
+              "kind": "field",
+              "name": "errorCorrection",
+              "type": {
+                "text": "'L' | 'M' | 'Q' | 'H'"
+              },
+              "default": "'H'",
+              "description": "The level of error correction to use. [Learn more](https://www.qrcode.com/en/about/error_correction.html)",
+              "attribute": "error-correction"
+            },
+            {
+              "kind": "field",
+              "name": "generated",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false",
+              "description": "Whether or not the qr-code generated."
+            },
+            {
+              "kind": "method",
+              "name": "generate",
+              "type": {
+                "text": "generate() => void"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "The QR code's value.",
+              "fieldName": "value"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "The label for assistive devices to announce. If unspecified, the value will be used instead.",
+              "fieldName": "label"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "number"
+              },
+              "default": "128",
+              "description": "The size of the QR code, in pixels.",
+              "fieldName": "size"
+            },
+            {
+              "name": "fill",
+              "type": {
+                "text": "string"
+              },
+              "default": "'black'",
+              "description": "The fill color. This can be any valid CSS color, but not a CSS custom property.",
+              "fieldName": "fill"
+            },
+            {
+              "name": "background",
+              "type": {
+                "text": "string"
+              },
+              "default": "'white'",
+              "description": "The background color. This can be any valid CSS color or `transparent`. It cannot be a CSS custom property.",
+              "fieldName": "background"
+            },
+            {
+              "name": "radius",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "The edge radius of each module. Must be between 0 and 0.5.",
+              "fieldName": "radius"
+            },
+            {
+              "name": "error-correction",
+              "type": {
+                "text": "'L' | 'M' | 'Q' | 'H'"
+              },
+              "default": "'H'",
+              "description": "The level of error correction to use. [Learn more](https://www.qrcode.com/en/about/error_correction.html)",
+              "fieldName": "errorCorrection"
+            }
+          ],
+          "superclass": {
+            "name": "WebAwesomeElement",
+            "module": "/src/internal/webawesome-element.js"
+          },
+          "summary": "Generates a [QR code](https://www.qrcode.com/) and renders it using the [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API).",
+          "jsDoc": "/**\n * @summary Generates a [QR code](https://www.qrcode.com/) and renders it using the [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API).\n * @documentation https://webawesome.com/docs/components/qr-code\n * @status stable\n * @since 2.0\n *\n * @csspart base - The component's base wrapper.\n */",
+          "documentation": "https://webawesome.com/docs/components/qr-code",
+          "status": "stable",
+          "since": "2.0",
+          "tagName": "wa-qr-code",
+          "customElement": true,
+          "modulePath": "components/qr-code/qr-code.js",
+          "definitionPath": "components/qr-code/qr-code.js"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "WaQrCode",
+            "module": "components/qr-code/qr-code.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wa-qr-code",
+          "declaration": {
+            "name": "WaQrCode",
+            "module": "components/qr-code/qr-code.js"
           }
         }
       ]
@@ -12156,6 +12528,9 @@
                 "type": {
                   "text": "void"
                 }
+              },
+              "type": {
+                "text": "setValue() => void"
               }
             },
             {
@@ -12247,7 +12622,9 @@
             "wa-icon"
           ],
           "tagName": "wa-radio",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/radio/radio.js",
+          "definitionPath": "components/radio/radio.js"
         }
       ],
       "exports": [
@@ -12495,7 +12872,10 @@
                     "text": "Parameters<WebAwesomeFormAssociatedElement['formResetCallback']>"
                   }
                 }
-              ]
+              ],
+              "type": {
+                "text": "formResetCallback(args: Parameters<WebAwesomeFormAssociatedElement['formResetCallback']>) => void"
+              }
             },
             {
               "kind": "field",
@@ -12543,7 +12923,10 @@
                   }
                 }
               ],
-              "description": "Sets focus on the radio group."
+              "description": "Sets focus on the radio group.",
+              "type": {
+                "text": "focus(options?: FocusOptions) => void"
+              }
             }
           ],
           "events": [
@@ -12676,7 +13059,9 @@
             "wa-radio"
           ],
           "tagName": "wa-radio-group",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/radio-group/radio-group.js",
+          "definitionPath": "components/radio-group/radio-group.js"
         }
       ],
       "exports": [
@@ -13017,11 +13402,17 @@
             },
             {
               "kind": "method",
-              "name": "handleHoverValueChange"
+              "name": "handleHoverValueChange",
+              "type": {
+                "text": "handleHoverValueChange() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "handleIsHoveringChange"
+              "name": "handleIsHoveringChange",
+              "type": {
+                "text": "handleIsHoveringChange() => void"
+              }
             },
             {
               "kind": "method",
@@ -13035,12 +13426,18 @@
                   }
                 }
               ],
-              "description": "Sets focus on the rating."
+              "description": "Sets focus on the rating.",
+              "type": {
+                "text": "focus(options?: FocusOptions) => void"
+              }
             },
             {
               "kind": "method",
               "name": "blur",
-              "description": "Removes focus from the rating."
+              "description": "Removes focus from the rating.",
+              "type": {
+                "text": "blur() => void"
+              }
             }
           ],
           "events": [
@@ -13154,7 +13551,9 @@
             "wa-icon"
           ],
           "tagName": "wa-rating",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/rating/rating.js",
+          "definitionPath": "components/rating/rating.js"
         }
       ],
       "exports": [
@@ -13307,7 +13706,9 @@
           "status": "stable",
           "since": "2.0",
           "tagName": "wa-relative-time",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/relative-time/relative-time.js",
+          "definitionPath": "components/relative-time/relative-time.js"
         }
       ],
       "exports": [
@@ -13395,7 +13796,10 @@
             },
             {
               "kind": "method",
-              "name": "handleDisabledChange"
+              "name": "handleDisabledChange",
+              "type": {
+                "text": "handleDisabledChange() => void"
+              }
             }
           ],
           "events": [
@@ -13435,7 +13839,9 @@
           "status": "stable",
           "since": "2.0",
           "tagName": "wa-resize-observer",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/resize-observer/resize-observer.js",
+          "definitionPath": "components/resize-observer/resize-observer.js"
         }
       ],
       "exports": [
@@ -13623,7 +14029,9 @@
           "status": "stable",
           "since": "3.0",
           "tagName": "wa-scroller",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/scroller/scroller.js",
+          "definitionPath": "components/scroller/scroller.js"
         }
       ],
       "exports": [
@@ -14216,7 +14624,10 @@
             {
               "kind": "method",
               "name": "handleDefaultSlotChange",
-              "privacy": "public"
+              "privacy": "public",
+              "type": {
+                "text": "handleDefaultSlotChange() => void"
+              }
             },
             {
               "kind": "method",
@@ -14297,7 +14708,10 @@
             {
               "kind": "method",
               "name": "selectionChanged",
-              "privacy": "public"
+              "privacy": "public",
+              "type": {
+                "text": "selectionChanged() => void"
+              }
             },
             {
               "kind": "field",
@@ -14307,25 +14721,40 @@
             },
             {
               "kind": "method",
-              "name": "handleDisabledChange"
+              "name": "handleDisabledChange",
+              "type": {
+                "text": "handleDisabledChange() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "handleValueChange"
+              "name": "handleValueChange",
+              "type": {
+                "text": "handleValueChange() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "handleOpenChange"
+              "name": "handleOpenChange",
+              "type": {
+                "text": "handleOpenChange() => void"
+              }
             },
             {
               "kind": "method",
               "name": "show",
-              "description": "Shows the listbox."
+              "description": "Shows the listbox.",
+              "type": {
+                "text": "show() => void"
+              }
             },
             {
               "kind": "method",
               "name": "hide",
-              "description": "Hides the listbox."
+              "description": "Hides the listbox.",
+              "type": {
+                "text": "hide() => void"
+              }
             },
             {
               "kind": "method",
@@ -14339,16 +14768,25 @@
                   }
                 }
               ],
-              "description": "Sets focus on the control."
+              "description": "Sets focus on the control.",
+              "type": {
+                "text": "focus(options?: FocusOptions) => void"
+              }
             },
             {
               "kind": "method",
               "name": "blur",
-              "description": "Removes focus from the control."
+              "description": "Removes focus from the control.",
+              "type": {
+                "text": "blur() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "formResetCallback"
+              "name": "formResetCallback",
+              "type": {
+                "text": "formResetCallback() => void"
+              }
             }
           ],
           "events": [
@@ -14606,7 +15044,9 @@
             "wa-option"
           ],
           "tagName": "wa-select",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/select/select.js",
+          "definitionPath": "components/select/select.js"
         }
       ],
       "exports": [
@@ -14692,7 +15132,9 @@
           "status": "stable",
           "since": "2.0",
           "tagName": "wa-skeleton",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/skeleton/skeleton.js",
+          "definitionPath": "components/skeleton/skeleton.js"
         }
       ],
       "exports": [
@@ -15418,25 +15860,37 @@
               "kind": "method",
               "name": "focus",
               "privacy": "public",
-              "description": "Sets focus to the slider."
+              "description": "Sets focus to the slider.",
+              "type": {
+                "text": "focus() => void"
+              }
             },
             {
               "kind": "method",
               "name": "blur",
               "privacy": "public",
-              "description": "Removes focus from the slider."
+              "description": "Removes focus from the slider.",
+              "type": {
+                "text": "blur() => void"
+              }
             },
             {
               "kind": "method",
               "name": "stepDown",
               "privacy": "public",
-              "description": "Decreases the slider's value by `step`. This is a programmatic change, so `input` and `change` events will not be\nemitted when this is called."
+              "description": "Decreases the slider's value by `step`. This is a programmatic change, so `input` and `change` events will not be\nemitted when this is called.",
+              "type": {
+                "text": "stepDown() => void"
+              }
             },
             {
               "kind": "method",
               "name": "stepUp",
               "privacy": "public",
-              "description": "Increases the slider's value by `step`. This is a programmatic change, so `input` and `change` events will not be\nemitted when this is called."
+              "description": "Increases the slider's value by `step`. This is a programmatic change, so `input` and `change` events will not be\nemitted when this is called.",
+              "type": {
+                "text": "stepUp() => void"
+              }
             }
           ],
           "events": [
@@ -15714,7 +16168,9 @@
             "wa-tooltip"
           ],
           "tagName": "wa-slider",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/slider/slider.js",
+          "definitionPath": "components/slider/slider.js"
         }
       ],
       "exports": [
@@ -15793,7 +16249,9 @@
           "status": "stable",
           "since": "2.0",
           "tagName": "wa-spinner",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/spinner/spinner.js",
+          "definitionPath": "components/spinner/spinner.js"
         }
       ],
       "exports": [
@@ -16082,15 +16540,24 @@
             },
             {
               "kind": "method",
-              "name": "handlePositionChange"
+              "name": "handlePositionChange",
+              "type": {
+                "text": "handlePositionChange() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "handlePositionInPixelsChange"
+              "name": "handlePositionInPixelsChange",
+              "type": {
+                "text": "handlePositionInPixelsChange() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "handleVerticalChange"
+              "name": "handleVerticalChange",
+              "type": {
+                "text": "handleVerticalChange() => void"
+              }
             }
           ],
           "events": [
@@ -16178,7 +16645,9 @@
           "status": "stable",
           "since": "2.0",
           "tagName": "wa-split-panel",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/split-panel/split-panel.js",
+          "definitionPath": "components/split-panel/split-panel.js"
         }
       ],
       "exports": [
@@ -16432,24 +16901,39 @@
             },
             {
               "kind": "method",
-              "name": "handleValueOrCheckedChange"
+              "name": "handleValueOrCheckedChange",
+              "type": {
+                "text": "handleValueOrCheckedChange() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "handleDefaultCheckedChange"
+              "name": "handleDefaultCheckedChange",
+              "type": {
+                "text": "handleDefaultCheckedChange() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "handleStateChange"
+              "name": "handleStateChange",
+              "type": {
+                "text": "handleStateChange() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "handleDisabledChange"
+              "name": "handleDisabledChange",
+              "type": {
+                "text": "handleDisabledChange() => void"
+              }
             },
             {
               "kind": "method",
               "name": "click",
-              "description": "Simulates a click on the switch."
+              "description": "Simulates a click on the switch.",
+              "type": {
+                "text": "click() => void"
+              }
             },
             {
               "kind": "method",
@@ -16463,12 +16947,18 @@
                   }
                 }
               ],
-              "description": "Sets focus on the switch."
+              "description": "Sets focus on the switch.",
+              "type": {
+                "text": "focus(options?: FocusOptions) => void"
+              }
             },
             {
               "kind": "method",
               "name": "blur",
-              "description": "Removes focus from the switch."
+              "description": "Removes focus from the switch.",
+              "type": {
+                "text": "blur() => void"
+              }
             },
             {
               "kind": "method",
@@ -16492,7 +16982,10 @@
                     "text": "string | File | FormData | null | undefined"
                   }
                 }
-              ]
+              ],
+              "type": {
+                "text": "setValue(value: string | File | FormData | null, stateValue?: string | File | FormData | null | undefined) => void"
+              }
             },
             {
               "kind": "method",
@@ -16501,6 +16994,9 @@
                 "type": {
                   "text": "void"
                 }
+              },
+              "type": {
+                "text": "formResetCallback() => void"
               }
             }
           ],
@@ -16641,7 +17137,9 @@
           "status": "stable",
           "since": "2.0",
           "tagName": "wa-switch",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/switch/switch.js",
+          "definitionPath": "components/switch/switch.js"
         }
       ],
       "exports": [
@@ -16738,11 +17236,17 @@
             },
             {
               "kind": "method",
-              "name": "handleActiveChange"
+              "name": "handleActiveChange",
+              "type": {
+                "text": "handleActiveChange() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "handleDisabledChange"
+              "name": "handleDisabledChange",
+              "type": {
+                "text": "handleDisabledChange() => void"
+              }
             }
           ],
           "attributes": [
@@ -16775,7 +17279,9 @@
           "status": "stable",
           "since": "2.0",
           "tagName": "wa-tab",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/tab/tab.js",
+          "definitionPath": "components/tab/tab.js"
         }
       ],
       "exports": [
@@ -17101,11 +17607,17 @@
             },
             {
               "kind": "method",
-              "name": "updateActiveTab"
+              "name": "updateActiveTab",
+              "type": {
+                "text": "updateActiveTab() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "updateScrollControls"
+              "name": "updateScrollControls",
+              "type": {
+                "text": "updateScrollControls() => void"
+              }
             }
           ],
           "events": [
@@ -17186,7 +17698,9 @@
             "wa-tab-panel"
           ],
           "tagName": "wa-tab-group",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/tab-group/tab-group.js",
+          "definitionPath": "components/tab-group/tab-group.js"
         }
       ],
       "exports": [
@@ -17282,7 +17796,10 @@
             },
             {
               "kind": "method",
-              "name": "handleActiveChange"
+              "name": "handleActiveChange",
+              "type": {
+                "text": "handleActiveChange() => void"
+              }
             }
           ],
           "attributes": [
@@ -17315,7 +17832,9 @@
           "status": "stable",
           "since": "2.0",
           "tagName": "wa-tab-panel",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/tab-panel/tab-panel.js",
+          "definitionPath": "components/tab-panel/tab-panel.js"
         }
       ],
       "exports": [
@@ -17519,7 +18038,9 @@
             "wa-button"
           ],
           "tagName": "wa-tag",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/tag/tag.js",
+          "definitionPath": "components/tag/tag.js"
         }
       ],
       "exports": [
@@ -17941,11 +18462,17 @@
             },
             {
               "kind": "method",
-              "name": "handleRowsChange"
+              "name": "handleRowsChange",
+              "type": {
+                "text": "handleRowsChange() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "handleValueChange"
+              "name": "handleValueChange",
+              "type": {
+                "text": "handleValueChange() => void"
+              }
             },
             {
               "kind": "method",
@@ -17959,17 +18486,26 @@
                   }
                 }
               ],
-              "description": "Sets focus on the textarea."
+              "description": "Sets focus on the textarea.",
+              "type": {
+                "text": "focus(options?: FocusOptions) => void"
+              }
             },
             {
               "kind": "method",
               "name": "blur",
-              "description": "Removes focus from the textarea."
+              "description": "Removes focus from the textarea.",
+              "type": {
+                "text": "blur() => void"
+              }
             },
             {
               "kind": "method",
               "name": "select",
-              "description": "Selects all the text in the textarea."
+              "description": "Selects all the text in the textarea.",
+              "type": {
+                "text": "select() => void"
+              }
             },
             {
               "kind": "method",
@@ -17988,7 +18524,10 @@
                   }
                 }
               ],
-              "description": "Gets or sets the textarea's scroll position."
+              "description": "Gets or sets the textarea's scroll position.",
+              "type": {
+                "text": "scrollPosition(position?: { top?: number; left?: number }) => { top: number; left: number } | undefined"
+              }
             },
             {
               "kind": "method",
@@ -18014,7 +18553,10 @@
                   }
                 }
               ],
-              "description": "Sets the start and end positions of the text selection (0-based)."
+              "description": "Sets the start and end positions of the text selection (0-based).",
+              "type": {
+                "text": "setSelectionRange(selectionStart: number, selectionEnd: number, selectionDirection: 'forward' | 'backward' | 'none' = 'none') => void"
+              }
             },
             {
               "kind": "method",
@@ -18048,11 +18590,17 @@
                   }
                 }
               ],
-              "description": "Replaces a range of text with a new string."
+              "description": "Replaces a range of text with a new string.",
+              "type": {
+                "text": "setRangeText(replacement: string, start?: number, end?: number, selectMode: 'select' | 'start' | 'end' | 'preserve' = 'preserve') => void"
+              }
             },
             {
               "kind": "method",
-              "name": "formResetCallback"
+              "name": "formResetCallback",
+              "type": {
+                "text": "formResetCallback() => void"
+              }
             }
           ],
           "events": [
@@ -18320,7 +18868,9 @@
           "status": "stable",
           "since": "2.0",
           "tagName": "wa-textarea",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/textarea/textarea.js",
+          "definitionPath": "components/textarea/textarea.js"
         }
       ],
       "exports": [
@@ -18509,6 +19059,17 @@
             },
             {
               "kind": "field",
+              "name": "withoutArrow",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Removes the arrow from the tooltip.",
+              "attribute": "without-arrow",
+              "reflects": true
+            },
+            {
+              "kind": "field",
               "name": "for",
               "type": {
                 "text": "string | null"
@@ -18575,29 +19136,47 @@
             },
             {
               "kind": "method",
-              "name": "handleOpenChange"
+              "name": "handleOpenChange",
+              "type": {
+                "text": "handleOpenChange() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "handleForChange"
+              "name": "handleForChange",
+              "type": {
+                "text": "handleForChange() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "handleOptionsChange"
+              "name": "handleOptionsChange",
+              "type": {
+                "text": "handleOptionsChange() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "handleDisabledChange"
+              "name": "handleDisabledChange",
+              "type": {
+                "text": "handleDisabledChange() => void"
+              }
             },
             {
               "kind": "method",
               "name": "show",
-              "description": "Shows the tooltip."
+              "description": "Shows the tooltip.",
+              "type": {
+                "text": "show() => void"
+              }
             },
             {
               "kind": "method",
               "name": "hide",
-              "description": "Hides the tooltip"
+              "description": "Hides the tooltip",
+              "type": {
+                "text": "hide() => void"
+              }
             }
           ],
           "events": [
@@ -18705,6 +19284,15 @@
               "fieldName": "trigger"
             },
             {
+              "name": "without-arrow",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Removes the arrow from the tooltip.",
+              "fieldName": "withoutArrow"
+            },
+            {
               "name": "for",
               "type": {
                 "text": "string | null"
@@ -18726,7 +19314,9 @@
             "wa-popup"
           ],
           "tagName": "wa-tooltip",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/tooltip/tooltip.js",
+          "definitionPath": "components/tooltip/tooltip.js"
         }
       ],
       "exports": [
@@ -18964,7 +19554,10 @@
                     "text": "MouseEvent"
                   }
                 }
-              ]
+              ],
+              "type": {
+                "text": "handleMouseDown(event: MouseEvent) => void"
+              }
             },
             {
               "kind": "field",
@@ -18983,7 +19576,10 @@
             },
             {
               "kind": "method",
-              "name": "handleSelectionChange"
+              "name": "handleSelectionChange",
+              "type": {
+                "text": "handleSelectionChange() => void"
+              }
             }
           ],
           "events": [
@@ -19026,7 +19622,9 @@
             "wa-tree-item"
           ],
           "tagName": "wa-tree",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/tree/tree.js",
+          "definitionPath": "components/tree/tree.js"
         }
       ],
       "exports": [
@@ -19158,7 +19756,10 @@
                     "text": "Node"
                   }
                 }
-              ]
+              ],
+              "type": {
+                "text": "isTreeItem(node: Node) => void"
+              }
             },
             {
               "kind": "field",
@@ -19305,35 +19906,59 @@
             },
             {
               "kind": "method",
-              "name": "handleLoadingChange"
+              "name": "handleLoadingChange",
+              "type": {
+                "text": "handleLoadingChange() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "handleDisabledChange"
+              "name": "handleDisabledChange",
+              "type": {
+                "text": "handleDisabledChange() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "handleExpandedState"
+              "name": "handleExpandedState",
+              "type": {
+                "text": "handleExpandedState() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "handleIndeterminateStateChange"
+              "name": "handleIndeterminateStateChange",
+              "type": {
+                "text": "handleIndeterminateStateChange() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "handleSelectedChange"
+              "name": "handleSelectedChange",
+              "type": {
+                "text": "handleSelectedChange() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "handleExpandedChange"
+              "name": "handleExpandedChange",
+              "type": {
+                "text": "handleExpandedChange() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "handleExpandAnimation"
+              "name": "handleExpandAnimation",
+              "type": {
+                "text": "handleExpandAnimation() => void"
+              }
             },
             {
               "kind": "method",
-              "name": "handleLazyChange"
+              "name": "handleLazyChange",
+              "type": {
+                "text": "handleLazyChange() => void"
+              }
             },
             {
               "kind": "method",
@@ -19352,7 +19977,10 @@
                   }
                 }
               ],
-              "description": "Gets all the nested tree items in this node."
+              "description": "Gets all the nested tree items in this node.",
+              "type": {
+                "text": "getChildrenItems({ includeDisabled = true }: { includeDisabled?: boolean } = {}) => WaTreeItem[]"
+              }
             }
           ],
           "events": [
@@ -19469,7 +20097,9 @@
             "wa-spinner"
           ],
           "tagName": "wa-tree-item",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/tree-item/tree-item.js",
+          "definitionPath": "components/tree-item/tree-item.js"
         }
       ],
       "exports": [
@@ -19728,13 +20358,19 @@
               "kind": "method",
               "name": "zoomIn",
               "privacy": "public",
-              "description": "Zooms in to the next available zoom level."
+              "description": "Zooms in to the next available zoom level.",
+              "type": {
+                "text": "zoomIn() => void"
+              }
             },
             {
               "kind": "method",
               "name": "zoomOut",
               "privacy": "public",
-              "description": "Zooms out to the previous available zoom level."
+              "description": "Zooms out to the previous available zoom level.",
+              "type": {
+                "text": "zoomOut() => void"
+              }
             },
             {
               "kind": "method",
@@ -19868,7 +20504,9 @@
             "wa-icon"
           ],
           "tagName": "wa-zoomable-frame",
-          "customElement": true
+          "customElement": true,
+          "modulePath": "components/zoomable-frame/zoomable-frame.js",
+          "definitionPath": "components/zoomable-frame/zoomable-frame.js"
         }
       ],
       "exports": [
@@ -19894,7 +20532,7 @@
   "package": {
     "name": "@awesome.me/webawesome",
     "description": "A forward-thinking library of web components.",
-    "version": "3.0.0-beta.3",
+    "version": "3.0.0-beta.4",
     "author": "Web Awesome",
     "homepage": "https://webawesome.com/",
     "license": "MIT"
