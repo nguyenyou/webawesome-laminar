@@ -1,9 +1,9 @@
-//| mill-version: 1.0.2
+//| mill-version: 1.0.4
 
 import mill.*, scalalib.*, scalajslib.*, scalajslib.api.*
 
 object myapp extends ScalaJSModule {
-  def scalaVersion = "3.7.1"
+  def scalaVersion = "3.3.6"
   def scalaJSVersion = "1.19.0"
 
   def moduleKind = ModuleKind.ESModule
@@ -12,6 +12,6 @@ object myapp extends ScalaJSModule {
   def mvnDeps = Seq(
     mvn"org.scala-js::scalajs-dom::2.8.1",
     mvn"com.raquo::laminar::17.2.1",
-    mvn"io.github.nguyenyou::webawesome-laminar::0.3.0",
+    mvn"io.github.nguyenyou::webawesome-laminar::0.4.0",
   )
 }
