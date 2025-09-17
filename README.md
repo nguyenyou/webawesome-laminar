@@ -1,3 +1,4 @@
+![Scala3](https://img.shields.io/badge/Scala%203-%23de3423.svg?logo=scala&logoColor=white)
 ![Maven Central Version](https://img.shields.io/maven-central/v/io.github.nguyenyou/webawesome-laminar_sjs1_3)
 
 <p align="center">
