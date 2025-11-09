@@ -83,6 +83,20 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
       return;
     }
 
+    // Early exit: Check if there are any scala code blocks with preview/examples meta
+    let hasPreviewOrExamples = false;
+    visit(tree, "code", (node) => {
+      if (node.lang === "scala" && 
+          (node.meta?.includes("preview") || node.meta?.includes("examples"))) {
+        hasPreviewOrExamples = true;
+      }
+    });
+
+    // Skip processing entirely if no matching code blocks found
+    if (!hasPreviewOrExamples) {
+      return;
+    }
+
     // Get docs directory where examples-build is located
     const docsDir = getDocsDir(file);
 
