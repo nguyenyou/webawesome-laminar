@@ -16,7 +16,7 @@ The default icon library is Font Awesome Free, which comes with two icon familie
 
 Many Font Awesome Pro icon families have variants such as `thin`, `light`, `regular`, and `solid`. Font Awesome Pro users can [provide their kit code](/docs/#using-font-awesome-kit-codes) to unlock additional families, including `sharp`, `duotone`, and `sharp-duotone`. For these icon families, use the `variant` attribute to set the variant.
 
-```scala preview
+```scala examples
 Icon(
   _.name := "eyedropper"
 )()
@@ -38,7 +38,7 @@ Icon(
 
 Icons inherit their color from the current text color. Thus, you can set the `color` property on the `<wa-icon>` element or an ancestor to change the color.
 
-```scala preview
+```scala examples
 div(
   color := "#4a90e2",
   cls("flex gap-2 mb-2"),
