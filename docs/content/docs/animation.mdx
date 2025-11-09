@@ -121,3 +121,43 @@ div(
 )
 ```
 
+### Using Intersection Observer
+
+Use an [Intersection Observer](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) to control the animation when an element enters or exits the viewport. For example, scroll the box below in and out of your screen. The animation stops when the box exits the viewport and restarts each time it enters the viewport.
+
+```css forId="animation-scroll"
+.animation-scroll .box {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background-color: var(--wa-color-brand-fill-loud);
+}
+```
+
+```scala preview id="animation-scroll"
+import org.scalajs.dom.IntersectionObserver
+
+val box = div(cls("box"))
+val animation = Animation(
+  _.name := "jackInTheBox",
+  _.duration := 2000,
+  _.iterations := 1
+)(
+  box
+)
+
+val observer = new IntersectionObserver((entries, _) => {
+  if (entries(0).isIntersecting) {
+    animation.ref.play = true;
+  } else {
+    animation.ref.play = false;
+  }
+})
+
+observer.observe(box.ref)
+
+div(
+  cls("animation-scroll"),
+  animation
+)
+```
