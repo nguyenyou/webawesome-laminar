@@ -33,7 +33,7 @@ export const Preview = ({
     <Tabs items={["Preview", "Code"]}>
       <Tab value="Preview" className="w-full">
         <Frame
-          title="Custom Frame"
+          title="Preview"
           className="outline-none rounded-lg bg-fd-background w-full h-(--height)"
           srcDoc={srcDoc}
         ></Frame>
