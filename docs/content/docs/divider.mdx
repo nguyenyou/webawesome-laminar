@@ -14,7 +14,7 @@ Use the `--width` custom property to change the width of the divider.
 
 ```scala preview
 Divider(
-  _.style := "--width: 4px;" // [!code highlight]
+  _.style := "--width: 4px;" 
 )()
 ```
 
@@ -24,7 +24,7 @@ Use the `--color` custom property to change the color of the divider.
 
 ```scala preview
 Divider(
-  _.style := "--color: tomato;" // [!code highlight]
+  _.style := "--color: tomato;" 
 )()
 ```
 
@@ -37,7 +37,7 @@ div(
   textAlign.center,
   "Above",
   Divider(
-    _.style := "--spacing: 2rem;" // [!code highlight]
+    _.style := "--spacing: 2rem;" 
   )(),
   "Below"
 )
@@ -53,11 +53,11 @@ div(
   alignItems.center,
   "First",
   Divider(
-    _.orientation.vertical // [!code highlight]
+    _.orientation.vertical 
   )(),
   "Middle",
   Divider(
-    _.orientation.vertical // [!code highlight]
+    _.orientation.vertical 
   )(),
   "Last"
 )
@@ -74,7 +74,7 @@ Dropdown(
       _.withCaret := true
     )("Menu")
   ),
-  _.style := "max-width: 200px;" // [!code highlight]
+  _.style := "max-width: 200px;" 
 )(
   DropdownItem(
     _.value := "1"
@@ -85,7 +85,7 @@ Dropdown(
   DropdownItem(
     _.value := "3"
   )("Option 3"),
-  Divider()(), // [!code highlight]
+  Divider()(), 
   DropdownItem(
     _.value := "4"
   )("Option 4"),

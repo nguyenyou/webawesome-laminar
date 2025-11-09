@@ -50,21 +50,21 @@ Icons work well, but you can also use text or an image.
 
 ```scala examples vertical
 Breadcrumb(
-  _.slots.separator(Icon(_.name := "angles-right", _.variant := "solid")()) // [!code highlight]
+  _.slots.separator(Icon(_.name := "angles-right", _.variant := "solid")()) 
 )(
   BreadcrumbItem()("First"),
   BreadcrumbItem()("Second"),
   BreadcrumbItem()("Third")
 )
 Breadcrumb(
-  _.slots.separator(Icon(_.name := "arrow-right", _.variant := "solid")()) // [!code highlight]
+  _.slots.separator(Icon(_.name := "arrow-right", _.variant := "solid")()) 
 )(
   BreadcrumbItem()("First"),
   BreadcrumbItem()("Second"),
   BreadcrumbItem()("Third")
 )
 Breadcrumb(
-  _.slots.separator(span("/")) // [!code highlight]
+  _.slots.separator(span("/")) 
 )(
   BreadcrumbItem()("First"),
   BreadcrumbItem()("Second"),
@@ -115,7 +115,7 @@ Breadcrumb()(
     Dropdown(
       _.slots.trigger(
         Button(_.size.small, _.appearance.filled, _.pill := true)(
-          Icon(_.label := "More options", _.name := "ellipsis", _.variant := "solid")() // [!code highlight]
+          Icon(_.label := "More options", _.name := "ellipsis", _.variant := "solid")() 
         )
       )
     )(
@@ -141,7 +141,7 @@ Breadcrumb()(
       Dropdown(
         _.slots.trigger(
           Button(_.size.small, _.appearance.filled, _.pill := true)(
-            Icon(_.label := "More options", _.name := "ellipsis", _.variant := "solid")() // [!code highlight]
+            Icon(_.label := "More options", _.name := "ellipsis", _.variant := "solid")() 
           )
         )
       )(

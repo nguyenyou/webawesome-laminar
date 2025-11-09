@@ -79,11 +79,11 @@ You can open and close dialogs with JavaScript by toggling the `open` attribute,
 
 ```scala example h-96
 Dialog(
-  _.id    := "dialog-opening", // [!code highlight]
+  _.id    := "dialog-opening", 
   _.label := "Dialog"
 )("Lorem ipsum dolor sit amet, consectetur adipiscing elit."),
 Button(
-  _.open.dialog("dialog-opening") // [!code highlight]
+  _.open.dialog("dialog-opening") 
 )("Open Dialog")
 ```
 
@@ -91,17 +91,17 @@ Similarly, you can add `_.closeDialog` to a button _inside_ of a dialog to tell 
 
 ```scala example h-96
 Dialog(
-  _.id    := "dialog-dismiss", // [!code highlight]
+  _.id    := "dialog-dismiss", 
   _.label := "Dialog",
   _.slots.footer(
     Button(
       _.variant.brand,
-      _.close.dialog // [!code highlight]
+      _.close.dialog 
     )("Close")
   )
 )("Lorem ipsum dolor sit amet, consectetur adipiscing elit."),
 Button(
-  _.open.dialog("dialog-dismiss") // [!code highlight]
+  _.open.dialog("dialog-dismiss") 
 )("Open Dialog")
 ```
 
@@ -113,7 +113,7 @@ Just use the `--width` custom property to set the dialog's width.
 Dialog(
     _.id    := "dialog-custom-width",
     _.label := "Dialog",
-    _.style := "--width: 50vw;", // [!code highlight]
+    _.style := "--width: 50vw;", 
     _.slots.footer(
       Button(
         _.variant.brand,
@@ -200,7 +200,7 @@ If you want the dialog to close when the user clicks on the overlay, add the `li
 Dialog(
   _.id           := "dialog-light-dismiss",
   _.label        := "Dialog",
-  _.lightDismiss := true, // [!code highlight]
+  _.lightDismiss := true, 
   _.slots.footer(
     Button(
       _.variant.brand,
@@ -262,7 +262,7 @@ Dialog(
   )
 )(
   Input(
-    _.autofocus   := true, // [!code highlight]
+    _.autofocus   := true, 
     _.placeholder := "I will have focus when the dialog is opened"
   )()
 ),

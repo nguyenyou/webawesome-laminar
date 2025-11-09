@@ -3,7 +3,7 @@ title: Animated Image
 description: A component for displaying animated GIFs and WEBPs that play and pause on interaction.
 ---
 
-```scala preview
+```scala preview h-[490px]
 AnimatedImage(
   _.src := "https://shoelace.style/assets/images/walk.gif",
   _.alt := "Animation of untied shoes walking on pavement"
@@ -20,7 +20,7 @@ This component uses `<canvas>` to draw freeze frames, so images are subject to [
 
 Both GIF and WEBP images are supported.
 
-```scala preview
+```scala preview h-[280px]
 AnimatedImage(
   _.src := "https://shoelace.style/assets/images/tie.webp",
   _.alt := "Animation of a shoe being tied"
@@ -31,7 +31,7 @@ AnimatedImage(
 
 To set a custom size, apply a width and/or height to the host element.
 
-```scala preview
+```scala preview h-[220px]
 AnimatedImage(
   _.src   := "https://shoelace.style/assets/images/walk.gif",
   _.alt   := "Animation of untied shoes walking on pavement",
@@ -55,7 +55,7 @@ You can change the appearance and location of the control box by targeting the `
 }
 ```
 
-```scala preview id="animated-image-custom-control-box"
+```scala preview id="animated-image-custom-control-box" h-[500px]
 AnimatedImage(
   _.src := "https://shoelace.style/assets/images/walk.gif",
   _.alt := "Animation of untied shoes walking on pavement"

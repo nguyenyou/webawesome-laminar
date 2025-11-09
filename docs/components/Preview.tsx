@@ -8,7 +8,7 @@ export const Preview = ({
   userCode,
   exampleId = "example1",
   height,
-  css
+  css,
 }: {
   code: string;
   userCode?: string;
@@ -16,8 +16,8 @@ export const Preview = ({
   height?: string;
   css?: string;
 }) => {
-  const h = height ?? "h-(--height)"
-  const ref = useRef<HTMLIFrameElement>(null)
+  const h = height ?? "h-(--height)";
+  const ref = useRef<HTMLIFrameElement>(null);
   const srcDoc = `<html>
 <head>
 <meta charset="UTF-8">
@@ -25,6 +25,9 @@ export const Preview = ({
 <link href="//cdn.jsdelivr.net/npm/@awesome.me/webawesome@3.0.0/dist-cdn/styles/themes/default.min.css" rel="stylesheet" />
 <base target=_blank>
 <style>
+  html, body {
+    margin: 0;
+  }
   body {
     padding: 4px;
   }  
@@ -48,26 +51,45 @@ ${css ? `<style>${css}</style>` : ""}
 
   const displayCode = userCode || "";
 
+  // return (
+  //   <Tabs items={["Preview", "Code"]}>
+  //     <Tab value="Preview" className="w-full">
+  //       <Frame
+  //         ref={ref}
+  //         title="Preview"
+  //         className={`outline-none rounded-lg bg-fd-background w-full ${h}`}
+  //         srcDoc={srcDoc}
+  //         onMount={() => {
+  //           const doc = ref.current?.contentDocument
+  //           if (!doc) return
+  //           const script = doc.createElement('script')
+  //           script.src = 'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4'
+  //           doc.body.appendChild(script)
+  //         }}
+  //       ></Frame>
+  //     </Tab>
+  //     <Tab value="Code" className="w-full">
+  //       <DynamicCodeBlock code={displayCode} lang="scala" />
+  //     </Tab>
+  //   </Tabs>
+  // );
+
   return (
-    <Tabs items={["Preview", "Code"]}>
-      <Tab value="Preview" className="w-full">
-        <Frame
-          ref={ref}
-          title="Preview"
-          className={`outline-none rounded-lg bg-fd-background w-full ${h}`}
-          srcDoc={srcDoc}
-          onMount={() => {
-            const doc = ref.current?.contentDocument
-            if (!doc) return
-            const script = doc.createElement('script')
-            script.src = 'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4'
-            doc.body.appendChild(script)
-          }}
-        ></Frame>
-      </Tab>
-      <Tab value="Code" className="w-full">
-        <DynamicCodeBlock code={displayCode} lang="scala" />
-      </Tab>
-    </Tabs>
+    <div className="border p-4 rounded-xl space-y-2">
+      <Frame
+        ref={ref}
+        title="Preview"
+        className={`outline-none rounded-lg bg-fd-background w-full ${h}`}
+        srcDoc={srcDoc}
+        onMount={() => {
+          const doc = ref.current?.contentDocument;
+          if (!doc) return;
+          const script = doc.createElement("script");
+          script.src = "https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4";
+          doc.body.appendChild(script);
+        }}
+      ></Frame>
+      <DynamicCodeBlock code={displayCode} lang="scala"/>
+    </div>
   );
 };

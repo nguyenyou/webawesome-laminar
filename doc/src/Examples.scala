@@ -7,7 +7,6 @@ def Examples(children: HtmlElement*) = {
     display.flex,
     flexWrap.wrap,
     gap.px(16),
-    padding.px(8),
     children
   )
 }

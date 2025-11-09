@@ -4,7 +4,7 @@ title: Badge
 
 ## Basic
 
-```scala preview
+```scala preview h-[32px]
 Badge()("Badge")
 ```
 
@@ -12,7 +12,7 @@ Badge()("Badge")
 
 Set the `variant` attribute to change the badge's variant.
 
-```scala examples
+```scala examples h-[36px]
 Badge(_.variant.brand)("Brand")
 Badge(_.variant.success)("Success")
 Badge(_.variant.neutral)("Neutral")
@@ -24,7 +24,7 @@ Badge(_.variant.danger)("Danger")
 
 Use the `appearance` attribute to change the badge's visual appearance.
 
-```scala examples
+```scala examples h-[160px]
 Badge(_.appearance.accent, _.variant.neutral)("Accent")
 Badge(_.appearance.filledOutlined, _.variant.neutral)("Filled + Outlined")
 Badge(_.appearance.filled, _.variant.neutral)("Filled")
@@ -55,35 +55,35 @@ Badge(_.appearance.outlined, _.variant.danger)("Outlined")
 
 Badges are sized relative to the current font size. You can set `font-size` on any badge (or an ancestor element) to change it.
 
-```scala examples
+```scala examples h-[56px]
 Badge(
   _.variant.brand
 )(
-  fontSize.px(12), // [!code highlight]
+  fontSize.px(12), 
   "Brand"
 )
 Badge(
   _.variant.brand
 )(
-  fontSize.px(14), // [!code highlight]
+  fontSize.px(14), 
   "Brand"
 )
 Badge(
   _.variant.brand
 )(
-  fontSize.px(16), // [!code highlight]
+  fontSize.px(16), 
   "Brand"
 )
 Badge(
   _.variant.brand
 )(
-  fontSize.px(18), // [!code highlight]
+  fontSize.px(18), 
   "Brand"
 )
 Badge(
   _.variant.brand
 )(
-  fontSize.px(20), // [!code highlight]
+  fontSize.px(20), 
   "Brand"
 )
 ```
@@ -92,7 +92,7 @@ Badge(
 
 Use the `pill` attribute to give badges rounded edges.
 
-```scala examples
+```scala examples h-[42px]
 Badge(_.variant.brand, _.pill := true)("Brand")
 Badge(_.variant.success, _.pill := true)("Success")
 Badge(_.variant.neutral, _.pill := true)("Neutral")
@@ -104,7 +104,7 @@ Badge(_.variant.danger, _.pill := true)("Danger")
 
 Use the `attention` attribute to draw attention to the badge with a subtle animation. Supported effects are `bounce`, `pulse` and `none`.
 
-```scala examples
+```scala examples h-[80px]
 Badge(_.variant.brand, _.attention.pulse, _.pill := true)("1")
 Badge(_.variant.success, _.attention.pulse, _.pill := true)("1")
 Badge(_.variant.neutral, _.attention.pulse, _.pill := true)("1")
