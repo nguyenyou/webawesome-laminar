@@ -10,6 +10,7 @@ import {
   extractHierarchicalPathSegments,
   getCompiledJsPath,
   readCompiledJsFile,
+  hasTemplateMeta,
 } from "./previewUtils";
 
 interface PreviewTransformPluginOptions {}
@@ -137,11 +138,10 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
       return;
     }
 
-    // Early exit: Check if there are any scala code blocks with preview/examples/example meta
+    // Early exit: Check if there are any scala code blocks with template meta
     let hasPreviewOrExamples = false;
     visit(tree, "code", (node) => {
-      if (node.lang === "scala" && 
-          (node.meta?.includes("preview") || node.meta?.includes("examples") || node.meta?.includes("example"))) {
+      if (node.lang === "scala" && hasTemplateMeta(node.meta)) {
         hasPreviewOrExamples = true;
       }
     });
@@ -208,8 +208,8 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
       
       // Collect Scala preview/examples/example code blocks
       if (node.lang === "scala") {
-        // Only process code blocks with "preview", "examples", or "example" meta
-        if (!node.meta?.includes("preview") && !node.meta?.includes("examples") && !node.meta?.includes("example")) {
+        // Only process code blocks with template meta
+        if (!hasTemplateMeta(node.meta)) {
           return;
         }
         

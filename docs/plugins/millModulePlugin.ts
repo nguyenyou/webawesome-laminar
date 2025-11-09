@@ -7,6 +7,9 @@ import {
   normalizePath,
   extractHierarchicalPathSegments,
   type TemplateContext,
+  type TemplateType,
+  extractTemplateType,
+  hasTemplateMeta,
 } from "./previewUtils";
 import { applyTemplateByType, toCamelCase } from "./templateProcessor";
 
@@ -27,23 +30,6 @@ const getMillPackageName = (pathSegments: string[]): string => {
   const packageSegments = pathSegments.map(toCamelCase);
   const packagePath = packageSegments.join(".");
   return `build.docs.examples.${packagePath}`;
-};
-
-/**
- * Extract template type from code block meta
- * Returns "preview" by default, or "examples" if specified, or "example" if specified
- */
-const extractTemplateType = (meta: string | null | undefined): "preview" | "examples" | "example" => {
-  if (!meta) {
-    return "preview";
-  }
-  if (meta.includes("example") && !meta.includes("examples")) {
-    return "example";
-  }
-  if (meta.includes("examples")) {
-    return "examples";
-  }
-  return "preview";
 };
 
 /**
@@ -108,7 +94,7 @@ const ensureParentModules = (workspaceRoot: string, pathSegments: string[]): voi
 interface ExampleData {
   counter: number;
   scalaCode: string;
-  templateType: "preview" | "examples" | "example";
+  templateType: TemplateType;
   vertical: boolean;
 }
 
@@ -208,13 +194,13 @@ export const millModulePlugin: Plugin<[MillModulePluginOptions?], Root> = () => 
     
     visit(tree, "code", (node) => {
       if (node.lang && node.lang === "scala") {
-        // Extract template type from meta (defaults to "preview")
-        const templateType = extractTemplateType(node.meta);
-        
-        // Only process code blocks with "preview", "examples", or "example" meta
-        if (!node.meta?.includes("preview") && !node.meta?.includes("examples") && !node.meta?.includes("example")) {
+        // Only process code blocks with template meta
+        if (!hasTemplateMeta(node.meta)) {
           return;
         }
+        
+        // Extract template type from meta (defaults to "preview")
+        const templateType = extractTemplateType(node.meta);
         
         // Extract vertical flag from meta
         const vertical = extractVerticalFlag(node.meta);

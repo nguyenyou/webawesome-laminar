@@ -84,3 +84,70 @@ export interface TemplateContext {
   vertical?: boolean;
 }
 
+/**
+ * Template type union for all supported template types
+ */
+export type TemplateType = "preview" | "examples" | "example";
+
+/**
+ * Template configuration mapping meta strings to template types
+ * Keys are the meta strings that trigger template transformation
+ * Values are the corresponding template types
+ * 
+ * Order matters: longer strings should come first to avoid substring matching issues
+ * (e.g., "examples" must come before "example")
+ */
+export const TEMPLATE_CONFIG: Record<string, TemplateType> = {
+  examples: "examples",
+  example: "example",
+  preview: "preview",
+};
+
+/**
+ * Get all template meta strings, sorted by length (longest first)
+ * This ensures we check longer strings before shorter ones to avoid substring matching issues
+ */
+const getTemplateMetaStrings = (): string[] => {
+  return Object.keys(TEMPLATE_CONFIG).sort((a, b) => b.length - a.length);
+};
+
+/**
+ * Check if a meta string contains any template keyword
+ * @param meta - The meta string to check (can be null or undefined)
+ * @returns true if meta contains any template keyword, false otherwise
+ */
+export const hasTemplateMeta = (meta: string | null | undefined): boolean => {
+  if (!meta) {
+    return false;
+  }
+  
+  const templateMetaStrings = getTemplateMetaStrings();
+  return templateMetaStrings.some(keyword => meta.includes(keyword));
+};
+
+/**
+ * Extract template type from code block meta string
+ * Checks longer strings first to avoid substring matching issues
+ * (e.g., "examples" is checked before "example")
+ * 
+ * @param meta - The meta string to extract template type from (can be null or undefined)
+ * @returns The template type, defaults to "preview" if no template keyword is found
+ */
+export const extractTemplateType = (meta: string | null | undefined): TemplateType => {
+  if (!meta) {
+    return "preview";
+  }
+  
+  // Check longer strings first to avoid substring matching issues
+  const templateMetaStrings = getTemplateMetaStrings();
+  
+  for (const keyword of templateMetaStrings) {
+    if (meta.includes(keyword)) {
+      return TEMPLATE_CONFIG[keyword];
+    }
+  }
+  
+  // Default to "preview" if no template keyword is found
+  return "preview";
+};
+

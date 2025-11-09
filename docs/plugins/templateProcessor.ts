@@ -1,4 +1,4 @@
-import type { TemplateContext } from "./previewUtils";
+import type { TemplateContext, TemplateType } from "./previewUtils";
 
 /**
  * Convert hyphenated string to camelCase
@@ -344,7 +344,7 @@ ${indentCode(exampleGroupsCall, 6)}
  * Switches between different template implementations
  */
 export const applyTemplateByType = (
-  templateType: "preview" | "examples" | "example",
+  templateType: TemplateType,
   ctx: TemplateContext
 ): string => {
   switch (templateType) {
