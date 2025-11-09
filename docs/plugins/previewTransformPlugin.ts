@@ -171,6 +171,12 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
     // Map CSS content by forId value for later matching with Preview components
     const cssByForId = new Map<string, string>();
     
+    // Track CSS nodes with forId that should be replaced with empty div nodes
+    const cssNodesToReplace: Array<{
+      parent: Parent;
+      index: number;
+    }> = [];
+    
     // Track nodes for transformation
     const previewNodes: Array<{
       node: Code;
@@ -189,6 +195,13 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
         const forId = parseForIdFromMeta(node.meta);
         if (forId && node.value) {
           cssByForId.set(forId, node.value);
+          // Mark this CSS node for replacement with empty div since it's only used to pass CSS to Preview
+          if (parent && typeof index === "number") {
+            cssNodesToReplace.push({
+              parent: parent as Parent,
+              index,
+            });
+          }
         }
         return;
       }
@@ -215,6 +228,19 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
         }
       }
     });
+
+    // Replace CSS nodes with forId with empty div nodes
+    // Sort by index in descending order to avoid index shifting when replacing
+    cssNodesToReplace.sort((a, b) => b.index - a.index);
+    for (const { parent, index } of cssNodesToReplace) {
+      const emptyDivElement: MdxJsxFlowElement = {
+        type: "mdxJsxFlowElement",
+        name: "div",
+        attributes: [],
+        children: [],
+      };
+      parent.children[index] = emptyDivElement;
+    }
 
     // Transform nodes to Preview components
     // All examples from the same doc file share the same JS module
