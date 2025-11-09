@@ -4,7 +4,7 @@ title: Dropdown
 
 ## Basic
 
-```scala preview
+```scala preview h-100
 Dropdown(
   _.slots.trigger(
     Button(_.withCaret := true)("View")
@@ -45,7 +45,7 @@ Dropdown(
 
 When an item is selected, the `wa-select` event will be emitted by the dropdown. You can inspect `event.detail.item` to get a reference to the selected item. If you've provided a value for each [dropdown item](/docs/components/dropdown-item), it will be available in `event.detail.item.value`.
 
-```scala preview
+```scala preview h-100
 Dropdown(
   _.onSelect.map(_.detail.item.value.toOption) --> Observer[Option[String]](println),
   _.slots.trigger(
@@ -63,7 +63,7 @@ Dropdown(
 
 Use the `icon` slot to add icons to [dropdown items](/docs/components/dropdown-item). This works best with [icon](/docs/components/icon) elements..
 
-```scala preview
+```scala preview h-100
 Dropdown(
   _.slots.trigger(
     Button(_.withCaret := true)("Edit")
@@ -80,7 +80,7 @@ Dropdown(
 
 Use any heading, e.g. `<h1>`–`<h6>` to add labels and the [`<wa-divider>`](/docs/components/divider) element for separators.
 
-```scala preview
+```scala preview h-100
 Dropdown(
   _.slots.trigger(
     Button(_.withCaret := true)("Device")
@@ -99,7 +99,7 @@ Dropdown(
 
 Use the `details` slot to display details, such as keyboard shortcuts, inside [dropdown items](/docs/components/dropdown-item).
 
-```scala preview
+```scala preview h-100
 Dropdown(
   _.slots.trigger(
     Button(_.withCaret := true)("Message")
@@ -133,7 +133,7 @@ Dropdown(
 
 You can turn a [dropdown item](/docs/components/dropdown-item) into a checkable option by setting `type="checkbox"`. Add the `checked` attribute to make it checked initially. When clicked, the item's checked state will toggle and the dropdown will close. You can cancel the `wa-select` event if you want to keep it open instead.
 
-```scala preview
+```scala preview h-100
 Dropdown(
   _.onSelect.map { event =>
     event.detail.item.`type`.toOption match {
@@ -160,7 +160,7 @@ Dropdown(
 
 Add `variant="danger"` to any [dropdown item](/docs/components/dropdown-item) to highlight that it's a dangerous action.
 
-```scala preview
+```scala preview h-100
 Dropdown(
   _.slots.trigger(
     Button(_.withCaret := true)("Project")
@@ -200,7 +200,7 @@ Dropdown(
 
 The preferred placement of the dropdown can be set with the `placement` attribute. Note that the actual position may vary to ensure the panel remains in the viewport.
 
-```scala preview
+```scala preview h-100
 Dropdown(
   _.slots.trigger(
     Button(
@@ -224,7 +224,7 @@ Dropdown(
 
 The distance from the panel to the trigger can be customized using the `distance` attribute. This value is specified in pixels.
 
-```scala preview
+```scala preview h-100
 Dropdown(
   _.distance := 30.0,
   _.slots.trigger(
@@ -244,7 +244,7 @@ Dropdown(
 
 The offset of the panel along the trigger can be customized using the `skidding` attribute. This value is specified in pixels.
 
-```scala preview
+```scala preview h-100
 Dropdown(
   _.skidding := 30.0,
   _.slots.trigger(
@@ -264,7 +264,7 @@ Dropdown(
 
 To create submenus, nest [dropdown items](/docs/components/dropdown-item) inside of a dropdown item and assign `slot="submenu"` to each one. You can also add [dividers](/docs/components/divider) as needed.
 
-```scala preview
+```scala preview h-100
 Dropdown(
   _.slots.trigger(
     Button(_.withCaret := true)("Export")
@@ -306,7 +306,7 @@ Dropdown(
 
 Add the `disabled` attribute to any [dropdown item](/docs/components/dropdown-item) to disable it.
 
-```scala preview
+```scala preview h-100
 Dropdown(
   _.slots.trigger(
     Button(_.withCaret := true)("Payment method")

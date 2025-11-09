@@ -4,7 +4,7 @@ title: Drawer
 
 ## Basic
 
-```scala preview
+```scala preview h-100
 val openEvent = EventBus[Boolean]()
 
 div(
@@ -29,7 +29,7 @@ div(
 
 Headers are enabled by default. To render a drawer without a header, add the `without-header` attribute.
 
-```scala preview
+```scala preview h-100
 val openEvent = EventBus[Boolean]()
 
 div(
@@ -55,7 +55,7 @@ div(
 
 Footers can be used to display titles and more. Use the `footer` slot to add a footer to the drawer.
 
-```scala preview
+```scala preview h-100
 val openEvent = EventBus[Boolean]()
 
 div(
@@ -80,7 +80,7 @@ div(
 
 You can open and close drawers with JavaScript by toggling the `open` attribute, but you can also do it declaratively. Add the `data-drawer="open id"` to any button on the page, where `id` is the ID of the drawer you want to open. 
 
-```scala preview
+```scala preview h-100
 div(
   Drawer(
     _.id    := "drawer-opening",
@@ -102,7 +102,7 @@ div(
 
 Similarly, you can add `data-drawer="close"` to a button _inside_ of a drawer to tell it to close.
 
-```scala preview
+```scala preview h-100
 div(
   Drawer(
     _.id    := "drawer-dismiss",
@@ -126,7 +126,7 @@ div(
 
 By default, drawers slide in from the end. To make the drawer slide in from the start, set the `placement` attribute to `start`.
 
-```scala preview
+```scala preview h-100
 div(
   Drawer(
     _.id := "drawer-placement-start",
@@ -149,7 +149,7 @@ div(
 
 To make the drawer slide in from the top, set the `placement` attribute to `top`.
 
-```scala preview
+```scala preview h-100
 div(
   Drawer(
     _.id := "drawer-placement-top",
@@ -172,7 +172,7 @@ div(
 
 To make the drawer slide in from the bottom, set the `placement` attribute to `bottom`.
 
-```scala preview
+```scala preview h-100
 div(
   Drawer(
     _.id := "drawer-placement-bottom",
@@ -195,7 +195,7 @@ div(
 
 Use the `--size` custom property to set the drawer's size. This will be applied to the drawer's width or height depending on its `placement`.
 
-```scala preview
+```scala preview h-100
 div(
   Drawer(
     _.id    := "drawer-custom-size",
@@ -220,7 +220,7 @@ div(
 
 By design, a drawer's height will never exceed 100% of its container. As such, drawers will not scroll with the page to ensure the header and footer are always accessible to the user.
 
-```scala preview
+```scala preview h-100
 div(
   Drawer(
     _.id    := "drawer-scrolling",
@@ -251,7 +251,7 @@ div(
 
 The header shows a functional close button by default. You can use the `header-actions` slot to add additional [buttons](/docs/components/button) if needed.
 
-```scala preview
+```scala preview h-100
 div(
   Drawer(
     _.id    := "drawer-header-actions",
@@ -288,7 +288,7 @@ div(
 
 If you want the drawer to close when the user clicks on the overlay, add the `light-dismiss` attribute.
 
-```scala preview
+```scala preview h-100
 div(
   Drawer(
     _.id           := "drawer-light-dismiss",
@@ -315,7 +315,7 @@ To keep the drawer open in such cases, you can cancel the `wa-hide` event. When 
 
 You can use `event.detail.source` to determine which element triggered the request to close. This example prevents the dialog from closing when the overlay is clicked, but allows the close button or [[Escape]] to dismiss it.
 
-```scala preview
+```scala preview h-100
 val closeDrawerButton = Button(
   _.variant.brand,
   _.close.drawer
@@ -344,7 +344,7 @@ div(
 
 To give focus to a specific element when the drawer opens, use the `autofocus` attribute.
 
-```scala preview
+```scala preview h-100
 div(
   Drawer(
     _.id    := "drawer-autofocus",

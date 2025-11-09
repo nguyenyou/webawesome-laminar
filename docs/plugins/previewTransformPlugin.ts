@@ -31,6 +31,24 @@ const toCamelCase = (str: string): string => {
 };
 
 /**
+ * Parse Tailwind height class from code block meta string
+ * Looks for Tailwind height classes starting with "h-" (e.g., h-[400px], h-full, h-screen)
+ * e.g., "preview h-[400px]" -> "h-[400px]"
+ * e.g., "preview h-full examples" -> "h-full"
+ * Returns undefined if height class is not found or meta is null/undefined
+ */
+const parseHeightFromMeta = (meta: string | null | undefined): string | undefined => {
+  if (!meta) {
+    return undefined;
+  }
+  
+  // Match Tailwind height class pattern (h- followed by any non-whitespace characters)
+  // This matches classes like h-full, h-screen, h-[400px], h-[calc(100vh-2rem)], etc.
+  const heightMatch = meta.match(/\bh-[^\s]+/);
+  return heightMatch ? heightMatch[0] : undefined;
+};
+
+/**
  * Get the docs directory where examples-build is located
  * Tries multiple strategies to find the docs directory:
  * 1. Check if examples-build exists in current directory (if we're in docs/)
@@ -162,28 +180,40 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
     // Transform each preview node
     for (const { node, counter, parent, index } of previewNodes) {
       const exampleId = `example${counter}`;
+      const height = parseHeightFromMeta(node.meta);
 
       // Create MDX JSX element for Preview component
+      const attributes: MdxJsxFlowElement["attributes"] = [
+        {
+          type: "mdxJsxAttribute",
+          name: "code",
+          value: jsContent,
+        },
+        {
+          type: "mdxJsxAttribute",
+          name: "userCode",
+          value: node.value || "",
+        },
+        {
+          type: "mdxJsxAttribute",
+          name: "exampleId",
+          value: exampleId,
+        }
+      ];
+
+      // Add height attribute if height value is found
+      if (height) {
+        attributes.push({
+          type: "mdxJsxAttribute",
+          name: "height",
+          value: height,
+        });
+      }
+
       const previewElement: MdxJsxFlowElement = {
         type: "mdxJsxFlowElement",
         name: "Preview",
-        attributes: [
-          {
-            type: "mdxJsxAttribute",
-            name: "code",
-            value: jsContent,
-          },
-          {
-            type: "mdxJsxAttribute",
-            name: "userCode",
-            value: node.value || "",
-          },
-          {
-            type: "mdxJsxAttribute",
-            name: "exampleId",
-            value: exampleId,
-          }
-        ],
+        attributes,
         children: [],
       };
 

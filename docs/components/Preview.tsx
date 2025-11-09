@@ -7,11 +7,15 @@ export const Preview = ({
   code,
   userCode,
   exampleId = "example1",
+  height
 }: {
   code: string;
   userCode?: string;
   exampleId?: string;
+  height?: string;
 }) => {
+  const h = height ?? "h-(--height)"
+
   const srcDoc = `<html>
 <head>
 <meta charset="UTF-8">
@@ -36,7 +40,7 @@ export const Preview = ({
       <Tab value="Preview" className="w-full">
         <Frame
           title="Preview"
-          className="outline-none rounded-lg bg-fd-background w-full h-(--height)"
+          className={`outline-none rounded-lg bg-fd-background w-full ${h}`}
           srcDoc={srcDoc}
         ></Frame>
       </Tab>
