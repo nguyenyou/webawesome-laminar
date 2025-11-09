@@ -1,8 +1,7 @@
 ---
 title: Animated Image
+description: A component for displaying animated GIFs and WEBPs that play and pause on interaction.
 ---
-
-## Basic
 
 ```scala preview
 AnimatedImage(
@@ -11,7 +10,13 @@ AnimatedImage(
 )()
 ```
 
-## WEBP Images
+<Callout>
+This component uses `<canvas>` to draw freeze frames, so images are subject to [cross-origin restrictions](https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_enabled_image).
+</Callout>
+
+## Examples
+
+### WEBP Images
 
 Both GIF and WEBP images are supported.
 
@@ -22,7 +27,7 @@ AnimatedImage(
 )()
 ```
 
-## Setting a Width and Height
+### Setting a Width and Height
 
 To set a custom size, apply a width and/or height to the host element.
 
@@ -34,9 +39,9 @@ AnimatedImage(
 )()
 ```
 
-## Customizing the Control Box
+### Customizing the Control Box
 
-You can change the appearance and location of the control box by targeting the control-box part in your styles.
+You can change the appearance and location of the control box by targeting the `control-box` part in your styles.
 
 ```css forId="animated-image-custom-control-box"
 .animated-image-custom-control-box::part(control-box) {
