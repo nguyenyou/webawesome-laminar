@@ -51,7 +51,24 @@ div(
 
 This example demonstrates all of the baked-in animations and easings. Animations are based on those found in the popular Animate.css library.
 
-```scala preview
+```css forId="animations-easings"
+.animation-sandbox .box {
+  width: 100px;
+  height: 100px;
+  background-color: var(--wa-color-brand-fill-loud);
+}
+
+.animation-sandbox .controls {
+  max-width: 300px;
+  margin-top: 2rem;
+}
+
+.animation-sandbox .controls wa-select {
+  margin-bottom: 1rem;
+}
+```
+
+```scala preview id="animations-easings"
 val animationNames = WebAwesome.getAnimationNames()
 val easingNames    = WebAwesome.getEasingNames()
 
@@ -60,23 +77,6 @@ val easingNameVar    = Var("easeInOut")
 val playbackRateVar  = Var("1")
 
 div(
-  styleTag("""
-    .animation-sandbox {
-      padding: 2rem 1rem;
-    }
-   .animation-sandbox .box {
-      width: 100px;
-      height: 100px;
-      background-color: var(--wa-color-brand-fill-loud);
-    }
-    .animation-sandbox .controls {
-      max-width: 300px;
-      margin-top: 2rem;
-    }
-    .animation-sandbox .controls wa-select {
-      margin-bottom: 1rem;
-    }
-  """),
   cls("animation-sandbox"),
   Animation(
     _.name <-- animationNameVar,

@@ -49,6 +49,42 @@ const parseHeightFromMeta = (meta: string | null | undefined): string | undefine
 };
 
 /**
+ * Parse forId attribute from code block meta string
+ * Extracts forId="value" or forId='value' from meta
+ * e.g., 'css forId="animations-easings"' -> "animations-easings"
+ * e.g., "css forId='my-id'" -> "my-id"
+ * Returns undefined if forId is not found or meta is null/undefined
+ */
+const parseForIdFromMeta = (meta: string | null | undefined): string | undefined => {
+  if (!meta) {
+    return undefined;
+  }
+  
+  // Match forId="value" or forId='value' pattern
+  // Supports both single and double quotes
+  const forIdMatch = meta.match(/\bforId=["']([^"']+)["']/);
+  return forIdMatch ? forIdMatch[1] : undefined;
+};
+
+/**
+ * Parse id attribute from code block meta string
+ * Extracts id="value" or id='value' from meta
+ * e.g., 'scala preview id="animations-easings"' -> "animations-easings"
+ * e.g., "scala preview id='my-id'" -> "my-id"
+ * Returns undefined if id is not found or meta is null/undefined
+ */
+const parseIdFromMeta = (meta: string | null | undefined): string | undefined => {
+  if (!meta) {
+    return undefined;
+  }
+  
+  // Match id="value" or id='value' pattern
+  // Supports both single and double quotes
+  const idMatch = meta.match(/\bid=["']([^"']+)["']/);
+  return idMatch ? idMatch[1] : undefined;
+};
+
+/**
  * Get the docs directory where examples-build is located
  * Tries multiple strategies to find the docs directory:
  * 1. Check if examples-build exists in current directory (if we're in docs/)
@@ -131,6 +167,10 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
     const camelCaseSegments = pathSegments.map(toCamelCase);
     const prefix = camelCaseSegments.join("_");
 
+    // Single pass: Collect CSS blocks with forId meta attribute and Scala preview nodes
+    // Map CSS content by forId value for later matching with Preview components
+    const cssByForId = new Map<string, string>();
+    
     // Track nodes for transformation
     const previewNodes: Array<{
       node: Code;
@@ -144,7 +184,17 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
     let exampleCounter = 1;
     
     visit(tree, "code", (node, index, parent) => {
-      if (node.lang && node.lang === "scala") {
+      // Collect CSS blocks with forId meta attribute
+      if (node.lang === "css") {
+        const forId = parseForIdFromMeta(node.meta);
+        if (forId && node.value) {
+          cssByForId.set(forId, node.value);
+        }
+        return;
+      }
+      
+      // Collect Scala preview/examples code blocks
+      if (node.lang === "scala") {
         // Only process code blocks with "preview" or "examples" meta
         if (!node.meta?.includes("preview") && !node.meta?.includes("examples")) {
           return;
@@ -181,6 +231,10 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
     for (const { node, counter, parent, index } of previewNodes) {
       const exampleId = `example${counter}`;
       const height = parseHeightFromMeta(node.meta);
+      const previewId = parseIdFromMeta(node.meta);
+      
+      // Look up matching CSS content if id is specified
+      const cssContent = previewId ? cssByForId.get(previewId) : undefined;
 
       // Create MDX JSX element for Preview component
       const attributes: MdxJsxFlowElement["attributes"] = [
@@ -207,6 +261,15 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
           type: "mdxJsxAttribute",
           name: "height",
           value: height,
+        });
+      }
+
+      // Add css attribute if matching CSS content is found
+      if (cssContent) {
+        attributes.push({
+          type: "mdxJsxAttribute",
+          name: "css",
+          value: cssContent,
         });
       }
 

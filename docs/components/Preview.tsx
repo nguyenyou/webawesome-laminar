@@ -7,12 +7,14 @@ export const Preview = ({
   code,
   userCode,
   exampleId = "example1",
-  height
+  height,
+  css
 }: {
   code: string;
   userCode?: string;
   exampleId?: string;
   height?: string;
+  css?: string;
 }) => {
   const h = height ?? "h-(--height)"
   const ref = useRef<HTMLIFrameElement>(null)
@@ -27,6 +29,7 @@ export const Preview = ({
     padding: 4px;
   }  
 </style>
+${css ? `<style>${css}</style>` : ""}
 <style type="text/tailwindcss">
 @layer theme, base, components, utilities;
 @import "tailwindcss/theme.css" layer(theme);
