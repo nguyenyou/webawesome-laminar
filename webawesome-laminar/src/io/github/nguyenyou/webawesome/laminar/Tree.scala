@@ -61,7 +61,7 @@ object Tree extends WebComponent("wa-tree") {
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssVars {
 
-    /** The size of the indentation for nested items. Default: var(--wa-spacing-m) */
+    /** The size of the indentation for nested items. Default: var(--wa-space-m) */
     lazy val indentSize: String = "--indent-size"
 
     /** The color of the indentation line. Default: var(--wa-color-surface-border) */

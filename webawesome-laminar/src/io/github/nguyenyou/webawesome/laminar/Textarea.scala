@@ -56,8 +56,8 @@ object Textarea extends WebComponent("wa-textarea") {
   /** The textarea's size. Valid values: "small", "medium", "large". */
   lazy val size: CommonKeys.ComponentSize.type = CommonKeys.ComponentSize
 
-  /** The textarea's visual appearance. Valid values: "filled", "outlined". */
-  lazy val appearance: CommonKeys.FilledOutlineAppearance.type = CommonKeys.FilledOutlineAppearance
+  /** The textarea's visual appearance. Valid values: "filled", "outlined", "filled-outlined". */
+  lazy val appearance: CommonKeys.Appearance.type = CommonKeys.Appearance
 
   /** The textarea's label. If you need to display HTML, use the `label` slot instead. */
   lazy val label: HtmlAttr[String] = stringAttr("label")
@@ -182,8 +182,8 @@ object Textarea extends WebComponent("wa-textarea") {
     /** The textarea's size. Valid values: "small", "medium", "large". */
     var size: ComponentSize
 
-    /** The textarea's visual appearance. Valid values: "filled", "outlined". */
-    var appearance: FilledOutlineAppearance
+    /** The textarea's visual appearance. Valid values: "filled", "outlined", "filled-outlined". */
+    var appearance: Appearance
 
     /** The textarea's label. If you need to display HTML, use the `label` slot instead. */
     var label: String

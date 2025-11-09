@@ -4,10 +4,10 @@ package io.github.nguyenyou.webawesome.laminar
   */
 object SharedTypes {
 
-  /** Used by 15 components for "size" attribute. Components: WaButton, WaButtonGroup, WaCallout, ... */
+  /** Used by 14 components for "size" attribute. Components: WaButton, WaCallout, WaCheckbox, ... */
   type ComponentSize = "large" | "medium" | "small"
 
-  /** Used by 7 components for "orientation" attribute. Components: WaButtonGroup, WaCarousel, WaDivider, ... */
+  /** Used by 8 components for "orientation" attribute. Components: WaButtonGroup, WaCard, WaCarousel, ... */
   type Orientation = "horizontal" | "vertical"
 
   /** Used by 5 components for "variant" attribute. Components: WaBadge, WaButton, WaButtonGroup, ... */
@@ -24,19 +24,19 @@ object SharedTypes {
   type DisplayFormat = "long" | "narrow" | "short"
 
   /** Used by 3 components for "appearance" attribute. Components: WaInput, WaSelect, WaTextarea */
-  type FilledOutlineAppearance = "filled" | "outlined" | "filled outlined"
+  type Appearance = "filled" | "filled-outlined" | "outlined"
 
   /** Used by 2 components for "loading" attribute. Components: WaAvatar, WaZoomableFrame */
   type LoadingStrategy = "eager" | "lazy"
 
-  /** Used by 2 components for "appearance" attribute. Components: WaButton, WaCard */
-  type ExtendedAppearance = "accent" | "filled" | "outlined" | "plain" | "filled outlined"
+  /** Used by 2 components for "appearance" attribute. Components: WaBadge, WaTag */
+  type ExtendedAppearance = "accent" | "filled" | "filled-outlined" | "outlined"
+
+  /** Used by 2 components for "appearance" attribute. Components: WaButton, WaCallout */
+  type ExtendedAppearance1 = "accent" | "filled" | "filled-outlined" | "outlined" | "plain"
 
   /** Used by 2 components for "tooltip-placement" attribute. Components: WaCopyButton, WaSlider */
   type TooltipPlacement = "bottom" | "left" | "right" | "top"
-
-  /** Used by 2 components for "icon-position" attribute. Components: WaDetails, WaPage */
-  type IconPosition = "end" | "start"
 
   /** Used by 2 components for "placement" attribute. Components: WaDrawer, WaTabGroup */
   type ComponentPlacement = "bottom" | "end" | "start" | "top"
@@ -53,9 +53,6 @@ object SharedTypes {
   /** Used by WaAvatar for "shape" attribute. Components: WaAvatar */
   type AvatarShape = "circle" | "rounded" | "square"
 
-  /** Used by WaBadge for "appearance" attribute. Components: WaBadge */
-  type BadgeExtendedAppearance = "accent" | "filled" | "outlined" | "filled outlined"
-
   /** Used by WaBadge for "attention" attribute. Components: WaBadge */
   type BadgeAttention = "bounce" | "none" | "pulse"
 
@@ -71,14 +68,17 @@ object SharedTypes {
   /** Used by WaButton for "formmethod" attribute. Components: WaButton */
   type ButtonFormmethod = "get" | "post"
 
-  /** Used by WaCallout for "appearance" attribute. Components: WaCallout */
-  type CalloutExtendedAppearance = "accent" | "filled" | "outlined" | "outlined accent" | "plain" | "filled outlined"
+  /** Used by WaCard for "appearance" attribute. Components: WaCard */
+  type CardExtendedAppearance = "accent" | "filled" | "outlined" | "plain"
 
   /** Used by WaColorPicker for "format" attribute. Components: WaColorPicker */
   type ColorPickerFormat = "hex" | "hsl" | "hsv" | "rgb"
 
   /** Used by WaDetails for "appearance" attribute. Components: WaDetails */
-  type DetailsAppearance = "filled" | "outlined" | "plain" | "filled outlined"
+  type DetailsAppearance = "filled" | "filled-outlined" | "outlined" | "plain"
+
+  /** Used by WaDetails for "icon-placement" attribute. Components: WaDetails */
+  type DetailsIconPlacement = "end" | "start"
 
   /** Used by WaDropdownItem for "variant" attribute. Components: WaDropdownItem */
   type DropdownItemVariant = "danger" | "default"
@@ -114,9 +114,6 @@ object SharedTypes {
   /** Used by WaInput for "autocorrect" attribute. Components: WaInput */
   type InputAutocorrect = "off" | "on"
 
-  /** Used by WaPage for "view" attribute. Components: WaPage */
-  type PageView = "desktop" | "mobile"
-
   /** Used by WaPopup for "boundary" attribute. Components: WaPopup */
   type PopupBoundary = "scroll" | "viewport"
 
@@ -149,9 +146,6 @@ object SharedTypes {
 
   /** Used by WaTabGroup for "activation" attribute. Components: WaTabGroup */
   type TabGroupActivation = "auto" | "manual"
-
-  /** Used by WaTag for "appearance" attribute. Components: WaTag */
-  type TagExtendedAppearance = "accent" | "filled" | "outlined" | "outlined accent" | "filled outlined"
 
   /** Used by WaTextarea for "resize" attribute. Components: WaTextarea */
   type TextareaResize = "auto" | "both" | "horizontal" | "none" | "vertical"

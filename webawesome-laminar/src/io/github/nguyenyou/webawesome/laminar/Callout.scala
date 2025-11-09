@@ -29,10 +29,8 @@ object Callout extends WebComponent("wa-callout") {
     */
   lazy val variant: CommonKeys.ThemeVariant.type = CommonKeys.ThemeVariant
 
-  /** The callout's visual appearance. Valid values: "accent", "filled", "outlined", "plain", "outlined filled",
-    * "outlined accent".
-    */
-  lazy val appearance: CommonKeys.CalloutExtendedAppearance.type = CommonKeys.CalloutExtendedAppearance
+  /** The callout's visual appearance. Valid values: "accent", "filled", "outlined", "plain", "filled-outlined". */
+  lazy val appearance: CommonKeys.ExtendedAppearance1.type = CommonKeys.ExtendedAppearance1
 
   /** The callout's size. Valid values: "small", "medium", "large". */
   lazy val size: CommonKeys.ComponentSize.type = CommonKeys.ComponentSize
@@ -73,10 +71,8 @@ object Callout extends WebComponent("wa-callout") {
       */
     var variant: ThemeVariant
 
-    /** The callout's visual appearance. Valid values: "accent", "filled", "outlined", "plain", "outlined filled",
-      * "outlined accent".
-      */
-    var appearance: CalloutExtendedAppearance
+    /** The callout's visual appearance. Valid values: "accent", "filled", "outlined", "plain", "filled-outlined". */
+    var appearance: ExtendedAppearance1
 
     /** The callout's size. Valid values: "small", "medium", "large". */
     var size: ComponentSize

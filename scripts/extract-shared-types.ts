@@ -232,9 +232,9 @@ export async function extractSharedTypes(): Promise<void> {
     usedNames.add(typeName);
 
     // Allow combination of filled and outlined
-    if(unionType.values.includes("filled") && unionType.values.includes("outlined")) {
-      unionType.values = [...unionType.values.filter(v => v !== "filled outlined" && v !== "outlined filled"), "filled outlined"]
-    }
+    // if(unionType.values.includes("filled") && unionType.values.includes("outlined")) {
+    //   unionType.values = [...unionType.values.filter(v => v !== "filled outlined" && v !== "outlined filled"), "filled outlined"]
+    // }
 
     const sharedType: SharedType = {
       name: typeName,

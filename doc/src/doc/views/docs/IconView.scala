@@ -120,43 +120,6 @@ case class IconView()
         }
       )().withLocator,
       Demo(
-        title = "Fixed Width Icons",
-        description = """
-        |By default, icons have a 1em height and a variable width. Use the `fixed-width` attribute to render the host element in a 1em by 1em box.
-        |""".stripMargin,
-        content = Source.annotate {
-          div(
-            tw.flex.gap2,
-            // <show>
-            Icon(
-              _.fixedWidth := "true",
-              _.name       := "cloud"
-            )(),
-            Icon(
-              _.fixedWidth := "true",
-              _.name       := "user"
-            )(),
-            Icon(
-              _.fixedWidth := "true",
-              _.name       := "truck"
-            )(),
-            Icon(
-              _.fixedWidth := "true",
-              _.name       := "file"
-            )(),
-            Icon(
-              _.fixedWidth := "true",
-              _.name       := "skating"
-            )(),
-            Icon(
-              _.fixedWidth := "true",
-              _.name       := "snowplow"
-            )()
-            // </show>
-          )
-        }
-      )().withLocator,
-      Demo(
         title = "Labels",
         description = """
         |For non-decorative icons, use the `label` attribute to announce it to assistive devices.

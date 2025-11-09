@@ -286,7 +286,7 @@ object ColorPicker extends WebComponent("wa-color-picker") {
       * separated by a semicolon (`;`). Alternatively, you can pass an array of color values to this property using
       * JavaScript.
       */
-    var swatches: String
+    var swatches: String | js.Array[String]
 
     /** By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
       * to place the form control outside of a form and associate it with the form that has this `id`. The form must be

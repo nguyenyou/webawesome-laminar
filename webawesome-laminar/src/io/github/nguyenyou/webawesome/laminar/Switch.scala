@@ -1,5 +1,7 @@
 package io.github.nguyenyou.webawesome.laminar
 
+import com.raquo.laminar.api.L
+import com.raquo.laminar.api.L.*
 import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.nodes.Slot
@@ -12,15 +14,15 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Switches allow the user to toggle an option on or off.
+/**
+  * Switches allow the user to toggle an option on or off.
   *
-  * [[https://webawesome.com/docs/components/switch WebAwesome docs]]
+  * [[https://webawesome.com/docs/components/switch WebAwesome  docs]]
   */
 object Switch extends WebComponent("wa-switch") {
 
   @JSImport("@awesome.me/webawesome/dist/components/switch/switch.js", JSImport.Namespace)
-  @js.native
-  object RawImport extends js.Object
+  @js.native object RawImport extends js.Object
 
   type Self = Switch.type
 
@@ -60,12 +62,24 @@ object Switch extends WebComponent("wa-switch") {
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
 
   /** The default value of the form control. Primarily used for resetting the form control. */
-  lazy val checked: HtmlAttr[Boolean] = boolAttr("checked")
+  lazy object checked {
+    def :=(value: Boolean) = {
+      Seq(
+        L.defaultChecked := value,
+        L.checked        := value
+      )
+    }
+    def <--(value: Source[Boolean]) = {
+      Seq(
+        L.defaultChecked <-- value,
+        L.checked <-- value
+      )
+    }
+  }
 
   /** By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
-    * to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
-    * the same document or shadow root for this to work.
-    */
+  to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
+  the same document or shadow root for this to work. */
   lazy val form: HtmlAttr[String] = stringAttr("form")
 
   /** Makes the switch a required field. */
@@ -74,15 +88,12 @@ object Switch extends WebComponent("wa-switch") {
   /** The switch's hint. If you need to display HTML, use the `hint` slot instead. */
   lazy val hint: HtmlAttr[String] = stringAttr("hint")
 
-  /** Used for SSR. If you slot in hint, make sure to add `with-hint` to your component to get it to properly render
-    * with SSR.
-    */
+  /** Used for SSR. If you slot in hint, make sure to add `with-hint` to your component to get it to properly render with SSR. */
   lazy val withHint: HtmlAttr[Boolean] = boolAttr("with-hint")
 
   // -- Slots --
 
   object slots {
-
     /** The switch's label. Note: You can just say `_ => element` instead of `_.slots.default(element)` */
     lazy val default: Slot = Slot("")
 
@@ -95,7 +106,6 @@ object Switch extends WebComponent("wa-switch") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssVars {
-
     /** The width of the switch. */
     lazy val width: String = "--width"
 
@@ -111,7 +121,6 @@ object Switch extends WebComponent("wa-switch") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
-
     /** The component's base wrapper. */
     lazy val base: String = "base"
 
@@ -131,8 +140,7 @@ object Switch extends WebComponent("wa-switch") {
 
   // -- Element type --
 
-  @js.native
-  trait WaSwitchComponent extends js.Object {
+  @js.native trait WaSwitchComponent extends js.Object {
     this: dom.HTMLElement =>
 
     var title: String
@@ -153,9 +161,8 @@ object Switch extends WebComponent("wa-switch") {
     var checked: Boolean
 
     /** By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
-      * to place the form control outside of a form and associate it with the form that has this `id`. The form must be
-      * in the same document or shadow root for this to work.
-      */
+    to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
+    the same document or shadow root for this to work. */
     var form: String
 
     /** Makes the switch a required field. */
@@ -164,9 +171,7 @@ object Switch extends WebComponent("wa-switch") {
     /** The switch's hint. If you need to display HTML, use the `hint` slot instead. */
     var hint: String
 
-    /** Used for SSR. If you slot in hint, make sure to add `with-hint` to your component to get it to properly render
-      * with SSR.
-      */
+    /** Used for SSR. If you slot in hint, make sure to add `with-hint` to your component to get it to properly render with SSR. */
     var withHint: Boolean
 
     def handleValueOrCheckedChange(): js.Any = js.native

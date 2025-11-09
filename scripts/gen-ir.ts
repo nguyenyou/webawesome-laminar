@@ -1,6 +1,6 @@
 // Import from node_modules to use the version specified in package.json
 import manifest from '../node_modules/@awesome.me/webawesome/dist/custom-elements.json' with { type: "json" };
-import { writeFile, CONSTANTS } from './utils.js';
+import { writeFile, CONSTANTS, SKIP_COMPONENTS } from './utils.js';
 
 console.log('Processing manifest with', manifest.modules.length, 'modules');
 
@@ -130,16 +130,25 @@ function mapTypeScriptToScala(tsType: string, unionValues?: string[]): string {
   // | 'top'
   //     | 'top-start'
   //     | 'top-end'
-  
+
   // First normalize the type by removing extra whitespace and newlines
   const normalizedType = tsType.replace(/\s+/g, ' ').trim();
-  
+
   // Check if it's a union type (contains | operator)
   if (normalizedType.includes(' | ') || normalizedType.startsWith('| ')) {
-    const unionTypes = normalizedType.startsWith('| ') 
+    const unionTypes = normalizedType.startsWith('| ')
       ? normalizedType.substring(2).split(' | ').map(t => t.trim())
       : normalizedType.split(' | ').map(t => t.trim());
-    
+
+    // Special case: string | string[] | null (for wa-select value property)
+    // Map to String | js.Array[String] (ignore null as it's handled differently in Scala.js)
+    const nonNullTypes = unionTypes.filter(t => t !== 'null' && t !== 'undefined');
+    if (nonNullTypes.length === 2 &&
+        nonNullTypes.includes('string') &&
+        nonNullTypes.includes('string[]')) {
+      return 'String | js.Array[String]';
+    }
+
     // For string literal unions, we'll use String in Scala but preserve union info in unionValues
     if (unionTypes.every(t => (t.startsWith("'") && t.endsWith("'")) || (t.startsWith('"') && t.endsWith('"')))) {
       return 'String'; // Return String for union types so shouldUseUnionType can detect them
@@ -174,11 +183,38 @@ function generatePackagePath(tagName: string): string {
 
 function parseAttributes(declaration: any): AttributeIR[] {
   if (!declaration.attributes) return [];
-  
+
   return declaration.attributes.map((attr: any): AttributeIR => {
-    const typeText = attr.type?.text || 'String';
+    // First try to get type from the attribute itself
+    let typeText = attr.type?.text;
+
+    // If type is missing, look it up in the members array
+    // This handles cases like wa-select's value property where the type is defined
+    // in the field/property but not in the attributes array
+    if (!typeText && attr.fieldName && declaration.members) {
+      const member = declaration.members.find((m: any) =>
+        m.kind === 'field' && m.name === attr.fieldName && m.attribute === attr.name
+      );
+
+      if (member?.type?.text) {
+        typeText = member.type.text;
+      }
+    }
+
+    // Special case: wa-select's value property is missing type info in custom-elements.json
+    // The actual TypeScript definition shows: string | string[] | null
+    // This is a known issue with the WebAwesome manifest generation
+    if (!typeText && declaration.tagName === 'wa-select' && attr.name === 'value') {
+      typeText = 'string | string[] | null';
+    }
+
+    // Default to String if still no type found
+    if (!typeText) {
+      typeText = 'String';
+    }
+
     const unionValues = extractUnionValues(typeText);
-    
+
     return {
       name: attr.name,
       fieldName: attr.fieldName,
@@ -186,7 +222,7 @@ function parseAttributes(declaration: any): AttributeIR[] {
       unionValues: unionValues,
       description: attr.description,
       default: attr.default,
-      reflects: declaration.members?.find((m: any) => 
+      reflects: declaration.members?.find((m: any) =>
         m.name === attr.fieldName && m.reflects
       )?.reflects
     };
@@ -261,6 +297,9 @@ function parseComponent(module: Module): ComponentIR | null {
   
   const tagName = componentDeclaration.tagName;
   if (!tagName || !tagName.startsWith('wa-')) return null;
+  
+  // Skip components in the skip list
+  if (SKIP_COMPONENTS.has(tagName)) return null;
   
   return {
     name: componentDeclaration.name,

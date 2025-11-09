@@ -42,7 +42,7 @@ object Radio extends WebComponent("wa-radio") {
   /** The radio's value. When selected, the radio group will receive this value. */
   lazy val value: HtmlAttr[String] = stringAttr("value")
 
-  /** The radio's value. When selected, the radio group will receive this value. Valid values: "default", "button". */
+  /** The radio's visual appearance. Valid values: "default", "button". */
   lazy val appearance: CommonKeys.RadioAppearance.type = CommonKeys.RadioAppearance
 
   /** The radio's size. When used inside a radio group, the size will be determined by the radio group's size so this
@@ -103,7 +103,7 @@ object Radio extends WebComponent("wa-radio") {
     /** The radio's value. When selected, the radio group will receive this value. */
     var value: String
 
-    /** The radio's value. When selected, the radio group will receive this value. Valid values: "default", "button". */
+    /** The radio's visual appearance. Valid values: "default", "button". */
     var appearance: RadioAppearance
 
     /** The radio's size. When used inside a radio group, the size will be determined by the radio group's size so this

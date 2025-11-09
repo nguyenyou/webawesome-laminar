@@ -31,7 +31,7 @@ object Include extends WebComponent("wa-include") {
   lazy val onLoad: EventProp[CustomEvent[Ref]] = eventProp("wa-load")
 
   /** Emitted when the included file fails to load due to an error. */
-  lazy val onError: EventProp[CustomEvent[Ref]] = eventProp("wa-error")
+  lazy val onIncludeError: EventProp[CustomEvent[Ref]] = eventProp("wa-include-error")
 
   // -- Attributes --
 

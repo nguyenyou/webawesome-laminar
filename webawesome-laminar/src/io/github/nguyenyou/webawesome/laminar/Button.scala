@@ -46,8 +46,8 @@ object Button extends WebComponent("wa-button") {
     */
   lazy val variant: CommonKeys.ThemeVariant.type = CommonKeys.ThemeVariant
 
-  /** The button's visual appearance. Valid values: "accent", "filled", "outlined", "plain". */
-  lazy val appearance: CommonKeys.ExtendedAppearance.type = CommonKeys.ExtendedAppearance
+  /** The button's visual appearance. Valid values: "accent", "filled", "outlined", "filled-outlined", "plain". */
+  lazy val appearance: CommonKeys.ExtendedAppearance1.type = CommonKeys.ExtendedAppearance1
 
   /** The button's size. Valid values: "small", "medium", "large". */
   lazy val size: CommonKeys.ComponentSize.type = CommonKeys.ComponentSize
@@ -178,8 +178,8 @@ object Button extends WebComponent("wa-button") {
       */
     var variant: ThemeVariant
 
-    /** The button's visual appearance. Valid values: "accent", "filled", "outlined", "plain". */
-    var appearance: ExtendedAppearance
+    /** The button's visual appearance. Valid values: "accent", "filled", "outlined", "filled-outlined", "plain". */
+    var appearance: ExtendedAppearance1
 
     /** The button's size. Valid values: "small", "medium", "large". */
     var size: ComponentSize

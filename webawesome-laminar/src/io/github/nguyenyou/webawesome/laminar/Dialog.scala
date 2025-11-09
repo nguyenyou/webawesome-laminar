@@ -101,6 +101,9 @@ object Dialog extends WebComponent("wa-dialog") {
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
 
+    /** The dialog's internal `<dialog>` element. */
+    lazy val dialog: String = "dialog"
+
     /** The dialog's header. This element wraps the title and header actions. */
     lazy val header: String = "header"
 

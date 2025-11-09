@@ -924,7 +924,7 @@
               "kind": "field",
               "name": "appearance",
               "type": {
-                "text": "'accent' | 'filled' | 'outlined'"
+                "text": "'accent' | 'filled' | 'outlined' | 'filled-outlined'"
               },
               "default": "'accent'",
               "description": "The badge's visual appearance.",
@@ -967,7 +967,7 @@
             {
               "name": "appearance",
               "type": {
-                "text": "'accent' | 'filled' | 'outlined'"
+                "text": "'accent' | 'filled' | 'outlined' | 'filled-outlined'"
               },
               "default": "'accent'",
               "description": "The badge's visual appearance.",
@@ -1028,6 +1028,308 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/breadcrumb-item/breadcrumb-item.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "WaBreadcrumbItem",
+          "cssParts": [
+            {
+              "description": "The breadcrumb item's label.",
+              "name": "label"
+            },
+            {
+              "description": "The container that wraps the `start` slot.",
+              "name": "start"
+            },
+            {
+              "description": "The container that wraps the `end` slot.",
+              "name": "end"
+            },
+            {
+              "description": "The container that wraps the separator.",
+              "name": "separator"
+            }
+          ],
+          "slots": [
+            {
+              "description": "The breadcrumb item's label.",
+              "name": ""
+            },
+            {
+              "description": "An element, such as `<wa-icon>`, placed before the label.",
+              "name": "start"
+            },
+            {
+              "description": "An element, such as `<wa-icon>`, placed after the label.",
+              "name": "end"
+            },
+            {
+              "description": "The separator to use for the breadcrumb item. This will only change the separator for this item. If you want to change it for all items in the group, set the separator on `<wa-breadcrumb>` instead.",
+              "name": "separator"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "css",
+              "static": true,
+              "default": "styles"
+            },
+            {
+              "kind": "field",
+              "name": "defaultSlot",
+              "type": {
+                "text": "HTMLSlotElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "renderType",
+              "type": {
+                "text": "'button' | 'link' | 'dropdown'"
+              },
+              "privacy": "private",
+              "default": "'button'"
+            },
+            {
+              "kind": "field",
+              "name": "href",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "Optional URL to direct the user to when the breadcrumb item is activated. When set, a link will be rendered\ninternally. When unset, a button will be rendered instead.",
+              "attribute": "href"
+            },
+            {
+              "kind": "field",
+              "name": "target",
+              "type": {
+                "text": "'_blank' | '_parent' | '_self' | '_top' | undefined"
+              },
+              "description": "Tells the browser where to open the link. Only used when `href` is set.",
+              "attribute": "target"
+            },
+            {
+              "kind": "field",
+              "name": "rel",
+              "type": {
+                "text": "string"
+              },
+              "default": "'noreferrer noopener'",
+              "description": "The `rel` attribute to use on the link. Only used when `href` is set.",
+              "attribute": "rel"
+            },
+            {
+              "kind": "method",
+              "name": "setRenderType",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "hrefChanged",
+              "type": {
+                "text": "hrefChanged() => void"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleSlotChange",
+              "type": {
+                "text": "handleSlotChange() => void"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "href",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "Optional URL to direct the user to when the breadcrumb item is activated. When set, a link will be rendered\ninternally. When unset, a button will be rendered instead.",
+              "fieldName": "href"
+            },
+            {
+              "name": "target",
+              "type": {
+                "text": "'_blank' | '_parent' | '_self' | '_top' | undefined"
+              },
+              "description": "Tells the browser where to open the link. Only used when `href` is set.",
+              "fieldName": "target"
+            },
+            {
+              "name": "rel",
+              "type": {
+                "text": "string"
+              },
+              "default": "'noreferrer noopener'",
+              "description": "The `rel` attribute to use on the link. Only used when `href` is set.",
+              "fieldName": "rel"
+            }
+          ],
+          "superclass": {
+            "name": "WebAwesomeElement",
+            "module": "/src/internal/webawesome-element.js"
+          },
+          "summary": "Breadcrumb Items are used inside breadcrumbs to represent different links.",
+          "jsDoc": "/**\n * @summary Breadcrumb Items are used inside breadcrumbs to represent different links.\n * @documentation https://webawesome.com/docs/components/breadcrumb-item\n * @status stable\n * @since 2.0\n *\n * @slot - The breadcrumb item's label.\n * @slot start - An element, such as `<wa-icon>`, placed before the label.\n * @slot end - An element, such as `<wa-icon>`, placed after the label.\n * @slot separator - The separator to use for the breadcrumb item. This will only change the separator for this item. If\n * you want to change it for all items in the group, set the separator on `<wa-breadcrumb>` instead.\n *\n * @csspart label - The breadcrumb item's label.\n * @csspart start - The container that wraps the `start` slot.\n * @csspart end - The container that wraps the `end` slot.\n * @csspart separator - The container that wraps the separator.\n */",
+          "documentation": "https://webawesome.com/docs/components/breadcrumb-item",
+          "status": "stable",
+          "since": "2.0",
+          "tagName": "wa-breadcrumb-item",
+          "customElement": true,
+          "modulePath": "components/breadcrumb-item/breadcrumb-item.js",
+          "definitionPath": "components/breadcrumb-item/breadcrumb-item.js"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "WaBreadcrumbItem",
+            "module": "components/breadcrumb-item/breadcrumb-item.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wa-breadcrumb-item",
+          "declaration": {
+            "name": "WaBreadcrumbItem",
+            "module": "components/breadcrumb-item/breadcrumb-item.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/breadcrumb/breadcrumb.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "WaBreadcrumb",
+          "cssParts": [
+            {
+              "description": "The component's base wrapper.",
+              "name": "base"
+            }
+          ],
+          "slots": [
+            {
+              "description": "One or more breadcrumb items to display.",
+              "name": ""
+            },
+            {
+              "description": "The separator to use between breadcrumb items. Works best with `<wa-icon>`.",
+              "name": "separator"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "css",
+              "static": true,
+              "default": "styles"
+            },
+            {
+              "kind": "field",
+              "name": "localize",
+              "privacy": "private",
+              "readonly": true,
+              "default": "new LocalizeController(this)"
+            },
+            {
+              "kind": "field",
+              "name": "separatorDir",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "defaultSlot",
+              "type": {
+                "text": "HTMLSlotElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "separatorSlot",
+              "type": {
+                "text": "HTMLSlotElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "The label to use for the breadcrumb control. This will not be shown on the screen, but it will be announced by\nscreen readers and other assistive devices to provide more context for users.",
+              "attribute": "label"
+            },
+            {
+              "kind": "method",
+              "name": "getSeparator",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleSlotChange",
+              "privacy": "private"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "The label to use for the breadcrumb control. This will not be shown on the screen, but it will be announced by\nscreen readers and other assistive devices to provide more context for users.",
+              "fieldName": "label"
+            }
+          ],
+          "superclass": {
+            "name": "WebAwesomeElement",
+            "module": "/src/internal/webawesome-element.js"
+          },
+          "summary": "Breadcrumbs provide a group of links so users can easily navigate a website's hierarchy.",
+          "jsDoc": "/**\n * @summary Breadcrumbs provide a group of links so users can easily navigate a website's hierarchy.\n * @documentation https://webawesome.com/docs/components/breadcrumb\n * @status stable\n * @since 2.0\n *\n * @slot - One or more breadcrumb items to display.\n * @slot separator - The separator to use between breadcrumb items. Works best with `<wa-icon>`.\n *\n * @dependency wa-icon\n *\n * @csspart base - The component's base wrapper.\n */",
+          "documentation": "https://webawesome.com/docs/components/breadcrumb",
+          "status": "stable",
+          "since": "2.0",
+          "dependencies": [
+            "wa-icon"
+          ],
+          "tagName": "wa-breadcrumb",
+          "customElement": true,
+          "modulePath": "components/breadcrumb/breadcrumb.js",
+          "definitionPath": "components/breadcrumb/breadcrumb.js"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "WaBreadcrumb",
+            "module": "components/breadcrumb/breadcrumb.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wa-breadcrumb",
+          "declaration": {
+            "name": "WaBreadcrumb",
+            "module": "components/breadcrumb/breadcrumb.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/button/button.js",
       "declarations": [
         {
@@ -1075,6 +1377,15 @@
             }
           ],
           "members": [
+            {
+              "kind": "field",
+              "name": "shadowRootOptions",
+              "type": {
+                "text": "object"
+              },
+              "static": true,
+              "default": "{ ...WebAwesomeFormAssociatedElement.shadowRootOptions, delegatesFocus: true }"
+            },
             {
               "kind": "field",
               "name": "css",
@@ -1166,7 +1477,7 @@
               "kind": "field",
               "name": "appearance",
               "type": {
-                "text": "'accent' | 'filled' | 'outlined' | 'plain'"
+                "text": "'accent' | 'filled' | 'outlined' | 'filled-outlined' | 'plain'"
               },
               "default": "'accent'",
               "description": "The button's visual appearance.",
@@ -1482,7 +1793,7 @@
             {
               "name": "appearance",
               "type": {
-                "text": "'accent' | 'filled' | 'outlined' | 'plain'"
+                "text": "'accent' | 'filled' | 'outlined' | 'filled-outlined' | 'plain'"
               },
               "default": "'accent'",
               "description": "The button's visual appearance.",
@@ -1680,182 +1991,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/breadcrumb-item/breadcrumb-item.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "WaBreadcrumbItem",
-          "cssParts": [
-            {
-              "description": "The breadcrumb item's label.",
-              "name": "label"
-            },
-            {
-              "description": "The container that wraps the `start` slot.",
-              "name": "start"
-            },
-            {
-              "description": "The container that wraps the `end` slot.",
-              "name": "end"
-            },
-            {
-              "description": "The container that wraps the separator.",
-              "name": "separator"
-            }
-          ],
-          "slots": [
-            {
-              "description": "The breadcrumb item's label.",
-              "name": ""
-            },
-            {
-              "description": "An element, such as `<wa-icon>`, placed before the label.",
-              "name": "start"
-            },
-            {
-              "description": "An element, such as `<wa-icon>`, placed after the label.",
-              "name": "end"
-            },
-            {
-              "description": "The separator to use for the breadcrumb item. This will only change the separator for this item. If you want to change it for all items in the group, set the separator on `<wa-breadcrumb>` instead.",
-              "name": "separator"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "css",
-              "static": true,
-              "default": "styles"
-            },
-            {
-              "kind": "field",
-              "name": "defaultSlot",
-              "type": {
-                "text": "HTMLSlotElement"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "renderType",
-              "type": {
-                "text": "'button' | 'link' | 'dropdown'"
-              },
-              "privacy": "private",
-              "default": "'button'"
-            },
-            {
-              "kind": "field",
-              "name": "href",
-              "type": {
-                "text": "string | undefined"
-              },
-              "description": "Optional URL to direct the user to when the breadcrumb item is activated. When set, a link will be rendered\ninternally. When unset, a button will be rendered instead.",
-              "attribute": "href"
-            },
-            {
-              "kind": "field",
-              "name": "target",
-              "type": {
-                "text": "'_blank' | '_parent' | '_self' | '_top' | undefined"
-              },
-              "description": "Tells the browser where to open the link. Only used when `href` is set.",
-              "attribute": "target"
-            },
-            {
-              "kind": "field",
-              "name": "rel",
-              "type": {
-                "text": "string"
-              },
-              "default": "'noreferrer noopener'",
-              "description": "The `rel` attribute to use on the link. Only used when `href` is set.",
-              "attribute": "rel"
-            },
-            {
-              "kind": "method",
-              "name": "setRenderType",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "hrefChanged",
-              "type": {
-                "text": "hrefChanged() => void"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "handleSlotChange",
-              "type": {
-                "text": "handleSlotChange() => void"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "href",
-              "type": {
-                "text": "string | undefined"
-              },
-              "description": "Optional URL to direct the user to when the breadcrumb item is activated. When set, a link will be rendered\ninternally. When unset, a button will be rendered instead.",
-              "fieldName": "href"
-            },
-            {
-              "name": "target",
-              "type": {
-                "text": "'_blank' | '_parent' | '_self' | '_top' | undefined"
-              },
-              "description": "Tells the browser where to open the link. Only used when `href` is set.",
-              "fieldName": "target"
-            },
-            {
-              "name": "rel",
-              "type": {
-                "text": "string"
-              },
-              "default": "'noreferrer noopener'",
-              "description": "The `rel` attribute to use on the link. Only used when `href` is set.",
-              "fieldName": "rel"
-            }
-          ],
-          "superclass": {
-            "name": "WebAwesomeElement",
-            "module": "/src/internal/webawesome-element.js"
-          },
-          "summary": "Breadcrumb Items are used inside breadcrumbs to represent different links.",
-          "jsDoc": "/**\n * @summary Breadcrumb Items are used inside breadcrumbs to represent different links.\n * @documentation https://webawesome.com/docs/components/breadcrumb-item\n * @status stable\n * @since 2.0\n *\n * @slot - The breadcrumb item's label.\n * @slot start - An element, such as `<wa-icon>`, placed before the label.\n * @slot end - An element, such as `<wa-icon>`, placed after the label.\n * @slot separator - The separator to use for the breadcrumb item. This will only change the separator for this item. If\n * you want to change it for all items in the group, set the separator on `<wa-breadcrumb>` instead.\n *\n * @csspart label - The breadcrumb item's label.\n * @csspart start - The container that wraps the `start` slot.\n * @csspart end - The container that wraps the `end` slot.\n * @csspart separator - The container that wraps the separator.\n */",
-          "documentation": "https://webawesome.com/docs/components/breadcrumb-item",
-          "status": "stable",
-          "since": "2.0",
-          "tagName": "wa-breadcrumb-item",
-          "customElement": true,
-          "modulePath": "components/breadcrumb-item/breadcrumb-item.js",
-          "definitionPath": "components/breadcrumb-item/breadcrumb-item.js"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "WaBreadcrumbItem",
-            "module": "components/breadcrumb-item/breadcrumb-item.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wa-breadcrumb-item",
-          "declaration": {
-            "name": "WaBreadcrumbItem",
-            "module": "components/breadcrumb-item/breadcrumb-item.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/button-group/button-group.js",
       "declarations": [
         {
@@ -1882,7 +2017,7 @@
                 "text": "array"
               },
               "static": true,
-              "default": "[sizeStyles, variantStyles, styles]"
+              "default": "[variantStyles, styles]"
             },
             {
               "kind": "field",
@@ -1926,16 +2061,6 @@
               "default": "'horizontal'",
               "description": "The button group's orientation.",
               "attribute": "orientation",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "'small' | 'medium' | 'large'"
-              },
-              "description": "The component's size.",
-              "attribute": "size",
               "reflects": true
             },
             {
@@ -2032,14 +2157,6 @@
               "fieldName": "orientation"
             },
             {
-              "name": "size",
-              "type": {
-                "text": "'small' | 'medium' | 'large'"
-              },
-              "description": "The component's size.",
-              "fieldName": "size"
-            },
-            {
               "name": "variant",
               "type": {
                 "text": "'neutral' | 'brand' | 'success' | 'warning' | 'danger'"
@@ -2079,132 +2196,6 @@
           "declaration": {
             "name": "WaButtonGroup",
             "module": "components/button-group/button-group.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/breadcrumb/breadcrumb.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "WaBreadcrumb",
-          "cssParts": [
-            {
-              "description": "The component's base wrapper.",
-              "name": "base"
-            }
-          ],
-          "slots": [
-            {
-              "description": "One or more breadcrumb items to display.",
-              "name": ""
-            },
-            {
-              "description": "The separator to use between breadcrumb items. Works best with `<wa-icon>`.",
-              "name": "separator"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "css",
-              "static": true,
-              "default": "styles"
-            },
-            {
-              "kind": "field",
-              "name": "localize",
-              "privacy": "private",
-              "readonly": true,
-              "default": "new LocalizeController(this)"
-            },
-            {
-              "kind": "field",
-              "name": "separatorDir",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "defaultSlot",
-              "type": {
-                "text": "HTMLSlotElement"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "separatorSlot",
-              "type": {
-                "text": "HTMLSlotElement"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "description": "The label to use for the breadcrumb control. This will not be shown on the screen, but it will be announced by\nscreen readers and other assistive devices to provide more context for users.",
-              "attribute": "label"
-            },
-            {
-              "kind": "method",
-              "name": "getSeparator",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleSlotChange",
-              "privacy": "private"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "description": "The label to use for the breadcrumb control. This will not be shown on the screen, but it will be announced by\nscreen readers and other assistive devices to provide more context for users.",
-              "fieldName": "label"
-            }
-          ],
-          "superclass": {
-            "name": "WebAwesomeElement",
-            "module": "/src/internal/webawesome-element.js"
-          },
-          "summary": "Breadcrumbs provide a group of links so users can easily navigate a website's hierarchy.",
-          "jsDoc": "/**\n * @summary Breadcrumbs provide a group of links so users can easily navigate a website's hierarchy.\n * @documentation https://webawesome.com/docs/components/breadcrumb\n * @status stable\n * @since 2.0\n *\n * @slot - One or more breadcrumb items to display.\n * @slot separator - The separator to use between breadcrumb items. Works best with `<wa-icon>`.\n *\n * @dependency wa-icon\n *\n * @csspart base - The component's base wrapper.\n */",
-          "documentation": "https://webawesome.com/docs/components/breadcrumb",
-          "status": "stable",
-          "since": "2.0",
-          "dependencies": [
-            "wa-icon"
-          ],
-          "tagName": "wa-breadcrumb",
-          "customElement": true,
-          "modulePath": "components/breadcrumb/breadcrumb.js",
-          "definitionPath": "components/breadcrumb/breadcrumb.js"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "WaBreadcrumb",
-            "module": "components/breadcrumb/breadcrumb.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wa-breadcrumb",
-          "declaration": {
-            "name": "WaBreadcrumb",
-            "module": "components/breadcrumb/breadcrumb.js"
           }
         }
       ]
@@ -2262,9 +2253,8 @@
               "kind": "field",
               "name": "appearance",
               "type": {
-                "text": "| 'accent'\n    | 'filled'\n    | 'outlined'\n    | 'plain'\n    | 'outlined filled'\n    | 'outlined accent'"
+                "text": "'accent' | 'filled' | 'outlined' | 'plain' | 'filled-outlined'"
               },
-              "default": "'outlined filled'",
               "description": "The callout's visual appearance.",
               "attribute": "appearance",
               "reflects": true
@@ -2294,9 +2284,8 @@
             {
               "name": "appearance",
               "type": {
-                "text": "| 'accent'\n    | 'filled'\n    | 'outlined'\n    | 'plain'\n    | 'outlined filled'\n    | 'outlined accent'"
+                "text": "'accent' | 'filled' | 'outlined' | 'plain' | 'filled-outlined'"
               },
-              "default": "'outlined filled'",
               "description": "The callout's visual appearance.",
               "fieldName": "appearance"
             },
@@ -2315,10 +2304,10 @@
             "module": "/src/internal/webawesome-element.js"
           },
           "summary": "Callouts are used to display important messages inline.",
-          "jsDoc": "/**\n * @summary Callouts are used to display important messages inline.\n * @documentation https://webawesome.com/docs/components/callout\n * @status stable\n * @since 2.0\n *\n * @slot - The callout's main content.\n * @slot icon - An icon to show in the callout. Works best with `<wa-icon>`.\n *\n * @csspart icon - The container that wraps the optional icon.\n * @csspart message - The container that wraps the callout's main content.\n */",
+          "jsDoc": "/**\n * @summary Callouts are used to display important messages inline.\n * @documentation https://webawesome.com/docs/components/callout\n * @status stable\n * @since 3.0\n *\n * @slot - The callout's main content.\n * @slot icon - An icon to show in the callout. Works best with `<wa-icon>`.\n *\n * @csspart icon - The container that wraps the optional icon.\n * @csspart message - The container that wraps the callout's main content.\n */",
           "documentation": "https://webawesome.com/docs/components/callout",
           "status": "stable",
-          "since": "2.0",
+          "since": "3.0",
           "tagName": "wa-callout",
           "customElement": true,
           "modulePath": "components/callout/callout.js",
@@ -2393,6 +2382,18 @@
             {
               "description": "An optional media section to render at the start of the card.",
               "name": "media"
+            },
+            {
+              "description": "An optional actions section to render at the end for the horizontal card.",
+              "name": "actions"
+            },
+            {
+              "description": "An optional actions section to render in the header of the vertical card.",
+              "name": "header-actions"
+            },
+            {
+              "description": "An optional actions section to render in the footer of the vertical card.",
+              "name": "footer-actions"
             }
           ],
           "members": [
@@ -2455,6 +2456,17 @@
               "description": "Renders the card with a footer. Only needed for SSR, otherwise is automatically added.",
               "attribute": "with-footer",
               "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "orientation",
+              "type": {
+                "text": "'horizontal' | 'vertical'"
+              },
+              "default": "'vertical'",
+              "description": "Renders the card's orientation *",
+              "attribute": "orientation",
+              "reflects": true
             }
           ],
           "attributes": [
@@ -2493,6 +2505,15 @@
               "default": "false",
               "description": "Renders the card with a footer. Only needed for SSR, otherwise is automatically added.",
               "fieldName": "withFooter"
+            },
+            {
+              "name": "orientation",
+              "type": {
+                "text": "'horizontal' | 'vertical'"
+              },
+              "default": "'vertical'",
+              "description": "Renders the card's orientation *",
+              "fieldName": "orientation"
             }
           ],
           "superclass": {
@@ -2500,7 +2521,7 @@
             "module": "/src/internal/webawesome-element.js"
           },
           "summary": "Cards can be used to group related subjects in a container.",
-          "jsDoc": "/**\n * @summary Cards can be used to group related subjects in a container.\n * @documentation https://webawesome.com/docs/components/card\n * @status stable\n * @since 2.0\n *\n * @slot - The card's main content.\n * @slot header - An optional header for the card.\n * @slot footer - An optional footer for the card.\n * @slot media - An optional media section to render at the start of the card.\n *\n * @csspart media - The container that wraps the card's media.\n * @csspart header - The container that wraps the card's header.\n * @csspart body - The container that wraps the card's main content.\n * @csspart footer - The container that wraps the card's footer.\n *\n * @cssproperty [--spacing=var(--wa-space-l)] - The amount of space around and between sections of the card. Expects a single value.\n */",
+          "jsDoc": "/**\n * @summary Cards can be used to group related subjects in a container.\n * @documentation https://webawesome.com/docs/components/card\n * @status stable\n * @since 2.0\n *\n * @slot - The card's main content.\n * @slot header - An optional header for the card.\n * @slot footer - An optional footer for the card.\n * @slot media - An optional media section to render at the start of the card.\n * @slot actions - An optional actions section to render at the end for the horizontal card.\n * @slot header-actions - An optional actions section to render in the header of the vertical card.\n * @slot footer-actions - An optional actions section to render in the footer of the vertical card.\n *\n * @csspart media - The container that wraps the card's media.\n * @csspart header - The container that wraps the card's header.\n * @csspart body - The container that wraps the card's main content.\n * @csspart footer - The container that wraps the card's footer.\n *\n * @cssproperty [--spacing=var(--wa-space-l)] - The amount of space around and between sections of the card. Expects a single value.\n */",
           "documentation": "https://webawesome.com/docs/components/card",
           "status": "stable",
           "since": "2.0",
@@ -5849,7 +5870,8 @@
                 "text": "string"
               },
               "description": "Groups related details elements. When one opens, others with the same name will close.",
-              "attribute": "name"
+              "attribute": "name",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -5866,7 +5888,7 @@
               "kind": "field",
               "name": "appearance",
               "type": {
-                "text": "'filled' | 'outlined' | 'plain'"
+                "text": "'filled' | 'outlined' | 'filled-outlined' | 'plain'"
               },
               "default": "'outlined'",
               "description": "The element's visual appearance.",
@@ -5875,13 +5897,13 @@
             },
             {
               "kind": "field",
-              "name": "iconPosition",
+              "name": "iconPlacement",
               "type": {
                 "text": "'start' | 'end'"
               },
               "default": "'end'",
-              "description": "The position of the expand/collapse icon.",
-              "attribute": "icon-position",
+              "description": "The location of the expand/collapse icon.",
+              "attribute": "icon-placement",
               "reflects": true
             },
             {
@@ -6009,20 +6031,20 @@
             {
               "name": "appearance",
               "type": {
-                "text": "'filled' | 'outlined' | 'plain'"
+                "text": "'filled' | 'outlined' | 'filled-outlined' | 'plain'"
               },
               "default": "'outlined'",
               "description": "The element's visual appearance.",
               "fieldName": "appearance"
             },
             {
-              "name": "icon-position",
+              "name": "icon-placement",
               "type": {
                 "text": "'start' | 'end'"
               },
               "default": "'end'",
-              "description": "The position of the expand/collapse icon.",
-              "fieldName": "iconPosition"
+              "description": "The location of the expand/collapse icon.",
+              "fieldName": "iconPlacement"
             }
           ],
           "cssStates": [
@@ -6097,6 +6119,10 @@
             }
           ],
           "cssParts": [
+            {
+              "description": "The dialog's internal `<dialog>` element.",
+              "name": "dialog"
+            },
             {
               "description": "The dialog's header. This element wraps the title and header actions.",
               "name": "header"
@@ -6381,7 +6407,7 @@
             "module": "/src/internal/webawesome-element.js"
           },
           "summary": "Dialogs, sometimes called \"modals\", appear above the page and require the user's immediate attention.",
-          "jsDoc": "/**\n * @summary Dialogs, sometimes called \"modals\", appear above the page and require the user's immediate attention.\n * @documentation https://webawesome.com/docs/components/dialog\n * @status stable\n * @since 2.0\n *\n * @dependency wa-button\n *\n * @slot - The dialog's main content.\n * @slot label - The dialog's label. Alternatively, you can use the `label` attribute.\n * @slot header-actions - Optional actions to add to the header. Works best with `<wa-button>`.\n * @slot footer - The dialog's footer, usually one or more buttons representing various options.\n *\n * @event wa-show - Emitted when the dialog opens.\n * @event wa-after-show - Emitted after the dialog opens and all animations are complete.\n * @event {{ source: Element }} wa-hide - Emitted when the dialog is requested to close. Calling\n *  `event.preventDefault()` will prevent the dialog from closing. You can inspect `event.detail.source` to see which\n *  element caused the dialog to close. If the source is the dialog element itself, the user has pressed [[Escape]] or\n *  the dialog has been closed programmatically. Avoid using this unless closing the dialog will result in destructive\n *  behavior such as data loss.\n * @event wa-after-hide - Emitted after the dialog closes and all animations are complete.\n *\n * @csspart header - The dialog's header. This element wraps the title and header actions.\n * @csspart header-actions - Optional actions to add to the header. Works best with `<wa-button>`.\n * @csspart title - The dialog's title.\n * @csspart close-button - The close button, a `<wa-button>`.\n * @csspart close-button__base - The close button's exported `base` part.\n * @csspart body - The dialog's body.\n * @csspart footer - The dialog's footer.\n *\n * @cssproperty --spacing - The amount of space around and between the dialog's content.\n * @cssproperty --width - The preferred width of the dialog. Note that the dialog will shrink to accommodate smaller screens.\n * @cssproperty [--show-duration=200ms] - The animation duration when showing the dialog.\n * @cssproperty [--hide-duration=200ms] - The animation duration when hiding the dialog.\n */",
+          "jsDoc": "/**\n * @summary Dialogs, sometimes called \"modals\", appear above the page and require the user's immediate attention.\n * @documentation https://webawesome.com/docs/components/dialog\n * @status stable\n * @since 2.0\n *\n * @dependency wa-button\n *\n * @slot - The dialog's main content.\n * @slot label - The dialog's label. Alternatively, you can use the `label` attribute.\n * @slot header-actions - Optional actions to add to the header. Works best with `<wa-button>`.\n * @slot footer - The dialog's footer, usually one or more buttons representing various options.\n *\n * @event wa-show - Emitted when the dialog opens.\n * @event wa-after-show - Emitted after the dialog opens and all animations are complete.\n * @event {{ source: Element }} wa-hide - Emitted when the dialog is requested to close. Calling\n *  `event.preventDefault()` will prevent the dialog from closing. You can inspect `event.detail.source` to see which\n *  element caused the dialog to close. If the source is the dialog element itself, the user has pressed [[Escape]] or\n *  the dialog has been closed programmatically. Avoid using this unless closing the dialog will result in destructive\n *  behavior such as data loss.\n * @event wa-after-hide - Emitted after the dialog closes and all animations are complete.\n *\n * @csspart dialog - The dialog's internal `<dialog>` element.\n * @csspart header - The dialog's header. This element wraps the title and header actions.\n * @csspart header-actions - Optional actions to add to the header. Works best with `<wa-button>`.\n * @csspart title - The dialog's title.\n * @csspart close-button - The close button, a `<wa-button>`.\n * @csspart close-button__base - The close button's exported `base` part.\n * @csspart body - The dialog's body.\n * @csspart footer - The dialog's footer.\n *\n * @cssproperty --spacing - The amount of space around and between the dialog's content.\n * @cssproperty --width - The preferred width of the dialog. Note that the dialog will shrink to accommodate smaller screens.\n * @cssproperty [--show-duration=200ms] - The animation duration when showing the dialog.\n * @cssproperty [--hide-duration=200ms] - The animation duration when hiding the dialog.\n */",
           "documentation": "https://webawesome.com/docs/components/dialog",
           "status": "stable",
           "since": "2.0",
@@ -6535,6 +6561,10 @@
             }
           ],
           "cssParts": [
+            {
+              "description": "The drawer's internal `<dialog>` element.",
+              "name": "dialog"
+            },
             {
               "description": "The drawer's header. This element wraps the title and header actions.",
               "name": "header"
@@ -6844,7 +6874,7 @@
             "module": "/src/internal/webawesome-element.js"
           },
           "summary": "Drawers slide in from a container to expose additional options and information.",
-          "jsDoc": "/**\n * @summary Drawers slide in from a container to expose additional options and information.\n * @documentation https://webawesome.com/docs/components/drawer\n * @status stable\n * @since 2.0\n *\n * @dependency wa-button\n *\n * @slot - The drawer's main content.\n * @slot label - The drawer's label. Alternatively, you can use the `label` attribute.\n * @slot header-actions - Optional actions to add to the header. Works best with `<wa-button>`.\n * @slot footer - The drawer's footer, usually one or more buttons representing various options.\n *\n * @event wa-show - Emitted when the drawer opens.\n * @event wa-after-show - Emitted after the drawer opens and all animations are complete.\n * @event wa-hide - Emitted when the drawer closes.\n * @event wa-after-hide - Emitted after the drawer closes and all animations are complete.\n * @event {{ source: Element }} wa-hide - Emitted when the drawer is requesting to close. Calling\n *  `event.preventDefault()` will prevent the drawer from closing. You can inspect `event.detail.source` to see which\n *  element caused the drawer to close. If the source is the drawer element itself, the user has pressed [[Escape]] or\n *  the drawer has been closed programmatically. Avoid using this unless closing the drawer will result in destructive\n *  behavior such as data loss.\n *\n * @csspart header - The drawer's header. This element wraps the title and header actions.\n * @csspart header-actions - Optional actions to add to the header. Works best with `<wa-button>`.\n * @csspart title - The drawer's title.\n * @csspart close-button - The close button, a `<wa-button>`.\n * @csspart close-button__base - The close button's exported `base` part.\n * @csspart body - The drawer's body.\n * @csspart footer - The drawer's footer.\n *\n * @cssproperty --spacing - The amount of space around and between the drawer's content.\n * @cssproperty --size - The preferred size of the drawer. This will be applied to the drawer's width or height\n *   depending on its `placement`. Note that the drawer will shrink to accommodate smaller screens.\n * @cssproperty [--show-duration=200ms] - The animation duration when showing the drawer.\n * @cssproperty [--hide-duration=200ms] - The animation duration when hiding the drawer.\n *\n * @property modal - Exposes the internal modal utility that controls focus trapping. To temporarily disable focus\n *   trapping and allow third-party modals spawned from an active Shoelace modal, call `modal.activateExternal()` when\n *   the third-party modal opens. Upon closing, call `modal.deactivateExternal()` to restore Shoelace's focus trapping.\n */",
+          "jsDoc": "/**\n * @summary Drawers slide in from a container to expose additional options and information.\n * @documentation https://webawesome.com/docs/components/drawer\n * @status stable\n * @since 2.0\n *\n * @dependency wa-button\n *\n * @slot - The drawer's main content.\n * @slot label - The drawer's label. Alternatively, you can use the `label` attribute.\n * @slot header-actions - Optional actions to add to the header. Works best with `<wa-button>`.\n * @slot footer - The drawer's footer, usually one or more buttons representing various options.\n *\n * @event wa-show - Emitted when the drawer opens.\n * @event wa-after-show - Emitted after the drawer opens and all animations are complete.\n * @event wa-hide - Emitted when the drawer closes.\n * @event wa-after-hide - Emitted after the drawer closes and all animations are complete.\n * @event {{ source: Element }} wa-hide - Emitted when the drawer is requesting to close. Calling\n *  `event.preventDefault()` will prevent the drawer from closing. You can inspect `event.detail.source` to see which\n *  element caused the drawer to close. If the source is the drawer element itself, the user has pressed [[Escape]] or\n *  the drawer has been closed programmatically. Avoid using this unless closing the drawer will result in destructive\n *  behavior such as data loss.\n *\n * @csspart dialog - The drawer's internal `<dialog>` element.\n * @csspart header - The drawer's header. This element wraps the title and header actions.\n * @csspart header-actions - Optional actions to add to the header. Works best with `<wa-button>`.\n * @csspart title - The drawer's title.\n * @csspart close-button - The close button, a `<wa-button>`.\n * @csspart close-button__base - The close button's exported `base` part.\n * @csspart body - The drawer's body.\n * @csspart footer - The drawer's footer.\n *\n * @cssproperty --spacing - The amount of space around and between the drawer's content.\n * @cssproperty --size - The preferred size of the drawer. This will be applied to the drawer's width or height\n *   depending on its `placement`. Note that the drawer will shrink to accommodate smaller screens.\n * @cssproperty [--show-duration=200ms] - The animation duration when showing the drawer.\n * @cssproperty [--hide-duration=200ms] - The animation duration when hiding the drawer.\n *\n * @property modal - Exposes the internal modal utility that controls focus trapping. To temporarily disable focus\n *   trapping and allow third-party modals spawned from an active Shoelace modal, call `modal.activateExternal()` when\n *   the third-party modal opens. Upon closing, call `modal.deactivateExternal()` to restore Shoelace's focus trapping.\n */",
           "documentation": "https://webawesome.com/docs/components/drawer",
           "status": "stable",
           "since": "2.0",
@@ -7057,7 +7087,7 @@
                   "default": "false"
                 }
               ],
-              "description": "Gets all <wa-dropdown-item> elements slotted in the menu that aren't disabled."
+              "description": "Gets all dropdown items slotted in the menu."
             },
             {
               "kind": "method",
@@ -8406,7 +8436,8 @@
                 "text": "string | undefined"
               },
               "description": "The name of the icon to draw. Available names depend on the icon library being used.",
-              "attribute": "name"
+              "attribute": "name",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -8415,7 +8446,8 @@
                 "text": "string"
               },
               "description": "The family of icons to choose from. For Font Awesome Free, valid options include `classic` and `brands`. For\nFont Awesome Pro subscribers, valid options include, `classic`, `sharp`, `duotone`, `sharp-duotone`, and `brands`.\nA valid kit code must be present to show pro icons via CDN. You can set `<html data-fa-kit-code=\"...\">` to provide\none.",
-              "attribute": "family"
+              "attribute": "family",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -8424,16 +8456,29 @@
                 "text": "string"
               },
               "description": "The name of the icon's variant. For Font Awesome, valid options include `thin`, `light`, `regular`, and `solid` for\nthe `classic` and `sharp` families. Some variants require a Font Awesome Pro subscription. Custom icon libraries\nmay or may not use this property.",
-              "attribute": "variant"
+              "attribute": "variant",
+              "reflects": true
             },
             {
               "kind": "field",
-              "name": "fixedWidth",
+              "name": "autoWidth",
               "type": {
-                "text": "false"
+                "text": "boolean"
               },
-              "description": "Draws the icon in a fixed-width both.",
-              "attribute": "fixed-width",
+              "default": "false",
+              "description": "Sets the width of the icon to match the cropped SVG viewBox. This operates like the Font `fa-width-auto` class.",
+              "attribute": "auto-width",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "swapOpacity",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Swaps the opacity of duotone icons.",
+              "attribute": "swap-opacity",
               "reflects": true
             },
             {
@@ -8463,7 +8508,8 @@
               },
               "default": "'default'",
               "description": "The name of a registered custom icon library.",
-              "attribute": "library"
+              "attribute": "library",
+              "reflects": true
             },
             {
               "kind": "method",
@@ -8476,29 +8522,9 @@
               }
             },
             {
-              "kind": "method",
+              "kind": "field",
               "name": "resolveIcon",
               "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "Promise<SVGResult>"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "url",
-                  "type": {
-                    "text": "string"
-                  }
-                },
-                {
-                  "name": "library",
-                  "optional": true,
-                  "type": {
-                    "text": "IconLibrary"
-                  }
-                }
-              ],
               "description": "Given a URL, this function returns the resulting SVG element or an appropriate error symbol."
             },
             {
@@ -8561,12 +8587,22 @@
               "fieldName": "variant"
             },
             {
-              "name": "fixed-width",
+              "name": "auto-width",
               "type": {
-                "text": "false"
+                "text": "boolean"
               },
-              "description": "Draws the icon in a fixed-width both.",
-              "fieldName": "fixedWidth"
+              "default": "false",
+              "description": "Sets the width of the icon to match the cropped SVG viewBox. This operates like the Font `fa-width-auto` class.",
+              "fieldName": "autoWidth"
+            },
+            {
+              "name": "swap-opacity",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Swaps the opacity of duotone icons.",
+              "fieldName": "swapOpacity"
             },
             {
               "name": "src",
@@ -8639,7 +8675,7 @@
           "type": {
             "text": "IconLibrary"
           },
-          "default": "{ name: 'default', resolver: (name: string, family = 'classic', variant = 'solid') => { return getIconUrl(name, family, variant); }, }"
+          "default": "{ name: 'default', resolver: (name: string, family = 'classic', variant = 'solid') => { return getIconUrl(name, family, variant); }, mutator: (svg, hostEl) => { // Duotone families if (hostEl?.family && !svg.hasAttribute('data-duotone-initialized')) { const { family, variant } = hostEl; if ( // Duotone family === 'duotone' || // Sharp duotone family === 'sharp-duotone' || // Notdog duo-solid (family === 'notdog' && variant === 'duo-solid') || // Jelly duo-regular (family === 'jelly' && variant === 'duo-regular') || // Thumbprint family === 'thumbprint' ) { // Identify the primary and secondary paths. The secondary path is the one that has an opacity attribute. const paths = [...svg.querySelectorAll<SVGPathElement>('path')]; const primaryPath = paths.find(p => !p.hasAttribute('opacity')); const secondaryPath = paths.find(p => p.hasAttribute('opacity')); if (!primaryPath || !secondaryPath) return; primaryPath.setAttribute('data-duotone-primary', ''); secondaryPath.setAttribute('data-duotone-secondary', ''); // Swap the primary and secondary opacity using CSS custom properties if (hostEl.swapOpacity && primaryPath && secondaryPath) { const originalOpacity = secondaryPath.getAttribute('opacity') || '0.4'; // Set path-specific opacity custom properties primaryPath.style.setProperty('--path-opacity', originalOpacity); secondaryPath.style.setProperty('--path-opacity', '1'); } svg.setAttribute('data-duotone-initialized', ''); } } }, }"
         }
       ],
       "exports": [
@@ -8663,7 +8699,7 @@
           "type": {
             "text": "{ [key: string]: { [key: string]: string } }"
           },
-          "default": "{ // // Solid variant // solid: { check: `<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"16\" width=\"14\" viewBox=\"0 0 448 512\"><path d=\"M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z\"/></svg>`, 'chevron-down': `<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"16\" width=\"16\" viewBox=\"0 0 512 512\"><path d=\"M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z\"/></svg>`, 'chevron-left': `<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"16\" width=\"10\" viewBox=\"0 0 320 512\"><path d=\"M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z\"/></svg>`, 'chevron-right': `<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"16\" width=\"10\" viewBox=\"0 0 320 512\"><path d=\"M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z\"/></svg>`, circle: `<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"16\" width=\"16\" viewBox=\"0 0 512 512\"><path d=\"M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z\"/></svg>`, eyedropper: `<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"16\" width=\"16\" viewBox=\"0 0 512 512\"><path d=\"M341.6 29.2L240.1 130.8l-9.4-9.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-9.4-9.4L482.8 170.4c39-39 39-102.2 0-141.1s-102.2-39-141.1 0zM55.4 323.3c-15 15-23.4 35.4-23.4 56.6v42.4L5.4 462.2c-8.5 12.7-6.8 29.6 4 40.4s27.7 12.5 40.4 4L89.7 480h42.4c21.2 0 41.6-8.4 56.6-23.4L309.4 335.9l-45.3-45.3L143.4 411.3c-3 3-7.1 4.7-11.3 4.7H96V379.9c0-4.2 1.7-8.3 4.7-11.3L221.4 247.9l-45.3-45.3L55.4 323.3z\"/></svg>`, 'grip-vertical': `<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"16\" width=\"10\" viewBox=\"0 0 320 512\"><path d=\"M40 352l48 0c22.1 0 40 17.9 40 40l0 48c0 22.1-17.9 40-40 40l-48 0c-22.1 0-40-17.9-40-40l0-48c0-22.1 17.9-40 40-40zm192 0l48 0c22.1 0 40 17.9 40 40l0 48c0 22.1-17.9 40-40 40l-48 0c-22.1 0-40-17.9-40-40l0-48c0-22.1 17.9-40 40-40zM40 320c-22.1 0-40-17.9-40-40l0-48c0-22.1 17.9-40 40-40l48 0c22.1 0 40 17.9 40 40l0 48c0 22.1-17.9 40-40 40l-48 0zM232 192l48 0c22.1 0 40 17.9 40 40l0 48c0 22.1-17.9 40-40 40l-48 0c-22.1 0-40-17.9-40-40l0-48c0-22.1 17.9-40 40-40zM40 160c-22.1 0-40-17.9-40-40L0 72C0 49.9 17.9 32 40 32l48 0c22.1 0 40 17.9 40 40l0 48c0 22.1-17.9 40-40 40l-48 0zM232 32l48 0c22.1 0 40 17.9 40 40l0 48c0 22.1-17.9 40-40 40l-48 0c-22.1 0-40-17.9-40-40l0-48c0-22.1 17.9-40 40-40z\"/></svg>`, indeterminate: `<svg part=\"indeterminate-icon\" class=\"icon\" viewBox=\"0 0 16 16\"><g stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\" stroke-linecap=\"round\"><g stroke=\"currentColor\" stroke-width=\"2\"><g transform=\"translate(2.285714, 6.857143)\"><path d=\"M10.2857143,1.14285714 L1.14285714,1.14285714\"></path></g></g></g></svg>`, minus: `<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"16\" width=\"14\" viewBox=\"0 0 448 512\"><path d=\"M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z\"/></svg>`, pause: `<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"16\" width=\"10\" viewBox=\"0 0 320 512\"><path d=\"M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z\"/></svg>`, play: `<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"16\" width=\"12\" viewBox=\"0 0 384 512\"><path d=\"M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z\"/></svg>`, star: `<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"16\" width=\"18\" viewBox=\"0 0 576 512\"><path d=\"M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z\"/></svg>`, user: `<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"16\" width=\"14\" viewBox=\"0 0 448 512\"><path d=\"M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z\"/></svg>`, xmark: `<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"16\" width=\"12\" viewBox=\"0 0 384 512\"><path d=\"M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z\"/></svg>`, }, // // Regular variant // regular: { 'circle-question': `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d=\"M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm169.8-90.7c7.9-22.3 29.1-37.3 52.8-37.3l58.3 0c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24l0-13.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1l-58.3 0c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z\"/></svg>`, 'circle-xmark': `<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"16\" width=\"16\" viewBox=\"0 0 512 512\"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d=\"M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z\"/></svg>`, copy: `<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"16\" width=\"14\" viewBox=\"0 0 448 512\"><path d=\"M384 336H192c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16l140.1 0L400 115.9V320c0 8.8-7.2 16-16 16zM192 384H384c35.3 0 64-28.7 64-64V115.9c0-12.7-5.1-24.9-14.1-33.9L366.1 14.1c-9-9-21.2-14.1-33.9-14.1H192c-35.3 0-64 28.7-64 64V320c0 35.3 28.7 64 64 64zM64 128c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H256c35.3 0 64-28.7 64-64V416H272v32c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192c0-8.8 7.2-16 16-16H96V128H64z\"/></svg>`, eye: `<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"16\" width=\"18\" viewBox=\"0 0 576 512\"><path d=\"M288 80c-65.2 0-118.8 29.6-159.9 67.7C89.6 183.5 63 226 49.4 256c13.6 30 40.2 72.5 78.6 108.3C169.2 402.4 222.8 432 288 432s118.8-29.6 159.9-67.7C486.4 328.5 513 286 526.6 256c-13.6-30-40.2-72.5-78.6-108.3C406.8 109.6 353.2 80 288 80zM95.4 112.6C142.5 68.8 207.2 32 288 32s145.5 36.8 192.6 80.6c46.8 43.5 78.1 95.4 93 131.1c3.3 7.9 3.3 16.7 0 24.6c-14.9 35.7-46.2 87.7-93 131.1C433.5 443.2 368.8 480 288 480s-145.5-36.8-192.6-80.6C48.6 356 17.3 304 2.5 268.3c-3.3-7.9-3.3-16.7 0-24.6C17.3 208 48.6 156 95.4 112.6zM288 336c44.2 0 80-35.8 80-80s-35.8-80-80-80c-.7 0-1.3 0-2 0c1.3 5.1 2 10.5 2 16c0 35.3-28.7 64-64 64c-5.5 0-10.9-.7-16-2c0 .7 0 1.3 0 2c0 44.2 35.8 80 80 80zm0-208a128 128 0 1 1 0 256 128 128 0 1 1 0-256z\"/></svg>`, 'eye-slash': `<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"16\" width=\"20\" viewBox=\"0 0 640 512\"><path d=\"M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zm151 118.3C226 97.7 269.5 80 320 80c65.2 0 118.8 29.6 159.9 67.7C518.4 183.5 545 226 558.6 256c-12.6 28-36.6 66.8-70.9 100.9l-53.8-42.2c9.1-17.6 14.2-37.5 14.2-58.7c0-70.7-57.3-128-128-128c-32.2 0-61.7 11.9-84.2 31.5l-46.1-36.1zM394.9 284.2l-81.5-63.9c4.2-8.5 6.6-18.2 6.6-28.3c0-5.5-.7-10.9-2-16c.7 0 1.3 0 2 0c44.2 0 80 35.8 80 80c0 9.9-1.8 19.4-5.1 28.2zm51.3 163.3l-41.9-33C378.8 425.4 350.7 432 320 432c-65.2 0-118.8-29.6-159.9-67.7C121.6 328.5 95 286 81.4 256c8.3-18.4 21.5-41.5 39.4-64.8L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5zm-88-69.3L302 334c-23.5-5.4-43.1-21.2-53.7-42.3l-56.1-44.2c-.2 2.8-.3 5.6-.3 8.5c0 70.7 57.3 128 128 128c13.3 0 26.1-2 38.2-5.8z\"/></svg>`, star: '<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 576 512\"><path d=\"M287.9 0c9.2 0 17.6 5.2 21.6 13.5l68.6 141.3 153.2 22.6c9 1.3 16.5 7.6 19.3 16.3s.5 18.1-5.9 24.5L433.6 328.4l26.2 155.6c1.5 9-2.2 18.1-9.7 23.5s-17.3 6-25.3 1.7l-137-73.2L151 509.1c-8.1 4.3-17.9 3.7-25.3-1.7s-11.2-14.5-9.7-23.5l26.2-155.6L31.1 218.2c-6.5-6.4-8.7-15.9-5.9-24.5s10.3-14.9 19.3-16.3l153.2-22.6L266.3 13.5C270.4 5.2 278.7 0 287.9 0zm0 79L235.4 187.2c-3.5 7.1-10.2 12.1-18.1 13.3L99 217.9 184.9 303c5.5 5.5 8.1 13.3 6.8 21L171.4 443.7l105.2-56.2c7.1-3.8 15.6-3.8 22.6 0l105.2 56.2L384.2 324.1c-1.3-7.7 1.2-15.5 6.8-21l85.9-85.1L358.6 200.5c-7.8-1.2-14.6-6.1-18.1-13.3L287.9 79z\"/></svg>', }, }"
+          "default": "{ // // Solid variant // solid: { check: `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 512\"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc. --><path fill=\"currentColor\" d=\"M434.8 70.1c14.3 10.4 17.5 30.4 7.1 44.7l-256 352c-5.5 7.6-14 12.3-23.4 13.1s-18.5-2.7-25.1-9.3l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l101.5 101.5 234-321.7c10.4-14.3 30.4-17.5 44.7-7.1z\"/></svg>`, 'chevron-down': `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 512\"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc. --><path fill=\"currentColor\" d=\"M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z\"/></svg>`, 'chevron-left': `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 512\"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc. --><path fill=\"currentColor\" d=\"M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z\"/></svg>`, 'chevron-right': `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 512\"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc. --><path fill=\"currentColor\" d=\"M311.1 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L243.2 256 73.9 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z\"/></svg>`, circle: `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc. --><path fill=\"currentColor\" d=\"M0 256a256 256 0 1 1 512 0 256 256 0 1 1 -512 0z\"/></svg>`, eyedropper: `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc. --><path fill=\"currentColor\" d=\"M341.6 29.2l-101.6 101.6-9.4-9.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-9.4-9.4 101.6-101.6c39-39 39-102.2 0-141.1s-102.2-39-141.1 0zM55.4 323.3c-15 15-23.4 35.4-23.4 56.6l0 42.4-26.6 39.9c-8.5 12.7-6.8 29.6 4 40.4s27.7 12.5 40.4 4l39.9-26.6 42.4 0c21.2 0 41.6-8.4 56.6-23.4l109.4-109.4-45.3-45.3-109.4 109.4c-3 3-7.1 4.7-11.3 4.7l-36.1 0 0-36.1c0-4.2 1.7-8.3 4.7-11.3l109.4-109.4-45.3-45.3-109.4 109.4z\"/></svg>`, 'grip-vertical': `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 512\"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc. --><path fill=\"currentColor\" d=\"M128 40c0-22.1-17.9-40-40-40L40 0C17.9 0 0 17.9 0 40L0 88c0 22.1 17.9 40 40 40l48 0c22.1 0 40-17.9 40-40l0-48zm0 192c0-22.1-17.9-40-40-40l-48 0c-22.1 0-40 17.9-40 40l0 48c0 22.1 17.9 40 40 40l48 0c22.1 0 40-17.9 40-40l0-48zM0 424l0 48c0 22.1 17.9 40 40 40l48 0c22.1 0 40-17.9 40-40l0-48c0-22.1-17.9-40-40-40l-48 0c-22.1 0-40 17.9-40 40zM320 40c0-22.1-17.9-40-40-40L232 0c-22.1 0-40 17.9-40 40l0 48c0 22.1 17.9 40 40 40l48 0c22.1 0 40-17.9 40-40l0-48zM192 232l0 48c0 22.1 17.9 40 40 40l48 0c22.1 0 40-17.9 40-40l0-48c0-22.1-17.9-40-40-40l-48 0c-22.1 0-40 17.9-40 40zM320 424c0-22.1-17.9-40-40-40l-48 0c-22.1 0-40 17.9-40 40l0 48c0 22.1 17.9 40 40 40l48 0c22.1 0 40-17.9 40-40l0-48z\"/></svg>`, indeterminate: `<svg part=\"indeterminate-icon\" class=\"icon\" viewBox=\"0 0 16 16\"><g stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\" stroke-linecap=\"round\"><g stroke=\"currentColor\" stroke-width=\"2\"><g transform=\"translate(2.285714 6.857143)\"><path d=\"M10.2857143,1.14285714 L1.14285714,1.14285714\"/></g></g></g></svg>`, minus: `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 512\"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc. --><path fill=\"currentColor\" d=\"M0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32z\"/></svg>`, pause: `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 384 512\"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc. --><path fill=\"currentColor\" d=\"M48 32C21.5 32 0 53.5 0 80L0 432c0 26.5 21.5 48 48 48l64 0c26.5 0 48-21.5 48-48l0-352c0-26.5-21.5-48-48-48L48 32zm224 0c-26.5 0-48 21.5-48 48l0 352c0 26.5 21.5 48 48 48l64 0c26.5 0 48-21.5 48-48l0-352c0-26.5-21.5-48-48-48l-64 0z\"/></svg>`, play: `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 512\"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc. --><path fill=\"currentColor\" d=\"M91.2 36.9c-12.4-6.8-27.4-6.5-39.6 .7S32 57.9 32 72l0 368c0 14.1 7.5 27.2 19.6 34.4s27.2 7.5 39.6 .7l336-184c12.8-7 20.8-20.5 20.8-35.1s-8-28.1-20.8-35.1l-336-184z\"/></svg>`, star: `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 576 512\"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc. --><path fill=\"currentColor\" d=\"M309.5-18.9c-4.1-8-12.4-13.1-21.4-13.1s-17.3 5.1-21.4 13.1L193.1 125.3 33.2 150.7c-8.9 1.4-16.3 7.7-19.1 16.3s-.5 18 5.8 24.4l114.4 114.5-25.2 159.9c-1.4 8.9 2.3 17.9 9.6 23.2s16.9 6.1 25 2L288.1 417.6 432.4 491c8 4.1 17.7 3.3 25-2s11-14.2 9.6-23.2L441.7 305.9 556.1 191.4c6.4-6.4 8.6-15.8 5.8-24.4s-10.1-14.9-19.1-16.3L383 125.3 309.5-18.9z\"/></svg>`, user: `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 512\"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc. --><path fill=\"currentColor\" d=\"M224 248a120 120 0 1 0 0-240 120 120 0 1 0 0 240zm-29.7 56C95.8 304 16 383.8 16 482.3 16 498.7 29.3 512 45.7 512l356.6 0c16.4 0 29.7-13.3 29.7-29.7 0-98.5-79.8-178.3-178.3-178.3l-59.4 0z\"/></svg>`, xmark: `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 384 512\"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc. --><path fill=\"currentColor\" d=\"M55.1 73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L147.2 256 9.9 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192.5 301.3 329.9 438.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.8 256 375.1 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192.5 210.7 55.1 73.4z\"/></svg>`, }, // // Regular variant // regular: { 'circle-question': `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc. --><path fill=\"currentColor\" d=\"M464 256a208 208 0 1 0 -416 0 208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0 256 256 0 1 1 -512 0zm256-80c-17.7 0-32 14.3-32 32 0 13.3-10.7 24-24 24s-24-10.7-24-24c0-44.2 35.8-80 80-80s80 35.8 80 80c0 47.2-36 67.2-56 74.5l0 3.8c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-8.1c0-20.5 14.8-35.2 30.1-40.2 6.4-2.1 13.2-5.5 18.2-10.3 4.3-4.2 7.7-10 7.7-19.6 0-17.7-14.3-32-32-32zM224 368a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z\"/></svg>`, 'circle-xmark': `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc. --><path fill=\"currentColor\" d=\"M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464a256 256 0 1 0 0-512 256 256 0 1 0 0 512zM167 167c-9.4 9.4-9.4 24.6 0 33.9l55 55-55 55c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l55-55 55 55c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-55-55 55-55c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-55 55-55-55c-9.4-9.4-24.6-9.4-33.9 0z\"/></svg>`, copy: `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 512\"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc. --><path fill=\"currentColor\" d=\"M384 336l-192 0c-8.8 0-16-7.2-16-16l0-256c0-8.8 7.2-16 16-16l133.5 0c4.2 0 8.3 1.7 11.3 4.7l58.5 58.5c3 3 4.7 7.1 4.7 11.3L400 320c0 8.8-7.2 16-16 16zM192 384l192 0c35.3 0 64-28.7 64-64l0-197.5c0-17-6.7-33.3-18.7-45.3L370.7 18.7C358.7 6.7 342.5 0 325.5 0L192 0c-35.3 0-64 28.7-64 64l0 256c0 35.3 28.7 64 64 64zM64 128c-35.3 0-64 28.7-64 64L0 448c0 35.3 28.7 64 64 64l192 0c35.3 0 64-28.7 64-64l0-16-48 0 0 16c0 8.8-7.2 16-16 16L64 464c-8.8 0-16-7.2-16-16l0-256c0-8.8 7.2-16 16-16l16 0 0-48-16 0z\"/></svg>`, eye: `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 576 512\"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc. --><path fill=\"currentColor\" d=\"M288 80C222.8 80 169.2 109.6 128.1 147.7 89.6 183.5 63 226 49.4 256 63 286 89.6 328.5 128.1 364.3 169.2 402.4 222.8 432 288 432s118.8-29.6 159.9-67.7C486.4 328.5 513 286 526.6 256 513 226 486.4 183.5 447.9 147.7 406.8 109.6 353.2 80 288 80zM95.4 112.6C142.5 68.8 207.2 32 288 32s145.5 36.8 192.6 80.6c46.8 43.5 78.1 95.4 93 131.1 3.3 7.9 3.3 16.7 0 24.6-14.9 35.7-46.2 87.7-93 131.1-47.1 43.7-111.8 80.6-192.6 80.6S142.5 443.2 95.4 399.4c-46.8-43.5-78.1-95.4-93-131.1-3.3-7.9-3.3-16.7 0-24.6 14.9-35.7 46.2-87.7 93-131.1zM288 336c44.2 0 80-35.8 80-80 0-29.6-16.1-55.5-40-69.3-1.4 59.7-49.6 107.9-109.3 109.3 13.8 23.9 39.7 40 69.3 40zm-79.6-88.4c2.5 .3 5 .4 7.6 .4 35.3 0 64-28.7 64-64 0-2.6-.2-5.1-.4-7.6-37.4 3.9-67.2 33.7-71.1 71.1zm45.6-115c10.8-3 22.2-4.5 33.9-4.5 8.8 0 17.5 .9 25.8 2.6 .3 .1 .5 .1 .8 .2 57.9 12.2 101.4 63.7 101.4 125.2 0 70.7-57.3 128-128 128-61.6 0-113-43.5-125.2-101.4-1.8-8.6-2.8-17.5-2.8-26.6 0-11 1.4-21.8 4-32 .2-.7 .3-1.3 .5-1.9 11.9-43.4 46.1-77.6 89.5-89.5z\"/></svg>`, 'eye-slash': `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 576 512\"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc. --><path fill=\"currentColor\" d=\"M41-24.9c-9.4-9.4-24.6-9.4-33.9 0S-2.3-.3 7 9.1l528 528c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-96.4-96.4c2.7-2.4 5.4-4.8 8-7.2 46.8-43.5 78.1-95.4 93-131.1 3.3-7.9 3.3-16.7 0-24.6-14.9-35.7-46.2-87.7-93-131.1-47.1-43.7-111.8-80.6-192.6-80.6-56.8 0-105.6 18.2-146 44.2L41-24.9zM176.9 111.1c32.1-18.9 69.2-31.1 111.1-31.1 65.2 0 118.8 29.6 159.9 67.7 38.5 35.7 65.1 78.3 78.6 108.3-13.6 30-40.2 72.5-78.6 108.3-3.1 2.8-6.2 5.6-9.4 8.4L393.8 328c14-20.5 22.2-45.3 22.2-72 0-70.7-57.3-128-128-128-26.7 0-51.5 8.2-72 22.2l-39.1-39.1zm182 182l-108-108c11.1-5.8 23.7-9.1 37.1-9.1 44.2 0 80 35.8 80 80 0 13.4-3.3 26-9.1 37.1zM103.4 173.2l-34-34c-32.6 36.8-55 75.8-66.9 104.5-3.3 7.9-3.3 16.7 0 24.6 14.9 35.7 46.2 87.7 93 131.1 47.1 43.7 111.8 80.6 192.6 80.6 37.3 0 71.2-7.9 101.5-20.6L352.2 422c-20 6.4-41.4 10-64.2 10-65.2 0-118.8-29.6-159.9-67.7-38.5-35.7-65.1-78.3-78.6-108.3 10.4-23.1 28.6-53.6 54-82.8z\"/></svg>`, star: `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 576 512\"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc. --><path fill=\"currentColor\" d=\"M288.1-32c9 0 17.3 5.1 21.4 13.1L383 125.3 542.9 150.7c8.9 1.4 16.3 7.7 19.1 16.3s.5 18-5.8 24.4L441.7 305.9 467 465.8c1.4 8.9-2.3 17.9-9.6 23.2s-17 6.1-25 2L288.1 417.6 143.8 491c-8 4.1-17.7 3.3-25-2s-11-14.2-9.6-23.2L134.4 305.9 20 191.4c-6.4-6.4-8.6-15.8-5.8-24.4s10.1-14.9 19.1-16.3l159.9-25.4 73.6-144.2c4.1-8 12.4-13.1 21.4-13.1zm0 76.8L230.3 158c-3.5 6.8-10 11.6-17.6 12.8l-125.5 20 89.8 89.9c5.4 5.4 7.9 13.1 6.7 20.7l-19.8 125.5 113.3-57.6c6.8-3.5 14.9-3.5 21.8 0l113.3 57.6-19.8-125.5c-1.2-7.6 1.3-15.3 6.7-20.7l89.8-89.9-125.5-20c-7.6-1.2-14.1-6-17.6-12.8L288.1 44.8z\"/></svg>`, }, }"
         },
         {
           "kind": "variable",
@@ -8929,9 +8965,9 @@
                 "text": "{ status: number }"
               },
               "description": "Emitted when the included file fails to load due to an error.",
-              "name": "wa-error",
-              "reactName": "onWaError",
-              "eventName": "WaErrorEvent"
+              "name": "wa-include-error",
+              "reactName": "onWaIncludeError",
+              "eventName": "WaIncludeErrorEvent"
             }
           ],
           "attributes": [
@@ -8967,7 +9003,7 @@
             "module": "/src/internal/webawesome-element.js"
           },
           "summary": "Includes give you the power to embed external HTML files into the page.",
-          "jsDoc": "/**\n * @summary Includes give you the power to embed external HTML files into the page.\n * @documentation https://webawesome.com/docs/components/include\n * @status stable\n * @since 2.0\n *\n * @event wa-load - Emitted when the included file is loaded.\n * @event {{ status: number }} wa-error - Emitted when the included file fails to load due to an error.\n */",
+          "jsDoc": "/**\n * @summary Includes give you the power to embed external HTML files into the page.\n * @documentation https://webawesome.com/docs/components/include\n * @status stable\n * @since 2.0\n *\n * @event wa-load - Emitted when the included file is loaded.\n * @event {{ status: number }} wa-include-error - Emitted when the included file fails to load due to an error.\n */",
           "documentation": "https://webawesome.com/docs/components/include",
           "status": "stable",
           "since": "2.0",
@@ -9056,11 +9092,11 @@
             },
             {
               "description": "The wrapper being rendered as an input",
-              "name": "input"
+              "name": "base"
             },
             {
               "description": "The internal `<input>` control.",
-              "name": "base"
+              "name": "input"
             },
             {
               "description": "The container that wraps the `start` slot.",
@@ -9222,7 +9258,7 @@
               "kind": "field",
               "name": "appearance",
               "type": {
-                "text": "'filled' | 'outlined'"
+                "text": "'filled' | 'outlined' | 'filled-outlined'"
               },
               "default": "'outlined'",
               "description": "The input's visual appearance.",
@@ -9755,7 +9791,7 @@
             {
               "name": "appearance",
               "type": {
-                "text": "'filled' | 'outlined'"
+                "text": "'filled' | 'outlined' | 'filled-outlined'"
               },
               "default": "'outlined'",
               "description": "The input's visual appearance.",
@@ -9995,7 +10031,7 @@
             "module": "/src/internal/webawesome-form-associated-element.js"
           },
           "summary": "Inputs collect data from the user.",
-          "jsDoc": "/**\n * @summary Inputs collect data from the user.\n * @documentation https://webawesome.com/docs/components/input\n * @status stable\n * @since 2.0\n *\n * @dependency wa-icon\n *\n * @slot label - The input's label. Alternatively, you can use the `label` attribute.\n * @slot start - An element, such as `<wa-icon>`, placed at the start of the input control.\n * @slot end - An element, such as `<wa-icon>`, placed at the end of the input control.\n * @slot clear-icon - An icon to use in lieu of the default clear icon.\n * @slot show-password-icon - An icon to use in lieu of the default show password icon.\n * @slot hide-password-icon - An icon to use in lieu of the default hide password icon.\n * @slot hint - Text that describes how to use the input. Alternatively, you can use the `hint` attribute.\n *\n * @event blur - Emitted when the control loses focus.\n * @event change - Emitted when an alteration to the control's value is committed by the user.\n * @event focus - Emitted when the control gains focus.\n * @event input - Emitted when the control receives input.\n * @event wa-clear - Emitted when the clear button is activated.\n * @event wa-invalid - Emitted when the form control has been checked for validity and its constraints aren't satisfied.\n *\n * @csspart label - The label\n * @csspart hint - The hint's wrapper.\n * @csspart input - The wrapper being rendered as an input\n * @csspart base - The internal `<input>` control.\n * @csspart start - The container that wraps the `start` slot.\n * @csspart clear-button - The clear button.\n * @csspart password-toggle-button - The password toggle button.\n * @csspart end - The container that wraps the `end` slot.\n *\n * @cssstate blank - The input is empty.\n */",
+          "jsDoc": "/**\n * @summary Inputs collect data from the user.\n * @documentation https://webawesome.com/docs/components/input\n * @status stable\n * @since 2.0\n *\n * @dependency wa-icon\n *\n * @slot label - The input's label. Alternatively, you can use the `label` attribute.\n * @slot start - An element, such as `<wa-icon>`, placed at the start of the input control.\n * @slot end - An element, such as `<wa-icon>`, placed at the end of the input control.\n * @slot clear-icon - An icon to use in lieu of the default clear icon.\n * @slot show-password-icon - An icon to use in lieu of the default show password icon.\n * @slot hide-password-icon - An icon to use in lieu of the default hide password icon.\n * @slot hint - Text that describes how to use the input. Alternatively, you can use the `hint` attribute.\n *\n * @event blur - Emitted when the control loses focus.\n * @event change - Emitted when an alteration to the control's value is committed by the user.\n * @event focus - Emitted when the control gains focus.\n * @event input - Emitted when the control receives input.\n * @event wa-clear - Emitted when the clear button is activated.\n * @event wa-invalid - Emitted when the form control has been checked for validity and its constraints aren't satisfied.\n *\n * @csspart label - The label\n * @csspart hint - The hint's wrapper.\n * @csspart base - The wrapper being rendered as an input\n * @csspart input - The internal `<input>` control.\n * @csspart start - The container that wraps the `start` slot.\n * @csspart clear-button - The clear button.\n * @csspart password-toggle-button - The password toggle button.\n * @csspart end - The container that wraps the `end` slot.\n *\n * @cssstate blank - The input is empty.\n */",
           "documentation": "https://webawesome.com/docs/components/input",
           "status": "stable",
           "since": "2.0",
@@ -10023,6 +10059,259 @@
           "declaration": {
             "name": "WaInput",
             "module": "components/input/input.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/intersection-observer/intersection-observer.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "WaIntersectionObserver",
+          "slots": [
+            {
+              "description": "Elements to track. Only immediate children of the host are monitored.",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "css",
+              "static": true,
+              "default": "styles"
+            },
+            {
+              "kind": "field",
+              "name": "intersectionObserver",
+              "type": {
+                "text": "IntersectionObserver | null"
+              },
+              "privacy": "private",
+              "default": "null"
+            },
+            {
+              "kind": "field",
+              "name": "observedElements",
+              "privacy": "private",
+              "default": "new Map<Element, boolean>()"
+            },
+            {
+              "kind": "field",
+              "name": "root",
+              "type": {
+                "text": "string | null"
+              },
+              "default": "null",
+              "description": "Element ID to define the viewport boundaries for tracked targets.",
+              "attribute": "root"
+            },
+            {
+              "kind": "field",
+              "name": "rootMargin",
+              "type": {
+                "text": "string"
+              },
+              "default": "'0px'",
+              "description": "Offset space around the root boundary. Accepts values like CSS margin syntax.",
+              "attribute": "root-margin"
+            },
+            {
+              "kind": "field",
+              "name": "threshold",
+              "type": {
+                "text": "string"
+              },
+              "default": "'0'",
+              "description": "One or more space-separated values representing visibility percentages that trigger the observer callback.",
+              "attribute": "threshold"
+            },
+            {
+              "kind": "field",
+              "name": "intersectClass",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "CSS class applied to elements during intersection. Automatically removed when elements leave\nthe viewport, enabling pure CSS styling based on visibility state.",
+              "attribute": "intersect-class"
+            },
+            {
+              "kind": "field",
+              "name": "once",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "If enabled, observation ceases after initial intersection.",
+              "attribute": "once",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Deactivates the intersection observer functionality.",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "handleSlotChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "parseThreshold",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "number[]"
+                }
+              },
+              "description": "Converts threshold property string into numeric array."
+            },
+            {
+              "kind": "method",
+              "name": "resolveRoot",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "Element | null"
+                }
+              },
+              "description": "Locates and returns the root element using the specified ID."
+            },
+            {
+              "kind": "method",
+              "name": "startObserver",
+              "privacy": "private",
+              "description": "Initializes or reinitializes the intersection observer instance."
+            },
+            {
+              "kind": "method",
+              "name": "stopObserver",
+              "privacy": "private",
+              "description": "Halts the intersection observer and cleans up."
+            },
+            {
+              "kind": "method",
+              "name": "handleDisabledChange",
+              "type": {
+                "text": "handleDisabledChange() => void"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleOptionsChange",
+              "type": {
+                "text": "handleOptionsChange() => void"
+              }
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "{ entry: IntersectionObserverEntry }"
+              },
+              "description": "Fired when a tracked element begins or ceases intersecting.",
+              "name": "wa-intersect",
+              "reactName": "onWaIntersect",
+              "eventName": "WaIntersectEvent"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "root",
+              "type": {
+                "text": "string | null"
+              },
+              "default": "null",
+              "description": "Element ID to define the viewport boundaries for tracked targets.",
+              "fieldName": "root"
+            },
+            {
+              "name": "root-margin",
+              "type": {
+                "text": "string"
+              },
+              "default": "'0px'",
+              "description": "Offset space around the root boundary. Accepts values like CSS margin syntax.",
+              "fieldName": "rootMargin"
+            },
+            {
+              "name": "threshold",
+              "type": {
+                "text": "string"
+              },
+              "default": "'0'",
+              "description": "One or more space-separated values representing visibility percentages that trigger the observer callback.",
+              "fieldName": "threshold"
+            },
+            {
+              "name": "intersect-class",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "CSS class applied to elements during intersection. Automatically removed when elements leave\nthe viewport, enabling pure CSS styling based on visibility state.",
+              "fieldName": "intersectClass"
+            },
+            {
+              "name": "once",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "If enabled, observation ceases after initial intersection.",
+              "fieldName": "once"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Deactivates the intersection observer functionality.",
+              "fieldName": "disabled"
+            }
+          ],
+          "superclass": {
+            "name": "WebAwesomeElement",
+            "module": "/src/internal/webawesome-element.js"
+          },
+          "summary": "Tracks immediate child elements and fires events as they move in and out of view.",
+          "jsDoc": "/**\n * @summary Tracks immediate child elements and fires events as they move in and out of view.\n * @documentation https://webawesome.com/docs/components/intersection-observer\n * @status stable\n * @since 2.0\n *\n * @slot - Elements to track. Only immediate children of the host are monitored.\n *\n * @event {{ entry: IntersectionObserverEntry }} wa-intersect - Fired when a tracked element begins or ceases intersecting.\n */",
+          "documentation": "https://webawesome.com/docs/components/intersection-observer",
+          "status": "stable",
+          "since": "2.0",
+          "tagName": "wa-intersection-observer",
+          "customElement": true,
+          "modulePath": "components/intersection-observer/intersection-observer.js",
+          "definitionPath": "components/intersection-observer/intersection-observer.js"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "WaIntersectionObserver",
+            "module": "components/intersection-observer/intersection-observer.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wa-intersection-observer",
+          "declaration": {
+            "name": "WaIntersectionObserver",
+            "module": "components/intersection-observer/intersection-observer.js"
           }
         }
       ]
@@ -10486,441 +10775,6 @@
           "declaration": {
             "name": "WaOption",
             "module": "components/option/option.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/page/page.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "WaPage",
-          "cssProperties": [
-            {
-              "description": "The width of the page's \"menu\" section.",
-              "name": "--menu-width",
-              "default": "auto"
-            },
-            {
-              "description": "The width of the page's \"main\" section.",
-              "name": "--main-width",
-              "default": "1fr"
-            },
-            {
-              "description": "The wide of the page's \"aside\" section.",
-              "name": "--aside-width",
-              "default": "auto"
-            },
-            {
-              "description": "The height of the banner. This gets calculated when the page initializes. If the height is known, you can set it here to prevent shifting when the page loads.",
-              "name": "--banner-height",
-              "default": "0px"
-            },
-            {
-              "description": "The height of the header. This gets calculated when the page initializes. If the height is known, you can set it here to prevent shifting when the page loads.",
-              "name": "--header-height",
-              "default": "0px"
-            },
-            {
-              "description": "The height of the subheader. This gets calculated when the page initializes. If the height is known, you can set it here to prevent shifting when the page loads.",
-              "name": "--subheader-height",
-              "default": "0px"
-            }
-          ],
-          "cssParts": [
-            {
-              "description": "The component's base wrapper.",
-              "name": "base"
-            },
-            {
-              "description": "The banner to show above header.",
-              "name": "banner"
-            },
-            {
-              "description": "The header, usually for top level navigation / branding.",
-              "name": "header"
-            },
-            {
-              "description": "Shown below the header, usually intended for things like breadcrumbs and other page level navigation.",
-              "name": "subheader"
-            },
-            {
-              "description": "The wrapper around menu, main, and aside.",
-              "name": "body"
-            },
-            {
-              "description": "The left hand side of the page. Generally intended for navigation.",
-              "name": "menu"
-            },
-            {
-              "description": "The `<nav>` that wraps the navigation slots on desktop viewports.",
-              "name": "navigation"
-            },
-            {
-              "description": "The header for a navigation area. On mobile this will be the header for `<wa-drawer>`.",
-              "name": "navigation-header"
-            },
-            {
-              "description": "The footer for a navigation area. On mobile this will be the footer for `<wa-drawer>`.",
-              "name": "navigation-footer"
-            },
-            {
-              "description": "The default `<wa-button>` that will toggle the `<wa-drawer>` for mobile viewports.",
-              "name": "navigation-toggle"
-            },
-            {
-              "description": "The default `<wa-icon>` displayed inside of the navigation-toggle button.",
-              "name": "navigation-toggle-icon"
-            },
-            {
-              "description": "The header above main content.",
-              "name": "main-header"
-            },
-            {
-              "description": "The main content.",
-              "name": "main-content"
-            },
-            {
-              "description": "The footer below main content.",
-              "name": "main-footer"
-            },
-            {
-              "description": "The right hand side of the page. Used for things like table of contents, ads, etc.",
-              "name": "aside"
-            },
-            {
-              "description": "Wrapper around skip-link",
-              "name": "skip-links"
-            },
-            {
-              "description": "The \"skip to main content\" link",
-              "name": "skip-link"
-            },
-            {
-              "description": "The footer of the page. This is always below the initial viewport size.",
-              "name": "footer"
-            },
-            {
-              "description": "A wrapper around elements such as dialogs or other modal-like elements.",
-              "name": "dialog-wrapper"
-            }
-          ],
-          "slots": [
-            {
-              "description": "The page's main content.",
-              "name": ""
-            },
-            {
-              "description": "The banner that gets display above the header. The banner will not be shown if no content is provided.",
-              "name": "banner"
-            },
-            {
-              "description": "The header to display at the top of the page. If a banner is present, the header will appear below the banner. The header will not be shown if there is no content.",
-              "name": "header"
-            },
-            {
-              "description": "A subheader to display below the `header`. This is a good place to put things like breadcrumbs.",
-              "name": "subheader"
-            },
-            {
-              "description": "The left side of the page. If you slot an element in here, you will override the default `navigation` slot and will be handling navigation on your own. This also will not disable the fallback behavior of the navigation button. This section \"sticks\" to the top as the page scrolls.",
-              "name": "menu"
-            },
-            {
-              "description": "The header for a navigation area. On mobile this will be the header for `<wa-drawer>`.",
-              "name": "navigation-header"
-            },
-            {
-              "description": "The main content to display in the navigation area. This is displayed on the left side of the page, if `menu` is not used. This section \"sticks\" to the top as the page scrolls.",
-              "name": "navigation"
-            },
-            {
-              "description": "The footer for a navigation area. On mobile this will be the footer for `<wa-drawer>`.",
-              "name": "navigation-footer"
-            },
-            {
-              "description": "Use this slot to slot in your own button + icon for toggling the navigation drawer. By default it is a `<wa-button>` + a 3 bars `<wa-icon>`",
-              "name": "navigation-toggle"
-            },
-            {
-              "description": "Use this to slot in your own icon for toggling the navigation drawer. By default it is 3 bars `<wa-icon>`.",
-              "name": "navigation-toggle-icon"
-            },
-            {
-              "description": "Header to display inline above the main content.",
-              "name": "main-header"
-            },
-            {
-              "description": "Footer to display inline below the main content.",
-              "name": "main-footer"
-            },
-            {
-              "description": "Content to be shown on the right side of the page. Typically contains a table of contents, ads, etc. This section \"sticks\" to the top as the page scrolls.",
-              "name": "aside"
-            },
-            {
-              "description": "The \"skip to content\" slot. You can override this If you would like to override the `Skip to content` button and add additional \"Skip to X\", they can be inserted here.",
-              "name": "skip-to-content"
-            },
-            {
-              "description": "The content to display in the footer. This is always displayed underneath the viewport so will always make the page \"scrollable\".",
-              "name": "footer"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "css",
-              "type": {
-                "text": "array"
-              },
-              "static": true,
-              "default": "[visuallyHidden, styles]"
-            },
-            {
-              "kind": "field",
-              "name": "headerResizeObserver",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "subheaderResizeObserver",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "bannerResizeObserver",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "footerResizeObserver",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "slotResizeObserver",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "slot",
-                  "type": {
-                    "text": "string"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "field",
-              "name": "handleNavigationToggle",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "header",
-              "type": {
-                "text": "HTMLElement"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "subheader",
-              "type": {
-                "text": "HTMLElement"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "footer",
-              "type": {
-                "text": "HTMLElement"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "banner",
-              "type": {
-                "text": "HTMLElement"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "navigationDrawer",
-              "type": {
-                "text": "WaDrawer"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "navigationToggleSlot",
-              "type": {
-                "text": "HTMLSlotElement"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "view",
-              "type": {
-                "text": "'mobile' | 'desktop'"
-              },
-              "default": "'desktop'",
-              "description": "The view is a reflection of the \"mobileBreakpoint\", when the page is larger than the `mobile-breakpoint` (768px by\ndefault), it is considered to be a \"desktop\" view. The view is merely a way to distinguish when to show/hide the\nnavigation. You can use additional media queries to make other adjustments to content as necessary.\nThe default is \"desktop\" because the \"mobile navigation drawer\" isn't accessible via SSR due to drawer requiring JS.",
-              "attribute": "view",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "navOpen",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Whether or not the navigation drawer is open. Note, the navigation drawer is only \"open\" on mobile views.",
-              "attribute": "nav-open",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "mobileBreakpoint",
-              "type": {
-                "text": "string"
-              },
-              "default": "'768px'",
-              "description": "At what page width to hide the \"navigation\" slot and collapse into a hamburger button.\nAccepts both numbers (interpreted as px) and CSS lengths (e.g. `50em`), which are resolved based on the root element.",
-              "attribute": "mobile-breakpoint"
-            },
-            {
-              "kind": "field",
-              "name": "navigationPlacement",
-              "type": {
-                "text": "'start' | 'end'"
-              },
-              "default": "'start'",
-              "description": "Where to place the navigation when in the mobile viewport.",
-              "attribute": "navigation-placement",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "disableNavigationToggle",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Determines whether or not to hide the default hamburger button.\nThis will automatically flip to \"true\" if you add an element with `data-toggle-nav` anywhere in the element light DOM.\nGenerally this will be set for you and you don't need to do anything, unless you're using SSR, in which case you should set this manually for initial page loads.",
-              "attribute": "disable-navigation-toggle",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "pageResizeObserver",
-              "default": "new ResizeObserver(entries => { for (const entry of entries) { if (entry.contentBoxSize) { const contentBoxSize = entry.borderBoxSize[0]; const pageWidth = contentBoxSize.inlineSize; const oldView = this.view; if (pageWidth >= toPx(this.mobileBreakpoint)) { this.view = 'desktop'; } else { this.view = 'mobile'; } this.requestUpdate('view', oldView); } } })"
-            },
-            {
-              "kind": "method",
-              "name": "showNavigation",
-              "description": "Shows the mobile navigation drawer",
-              "type": {
-                "text": "showNavigation() => void"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "hideNavigation",
-              "description": "Hides the mobile navigation drawer",
-              "type": {
-                "text": "hideNavigation() => void"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "toggleNavigation",
-              "description": "Toggles the mobile navigation drawer",
-              "type": {
-                "text": "toggleNavigation() => void"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "view",
-              "type": {
-                "text": "'mobile' | 'desktop'"
-              },
-              "default": "'desktop'",
-              "description": "The view is a reflection of the \"mobileBreakpoint\", when the page is larger than the `mobile-breakpoint` (768px by\ndefault), it is considered to be a \"desktop\" view. The view is merely a way to distinguish when to show/hide the\nnavigation. You can use additional media queries to make other adjustments to content as necessary.\nThe default is \"desktop\" because the \"mobile navigation drawer\" isn't accessible via SSR due to drawer requiring JS.",
-              "fieldName": "view"
-            },
-            {
-              "name": "nav-open",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Whether or not the navigation drawer is open. Note, the navigation drawer is only \"open\" on mobile views.",
-              "fieldName": "navOpen"
-            },
-            {
-              "name": "mobile-breakpoint",
-              "type": {
-                "text": "string"
-              },
-              "default": "'768px'",
-              "description": "At what page width to hide the \"navigation\" slot and collapse into a hamburger button.\nAccepts both numbers (interpreted as px) and CSS lengths (e.g. `50em`), which are resolved based on the root element.",
-              "fieldName": "mobileBreakpoint"
-            },
-            {
-              "name": "navigation-placement",
-              "type": {
-                "text": "'start' | 'end'"
-              },
-              "default": "'start'",
-              "description": "Where to place the navigation when in the mobile viewport.",
-              "fieldName": "navigationPlacement"
-            },
-            {
-              "name": "disable-navigation-toggle",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Determines whether or not to hide the default hamburger button.\nThis will automatically flip to \"true\" if you add an element with `data-toggle-nav` anywhere in the element light DOM.\nGenerally this will be set for you and you don't need to do anything, unless you're using SSR, in which case you should set this manually for initial page loads.",
-              "fieldName": "disableNavigationToggle"
-            }
-          ],
-          "superclass": {
-            "name": "WebAwesomeElement",
-            "module": "/src/internal/webawesome-element.js"
-          },
-          "summary": "Pages offer an easy way to scaffold entire page layouts using minimal markup.",
-          "jsDoc": "/**\n * @summary Pages offer an easy way to scaffold entire page layouts using minimal markup.\n * @documentation https://webawesome.com/docs/components/page\n * @status experimental\n * @since 3.0\n *\n * @slot - The page's main content.\n * @slot banner - The banner that gets display above the header. The banner will not be shown if no content is provided.\n * @slot header - The header to display at the top of the page. If a banner is present, the header will appear below the banner. The header will not be shown if there is no content.\n * @slot subheader - A subheader to display below the `header`. This is a good place to put things like breadcrumbs.\n * @slot menu - The left side of the page. If you slot an element in here, you will override the default `navigation` slot and will be handling navigation on your own. This also will not disable the fallback behavior of the navigation button. This section \"sticks\" to the top as the page scrolls.\n * @slot navigation-header - The header for a navigation area. On mobile this will be the header for `<wa-drawer>`.\n * @slot navigation - The main content to display in the navigation area. This is displayed on the left side of the page, if `menu` is not used. This section \"sticks\" to the top as the page scrolls.\n * @slot navigation-footer - The footer for a navigation area. On mobile this will be the footer for `<wa-drawer>`.\n * @slot navigation-toggle - Use this slot to slot in your own button + icon for toggling the navigation drawer. By default it is a `<wa-button>` + a 3 bars `<wa-icon>`\n * @slot navigation-toggle-icon - Use this to slot in your own icon for toggling the navigation drawer. By default it is 3 bars `<wa-icon>`.\n * @slot main-header - Header to display inline above the main content.\n * @slot main-footer - Footer to display inline below the main content.\n * @slot aside - Content to be shown on the right side of the page. Typically contains a table of contents, ads, etc. This section \"sticks\" to the top as the page scrolls.\n * @slot skip-to-content - The \"skip to content\" slot. You can override this If you would like to override the `Skip to content` button and add additional \"Skip to X\", they can be inserted here.\n * @slot footer - The content to display in the footer. This is always displayed underneath the viewport so will always make the page \"scrollable\".\n *\n * @csspart base - The component's base wrapper.\n * @csspart banner - The banner to show above header.\n * @csspart header - The header, usually for top level navigation / branding.\n * @csspart subheader - Shown below the header, usually intended for things like breadcrumbs and other page level navigation.\n * @csspart body - The wrapper around menu, main, and aside.\n * @csspart menu - The left hand side of the page. Generally intended for navigation.\n * @csspart navigation - The `<nav>` that wraps the navigation slots on desktop viewports.\n * @csspart navigation-header - The header for a navigation area. On mobile this will be the header for `<wa-drawer>`.\n * @csspart navigation-footer - The footer for a navigation area. On mobile this will be the footer for `<wa-drawer>`.\n * @csspart navigation-toggle - The default `<wa-button>` that will toggle the `<wa-drawer>` for mobile viewports.\n * @csspart navigation-toggle-icon - The default `<wa-icon>` displayed inside of the navigation-toggle button.\n * @csspart main-header - The header above main content.\n * @csspart main-content - The main content.\n * @csspart main-footer - The footer below main content.\n * @csspart aside - The right hand side of the page. Used for things like table of contents, ads, etc.\n * @csspart skip-links - Wrapper around skip-link\n * @csspart skip-link - The \"skip to main content\" link\n * @csspart footer - The footer of the page. This is always below the initial viewport size.\n * @csspart dialog-wrapper - A wrapper around elements such as dialogs or other modal-like elements.\n *\n * @cssproperty [--menu-width=auto] - The width of the page's \"menu\" section.\n * @cssproperty [--main-width=1fr] - The width of the page's \"main\" section.\n * @cssproperty [--aside-width=auto] - The wide of the page's \"aside\" section.\n * @cssproperty [--banner-height=0px] - The height of the banner. This gets calculated when the page initializes. If the height is known, you can set it here to prevent shifting when the page loads.\n * @cssproperty [--header-height=0px] - The height of the header. This gets calculated when the page initializes. If the height is known, you can set it here to prevent shifting when the page loads.\n * @cssproperty [--subheader-height=0px] - The height of the subheader. This gets calculated when the page initializes. If the height is known, you can set it here to prevent shifting when the page loads.\n */",
-          "documentation": "https://webawesome.com/docs/components/page",
-          "status": "experimental",
-          "since": "3.0",
-          "tagName": "wa-page",
-          "customElement": true,
-          "modulePath": "components/page/page.js",
-          "definitionPath": "components/page/page.js"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "WaPage",
-            "module": "components/page/page.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wa-page",
-          "declaration": {
-            "name": "WaPage",
-            "module": "components/page/page.js"
           }
         }
       ]
@@ -12491,7 +12345,7 @@
                 "text": "'default' | 'button'"
               },
               "default": "'default'",
-              "description": "The radio's value. When selected, the radio group will receive this value.",
+              "description": "The radio's visual appearance.",
               "attribute": "appearance",
               "reflects": true
             },
@@ -12577,7 +12431,7 @@
                 "text": "'default' | 'button'"
               },
               "default": "'default'",
-              "description": "The radio's value. When selected, the radio group will receive this value.",
+              "description": "The radio's visual appearance.",
               "fieldName": "appearance"
             },
             {
@@ -12712,14 +12566,6 @@
               "privacy": "private",
               "readonly": true,
               "default": "new HasSlotController(this, 'hint', 'label')"
-            },
-            {
-              "kind": "field",
-              "name": "hasRadioButtons",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
             },
             {
               "kind": "field",
@@ -14063,6 +13909,16 @@
           "name": "WaSelect",
           "cssProperties": [
             {
+              "description": "The duration of the show animation.",
+              "name": "--show-duration",
+              "default": "100ms"
+            },
+            {
+              "description": "The duration of the hide animation.",
+              "name": "--hide-duration",
+              "default": "100ms"
+            },
+            {
               "description": "When using `multiple`, the max size of tags before their content is truncated.",
               "name": "--tag-max-size",
               "default": "10ch"
@@ -14417,7 +14273,7 @@
               "kind": "field",
               "name": "appearance",
               "type": {
-                "text": "'filled' | 'outlined'"
+                "text": "'filled' | 'outlined' | 'filled-outlined'"
               },
               "default": "'outlined'",
               "description": "The select's visual appearance.",
@@ -14555,6 +14411,19 @@
               "kind": "method",
               "name": "handleLabelClick",
               "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleComboboxClick",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ]
             },
             {
               "kind": "method",
@@ -14943,7 +14812,7 @@
             {
               "name": "appearance",
               "type": {
-                "text": "'filled' | 'outlined'"
+                "text": "'filled' | 'outlined' | 'filled-outlined'"
               },
               "default": "'outlined'",
               "description": "The select's visual appearance.",
@@ -15033,7 +14902,7 @@
             "module": "/src/internal/webawesome-form-associated-element.js"
           },
           "summary": "Selects allow you to choose items from a menu of predefined options.",
-          "jsDoc": "/**\n * @summary Selects allow you to choose items from a menu of predefined options.\n * @documentation https://webawesome.com/docs/components/select\n * @status stable\n * @since 2.0\n *\n * @dependency wa-icon\n * @dependency wa-popup\n * @dependency wa-tag\n * @dependency wa-option\n *\n * @slot - The listbox options. Must be `<wa-option>` elements. You can use `<wa-divider>` to group items visually.\n * @slot label - The input's label. Alternatively, you can use the `label` attribute.\n * @slot start - An element, such as `<wa-icon>`, placed at the start of the combobox.\n * @slot end - An element, such as `<wa-icon>`, placed at the end of the combobox.\n * @slot clear-icon - An icon to use in lieu of the default clear icon.\n * @slot expand-icon - The icon to show when the control is expanded and collapsed. Rotates on open and close.\n * @slot hint - Text that describes how to use the input. Alternatively, you can use the `hint` attribute.\n *\n * @event change - Emitted when the control's value changes.\n * @event input - Emitted when the control receives input.\n * @event focus - Emitted when the control gains focus.\n * @event blur - Emitted when the control loses focus.\n * @event wa-clear - Emitted when the control's value is cleared.\n * @event wa-show - Emitted when the select's menu opens.\n * @event wa-after-show - Emitted after the select's menu opens and all animations are complete.\n * @event wa-hide - Emitted when the select's menu closes.\n * @event wa-after-hide - Emitted after the select's menu closes and all animations are complete.\n * @event wa-invalid - Emitted when the form control has been checked for validity and its constraints aren't satisfied.\n *\n * @csspart form-control - The form control that wraps the label, input, and hint.\n * @csspart form-control-label - The label's wrapper.\n * @csspart form-control-input - The select's wrapper.\n * @csspart hint - The hint's wrapper.\n * @csspart combobox - The container the wraps the start, end, value, clear icon, and expand button.\n * @csspart start - The container that wraps the `start` slot.\n * @csspart end - The container that wraps the `end` slot.\n * @csspart display-input - The element that displays the selected option's label, an `<input>` element.\n * @csspart listbox - The listbox container where options are slotted.\n * @csspart tags - The container that houses option tags when `multiselect` is used.\n * @csspart tag - The individual tags that represent each multiselect option.\n * @csspart tag__content - The tag's content part.\n * @csspart tag__remove-button - The tag's remove button.\n * @csspart tag__remove-button__base - The tag's remove button base part.\n * @csspart clear-button - The clear button.\n * @csspart expand-icon - The container that wraps the expand icon.\n *\n * @cssproperty [--tag-max-size=10ch] - When using `multiple`, the max size of tags before their content is truncated.\n *\n * @cssstate blank - The select is empty.\n */",
+          "jsDoc": "/**\n * @summary Selects allow you to choose items from a menu of predefined options.\n * @documentation https://webawesome.com/docs/components/select\n * @status stable\n * @since 2.0\n *\n * @dependency wa-icon\n * @dependency wa-popup\n * @dependency wa-tag\n * @dependency wa-option\n *\n * @slot - The listbox options. Must be `<wa-option>` elements. You can use `<wa-divider>` to group items visually.\n * @slot label - The input's label. Alternatively, you can use the `label` attribute.\n * @slot start - An element, such as `<wa-icon>`, placed at the start of the combobox.\n * @slot end - An element, such as `<wa-icon>`, placed at the end of the combobox.\n * @slot clear-icon - An icon to use in lieu of the default clear icon.\n * @slot expand-icon - The icon to show when the control is expanded and collapsed. Rotates on open and close.\n * @slot hint - Text that describes how to use the input. Alternatively, you can use the `hint` attribute.\n *\n * @event change - Emitted when the control's value changes.\n * @event input - Emitted when the control receives input.\n * @event focus - Emitted when the control gains focus.\n * @event blur - Emitted when the control loses focus.\n * @event wa-clear - Emitted when the control's value is cleared.\n * @event wa-show - Emitted when the select's menu opens.\n * @event wa-after-show - Emitted after the select's menu opens and all animations are complete.\n * @event wa-hide - Emitted when the select's menu closes.\n * @event wa-after-hide - Emitted after the select's menu closes and all animations are complete.\n * @event wa-invalid - Emitted when the form control has been checked for validity and its constraints aren't satisfied.\n *\n * @csspart form-control - The form control that wraps the label, input, and hint.\n * @csspart form-control-label - The label's wrapper.\n * @csspart form-control-input - The select's wrapper.\n * @csspart hint - The hint's wrapper.\n * @csspart combobox - The container the wraps the start, end, value, clear icon, and expand button.\n * @csspart start - The container that wraps the `start` slot.\n * @csspart end - The container that wraps the `end` slot.\n * @csspart display-input - The element that displays the selected option's label, an `<input>` element.\n * @csspart listbox - The listbox container where options are slotted.\n * @csspart tags - The container that houses option tags when `multiselect` is used.\n * @csspart tag - The individual tags that represent each multiselect option.\n * @csspart tag__content - The tag's content part.\n * @csspart tag__remove-button - The tag's remove button.\n * @csspart tag__remove-button__base - The tag's remove button base part.\n * @csspart clear-button - The clear button.\n * @csspart expand-icon - The container that wraps the expand icon.\n *\n * @cssproperty [--show-duration=100ms] - The duration of the show animation.\n * @cssproperty [--hide-duration=100ms] - The duration of the hide animation.\n * @cssproperty [--tag-max-size=10ch] - When using `multiple`, the max size of tags before their content is truncated.\n *\n * @cssstate blank - The select is empty.\n */",
           "documentation": "https://webawesome.com/docs/components/select",
           "status": "stable",
           "since": "2.0",
@@ -15427,13 +15296,6 @@
               "name": "tooltip",
               "type": {
                 "text": "WaTooltip"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "tooltips",
-              "type": {
-                "text": "NodeListOf<WaTooltip>"
               }
             },
             {
@@ -17920,9 +17782,9 @@
               "kind": "field",
               "name": "appearance",
               "type": {
-                "text": "'accent' | 'outlined accent' | 'filled' | 'outlined' | 'outlined filled'"
+                "text": "'accent' | 'filled' | 'outlined' | 'filled-outlined'"
               },
-              "default": "'outlined filled'",
+              "default": "'filled-outlined'",
               "description": "The tag's visual appearance.",
               "attribute": "appearance",
               "reflects": true
@@ -17991,9 +17853,9 @@
             {
               "name": "appearance",
               "type": {
-                "text": "'accent' | 'outlined accent' | 'filled' | 'outlined' | 'outlined filled'"
+                "text": "'accent' | 'filled' | 'outlined' | 'filled-outlined'"
               },
-              "default": "'outlined filled'",
+              "default": "'filled-outlined'",
               "description": "The tag's visual appearance.",
               "fieldName": "appearance"
             },
@@ -18221,7 +18083,7 @@
               "kind": "field",
               "name": "appearance",
               "type": {
-                "text": "'filled' | 'outlined'"
+                "text": "'filled' | 'outlined' | 'filled-outlined'"
               },
               "default": "'outlined'",
               "description": "The textarea's visual appearance.",
@@ -18673,7 +18535,7 @@
             {
               "name": "appearance",
               "type": {
-                "text": "'filled' | 'outlined'"
+                "text": "'filled' | 'outlined' | 'filled-outlined'"
               },
               "default": "'outlined'",
               "description": "The textarea's visual appearance.",
@@ -19136,6 +18998,46 @@
             },
             {
               "kind": "method",
+              "name": "addToAriaLabelledBy",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "element",
+                  "type": {
+                    "text": "Element"
+                  }
+                },
+                {
+                  "name": "id",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "description": "Adds the tooltip ID to the aria-labelledby attribute"
+            },
+            {
+              "kind": "method",
+              "name": "removeFromAriaLabelledBy",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "element",
+                  "type": {
+                    "text": "Element"
+                  }
+                },
+                {
+                  "name": "id",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "description": "Removes the tooltip ID from the aria-labelledby attribute"
+            },
+            {
+              "kind": "method",
               "name": "handleOpenChange",
               "type": {
                 "text": "handleOpenChange() => void"
@@ -19350,7 +19252,7 @@
             {
               "description": "The size of the indentation for nested items.",
               "name": "--indent-size",
-              "default": "var(--wa-spacing-m)"
+              "default": "var(--wa-space-m)"
             },
             {
               "description": "The color of the indentation line.",
@@ -19614,7 +19516,7 @@
             "module": "/src/internal/webawesome-element.js"
           },
           "summary": "Trees allow you to display a hierarchical list of selectable [tree items](/docs/components/tree-item). Items with children can be expanded and collapsed as desired by the user.",
-          "jsDoc": "/**\n * @summary Trees allow you to display a hierarchical list of selectable [tree items](/docs/components/tree-item). Items with children can be expanded and collapsed as desired by the user.\n * @documentation https://webawesome.com/docs/components/tree\n * @status stable\n * @since 2.0\n *\n * @dependency wa-tree-item\n *\n * @event {{ selection: WaTreeItem[] }} wa-selection-change - Emitted when a tree item is selected or deselected.\n *\n * @slot - The default slot.\n * @slot expand-icon - The icon to show when the tree item is expanded. Works best with `<wa-icon>`.\n * @slot collapse-icon - The icon to show when the tree item is collapsed. Works best with `<wa-icon>`.\n *\n * @csspart base - The component's base wrapper.\n *\n * @cssproperty [--indent-size=var(--wa-spacing-m)] - The size of the indentation for nested items.\n * @cssproperty [--indent-guide-color=var(--wa-color-surface-border)] - The color of the indentation line.\n * @cssproperty [--indent-guide-offset=0] - The amount of vertical spacing to leave between the top and bottom of the\n *  indentation line's starting position.\n * @cssproperty [--indent-guide-style=solid] - The style of the indentation line, e.g. solid, dotted, dashed.\n * @cssproperty [--indent-guide-width=0] - The width of the indentation line.\n */",
+          "jsDoc": "/**\n * @summary Trees allow you to display a hierarchical list of selectable [tree items](/docs/components/tree-item). Items with children can be expanded and collapsed as desired by the user.\n * @documentation https://webawesome.com/docs/components/tree\n * @status stable\n * @since 2.0\n *\n * @dependency wa-tree-item\n *\n * @event {{ selection: WaTreeItem[] }} wa-selection-change - Emitted when a tree item is selected or deselected.\n *\n * @slot - The default slot.\n * @slot expand-icon - The icon to show when the tree item is expanded. Works best with `<wa-icon>`.\n * @slot collapse-icon - The icon to show when the tree item is collapsed. Works best with `<wa-icon>`.\n *\n * @csspart base - The component's base wrapper.\n *\n * @cssproperty [--indent-size=var(--wa-space-m)] - The size of the indentation for nested items.\n * @cssproperty [--indent-guide-color=var(--wa-color-surface-border)] - The color of the indentation line.\n * @cssproperty [--indent-guide-offset=0] - The amount of vertical spacing to leave between the top and bottom of the\n *  indentation line's starting position.\n * @cssproperty [--indent-guide-style=solid] - The style of the indentation line, e.g. solid, dotted, dashed.\n * @cssproperty [--indent-guide-width=0] - The width of the indentation line.\n */",
           "documentation": "https://webawesome.com/docs/components/tree",
           "status": "stable",
           "since": "2.0",
@@ -20532,7 +20434,7 @@
   "package": {
     "name": "@awesome.me/webawesome",
     "description": "A forward-thinking library of web components.",
-    "version": "3.0.0-beta.4",
+    "version": "3.0.0",
     "author": "Web Awesome",
     "homepage": "https://webawesome.com/",
     "license": "MIT"

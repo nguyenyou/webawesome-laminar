@@ -340,3 +340,16 @@ Expected file: ${paths.customElementsJson}
   
   logger.debug(`Found WebAwesome manifest at: ${paths.customElementsJson}`);
 }
+
+export const COMPONENT_CUSTOMIZATIONS: Record<string, {
+  customTrait: string;
+  importPath: string;
+}> = {
+  "wa-select": {
+      customTrait: "CustomSelect",
+      importPath: "io.github.nguyenyou.webawesome.laminar.custom.CustomSelect"
+  }
+};
+
+// Components to skip during generation
+export const SKIP_COMPONENTS = new Set(['wa-page']);

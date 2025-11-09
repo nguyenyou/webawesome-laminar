@@ -50,8 +50,11 @@ object Icon extends WebComponent("wa-icon") {
     */
   lazy val variant: HtmlAttr[String] = stringAttr("variant")
 
-  /** Draws the icon in a fixed-width both. */
-  lazy val fixedWidth: HtmlAttr[String] = stringAttr("fixed-width")
+  /** Sets the width of the icon to match the cropped SVG viewBox. This operates like the Font `fa-width-auto` class. */
+  lazy val autoWidth: HtmlAttr[Boolean] = boolAttr("auto-width")
+
+  /** Swaps the opacity of duotone icons. */
+  lazy val swapOpacity: HtmlAttr[Boolean] = boolAttr("swap-opacity")
 
   /** An external URL of an SVG file. Be sure you trust the content you are including, as it will be executed as code
     * and can result in XSS attacks.
@@ -120,8 +123,12 @@ object Icon extends WebComponent("wa-icon") {
       */
     var variant: String
 
-    /** Draws the icon in a fixed-width both. */
-    var fixedWidth: js.Any
+    /** Sets the width of the icon to match the cropped SVG viewBox. This operates like the Font `fa-width-auto` class.
+      */
+    var autoWidth: Boolean
+
+    /** Swaps the opacity of duotone icons. */
+    var swapOpacity: Boolean
 
     /** An external URL of an SVG file. Be sure you trust the content you are including, as it will be executed as code
       * and can result in XSS attacks.

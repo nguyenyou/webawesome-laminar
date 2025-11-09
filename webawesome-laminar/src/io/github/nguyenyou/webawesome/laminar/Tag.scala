@@ -38,9 +38,8 @@ object Tag extends WebComponent("wa-tag") {
     */
   lazy val variant: CommonKeys.ThemeVariant.type = CommonKeys.ThemeVariant
 
-  /** The tag's visual appearance. Valid values: "accent", "outlined accent", "filled", "outlined", "outlined filled".
-    */
-  lazy val appearance: CommonKeys.TagExtendedAppearance.type = CommonKeys.TagExtendedAppearance
+  /** The tag's visual appearance. Valid values: "accent", "filled", "outlined", "filled-outlined". */
+  lazy val appearance: CommonKeys.ExtendedAppearance.type = CommonKeys.ExtendedAppearance
 
   /** The tag's size. Valid values: "small", "medium", "large". */
   lazy val size: CommonKeys.ComponentSize.type = CommonKeys.ComponentSize
@@ -90,9 +89,8 @@ object Tag extends WebComponent("wa-tag") {
       */
     var variant: ThemeVariant
 
-    /** The tag's visual appearance. Valid values: "accent", "outlined accent", "filled", "outlined", "outlined filled".
-      */
-    var appearance: TagExtendedAppearance
+    /** The tag's visual appearance. Valid values: "accent", "filled", "outlined", "filled-outlined". */
+    var appearance: ExtendedAppearance
 
     /** The tag's size. Valid values: "small", "medium", "large". */
     var size: ComponentSize

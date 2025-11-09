@@ -4,6 +4,7 @@ import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.nodes.Slot
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
+import io.github.nguyenyou.webawesome.laminar.custom.CustomSelect
 import io.github.nguyenyou.webawesome.laminar.events.*
 import org.scalajs.dom
 
@@ -16,7 +17,7 @@ import scala.scalajs.js.annotation.JSImport
   *
   * [[https://webawesome.com/docs/components/select WebAwesome docs]]
   */
-object Select extends WebComponent("wa-select") {
+object Select extends WebComponent("wa-select"), CustomSelect {
 
   @JSImport("@awesome.me/webawesome/dist/components/select/select.js", JSImport.Namespace)
   @js.native
@@ -91,8 +92,8 @@ object Select extends WebComponent("wa-select") {
     */
   lazy val open: HtmlAttr[Boolean] = boolAttr("open")
 
-  /** The select's visual appearance. Valid values: "filled", "outlined". */
-  lazy val appearance: CommonKeys.FilledOutlineAppearance.type = CommonKeys.FilledOutlineAppearance
+  /** The select's visual appearance. Valid values: "filled", "outlined", "filled-outlined". */
+  lazy val appearance: CommonKeys.Appearance.type = CommonKeys.Appearance
 
   /** Draws a pill-style select with rounded edges. */
   lazy val pill: HtmlAttr[Boolean] = boolAttr("pill")
@@ -156,6 +157,12 @@ object Select extends WebComponent("wa-select") {
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssVars {
+
+    /** The duration of the show animation. Default: 100ms */
+    lazy val showDuration: String = "--show-duration"
+
+    /** The duration of the hide animation. Default: 100ms */
+    lazy val hideDuration: String = "--hide-duration"
 
     /** When using `multiple`, the max size of tags before their content is truncated. Default: 10ch */
     lazy val tagMaxSize: String = "--tag-max-size"
@@ -227,7 +234,7 @@ object Select extends WebComponent("wa-select") {
     var name: String
 
     /** The select's value. This will be a string for single select or an array for multi-select. */
-    var value: String
+    var value: String | js.Array[String]
 
     /** The select's size. Valid values: "small", "medium", "large". */
     var size: ComponentSize
@@ -254,8 +261,8 @@ object Select extends WebComponent("wa-select") {
       */
     var open: Boolean
 
-    /** The select's visual appearance. Valid values: "filled", "outlined". */
-    var appearance: FilledOutlineAppearance
+    /** The select's visual appearance. Valid values: "filled", "outlined", "filled-outlined". */
+    var appearance: Appearance
 
     /** Draws a pill-style select with rounded edges. */
     var pill: Boolean
