@@ -1,0 +1,3 @@
+package build.docs.examples.mutationObserver
+
+object `package` extends build.ExampleModule

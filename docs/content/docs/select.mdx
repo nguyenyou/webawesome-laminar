@@ -1,0 +1,271 @@
+---
+title: Select
+---
+
+## Basic
+
+```scala preview
+val selectedVar = Var("")
+Select(
+  _.value <-- selectedVar,
+  _.onInput.mapToValue --> selectedVar
+)(
+  UOption(_.value := "")("Option 1"),
+  UOption(_.value := "option-2")("Option 2"),
+  UOption(_.value := "option-3")("Option 3"),
+  UOption(_.value := "option-4")("Option 4"),
+  UOption(_.value := "option-5")("Option 5"),
+  UOption(_.value := "option-6")("Option 6")
+)
+```
+
+## Labels
+
+Use the `label` attribute to give the select an accessible label. For labels that contain HTML, use the `label` slot instead.
+
+```scala preview
+Select(
+  _.label := "Select one"
+)(
+  UOption(_.value := "option-1")("Option 1"),
+  UOption(_.value := "option-2")("Option 2"),
+  UOption(_.value := "option-3")("Option 3")
+)
+```
+
+## Hint
+
+Add descriptive hint to a select with the `hint` attribute. For hints that contain HTML, use the `hint` slot instead.
+
+```scala preview
+Select(
+  _.label := "Experience",
+  _.hint  := "Please tell us your skill level."
+)(
+  UOption(_.value := "1")("Novice"),
+  UOption(_.value := "2")("Intermediate"),
+  UOption(_.value := "3")("Advanced")
+)
+```
+
+## Placeholders
+
+Use the `placeholder` attribute to add a placeholder.
+
+```scala preview
+Select(
+  _.placeholder := "Select one"
+)(
+  UOption(_.value := "option-1")("Option 1"),
+  UOption(_.value := "option-2")("Option 2"),
+  UOption(_.value := "option-3")("Option 3")
+)
+```
+
+## Clearable
+
+Use the `with-clear` attribute to make the control clearable. The clear button only appears when an option is selected.
+
+```scala preview
+Select(
+  _.withClear := true,
+  _.value     := "option-1"
+)(
+  UOption(_.value := "option-1")("Option 1"),
+  UOption(_.value := "option-2")("Option 2"),
+  UOption(_.value := "option-3")("Option 3")
+)
+```
+
+## Appearance
+
+Use the `appearance` attribute to change the select's visual appearance.
+
+```scala preview
+Select(
+  _.appearance.filled
+)(
+  UOption(_.value := "option-1")("Option 1"),
+  UOption(_.value := "option-2")("Option 2"),
+  UOption(_.value := "option-3")("Option 3")
+)
+```
+
+## Pill
+
+Use the `pill` attribute to give selects rounded edges.
+
+```scala preview
+Select(
+  _.pill := true
+)(
+  UOption(_.value := "option-1")("Option 1"),
+  UOption(_.value := "option-2")("Option 2"),
+  UOption(_.value := "option-3")("Option 3")
+)
+```
+
+## Disabled
+
+Use the `disabled` attribute to disable a select.
+
+```scala preview
+Select(
+  _.placeholder := "Disabled",
+  _.disabled    := true
+)(
+  UOption(_.value := "option-1")("Option 1"),
+  UOption(_.value := "option-2")("Option 2"),
+  UOption(_.value := "option-3")("Option 3")
+)
+```
+
+## Multiple
+
+To allow multiple options to be selected, use the `multiple` attribute. It's a good practice to use `with-clear` when this option is enabled. You can select multiple options by adding the `selected` attribute to individual options.
+
+```scala preview
+Select(
+  _.label     := "Select a Few",
+  _.multiple  := true,
+  _.withClear := true
+)(
+  UOption(_.value := "option-1", _.selected := true)("Option 1"),
+  UOption(_.value := "option-2", _.selected := true)("Option 2"),
+  UOption(_.value := "option-3", _.selected := true)("Option 3"),
+  UOption(_.value := "option-4")("Option 4"),
+  UOption(_.value := "option-5")("Option 5"),
+  UOption(_.value := "option-6")("Option 6")
+)
+```
+
+## Setting Initial Values
+
+Use the `selected` attribute on individual options to set the initial selection, similar to native HTML.
+
+```scala preview
+Select()(
+  UOption(_.value := "option-1", _.selected := true)("Option 1"),
+  UOption(_.value := "option-2")("Option 2"),
+  UOption(_.value := "option-3")("Option 3"),
+  UOption(_.value := "option-4")("Option 4")
+)
+```
+
+For multiple selections, apply it to all selected options.
+
+```scala preview
+Select(
+  _.multiple  := true,
+  _.withClear := true
+)(
+  UOption(_.value := "option-1", _.selected := true)("Option 1"),
+  UOption(_.value := "option-2", _.selected := true)("Option 2"),
+  UOption(_.value := "option-3")("Option 3"),
+  UOption(_.value := "option-4")("Option 4")
+)
+```
+
+## Grouping Options
+
+Use `<wa-divider>` to group listbox items visually. You can also use `<small>` to provide labels, but they won't be announced by most assistive devices.
+
+```scala preview
+Select()(
+  small("Section 1"),
+  UOption(_.value := "option-1")("Option 1"),
+  UOption(_.value := "option-2")("Option 2"),
+  UOption(_.value := "option-3")("Option 3"),
+  Divider()(),
+  small("Section 2"),
+  UOption(_.value := "option-4")("Option 4"),
+  UOption(_.value := "option-5")("Option 5"),
+  UOption(_.value := "option-6")("Option 6")
+)
+```
+
+## Sizes
+
+Use the `size` attribute to change a select's size.
+
+```scala preview
+Select(
+  _.placeholder := "Small",
+  _.size.small
+)(
+  UOption(_.value := "option-1")("Option 1"),
+  UOption(_.value := "option-2")("Option 2"),
+  UOption(_.value := "option-3")("Option 3")
+)
+Select(
+  _.placeholder := "Medium",
+  _.size.medium
+)(
+  UOption(_.value := "option-1")("Option 1"),
+  UOption(_.value := "option-2")("Option 2"),
+  UOption(_.value := "option-3")("Option 3")
+)
+Select(
+  _.placeholder := "Large",
+  _.size.large
+)(
+  UOption(_.value := "option-1")("Option 1"),
+  UOption(_.value := "option-2")("Option 2"),
+  UOption(_.value := "option-3")("Option 3")
+)
+```
+
+## Placement
+
+The preferred placement of the select's listbox can be set with the `placement` attribute. Note that the actual position may vary to ensure the panel remains in the viewport. Valid placements are `top` and `bottom`.
+
+```scala preview
+Select(
+  _.placement.top
+)(
+  UOption(_.value := "option-1")("Option 1"),
+  UOption(_.value := "option-2")("Option 2"),
+  UOption(_.value := "option-3")("Option 3")
+)
+```
+
+## Start & End Decorations
+
+Use the `start` and `end` slots to add presentational elements like `<wa-icon>` within the combobox.
+
+```scala preview
+Select(
+  _.placeholder := "Small",
+  _.size.small,
+  _.withClear := true,
+  _.slots.start(Icon(_.name := "house", _.variant := "solid")()),
+  _.slots.end(Icon(_.name := "flag-checkered")())
+)(
+  UOption(_.value := "option-1")("Option 1"),
+  UOption(_.value := "option-2")("Option 2"),
+  UOption(_.value := "option-3")("Option 3")
+)
+Select(
+  _.placeholder := "Medium",
+  _.size.medium,
+  _.withClear := true,
+  _.slots.start(Icon(_.name := "house", _.variant := "solid")()),
+  _.slots.end(Icon(_.name := "flag-checkered")())
+)(
+  UOption(_.value := "option-1")("Option 1"),
+  UOption(_.value := "option-2")("Option 2"),
+  UOption(_.value := "option-3")("Option 3")
+)
+Select(
+  _.placeholder := "Large",
+  _.size.large,
+  _.withClear := true,
+  _.slots.start(Icon(_.name := "house", _.variant := "solid")()),
+  _.slots.end(Icon(_.name := "flag-checkered")())
+)(
+  UOption(_.value := "option-1")("Option 1"),
+  UOption(_.value := "option-2")("Option 2"),
+  UOption(_.value := "option-3")("Option 3")
+)
+```
+

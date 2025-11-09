@@ -1,0 +1,70 @@
+---
+title: Mutation Observer
+---
+
+## Basic
+
+```scala preview
+val variants  = List[ThemeVariant]("brand", "success", "neutral", "warning", "danger")
+val clicksVar = Var(0)
+
+div(
+  MutationObserver(
+    _.attr := "variant",
+    _.onMutation.map { event =>
+      println(event.detail)
+    } --> Observer.empty
+  )(
+    Button(
+      _.variant <-- clicksVar.signal.map(clicks => variants(clicks % variants.length))
+    )(
+      onClick --> Observer[dom.MouseEvent] { _ =>
+        clicksVar.update(_ + 1)
+      },
+      "Click to mutate"
+    )
+  ),
+  br(),
+  "👆 Click the button and watch the console"
+)
+```
+
+## Child List
+
+Use the `child-list` attribute to watch for new child elements that are added or removed.
+
+```scala preview
+val buttonCountVar = Var(0)
+
+div(
+  MutationObserver(
+    _.childList := true,
+    _.onMutation.map { event =>
+      println(event.detail)
+    } --> Observer.empty
+  )(
+    div(
+      cls("flex flex-wrap gap-2"),
+      Button(_.variant := "brand")(
+        onClick --> Observer[dom.MouseEvent] { _ =>
+          buttonCountVar.update(_ + 1)
+        },
+        "Add button"
+      ),
+      children <-- buttonCountVar.signal.map { count =>
+        (1 to count).map { i =>
+          Button()(
+            onClick --> Observer[dom.MouseEvent] { event =>
+              event.target.asInstanceOf[dom.Element].remove()
+              event.stopPropagation()
+            },
+            i
+          )
+        }
+      }
+    )
+  ),
+  "👆 Add and remove buttons and watch the console"
+)
+```
+

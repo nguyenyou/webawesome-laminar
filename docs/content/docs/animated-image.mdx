@@ -1,0 +1,62 @@
+---
+title: Animated Image
+---
+
+## Basic
+
+```scala preview
+AnimatedImage(
+  _.src := "https://shoelace.style/assets/images/walk.gif",
+  _.alt := "Animation of untied shoes walking on pavement"
+)()
+```
+
+## WEBP Images
+
+Both GIF and WEBP images are supported.
+
+```scala preview
+AnimatedImage(
+  _.src := "https://shoelace.style/assets/images/tie.webp",
+  _.alt := "Animation of a shoe being tied"
+)()
+```
+
+## Setting a Width and Height
+
+To set a custom size, apply a width and/or height to the host element.
+
+```scala preview
+AnimatedImage(
+  _.src   := "https://shoelace.style/assets/images/walk.gif",
+  _.alt   := "Animation of untied shoes walking on pavement",
+  _.style := "width: 150px; height: 200px;"
+)()
+```
+
+## Customizing the Control Box
+
+You can change the appearance and location of the control box by targeting the control-box part in your styles.
+
+```scala preview
+div(
+  styleTag("""
+    .animated-image-custom-control-box::part(control-box) {
+      top: auto;
+      right: auto;
+      bottom: 1rem;
+      left: 1rem;
+      background-color: deeppink;
+      border: none;
+      color: pink;
+    }
+  """),
+  AnimatedImage(
+    _.src := "https://shoelace.style/assets/images/walk.gif",
+    _.alt := "Animation of untied shoes walking on pavement"
+  )(
+    cls := "animated-image-custom-control-box"
+  )
+)
+```
+

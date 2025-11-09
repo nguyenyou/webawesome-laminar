@@ -1,0 +1,3 @@
+package build.docs.examples.progressBar
+
+object `package` extends build.ExampleModule

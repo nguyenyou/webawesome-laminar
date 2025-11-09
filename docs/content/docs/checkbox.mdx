@@ -1,0 +1,72 @@
+---
+title: Checkbox
+---
+
+## Basic
+
+```scala preview
+Checkbox()("Checkbox")
+```
+
+## Checked
+
+Use the `checked` attribute to activate the checkbox.
+
+```scala preview
+Checkbox(_.checked := true)("Checked")
+```
+
+## Indeterminate
+
+Use the `indeterminate` attribute to make the checkbox indeterminate.
+
+```scala preview
+Checkbox(_.indeterminate := true)("Indeterminate")
+```
+
+## Disabled
+
+Use the `disabled` attribute to disable the checkbox.
+
+```scala preview
+Checkbox(_.disabled := true)("Disabled")
+```
+
+## Sizes
+
+Use the `size` attribute to change a checkbox's size.
+
+```scala preview
+Checkbox(_.size.small)("Small")
+Checkbox(_.size.medium)("Medium")
+Checkbox(_.size.large)("Large")
+```
+
+## Hint
+
+Add descriptive hint to a checkbox with the `hint` attribute. For hints that contain HTML, use the `hint` slot instead.
+
+```scala preview
+Checkbox(_.hint := "What should the user know about the checkbox?")("Label")
+```
+
+## Custom Validity
+
+Use the `setCustomValidity()` method to set a custom validation message. 
+This will prevent the form from submitting and make the browser display the error message you provide. 
+To clear the error, call this function with an empty string.
+
+```scala preview
+form(
+  cls("flex flex-col items-start gap-4"),
+  Checkbox(
+    _.name     := "agree",
+    _.required := true
+  )("Check me"),
+  Button(
+    _.`type`.submit,
+    _.variant.brand
+  )("Submit")
+)
+```
+

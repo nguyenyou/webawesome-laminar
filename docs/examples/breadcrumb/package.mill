@@ -1,0 +1,3 @@
+package build.docs.examples.breadcrumb
+
+object `package` extends build.ExampleModule

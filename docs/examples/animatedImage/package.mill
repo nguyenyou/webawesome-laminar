@@ -1,0 +1,3 @@
+package build.docs.examples.animatedImage
+
+object `package` extends build.ExampleModule

@@ -1,0 +1,23 @@
+---
+title: Resize Observer
+---
+
+## Basic
+
+```scala preview
+div(
+  ResizeObserver(
+    _.onResize.map { event =>
+      dom.console.log(event.detail)
+    } --> Observer.empty
+  )(
+    div(
+      cls("flex items-center justify-center text-center"),
+      border  := "2px solid var(--wa-color-surface-border)",
+      padding := "4rem 2rem",
+      "Resize this box and watch the console 👉"
+    )
+  )
+)
+```
+

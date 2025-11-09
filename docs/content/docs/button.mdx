@@ -1,0 +1,216 @@
+---
+title: Button
+---
+
+## Basic
+
+```scala preview
+Button(
+  _.onClick --> Observer[dom.MouseEvent] { event =>
+    dom.window.alert(s"Clicked at clientX ${event.clientX}, clientY ${event.clientY}")
+  }
+)("Button")
+```
+
+## Variants
+
+Use the `variant` attribute to set the button's semantic variant.
+
+```scala examples
+Button(_.variant.brand)("Brand")
+Button(_.variant.danger)("Danger")
+Button(_.variant.neutral)("Neutral")
+Button(_.variant.success)("Success")
+Button(_.variant.warning)("Warning")
+```
+
+## Appearance
+
+Use the `appearance` attribute to change the button's visual appearance.
+
+```scala examples
+Button(_.appearance.accent, _.variant.neutral)("Accent")
+Button(_.appearance.filledOutlined, _.variant.neutral)("Filled + Outlined")
+Button(_.appearance.filled, _.variant.neutral)("Filled")
+Button(_.appearance.outlined, _.variant.neutral)("Outlined")
+Button(_.appearance := "plain", _.variant := "neutral")("Plain")
+
+Button(_.appearance.accent, _.variant.brand)("Accent")
+Button(_.appearance.filledOutlined, _.variant.brand)("Filled + Outlined")
+Button(_.appearance.filled, _.variant.brand)("Filled")
+Button(_.appearance.outlined, _.variant.brand)("Outlined")
+Button(_.appearance.plain, _.variant.brand)("Plain")
+
+Button(_.appearance.accent, _.variant.success)("Accent")
+Button(_.appearance.filledOutlined, _.variant.success)("Filled + Outlined")
+Button(_.appearance.filled, _.variant.success)("Filled")
+Button(_.appearance.outlined, _.variant.success)("Outlined")
+Button(_.appearance.plain, _.variant.success)("Plain")
+
+Button(_.appearance.accent, _.variant.warning)("Accent")
+Button(_.appearance.filledOutlined, _.variant.warning)("Filled + Outlined")
+Button(_.appearance.filled, _.variant.warning)("Filled")
+Button(_.appearance.outlined, _.variant.warning)("Outlined")
+Button(_.appearance.plain, _.variant.warning)("Plain")
+
+Button(_.appearance.accent, _.variant.danger)("Accent")
+Button(_.appearance.filledOutlined, _.variant.danger)("Filled + Outlined")
+Button(_.appearance.filled, _.variant.danger)("Filled")
+Button(_.appearance.outlined, _.variant.danger)("Outlined")
+Button(_.appearance.plain, _.variant.danger)("Plain")
+```
+
+## Sizes
+
+Use the `size` attribute to change a button's size.
+
+```scala examples
+Button(_.size.small)("Small")
+Button(_.size.medium)("Medium")
+Button(_.size.large)("Large")
+```
+
+## Pill Buttons
+
+Use the `pill` attribute to give buttons rounded edges.
+
+```scala examples
+Button(_.size.small, _.pill := true)("Small")
+Button(_.size.medium, _.pill := true)("Medium")
+Button(_.size.large, _.pill := true)("Large")
+```
+
+## Link Buttons
+
+It's often helpful to have a button that works like a link. This is possible by setting the `href` attribute, which will make the component render an `<a>` under the hood. This gives you all the default link behavior the browser provides (e.g. `CMD/CTRL/SHIFT + CLICK`) and exposes the `rel`, `target`, and `download` attributes.
+
+```scala examples
+Button(_.href := "https://example.com/")("Link")
+Button(_.href := "https://example.com/", _.target := "_blank")("Link with target")
+Button(
+  _.href     := "/assets/images/logo.svg",
+  _.download := "shoelace.svg"
+)("Download")
+```
+
+## Icon Buttons
+
+```scala examples
+Button(_.appearance.accent, _.variant.neutral)(
+  Icon(_.name := "house", _.label := "Home")()
+)
+Button(_.appearance.filled, _.variant.neutral)(
+  Icon(_.name := "house", _.label := "Home")()
+)
+Button(_.appearance.outlined, _.variant.neutral)(
+  Icon(_.name := "house", _.label := "Home")()
+)
+Button(_.appearance.plain, _.variant.neutral)(
+  Icon(_.name := "house", _.label := "Home")()
+)
+```
+
+## Setting a Custom Width
+
+```scala examples
+Button(_.size.small)("Small")
+Button(_.size.medium)("Medium")
+Button(_.size.large)("Large")
+```
+
+## Start & End Decorations
+
+Use the `start` and `end` slots to add presentational elements like `<wa-icon>` next to the button label.
+
+```scala examples
+Button(
+  _.size.small,
+  _.slots.start(Icon(_.name := "gear", _.label := "Settings")())
+)("Settings")
+Button(
+  _.size.small,
+  _.slots.end(Icon(_.name := "undo", _.label := "Refresh")())
+)("Refresh")
+Button(
+  _.size.small,
+  _.slots.start(Icon(_.name := "link", _.label := "Link")()),
+  _.slots.end(
+    Icon(
+      _.name  := "arrow-up-right-from-square",
+      _.label := "Open in new tab"
+    )()
+  )
+)("Open")
+
+Button(
+  _.size.medium,
+  _.slots.start(Icon(_.name := "gear", _.label := "Settings")())
+)("Settings")
+Button(
+  _.size.medium,
+  _.slots.end(Icon(_.name := "undo", _.label := "Refresh")())
+)("Refresh")
+Button(
+  _.size.medium,
+  _.slots.start(Icon(_.name := "link", _.label := "Link")()),
+  _.slots.end(
+    Icon(
+      _.name  := "arrow-up-right-from-square",
+      _.label := "Open in new tab"
+    )()
+  )
+)("Open")
+
+Button(
+  _.size.large,
+  _.slots.start(Icon(_.name := "gear", _.label := "Settings")())
+)("Settings")
+Button(
+  _.size.large,
+  _.slots.end(Icon(_.name := "undo", _.label := "Refresh")())
+)("Refresh")
+Button(
+  _.size.large,
+  _.slots.start(Icon(_.name := "link", _.label := "Link")()),
+  _.slots.end(
+    Icon(
+      _.name  := "arrow-up-right-from-square",
+      _.label := "Open in new tab"
+    )()
+  )
+)("Open")
+```
+
+## Caret
+
+Use the `with-caret` attribute to add a dropdown indicator when a button will trigger a dropdown, menu, or popover.
+
+```scala examples
+Button(_.size.small, _.withCaret := true)("Small")
+Button(_.size.medium, _.withCaret := true)("Medium")
+Button(_.size.large, _.withCaret := true)("Large")
+```
+
+## Loading
+
+Use the `loading` attribute to make a button busy. The width will remain the same as before, preventing adjacent elements from moving around.
+
+```scala examples
+Button(_.variant.brand, _.loading := true)("Brand")
+Button(_.variant.danger, _.loading := true)("Danger")
+Button(_.variant.neutral, _.loading := true)("Neutral")
+Button(_.variant.success, _.loading := true)("Success")
+Button(_.variant.warning, _.loading := true)("Warning")
+```
+
+## Disabled
+
+Use the `disabled` attribute to disable a button.
+
+```scala examples
+Button(_.variant.brand, _.disabled := true)("Brand")
+Button(_.variant.danger, _.disabled := true)("Danger")
+Button(_.variant.neutral, _.disabled := true)("Neutral")
+Button(_.variant.success, _.disabled := true)("Success")
+Button(_.variant.warning, _.disabled := true)("Warning")
+```

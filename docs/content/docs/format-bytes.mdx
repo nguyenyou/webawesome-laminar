@@ -1,0 +1,54 @@
+---
+title: Format Bytes
+---
+
+## Basic
+
+```scala preview
+val valueVar = Var("1000")
+
+div(
+  p("The file is ", FormatBytes(_.value <-- valueVar.signal.map(_.toDouble))(), " in size."),
+  Input(
+    _.`type`.number,
+    _.value <-- valueVar,
+    _.label := "Number to Format"
+  )(
+    onInput.mapToValue --> valueVar,
+    maxWidth.px(180)
+  )
+)
+```
+
+## Formatting Bytes
+
+Set the `value` attribute to a number to get the value in bytes.
+
+```scala preview
+FormatBytes(_.value := 12)()
+FormatBytes(_.value := 1200)()
+FormatBytes(_.value := 1200000)()
+FormatBytes(_.value := 1200000000)()
+```
+
+## Formatting Bits
+
+To get the value in bits, set the `unit` attribute to `bit`.
+
+```scala preview
+FormatBytes(_.value := 12, _.unit.bit)()
+FormatBytes(_.value := 1200, _.unit.bit)()
+FormatBytes(_.value := 1200000, _.unit.bit)()
+FormatBytes(_.value := 1200000000, _.unit.bit)()
+```
+
+## Display Format
+
+Use the `display` attribute to control how the result is displayed. Valid values are "long", "short", and "narrow".
+
+```scala preview
+FormatBytes(_.value := 1200000, _.display.long)()
+FormatBytes(_.value := 1200000, _.display.short)()
+FormatBytes(_.value := 1200000, _.display.narrow)()
+```
+

@@ -1,0 +1,103 @@
+---
+title: Rating
+---
+
+## Basic
+
+```scala preview
+Rating(_.label := "Rating")()
+```
+
+## Labels
+
+Ratings are commonly identified contextually, so labels aren't displayed. However, you should always provide one for assistive devices using the `label` attribute.
+
+```scala preview
+Rating(_.label := "Rate this component")()
+```
+
+## Maximum Value
+
+Ratings are 0-5 by default. To change the maximum possible value, use the `max` attribute.
+
+```scala preview
+Rating(_.label := "Rating", _.max := 3)()
+```
+
+## Precision
+
+Use the `precision` attribute to let users select fractional ratings.
+
+```scala preview
+Rating(_.label := "Rating", _.precision := 0.5, _.value := 2.5)()
+```
+
+## Sizing
+
+Use the `size` attribute to adjust the size of the rating.
+
+```scala preview
+Rating(_.label := "Rating", _.size.small)()
+Rating(_.label := "Rating", _.size.medium)()
+Rating(_.label := "Rating", _.size.large)()
+```
+
+For more granular sizing, you can use the `font-size` property.
+
+```scala preview
+Rating(
+  _.label := "Rating",
+  _.style := "font-size: 2rem;"
+)()
+```
+
+## Readonly
+
+Use the `readonly` attribute to display a rating that users can't change.
+
+```scala preview
+Rating(_.label := "Rating", _.readonly := true, _.value := 3)()
+```
+
+## Disabled
+
+Use the `disabled` attribute to disable the rating.
+
+```scala preview
+Rating(_.label := "Rating", _.disabled := true, _.value := 3)()
+```
+
+## Detecting Hover
+
+Use the `wa-hover` event to detect when the user hovers over (or touch and drag) the rating. This lets you hook into values as the user interacts with the rating, but before they select a value.
+
+The event has a payload with `phase` and `value` properties. The `phase` property tells when hovering starts, moves to a new value, and ends. The `value` property tells what the rating's value would be if the user were to commit to the hovered value.
+
+```scala preview
+val hoverText = Var("")
+val terms     = List("No rating", "Terrible", "Bad", "OK", "Good", "Excellent")
+
+div(
+  Rating(
+    _.label := "Rating",
+    _.onHover.map { event =>
+      val value = event.detail.value
+      hoverText.set(terms.lift(value).getOrElse(""))
+      if (event.detail.phase == "end") {
+        hoverText.set("")
+      }
+    } --> Observer.empty
+  )(),
+  span(
+    cls("relative text-center py-1 px-2"),
+    cls("hidden") <-- hoverText.signal.map(_.isEmpty),
+    top.px(-4),
+    left.px(8),
+    borderRadius    := "var(--wa-border-radius-m)",
+    backgroundColor := "var(--wa-color-neutral-fill-loud)",
+    color           := "var(--wa-color-neutral-on-loud)",
+    text <-- hoverText.signal
+  )
+)
+```
+

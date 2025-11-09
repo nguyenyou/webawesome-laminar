@@ -1,0 +1,76 @@
+---
+title: ProgressBar
+---
+
+## Basic
+
+```scala preview
+ProgressBar(_.value := 40)()
+```
+
+## Labels
+
+Use the `label` attribute to label the progress bar and tell assistive devices how to announce it.
+
+```scala preview
+ProgressBar(
+  _.value := 50,
+  _.label := "Upload progress"
+)()
+```
+
+## Custom Height
+
+Use the `height` CSS property to set the progress bar's height.
+
+```scala preview
+ProgressBar(
+  _.value := 50,
+  _.style := "--track-height: 6px;"
+)()
+```
+
+## Showing Values
+
+Use the default slot to show a value.
+
+```scala preview
+val progressValue = Var(50.0)
+
+div(
+  cls("flex flex-col gap-4"),
+  ProgressBar(
+    _.value <-- progressValue.signal
+  )(
+    child.text <-- progressValue.signal.map(v => s"${v.toInt}%")
+  ),
+  div(
+    cls("flex gap-2"),
+    Button(
+      _.pill := true
+    )(
+      onClick --> Observer[dom.MouseEvent] { _ =>
+        progressValue.update(current => math.max(0, current - 10))
+      },
+      Icon(_.name := "minus")()
+    ),
+    Button(
+      _.pill := true
+    )(
+      onClick --> Observer[dom.MouseEvent] { _ =>
+        progressValue.update(current => math.min(100, current + 10))
+      },
+      Icon(_.name := "plus")()
+    )
+  )
+)
+```
+
+## Indeterminate
+
+The `indeterminate` attribute can be used to inform the user that the operation is pending, but its status cannot currently be determined. In this state, `value` is ignored and the label, if present, will not be shown.
+
+```scala preview
+ProgressBar(_.indeterminate := true)()
+```
+

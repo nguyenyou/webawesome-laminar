@@ -1,0 +1,79 @@
+---
+title: ProgressRing
+---
+
+## Basic
+
+```scala preview
+ProgressRing(_.value := 25)()
+```
+
+## Size
+
+Use the `--size` custom property to set the diameter of the progress ring.
+
+```scala preview
+ProgressRing(
+  _.value := 50,
+  _.style := "--size: 200px;"
+)()
+```
+
+## Track and Indicator Width
+
+Use the `--track-width` and `--indicator-width` custom properties to set the width of the progress ring's track and indicator.
+
+```scala preview
+ProgressRing(
+  _.value := 50,
+  _.style := "--track-width: 6px; --indicator-width: 12px;"
+)()
+```
+
+## Colors
+
+To change the color, use the `--track-color` and `--indicator-color` custom properties.
+
+```scala preview
+ProgressRing(
+  _.value := 50,
+  _.style := "--track-color: pink; --indicator-color: deeppink;"
+)()
+```
+
+## Labels
+
+Use the default slot to show a label inside the progress ring.
+
+```scala preview
+val progressValue = Var(50.0)
+
+div(
+  cls("flex flex-col gap-4"),
+  ProgressRing(
+    _.value <-- progressValue.signal
+  )(
+    child.text <-- progressValue.signal.map(v => s"${v.toInt}%")
+  ),
+  div(
+    cls("flex gap-2"),
+    Button(
+      _.pill := true
+    )(
+      onClick --> Observer[dom.MouseEvent] { _ =>
+        progressValue.update(current => math.max(0, current - 10))
+      },
+      Icon(_.name := "minus")()
+    ),
+    Button(
+      _.pill := true
+    )(
+      onClick --> Observer[dom.MouseEvent] { _ =>
+        progressValue.update(current => math.min(100, current + 10))
+      },
+      Icon(_.name := "plus")()
+    )
+  )
+)
+```
+

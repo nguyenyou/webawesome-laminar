@@ -1,0 +1,100 @@
+---
+title: Divider
+---
+
+## Basic
+
+```scala preview
+Divider()()
+```
+
+## Width
+
+Use the `--width` custom property to change the width of the divider.
+
+```scala preview
+Divider(
+  _.style := "--width: 4px;" // [!code highlight]
+)()
+```
+
+## Color
+
+Use the `--color` custom property to change the color of the divider.
+
+```scala preview
+Divider(
+  _.style := "--color: tomato;" // [!code highlight]
+)()
+```
+
+## Spacing
+
+Use the `--spacing` custom property to change the amount of space between the divider and it's neighboring elements.
+
+```scala preview
+div(
+  textAlign.center,
+  "Above",
+  Divider(
+    _.style := "--spacing: 2rem;" // [!code highlight]
+  )(),
+  "Below"
+)
+```
+
+## Orientation
+
+The default orientation for dividers is `horizontal`. Set `orientation` attribute to `vertical` to draw a vertical divider. The divider will span the full height of its container.
+
+```scala preview
+div(
+  display.flex,
+  alignItems.center,
+  "First",
+  Divider(
+    _.orientation.vertical // [!code highlight]
+  )(),
+  "Middle",
+  Divider(
+    _.orientation.vertical // [!code highlight]
+  )(),
+  "Last"
+)
+```
+
+## Menu Dividers
+
+Use dividers in menus to visually group menu items.
+
+```scala preview
+Dropdown(
+  _.slots.trigger(
+    Button(
+      _.withCaret := true
+    )("Menu")
+  ),
+  _.style := "max-width: 200px;" // [!code highlight]
+)(
+  DropdownItem(
+    _.value := "1"
+  )("Option 1"),
+  DropdownItem(
+    _.value := "2"
+  )("Option 2"),
+  DropdownItem(
+    _.value := "3"
+  )("Option 3"),
+  Divider()(), // [!code highlight]
+  DropdownItem(
+    _.value := "4"
+  )("Option 4"),
+  DropdownItem(
+    _.value := "5"
+  )("Option 5"),
+  DropdownItem(
+    _.value := "6"
+  )("Option 6")
+)
+```
+

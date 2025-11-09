@@ -1,0 +1,3 @@
+package build.docs.examples.rating
+
+object `package` extends build.ExampleModule

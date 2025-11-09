@@ -1,0 +1,3 @@
+package build.docs.examples.carousel
+
+object `package` extends build.ExampleModule

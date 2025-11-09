@@ -1,0 +1,3 @@
+package build.docs.examples.splitPanel
+
+object `package` extends build.ExampleModule

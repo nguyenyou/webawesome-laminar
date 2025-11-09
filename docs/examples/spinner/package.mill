@@ -1,0 +1,3 @@
+package build.docs.examples.spinner
+
+object `package` extends build.ExampleModule

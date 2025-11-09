@@ -1,0 +1,85 @@
+---
+title: QrCode
+---
+
+## Basic
+
+```scala preview
+val qrValue = Var("https://shoelace.style/")
+
+div(
+  maxWidth.px(256),
+  QrCode(
+    _.value <-- qrValue.signal,
+    _.label := "Scan this code to visit Web Awesome on the web!"
+  )(),
+  br(),
+  Input(
+    _.maxlength := 255.0,
+    _.withClear := true,
+    _.label     := "Value",
+    _.value <-- qrValue.signal,
+    _.slots.start(Icon(_.name := "link")())
+  )(
+    onInput.mapToValue --> qrValue.writer
+  )
+)
+```
+
+## Colors
+
+Use the `fill` and `background` attributes to modify the QR code's colors. You should always ensure good contrast for optimal compatibility with QR code scanners.
+
+```scala preview
+QrCode(
+  _.value      := "https://shoelace.style/",
+  _.fill       := "deeppink",
+  _.background := "white"
+)()
+```
+
+## Size
+
+Use the `size` attribute to change the size of the QR code.
+
+```scala preview
+QrCode(
+  _.value := "https://shoelace.style/",
+  _.size  := 64.0
+)()
+```
+
+## Radius
+
+Create a rounded effect with the `radius` attribute.
+
+```scala preview
+QrCode(
+  _.value  := "https://shoelace.style/",
+  _.radius := 0.5
+)()
+```
+
+## Error Correction
+
+QR codes can be rendered with various levels of error correction that can be set using the `error-correction` attribute. This example generates four codes with the same value using different error correction levels.
+
+```scala preview
+QrCode(
+  _.value           := "https://shoelace.style/",
+  _.errorCorrection := "L"
+)()
+QrCode(
+  _.value           := "https://shoelace.style/",
+  _.errorCorrection := "M"
+)()
+QrCode(
+  _.value           := "https://shoelace.style/",
+  _.errorCorrection := "Q"
+)()
+QrCode(
+  _.value           := "https://shoelace.style/",
+  _.errorCorrection := "H"
+)()
+```
+
