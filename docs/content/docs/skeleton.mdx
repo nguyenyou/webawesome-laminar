@@ -42,12 +42,12 @@ div(
     cls := "skeleton-overview",
     div(
       cls := "skeleton-header",
-      Skeleton(_.effect.sheen)(),
-      Skeleton(_.effect.sheen)()
+      Skeleton(_.effect.sheen)(height.px(48), width.px(48)),
+      Skeleton(_.effect.sheen)(height.px(16))
     ),
-    Skeleton(_.effect.sheen)(),
-    Skeleton(_.effect.sheen)(),
-    Skeleton(_.effect.sheen)()
+    Skeleton(_.effect.sheen)(height.px(16)),
+    Skeleton(_.effect.sheen)(height.px(16)),
+    Skeleton(_.effect.sheen)(height.px(16))
   )
 )
 ```
@@ -57,9 +57,9 @@ div(
 There are two built-in effects, `sheen` and `pulse`. Effects are intentionally subtle, as they can be distracting when used extensively. The default is `none`, which displays a static, non-animated skeleton.
 
 ```scala examples
-Skeleton(_.effect.none)()
-Skeleton(_.effect.sheen)()
-Skeleton(_.effect.pulse)()
+Skeleton(_.effect.none)(height.px(16))
+Skeleton(_.effect.sheen)(height.px(16))
+Skeleton(_.effect.pulse)(height.px(16))
 ```
 
 ## Paragraphs
@@ -86,11 +86,10 @@ div(
       width: 50%;
     }
   """),
-  Skeleton()(),
-  Skeleton()(),
-  Skeleton()(),
-  Skeleton()(),
-  Skeleton()()
+  Skeleton()(height.px(16)),
+  Skeleton()(height.px(16)),
+  Skeleton()(height.px(16)),
+  Skeleton()(height.px(16))
 )
 ```
 
@@ -118,9 +117,9 @@ div(
   """),
   div(
     cls := "skeleton-avatars",
-    Skeleton()(),
-    Skeleton()(),
-    Skeleton()()
+    Skeleton()(height.px(48), width.px(48)),
+    Skeleton()(height.px(48), width.px(48)),
+    Skeleton()(height.px(48), width.px(48))
   )
 )
 ```
@@ -179,11 +178,11 @@ div(
       margin-right: 0.5rem;
     }
   """),
-  Skeleton()(cls := "square"),
-  Skeleton()(cls := "circle"),
-  Skeleton()(cls := "triangle"),
-  Skeleton()(cls := "cross"),
-  Skeleton()(cls := "comment")
+  Skeleton()(cls := "square", height.px(48), width.px(48)),
+  Skeleton()(cls := "circle", height.px(48), width.px(48)),
+  Skeleton()(cls := "triangle", height.px(48), width.px(48)),
+  Skeleton()(cls := "cross", height.px(48), width.px(48)),
+  Skeleton()(cls := "comment", height.px(48), width.px(48))
 )
 ```
 
@@ -195,7 +194,8 @@ Set the `--color` and `--sheen-color` custom properties to adjust the skeleton's
 Skeleton(
   _.effect.sheen
 )(
-  styleAttr := "--color: tomato; --sheen-color: #ffb094;"
+  styleAttr := "--color: tomato; --sheen-color: #ffb094;",
+  height.px(16)
 )
 ```
 

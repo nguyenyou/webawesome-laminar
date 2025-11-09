@@ -14,6 +14,8 @@ export const Preview = ({
 }) => {
   const srcDoc = `<html>
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="//cdn.jsdelivr.net/npm/@awesome.me/webawesome@3.0.0/dist-cdn/styles/themes/default.min.css" rel="stylesheet" />
 <base target=_blank>
 </head>
