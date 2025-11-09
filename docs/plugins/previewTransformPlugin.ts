@@ -3,7 +3,8 @@ import { visit } from "unist-util-visit";
 import type { Plugin } from "unified";
 import type { Code, Root, Parent } from "mdast";
 import type { MdxJsxFlowElement } from "mdast-util-mdx-jsx";
-import { relative } from "path";
+import { relative, resolve, join } from "path";
+import { existsSync } from "fs";
 import {
   normalizePath,
   extractHierarchicalPathSegments,
@@ -29,6 +30,51 @@ const toCamelCase = (str: string): string => {
   ).join("");
 };
 
+/**
+ * Get the docs directory where examples-build is located
+ * Tries multiple strategies to find the docs directory:
+ * 1. Check if examples-build exists in current directory (if we're in docs/)
+ * 2. Check if examples-build exists one level up (if running from workspace root)
+ * 3. Use file path to infer docs directory
+ * 4. Fall back to process.cwd()
+ */
+const getDocsDir = (file: VFile): string => {
+  const cwd = process.cwd();
+  
+  // Check if examples-build exists in current directory (we're in docs/)
+  const examplesBuildPath = join(cwd, "examples-build");
+  if (existsSync(examplesBuildPath)) {
+    return cwd;
+  }
+
+  // Check if examples-build exists one level up (we're at workspace root)
+  const parentDir = resolve(cwd, "..");
+  const parentExamplesBuildPath = join(parentDir, "examples-build");
+  if (existsSync(parentExamplesBuildPath)) {
+    return parentDir;
+  }
+
+  // Try to infer from file path
+  const filePath = file.path || file.history?.[0];
+  if (filePath) {
+    // If file is in docs/content/docs/..., find the docs directory
+    const normalizedPath = normalizePath(filePath);
+    const docsIndex = normalizedPath.indexOf("/docs/");
+    if (docsIndex !== -1) {
+      // Extract everything up to and including "/docs"
+      const docsDirPath = normalizedPath.substring(0, docsIndex + "/docs".length);
+      const docsDir = resolve(docsDirPath);
+      const docsExamplesBuildPath = join(docsDir, "examples-build");
+      if (existsSync(docsExamplesBuildPath)) {
+        return docsDir;
+      }
+    }
+  }
+
+  // Fall back to cwd (might not have examples-build yet, but that's okay)
+  return cwd;
+};
+
 export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Root> = () => {
   return (tree, file) => {
     const filePath = file.path || file.history?.[0];
@@ -37,10 +83,14 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
       return;
     }
 
-    // Use file.cwd as the workspace root (current working directory)
+    // Get docs directory where examples-build is located
+    const docsDir = getDocsDir(file);
+
+    // Use the same workspace root logic as millModulePlugin for consistency
+    // This ensures we extract path segments the same way
     const workspaceRoot = file.cwd || process.cwd();
 
-    // Get docs file path relative to workspace root
+    // Get docs file path relative to workspace root (same as millModulePlugin)
     const docsFilePath = normalizePath(relative(workspaceRoot, filePath));
     
     // Extract hierarchical path segments and convert to camelCase format
@@ -87,7 +137,7 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
     // Transform nodes to Preview components
     // All examples from the same doc file share the same JS module
     // Read the JS file once (it's the same for all examples in this doc)
-    const compiledJsPath = getCompiledJsPath(prefix, workspaceRoot);
+    const compiledJsPath = getCompiledJsPath(prefix, docsDir);
     const jsContent = readCompiledJsFile(compiledJsPath);
     
     if (jsContent === null) {

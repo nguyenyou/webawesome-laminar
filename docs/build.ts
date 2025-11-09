@@ -1,5 +1,6 @@
 import path from 'path';
 import { existsSync, mkdirSync, readdirSync, writeFileSync } from 'fs';
+import { fileURLToPath } from 'url';
 import * as esbuild from 'esbuild';
 import { build as rolldownBuild } from 'rolldown';
 
@@ -17,12 +18,12 @@ interface ModuleEntry {
 
 /**
  * Discover modules by scanning the filesystem
- * Scans out/examples/ directory recursively to find all fullLinkJS.dest/main.js files
+ * Scans out/docs/examples/ directory recursively to find all fullLinkJS.dest/main.js files
  * Each module corresponds to a doc file and contains multiple example methods
  */
-function discoverModules(workspaceRoot: string): ModuleEntry[] {
+function discoverModules(workspaceRoot: string, docsDir: string): ModuleEntry[] {
   const modules: ModuleEntry[] = [];
-  const outExamplesPath = path.join(workspaceRoot, 'out', 'examples');
+  const outExamplesPath = path.join(workspaceRoot, 'out', 'docs', 'examples');
 
   if (!existsSync(outExamplesPath)) {
     return modules;
@@ -44,11 +45,11 @@ function discoverModules(workspaceRoot: string): ModuleEntry[] {
       const mainJsPath = path.join(dirPath, 'fullLinkJS.dest', 'main.js');
       if (existsSync(mainJsPath)) {
         // This is a module directory
-        // Derive output path: examples-build/{category}_{component}.js
+        // Derive output path: docs/examples-build/{category}_{component}.js
         const camelCaseSegments = pathSegments.map(segment => segment); // Already camelCase from directory names
         const flattenedPrefix = camelCaseSegments.join('_');
         const outputPath = path.join(
-          workspaceRoot,
+          docsDir,
           'examples-build',
           `${flattenedPrefix}.js`
         );
@@ -193,10 +194,13 @@ function getBundler(): BundlerFunction {
 }
 
 async function main() {
-  const workspaceRoot = process.cwd();
+  // Get the project root by going up one level from the docs directory
+  const currentFileDir = path.dirname(fileURLToPath(import.meta.url));
+  const docsDir = currentFileDir; // docs/ directory
+  const workspaceRoot = path.resolve(currentFileDir, '..');
 
   // Discover modules by scanning filesystem
-  const modules = discoverModules(workspaceRoot);
+  const modules = discoverModules(workspaceRoot, docsDir);
 
   if (modules.length === 0) {
     console.log('No modules found to build. Run mill build first to generate module outputs.');
@@ -220,8 +224,8 @@ async function main() {
   console.log(`Using bundler: ${bundlerName}`);
 
   try {
-    // Ensure output directory exists for all modules
-    const outputDir = path.join(workspaceRoot, 'examples-build');
+    // Ensure output directory exists for all modules (inside docs folder)
+    const outputDir = path.join(docsDir, 'examples-build');
     if (!existsSync(outputDir)) {
       mkdirSync(outputDir, { recursive: true });
     }

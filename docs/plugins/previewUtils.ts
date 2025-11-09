@@ -13,13 +13,18 @@ export const normalizePath = (path: string | null | undefined): string => {
 /**
  * Extract hierarchical path segments from doc file path
  * e.g., content/docs/webawesome/button.mdx -> ["webawesome", "button"]
+ * e.g., docs/content/docs/index.mdx -> ["index"]
  * Returns an array of path segments representing the hierarchy
  */
 export const extractHierarchicalPathSegments = (docPath: string): string[] => {
   let path = normalizePath(docPath);
   
-  // Remove content/docs/ prefix if present
-  if (path.startsWith("content/docs/")) {
+  // Remove docs/content/docs/ prefix if present (when relative to workspace root)
+  if (path.startsWith("docs/content/docs/")) {
+    path = path.substring("docs/content/docs/".length);
+  }
+  // Remove content/docs/ prefix if present (when relative to docs directory)
+  else if (path.startsWith("content/docs/")) {
     path = path.substring("content/docs/".length);
   }
   
@@ -47,13 +52,13 @@ export const extractHierarchicalPathSegments = (docPath: string): string[] => {
 
 /**
  * Get the built JavaScript file path for a module
- * e.g., examples-build/webawesome_button.js
+ * e.g., docs/examples-build/webawesome_button.js
  */
 export const getCompiledJsPath = (
   prefix: string,
-  workspaceRoot: string
+  docsDir: string
 ): string => {
-  return join(workspaceRoot, "examples-build", `${prefix}.js`);
+  return join(docsDir, "examples-build", `${prefix}.js`);
 };
 
 /**
