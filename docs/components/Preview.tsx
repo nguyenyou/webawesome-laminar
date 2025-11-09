@@ -9,7 +9,7 @@ export const Preview = ({
   exampleId = "example1",
   height,
   css,
-  padding = "p-0",
+  padding = "p-2",
 }: {
   code: string;
   userCode?: string;
@@ -78,7 +78,7 @@ ${css ? `<style>${css}</style>` : ""}
       <Frame
         ref={ref}
         title="Preview"
-        className={`outline-none bg-fd-background w-full ${h}`}
+        className={`outline-none rounded-xl bg-fd-background w-full ${h}`}
         srcDoc={srcDoc}
         onMount={() => {
           const doc = ref.current?.contentDocument;
