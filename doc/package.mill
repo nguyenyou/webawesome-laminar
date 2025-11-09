@@ -1,0 +1,3 @@
+package build.doc
+
+object `package` extends build.WebModule

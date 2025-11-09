@@ -13,7 +13,7 @@
 Following these simple steps for a quickstart.
 
 ```sh
-npx degit nguyenyou/webawesome-laminar/examples/quickstart webawesome-laminar-quickstart
+npx degit nguyenyou/webawesome-laminar/quickstart webawesome-laminar-quickstart
 cd webawesome-laminar-quickstart
 npm install
 npm run dev

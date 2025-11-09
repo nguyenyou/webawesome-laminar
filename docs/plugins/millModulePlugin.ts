@@ -27,7 +27,7 @@ const joinHierarchicalPathCamelCase = (segments: string[]): string => {
 const getMillPackageName = (pathSegments: string[]): string => {
   const packageSegments = pathSegments.map(toCamelCase);
   const packagePath = packageSegments.join(".");
-  return `build.examples.${packagePath}`;
+  return `build.docs.examples.${packagePath}`;
 };
 
 /**
@@ -64,12 +64,12 @@ const ensureParentModules = (workspaceRoot: string, pathSegments: string[]): voi
   const rootPackagePath = join(examplesPath, "package.mill");
   if (!existsSync(rootPackagePath)) {
     mkdirSync(examplesPath, { recursive: true });
-    writeFileSync(rootPackagePath, createPackageMillContent("build.examples"));
+    writeFileSync(rootPackagePath, createPackageMillContent("build.docs.examples"));
   }
   
   // Create nested directory structure and package.mill files for each level
   let currentPath = examplesPath;
-  let packageName = "build.examples";
+  let packageName = "build.docs.examples";
   
   for (const segment of pathSegments) {
     // Convert segment to camelCase for directory name (matches package name per Mill convention)

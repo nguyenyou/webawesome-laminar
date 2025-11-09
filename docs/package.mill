@@ -1,0 +1,3 @@
+package build.docs
+
+object `package` extends build.ExampleModule

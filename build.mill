@@ -86,14 +86,6 @@ trait WebModule extends ScalaJSModule, NoDoc, Scalafix {
   )
 }
 
-object doc extends WebModule {
-  def moduleDeps = Seq(
-    `webawesome-laminar`
-  )
-
-  def mvnDeps = super.mvnDeps() ++ Deps.waypoint ++ Deps.borer ++ Deps.sourcecode
-}
-
 object `webawesome-laminar` extends WebModule, SonatypeCentralPublishModule {
   def scalaVersion = Versions.scalalts
   def publishVersion = VcsVersion.vcsState().format()
@@ -105,5 +97,13 @@ object `webawesome-laminar` extends WebModule, SonatypeCentralPublishModule {
     licenses = Seq(License.MIT),
     versionControl = VersionControl.github(Constants.githubUsername, Constants.projectName),
     developers = Seq(Developer(Constants.githubUsername, Constants.author, Constants.githubProfile)),
+  )
+}
+
+
+trait ExampleModule extends WebModule {
+  def moduleDeps = Seq(
+    build.doc,
+    `webawesome-laminar`
   )
 }
