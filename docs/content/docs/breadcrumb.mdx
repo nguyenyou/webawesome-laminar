@@ -77,33 +77,30 @@ Breadcrumb(
 Breadcrumb labels match the color set on `<wa-breadcrumb-item>`. 
 Content in the `start`, `end`, and `separator` slots can be styled using CSS parts.
 
-```scala preview
-div(
-  styleTag(
-    """
-    .redcrumbs wa-breadcrumb-item {
-      color: firebrick;
-    }
-    .redcrumbs wa-breadcrumb-item:last-of-type {
-      color: crimson;
-    }
-    .redcrumbs wa-breadcrumb-item::part(separator) {
-      color: pink;
-    }
-    .redcrumbs wa-breadcrumb-item::part(start),
-    .redcrumbs wa-breadcrumb-item::part(end) {
-      color: currentColor;
-    }
-  """
-  ),
-  Breadcrumb()(
-    className := "redcrumbs",
-    BreadcrumbItem(
-      _.slots.start(Icon(_.name := "house", _.variant := "solid")())
-    )("Home"),
-    BreadcrumbItem()("Articles"),
-    BreadcrumbItem()("Traveling")
-  )
+```css forId="breadcrumb-custom-colors"
+.redcrumbs wa-breadcrumb-item {
+  color: firebrick;
+}
+.redcrumbs wa-breadcrumb-item:last-of-type {
+  color: crimson;
+}
+.redcrumbs wa-breadcrumb-item::part(separator) {
+  color: pink;
+}
+.redcrumbs wa-breadcrumb-item::part(start),
+.redcrumbs wa-breadcrumb-item::part(end) {
+  color: currentColor;
+}
+```
+
+```scala preview id="breadcrumb-custom-colors"
+Breadcrumb()(
+  className := "redcrumbs",
+  BreadcrumbItem(
+    _.slots.start(Icon(_.name := "house", _.variant := "solid")())
+  )("Home"),
+  BreadcrumbItem()("Articles"),
+  BreadcrumbItem()("Traveling")
 )
 ```
 

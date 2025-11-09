@@ -38,25 +38,24 @@ AnimatedImage(
 
 You can change the appearance and location of the control box by targeting the control-box part in your styles.
 
-```scala preview
-div(
-  styleTag("""
-    .animated-image-custom-control-box::part(control-box) {
-      top: auto;
-      right: auto;
-      bottom: 1rem;
-      left: 1rem;
-      background-color: deeppink;
-      border: none;
-      color: pink;
-    }
-  """),
-  AnimatedImage(
-    _.src := "https://shoelace.style/assets/images/walk.gif",
-    _.alt := "Animation of untied shoes walking on pavement"
-  )(
-    cls := "animated-image-custom-control-box"
-  )
+```css forId="animated-image-custom-control-box"
+.animated-image-custom-control-box::part(control-box) {
+  top: auto;
+  right: auto;
+  bottom: 1rem;
+  left: 1rem;
+  background-color: deeppink;
+  border: none;
+  color: pink;
+}
+```
+
+```scala preview id="animated-image-custom-control-box"
+AnimatedImage(
+  _.src := "https://shoelace.style/assets/images/walk.gif",
+  _.alt := "Animation of untied shoes walking on pavement"
+)(
+  cls := "animated-image-custom-control-box"
 )
 ```
 

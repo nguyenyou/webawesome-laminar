@@ -162,15 +162,14 @@ div(
 
 Create interactive toolbars with button groups.
 
-```scala preview
+```css forId="button-group-toolbar"
+.button-group-toolbar wa-button-group:not(:last-of-type) {
+  margin-right: var(--wa-space-xs);
+}
+```
+
+```scala preview id="button-group-toolbar"
 div(
-  styleTag(
-    """
-    .button-group-toolbar wa-button-group:not(:last-of-type) {
-      margin-right: var(--wa-space-xs);
-    }
-    """
-  ),
   div(
     className := "button-group-toolbar",
     ButtonGroup(_.label := "History")(

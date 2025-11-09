@@ -4,17 +4,18 @@ title: Animation
 
 ## Basic
 
-```scala preview
+```css forId="animation-overview"
+.animation-overview .box {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background-color: var(--wa-color-brand-fill-loud);
+  margin: 1.5rem;
+}
+```
+
+```scala preview id="animation-overview"
 div(
-  styleTag("""
-   .animation-overview .box {
-      display: inline-block;
-      width: 100px;
-      height: 100px;
-      background-color: var(--wa-color-brand-fill-loud);
-      margin: 1.5rem;
-    }
-  """),
   cls("animation-overview"),
   Animation(
     _.name     := "bounce",

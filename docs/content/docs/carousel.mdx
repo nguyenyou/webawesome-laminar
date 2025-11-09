@@ -295,60 +295,59 @@ Carousel(
 
 Setting the `orientation` attribute to `vertical` will render the carousel in a vertical layout. If the content of your slides vary in height, you will need to set an explicit `height` or `max-height` on the carousel using CSS.
 
-```scala preview
-div(
-  styleTag("""
-    .vertical-carousel {
-      max-height: 400px;
-    }
+```css forId="vertical-carousel"
+.vertical-carousel {
+    max-height: 400px;
+}
 
-    .vertical-carousel::part(base) {
-      grid-template-areas: 'slides slides pagination';
-    }
+.vertical-carousel::part(base) {
+  grid-template-areas: 'slides slides pagination';
+}
 
-    .vertical-carousel::part(pagination) {
-      flex-direction: column;
-    }
+.vertical-carousel::part(pagination) {
+  flex-direction: column;
+}
 
-    .vertical-carousel::part(navigation) {
-      transform: rotate(90deg);
-      display: flex;
-    }
-  """),
-  Carousel(
-    _.pagination := true,
-    _.orientation.vertical
-  )(
-    cls("vertical-carousel"),
-    CarouselItem()(
-      img(
-        alt := "The sun shines on the mountains and trees (by Adam Kool on Unsplash)",
-        src := "https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=10"
-      )
-    ),
-    CarouselItem()(
-      img(
-        alt := "A river winding through an evergreen forest (by Luca Bravo on Unsplash)",
-        src := "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=10"
-      )
-    ),
-    CarouselItem()(
-      img(
-        alt := "The sun is setting over a lavender field (by Leonard Cotte on Unsplash)",
-        src := "https://images.unsplash.com/photo-1499002238440-d264edd596ec?q=10"
-      )
-    ),
-    CarouselItem()(
-      img(
-        alt := "A field of grass with the sun setting in the background (by Sapan Patel on Unsplash)",
-        src := "https://images.unsplash.com/photo-1475113548554-5a36f1f523d6?q=10"
-      )
-    ),
-    CarouselItem()(
-      img(
-        alt := "A scenic view of a mountain with clouds rolling in (by V2osk on Unsplash)",
-        src := "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=10"
-      )
+.vertical-carousel::part(navigation) {
+  transform: rotate(90deg);
+  display: flex;
+}
+```
+
+```scala preview id="vertical-carousel"
+Carousel(
+  _.pagination := true,
+  _.orientation.vertical
+)(
+  cls("vertical-carousel"),
+  CarouselItem()(
+    img(
+      alt := "The sun shines on the mountains and trees (by Adam Kool on Unsplash)",
+      src := "https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=10"
+    )
+  ),
+  CarouselItem()(
+    img(
+      alt := "A river winding through an evergreen forest (by Luca Bravo on Unsplash)",
+      src := "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=10"
+    )
+  ),
+  CarouselItem()(
+    img(
+      alt := "The sun is setting over a lavender field (by Leonard Cotte on Unsplash)",
+      src := "https://images.unsplash.com/photo-1499002238440-d264edd596ec?q=10"
+    )
+  ),
+  CarouselItem()(
+    img(
+      alt := "A field of grass with the sun setting in the background (by Sapan Patel on Unsplash)",
+      src := "https://images.unsplash.com/photo-1475113548554-5a36f1f523d6?q=10"
+    )
+  ),
+  CarouselItem()(
+    img(
+      alt := "A scenic view of a mountain with clouds rolling in (by V2osk on Unsplash)",
+      src := "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=10"
     )
   )
 )
@@ -443,7 +442,47 @@ Carousel(
 
 The carousel has a robust API that makes it possible to extend and customize. This example syncs the active slide with a set of thumbnails, effectively creating a gallery-style carousel.
 
-```scala preview
+```css forId="carousel-thumbnails"
+.carousel-thumbnails {
+  --slide-aspect-ratio: 3 / 2;
+}
+
+.thumbnails {
+  display: flex;
+  justify-content: center;
+}
+
+.scroller {
+  display: flex;
+  gap: var(--wa-space-s);
+  overflow-x: auto;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  scroll-padding: var(--wa-space-s);
+}
+
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.image {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+
+  opacity: 0.3;
+  will-change: opacity;
+  transition: 250ms opacity;
+
+  cursor: pointer;
+}
+
+.image.active {
+  opacity: 1;
+}
+```
+
+```scala preview id="carousel-thumbnails"
 type Item = (imgSrc: String, description: String, thumbnailAlt: String)
 
 val activeSlide = Var(0.0)
@@ -476,45 +515,6 @@ val items: Seq[Item] = Seq(
   )
 )
 div(
-  styleTag("""
-    .carousel-thumbnails {
-      --slide-aspect-ratio: 3 / 2;
-    }
-
-    .thumbnails {
-      display: flex;
-      justify-content: center;
-    }
-
-    .scroller {
-      display: flex;
-      gap: var(--wa-space-s);
-      overflow-x: auto;
-      scrollbar-width: none;
-      scroll-behavior: smooth;
-      scroll-padding: var(--wa-space-s);
-    }
-
-    .scroller::-webkit-scrollbar {
-      display: none;
-    }
-
-    .image {
-      width: 64px;
-      height: 64px;
-      object-fit: cover;
-
-      opacity: 0.3;
-      will-change: opacity;
-      transition: 250ms opacity;
-
-      cursor: pointer;
-    }
-
-    .image.active {
-      opacity: 1;
-    }
-  """),
   Carousel(
     _.navigation := true,
     _.loop       := true,
