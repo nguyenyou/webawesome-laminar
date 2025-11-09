@@ -1,3 +1,0 @@
-package build.docs.examples.formatDate
-
-object `package` extends build.ExampleModule

@@ -1,3 +1,0 @@
-package build.docs.examples.button
-
-object `package` extends build.ExampleModule

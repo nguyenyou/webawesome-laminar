@@ -1,3 +1,0 @@
-package build.docs.examples.tag
-
-object `package` extends build.ExampleModule

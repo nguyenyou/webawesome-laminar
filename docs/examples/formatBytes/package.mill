@@ -1,3 +1,0 @@
-package build.docs.examples.formatBytes
-
-object `package` extends build.ExampleModule

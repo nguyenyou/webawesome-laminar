@@ -24,7 +24,7 @@ Badge(_.variant.danger)("Danger")
 
 Use the `appearance` attribute to change the badge's visual appearance.
 
-```scala preview
+```scala examples
 Badge(_.appearance.accent, _.variant.neutral)("Accent")
 Badge(_.appearance.filledOutlined, _.variant.neutral)("Filled + Outlined")
 Badge(_.appearance.filled, _.variant.neutral)("Filled")
@@ -55,7 +55,7 @@ Badge(_.appearance.outlined, _.variant.danger)("Outlined")
 
 Badges are sized relative to the current font size. You can set `font-size` on any badge (or an ancestor element) to change it.
 
-```scala preview
+```scala examples
 Badge(
   _.variant.brand
 )(
@@ -92,7 +92,7 @@ Badge(
 
 Use the `pill` attribute to give badges rounded edges.
 
-```scala preview
+```scala examples
 Badge(_.variant.brand, _.pill := true)("Brand")
 Badge(_.variant.success, _.pill := true)("Success")
 Badge(_.variant.neutral, _.pill := true)("Neutral")
@@ -104,7 +104,7 @@ Badge(_.variant.danger, _.pill := true)("Danger")
 
 Use the `attention` attribute to draw attention to the badge with a subtle animation. Supported effects are `bounce`, `pulse` and `none`.
 
-```scala preview
+```scala examples
 Badge(_.variant.brand, _.attention.pulse, _.pill := true)("1")
 Badge(_.variant.success, _.attention.pulse, _.pill := true)("1")
 Badge(_.variant.neutral, _.attention.pulse, _.pill := true)("1")
@@ -122,7 +122,7 @@ Badge(_.variant.danger, _.attention.bounce, _.pill := true)("1")
 
 One of the most common use cases for badges is attaching them to buttons. To make this easier, badges will be automatically positioned at the top-right when they're a child of a button.
 
-```scala preview
+```scala examples
 Button()(
   "Requests",
   Badge(_.pill := true)("30")

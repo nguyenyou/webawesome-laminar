@@ -1,3 +1,0 @@
-package build.docs.examples.zoomableFrame
-
-object `package` extends build.ExampleModule

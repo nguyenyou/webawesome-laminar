@@ -1,3 +1,0 @@
-package build.docs.examples.divider
-
-object `package` extends build.ExampleModule

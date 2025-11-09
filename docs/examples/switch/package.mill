@@ -1,3 +1,0 @@
-package build.docs.examples.switch
-
-object `package` extends build.ExampleModule

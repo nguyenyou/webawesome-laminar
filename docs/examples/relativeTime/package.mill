@@ -1,3 +1,0 @@
-package build.docs.examples.relativeTime
-
-object `package` extends build.ExampleModule

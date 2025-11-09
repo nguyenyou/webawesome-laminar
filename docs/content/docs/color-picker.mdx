@@ -37,7 +37,7 @@ Set the color picker's format with the `format` attribute. Valid options include
 Note that the color picker's input will accept any parsable format (including CSS color names) regardless of this option.
 To prevent users from toggling the format themselves, add the `without-format-toggle` attribute.
 
-```scala preview
+```scala examples
 ColorPicker(
   _.format.hex,
   _.value := "#4a90e2",
@@ -77,7 +77,7 @@ ColorPicker(
 
 Use the `size` attribute to change the color picker's trigger size.
 
-```scala preview
+```scala examples
 ColorPicker(
   _.size.small,
   _.label := "Select a color"

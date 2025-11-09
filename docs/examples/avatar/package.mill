@@ -1,3 +1,0 @@
-package build.docs.examples.avatar
-
-object `package` extends build.ExampleModule

@@ -1,3 +1,0 @@
-package build.docs.examples.dropdown
-
-object `package` extends build.ExampleModule

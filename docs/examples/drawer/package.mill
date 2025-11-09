@@ -1,3 +1,0 @@
-package build.docs.examples.drawer
-
-object `package` extends build.ExampleModule

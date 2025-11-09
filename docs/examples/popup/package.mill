@@ -1,3 +1,0 @@
-package build.docs.examples.popup
-
-object `package` extends build.ExampleModule

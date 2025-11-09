@@ -1,3 +1,0 @@
-package build.docs.examples.checkbox
-
-object `package` extends build.ExampleModule

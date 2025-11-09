@@ -1,3 +1,0 @@
-package build.docs.examples.tabGroup
-
-object `package` extends build.ExampleModule

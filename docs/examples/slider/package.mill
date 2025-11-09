@@ -1,3 +1,0 @@
-package build.docs.examples.slider
-
-object `package` extends build.ExampleModule

@@ -1,3 +1,0 @@
-package build.docs.examples.dialog
-
-object `package` extends build.ExampleModule
