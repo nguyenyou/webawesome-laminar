@@ -1,4 +1,3 @@
-import type { VFile } from "vfile";
 import { visit } from "unist-util-visit";
 import type { Plugin } from "unified";
 import type { Root } from "mdast";
