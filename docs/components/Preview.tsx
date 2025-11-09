@@ -29,7 +29,7 @@ export const Preview = ({
     
     // Get the CSS variable value from the root element
     const root = document.documentElement;
-    const value = window.getComputedStyle(root).getPropertyValue('--color-fd-background').trim();
+    const value = window.getComputedStyle(root).getPropertyValue('--color-fd-article').trim();
     
     return value || '';
   };
