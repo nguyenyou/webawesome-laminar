@@ -422,34 +422,32 @@ While using the `flip` attribute, you can customize the placement of the popup w
 
 ```scala preview
 div(
-  div(
-    position.relative,
-    height.px(300),
-    border := "2px solid var(--wa-color-surface-border)",
-    overflow.auto,
-    Popup(
-      _.placement.top,
-      _.flip                   := true,
-      _.flipFallbackPlacements := "right bottom",
-      _.flipFallbackStrategy.initial,
-      _.active := true,
-      _.boundary.scroll,
-      _.slots.anchor(
-        span(
-          display.inlineBlock,
-          width.px(150),
-          height.px(150),
-          border := "2px dashed var(--wa-color-neutral-fill-loud)",
-          margin := "250px 50px"
-        )
+  position.relative,
+  height.px(300),
+  border := "2px solid var(--wa-color-surface-border)",
+  overflow.auto,
+  Popup(
+    _.placement.top,
+    _.flip                   := true,
+    _.flipFallbackPlacements := "right bottom",
+    _.flipFallbackStrategy.initial,
+    _.active := true,
+    _.boundary.scroll,
+    _.slots.anchor(
+      span(
+        display.inlineBlock,
+        width.px(150),
+        height.px(150),
+        border := "2px dashed var(--wa-color-neutral-fill-loud)",
+        margin := "250px 50px"
       )
-    )(
-      div(
-        width.px(100),
-        height.px(50),
-        background   := "var(--wa-color-brand-fill-loud)",
-        borderRadius := "var(--wa-border-radius-m)"
-      )
+    )
+  )(
+    div(
+      width.px(100),
+      height.px(50),
+      background   := "var(--wa-color-brand-fill-loud)",
+      borderRadius := "var(--wa-border-radius-m)"
     )
   )
 )
@@ -617,7 +615,14 @@ div(
 
 In most cases, popups are anchored to an actual element. Sometimes, it can be useful to anchor them to a non-element. This example anchors a popup to the mouse cursor using a virtual element.
 
-```scala preview
+```css forId="virtual-cursor"
+@keyframes virtual-cursor {
+  0% { transform: translate(-50px, -50px) scale(1); }
+  50% { transform: translate(-50px, -50px) scale(1.1); }
+}
+```
+
+```scala preview id="virtual-cursor"
 val enabledVar = Var(false)
 Var(0.0)
 Var(0.0)
@@ -643,12 +648,6 @@ div(
     _.onInput.mapToChecked --> enabledVar
   )("Highlight mouse cursor"),
   // Note: Mouse tracking would need to be implemented via onMouseMove
-  styleTag("""
-    @keyframes virtual-cursor {
-      0% { transform: translate(-50px, -50px) scale(1); }
-      50% { transform: translate(-50px, -50px) scale(1.1); }
-    }
-  """)
 )
 ```
 

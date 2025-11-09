@@ -131,42 +131,41 @@ Tree(_.style := "--indent-guide-width: 1px")(
 
 Use the `expand-icon` and `collapse-icon` slots to change the expand and collapse icons, respectively. To disable the animation, override the `rotate` property on the `expand-button` part as shown below.
 
-```scala preview
-div(
-  styleTag("""
-    .custom-icons wa-tree-item::part(expand-button) {
-      /* Disable the expand/collapse animation */
-      rotate: none;
-    }
-  """),
-  Tree(
-    _.slots.expandIcon(Icon(_.name := "square-plus", _.variant := "solid")()),
-    _.slots.collapseIcon(Icon(_.name := "square-minus", _.variant := "solid")())
-  )(
-    cls("custom-icons"),
+```css forId="custom-icons"
+.custom-icons wa-tree-item::part(expand-button) {
+  /* Disable the expand/collapse animation */
+  rotate: none;
+}
+```
+
+```scala preview id="custom-icons"
+Tree(
+  _.slots.expandIcon(Icon(_.name := "square-plus", _.variant := "solid")()),
+  _.slots.collapseIcon(Icon(_.name := "square-minus", _.variant := "solid")())
+)(
+  cls("custom-icons"),
+  TreeItem()(
+    "Deciduous",
+    TreeItem()("Birch"),
     TreeItem()(
-      "Deciduous",
-      TreeItem()("Birch"),
-      TreeItem()(
-        "Maple",
-        TreeItem()("Field maple"),
-        TreeItem()("Red maple"),
-        TreeItem()("Sugar maple")
-      ),
-      TreeItem()("Oak")
+      "Maple",
+      TreeItem()("Field maple"),
+      TreeItem()("Red maple"),
+      TreeItem()("Sugar maple")
     ),
-    TreeItem()(
-      "Coniferous",
-      TreeItem()("Cedar"),
-      TreeItem()("Pine"),
-      TreeItem()("Spruce")
-    ),
-    TreeItem()(
-      "Non-trees",
-      TreeItem()("Bamboo"),
-      TreeItem()("Cactus"),
-      TreeItem()("Fern")
-    )
+    TreeItem()("Oak")
+  ),
+  TreeItem()(
+    "Coniferous",
+    TreeItem()("Cedar"),
+    TreeItem()("Pine"),
+    TreeItem()("Spruce")
+  ),
+  TreeItem()(
+    "Non-trees",
+    TreeItem()("Bamboo"),
+    TreeItem()("Cactus"),
+    TreeItem()("Fern")
   )
 )
 ```

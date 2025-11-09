@@ -30,7 +30,7 @@ RelativeTime(
 
 You can change how the time is displayed using the `format` attribute. Note that some locales may display the same values for `narrow` and `short` formats.
 
-```scala examples
+```scala examples vertical
 div("Narrow: ", RelativeTime(_.date := "2020-07-15T09:17:00-04:00", _.format.narrow)())
 div("Short: ", RelativeTime(_.date := "2020-07-15T09:17:00-04:00", _.format.short)())
 div("Long: ", RelativeTime(_.date := "2020-07-15T09:17:00-04:00", _.format.long)())
@@ -40,7 +40,7 @@ div("Long: ", RelativeTime(_.date := "2020-07-15T09:17:00-04:00", _.format.long)
 
 Use the `lang` attribute to set the desired locale.
 
-```scala examples
+```scala examples vertical
 div("English: ", RelativeTime(_.date := "2020-07-15T09:17:00-04:00")(lang := "en-US"))
 div("Chinese: ", RelativeTime(_.date := "2020-07-15T09:17:00-04:00")(lang := "zh-CN"))
 div("German: ", RelativeTime(_.date := "2020-07-15T09:17:00-04:00")(lang := "de"))

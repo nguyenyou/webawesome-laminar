@@ -106,34 +106,35 @@ SplitPanel(
 
 To snap panels at specific positions while dragging, add the `snap` attribute with one or more space-separated values. Values must be in pixels or percentages. For example, to snap the panel at `100px` and `50%`, use `snap="100px 50%"`. You can also customize how close the divider must be before snapping with the `snap-threshold` attribute.
 
-```scala preview
+```css forId="split-panel-snapping"
+.split-panel-snapping {
+  position: relative;
+}
+
+.split-panel-snapping-dots::before,
+.split-panel-snapping-dots::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--wa-color-neutral-fill-loud);
+  transform: translateX(-3px);
+}
+
+.split-panel-snapping-dots::before {
+  left: 100px;
+}
+
+.split-panel-snapping-dots::after {
+  left: 50%;
+}
+```
+
+```scala preview id="split-panel-snapping"
 div(
   cls("split-panel-snapping"),
-  styleTag("""
-    .split-panel-snapping {
-      position: relative;
-    }
-
-    .split-panel-snapping-dots::before,
-    .split-panel-snapping-dots::after {
-      content: '';
-      position: absolute;
-      bottom: -12px;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--wa-color-neutral-fill-loud);
-      transform: translateX(-3px);
-    }
-
-    .split-panel-snapping-dots::before {
-      left: 100px;
-    }
-
-    .split-panel-snapping-dots::after {
-      left: 50%;
-    }
-  """),
   SplitPanel(
     _.snap := "100px 50%",
     _.slots.start(

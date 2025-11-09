@@ -93,7 +93,7 @@ Input(
 
 Use the `size` attribute to change an input's size.
 
-```scala examples
+```scala examples vertical
 Input(
   _.placeholder := "Small",
   _.size.small
@@ -112,7 +112,7 @@ Input(
 
 Use the `pill` attribute to give inputs rounded edges.
 
-```scala examples
+```scala examples vertical
 Input(
   _.placeholder := "Small",
   _.size.small,
@@ -134,7 +134,7 @@ Input(
 
 The `type` attribute controls the type of input the browser renders.
 
-```scala examples
+```scala examples vertical
 Input(
   _.typ.email,
   _.placeholder := "Email"
@@ -153,7 +153,7 @@ Input(
 
 Use the `start` and `end` slots to add presentational elements like `<wa-icon>` within the input.
 
-```scala examples
+```scala examples vertical
 Input(
   _.placeholder := "Small",
   _.size.small,
@@ -178,48 +178,47 @@ Input(
 
 Use CSS parts to customize the way form controls are drawn. This example uses CSS grid to position the label to the left of the control, but the possible orientations are nearly endless. The same technique works for inputs, textareas, radio groups, and similar form controls.
 
-```scala preview
-div(
-  cls := "label-on-left",
-  styleTag("""
-    .label-on-left {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: var(--wa-space-l);
-      align-items: center;
-    }
-    
-    .label-on-left wa-input,
-    .label-on-left wa-textarea {
-      grid-column: 1 / -1;
-      grid-row-end: span 2;
-      display: grid;
-      grid-template-columns: subgrid;
-      gap: 0 var(--wa-space-l);
-      align-items: center;
-    }
-    
-    .label-on-left ::part(label) {
-      text-align: right;
-    }
-    
-    .label-on-left ::part(hint) {
-      grid-column: 2;
-    }
-  """),
-  Input(
-    _.label := "Name",
-    _.hint  := "Enter your name"
-  )(),
-  Input(
-    _.label := "Email",
-    _.typ.email,
-    _.hint := "Enter your email"
-  )(),
-  Textarea(
-    _.label := "Bio",
-    _.hint  := "Tell us something about yourself"
-  )()
-)
+```css forId="label-on-left"
+.label-on-left {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--wa-space-l);
+  align-items: center;
+}
+
+.label-on-left wa-input,
+.label-on-left wa-textarea {
+  grid-column: 1 / -1;
+  grid-row-end: span 2;
+  display: grid;
+  grid-template-columns: subgrid;
+  gap: 0 var(--wa-space-l);
+  align-items: center;
+}
+
+.label-on-left ::part(label) {
+  text-align: right;
+}
+
+.label-on-left ::part(hint) {
+  grid-column: 2;
+}
+```
+
+```scala example id="label-on-left"
+cls := "label-on-left",
+Input(
+  _.label := "Name",
+  _.hint  := "Enter your name"
+)(),
+Input(
+  _.label := "Email",
+  _.typ.email,
+  _.hint := "Enter your email"
+)(),
+Textarea(
+  _.label := "Bio",
+  _.hint  := "Tell us something about yourself"
+)()
 ```
 

@@ -4,18 +4,16 @@ title: Format Date
 
 ## Basic
 
-```scala examples
-div(
-  p("Web Awesome 2 release date 🎉"),
-  FormatDate(_.date := "2020-07-15T09:17:00-04:00")()
-)
+```scala example
+p("Web Awesome 2 release date 🎉"),
+FormatDate(_.date := "2020-07-15T09:17:00-04:00")()
 ```
 
 ## Date & Time Formatting
 
 Formatting options are based on those found in the [`Intl.DateTimeFormat` API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat). When formatting options are provided, the date/time will be formatted according to those values. When no formatting options are provided, a localized, numeric date will be displayed instead.
 
-```scala examples
+```scala examples vertical
 div("Human-readable date: ", FormatDate(_.month.long, _.day.numeric, _.year.numeric)())
 div("Time: ", FormatDate(_.hour.numeric, _.minute.numeric)())
 div("Weekday: ", FormatDate(_.weekday.long)())
@@ -28,7 +26,7 @@ div("No formatting options: ", FormatDate()())
 
 By default, the browser will determine whether to use 12-hour or 24-hour time. To force one or the other, set the `hour-format` attribute to `12` or `24`.
 
-```scala examples
+```scala examples vertical
 div("12-hour: ", FormatDate(_.hour.numeric, _.minute.numeric, _.hourFormat := "12")())
 div("24-hour: ", FormatDate(_.hour.numeric, _.minute.numeric, _.hourFormat := "24")())
 ```
@@ -37,7 +35,7 @@ div("24-hour: ", FormatDate(_.hour.numeric, _.minute.numeric, _.hourFormat := "2
 
 Use the `time-zone` attribute to express the time in a specific time zone.
 
-```scala examples
+```scala examples vertical
 div("UTC: ", FormatDate(_.hour.numeric, _.minute.numeric, _.timeZone := "UTC")())
 div(
   "Pacific: ",
