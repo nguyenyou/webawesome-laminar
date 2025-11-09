@@ -104,7 +104,7 @@ Badge(_.variant.danger, _.pill := true)("Danger")
 
 Use the `attention` attribute to draw attention to the badge with a subtle animation. Supported effects are `bounce`, `pulse` and `none`.
 
-```scala examples h-[80px]
+```scala examples h-[80px] p-[12px]
 Badge(_.variant.brand, _.attention.pulse, _.pill := true)("1")
 Badge(_.variant.success, _.attention.pulse, _.pill := true)("1")
 Badge(_.variant.neutral, _.attention.pulse, _.pill := true)("1")
@@ -118,11 +118,11 @@ Badge(_.variant.warning, _.attention.bounce, _.pill := true)("1")
 Badge(_.variant.danger, _.attention.bounce, _.pill := true)("1")
 ```
 
-## With Buttons
+## With Buttonsss
 
 One of the most common use cases for badges is attaching them to buttons. To make this easier, badges will be automatically positioned at the top-right when they're a child of a button.
 
-```scala examples
+```scala examples pt-[12px]
 Button()(
   "Requests",
   Badge(_.pill := true)("30")

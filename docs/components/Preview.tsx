@@ -9,12 +9,14 @@ export const Preview = ({
   exampleId = "example1",
   height,
   css,
+  padding = "p-0",
 }: {
   code: string;
   userCode?: string;
   exampleId?: string;
   height?: string;
   css?: string;
+  padding?: string;
 }) => {
   const h = height ?? "h-(--height)";
   const ref = useRef<HTMLIFrameElement>(null);
@@ -28,9 +30,6 @@ export const Preview = ({
   html, body {
     margin: 0;
   }
-  body {
-    padding: 4px;
-  }  
 </style>
 ${css ? `<style>${css}</style>` : ""}
 <style type="text/tailwindcss">
@@ -39,7 +38,7 @@ ${css ? `<style>${css}</style>` : ""}
 @import "tailwindcss/utilities.css" layer(utilities);
 </style>
 </head>
-<body style='overflow: hidden'>
+<body class="${padding}">
  <div id="${exampleId}"></div>
  
  <script type="module">
@@ -79,7 +78,7 @@ ${css ? `<style>${css}</style>` : ""}
       <Frame
         ref={ref}
         title="Preview"
-        className={`outline-none rounded-lg bg-fd-background w-full ${h}`}
+        className={`outline-none bg-fd-background w-full ${h}`}
         srcDoc={srcDoc}
         onMount={() => {
           const doc = ref.current?.contentDocument;

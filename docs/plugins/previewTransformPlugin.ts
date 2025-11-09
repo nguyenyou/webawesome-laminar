@@ -50,6 +50,25 @@ const parseHeightFromMeta = (meta: string | null | undefined): string | undefine
 };
 
 /**
+ * Parse Tailwind padding class from code block meta string
+ * Looks for Tailwind padding classes (p-, px-, py-, pt-, pb-, pl-, pr-)
+ * e.g., "preview p-4" -> "p-4"
+ * e.g., "preview px-4 py-2" -> "px-4" (returns first match)
+ * e.g., "preview p-[20px]" -> "p-[20px]"
+ * Returns undefined if padding class is not found or meta is null/undefined
+ */
+const parsePaddingFromMeta = (meta: string | null | undefined): string | undefined => {
+  if (!meta) {
+    return undefined;
+  }
+  
+  // Match Tailwind padding class pattern (p, px, py, pt, pb, pl, or pr followed by - and any non-whitespace characters)
+  // This matches classes like p-4, px-4, py-2, pt-8, pb-4, pl-6, pr-6, p-[20px], etc.
+  const paddingMatch = meta.match(/\b(p|px|py|pt|pb|pl|pr)-[^\s]+/);
+  return paddingMatch ? paddingMatch[0] : undefined;
+};
+
+/**
  * Parse forId attribute from code block meta string
  * Extracts forId="value" or forId='value' from meta
  * e.g., 'css forId="animations-easings"' -> "animations-easings"
@@ -257,6 +276,7 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
     for (const { node, counter, parent, index } of previewNodes) {
       const exampleId = `example${counter}`;
       const height = parseHeightFromMeta(node.meta);
+      const padding = parsePaddingFromMeta(node.meta);
       const previewId = parseIdFromMeta(node.meta);
       
       // Look up matching CSS content if id is specified
@@ -287,6 +307,15 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
           type: "mdxJsxAttribute",
           name: "height",
           value: height,
+        });
+      }
+
+      // Add padding attribute if padding value is found
+      if (padding) {
+        attributes.push({
+          type: "mdxJsxAttribute",
+          name: "padding",
+          value: padding,
         });
       }
 
