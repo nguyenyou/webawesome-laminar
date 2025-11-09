@@ -8,10 +8,9 @@
         "medium",
         "small"
       ],
-      "frequency": 15,
+      "frequency": 14,
       "components": [
         "WaButton",
-        "WaButtonGroup",
         "WaCallout",
         "WaCheckbox",
         "WaColorPicker",
@@ -34,9 +33,10 @@
         "horizontal",
         "vertical"
       ],
-      "frequency": 7,
+      "frequency": 8,
       "components": [
         "WaButtonGroup",
+        "WaCard",
         "WaCarousel",
         "WaDivider",
         "WaRadioGroup",
@@ -122,12 +122,12 @@
       ]
     },
     {
-      "name": "FilledOutlineAppearance",
-      "signature": "filled|outlined",
+      "name": "Appearance",
+      "signature": "filled|filled-outlined|outlined",
       "values": [
         "filled",
-        "outlined",
-        "filled outlined"
+        "filled-outlined",
+        "outlined"
       ],
       "frequency": 3,
       "components": [
@@ -151,18 +151,33 @@
     },
     {
       "name": "ExtendedAppearance",
-      "signature": "accent|filled|outlined|plain",
+      "signature": "accent|filled|filled-outlined|outlined",
       "values": [
         "accent",
         "filled",
+        "filled-outlined",
+        "outlined"
+      ],
+      "frequency": 2,
+      "components": [
+        "WaBadge",
+        "WaTag"
+      ]
+    },
+    {
+      "name": "ExtendedAppearance1",
+      "signature": "accent|filled|filled-outlined|outlined|plain",
+      "values": [
+        "accent",
+        "filled",
+        "filled-outlined",
         "outlined",
-        "plain",
-        "filled outlined"
+        "plain"
       ],
       "frequency": 2,
       "components": [
         "WaButton",
-        "WaCard"
+        "WaCallout"
       ]
     },
     {
@@ -178,19 +193,6 @@
       "components": [
         "WaCopyButton",
         "WaSlider"
-      ]
-    },
-    {
-      "name": "IconPosition",
-      "signature": "end|start",
-      "values": [
-        "end",
-        "start"
-      ],
-      "frequency": 2,
-      "components": [
-        "WaDetails",
-        "WaPage"
       ]
     },
     {
@@ -276,20 +278,6 @@
       ]
     },
     {
-      "name": "BadgeExtendedAppearance",
-      "signature": "accent|filled|outlined",
-      "values": [
-        "accent",
-        "filled",
-        "outlined",
-        "filled outlined"
-      ],
-      "frequency": 1,
-      "components": [
-        "WaBadge"
-      ]
-    },
-    {
       "name": "BadgeAttention",
       "signature": "bounce|none|pulse",
       "values": [
@@ -355,19 +343,17 @@
       ]
     },
     {
-      "name": "CalloutExtendedAppearance",
-      "signature": "accent|filled|outlined|outlined accent|outlined filled|plain",
+      "name": "CardExtendedAppearance",
+      "signature": "accent|filled|outlined|plain",
       "values": [
         "accent",
         "filled",
         "outlined",
-        "outlined accent",
-        "plain",
-        "filled outlined"
+        "plain"
       ],
       "frequency": 1,
       "components": [
-        "WaCallout"
+        "WaCard"
       ]
     },
     {
@@ -386,12 +372,24 @@
     },
     {
       "name": "DetailsAppearance",
-      "signature": "filled|outlined|plain",
+      "signature": "filled|filled-outlined|outlined|plain",
       "values": [
         "filled",
+        "filled-outlined",
         "outlined",
-        "plain",
-        "filled outlined"
+        "plain"
+      ],
+      "frequency": 1,
+      "components": [
+        "WaDetails"
+      ]
+    },
+    {
+      "name": "DetailsIconPlacement",
+      "signature": "end|start",
+      "values": [
+        "end",
+        "start"
       ],
       "frequency": 1,
       "components": [
@@ -547,18 +545,6 @@
       ]
     },
     {
-      "name": "PageView",
-      "signature": "desktop|mobile",
-      "values": [
-        "desktop",
-        "mobile"
-      ],
-      "frequency": 1,
-      "components": [
-        "WaPage"
-      ]
-    },
-    {
       "name": "PopupBoundary",
       "signature": "scroll|viewport",
       "values": [
@@ -695,21 +681,6 @@
       "frequency": 1,
       "components": [
         "WaTabGroup"
-      ]
-    },
-    {
-      "name": "TagExtendedAppearance",
-      "signature": "accent|filled|outlined|outlined accent|outlined filled",
-      "values": [
-        "accent",
-        "filled",
-        "outlined",
-        "outlined accent",
-        "filled outlined"
-      ],
-      "frequency": 1,
-      "components": [
-        "WaTag"
       ]
     },
     {

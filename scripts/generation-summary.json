@@ -1,8 +1,8 @@
 {
   "totalComponents": 57,
-  "totalAttributes": 405,
-  "totalEvents": 137,
-  "totalSlots": 121,
+  "totalAttributes": 407,
+  "totalEvents": 138,
+  "totalSlots": 110,
   "components": [
     {
       "name": "AnimatedImage",
@@ -33,13 +33,6 @@
       "slots": 1
     },
     {
-      "name": "Button",
-      "tagName": "wa-button",
-      "attributes": 21,
-      "events": 4,
-      "slots": 3
-    },
-    {
       "name": "BreadcrumbItem",
       "tagName": "wa-breadcrumb-item",
       "attributes": 3,
@@ -47,18 +40,25 @@
       "slots": 4
     },
     {
-      "name": "ButtonGroup",
-      "tagName": "wa-button-group",
-      "attributes": 4,
-      "events": 0,
-      "slots": 1
-    },
-    {
       "name": "Breadcrumb",
       "tagName": "wa-breadcrumb",
       "attributes": 1,
       "events": 0,
       "slots": 2
+    },
+    {
+      "name": "Button",
+      "tagName": "wa-button",
+      "attributes": 21,
+      "events": 4,
+      "slots": 3
+    },
+    {
+      "name": "ButtonGroup",
+      "tagName": "wa-button-group",
+      "attributes": 3,
+      "events": 0,
+      "slots": 1
     },
     {
       "name": "Callout",
@@ -70,9 +70,9 @@
     {
       "name": "Card",
       "tagName": "wa-card",
-      "attributes": 4,
+      "attributes": 5,
       "events": 0,
-      "slots": 4
+      "slots": 7
     },
     {
       "name": "Carousel",
@@ -182,7 +182,7 @@
     {
       "name": "Icon",
       "tagName": "wa-icon",
-      "attributes": 7,
+      "attributes": 8,
       "events": 3,
       "slots": 0
     },
@@ -201,6 +201,13 @@
       "slots": 7
     },
     {
+      "name": "IntersectionObserver",
+      "tagName": "wa-intersection-observer",
+      "attributes": 6,
+      "events": 1,
+      "slots": 1
+    },
+    {
       "name": "MutationObserver",
       "tagName": "wa-mutation-observer",
       "attributes": 6,
@@ -213,13 +220,6 @@
       "attributes": 4,
       "events": 0,
       "slots": 3
-    },
-    {
-      "name": "Page",
-      "tagName": "wa-page",
-      "attributes": 5,
-      "events": 0,
-      "slots": 15
     },
     {
       "name": "Popover",

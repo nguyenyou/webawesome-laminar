@@ -28,11 +28,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@awesome.me/webawesome@npm:3.0.0-beta.4":
-  version: 3.0.0-beta.4
-  resolution: "@awesome.me/webawesome@npm:3.0.0-beta.4"
+"@awesome.me/webawesome@npm:3.0.0":
+  version: 3.0.0
+  resolution: "@awesome.me/webawesome@npm:3.0.0"
   dependencies:
-    "@ctrl/tinycolor": "npm:^4.1.0"
+    "@ctrl/tinycolor": "npm:4.1.0"
     "@floating-ui/dom": "npm:^1.6.13"
     "@lit/react": "npm:^1.0.8"
     "@shoelace-style/animations": "npm:^1.2.0"
@@ -41,8 +41,7 @@ __metadata:
     lit: "npm:^3.2.1"
     nanoid: "npm:^5.1.5"
     qr-creator: "npm:^1.0.0"
-    style-observer: "npm:^0.0.7"
-  checksum: 10c0/4bc9a8352b024977430dddde8c33011b2068ebe9536e5430fea7ecda9a690e466d3c3e03d8cad43c1e12a09e0176e14341b6b5c2fd0e8678f6fc7ec9aea7f845
+  checksum: 10c0/809a4f698798e10a5b78200f0e9bb473dd46416c2756280771fd58a42850d319e02ad38c5549a599c09811817bc8c498ccb39fd20a910324b0f8bbe36dcf9e82
   languageName: node
   linkType: hard
 
@@ -92,7 +91,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ctrl/tinycolor@npm:^4.1.0":
+"@ctrl/tinycolor@npm:4.1.0":
   version: 4.1.0
   resolution: "@ctrl/tinycolor@npm:4.1.0"
   checksum: 10c0/813dd960366df057006a1b93d7403ec7a48db1e79bec846d38fab15a1e0f37efd3ab96b0c780a14867ddc1f4c5a473e403c5c88e96d212c544ad934411e5307f
@@ -979,7 +978,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "awesome-laminar@workspace:."
   dependencies:
-    "@awesome.me/webawesome": "npm:3.0.0-beta.4"
+    "@awesome.me/webawesome": "npm:3.0.0"
     "@types/node": "npm:^24.0.15"
     code-block-writer: "npm:^13.0.3"
     jsdom: "npm:^26.1.0"
@@ -2434,13 +2433,6 @@ __metadata:
   dependencies:
     ansi-regex: "npm:^6.0.1"
   checksum: 10c0/a198c3762e8832505328cbf9e8c8381de14a4fa50a4f9b2160138158ea88c0f5549fb50cb13c651c3088f47e63a108b34622ec18c0499b6c8c3a5ddf6b305ac4
-  languageName: node
-  linkType: hard
-
-"style-observer@npm:^0.0.7":
-  version: 0.0.7
-  resolution: "style-observer@npm:0.0.7"
-  checksum: 10c0/fe8e4f208ebc98f1d542719882cde0d769ed8e49dbaea085ffd1232a7b693bbbc78fe8b42dc471edc0ef876c3cb63ddba85d4965a0b189bd4f60c9a6c995a0ec
   languageName: node
   linkType: hard
 

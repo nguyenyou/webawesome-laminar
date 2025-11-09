@@ -4,7 +4,7 @@
     "schemaVersion": "1.0.0",
     "modulesCount": 64
   },
-  "generated": "2025-09-01T07:08:44.330Z",
+  "generated": "2025-11-09T07:17:20.381Z",
   "components": [
     {
       "name": "WaAnimatedImage",
@@ -382,7 +382,8 @@
           "unionValues": [
             "accent",
             "filled",
-            "outlined"
+            "outlined",
+            "filled-outlined"
           ],
           "description": "The badge's visual appearance.",
           "default": "'accent'",
@@ -433,6 +434,127 @@
       "dependencies": []
     },
     {
+      "name": "WaBreadcrumbItem",
+      "tagName": "wa-breadcrumb-item",
+      "packagePath": "io.github.nguyenyou.webawesome.laminar.BreadcrumbItem",
+      "description": "Breadcrumb Items are used inside breadcrumbs to represent different links.",
+      "documentation": "https://webawesome.com/docs/components/breadcrumb-item",
+      "since": "2.0",
+      "attributes": [
+        {
+          "name": "href",
+          "fieldName": "href",
+          "type": "string | undefined",
+          "description": "Optional URL to direct the user to when the breadcrumb item is activated. When set, a link will be rendered\ninternally. When unset, a button will be rendered instead."
+        },
+        {
+          "name": "target",
+          "fieldName": "target",
+          "type": "'_blank' | '_parent' | '_self' | '_top' | undefined",
+          "description": "Tells the browser where to open the link. Only used when `href` is set."
+        },
+        {
+          "name": "rel",
+          "fieldName": "rel",
+          "type": "String",
+          "description": "The `rel` attribute to use on the link. Only used when `href` is set.",
+          "default": "'noreferrer noopener'"
+        }
+      ],
+      "events": [],
+      "slots": [
+        {
+          "name": "",
+          "description": "The breadcrumb item's label."
+        },
+        {
+          "name": "start",
+          "description": "An element, such as `<wa-icon>`, placed before the label."
+        },
+        {
+          "name": "end",
+          "description": "An element, such as `<wa-icon>`, placed after the label."
+        },
+        {
+          "name": "separator",
+          "description": "The separator to use for the breadcrumb item. This will only change the separator for this item. If you want to change it for all items in the group, set the separator on `<wa-breadcrumb>` instead."
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "label",
+          "description": "The breadcrumb item's label."
+        },
+        {
+          "name": "start",
+          "description": "The container that wraps the `start` slot."
+        },
+        {
+          "name": "end",
+          "description": "The container that wraps the `end` slot."
+        },
+        {
+          "name": "separator",
+          "description": "The container that wraps the separator."
+        }
+      ],
+      "methods": [
+        {
+          "name": "hrefChanged",
+          "parameters": [],
+          "returnType": "Unit",
+          "public": true
+        },
+        {
+          "name": "handleSlotChange",
+          "parameters": [],
+          "returnType": "Unit",
+          "public": true
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "name": "WaBreadcrumb",
+      "tagName": "wa-breadcrumb",
+      "packagePath": "io.github.nguyenyou.webawesome.laminar.Breadcrumb",
+      "description": "Breadcrumbs provide a group of links so users can easily navigate a website's hierarchy.",
+      "documentation": "https://webawesome.com/docs/components/breadcrumb",
+      "since": "2.0",
+      "attributes": [
+        {
+          "name": "label",
+          "fieldName": "label",
+          "type": "String",
+          "description": "The label to use for the breadcrumb control. This will not be shown on the screen, but it will be announced by\nscreen readers and other assistive devices to provide more context for users.",
+          "default": "''"
+        }
+      ],
+      "events": [],
+      "slots": [
+        {
+          "name": "",
+          "description": "One or more breadcrumb items to display."
+        },
+        {
+          "name": "separator",
+          "description": "The separator to use between breadcrumb items. Works best with `<wa-icon>`."
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "base",
+          "description": "The component's base wrapper."
+        }
+      ],
+      "methods": [],
+      "dependencies": [
+        "wa-icon"
+      ]
+    },
+    {
       "name": "WaButton",
       "tagName": "wa-button",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Button",
@@ -469,6 +591,7 @@
             "accent",
             "filled",
             "outlined",
+            "filled-outlined",
             "plain"
           ],
           "description": "The button's visual appearance.",
@@ -740,88 +863,6 @@
       ]
     },
     {
-      "name": "WaBreadcrumbItem",
-      "tagName": "wa-breadcrumb-item",
-      "packagePath": "io.github.nguyenyou.webawesome.laminar.BreadcrumbItem",
-      "description": "Breadcrumb Items are used inside breadcrumbs to represent different links.",
-      "documentation": "https://webawesome.com/docs/components/breadcrumb-item",
-      "since": "2.0",
-      "attributes": [
-        {
-          "name": "href",
-          "fieldName": "href",
-          "type": "string | undefined",
-          "description": "Optional URL to direct the user to when the breadcrumb item is activated. When set, a link will be rendered\ninternally. When unset, a button will be rendered instead."
-        },
-        {
-          "name": "target",
-          "fieldName": "target",
-          "type": "'_blank' | '_parent' | '_self' | '_top' | undefined",
-          "description": "Tells the browser where to open the link. Only used when `href` is set."
-        },
-        {
-          "name": "rel",
-          "fieldName": "rel",
-          "type": "String",
-          "description": "The `rel` attribute to use on the link. Only used when `href` is set.",
-          "default": "'noreferrer noopener'"
-        }
-      ],
-      "events": [],
-      "slots": [
-        {
-          "name": "",
-          "description": "The breadcrumb item's label."
-        },
-        {
-          "name": "start",
-          "description": "An element, such as `<wa-icon>`, placed before the label."
-        },
-        {
-          "name": "end",
-          "description": "An element, such as `<wa-icon>`, placed after the label."
-        },
-        {
-          "name": "separator",
-          "description": "The separator to use for the breadcrumb item. This will only change the separator for this item. If you want to change it for all items in the group, set the separator on `<wa-breadcrumb>` instead."
-        }
-      ],
-      "cssProperties": [],
-      "cssParts": [
-        {
-          "name": "label",
-          "description": "The breadcrumb item's label."
-        },
-        {
-          "name": "start",
-          "description": "The container that wraps the `start` slot."
-        },
-        {
-          "name": "end",
-          "description": "The container that wraps the `end` slot."
-        },
-        {
-          "name": "separator",
-          "description": "The container that wraps the separator."
-        }
-      ],
-      "methods": [
-        {
-          "name": "hrefChanged",
-          "parameters": [],
-          "returnType": "Unit",
-          "public": true
-        },
-        {
-          "name": "handleSlotChange",
-          "parameters": [],
-          "returnType": "Unit",
-          "public": true
-        }
-      ],
-      "dependencies": []
-    },
-    {
       "name": "WaButtonGroup",
       "tagName": "wa-button-group",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.ButtonGroup",
@@ -846,18 +887,6 @@
           ],
           "description": "The button group's orientation.",
           "default": "'horizontal'",
-          "reflects": true
-        },
-        {
-          "name": "size",
-          "fieldName": "size",
-          "type": "String",
-          "unionValues": [
-            "small",
-            "medium",
-            "large"
-          ],
-          "description": "The component's size.",
           "reflects": true
         },
         {
@@ -894,51 +923,12 @@
       "dependencies": []
     },
     {
-      "name": "WaBreadcrumb",
-      "tagName": "wa-breadcrumb",
-      "packagePath": "io.github.nguyenyou.webawesome.laminar.Breadcrumb",
-      "description": "Breadcrumbs provide a group of links so users can easily navigate a website's hierarchy.",
-      "documentation": "https://webawesome.com/docs/components/breadcrumb",
-      "since": "2.0",
-      "attributes": [
-        {
-          "name": "label",
-          "fieldName": "label",
-          "type": "String",
-          "description": "The label to use for the breadcrumb control. This will not be shown on the screen, but it will be announced by\nscreen readers and other assistive devices to provide more context for users.",
-          "default": "''"
-        }
-      ],
-      "events": [],
-      "slots": [
-        {
-          "name": "",
-          "description": "One or more breadcrumb items to display."
-        },
-        {
-          "name": "separator",
-          "description": "The separator to use between breadcrumb items. Works best with `<wa-icon>`."
-        }
-      ],
-      "cssProperties": [],
-      "cssParts": [
-        {
-          "name": "base",
-          "description": "The component's base wrapper."
-        }
-      ],
-      "methods": [],
-      "dependencies": [
-        "wa-icon"
-      ]
-    },
-    {
       "name": "WaCallout",
       "tagName": "wa-callout",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Callout",
       "description": "Callouts are used to display important messages inline.",
       "documentation": "https://webawesome.com/docs/components/callout",
-      "since": "2.0",
+      "since": "3.0",
       "attributes": [
         {
           "name": "variant",
@@ -964,11 +954,9 @@
             "filled",
             "outlined",
             "plain",
-            "outlined filled",
-            "outlined accent"
+            "filled-outlined"
           ],
           "description": "The callout's visual appearance.",
-          "default": "'outlined filled'",
           "reflects": true
         },
         {
@@ -1055,6 +1043,18 @@
           "description": "Renders the card with a footer. Only needed for SSR, otherwise is automatically added.",
           "default": "false",
           "reflects": true
+        },
+        {
+          "name": "orientation",
+          "fieldName": "orientation",
+          "type": "String",
+          "unionValues": [
+            "horizontal",
+            "vertical"
+          ],
+          "description": "Renders the card's orientation *",
+          "default": "'vertical'",
+          "reflects": true
         }
       ],
       "events": [],
@@ -1074,6 +1074,18 @@
         {
           "name": "media",
           "description": "An optional media section to render at the start of the card."
+        },
+        {
+          "name": "actions",
+          "description": "An optional actions section to render at the end for the horizontal card."
+        },
+        {
+          "name": "header-actions",
+          "description": "An optional actions section to render in the header of the vertical card."
+        },
+        {
+          "name": "footer-actions",
+          "description": "An optional actions section to render in the footer of the vertical card."
         }
       ],
       "cssProperties": [
@@ -1720,7 +1732,7 @@
         {
           "name": "swatches",
           "fieldName": "swatches",
-          "type": "js.Array[string | string]",
+          "type": "String | js.Array[String]",
           "description": "One or more predefined color swatches to display as presets in the color picker. Can include any format the color\npicker can parse, including HEX(A), RGB(A), HSL(A), HSV(A), and CSS color names. Each color must be separated by a\nsemicolon (`;`). Alternatively, you can pass an array of color values to this property using JavaScript.",
           "default": "''"
         },
@@ -2359,7 +2371,8 @@
           "name": "name",
           "fieldName": "name",
           "type": "String",
-          "description": "Groups related details elements. When one opens, others with the same name will close."
+          "description": "Groups related details elements. When one opens, others with the same name will close.",
+          "reflects": true
         },
         {
           "name": "disabled",
@@ -2376,6 +2389,7 @@
           "unionValues": [
             "filled",
             "outlined",
+            "filled-outlined",
             "plain"
           ],
           "description": "The element's visual appearance.",
@@ -2383,14 +2397,14 @@
           "reflects": true
         },
         {
-          "name": "icon-position",
-          "fieldName": "iconPosition",
+          "name": "icon-placement",
+          "fieldName": "iconPlacement",
           "type": "String",
           "unionValues": [
             "start",
             "end"
           ],
-          "description": "The position of the expand/collapse icon.",
+          "description": "The location of the expand/collapse icon.",
           "default": "'end'",
           "reflects": true
         }
@@ -2615,6 +2629,10 @@
       ],
       "cssParts": [
         {
+          "name": "dialog",
+          "description": "The dialog's internal `<dialog>` element."
+        },
+        {
           "name": "header",
           "description": "The dialog's header. This element wraps the title and header actions."
         },
@@ -2825,6 +2843,10 @@
         }
       ],
       "cssParts": [
+        {
+          "name": "dialog",
+          "description": "The drawer's internal `<dialog>` element."
+        },
         {
           "name": "header",
           "description": "The drawer's header. This element wraps the title and header actions."
@@ -3430,25 +3452,37 @@
           "name": "name",
           "fieldName": "name",
           "type": "string | undefined",
-          "description": "The name of the icon to draw. Available names depend on the icon library being used."
+          "description": "The name of the icon to draw. Available names depend on the icon library being used.",
+          "reflects": true
         },
         {
           "name": "family",
           "fieldName": "family",
           "type": "String",
-          "description": "The family of icons to choose from. For Font Awesome Free, valid options include `classic` and `brands`. For\nFont Awesome Pro subscribers, valid options include, `classic`, `sharp`, `duotone`, `sharp-duotone`, and `brands`.\nA valid kit code must be present to show pro icons via CDN. You can set `<html data-fa-kit-code=\"...\">` to provide\none."
+          "description": "The family of icons to choose from. For Font Awesome Free, valid options include `classic` and `brands`. For\nFont Awesome Pro subscribers, valid options include, `classic`, `sharp`, `duotone`, `sharp-duotone`, and `brands`.\nA valid kit code must be present to show pro icons via CDN. You can set `<html data-fa-kit-code=\"...\">` to provide\none.",
+          "reflects": true
         },
         {
           "name": "variant",
           "fieldName": "variant",
           "type": "String",
-          "description": "The name of the icon's variant. For Font Awesome, valid options include `thin`, `light`, `regular`, and `solid` for\nthe `classic` and `sharp` families. Some variants require a Font Awesome Pro subscription. Custom icon libraries\nmay or may not use this property."
+          "description": "The name of the icon's variant. For Font Awesome, valid options include `thin`, `light`, `regular`, and `solid` for\nthe `classic` and `sharp` families. Some variants require a Font Awesome Pro subscription. Custom icon libraries\nmay or may not use this property.",
+          "reflects": true
         },
         {
-          "name": "fixed-width",
-          "fieldName": "fixedWidth",
-          "type": "false",
-          "description": "Draws the icon in a fixed-width both.",
+          "name": "auto-width",
+          "fieldName": "autoWidth",
+          "type": "Boolean",
+          "description": "Sets the width of the icon to match the cropped SVG viewBox. This operates like the Font `fa-width-auto` class.",
+          "default": "false",
+          "reflects": true
+        },
+        {
+          "name": "swap-opacity",
+          "fieldName": "swapOpacity",
+          "type": "Boolean",
+          "description": "Swaps the opacity of duotone icons.",
+          "default": "false",
           "reflects": true
         },
         {
@@ -3469,7 +3503,8 @@
           "fieldName": "library",
           "type": "String",
           "description": "The name of a registered custom icon library.",
-          "default": "'default'"
+          "default": "'default'",
+          "reflects": true
         }
       ],
       "events": [
@@ -3583,10 +3618,10 @@
           "reactName": "onWaLoad"
         },
         {
-          "name": "wa-error",
-          "eventType": "WaErrorEvent",
+          "name": "wa-include-error",
+          "eventType": "WaIncludeErrorEvent",
           "description": "Emitted when the included file fails to load due to an error.",
-          "reactName": "onWaError"
+          "reactName": "onWaIncludeError"
         }
       ],
       "slots": [],
@@ -3662,7 +3697,8 @@
           "type": "String",
           "unionValues": [
             "filled",
-            "outlined"
+            "outlined",
+            "filled-outlined"
           ],
           "description": "The input's visual appearance.",
           "default": "'outlined'",
@@ -3956,11 +3992,11 @@
           "description": "The hint's wrapper."
         },
         {
-          "name": "input",
+          "name": "base",
           "description": "The wrapper being rendered as an input"
         },
         {
-          "name": "base",
+          "name": "input",
           "description": "The internal `<input>` control."
         },
         {
@@ -4091,6 +4127,91 @@
       "dependencies": [
         "wa-icon"
       ]
+    },
+    {
+      "name": "WaIntersectionObserver",
+      "tagName": "wa-intersection-observer",
+      "packagePath": "io.github.nguyenyou.webawesome.laminar.IntersectionObserver",
+      "description": "Tracks immediate child elements and fires events as they move in and out of view.",
+      "documentation": "https://webawesome.com/docs/components/intersection-observer",
+      "since": "2.0",
+      "attributes": [
+        {
+          "name": "root",
+          "fieldName": "root",
+          "type": "string | null",
+          "description": "Element ID to define the viewport boundaries for tracked targets.",
+          "default": "null"
+        },
+        {
+          "name": "root-margin",
+          "fieldName": "rootMargin",
+          "type": "String",
+          "description": "Offset space around the root boundary. Accepts values like CSS margin syntax.",
+          "default": "'0px'"
+        },
+        {
+          "name": "threshold",
+          "fieldName": "threshold",
+          "type": "String",
+          "description": "One or more space-separated values representing visibility percentages that trigger the observer callback.",
+          "default": "'0'"
+        },
+        {
+          "name": "intersect-class",
+          "fieldName": "intersectClass",
+          "type": "String",
+          "description": "CSS class applied to elements during intersection. Automatically removed when elements leave\nthe viewport, enabling pure CSS styling based on visibility state.",
+          "default": "''"
+        },
+        {
+          "name": "once",
+          "fieldName": "once",
+          "type": "Boolean",
+          "description": "If enabled, observation ceases after initial intersection.",
+          "default": "false",
+          "reflects": true
+        },
+        {
+          "name": "disabled",
+          "fieldName": "disabled",
+          "type": "Boolean",
+          "description": "Deactivates the intersection observer functionality.",
+          "default": "false",
+          "reflects": true
+        }
+      ],
+      "events": [
+        {
+          "name": "wa-intersect",
+          "eventType": "WaIntersectEvent",
+          "description": "Fired when a tracked element begins or ceases intersecting.",
+          "reactName": "onWaIntersect"
+        }
+      ],
+      "slots": [
+        {
+          "name": "",
+          "description": "Elements to track. Only immediate children of the host are monitored."
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [],
+      "methods": [
+        {
+          "name": "handleDisabledChange",
+          "parameters": [],
+          "returnType": "Unit",
+          "public": true
+        },
+        {
+          "name": "handleOptionsChange",
+          "parameters": [],
+          "returnType": "Unit",
+          "public": true
+        }
+      ],
+      "dependencies": []
     },
     {
       "name": "WaMutationObserver",
@@ -4255,260 +4376,6 @@
       "dependencies": [
         "wa-icon"
       ]
-    },
-    {
-      "name": "WaPage",
-      "tagName": "wa-page",
-      "packagePath": "io.github.nguyenyou.webawesome.laminar.Page",
-      "description": "Pages offer an easy way to scaffold entire page layouts using minimal markup.",
-      "documentation": "https://webawesome.com/docs/components/page",
-      "since": "3.0",
-      "attributes": [
-        {
-          "name": "view",
-          "fieldName": "view",
-          "type": "String",
-          "unionValues": [
-            "mobile",
-            "desktop"
-          ],
-          "description": "The view is a reflection of the \"mobileBreakpoint\", when the page is larger than the `mobile-breakpoint` (768px by\ndefault), it is considered to be a \"desktop\" view. The view is merely a way to distinguish when to show/hide the\nnavigation. You can use additional media queries to make other adjustments to content as necessary.\nThe default is \"desktop\" because the \"mobile navigation drawer\" isn't accessible via SSR due to drawer requiring JS.",
-          "default": "'desktop'",
-          "reflects": true
-        },
-        {
-          "name": "nav-open",
-          "fieldName": "navOpen",
-          "type": "Boolean",
-          "description": "Whether or not the navigation drawer is open. Note, the navigation drawer is only \"open\" on mobile views.",
-          "default": "false",
-          "reflects": true
-        },
-        {
-          "name": "mobile-breakpoint",
-          "fieldName": "mobileBreakpoint",
-          "type": "String",
-          "description": "At what page width to hide the \"navigation\" slot and collapse into a hamburger button.\nAccepts both numbers (interpreted as px) and CSS lengths (e.g. `50em`), which are resolved based on the root element.",
-          "default": "'768px'"
-        },
-        {
-          "name": "navigation-placement",
-          "fieldName": "navigationPlacement",
-          "type": "String",
-          "unionValues": [
-            "start",
-            "end"
-          ],
-          "description": "Where to place the navigation when in the mobile viewport.",
-          "default": "'start'",
-          "reflects": true
-        },
-        {
-          "name": "disable-navigation-toggle",
-          "fieldName": "disableNavigationToggle",
-          "type": "Boolean",
-          "description": "Determines whether or not to hide the default hamburger button.\nThis will automatically flip to \"true\" if you add an element with `data-toggle-nav` anywhere in the element light DOM.\nGenerally this will be set for you and you don't need to do anything, unless you're using SSR, in which case you should set this manually for initial page loads.",
-          "default": "false",
-          "reflects": true
-        }
-      ],
-      "events": [],
-      "slots": [
-        {
-          "name": "",
-          "description": "The page's main content."
-        },
-        {
-          "name": "banner",
-          "description": "The banner that gets display above the header. The banner will not be shown if no content is provided."
-        },
-        {
-          "name": "header",
-          "description": "The header to display at the top of the page. If a banner is present, the header will appear below the banner. The header will not be shown if there is no content."
-        },
-        {
-          "name": "subheader",
-          "description": "A subheader to display below the `header`. This is a good place to put things like breadcrumbs."
-        },
-        {
-          "name": "menu",
-          "description": "The left side of the page. If you slot an element in here, you will override the default `navigation` slot and will be handling navigation on your own. This also will not disable the fallback behavior of the navigation button. This section \"sticks\" to the top as the page scrolls."
-        },
-        {
-          "name": "navigation-header",
-          "description": "The header for a navigation area. On mobile this will be the header for `<wa-drawer>`."
-        },
-        {
-          "name": "navigation",
-          "description": "The main content to display in the navigation area. This is displayed on the left side of the page, if `menu` is not used. This section \"sticks\" to the top as the page scrolls."
-        },
-        {
-          "name": "navigation-footer",
-          "description": "The footer for a navigation area. On mobile this will be the footer for `<wa-drawer>`."
-        },
-        {
-          "name": "navigation-toggle",
-          "description": "Use this slot to slot in your own button + icon for toggling the navigation drawer. By default it is a `<wa-button>` + a 3 bars `<wa-icon>`"
-        },
-        {
-          "name": "navigation-toggle-icon",
-          "description": "Use this to slot in your own icon for toggling the navigation drawer. By default it is 3 bars `<wa-icon>`."
-        },
-        {
-          "name": "main-header",
-          "description": "Header to display inline above the main content."
-        },
-        {
-          "name": "main-footer",
-          "description": "Footer to display inline below the main content."
-        },
-        {
-          "name": "aside",
-          "description": "Content to be shown on the right side of the page. Typically contains a table of contents, ads, etc. This section \"sticks\" to the top as the page scrolls."
-        },
-        {
-          "name": "skip-to-content",
-          "description": "The \"skip to content\" slot. You can override this If you would like to override the `Skip to content` button and add additional \"Skip to X\", they can be inserted here."
-        },
-        {
-          "name": "footer",
-          "description": "The content to display in the footer. This is always displayed underneath the viewport so will always make the page \"scrollable\"."
-        }
-      ],
-      "cssProperties": [
-        {
-          "name": "--menu-width",
-          "description": "The width of the page's \"menu\" section.",
-          "default": "auto"
-        },
-        {
-          "name": "--main-width",
-          "description": "The width of the page's \"main\" section.",
-          "default": "1fr"
-        },
-        {
-          "name": "--aside-width",
-          "description": "The wide of the page's \"aside\" section.",
-          "default": "auto"
-        },
-        {
-          "name": "--banner-height",
-          "description": "The height of the banner. This gets calculated when the page initializes. If the height is known, you can set it here to prevent shifting when the page loads.",
-          "default": "0px"
-        },
-        {
-          "name": "--header-height",
-          "description": "The height of the header. This gets calculated when the page initializes. If the height is known, you can set it here to prevent shifting when the page loads.",
-          "default": "0px"
-        },
-        {
-          "name": "--subheader-height",
-          "description": "The height of the subheader. This gets calculated when the page initializes. If the height is known, you can set it here to prevent shifting when the page loads.",
-          "default": "0px"
-        }
-      ],
-      "cssParts": [
-        {
-          "name": "base",
-          "description": "The component's base wrapper."
-        },
-        {
-          "name": "banner",
-          "description": "The banner to show above header."
-        },
-        {
-          "name": "header",
-          "description": "The header, usually for top level navigation / branding."
-        },
-        {
-          "name": "subheader",
-          "description": "Shown below the header, usually intended for things like breadcrumbs and other page level navigation."
-        },
-        {
-          "name": "body",
-          "description": "The wrapper around menu, main, and aside."
-        },
-        {
-          "name": "menu",
-          "description": "The left hand side of the page. Generally intended for navigation."
-        },
-        {
-          "name": "navigation",
-          "description": "The `<nav>` that wraps the navigation slots on desktop viewports."
-        },
-        {
-          "name": "navigation-header",
-          "description": "The header for a navigation area. On mobile this will be the header for `<wa-drawer>`."
-        },
-        {
-          "name": "navigation-footer",
-          "description": "The footer for a navigation area. On mobile this will be the footer for `<wa-drawer>`."
-        },
-        {
-          "name": "navigation-toggle",
-          "description": "The default `<wa-button>` that will toggle the `<wa-drawer>` for mobile viewports."
-        },
-        {
-          "name": "navigation-toggle-icon",
-          "description": "The default `<wa-icon>` displayed inside of the navigation-toggle button."
-        },
-        {
-          "name": "main-header",
-          "description": "The header above main content."
-        },
-        {
-          "name": "main-content",
-          "description": "The main content."
-        },
-        {
-          "name": "main-footer",
-          "description": "The footer below main content."
-        },
-        {
-          "name": "aside",
-          "description": "The right hand side of the page. Used for things like table of contents, ads, etc."
-        },
-        {
-          "name": "skip-links",
-          "description": "Wrapper around skip-link"
-        },
-        {
-          "name": "skip-link",
-          "description": "The \"skip to main content\" link"
-        },
-        {
-          "name": "footer",
-          "description": "The footer of the page. This is always below the initial viewport size."
-        },
-        {
-          "name": "dialog-wrapper",
-          "description": "A wrapper around elements such as dialogs or other modal-like elements."
-        }
-      ],
-      "methods": [
-        {
-          "name": "showNavigation",
-          "description": "Shows the mobile navigation drawer",
-          "parameters": [],
-          "returnType": "Unit",
-          "public": true
-        },
-        {
-          "name": "hideNavigation",
-          "description": "Hides the mobile navigation drawer",
-          "parameters": [],
-          "returnType": "Unit",
-          "public": true
-        },
-        {
-          "name": "toggleNavigation",
-          "description": "Toggles the mobile navigation drawer",
-          "parameters": [],
-          "returnType": "Unit",
-          "public": true
-        }
-      ],
-      "dependencies": []
     },
     {
       "name": "WaPopover",
@@ -5224,7 +5091,7 @@
             "default",
             "button"
           ],
-          "description": "The radio's value. When selected, the radio group will receive this value.",
+          "description": "The radio's visual appearance.",
           "default": "'default'",
           "reflects": true
         },
@@ -5815,7 +5682,7 @@
         {
           "name": "value",
           "fieldName": "value",
-          "type": "String",
+          "type": "String | js.Array[String]",
           "description": "The select's value. This will be a string for single select or an array for multi-select."
         },
         {
@@ -5881,7 +5748,8 @@
           "type": "String",
           "unionValues": [
             "filled",
-            "outlined"
+            "outlined",
+            "filled-outlined"
           ],
           "description": "The select's visual appearance.",
           "default": "'outlined'",
@@ -6048,6 +5916,16 @@
         }
       ],
       "cssProperties": [
+        {
+          "name": "--show-duration",
+          "description": "The duration of the show animation.",
+          "default": "100ms"
+        },
+        {
+          "name": "--hide-duration",
+          "description": "The duration of the hide animation.",
+          "default": "100ms"
+        },
         {
           "name": "--tag-max-size",
           "description": "When using `multiple`, the max size of tags before their content is truncated.",
@@ -7303,13 +7181,12 @@
           "type": "String",
           "unionValues": [
             "accent",
-            "outlined accent",
             "filled",
             "outlined",
-            "outlined filled"
+            "filled-outlined"
           ],
           "description": "The tag's visual appearance.",
-          "default": "'outlined filled'",
+          "default": "'filled-outlined'",
           "reflects": true
         },
         {
@@ -7430,7 +7307,8 @@
           "type": "String",
           "unionValues": [
             "filled",
-            "outlined"
+            "outlined",
+            "filled-outlined"
           ],
           "description": "The textarea's visual appearance.",
           "default": "'outlined'",
@@ -8028,7 +7906,7 @@
         {
           "name": "--indent-size",
           "description": "The size of the indentation for nested items.",
-          "default": "var(--wa-spacing-m)"
+          "default": "var(--wa-space-m)"
         },
         {
           "name": "--indent-guide-color",
@@ -8473,10 +8351,10 @@
   ],
   "summary": {
     "totalComponents": 57,
-    "totalAttributes": 405,
-    "totalEvents": 137,
-    "totalSlots": 121,
-    "totalCSSProperties": 101,
-    "totalMethods": 150
+    "totalAttributes": 407,
+    "totalEvents": 138,
+    "totalSlots": 110,
+    "totalCSSProperties": 97,
+    "totalMethods": 149
   }
 }

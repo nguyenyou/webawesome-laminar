@@ -66,8 +66,8 @@ object Input extends WebComponent("wa-input") {
   /** The input's size. Valid values: "small", "medium", "large". */
   lazy val size: CommonKeys.ComponentSize.type = CommonKeys.ComponentSize
 
-  /** The input's visual appearance. Valid values: "filled", "outlined". */
-  lazy val appearance: CommonKeys.FilledOutlineAppearance.type = CommonKeys.FilledOutlineAppearance
+  /** The input's visual appearance. Valid values: "filled", "outlined", "filled-outlined". */
+  lazy val appearance: CommonKeys.Appearance.type = CommonKeys.Appearance
 
   /** Draws a pill-style input with rounded edges. */
   lazy val pill: HtmlAttr[Boolean] = boolAttr("pill")
@@ -203,10 +203,10 @@ object Input extends WebComponent("wa-input") {
     lazy val hint: String = "hint"
 
     /** The wrapper being rendered as an input */
-    lazy val input: String = "input"
+    lazy val base: String = "base"
 
     /** The internal `<input>` control. */
-    lazy val base: String = "base"
+    lazy val input: String = "input"
 
     /** The container that wraps the `start` slot. */
     lazy val start: String = "start"
@@ -242,8 +242,8 @@ object Input extends WebComponent("wa-input") {
     /** The input's size. Valid values: "small", "medium", "large". */
     var size: ComponentSize
 
-    /** The input's visual appearance. Valid values: "filled", "outlined". */
-    var appearance: FilledOutlineAppearance
+    /** The input's visual appearance. Valid values: "filled", "outlined", "filled-outlined". */
+    var appearance: Appearance
 
     /** Draws a pill-style input with rounded edges. */
     var pill: Boolean

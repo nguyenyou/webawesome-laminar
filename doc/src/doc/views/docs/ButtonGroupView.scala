@@ -27,34 +27,6 @@ case class ButtonGroupView()
   def component: HtmlElement = {
     div(
       Demo(
-        title = "Button Sizes",
-        description = """
-          | Unless otherwise specified, the size of buttons will be determined by the Button Group's `size` attribute.
-        """.stripMargin,
-        content = Source.annotate {
-          div(
-            tw.flex.flexCol.gap4,
-            // <show>
-            ButtonGroup(_.size.small, _.label := "Alignment")(
-              Button()("Left"),
-              Button()("Center"),
-              Button()("Right")
-            ),
-            ButtonGroup(_.size.medium, _.label := "Alignment")(
-              Button()("Left"),
-              Button()("Center"),
-              Button()("Right")
-            ),
-            ButtonGroup(_.size.large, _.label := "Alignment")(
-              Button()("Left"),
-              Button()("Center"),
-              Button()("Right")
-            )
-            // </show>
-          )
-        }
-      )().withLocator,
-      Demo(
         title = "Vertical Button Groups",
         description = """
           | Set the `orientation` attribute to `vertical` to make a vertical button group.

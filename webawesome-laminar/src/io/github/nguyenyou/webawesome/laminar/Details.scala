@@ -56,11 +56,11 @@ object Details extends WebComponent("wa-details") {
   /** Disables the details so it can't be toggled. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
 
-  /** The element's visual appearance. Valid values: "filled", "outlined", "plain". */
+  /** The element's visual appearance. Valid values: "filled", "outlined", "filled-outlined", "plain". */
   lazy val appearance: CommonKeys.DetailsAppearance.type = CommonKeys.DetailsAppearance
 
-  /** The position of the expand/collapse icon. Valid values: "start", "end". */
-  lazy val iconPosition: CommonKeys.IconPosition.type = CommonKeys.IconPosition
+  /** The location of the expand/collapse icon. Valid values: "start", "end". */
+  lazy val iconPlacement: CommonKeys.DetailsIconPlacement.type = CommonKeys.DetailsIconPlacement
 
   // -- Slots --
 
@@ -140,11 +140,11 @@ object Details extends WebComponent("wa-details") {
     /** Disables the details so it can't be toggled. */
     var disabled: Boolean
 
-    /** The element's visual appearance. Valid values: "filled", "outlined", "plain". */
+    /** The element's visual appearance. Valid values: "filled", "outlined", "filled-outlined", "plain". */
     var appearance: DetailsAppearance
 
-    /** The position of the expand/collapse icon. Valid values: "start", "end". */
-    var iconPosition: IconPosition
+    /** The location of the expand/collapse icon. Valid values: "start", "end". */
+    var iconPlacement: DetailsIconPlacement
 
     def handleOpenChange(): js.Any = js.native
 

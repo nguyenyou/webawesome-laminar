@@ -34,9 +34,6 @@ object ButtonGroup extends WebComponent("wa-button-group") {
   /** The button group's orientation. Valid values: "horizontal", "vertical". */
   lazy val orientation: CommonKeys.Orientation.type = CommonKeys.Orientation
 
-  /** The component's size. Valid values: "small", "medium", "large". */
-  lazy val size: CommonKeys.ComponentSize.type = CommonKeys.ComponentSize
-
   /** The button group's theme variant. Defaults to `neutral` if not within another element with a variant. Valid
     * values: "neutral", "brand", "success", "warning", "danger".
     */
@@ -76,9 +73,6 @@ object ButtonGroup extends WebComponent("wa-button-group") {
 
     /** The button group's orientation. Valid values: "horizontal", "vertical". */
     var orientation: Orientation
-
-    /** The component's size. Valid values: "small", "medium", "large". */
-    var size: ComponentSize
 
     /** The button group's theme variant. Defaults to `neutral` if not within another element with a variant. Valid
       * values: "neutral", "brand", "success", "warning", "danger".

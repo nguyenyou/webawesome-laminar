@@ -86,15 +86,14 @@ object CommonKeys extends CommonTypes {
     lazy val short: HtmlAttrSetter[DisplayFormat] = DisplayFormat("short")
   }
 
-  /** appearance attribute - FilledOutlineAppearance */
-  object FilledOutlineAppearance
-      extends HtmlAttr[FilledOutlineAppearance]("appearance", UnionAsStringCodec[FilledOutlineAppearance]) {
+  /** appearance attribute - Appearance */
+  object Appearance extends HtmlAttr[Appearance]("appearance", UnionAsStringCodec[Appearance]) {
 
-    lazy val filled: HtmlAttrSetter[FilledOutlineAppearance] = FilledOutlineAppearance("filled")
+    lazy val filled: HtmlAttrSetter[Appearance] = Appearance("filled")
 
-    lazy val outlined: HtmlAttrSetter[FilledOutlineAppearance] = FilledOutlineAppearance("outlined")
+    lazy val filledOutlined: HtmlAttrSetter[Appearance] = Appearance("filled-outlined")
 
-    lazy val filledOutlined: HtmlAttrSetter[FilledOutlineAppearance] = FilledOutlineAppearance("filled outlined")
+    lazy val outlined: HtmlAttrSetter[Appearance] = Appearance("outlined")
   }
 
   /** loading attribute - LoadingStrategy */
@@ -112,11 +111,24 @@ object CommonKeys extends CommonTypes {
 
     lazy val filled: HtmlAttrSetter[ExtendedAppearance] = ExtendedAppearance("filled")
 
+    lazy val filledOutlined: HtmlAttrSetter[ExtendedAppearance] = ExtendedAppearance("filled-outlined")
+
     lazy val outlined: HtmlAttrSetter[ExtendedAppearance] = ExtendedAppearance("outlined")
+  }
 
-    lazy val plain: HtmlAttrSetter[ExtendedAppearance] = ExtendedAppearance("plain")
+  /** appearance attribute - ExtendedAppearance1 */
+  object ExtendedAppearance1
+      extends HtmlAttr[ExtendedAppearance1]("appearance", UnionAsStringCodec[ExtendedAppearance1]) {
 
-    lazy val filledOutlined: HtmlAttrSetter[ExtendedAppearance] = ExtendedAppearance("filled outlined")
+    lazy val accent: HtmlAttrSetter[ExtendedAppearance1] = ExtendedAppearance1("accent")
+
+    lazy val filled: HtmlAttrSetter[ExtendedAppearance1] = ExtendedAppearance1("filled")
+
+    lazy val filledOutlined: HtmlAttrSetter[ExtendedAppearance1] = ExtendedAppearance1("filled-outlined")
+
+    lazy val outlined: HtmlAttrSetter[ExtendedAppearance1] = ExtendedAppearance1("outlined")
+
+    lazy val plain: HtmlAttrSetter[ExtendedAppearance1] = ExtendedAppearance1("plain")
   }
 
   /** tooltip-placement attribute - TooltipPlacement */
@@ -130,14 +142,6 @@ object CommonKeys extends CommonTypes {
     lazy val right: HtmlAttrSetter[TooltipPlacement] = TooltipPlacement("right")
 
     lazy val top: HtmlAttrSetter[TooltipPlacement] = TooltipPlacement("top")
-  }
-
-  /** icon-position attribute - IconPosition */
-  object IconPosition extends HtmlAttr[IconPosition]("icon-position", UnionAsStringCodec[IconPosition]) {
-
-    lazy val end: HtmlAttrSetter[IconPosition] = IconPosition("end")
-
-    lazy val start: HtmlAttrSetter[IconPosition] = IconPosition("start")
   }
 
   /** placement attribute - ComponentPlacement */
@@ -216,19 +220,6 @@ object CommonKeys extends CommonTypes {
     lazy val square: HtmlAttrSetter[AvatarShape] = AvatarShape("square")
   }
 
-  /** appearance attribute - BadgeExtendedAppearance */
-  object BadgeExtendedAppearance
-      extends HtmlAttr[BadgeExtendedAppearance]("appearance", UnionAsStringCodec[BadgeExtendedAppearance]) {
-
-    lazy val accent: HtmlAttrSetter[BadgeExtendedAppearance] = BadgeExtendedAppearance("accent")
-
-    lazy val filled: HtmlAttrSetter[BadgeExtendedAppearance] = BadgeExtendedAppearance("filled")
-
-    lazy val outlined: HtmlAttrSetter[BadgeExtendedAppearance] = BadgeExtendedAppearance("outlined")
-
-    lazy val filledOutlined: HtmlAttrSetter[BadgeExtendedAppearance] = BadgeExtendedAppearance("filled outlined")
-  }
-
   /** attention attribute - BadgeAttention */
   object BadgeAttention extends HtmlAttr[BadgeAttention]("attention", UnionAsStringCodec[BadgeAttention]) {
 
@@ -281,21 +272,17 @@ object CommonKeys extends CommonTypes {
     lazy val post: HtmlAttrSetter[ButtonFormmethod] = ButtonFormmethod("post")
   }
 
-  /** appearance attribute - CalloutExtendedAppearance */
-  object CalloutExtendedAppearance
-      extends HtmlAttr[CalloutExtendedAppearance]("appearance", UnionAsStringCodec[CalloutExtendedAppearance]) {
+  /** appearance attribute - CardExtendedAppearance */
+  object CardExtendedAppearance
+      extends HtmlAttr[CardExtendedAppearance]("appearance", UnionAsStringCodec[CardExtendedAppearance]) {
 
-    lazy val accent: HtmlAttrSetter[CalloutExtendedAppearance] = CalloutExtendedAppearance("accent")
+    lazy val accent: HtmlAttrSetter[CardExtendedAppearance] = CardExtendedAppearance("accent")
 
-    lazy val filled: HtmlAttrSetter[CalloutExtendedAppearance] = CalloutExtendedAppearance("filled")
+    lazy val filled: HtmlAttrSetter[CardExtendedAppearance] = CardExtendedAppearance("filled")
 
-    lazy val outlined: HtmlAttrSetter[CalloutExtendedAppearance] = CalloutExtendedAppearance("outlined")
+    lazy val outlined: HtmlAttrSetter[CardExtendedAppearance] = CardExtendedAppearance("outlined")
 
-    lazy val outlinedAccent: HtmlAttrSetter[CalloutExtendedAppearance] = CalloutExtendedAppearance("outlined accent")
-
-    lazy val plain: HtmlAttrSetter[CalloutExtendedAppearance] = CalloutExtendedAppearance("plain")
-
-    lazy val filledOutlined: HtmlAttrSetter[CalloutExtendedAppearance] = CalloutExtendedAppearance("filled outlined")
+    lazy val plain: HtmlAttrSetter[CardExtendedAppearance] = CardExtendedAppearance("plain")
   }
 
   /** format attribute - ColorPickerFormat */
@@ -315,11 +302,20 @@ object CommonKeys extends CommonTypes {
 
     lazy val filled: HtmlAttrSetter[DetailsAppearance] = DetailsAppearance("filled")
 
+    lazy val filledOutlined: HtmlAttrSetter[DetailsAppearance] = DetailsAppearance("filled-outlined")
+
     lazy val outlined: HtmlAttrSetter[DetailsAppearance] = DetailsAppearance("outlined")
 
     lazy val plain: HtmlAttrSetter[DetailsAppearance] = DetailsAppearance("plain")
+  }
 
-    lazy val filledOutlined: HtmlAttrSetter[DetailsAppearance] = DetailsAppearance("filled outlined")
+  /** icon-placement attribute - DetailsIconPlacement */
+  object DetailsIconPlacement
+      extends HtmlAttr[DetailsIconPlacement]("icon-placement", UnionAsStringCodec[DetailsIconPlacement]) {
+
+    lazy val end: HtmlAttrSetter[DetailsIconPlacement] = DetailsIconPlacement("end")
+
+    lazy val start: HtmlAttrSetter[DetailsIconPlacement] = DetailsIconPlacement("start")
   }
 
   /** variant attribute - DropdownItemVariant */
@@ -451,14 +447,6 @@ object CommonKeys extends CommonTypes {
     lazy val on: HtmlAttrSetter[InputAutocorrect] = InputAutocorrect("on")
   }
 
-  /** view attribute - PageView */
-  object PageView extends HtmlAttr[PageView]("view", UnionAsStringCodec[PageView]) {
-
-    lazy val desktop: HtmlAttrSetter[PageView] = PageView("desktop")
-
-    lazy val mobile: HtmlAttrSetter[PageView] = PageView("mobile")
-  }
-
   /** boundary attribute - PopupBoundary */
   object PopupBoundary extends HtmlAttr[PopupBoundary]("boundary", UnionAsStringCodec[PopupBoundary]) {
 
@@ -565,21 +553,6 @@ object CommonKeys extends CommonTypes {
     lazy val auto: HtmlAttrSetter[TabGroupActivation] = TabGroupActivation("auto")
 
     lazy val manual: HtmlAttrSetter[TabGroupActivation] = TabGroupActivation("manual")
-  }
-
-  /** appearance attribute - TagExtendedAppearance */
-  object TagExtendedAppearance
-      extends HtmlAttr[TagExtendedAppearance]("appearance", UnionAsStringCodec[TagExtendedAppearance]) {
-
-    lazy val accent: HtmlAttrSetter[TagExtendedAppearance] = TagExtendedAppearance("accent")
-
-    lazy val filled: HtmlAttrSetter[TagExtendedAppearance] = TagExtendedAppearance("filled")
-
-    lazy val outlined: HtmlAttrSetter[TagExtendedAppearance] = TagExtendedAppearance("outlined")
-
-    lazy val outlinedAccent: HtmlAttrSetter[TagExtendedAppearance] = TagExtendedAppearance("outlined accent")
-
-    lazy val filledOutlined: HtmlAttrSetter[TagExtendedAppearance] = TagExtendedAppearance("filled outlined")
   }
 
   /** resize attribute - TextareaResize */

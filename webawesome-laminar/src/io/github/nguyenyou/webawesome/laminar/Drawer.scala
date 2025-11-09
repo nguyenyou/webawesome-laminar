@@ -107,6 +107,9 @@ object Drawer extends WebComponent("wa-drawer") {
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
 
+    /** The drawer's internal `<dialog>` element. */
+    lazy val dialog: String = "dialog"
+
     /** The drawer's header. This element wraps the title and header actions. */
     lazy val header: String = "header"
 

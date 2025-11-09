@@ -27,7 +27,7 @@ object Card extends WebComponent("wa-card") {
   // -- Attributes --
 
   /** The card's visual appearance. Valid values: "accent", "filled", "outlined", "plain". */
-  lazy val appearance: CommonKeys.ExtendedAppearance.type = CommonKeys.ExtendedAppearance
+  lazy val appearance: CommonKeys.CardExtendedAppearance.type = CommonKeys.CardExtendedAppearance
 
   /** Renders the card with a header. Only needed for SSR, otherwise is automatically added. */
   lazy val withHeader: HtmlAttr[Boolean] = boolAttr("with-header")
@@ -37,6 +37,9 @@ object Card extends WebComponent("wa-card") {
 
   /** Renders the card with a footer. Only needed for SSR, otherwise is automatically added. */
   lazy val withFooter: HtmlAttr[Boolean] = boolAttr("with-footer")
+
+  /** Renders the card's orientation * Valid values: "horizontal", "vertical". */
+  lazy val orientation: CommonKeys.Orientation.type = CommonKeys.Orientation
 
   // -- Slots --
 
@@ -53,6 +56,15 @@ object Card extends WebComponent("wa-card") {
 
     /** An optional media section to render at the start of the card. */
     lazy val media: Slot = Slot("media")
+
+    /** An optional actions section to render at the end for the horizontal card. */
+    lazy val actions: Slot = Slot("actions")
+
+    /** An optional actions section to render in the header of the vertical card. */
+    lazy val headerActions: Slot = Slot("header-actions")
+
+    /** An optional actions section to render in the footer of the vertical card. */
+    lazy val footerActions: Slot = Slot("footer-actions")
 
   }
 
@@ -93,7 +105,7 @@ object Card extends WebComponent("wa-card") {
     this: dom.HTMLElement =>
 
     /** The card's visual appearance. Valid values: "accent", "filled", "outlined", "plain". */
-    var appearance: ExtendedAppearance
+    var appearance: CardExtendedAppearance
 
     /** Renders the card with a header. Only needed for SSR, otherwise is automatically added. */
     var withHeader: Boolean
@@ -103,6 +115,9 @@ object Card extends WebComponent("wa-card") {
 
     /** Renders the card with a footer. Only needed for SSR, otherwise is automatically added. */
     var withFooter: Boolean
+
+    /** Renders the card's orientation * Valid values: "horizontal", "vertical". */
+    var orientation: Orientation
 
   }
 }
