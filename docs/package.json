@@ -9,6 +9,7 @@
     "postinstall": "fumadocs-mdx"
   },
   "dependencies": {
+    "@ark-ui/react": "5.27.1",
     "fumadocs-core": "16.0.8",
     "fumadocs-mdx": "13.0.5",
     "fumadocs-ui": "16.0.8",
