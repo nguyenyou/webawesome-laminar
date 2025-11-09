@@ -137,11 +137,11 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
       return;
     }
 
-    // Early exit: Check if there are any scala code blocks with preview/examples meta
+    // Early exit: Check if there are any scala code blocks with preview/examples/example meta
     let hasPreviewOrExamples = false;
     visit(tree, "code", (node) => {
       if (node.lang === "scala" && 
-          (node.meta?.includes("preview") || node.meta?.includes("examples"))) {
+          (node.meta?.includes("preview") || node.meta?.includes("examples") || node.meta?.includes("example"))) {
         hasPreviewOrExamples = true;
       }
     });
@@ -206,10 +206,10 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
         return;
       }
       
-      // Collect Scala preview/examples code blocks
+      // Collect Scala preview/examples/example code blocks
       if (node.lang === "scala") {
-        // Only process code blocks with "preview" or "examples" meta
-        if (!node.meta?.includes("preview") && !node.meta?.includes("examples")) {
+        // Only process code blocks with "preview", "examples", or "example" meta
+        if (!node.meta?.includes("preview") && !node.meta?.includes("examples") && !node.meta?.includes("example")) {
           return;
         }
         

@@ -250,6 +250,36 @@ ${indentCode(userCode, 6)}
 };
 
 /**
+ * Apply example template: wraps user code in a Scala method with div() wrapper
+ */
+export const applyExampleTemplate = (ctx: TemplateContext): string => {
+  const userCode = ctx.userCode || "";
+  const exampleId = `example${ctx.counter}`;
+  
+  return `def ${exampleId}() = {
+  import org.scalajs.dom
+  import com.raquo.laminar.api.L.*
+  import doc.*
+  import doc.facades.*
+  import org.scalajs.dom.window
+  import io.github.nguyenyou.webawesome.laminar.*
+  import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
+  import io.github.nguyenyou.webawesome.laminar.CommonKeys.TreeSelection
+  import scala.scalajs.js
+
+  val container = dom.document.querySelector("#${exampleId}")
+  if (container != null) {
+    render(container, {
+      div(
+${indentCode(userCode, 8)}
+      )
+    })
+  }
+}
+  `;
+};
+
+/**
  * Apply examples template: converts newline-separated code into comma-separated arguments
  * wrapped in Examples(...) or VerticalExamples(...) calls, grouped by blank lines, and wrapped in ExampleGroups(...).
  * Only adds commas between complete top-level expressions, preserving nested structures.
@@ -314,12 +344,14 @@ ${indentCode(exampleGroupsCall, 6)}
  * Switches between different template implementations
  */
 export const applyTemplateByType = (
-  templateType: "preview" | "examples",
+  templateType: "preview" | "examples" | "example",
   ctx: TemplateContext
 ): string => {
   switch (templateType) {
     case "examples":
       return applyExamplesTemplate(ctx);
+    case "example":
+      return applyExampleTemplate(ctx);
     case "preview":
     default:
       return applyTemplate(ctx);

@@ -31,11 +31,14 @@ const getMillPackageName = (pathSegments: string[]): string => {
 
 /**
  * Extract template type from code block meta
- * Returns "preview" by default, or "examples" if specified
+ * Returns "preview" by default, or "examples" if specified, or "example" if specified
  */
-const extractTemplateType = (meta: string | null | undefined): "preview" | "examples" => {
+const extractTemplateType = (meta: string | null | undefined): "preview" | "examples" | "example" => {
   if (!meta) {
     return "preview";
+  }
+  if (meta.includes("example") && !meta.includes("examples")) {
+    return "example";
   }
   if (meta.includes("examples")) {
     return "examples";
@@ -105,7 +108,7 @@ const ensureParentModules = (workspaceRoot: string, pathSegments: string[]): voi
 interface ExampleData {
   counter: number;
   scalaCode: string;
-  templateType: "preview" | "examples";
+  templateType: "preview" | "examples" | "example";
   vertical: boolean;
 }
 
@@ -208,8 +211,8 @@ export const millModulePlugin: Plugin<[MillModulePluginOptions?], Root> = () => 
         // Extract template type from meta (defaults to "preview")
         const templateType = extractTemplateType(node.meta);
         
-        // Only process code blocks with "preview" or "examples" meta
-        if (!node.meta?.includes("preview") && !node.meta?.includes("examples")) {
+        // Only process code blocks with "preview", "examples", or "example" meta
+        if (!node.meta?.includes("preview") && !node.meta?.includes("examples") && !node.meta?.includes("example")) {
           return;
         }
         

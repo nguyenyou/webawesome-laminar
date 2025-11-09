@@ -77,45 +77,40 @@ div(
 
 You can open and close dialogs with JavaScript by toggling the `open` attribute, but you can also do it declaratively. Add the `data-dialog="open id"` to any button on the page, where `id` is the ID of the dialog you want to open.
 
-```scala preview h-96
-div(
-  Dialog(
-    _.id    := "dialog-opening", // [!code highlight]
-    _.label := "Dialog"
-  )("Lorem ipsum dolor sit amet, consectetur adipiscing elit."),
-  Button(
-    _.open.dialog("dialog-opening") // [!code highlight]
-  )("Open Dialog")
-)
+```scala example h-96
+Dialog(
+  _.id    := "dialog-opening", // [!code highlight]
+  _.label := "Dialog"
+)("Lorem ipsum dolor sit amet, consectetur adipiscing elit."),
+Button(
+  _.open.dialog("dialog-opening") // [!code highlight]
+)("Open Dialog")
 ```
 
 Similarly, you can add `_.closeDialog` to a button _inside_ of a dialog to tell it to close.
 
-```scala preview h-96
-div(
-  Dialog(
-    _.id    := "dialog-dismiss", // [!code highlight]
-    _.label := "Dialog",
-    _.slots.footer(
-      Button(
-        _.variant.brand,
-        _.close.dialog // [!code highlight]
-      )("Close")
-    )
-  )("Lorem ipsum dolor sit amet, consectetur adipiscing elit."),
-  Button(
-    _.open.dialog("dialog-dismiss") // [!code highlight]
-  )("Open Dialog")
-)
+```scala example h-96
+Dialog(
+  _.id    := "dialog-dismiss", // [!code highlight]
+  _.label := "Dialog",
+  _.slots.footer(
+    Button(
+      _.variant.brand,
+      _.close.dialog // [!code highlight]
+    )("Close")
+  )
+)("Lorem ipsum dolor sit amet, consectetur adipiscing elit."),
+Button(
+  _.open.dialog("dialog-dismiss") // [!code highlight]
+)("Open Dialog")
 ```
 
 ## Custom Width
 
 Just use the `--width` custom property to set the dialog's width.
 
-```scala preview h-96
-div(
-  Dialog(
+```scala example h-96
+Dialog(
     _.id    := "dialog-custom-width",
     _.label := "Dialog",
     _.style := "--width: 50vw;", // [!code highlight]
@@ -125,104 +120,97 @@ div(
         _.close.dialog
       )("Close")
     )
-  )(
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-  ),
-  Button(
-    _.open.dialog("dialog-custom-width")
-  )("Open Dialog")
-)
+)(
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+),
+Button(
+  _.open.dialog("dialog-custom-width")
+)("Open Dialog")
 ```
 
 ## Scrolling
 
 By design, a dialog's height will never exceed that of the viewport. As such, dialogs will not scroll with the page ensuring the header and footer are always accessible to the user.
 
-```scala preview h-96
-div(
-  Dialog(
-    _.id    := "dialog-scrolling",
-    _.label := "Dialog",
-    _.slots.footer(
-      Button(
-        _.variant.brand,
-        _.close.dialog
-      )("Close")
+```scala example h-96
+Dialog(
+  _.id    := "dialog-scrolling",
+  _.label := "Dialog",
+  _.slots.footer(
+    Button(
+      _.variant.brand,
+      _.close.dialog
+    )("Close")
+  )
+)(
+  div(
+    height.vh(150),
+    border  := "1px dashed var(--wa-color-surface-border)",
+    padding := "0 1rem",
+    p(
+      "Scroll down and give it a try! 👇"
     )
-  )(
-    div(
-      height.vh(150),
-      border  := "1px dashed var(--wa-color-surface-border)",
-      padding := "0 1rem",
-      p(
-        "Scroll down and give it a try! 👇"
-      )
-    )
-  ),
-  Button(
-    _.open.dialog("dialog-scrolling")
-  )("Open Dialog")
-)
+  )
+),
+Button(
+  _.open.dialog("dialog-scrolling")
+)("Open Dialog")
 ```
 
 ## Header Actions
 
 The header shows a functional close button by default. You can use the `header-actions` slot to add additional [buttons](/docs/components/button) if needed.
 
-```scala preview h-96
-div(
-  Dialog(
-    _.id    := "dialog-header-actions",
-    _.label := "Dialog",
-    _.slots.headerActions(
-      Button(
-        _.appearance.plain
-      )(
-        onClick --> Observer { _ =>
-          window.open(window.location.href)
-        },
-        Icon(
-          _.name  := "arrow-up-right-from-square",
-          _.label := "Open in new window"
-        )()
-      )
-    ),
-    _.slots.footer(
-      Button(
-        _.variant.brand,
-        _.close.dialog
-      )("Close")
+```scala example h-96
+Dialog(
+  _.id    := "dialog-header-actions",
+  _.label := "Dialog",
+  _.slots.headerActions(
+    Button(
+      _.appearance.plain
+    )(
+      onClick --> Observer { _ =>
+        window.open(window.location.href)
+      },
+      Icon(
+        _.name  := "arrow-up-right-from-square",
+        _.label := "Open in new window"
+      )()
     )
-  )(
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
   ),
-  Button(
-    _.open.dialog("dialog-header-actions")
-  )("Open Dialog")
-)
+  _.slots.footer(
+    Button(
+      _.variant.brand,
+      _.close.dialog
+    )("Close")
+  )
+)(
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+),
+Button(
+  _.open.dialog("dialog-header-actions")
+)("Open Dialog")
 ```
 
 ## Light Dismissal
 
 If you want the dialog to close when the user clicks on the overlay, add the `light-dismiss` attribute.
 
-```scala preview h-96
-div(
-  Dialog(
-    _.id           := "dialog-light-dismiss",
-    _.label        := "Dialog",
-    _.lightDismiss := true, // [!code highlight]
-    _.slots.footer(
-      Button(
-        _.variant.brand,
-        _.close.dialog
-      )("Close")
-    )
-  )("Lorem ipsum dolor sit amet, consectetur adipiscing elit."),
-  Button(
-    _.open.dialog("dialog-light-dismiss")
-  )("Open Dialog")
-)
+```scala example h-96
+Dialog(
+  _.id           := "dialog-light-dismiss",
+  _.label        := "Dialog",
+  _.lightDismiss := true, // [!code highlight]
+  _.slots.footer(
+    Button(
+      _.variant.brand,
+      _.close.dialog
+    )("Close")
+  )
+)("Lorem ipsum dolor sit amet, consectetur adipiscing elit."),
+Button(
+  _.open.dialog("dialog-light-dismiss")
+)("Open Dialog")
 ```
 
 ## Preventing the Dialog from Closing
@@ -262,26 +250,24 @@ div(
 
 To give focus to a specific element when the dialog opens, use the `autofocus` attribute.
 
-```scala preview h-96
-div(
-  Dialog(
-    _.id    := "dialog-focus",
-    _.label := "Dialog",
-    _.slots.footer(
-      Button(
-        _.variant.brand,
-        _.close.dialog
-      )("Close")
-    )
-  )(
-    Input(
-      _.autofocus   := true, // [!code highlight]
-      _.placeholder := "I will have focus when the dialog is opened"
-    )()
-  ),
-  Button(
-    _.open.dialog("dialog-focus")
-  )("Open Dialog")
-)
+```scala example h-96
+Dialog(
+  _.id    := "dialog-focus",
+  _.label := "Dialog",
+  _.slots.footer(
+    Button(
+      _.variant.brand,
+      _.close.dialog
+    )("Close")
+  )
+)(
+  Input(
+    _.autofocus   := true, // [!code highlight]
+    _.placeholder := "I will have focus when the dialog is opened"
+  )()
+),
+Button(
+  _.open.dialog("dialog-focus")
+)("Open Dialog")
 ```
 

@@ -145,17 +145,15 @@ ButtonGroup(_.label := "Example Button Group")(
 
 Buttons can be wrapped in tooltips to provide more detail when the user interacts with them.
 
-```scala preview
-div(
-  ButtonGroup(_.label := "Alignment")(
-    Button(_.id := "button-left")("Left"),
-    Button(_.id := "button-center")("Center"),
-    Button(_.id := "button-right")("Right")
-  ),
-  Tooltip(_.forId := "button-left")("I'm on the left"),
-  Tooltip(_.forId := "button-center")("I'm in the middle"),
-  Tooltip(_.forId := "button-right")("I'm on the right")
-)
+```scala example
+ButtonGroup(_.label := "Alignment")(
+  Button(_.id := "button-left")("Left"),
+  Button(_.id := "button-center")("Center"),
+  Button(_.id := "button-right")("Right")
+),
+Tooltip(_.forId := "button-left")("I'm on the left"),
+Tooltip(_.forId := "button-center")("I'm in the middle"),
+Tooltip(_.forId := "button-right")("I'm on the right")
 ```
 
 ## Toolbar Example
@@ -168,49 +166,47 @@ Create interactive toolbars with button groups.
 }
 ```
 
-```scala preview id="button-group-toolbar"
+```scala example id="button-group-toolbar"
 div(
-  div(
-    className := "button-group-toolbar",
-    ButtonGroup(_.label := "History")(
-      Button(_.id := "undo-button")(
-        Icon(_.name := "undo", _.variant := "solid", _.label := "Undo")()
-      ),
-      Button(_.id := "redo-button")(
-        Icon(_.name := "redo", _.variant := "solid", _.label := "Redo")()
-      )
+  className := "button-group-toolbar",
+  ButtonGroup(_.label := "History")(
+    Button(_.id := "undo-button")(
+      Icon(_.name := "undo", _.variant := "solid", _.label := "Undo")()
     ),
-    ButtonGroup(_.label := "Formatting")(
-      Button(_.id := "button-bold")(
-        Icon(_.name := "bold", _.variant := "solid", _.label := "Bold")()
-      ),
-      Button(_.id := "button-italic")(
-        Icon(_.name := "italic", _.variant := "solid", _.label := "Italic")()
-      ),
-      Button(_.id := "button-underline")(
-        Icon(_.name := "underline", _.variant := "solid", _.label := "Underline")()
-      )
-    ),
-    ButtonGroup(_.label := "Alignment")(
-      Button(_.id := "button-align-left")(
-        Icon(_.name := "align-left", _.variant := "solid", _.label := "Align Left")()
-      ),
-      Button(_.id := "button-align-center")(
-        Icon(_.name := "align-center", _.variant := "solid", _.label := "Align Center")()
-      ),
-      Button(_.id := "button-align-right")(
-        Icon(_.name := "align-right", _.variant := "solid", _.label := "Align Right")()
-      )
+    Button(_.id := "redo-button")(
+      Icon(_.name := "redo", _.variant := "solid", _.label := "Redo")()
     )
   ),
-  Tooltip(_.forId := "undo-button")("Undo"),
-  Tooltip(_.forId := "redo-button")("Redo"),
-  Tooltip(_.forId := "button-bold")("Bold"),
-  Tooltip(_.forId := "button-italic")("Italic"),
-  Tooltip(_.forId := "button-underline")("Underline"),
-  Tooltip(_.forId := "button-align-left")("Align Left"),
-  Tooltip(_.forId := "button-align-center")("Align Center"),
-  Tooltip(_.forId := "button-align-right")("Align Right")
-)
+  ButtonGroup(_.label := "Formatting")(
+    Button(_.id := "button-bold")(
+      Icon(_.name := "bold", _.variant := "solid", _.label := "Bold")()
+    ),
+    Button(_.id := "button-italic")(
+      Icon(_.name := "italic", _.variant := "solid", _.label := "Italic")()
+    ),
+    Button(_.id := "button-underline")(
+      Icon(_.name := "underline", _.variant := "solid", _.label := "Underline")()
+    )
+  ),
+  ButtonGroup(_.label := "Alignment")(
+    Button(_.id := "button-align-left")(
+      Icon(_.name := "align-left", _.variant := "solid", _.label := "Align Left")()
+    ),
+    Button(_.id := "button-align-center")(
+      Icon(_.name := "align-center", _.variant := "solid", _.label := "Align Center")()
+    ),
+    Button(_.id := "button-align-right")(
+      Icon(_.name := "align-right", _.variant := "solid", _.label := "Align Right")()
+    )
+  )
+),
+Tooltip(_.forId := "undo-button")("Undo"),
+Tooltip(_.forId := "redo-button")("Redo"),
+Tooltip(_.forId := "button-bold")("Bold"),
+Tooltip(_.forId := "button-italic")("Italic"),
+Tooltip(_.forId := "button-underline")("Underline"),
+Tooltip(_.forId := "button-align-left")("Align Left"),
+Tooltip(_.forId := "button-align-center")("Align Center"),
+Tooltip(_.forId := "button-align-right")("Align Right")
 ```
 

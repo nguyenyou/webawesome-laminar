@@ -14,37 +14,35 @@ title: Animation
 }
 ```
 
-```scala preview id="animation-overview"
-div(
-  cls("animation-overview"),
-  Animation(
-    _.name     := "bounce",
-    _.duration := 2000,
-    _.play     := true
-  )(
-    div(cls("box"))
-  ),
-  Animation(
-    _.name     := "jello",
-    _.duration := 2000,
-    _.play     := true
-  )(
-    div(cls("box"))
-  ),
-  Animation(
-    _.name     := "heartBeat",
-    _.duration := 2000,
-    _.play     := true
-  )(
-    div(cls("box"))
-  ),
-  Animation(
-    _.name     := "flip",
-    _.duration := 2000,
-    _.play     := true
-  )(
-    div(cls("box"))
-  )
+```scala example id="animation-overview"
+cls("animation-overview"),
+Animation(
+  _.name     := "bounce",
+  _.duration := 2000,
+  _.play     := true
+)(
+  div(cls("box"))
+),
+Animation(
+  _.name     := "jello",
+  _.duration := 2000,
+  _.play     := true
+)(
+  div(cls("box"))
+),
+Animation(
+  _.name     := "heartBeat",
+  _.duration := 2000,
+  _.play     := true
+)(
+  div(cls("box"))
+),
+Animation(
+  _.name     := "flip",
+  _.duration := 2000,
+  _.play     := true
+)(
+  div(cls("box"))
 )
 ```
 
