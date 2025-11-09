@@ -45,6 +45,17 @@ const extractTemplateType = (meta: string | null | undefined): "preview" | "exam
 };
 
 /**
+ * Extract vertical flag from code block meta
+ * Returns true if "vertical" meta is present, false otherwise
+ */
+const extractVerticalFlag = (meta: string | null | undefined): boolean => {
+  if (!meta) {
+    return false;
+  }
+  return meta.includes("vertical");
+};
+
+/**
  * Generate package.mill content for a Mill module
  */
 const createPackageMillContent = (packageName: string): string => {
@@ -96,6 +107,7 @@ interface ExampleData {
   counter: number;
   scalaCode: string;
   templateType: "preview" | "examples";
+  vertical: boolean;
 }
 
 /**
@@ -135,6 +147,7 @@ const generateConsolidatedModule = (
       prefix: hierarchicalPath,
       counter: example.counter,
       userCode: example.scalaCode,
+      vertical: example.vertical,
     };
     const methodSource = applyTemplateByType(example.templateType, templateContext);
     
@@ -201,6 +214,9 @@ export const millModulePlugin: Plugin<[MillModulePluginOptions?], Root> = () => 
           return;
         }
         
+        // Extract vertical flag from meta
+        const vertical = extractVerticalFlag(node.meta);
+        
         // Use sequential counter for this example
         const counter = exampleCounter++;
         
@@ -208,6 +224,7 @@ export const millModulePlugin: Plugin<[MillModulePluginOptions?], Root> = () => 
           counter,
           scalaCode: node.value || "",
           templateType,
+          vertical,
         });
       }
     });

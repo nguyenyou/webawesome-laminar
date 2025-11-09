@@ -48,7 +48,7 @@ Breadcrumb()(
 Use the `separator` slot to change the separator that goes between breadcrumb items. 
 Icons work well, but you can also use text or an image.
 
-```scala examples
+```scala examples vertical
 Breadcrumb(
   _.slots.separator(Icon(_.name := "angles-right", _.variant := "solid")()) // [!code highlight]
 )(
@@ -111,7 +111,7 @@ div(
 
 Dropdown menus can be placed in the default slot to provide additional options.
 
-```scala preview
+```scala preview h-50
 Breadcrumb()(
   BreadcrumbItem()("Homepage"),
   BreadcrumbItem()(
@@ -134,7 +134,7 @@ Breadcrumb()(
 
 Alternative placement in end slot
 
-```scala preview
+```scala preview h-50
 Breadcrumb()(
   BreadcrumbItem()("Homepage"),
   BreadcrumbItem()("Our Services"),

@@ -251,12 +251,16 @@ ${indentCode(userCode, 6)}
 
 /**
  * Apply examples template: converts newline-separated code into comma-separated arguments
- * wrapped in Examples(...) calls, grouped by blank lines, and wrapped in ExampleGroups(...).
+ * wrapped in Examples(...) or VerticalExamples(...) calls, grouped by blank lines, and wrapped in ExampleGroups(...).
  * Only adds commas between complete top-level expressions, preserving nested structures.
  */
 export const applyExamplesTemplate = (ctx: TemplateContext): string => {
   const userCode = ctx.userCode || "";
   const exampleId = `example${ctx.counter}`;
+  const useVertical = ctx.vertical === true;
+  
+  // Choose wrapper function based on vertical flag
+  const wrapperFunction = useVertical ? "VerticalExamples" : "Examples";
   
   // Parse into top-level expressions (preserving nested structure)
   const expressions = parseTopLevelExpressions(userCode);
@@ -264,14 +268,14 @@ export const applyExamplesTemplate = (ctx: TemplateContext): string => {
   // Group expressions by blank lines
   const groups = groupExpressionsByBlankLines(userCode, expressions);
   
-  // Create Examples() call for each group
+  // Create Examples() or VerticalExamples() call for each group
   const examplesCalls = groups.map(group => {
     // Join expressions in group with commas, preserving their internal structure
     const examplesArgs = group
       .map(expr => expr.endsWith(",") ? expr : `${expr},`)
       .join("\n");
     
-    return `Examples(
+    return `${wrapperFunction}(
 ${indentCode(examplesArgs, 2)}
 )`;
   });

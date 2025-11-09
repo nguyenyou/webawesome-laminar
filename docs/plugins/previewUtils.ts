@@ -81,5 +81,6 @@ export interface TemplateContext {
   prefix: string;
   counter: number;
   userCode: string;
+  vertical?: boolean;
 }
 

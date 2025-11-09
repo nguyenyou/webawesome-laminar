@@ -25,7 +25,7 @@ div(
 
 To get the value as a percent, set the `type` attribute to `percent`.
 
-```scala examples
+```scala examples vertical
 FormatNumber(_.`type`.percent, _.value := 0)()
 FormatNumber(_.`type`.percent, _.value := 0.25)()
 FormatNumber(_.`type`.percent, _.value := 0.50)()
@@ -37,7 +37,7 @@ FormatNumber(_.`type`.percent, _.value := 1)()
 
 To format a number as a monetary value, set the `type` attribute to `currency` and set the `currency` attribute to the desired ISO 4217 currency code.
 
-```scala examples
+```scala examples vertical
 div("USD: ", FormatNumber(_.`type`.currency, _.currency := "USD", _.value := 2000)())
 div("GBP: ", FormatNumber(_.`type`.currency, _.currency := "GBP", _.value := 2000)())
 div("EUR: ", FormatNumber(_.`type`.currency, _.currency := "EUR", _.value := 2000)())
@@ -49,7 +49,7 @@ div("CNY: ", FormatNumber(_.`type`.currency, _.currency := "CNY", _.value := 200
 
 Use `minimum-fraction-digits` and `maximum-fraction-digits` to control decimal precision.
 
-```scala examples
+```scala examples vertical
 div("Default: ", FormatNumber(_.value := 3.14159)())
 div("Min 2 digits: ", FormatNumber(_.value := 3.14159, _.minimumFractionDigits := 2.0)())
 div("Max 2 digits: ", FormatNumber(_.value := 3.14159, _.maximumFractionDigits := 2.0)())
@@ -63,7 +63,7 @@ div(
 
 Use the `without-grouping` attribute to turn off grouping separators.
 
-```scala examples
+```scala examples vertical
 div("With grouping: ", FormatNumber(_.value := 1000000)())
 div("Without grouping: ", FormatNumber(_.value := 1000000, _.withoutGrouping := true)())
 ```
