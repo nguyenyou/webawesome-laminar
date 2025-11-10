@@ -13,8 +13,8 @@ import { Spinner } from "./spinner";
 
 export const Preview = ({
   code,
-  codePath,
-  userCode,
+  compiledSjsPath,
+  exampleCode,
   exampleId = "example1",
   height,
   css,
@@ -24,8 +24,8 @@ export const Preview = ({
   justify,
 }: {
   code?: string;
-  codePath?: string;
-  userCode?: string;
+  compiledSjsPath?: string;
+  exampleCode?: string;
   exampleId?: string;
   height?: string;
   css?: string;
@@ -41,7 +41,7 @@ export const Preview = ({
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Fetch code at runtime if codePath is provided
+  // Fetch code at runtime if compiledSjsPath is provided
   useEffect(() => {
     // If code is provided directly (backward compatibility), use it immediately
     if (code) {
@@ -50,13 +50,13 @@ export const Preview = ({
       return;
     }
 
-    // If codePath is provided, fetch from network
-    if (codePath) {
+    // If compiledSjsPath is provided, fetch from network
+    if (compiledSjsPath) {
       const fetchCode = async () => {
         try {
           setIsLoading(true);
           setError(null);
-          const response = await fetch(`/examples/${codePath}.js`);
+          const response = await fetch(`/examples/${compiledSjsPath}.js`);
           if (!response.ok) {
             throw new Error(`Failed to fetch example: ${response.statusText}`);
           }
@@ -72,13 +72,13 @@ export const Preview = ({
       };
       fetchCode();
     } else {
-      // No code or codePath provided
+      // No code or compiledSjsPath provided
       setIsLoading(false);
-      setError("No code or codePath provided");
+      setError("No code or compiledSjsPath provided");
     }
-  }, [code, codePath]);
+  }, [code, compiledSjsPath]);
 
-  const displayCode = userCode || "";
+  const displayCode = exampleCode || "";
 
   // Sync theme updates to iframe
   useIframeThemeSync(ref, theme);

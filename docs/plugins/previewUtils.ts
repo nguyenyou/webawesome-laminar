@@ -81,7 +81,7 @@ export const readCompiledJsFile = (filePath: string): string | null => {
 export interface TemplateContext {
   prefix: string;
   counter: number;
-  userCode: string;
+  exampleCode: string;
   vertical?: boolean;
 }
 

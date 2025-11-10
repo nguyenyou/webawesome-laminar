@@ -225,7 +225,7 @@ const groupExpressionsByBlankLines = (code: string, expressions: string[]): stri
  * Apply preview template: wraps user code in a Scala method
  */
 export const applyTemplate = (ctx: TemplateContext): string => {
-  const userCode = ctx.userCode || "";
+  const exampleCode = ctx.exampleCode || "";
   const exampleId = `example${ctx.counter}`;
   
   return `def ${exampleId}() = {
@@ -242,7 +242,7 @@ export const applyTemplate = (ctx: TemplateContext): string => {
   val container = dom.document.querySelector("#${exampleId}")
   if (container != null) {
     render(container, {
-${indentCode(userCode, 6)}
+${indentCode(exampleCode, 6)}
     })
   }
 }
@@ -253,7 +253,7 @@ ${indentCode(userCode, 6)}
  * Apply example template: wraps user code in a Scala method with div() wrapper
  */
 export const applyExampleTemplate = (ctx: TemplateContext): string => {
-  const userCode = ctx.userCode || "";
+  const exampleCode = ctx.exampleCode || "";
   const exampleId = `example${ctx.counter}`;
   
   return `def ${exampleId}() = {
@@ -271,7 +271,7 @@ export const applyExampleTemplate = (ctx: TemplateContext): string => {
   if (container != null) {
     render(container, {
       div(
-${indentCode(userCode, 8)}
+${indentCode(exampleCode, 8)}
       )
     })
   }
@@ -285,7 +285,7 @@ ${indentCode(userCode, 8)}
  * Only adds commas between complete top-level expressions, preserving nested structures.
  */
 export const applyExamplesTemplate = (ctx: TemplateContext): string => {
-  const userCode = ctx.userCode || "";
+  const exampleCode = ctx.exampleCode || "";
   const exampleId = `example${ctx.counter}`;
   const useVertical = ctx.vertical === true;
   
@@ -293,10 +293,10 @@ export const applyExamplesTemplate = (ctx: TemplateContext): string => {
   const wrapperFunction = useVertical ? "VerticalExamples" : "Examples";
   
   // Parse into top-level expressions (preserving nested structure)
-  const expressions = parseTopLevelExpressions(userCode);
+  const expressions = parseTopLevelExpressions(exampleCode);
   
   // Group expressions by blank lines
-  const groups = groupExpressionsByBlankLines(userCode, expressions);
+  const groups = groupExpressionsByBlankLines(exampleCode, expressions);
   
   // Create Examples() or VerticalExamples() call for each group
   const examplesCalls = groups.map(group => {

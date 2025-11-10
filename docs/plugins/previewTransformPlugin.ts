@@ -315,7 +315,7 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
 
     // Transform nodes to Preview components
     // All examples from the same doc file share the same JS module
-    // Pass codePath instead of reading and embedding code (runtime fetching)
+    // Pass compiledSjsPath instead of reading and embedding code (runtime fetching)
 
     // Transform each preview node
     for (const { node, counter, parent, index } of previewNodes) {
@@ -335,12 +335,12 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
       const attributes: MdxJsxFlowElement["attributes"] = [
         {
           type: "mdxJsxAttribute",
-          name: "codePath",
+          name: "compiledSjsPath",
           value: prefix,
         },
         {
           type: "mdxJsxAttribute",
-          name: "userCode",
+          name: "exampleCode",
           value: node.value || "",
         },
         {

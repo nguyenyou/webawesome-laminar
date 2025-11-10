@@ -134,7 +134,7 @@ const generateConsolidatedModule = (
     const templateContext: TemplateContext = {
       prefix: hierarchicalPath,
       counter: example.counter,
-      userCode: example.scalaCode,
+      exampleCode: example.scalaCode,
       vertical: example.vertical,
     };
     const methodSource = applyTemplateByType(example.templateType, templateContext);
