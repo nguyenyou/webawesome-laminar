@@ -8,20 +8,14 @@ bun --filter docs dev
 
 Open http://localhost:3000
 
-Compile the examples:
+Compile ScalaJS code:
 
 ```sh
 ./mill __.fullLinkJS
 ```
 
-Bundle the examples:
+Bundle the compiled ScalaJS code:
 
 ```sh
 bun build.ts
-```
-
-Stop and start the dev server again
-
-```sh
-bun --filter docs dev
 ```
