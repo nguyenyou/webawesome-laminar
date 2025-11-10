@@ -12,7 +12,8 @@
     "generate:types": "tsx scripts/extract-shared-types.ts",
     "generate:components": "tsx scripts/generate-components.ts",
     "fix": "./mill __.fix",
-    "fmt": "./mill mill.scalalib.scalafmt/"
+    "fmt": "./mill mill.scalalib.scalafmt/",
+    "compile": "./mill __.fullLinkJS && bun docs/build.ts"
   },
   "workspaces": [
     "docs"

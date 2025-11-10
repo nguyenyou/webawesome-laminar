@@ -1,10 +1,9 @@
 ---
 title: Button
+description: Buttons represent actions that are available to the user.
 ---
 
-## Basic
-
-```scala preview
+```scala preview h-[60px]
 Button(
   _.onClick --> Observer[dom.MouseEvent] { event =>
     dom.window.alert(s"Clicked at clientX ${event.clientX}, clientY ${event.clientY}")
@@ -12,11 +11,13 @@ Button(
 )("Button")
 ```
 
-## Variants
+## Examples
+
+### Variants
 
 Use the `variant` attribute to set the button's semantic variant.
 
-```scala examples
+```scala examples h-[60px]
 Button(_.variant.brand)("Brand")
 Button(_.variant.danger)("Danger")
 Button(_.variant.neutral)("Neutral")
@@ -24,11 +25,11 @@ Button(_.variant.success)("Success")
 Button(_.variant.warning)("Warning")
 ```
 
-## Appearance
+### Appearance
 
 Use the `appearance` attribute to change the button's visual appearance.
 
-```scala examples
+```scala examples h-[263px]
 Button(_.appearance.accent, _.variant.neutral)("Accent")
 Button(_.appearance.filledOutlined, _.variant.neutral)("Filled + Outlined")
 Button(_.appearance.filled, _.variant.neutral)("Filled")
@@ -60,31 +61,31 @@ Button(_.appearance.outlined, _.variant.danger)("Outlined")
 Button(_.appearance.plain, _.variant.danger)("Plain")
 ```
 
-## Sizes
+### Sizes
 
 Use the `size` attribute to change a button's size.
 
-```scala examples
+```scala examples h-[70px]
 Button(_.size.small)("Small")
 Button(_.size.medium)("Medium")
 Button(_.size.large)("Large")
 ```
 
-## Pill Buttons
+### Pill Buttons
 
 Use the `pill` attribute to give buttons rounded edges.
 
-```scala examples
+```scala examples h-[70px]
 Button(_.size.small, _.pill := true)("Small")
 Button(_.size.medium, _.pill := true)("Medium")
 Button(_.size.large, _.pill := true)("Large")
 ```
 
-## Link Buttons
+### Link Buttons
 
-It's often helpful to have a button that works like a link. This is possible by setting the `href` attribute, which will make the component render an `<a>` under the hood. This gives you all the default link behavior the browser provides (e.g. `CMD/CTRL/SHIFT + CLICK`) and exposes the `rel`, `target`, and `download` attributes.
+It's often helpful to have a button that works like a link. This is possible by setting the `href` attribute, which will make the component render an `<a>` under the hood. This gives you all the default link behavior the browser provides (e.g. [[CMD/CTRL/SHIFT]] + [[CLICK]]) and exposes the `rel`, `target`, and `download` attributes.
 
-```scala examples
+```scala examples h-[60px]
 Button(_.href := "https://example.com/")("Link")
 Button(_.href := "https://example.com/", _.target := "_blank")("Link with target")
 Button(
@@ -93,9 +94,11 @@ Button(
 )("Download")
 ```
 
-## Icon Buttons
+### Icon Buttons
 
-```scala examples
+When only an [icon](/docs/icon) is slotted into the `label` slot, the button becomes an icon button. In this case, it's important to give the icon a label for users with assistive devices. Icon buttons can use any appearance or variant.
+
+```scala examples h-[60px]
 Button(_.appearance.accent, _.variant.neutral)(
   Icon(_.name := "house", _.label := "Home")()
 )
@@ -110,19 +113,21 @@ Button(_.appearance.plain, _.variant.neutral)(
 )
 ```
 
-## Setting a Custom Width
+### Setting a Custom Width
 
-```scala examples
-Button(_.size.small)("Small")
-Button(_.size.medium)("Medium")
-Button(_.size.large)("Large")
+As expected, buttons can be given a custom width by setting the `width` CSS property. This is useful for making buttons span the full width of their container on smaller screens.
+
+```scala examples h-[70px]
+Button(_.size.small)(width.percent(100), "Small")
+Button(_.size.medium)(width.percent(100), "Medium")
+Button(_.size.large)(width.percent(100), "Large")
 ```
 
-## Start & End Decorations
+### Start & End Decorations
 
 Use the `start` and `end` slots to add presentational elements like `<wa-icon>` next to the button label.
 
-```scala examples
+```scala examples h-[167px]
 Button(
   _.size.small,
   _.slots.start(Icon(_.name := "gear", _.label := "Settings")())
@@ -181,21 +186,21 @@ Button(
 )("Open")
 ```
 
-## Caret
+### Caret
 
 Use the `with-caret` attribute to add a dropdown indicator when a button will trigger a dropdown, menu, or popover.
 
-```scala examples
+```scala examples h-[70px]
 Button(_.size.small, _.withCaret := true)("Small")
 Button(_.size.medium, _.withCaret := true)("Medium")
 Button(_.size.large, _.withCaret := true)("Large")
 ```
 
-## Loading
+### Loading
 
 Use the `loading` attribute to make a button busy. The width will remain the same as before, preventing adjacent elements from moving around.
 
-```scala examples
+```scala examples h-[62px]
 Button(_.variant.brand, _.loading := true)("Brand")
 Button(_.variant.danger, _.loading := true)("Danger")
 Button(_.variant.neutral, _.loading := true)("Neutral")
@@ -203,14 +208,55 @@ Button(_.variant.success, _.loading := true)("Success")
 Button(_.variant.warning, _.loading := true)("Warning")
 ```
 
-## Disabled
+### Disabled
 
 Use the `disabled` attribute to disable a button.
 
-```scala examples
+```scala examples h-[62px]
 Button(_.variant.brand, _.disabled := true)("Brand")
 Button(_.variant.danger, _.disabled := true)("Danger")
 Button(_.variant.neutral, _.disabled := true)("Neutral")
 Button(_.variant.success, _.disabled := true)("Success")
 Button(_.variant.warning, _.disabled := true)("Warning")
+```
+
+### Styling Buttons
+
+This example demonstrates how to style buttons using a custom class. This is the recommended approach if you need to add additional variations. To customize an existing variation, modify the selector to target the button's `variant` attribute instead of a class (e.g. `wa-button[variant="brand"]`).
+
+```css forId="custom-styles"
+wa-button.pink::part(base) {
+  border-radius: 6px;
+  border: solid 2px;
+  background: #ff1493;
+  border-top-color: #ff7ac1;
+  border-left-color: #ff7ac1;
+  border-bottom-color: #ad005c;
+  border-right-color: #ad005c;
+  color: white;
+  font-size: 1.125rem;
+  box-shadow: 0 2px 10px #0002;
+  transition: all var(--wa-transition-slow) var(--wa-transition-easing);
+}
+
+wa-button.pink::part(base):hover {
+  transform: scale(1.05);
+}
+
+wa-button.pink::part(base):active {
+  border-top-color: #ad005c;
+  border-right-color: #ff7ac1;
+  border-bottom-color: #ff7ac1;
+  border-left-color: #ad005c;
+  transform: translateY(1px);
+}
+
+wa-button.pink::part(base):focus-visible {
+  outline: dashed 2px deeppink;
+  outline-offset: 4px;
+}
+```
+
+```scala preview id="custom-styles" h-[68px]
+Button()(cls := "pink", "Pink Button")
 ```
