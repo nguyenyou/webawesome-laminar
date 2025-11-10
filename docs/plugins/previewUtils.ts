@@ -1,6 +1,7 @@
 import { join } from "path";
 import { existsSync, readFileSync } from "fs";
 import { createHash } from "crypto";
+import { BUILD_OUTPUT_DIR } from "../buildConfig";
 
 /**
  * Normalize path separators to forward slashes
@@ -52,13 +53,13 @@ export const extractHierarchicalPathSegments = (docPath: string): string[] => {
 
 /**
  * Get the built JavaScript file path for a module
- * e.g., docs/examples-build/webawesome_button.js
+ * e.g., docs/{BUILD_OUTPUT_DIR}/webawesome_button.js
  */
 export const getCompiledJsPath = (
   prefix: string,
   docsDir: string
 ): string => {
-  return join(docsDir, "examples-build", `${prefix}.js`);
+  return join(docsDir, BUILD_OUTPUT_DIR, `${prefix}.js`);
 };
 
 /**

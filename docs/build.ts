@@ -3,6 +3,7 @@ import { existsSync, mkdirSync, readdirSync, writeFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 import * as esbuild from 'esbuild';
 import { build as rolldownBuild } from 'rolldown';
+import { BUILD_OUTPUT_DIR } from './buildConfig';
 
 /**
  * Default bundler to use when BUNDLER environment variable is not set or invalid
@@ -12,7 +13,7 @@ const DEFAULT_BUNDLER: 'bun' | 'esbuild' | 'rolldown' = 'rolldown';
 
 interface ModuleEntry {
   entrypoint: string; // Absolute path to mill build output main.js
-  outputPath: string; // Absolute path to examples-build output
+  outputPath: string; // Absolute path to build output directory
   pathSegments: string[]; // Path segments for this module (e.g., ["webawesome", "button"])
 }
 
@@ -45,12 +46,12 @@ function discoverModules(workspaceRoot: string, docsDir: string): ModuleEntry[] 
       const mainJsPath = path.join(dirPath, 'fullLinkJS.dest', 'main.js');
       if (existsSync(mainJsPath)) {
         // This is a module directory
-        // Derive output path: docs/examples-build/{category}_{component}.js
+        // Derive output path: docs/{BUILD_OUTPUT_DIR}/{category}_{component}.js
         const camelCaseSegments = pathSegments.map(segment => segment); // Already camelCase from directory names
         const flattenedPrefix = camelCaseSegments.join('_');
         const outputPath = path.join(
           docsDir,
-          'examples-build',
+          BUILD_OUTPUT_DIR,
           `${flattenedPrefix}.js`
         );
 
@@ -225,7 +226,7 @@ async function main() {
 
   try {
     // Ensure output directory exists for all modules (inside docs folder)
-    const outputDir = path.join(docsDir, 'examples-build');
+    const outputDir = path.join(docsDir, BUILD_OUTPUT_DIR);
     if (!existsSync(outputDir)) {
       mkdirSync(outputDir, { recursive: true });
     }

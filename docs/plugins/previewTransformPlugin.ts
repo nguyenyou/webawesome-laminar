@@ -12,6 +12,7 @@ import {
   readCompiledJsFile,
   hasTemplateMeta,
 } from "./previewUtils";
+import { BUILD_OUTPUT_DIR } from "../buildConfig";
 
 interface PreviewTransformPluginOptions {}
 
@@ -105,25 +106,25 @@ const parseIdFromMeta = (meta: string | null | undefined): string | undefined =>
 };
 
 /**
- * Get the docs directory where examples-build is located
+ * Get the docs directory where build output is located
  * Tries multiple strategies to find the docs directory:
- * 1. Check if examples-build exists in current directory (if we're in docs/)
- * 2. Check if examples-build exists one level up (if running from workspace root)
+ * 1. Check if build output directory exists in current directory (if we're in docs/)
+ * 2. Check if build output directory exists one level up (if running from workspace root)
  * 3. Use file path to infer docs directory
  * 4. Fall back to process.cwd()
  */
 const getDocsDir = (file: VFile): string => {
   const cwd = process.cwd();
   
-  // Check if examples-build exists in current directory (we're in docs/)
-  const examplesBuildPath = join(cwd, "examples-build");
+  // Check if build output directory exists in current directory (we're in docs/)
+  const examplesBuildPath = join(cwd, BUILD_OUTPUT_DIR);
   if (existsSync(examplesBuildPath)) {
     return cwd;
   }
 
-  // Check if examples-build exists one level up (we're at workspace root)
+  // Check if build output directory exists one level up (we're at workspace root)
   const parentDir = resolve(cwd, "..");
-  const parentExamplesBuildPath = join(parentDir, "examples-build");
+  const parentExamplesBuildPath = join(parentDir, BUILD_OUTPUT_DIR);
   if (existsSync(parentExamplesBuildPath)) {
     return parentDir;
   }
@@ -138,14 +139,14 @@ const getDocsDir = (file: VFile): string => {
       // Extract everything up to and including "/docs"
       const docsDirPath = normalizedPath.substring(0, docsIndex + "/docs".length);
       const docsDir = resolve(docsDirPath);
-      const docsExamplesBuildPath = join(docsDir, "examples-build");
+      const docsExamplesBuildPath = join(docsDir, BUILD_OUTPUT_DIR);
       if (existsSync(docsExamplesBuildPath)) {
         return docsDir;
       }
     }
   }
 
-  // Fall back to cwd (might not have examples-build yet, but that's okay)
+  // Fall back to cwd (might not have build output directory yet, but that's okay)
   return cwd;
 };
 
@@ -170,7 +171,7 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
       return;
     }
 
-    // Get docs directory where examples-build is located
+    // Get docs directory where build output is located
     const docsDir = getDocsDir(file);
 
     // Use the same workspace root logic as millModulePlugin for consistency
