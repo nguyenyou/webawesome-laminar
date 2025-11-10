@@ -1,8 +1,7 @@
 ---
 title: Scroller
+description: Scrollers create an accessible container while providing visual cues that help users identify and navigate through content that scrolls.
 ---
-
-## Basic
 
 ```css forId="scroller-overview"
 #scroller__overview {
@@ -23,7 +22,7 @@ title: Scroller
 }
 ```
 
-```scala preview
+```scala preview h-[300px]
 Scroller()(
   idAttr := "scroller__overview",
   table(
@@ -73,19 +72,20 @@ Scroller()(
 )
 ```
 
-## Adding Content
+## Examples
+
+### Adding Content
 
 The scroller component automatically provides a scrollable container for any content that exceeds the available space. Simply add your content as children of the `<wa-scroller>` element, and it will handle the rest.
 
-```scala preview
+```scala preview h-[340px]
 Scroller()(
   div(
     width.px    := 1200,
     padding.rem := 1,
     h3("Superhero Team Roles Guide"),
     div(
-      cls       := "wa-grid",
-      styleAttr := "--wa-grid-columns: 4; --wa-grid-gap: var(--wa-spacing-l);",
+      cls       := "grid grid-cols-4 gap-4",
       div(
         h4("Team Leaders"),
         p(
@@ -115,11 +115,11 @@ Scroller()(
 )
 ```
 
-## Orientation
+### Orientation
 
 Set the `orientation` attribute to `vertical` and provide a height to create a vertical scroller.
 
-```scala preview
+```scala preview h-[200px]
 Scroller(
   _.orientation.vertical
 )(
@@ -136,11 +136,11 @@ Scroller(
 )
 ```
 
-## Without a Shadow
+### Without a Shadow
 
 Use the `without-shadow` attribute to remove the fading shadow effect at the edges of the scroller, which typically indicates more content is available.
 
-```scala preview
+```scala preview h-[300px]
 Scroller(
   _.withoutShadow := true
 )(
@@ -159,11 +159,11 @@ Scroller(
 )
 ```
 
-## Without a Scrollbar
+### Without a Scrollbar
 
 Use the `without-scrollbar` attribute to hide the scrollbar while maintaining scroll functionality. This creates a cleaner visual appearance but may reduce usability on content that needs a clear scrolling indicator.
 
-```scala preview
+```scala preview h-[300px]
 Scroller(
   _.withoutScrollbar := true
 )(
@@ -182,3 +182,6 @@ Scroller(
 )
 ```
 
+<Callout type="warning">
+Hiding scrollbars can negatively impact accessibility. Users who rely on visible scrollbars to navigate content may have difficulty recognizing that content is scrollable or controlling their scrolling position. Consider the needs of all users when implementing this option.
+</Callout>

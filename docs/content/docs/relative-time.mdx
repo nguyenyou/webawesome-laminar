@@ -1,21 +1,30 @@
 ---
 title: Relative Time
+description: Outputs a localized time phrase relative to the current date and time.
 ---
 
-## Basic
+Localization is handled by the browser's [`Intl.RelativeTimeFormat` API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat). No language packs are required.
 
-```scala preview
+```scala preview h-[100px] start
 div(
   p("Web Awesome 2 release date 🎉"),
   RelativeTime(_.date := "2020-07-15T09:17:00-04:00")()
 )
 ```
 
-## Keeping Time in Sync
+The `date` attribute determines when the date/time is calculated from. It must be a string that [`Date.parse()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse) can interpret or a [`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) object set via JavaScript.
+
+<Callout>
+When using strings, avoid ambiguous dates such as `03/04/2020` which can be interpreted as March 4 or April 3 depending on the user's browser and locale. Instead, always use a valid [ISO 8601 date time string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse#Date_Time_String_Format) to ensure the date will be parsed properly by all clients.
+</Callout>
+
+## Examples
+
+### Keeping Time in Sync
 
 Use the `sync` attribute to update the displayed value automatically as time passes.
 
-```scala preview
+```scala preview h-[40px]
 RelativeTime(
   _.sync := true,
   _.date := {
@@ -26,21 +35,21 @@ RelativeTime(
 )()
 ```
 
-## Formatting Styles
+### Formatting Styles
 
 You can change how the time is displayed using the `format` attribute. Note that some locales may display the same values for `narrow` and `short` formats.
 
-```scala examples vertical
+```scala examples vertical h-[120px]
 div("Narrow: ", RelativeTime(_.date := "2020-07-15T09:17:00-04:00", _.format.narrow)())
 div("Short: ", RelativeTime(_.date := "2020-07-15T09:17:00-04:00", _.format.short)())
 div("Long: ", RelativeTime(_.date := "2020-07-15T09:17:00-04:00", _.format.long)())
 ```
 
-## Localization
+### Localization
 
 Use the `lang` attribute to set the desired locale.
 
-```scala examples vertical
+```scala examples vertical h-[180px]
 div("English: ", RelativeTime(_.date := "2020-07-15T09:17:00-04:00")(lang := "en-US"))
 div("Chinese: ", RelativeTime(_.date := "2020-07-15T09:17:00-04:00")(lang := "zh-CN"))
 div("German: ", RelativeTime(_.date := "2020-07-15T09:17:00-04:00")(lang := "de"))
