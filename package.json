@@ -13,6 +13,7 @@
     "generate:components": "tsx scripts/generate-components.ts",
     "fix": "./mill __.fix",
     "fmt": "./mill mill.scalalib.scalafmt/",
+    "dev": "bun --filter docs dev",
     "compile": "./mill __.fullLinkJS && bun docs/build.ts"
   },
   "workspaces": [
