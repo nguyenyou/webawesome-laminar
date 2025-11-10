@@ -19,6 +19,7 @@ export const Preview = ({
   height,
   css,
   padding = "p-2",
+  showCss,
 }: {
   code?: string;
   codePath?: string;
@@ -27,6 +28,7 @@ export const Preview = ({
   height?: string;
   css?: string;
   padding?: string;
+  showCss?: string;
 }) => {
   const h = height ?? "h-(--height)";
   const ref = useRef<HTMLIFrameElement>(null);
@@ -84,7 +86,7 @@ export const Preview = ({
   }) : null;
 
   return (
-    <div className="border p-4 rounded-xl space-y-2">
+    <div className="border p-4 rounded-xl flex flex-col gap-2">
       {/* Frame component area - shows loading/error or actual Frame */}
       {isLoading ? (
         <div className={`outline-none rounded-xl bg-fd-background w-full ${h} flex items-center justify-center`}>
@@ -123,6 +125,8 @@ export const Preview = ({
       ) : null}
       {/* DynamicCodeBlock always shows */}
       <DynamicCodeBlock code={displayCode} lang="scala"/>
+      {/* Show CSS code block if showCss is provided */}
+      {showCss && <DynamicCodeBlock code={showCss} lang="css"/>}
     </div>
   );
 };

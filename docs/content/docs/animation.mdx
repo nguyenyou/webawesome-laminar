@@ -5,7 +5,7 @@ description: Animate elements declaratively with nearly 100 baked-in presets, or
 
 To animate an element, wrap it in `<wa-animation>` and set an animation `name`. The animation will not start until you add the `play` attribute. Refer to the [properties table](#properties) for a list of all animation options.
 
-```css forId="animation-overview"
+```css forId="animation-overview" show
 .animation-overview .box {
   display: inline-block;
   width: 100px;
@@ -57,7 +57,7 @@ The animation will only be applied to the first child element found in `<wa-anim
 
 This example demonstrates all of the baked-in animations and easings. Animations are based on those found in the popular [Animate.css](https://animate.style/) library.
 
-```css forId="animations-easings"
+```css forId="animations-easings" show
 .animation-sandbox .box {
   width: 100px;
   height: 100px;
@@ -125,7 +125,7 @@ div(
 
 Use an [Intersection Observer](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) to control the animation when an element enters or exits the viewport. For example, scroll the box below in and out of your screen. The animation stops when the box exits the viewport and restarts each time it enters the viewport.
 
-```css forId="animation-scroll"
+```css forId="animation-scroll" show
 .animation-scroll .box {
   display: inline-block;
   width: 100px;

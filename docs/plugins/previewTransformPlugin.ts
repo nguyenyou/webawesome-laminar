@@ -104,6 +104,23 @@ const parseIdFromMeta = (meta: string | null | undefined): string | undefined =>
 };
 
 /**
+ * Parse show attribute from code block meta string
+ * Checks if "show" keyword is present in meta
+ * e.g., 'css forId="custom-styles" show' -> true
+ * e.g., "css show forId='my-id'" -> true
+ * e.g., "css forId='my-id'" -> false
+ * Returns true if show is found, false otherwise
+ */
+const parseShowFromMeta = (meta: string | null | undefined): boolean => {
+  if (!meta) {
+    return false;
+  }
+  
+  // Match standalone "show" keyword (not part of another word)
+  return /\bshow\b/.test(meta);
+};
+
+/**
  * Get the docs directory where build output is located
  * Tries multiple strategies to find the docs directory:
  * 1. Check if build output directory exists in current directory (if we're in docs/)
@@ -187,7 +204,8 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
 
     // Single pass: Collect CSS blocks with forId meta attribute and Scala preview nodes
     // Map CSS content by forId value for later matching with Preview components
-    const cssByForId = new Map<string, string>();
+    // Store both CSS content and whether it has "show" meta
+    const cssByForId = new Map<string, { content: string; show: boolean }>();
     
     // Track CSS nodes with forId that should be replaced with empty div nodes
     const cssNodesToReplace: Array<{
@@ -212,7 +230,8 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
       if (node.lang === "css") {
         const forId = parseForIdFromMeta(node.meta);
         if (forId && node.value) {
-          cssByForId.set(forId, node.value);
+          const show = parseShowFromMeta(node.meta);
+          cssByForId.set(forId, { content: node.value, show });
           // Mark this CSS node for replacement with empty div since it's only used to pass CSS to Preview
           if (parent && typeof index === "number") {
             cssNodesToReplace.push({
@@ -272,7 +291,9 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
       const previewId = parseIdFromMeta(node.meta);
       
       // Look up matching CSS content if id is specified
-      const cssContent = previewId ? cssByForId.get(previewId) : undefined;
+      const cssData = previewId ? cssByForId.get(previewId) : undefined;
+      const cssContent = cssData?.content;
+      const showCss = cssData?.show ? cssData.content : undefined;
 
       // Create MDX JSX element for Preview component
       const attributes: MdxJsxFlowElement["attributes"] = [
@@ -317,6 +338,15 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
           type: "mdxJsxAttribute",
           name: "css",
           value: cssContent,
+        });
+      }
+
+      // Add showCss attribute if matching CSS has show meta
+      if (showCss) {
+        attributes.push({
+          type: "mdxJsxAttribute",
+          name: "showCss",
+          value: showCss,
         });
       }
 
