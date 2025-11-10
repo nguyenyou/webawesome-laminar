@@ -4,7 +4,7 @@ title: Badge
 
 ## Basic
 
-```scala preview h-[32px]
+```scala preview h-[40px]
 Badge()("Badge")
 ```
 
@@ -12,7 +12,7 @@ Badge()("Badge")
 
 Set the `variant` attribute to change the badge's variant.
 
-```scala examples h-[36px]
+```scala examples h-[40px]
 Badge(_.variant.brand)("Brand")
 Badge(_.variant.success)("Success")
 Badge(_.variant.neutral)("Neutral")
@@ -24,7 +24,7 @@ Badge(_.variant.danger)("Danger")
 
 Use the `appearance` attribute to change the badge's visual appearance.
 
-```scala examples h-[160px]
+```scala examples h-[164px]
 Badge(_.appearance.accent, _.variant.neutral)("Accent")
 Badge(_.appearance.filledOutlined, _.variant.neutral)("Filled + Outlined")
 Badge(_.appearance.filled, _.variant.neutral)("Filled")
@@ -55,7 +55,7 @@ Badge(_.appearance.outlined, _.variant.danger)("Outlined")
 
 Badges are sized relative to the current font size. You can set `font-size` on any badge (or an ancestor element) to change it.
 
-```scala examples h-[56px]
+```scala examples h-[54px]
 Badge(
   _.variant.brand
 )(
@@ -118,11 +118,11 @@ Badge(_.variant.warning, _.attention.bounce, _.pill := true)("1")
 Badge(_.variant.danger, _.attention.bounce, _.pill := true)("1")
 ```
 
-## With Buttonsss
+## With Button
 
 One of the most common use cases for badges is attaching them to buttons. To make this easier, badges will be automatically positioned at the top-right when they're a child of a button.
 
-```scala examples pt-[12px]
+```scala examples p-[14px] h-[70px]
 Button()(
   "Requests",
   Badge(_.pill := true)("30")
