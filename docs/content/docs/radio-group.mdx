@@ -1,10 +1,9 @@
 ---
-title: RadioGroup
+title: Radio Group
+description: Radio groups are used to group multiple radios so they function as a single form control.
 ---
 
-## Basic
-
-```scala preview
+```scala preview h-[130px]
 RadioGroup(_.label := "Select an option", _.name := "a", _.value := "1")(
   Radio(_.value := "1")("Option 1"),
   Radio(_.value := "2")("Option 2"),
@@ -12,11 +11,13 @@ RadioGroup(_.label := "Select an option", _.name := "a", _.value := "1")(
 )
 ```
 
-## Hint
+## Examples
+
+### Hint
 
 Add descriptive hint to a radio group with the `hint` attribute. For hints that contain HTML, use the `hint` slot instead.
 
-```scala preview
+```scala preview h-[150px]
 RadioGroup(
   _.label := "Select an option",
   _.hint  := "Choose the most appropriate option.",
@@ -29,11 +30,11 @@ RadioGroup(
 )
 ```
 
-## Radio Buttons
+### Radio Buttons
 
 Set the `appearance` attribute to `button` on all radios to render a radio button group.
 
-```scala examples vertical 
+```scala examples vertical h-[300px]
 RadioGroup(
   _.label := "Horizontal options",
   _.hint  := "Select an option that makes you proud.",
@@ -59,11 +60,11 @@ RadioGroup(
 )
 ```
 
-## Disabling
+### Disabling
 
 To disable the entire radio group, add the `disabled` attribute to the radio group.
 
-```scala preview
+```scala preview h-[130px]
 RadioGroup(
   _.label    := "Select an option",
   _.disabled := true
@@ -76,7 +77,7 @@ RadioGroup(
 
 To disable individual options, add the `disabled` attribute to the respective options.
 
-```scala preview
+```scala preview h-[130px]
 RadioGroup(_.label := "Select an option")(
   Radio(_.value := "1")("Option 1"),
   Radio(_.value := "2", _.disabled := true)("Option 2"),
@@ -84,11 +85,11 @@ RadioGroup(_.label := "Select an option")(
 )
 ```
 
-## Orientation
+### Orientation
 
 The default orientation for radio items is `vertical`. Set the `orientation` to `horizontal` to items on the same row.
 
-```scala preview
+```scala preview h-[130px]
 RadioGroup(
   _.label := "Select an option",
   _.hint  := "Choose the most appropriate option.",
@@ -102,11 +103,11 @@ RadioGroup(
 )
 ```
 
-## Sizing Options
+### Sizing Options
 
-The size of Radios will be determined by the Radio Group's `size` attribute.
+The size of radios will be determined by the Radio Group's `size` attribute.
 
-```scala examples vertical
+```scala examples h-[160px]
 RadioGroup(
   _.size.small
 )(
@@ -130,11 +131,16 @@ RadioGroup(
 )
 ```
 
-## Validation
+<Callout>
+[Radios](/docs/components/radio) also have a `size` attribute,
+which will override the inherited size when used.
+</Callout>
+
+### Validation
 
 Setting the `required` attribute to make selecting an option mandatory. If a value has not been selected, it will prevent the form from submitting and display an error message.
 
-```scala preview
+```scala preview h-[200px]
 form(
   onSubmit.preventDefault --> Observer[dom.Event] { _ =>
     dom.window.alert("All fields are valid!")
