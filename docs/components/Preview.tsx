@@ -9,6 +9,7 @@ import {
   applyInitialTheme,
   createSrcDoc,
 } from "./iframe-theme";
+import { Spinner } from "./spinner";
 
 export const Preview = ({
   code,
@@ -87,7 +88,7 @@ export const Preview = ({
       {/* Frame component area - shows loading/error or actual Frame */}
       {isLoading ? (
         <div className={`outline-none rounded-xl bg-fd-background w-full ${h} flex items-center justify-center`}>
-          <span className="text-fd-foreground">loading...</span>
+          <Spinner />
         </div>
       ) : error || !fetchedCode ? (
         <div className={`outline-none rounded-xl bg-fd-background w-full ${h} flex items-center justify-center`}>
