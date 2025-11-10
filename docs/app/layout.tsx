@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     template: "%s | WebAwesome Laminar",
     default: "WebAwesome Laminar", // a default is required when creating a template
   },
+  metadataBase: new URL("https://webawesome-laminar.vercel.app"),
 };
 
 export default function Layout({ children }: LayoutProps<"/">) {
