@@ -103,7 +103,7 @@ ButtonGroup(_.label := "Alignment")(
 
 Dropdowns can be placed into button groups.
 
-```scala preview h-[200px]
+```scala preview h-[200px] start
 ButtonGroup(_.label := "Example Button Group")(
   Button()("Button"),
   Dropdown(
@@ -123,7 +123,7 @@ ButtonGroup(_.label := "Example Button Group")(
 
 Create a split button using a button and a dropdown. Use a [visually hidden](/docs/utilities/visually-hidden) label to ensure the dropdown is accessible to users with assistive devices.
 
-```scala preview h-[200px]
+```scala preview h-[200px] start
 ButtonGroup(_.label := "Example Button Group")(
   Button(_.variant.brand)("Save"),
   Dropdown(
@@ -145,7 +145,7 @@ ButtonGroup(_.label := "Example Button Group")(
 
 Buttons can be wrapped in tooltips to provide more detail when the user interacts with them.
 
-```scala example h-[100px]
+```scala example h-[100px] start
 ButtonGroup(_.label := "Alignment")(
   Button(_.id := "button-left")("Left"),
   Button(_.id := "button-center")("Center"),
@@ -166,7 +166,7 @@ Create interactive toolbars with button groups.
 }
 ```
 
-```scala example id="button-group-toolbar" h-[100px]
+```scala example id="button-group-toolbar" h-[100px] start
 div(
   className := "button-group-toolbar",
   ButtonGroup(_.label := "History")(

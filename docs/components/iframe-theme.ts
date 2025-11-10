@@ -107,11 +107,13 @@ export const createSrcDoc = ({
   code,
   css,
   padding,
+  align,
 }: {
   exampleId: string;
   code: string;
   css?: string;
   padding?: string;
+  align?: string;
 }): string => {
   return `<html>
 <head>
@@ -125,7 +127,7 @@ export const createSrcDoc = ({
   }
   body {
     display: flex;
-    align-items: center;
+    align-items: ${align === "start" ? "start" : "center"};
   }
 </style>
 ${css ? `<style>${css}</style>` : ""}

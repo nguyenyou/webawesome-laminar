@@ -20,6 +20,7 @@ export const Preview = ({
   css,
   padding = "p-2",
   showCss,
+  align,
 }: {
   code?: string;
   codePath?: string;
@@ -29,6 +30,7 @@ export const Preview = ({
   css?: string;
   padding?: string;
   showCss?: string;
+  align?: string;
 }) => {
   const h = height ?? "h-(--height)";
   const ref = useRef<HTMLIFrameElement>(null);
@@ -86,6 +88,7 @@ export const Preview = ({
         code: fetchedCode,
         css,
         padding,
+        align,
       })
     : null;
 

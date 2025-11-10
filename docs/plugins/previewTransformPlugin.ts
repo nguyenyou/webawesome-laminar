@@ -121,6 +121,23 @@ const parseShowFromMeta = (meta: string | null | undefined): boolean => {
 };
 
 /**
+ * Parse align attribute from code block meta string
+ * Checks if "start" keyword is present in meta
+ * e.g., 'scala preview start' -> "start"
+ * e.g., "scala preview start h-150" -> "start"
+ * e.g., "scala preview" -> undefined
+ * Returns "start" if found, undefined otherwise
+ */
+const parseAlignFromMeta = (meta: string | null | undefined): string | undefined => {
+  if (!meta) {
+    return undefined;
+  }
+  
+  // Match standalone "start" keyword (not part of another word)
+  return /\bstart\b/.test(meta) ? "start" : undefined;
+};
+
+/**
  * Get the docs directory where build output is located
  * Tries multiple strategies to find the docs directory:
  * 1. Check if build output directory exists in current directory (if we're in docs/)
@@ -289,6 +306,7 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
       const height = parseHeightFromMeta(node.meta);
       const padding = parsePaddingFromMeta(node.meta);
       const previewId = parseIdFromMeta(node.meta);
+      const align = parseAlignFromMeta(node.meta);
       
       // Look up matching CSS content if id is specified
       const cssData = previewId ? cssByForId.get(previewId) : undefined;
@@ -329,6 +347,15 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
           type: "mdxJsxAttribute",
           name: "padding",
           value: padding,
+        });
+      }
+
+      // Add align attribute if alignment value is found
+      if (align) {
+        attributes.push({
+          type: "mdxJsxAttribute",
+          name: "align",
+          value: align,
         });
       }
 
