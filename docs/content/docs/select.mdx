@@ -1,10 +1,9 @@
 ---
 title: Select
+description: Selects allow you to choose items from a menu of predefined options.
 ---
 
-## Basic
-
-```scala preview h-80
+```scala preview h-[300px] start
 val selectedVar = Var("")
 Select(
   _.value <-- selectedVar,
@@ -19,11 +18,17 @@ Select(
 )
 ```
 
-## Labels
+<Callout>
+This component works with standard `<form>` elements. Please refer to the section on [form controls](/docs/form-controls) to learn more about form submission and client-side validation.
+</Callout>
+
+## Examples
+
+### Labels
 
 Use the `label` attribute to give the select an accessible label. For labels that contain HTML, use the `label` slot instead.
 
-```scala preview h-80
+```scala preview h-[220px] start
 Select(
   _.label := "Select one"
 )(
@@ -33,11 +38,11 @@ Select(
 )
 ```
 
-## Hint
+### Hint
 
 Add descriptive hint to a select with the `hint` attribute. For hints that contain HTML, use the `hint` slot instead.
 
-```scala preview h-80
+```scala preview h-[220px] start
 Select(
   _.label := "Experience",
   _.hint  := "Please tell us your skill level."
@@ -48,11 +53,11 @@ Select(
 )
 ```
 
-## Placeholders
+### Placeholders
 
 Use the `placeholder` attribute to add a placeholder.
 
-```scala preview h-80
+```scala preview h-[220px] start
 Select(
   _.placeholder := "Select one"
 )(
@@ -62,11 +67,11 @@ Select(
 )
 ```
 
-## Clearable
+### Clearable
 
 Use the `with-clear` attribute to make the control clearable. The clear button only appears when an option is selected.
 
-```scala preview h-80
+```scala preview h-[220px] start
 Select(
   _.withClear := true,
   _.value     := "option-1"
@@ -77,11 +82,11 @@ Select(
 )
 ```
 
-## Appearance
+### Appearance
 
 Use the `appearance` attribute to change the select's visual appearance.
 
-```scala preview h-80
+```scala preview h-[220px] start
 Select(
   _.appearance.filled
 )(
@@ -91,11 +96,11 @@ Select(
 )
 ```
 
-## Pill
+### Pill
 
 Use the `pill` attribute to give selects rounded edges.
 
-```scala preview h-80
+```scala preview h-[220px] start
 Select(
   _.pill := true
 )(
@@ -105,11 +110,11 @@ Select(
 )
 ```
 
-## Disabled
+### Disabled
 
 Use the `disabled` attribute to disable a select.
 
-```scala preview h-80
+```scala preview h-[220px] start
 Select(
   _.placeholder := "Disabled",
   _.disabled    := true
@@ -120,11 +125,11 @@ Select(
 )
 ```
 
-## Multiple
+### Multiple
 
 To allow multiple options to be selected, use the `multiple` attribute. It's a good practice to use `with-clear` when this option is enabled. You can select multiple options by adding the `selected` attribute to individual options.
 
-```scala preview h-100
+```scala preview h-[300px] start
 Select(
   _.label     := "Select a Few",
   _.multiple  := true,
@@ -139,11 +144,15 @@ Select(
 )
 ```
 
-## Setting Initial Values
+<Callout>
+Selecting multiple options may result in wrapping, causing the control to expand vertically. You can use the `max-options-visible` attribute to control the maximum number of selected options to show at once.
+</Callout>
+
+### Setting Initial Values
 
 Use the `selected` attribute on individual options to set the initial selection, similar to native HTML.
 
-```scala preview h-80
+```scala preview h-80 h-[300px] start
 Select()(
   UOption(_.value := "option-1", _.selected := true)("Option 1"),
   UOption(_.value := "option-2")("Option 2"),
@@ -154,7 +163,7 @@ Select()(
 
 For multiple selections, apply it to all selected options.
 
-```scala preview h-80
+```scala preview  h-[300px] start
 Select(
   _.multiple  := true,
   _.withClear := true
@@ -166,11 +175,15 @@ Select(
 )
 ```
 
-## Grouping Options
+<Callout>
+Framework users can bind directly to the `value` property for reactive data binding and form state management.
+</Callout>
+
+### Grouping Options
 
 Use `<wa-divider>` to group listbox items visually. You can also use `<small>` to provide labels, but they won't be announced by most assistive devices.
 
-```scala preview h-100
+```scala preview h-[400px] start
 Select()(
   small("Section 1"),
   UOption(_.value := "option-1")("Option 1"),
@@ -184,11 +197,11 @@ Select()(
 )
 ```
 
-## Sizes
+### Sizes
 
 Use the `size` attribute to change a select's size.
 
-```scala examples vertical h-100
+```scala examples vertical h-[400px] start
 Select(
   _.placeholder := "Small",
   _.size.small
@@ -215,11 +228,11 @@ Select(
 )
 ```
 
-## Placement
+### Placement
 
 The preferred placement of the select's listbox can be set with the `placement` attribute. Note that the actual position may vary to ensure the panel remains in the viewport. Valid placements are `top` and `bottom`.
 
-```scala preview h-80
+```scala preview h-[200px] start
 Select(
   _.placement.top
 )(
@@ -229,11 +242,11 @@ Select(
 )
 ```
 
-## Start & End Decorations
+### Start & End Decorations
 
 Use the `start` and `end` slots to add presentational elements like `<wa-icon>` within the combobox.
 
-```scala examples vertical h-100
+```scala examples vertical h-[340px] start
 Select(
   _.placeholder := "Small",
   _.size.small,
