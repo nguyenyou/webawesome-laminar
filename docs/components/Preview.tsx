@@ -21,6 +21,7 @@ export const Preview = ({
   padding = "p-2",
   showCss,
   align,
+  justify,
 }: {
   code?: string;
   codePath?: string;
@@ -31,6 +32,7 @@ export const Preview = ({
   padding?: string;
   showCss?: string;
   align?: string;
+  justify?: string;
 }) => {
   const h = height ?? "h-(--height)";
   const ref = useRef<HTMLIFrameElement>(null);
@@ -89,6 +91,7 @@ export const Preview = ({
         css,
         padding,
         align,
+        justify,
       })
     : null;
 

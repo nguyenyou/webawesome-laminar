@@ -3,7 +3,7 @@ title: Color Picker
 description: Color pickers allow the user to select a color.
 ---
 
-```scala preview h-150
+```scala preview h-[400px] start
 ColorPicker(_.label := "Select a color")()
 ```
 
@@ -17,7 +17,7 @@ This component works with standard `<form>` elements.
 
 Use the `value` attribute to set an initial value for the color picker.
 
-```scala preview h-150
+```scala preview h-[400px] start
 ColorPicker(
   _.value := "#4a90e2",
   _.label := "Select a color"
@@ -28,7 +28,7 @@ ColorPicker(
 
 Use the `opacity` attribute to enable the opacity slider. When this is enabled, the value will be displayed as HEXA, RGBA, HSLA, or HSVA based on `format`.
 
-```scala preview h-150
+```scala preview h-[400px] start
 ColorPicker(
   _.value   := "#f5a623ff",
   _.opacity := true,
@@ -42,7 +42,7 @@ Set the color picker's format with the `format` attribute. Valid options include
 Note that the color picker's input will accept any parsable format (including CSS color names) regardless of this option.
 To prevent users from toggling the format themselves, add the `without-format-toggle` attribute.
 
-```scala examples vertical h-180
+```scala examples vertical h-[700px] start
 ColorPicker(
   _.format.hex,
   _.value := "#4a90e2",
@@ -71,7 +71,7 @@ Use the `swatches` attribute to add convenient presets to the color picker.
 Any format the color picker can parse is acceptable (including CSS color names), 
 but each value must be separated by a semicolon (`;`).
 
-```scala preview h-150
+```scala preview h-[500px] start
 ColorPicker(
   _.label := "Select a color",
   _.swatches := "#d0021b; #f5a623; #f8e71c; #8b572a; #7ed321; #417505; #bd10e0; #9013fe; #4a90e2; #50e3c2; #b8e986; #000; #444; #888; #ccc; #fff;"
@@ -82,7 +82,7 @@ ColorPicker(
 
 Use the `size` attribute to change the color picker's trigger size.
 
-```scala examples vertical h-180
+```scala examples h-[600px] start
 ColorPicker(
   _.size.small,
   _.label := "Select a color"
@@ -101,7 +101,7 @@ ColorPicker(
 
 The color picker can be rendered as disabled.
 
-```scala preview h-150
+```scala preview h-[200px] start
 ColorPicker(
   _.disabled := true,
   _.label    := "Select a color"
@@ -112,7 +112,7 @@ ColorPicker(
 
 Add descriptive hint to a color picker with the `hint` attribute. For hints that contain HTML, use the `hint` slot instead.
 
-```scala preview h-150
+```scala preview h-[400px] start
 ColorPicker(
   _.label := "Select a color",
   _.hint  := "Choose a color with appropriate contrast!"

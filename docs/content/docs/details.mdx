@@ -1,10 +1,9 @@
 ---
 title: Details
+description: Details show a brief summary and expand to show additional content.
 ---
 
-## Basic
-
-```scala preview
+```scala preview h-[150px] start
 Details(
   _.summary := "Toggle Details"
 )(
@@ -12,11 +11,13 @@ Details(
 )
 ```
 
-## Disabled
+## Examples
+
+### Disabled
 
 Use the `disabled` attribute to prevent the details from expanding.
 
-```scala preview
+```scala preview h-[150px] start
 Details(
   _.summary  := "Disabled",
   _.disabled := true
@@ -25,11 +26,11 @@ Details(
 )
 ```
 
-## Customizing the Summary Icon
+### Customizing the Summary Icon
 
-Use the `expand-icon` and `collapse-icon` slots to change the expand and collapse icons, respectively.
+Use the `expand-icon` and `collapse-icon` slots to change the expand and collapse icons, respectively. To disable the animation, override the `rotate` property on the `icon` part as shown below.
 
-```scala preview
+```scala preview h-[150px] start
 Details(
   _.summary := "Toggle Me",
   _.slots.expandIcon(Icon(_.name := "square-plus", _.variant := "regular")()),
@@ -39,11 +40,31 @@ Details(
 )
 ```
 
-## HTML in Summary
+### Icon Position
 
-To use HTML in the summary, use the `summary` slot. Links and other interactive elements will still retain their behavior.
+The default position for the expand and collapse icons is at the end of the summary. Set the `icon-placement` attribute to `start` to place the icon at the start of the summary.
 
-```scala preview
+```scala examples vertical h-[320px] start
+Details(
+  _.summary := "Start",
+  _.iconPlacement.start
+)(
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+)
+Details(
+  _.summary := "Start",
+  _.iconPlacement.end
+)(
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+)
+```
+
+### HTML in Summary
+
+To use HTML in the summary, use the `summary` slot.
+Links and other interactive elements will still retain their behavior:
+
+```scala preview h-[150px] start
 Details(
   _.slots.summary(
     span(
@@ -57,11 +78,11 @@ Details(
 )
 ```
 
-## Right-to-Left Languages
+### Right-to-Left Languages
 
-The details component automatically adapts to right-to-left languages.
+The details component, including its `icon-placement`, automatically adapts to right-to-left languages:
 
-```scala preview
+```scala preview h-[150px] start
 Details(
   _.summary := "تبديلني"
 )(
@@ -71,11 +92,11 @@ Details(
 )
 ```
 
-## Appearance
+### Appearance
 
 Use the `appearance` attribute to change the element's visual appearance.
 
-```scala examples vertical
+```scala examples vertical start h-[400px]
 Details(
   _.summary := "Outlined (default)"
 )(
@@ -101,12 +122,11 @@ Details(
 )
 ```
 
-## Grouping Details
+### Grouping Details
 
-Use the `name` attribute to create accordion-like behavior where only one details element with the same name can be open at a time. 
-This matches the behavior of native `<details>` elements.
+Use the `name` attribute to create accordion-like behavior where only one details element with the same name can be open at a time. This matches the behavior of native `<details>` elements.
 
-```scala examples vertical
+```scala examples vertical start h-[320px]
 Details(
   _.name    := "group-1",
   _.summary := "Section 1",

@@ -138,6 +138,23 @@ const parseAlignFromMeta = (meta: string | null | undefined): string | undefined
 };
 
 /**
+ * Parse justify attribute from code block meta string
+ * Checks if "center" keyword is present in meta
+ * e.g., 'scala preview center' -> "center"
+ * e.g., "scala preview center h-150" -> "center"
+ * e.g., "scala preview" -> undefined
+ * Returns "center" if found, undefined otherwise
+ */
+const parseJustifyFromMeta = (meta: string | null | undefined): string | undefined => {
+  if (!meta) {
+    return undefined;
+  }
+  
+  // Match standalone "center" keyword (not part of another word)
+  return /\bcenter\b/.test(meta) ? "center" : undefined;
+};
+
+/**
  * Get the docs directory where build output is located
  * Tries multiple strategies to find the docs directory:
  * 1. Check if build output directory exists in current directory (if we're in docs/)
@@ -307,6 +324,7 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
       const padding = parsePaddingFromMeta(node.meta);
       const previewId = parseIdFromMeta(node.meta);
       const align = parseAlignFromMeta(node.meta);
+      const justify = parseJustifyFromMeta(node.meta);
       
       // Look up matching CSS content if id is specified
       const cssData = previewId ? cssByForId.get(previewId) : undefined;
@@ -356,6 +374,15 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
           type: "mdxJsxAttribute",
           name: "align",
           value: align,
+        });
+      }
+
+      // Add justify attribute if justify value is found
+      if (justify) {
+        attributes.push({
+          type: "mdxJsxAttribute",
+          name: "justify",
+          value: justify,
         });
       }
 

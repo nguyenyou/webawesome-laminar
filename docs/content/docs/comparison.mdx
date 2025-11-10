@@ -1,8 +1,11 @@
 ---
 title: Comparison
+description: Compare visual differences between similar content with a sliding panel.
 ---
 
-## Basic
+This is especially useful for comparing images, but can be used for comparing any type of content (for an example of using it to compare entire UIs, check out our [theme page](/docs/themes)).
+For best results, use content that shares the same dimensions.
+The slider can be controlled by dragging or pressing the left and right arrow keys. (Tip: press shift + arrows to move the slider in larger intervals, or home + end to jump to the beginning or end.)
 
 ```scala preview h-[600px]
 Comparison(
@@ -21,7 +24,9 @@ Comparison(
 )()
 ```
 
-## Initial Position
+## Examples
+
+### Initial Position
 
 Use the `position` attribute to set the initial position of the slider. This is a percentage from `0` to `100`.
 
