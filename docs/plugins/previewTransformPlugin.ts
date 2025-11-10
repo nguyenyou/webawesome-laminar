@@ -8,8 +8,6 @@ import { existsSync } from "fs";
 import {
   normalizePath,
   extractHierarchicalPathSegments,
-  getCompiledJsPath,
-  readCompiledJsFile,
   hasTemplateMeta,
 } from "./previewUtils";
 import { BUILD_OUTPUT_DIR } from "../buildConfig";
@@ -264,14 +262,7 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
 
     // Transform nodes to Preview components
     // All examples from the same doc file share the same JS module
-    // Read the JS file once (it's the same for all examples in this doc)
-    const compiledJsPath = getCompiledJsPath(prefix, docsDir);
-    const jsContent = readCompiledJsFile(compiledJsPath);
-    
-    if (jsContent === null) {
-      console.warn(`Compiled JS file not found at ${compiledJsPath}, skipping preview transformation`);
-      return;
-    }
+    // Pass codePath instead of reading and embedding code (runtime fetching)
 
     // Transform each preview node
     for (const { node, counter, parent, index } of previewNodes) {
@@ -287,8 +278,8 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
       const attributes: MdxJsxFlowElement["attributes"] = [
         {
           type: "mdxJsxAttribute",
-          name: "code",
-          value: jsContent,
+          name: "codePath",
+          value: prefix,
         },
         {
           type: "mdxJsxAttribute",

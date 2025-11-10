@@ -2,7 +2,7 @@
 import { Frame } from "@ark-ui/react/frame";
 import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock";
 import { Tabs, Tab } from "fumadocs-ui/components/tabs";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import {
   useIframeThemeSync,
@@ -12,13 +12,15 @@ import {
 
 export const Preview = ({
   code,
+  codePath,
   userCode,
   exampleId = "example1",
   height,
   css,
   padding = "p-2",
 }: {
-  code: string;
+  code?: string;
+  codePath?: string;
   userCode?: string;
   exampleId?: string;
   height?: string;
@@ -28,60 +30,88 @@ export const Preview = ({
   const h = height ?? "h-(--height)";
   const ref = useRef<HTMLIFrameElement>(null);
   const { theme } = useTheme();
-  
-  const srcDoc = createSrcDoc({
-    exampleId,
-    code,
-    css,
-    padding,
-  });
+  const [fetchedCode, setFetchedCode] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  // Fetch code at runtime if codePath is provided
+  useEffect(() => {
+    // If code is provided directly (backward compatibility), use it immediately
+    if (code) {
+      setFetchedCode(code);
+      setIsLoading(false);
+      return;
+    }
+
+    // If codePath is provided, fetch from network
+    if (codePath) {
+      const fetchCode = async () => {
+        try {
+          setIsLoading(true);
+          setError(null);
+          const response = await fetch(`/examples/${codePath}.js`);
+          if (!response.ok) {
+            throw new Error(`Failed to fetch example: ${response.statusText}`);
+          }
+          const codeContent = await response.text();
+          setFetchedCode(codeContent);
+        } catch (err) {
+          setError(err instanceof Error ? err.message : "Failed to load example");
+        } finally {
+          setIsLoading(false);
+        }
+      };
+      fetchCode();
+    } else {
+      // No code or codePath provided
+      setIsLoading(false);
+      setError("No code or codePath provided");
+    }
+  }, [code, codePath]);
 
   const displayCode = userCode || "";
 
   // Sync theme updates to iframe
   useIframeThemeSync(ref, theme);
 
-  // return (
-  //   <Tabs items={["Preview", "Code"]}>
-  //     <Tab value="Preview" className="w-full">
-  //       <Frame
-  //         ref={ref}
-  //         title="Preview"
-  //         className={`outline-none rounded-lg bg-fd-background w-full ${h}`}
-  //         srcDoc={srcDoc}
-  //         onMount={() => {
-  //           const doc = ref.current?.contentDocument
-  //           if (!doc) return
-  //           const script = doc.createElement('script')
-  //           script.src = 'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4'
-  //           doc.body.appendChild(script)
-  //         }}
-  //       ></Frame>
-  //     </Tab>
-  //     <Tab value="Code" className="w-full">
-  //       <DynamicCodeBlock code={displayCode} lang="scala" />
-  //     </Tab>
-  //   </Tabs>
-  // );
+  // Create srcDoc only when code is available
+  const srcDoc = fetchedCode ? createSrcDoc({
+    exampleId,
+    code: fetchedCode,
+    css,
+    padding,
+  }) : null;
 
   return (
     <div className="border p-4 rounded-xl space-y-2">
-      <Frame
-        ref={ref}
-        title="Preview"
-        className={`outline-none rounded-xl bg-fd-background w-full ${h}`}
-        srcDoc={srcDoc}
-        onMount={() => {
-          const doc = ref.current?.contentDocument;
-          if (!doc) return;
-          const script = doc.createElement("script");
-          script.src = "https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4";
-          doc.body.appendChild(script);
-          
-          // Apply initial theme
-          applyInitialTheme(doc, theme);
-        }}
-      ></Frame>
+      {/* Frame component area - shows loading/error or actual Frame */}
+      {isLoading ? (
+        <div className={`outline-none rounded-xl bg-fd-background w-full ${h} flex items-center justify-center`}>
+          <span className="text-fd-foreground">loading...</span>
+        </div>
+      ) : error || !fetchedCode ? (
+        <div className={`outline-none rounded-xl bg-fd-background w-full ${h} flex items-center justify-center`}>
+          <span className="text-red-500">Error: {error || "Failed to load example"}</span>
+        </div>
+      ) : srcDoc ? (
+        <Frame
+          ref={ref}
+          title="Preview"
+          className={`outline-none rounded-xl bg-fd-background w-full ${h}`}
+          srcDoc={srcDoc}
+          onMount={() => {
+            const doc = ref.current?.contentDocument;
+            if (!doc) return;
+            const script = doc.createElement("script");
+            script.src = "https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4";
+            doc.body.appendChild(script);
+            
+            // Apply initial theme
+            applyInitialTheme(doc, theme);
+          }}
+        ></Frame>
+      ) : null}
+      {/* DynamicCodeBlock always shows */}
       <DynamicCodeBlock code={displayCode} lang="scala"/>
     </div>
   );
