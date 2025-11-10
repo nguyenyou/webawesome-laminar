@@ -1,8 +1,7 @@
 ---
-title: ButtonGroup
+title: Button Group
+description: Button groups can be used to group related buttons into sections.
 ---
-
-## Basic
 
 ```scala preview h-[60px]
 ButtonGroup(_.label := "Alignment")(
@@ -12,7 +11,9 @@ ButtonGroup(_.label := "Alignment")(
 )
 ```
 
-## Vertical Button Groups
+## Examples
+
+### Vertical Button Groups
 
 Set the `orientation` attribute to `vertical` to make a vertical button group.
 
@@ -34,7 +35,7 @@ ButtonGroup(_.orientation.vertical, _.label := "Options")(
 )
 ```
 
-## Theme Buttons
+### Theme Buttons
 
 Theme buttons are supported through the button group's `variant` attribute.
 
@@ -76,7 +77,7 @@ ButtonGroup(_.label := "Alignment", _.variant.brand)(
 )
 ```
 
-## Pill Buttons
+### Pill Buttons
 
 Pill buttons are supported through the button's `pill` attribute.
 
@@ -98,7 +99,7 @@ ButtonGroup(_.label := "Alignment")(
 )
 ```
 
-## Dropdowns in Button Groups
+### Dropdowns in Button Groups
 
 Dropdowns can be placed into button groups.
 
@@ -118,10 +119,9 @@ ButtonGroup(_.label := "Example Button Group")(
 )
 ```
 
-## Split Buttons
+### Split Buttons
 
-Create a split button using a button and a dropdown. Use a visually hidden label to ensure 
-the dropdown is accessible to users with assistive devices.
+Create a split button using a button and a dropdown. Use a [visually hidden](/docs/utilities/visually-hidden) label to ensure the dropdown is accessible to users with assistive devices.
 
 ```scala preview h-[200px]
 ButtonGroup(_.label := "Example Button Group")(
@@ -141,7 +141,7 @@ ButtonGroup(_.label := "Example Button Group")(
 )
 ```
 
-## Tooltips in Button Groups
+### Tooltips in Button Groups
 
 Buttons can be wrapped in tooltips to provide more detail when the user interacts with them.
 
@@ -156,7 +156,7 @@ Tooltip(_.forId := "button-center")("I'm in the middle"),
 Tooltip(_.forId := "button-right")("I'm on the right")
 ```
 
-## Toolbar Example
+### Toolbar Example
 
 Create interactive toolbars with button groups.
 
