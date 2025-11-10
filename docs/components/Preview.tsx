@@ -59,7 +59,9 @@ export const Preview = ({
           const codeContent = await response.text();
           setFetchedCode(codeContent);
         } catch (err) {
-          setError(err instanceof Error ? err.message : "Failed to load example");
+          setError(
+            err instanceof Error ? err.message : "Failed to load example"
+          );
         } finally {
           setIsLoading(false);
         }
@@ -78,23 +80,31 @@ export const Preview = ({
   useIframeThemeSync(ref, theme);
 
   // Create srcDoc only when code is available
-  const srcDoc = fetchedCode ? createSrcDoc({
-    exampleId,
-    code: fetchedCode,
-    css,
-    padding,
-  }) : null;
+  const srcDoc = fetchedCode
+    ? createSrcDoc({
+        exampleId,
+        code: fetchedCode,
+        css,
+        padding,
+      })
+    : null;
 
   return (
     <div className="border p-4 rounded-xl flex flex-col gap-2">
       {/* Frame component area - shows loading/error or actual Frame */}
       {isLoading ? (
-        <div className={`outline-none rounded-xl bg-fd-background w-full ${h} flex items-center justify-center`}>
+        <div
+          className={`outline-none rounded-xl bg-fd-background w-full ${h} flex items-center justify-center`}
+        >
           <Spinner />
         </div>
       ) : error || !fetchedCode ? (
-        <div className={`outline-none rounded-xl bg-fd-background w-full ${h} flex items-center justify-center`}>
-          <span className="text-red-500">Error: {error || "Failed to load example"}</span>
+        <div
+          className={`outline-none rounded-xl bg-fd-background w-full ${h} flex items-center justify-center`}
+        >
+          <span className="text-red-500">
+            Error: {error || "Failed to load example"}
+          </span>
         </div>
       ) : srcDoc ? (
         <Frame
@@ -115,18 +125,24 @@ export const Preview = ({
               @layer theme, base, components, utilities;
               @import "tailwindcss/theme.css" layer(theme);
               @import "tailwindcss/utilities.css" layer(utilities);
-            `
+            `;
             doc.head.appendChild(styleTag);
-            
+
             // Apply initial theme
             applyInitialTheme(doc, theme);
           }}
         ></Frame>
       ) : null}
       {/* DynamicCodeBlock always shows */}
-      <DynamicCodeBlock code={displayCode} lang="scala"/>
+      <div className={padding}>
+        <DynamicCodeBlock code={displayCode} lang="scala" />
+      </div>
       {/* Show CSS code block if showCss is provided */}
-      {showCss && <DynamicCodeBlock code={showCss} lang="css"/>}
+      {showCss && (
+        <div className={padding}>
+          <DynamicCodeBlock code={showCss} lang="css" />
+        </div>
+      )}
     </div>
   );
 };

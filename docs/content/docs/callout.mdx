@@ -1,10 +1,9 @@
 ---
 title: Callout
+description: Callouts are used to display important messages inline.
 ---
 
-## Basic
-
-```scala preview h-[68px] p-0
+```scala preview h-[68px]
 Callout(
   _.slots.icon(Icon(_.name := "circle-info")())
 )(
@@ -12,11 +11,13 @@ Callout(
 )
 ```
 
-## Variants
+## Examples
 
-Use the `variant` attribute to set the callout's semantic variant.
+### Variants
 
-```scala examples vertical h-[430px]
+Set the `variant` attribute to change the callout's variant.
+
+```scala examples vertical h-[438px]
 Callout(
   _.variant.brand,
   _.slots.icon(Icon(_.name := "circle-info")())
@@ -59,11 +60,11 @@ Callout(
 )
 ```
 
-## Appearance
+### Appearance
 
-Use the `appearance` attribute to change the callout's visual appearance (the default is `outlined filled`).
+Use the `appearance` attribute to change the callout's visual appearance (the default is `filled-outlined`).
 
-```scala examples vertical  h-[340px]
+```scala examples vertical  h-[348px]
 Callout(
   _.variant.brand,
   _.appearance.accent,
@@ -111,7 +112,7 @@ Callout(
 )
 ```
 
-## Sizes
+### Sizes
 
 Use the `size` attribute to change a callout's size.
 
@@ -136,13 +137,16 @@ Callout(
 )
 ```
 
-## Without Icons
+### Without Icons
 
 Icons are optional. Simply omit the `icon` slot if you don't want them.
 
-```scala preview h-[72px] p-0
+```scala preview h-[72px]
 Callout(_.variant.brand)(
   "Nothing fancy here, just a simple callout."
 )
 ```
 
+### Styling
+
+You can customize the callout's appearance mostly by setting regular CSS properties. `background`, `border`, `border-radius`, `color`, `padding`, `margin`, etc. work as expected.

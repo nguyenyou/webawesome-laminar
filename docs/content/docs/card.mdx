@@ -1,10 +1,9 @@
 ---
 title: Card
+description: Cards can be used to group related subjects in a container.
 ---
 
-## Basic
-
-```scala preview
+```scala preview h-[428px]
 Card(
   _.slots.footer(
     div(
@@ -29,23 +28,25 @@ Card(
 )
 ```
 
-## Basic Card
+## Examples
+
+### Basic Card
 
 Basic cards aren't very exciting, but they can display any content you want them to.
 
-```scala preview
+```scala preview h-[120px]
 Card()(
   maxWidth.px(300),
   "This is just a basic card. No media, no header, and no footer. Just your content."
 )
 ```
 
-## Card with Header
+### Card with Header
 
 Headers can be used to display titles and more.
 If using SSR, you need to also use the `with-header` attribute to add a header to the card (if not, it is added automatically).
 
-```scala preview
+```scala preview h-[170px]
 Card(
   _.slots.header(
     div(
@@ -63,12 +64,13 @@ Card(
 )
 ```
 
-## Card with Footer
+
+### Card with Footer
 
 Footers can be used to display actions, summaries, or other relevant content.
 If using SSR, you need to also use the `with-footer` attribute to add a footer to the card (if not, it is added automatically).
 
-```scala preview
+```scala preview h-[194px]
 Card(
   _.slots.footer(
     div(
@@ -83,12 +85,12 @@ Card(
 )
 ```
 
-## Media
+### Media
 
 Card media is displayed atop the card and will stretch to fit.
 If using SSR, you need to also use the `with-media` attribute to add a media section to the card (if not, it is added automatically).
 
-```scala examples
+```scala examples h-[320px]
 Card(
   _.slots.media(
     img(
@@ -113,11 +115,11 @@ Card(
 )
 ```
 
-## Appearance
+### Appearance
 
 Use the `appearance` attribute to change the card's visual appearance.
 
-```scala examples
+```scala examples h-[436px]
 Card(
   _.slots.media(
     img(
@@ -167,3 +169,41 @@ Card(
 )
 ```
 
+### Orientation
+
+Set the `orientation` attribute to `horizontal` to create a card with a horizontal, side-by-side layout. Make sure to set a width or maximum width for the media slot. Horizontal cards do not currently contain the header and footer slots.
+
+<Callout>
+The `actions` slot is only available for the horizontal orientation
+</Callout>
+
+```css forId="horizontal-card" show
+.horizontal-card {
+  img[slot='media'] {
+    max-width: 300px;
+  }
+}
+```
+
+```scala preview id="horizontal-card" h-[120px]
+Card(
+  _.orientation := "horizontal",
+  _.slots.media(
+    img(
+      src := "https://images.unsplash.com/photo-1559209172-0ff8f6d49ff7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
+      alt := "A kitten sits patiently between a terracotta pot and decorative grasses."
+    )
+  ),
+  _.slots.actions(
+    Button(
+      _.variant.neutral, 
+      _.appearance.plain,
+    )(
+      Icon(_.name := "ellipsis", _.label := "actions")()
+    )
+  )
+)(
+  cls := "horizontal-card",
+  "This card has a horizontal orientation with media, body, and actions arranged side-by-side."
+)
+```
