@@ -1,10 +1,9 @@
 ---
 title: Tag
+description: Tags are used as labels to organize things or to indicate a selection.
 ---
 
-## Basic
-
-```scala examples
+```scala examples h-[48px]
 Tag(_.variant.brand)("Brand")
 Tag(_.variant.success)("Success")
 Tag(_.variant.neutral)("Neutral")
@@ -12,11 +11,14 @@ Tag(_.variant.warning)("Warning")
 Tag(_.variant.danger)("Danger")
 ```
 
-## Appearance
+## Examples
 
-Use the `appearance` attribute to change a tag's visual appearance. The default appearance is `outlined filled`.
+### Appearance
 
-```scala examples
+Use the `size` attribute to change a tag's visual appearance.
+The default appearance is `filled-outlined`.
+
+```scala examples h-[220px]
 Tag(_.variant.brand, _.appearance.accent)("Accent")
 Tag(_.variant.brand, _.appearance.filledOutlined)("Filled + Outlined")
 Tag(_.variant.brand, _.appearance.filled)("Filled")
@@ -43,31 +45,31 @@ Tag(_.variant.danger, _.appearance.filled)("Filled")
 Tag(_.variant.danger, _.appearance.outlined)("Outlined")
 ```
 
-## Sizes
+### Sizes
 
 Use the `size` attribute to change a tag's size.
 
-```scala examples
+```scala examples h-[60px]
 Tag(_.size.small)("Small")
 Tag(_.size.medium)("Medium")
 Tag(_.size.large)("Large")
 ```
 
-## Pill
+### Pill
 
-Use the `pill` attribute to give tags rounded edges.
+Use the `pill` attribute to give tabs rounded edges.
 
-```scala examples
+```scala examples h-[60px]
 Tag(_.size.small, _.pill := true)("Small")
 Tag(_.size.medium, _.pill := true)("Medium")
 Tag(_.size.large, _.pill := true)("Large")
 ```
 
-## Removable
+### Removable
 
 Use the `with-remove` attribute to add a remove button to the tag.
 
-```scala examples
+```scala examples h-[60px]
 Tag(_.size.small, _.withRemove := true)("Small")
 Tag(_.size.medium, _.withRemove := true)("Medium")
 Tag(_.size.large, _.withRemove := true)("Large")

@@ -1,10 +1,11 @@
 ---
-title: TabGroup
+title: Tab Group
+description: Tab groups organize content into a container that shows one section at a time.
 ---
 
-## Basic
+Tab groups make use of [tabs](/docs/components/tab) and [tab panels](/docs/components/tab-panel). Each panel should have a name that's unique within the tab group, and tabs should have a `panel` attribute that points to the respective panel's name.
 
-```scala preview
+```scala preview h-[180px]
 TabGroup()(
   Tab(_.panel := "general")(
     "General"
@@ -34,11 +35,13 @@ TabGroup()(
 )
 ```
 
-## Setting the Active Tab
+## Examples
+
+### Setting the Active Tab
 
 To make a tab active, set the `active` attribute to the name of the appropriate panel.
 
-```scala preview
+```scala preview h-[180px]
 TabGroup(_.active := "advanced")(
   Tab(_.panel := "general")("General"),
   Tab(_.panel := "custom")("Custom"),
@@ -49,11 +52,11 @@ TabGroup(_.active := "advanced")(
 )
 ```
 
-## Tabs on Bottom
+### Tabs on Bottom
 
 Tabs can be shown on the bottom by setting `placement` to `bottom`.
 
-```scala preview
+```scala preview h-[180px]
 TabGroup(_.placement.bottom)(
   Tab(_.panel := "general")("General"),
   Tab(_.panel := "custom")("Custom"),
@@ -66,11 +69,11 @@ TabGroup(_.placement.bottom)(
 )
 ```
 
-## Tabs on Start
+### Tabs on Start
 
 Tabs can be shown on the starting side by setting `placement` to `start`.
 
-```scala preview
+```scala preview h-[300px]
 TabGroup(_.placement.start)(
   Tab(_.panel := "general")("General"),
   Tab(_.panel := "custom")("Custom"),
@@ -83,11 +86,11 @@ TabGroup(_.placement.start)(
 )
 ```
 
-## Tabs on End
+### Tabs on End
 
 Tabs can be shown on the ending side by setting `placement` to `end`.
 
-```scala preview
+```scala preview h-[300px]
 TabGroup(_.placement.end)(
   Tab(_.panel := "general")("General"),
   Tab(_.panel := "custom")("Custom"),
@@ -100,11 +103,11 @@ TabGroup(_.placement.end)(
 )
 ```
 
-## Scrolling Tabs
+### Scrolling Tabs
 
 When there are more tabs than horizontal space allows, the nav will be scrollable.
 
-```scala preview
+```scala preview h-[200px]
 TabGroup()(
   Tab(_.panel := "tab-1")("Tab 1"),
   Tab(_.panel := "tab-2")("Tab 2"),
@@ -149,11 +152,11 @@ TabGroup()(
 )
 ```
 
-## Manual Activation
+### Manual Activation
 
 When focused, keyboard users can press [[Left]] or [[Right]] to select the desired tab. By default, the corresponding tab panel will be shown immediately (automatic activation). You can change this behavior by setting `activation="manual"` which will require the user to press [[Space]] or [[Enter]] before showing the tab panel (manual activation).
 
-```scala preview
+```scala preview h-[200px]
 TabGroup(_.activation.manual)(
   Tab(_.panel := "general")("General"),
   Tab(_.panel := "custom")("Custom"),
