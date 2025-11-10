@@ -1,10 +1,9 @@
 ---
 title: Input
+description: Inputs collect data from the user.
 ---
 
-## Basic
-
-```scala preview
+```scala preview h-[60px]
 val valueVar = Var("Enter something...")
 Input(
   _.value <-- valueVar,
@@ -12,53 +11,59 @@ Input(
 )()
 ```
 
-## Labels
+<Callout>
+This component works with standard `<form>` elements. Please refer to the section on [form controls](/docs/form-controls) to learn more about form submission and client-side validation.
+</Callout>
+
+## Examples
+
+### Labels
 
 Use the `label` attribute to give the input an accessible label. For labels that contain HTML, use the `label` slot instead.
 
-```scala preview
+```scala preview h-[100px]
 Input(
   _.label := "What is your name?"
 )()
 ```
 
-## Hint
+### Hint
 
 Add descriptive hint to an input with the `hint` attribute. For hints that contain HTML, use the `hint` slot instead.
 
-```scala preview
+```scala preview h-[120px]
 Input(
   _.label := "Nickname",
   _.hint  := "What would you like people to call you?"
 )()
 ```
 
-## Placeholders
+### Placeholders
 
 Use the `placeholder` attribute to add a placeholder.
 
-```scala preview
+```scala preview h-[60px]
 Input(
   _.placeholder := "Type something"
 )()
 ```
 
-## Clearable
+### Clearable
 
 Add the `with-clear` attribute to add a clear button when the input has content.
 
-```scala preview
+```scala preview h-[60px]
 Input(
   _.placeholder := "Clearable",
   _.withClear   := true
 )()
 ```
 
-## Toggle Password
+### Toggle Password
 
 Add the `password-toggle` attribute to add a toggle button that will show the password when activated.
 
-```scala preview
+```scala preview h-[60px]
 Input(
   _.typ            := "password",
   _.placeholder    := "Password Toggle",
@@ -66,22 +71,22 @@ Input(
 )()
 ```
 
-## Appearance
+### Appearance
 
 Use the `appearance` attribute to change the input's visual appearance.
 
-```scala preview
+```scala preview h-[60px]
 Input(
   _.placeholder := "Type something",
   _.appearance.filled
 )()
 ```
 
-## Disabled
+### Disabled
 
 Use the `disabled` attribute to disable an input.
 
-```scala preview
+```scala preview h-[60px]
 Input(
   _.placeholder := "Disabled"
 )(
@@ -89,11 +94,11 @@ Input(
 )
 ```
 
-## Sizes
+### Sizes
 
 Use the `size` attribute to change an input's size.
 
-```scala examples vertical
+```scala examples vertical h-[186px]
 Input(
   _.placeholder := "Small",
   _.size.small
@@ -108,11 +113,11 @@ Input(
 )()
 ```
 
-## Pill
+### Pill
 
 Use the `pill` attribute to give inputs rounded edges.
 
-```scala examples vertical
+```scala examples vertical h-[186px]
 Input(
   _.placeholder := "Small",
   _.size.small,
@@ -130,11 +135,11 @@ Input(
 )()
 ```
 
-## Input Types
+### Input Types
 
 The `type` attribute controls the type of input the browser renders.
 
-```scala examples vertical
+```scala examples vertical h-[186px]
 Input(
   _.typ.email,
   _.placeholder := "Email"
@@ -149,11 +154,11 @@ Input(
 )()
 ```
 
-## Start & End Decorations
+### Start & End Decorations
 
 Use the `start` and `end` slots to add presentational elements like `<wa-icon>` within the input.
 
-```scala examples vertical
+```scala examples vertical h-[186px]
 Input(
   _.placeholder := "Small",
   _.size.small,
@@ -174,9 +179,9 @@ Input(
 )()
 ```
 
-## Customizing Label Position
+### Customizing Label Position
 
-Use CSS parts to customize the way form controls are drawn. This example uses CSS grid to position the label to the left of the control, but the possible orientations are nearly endless. The same technique works for inputs, textareas, radio groups, and similar form controls.
+Use [CSS parts](#css-parts) to customize the way form controls are drawn. This example uses CSS grid to position the label to the left of the control, but the possible orientations are nearly endless. The same technique works for inputs, textareas, radio groups, and similar form controls.
 
 ```css forId="label-on-left"
 .label-on-left {
@@ -205,7 +210,7 @@ Use CSS parts to customize the way form controls are drawn. This example uses CS
 }
 ```
 
-```scala example id="label-on-left"
+```scala example id="label-on-left" h-[380px]
 cls := "label-on-left",
 Input(
   _.label := "Name",

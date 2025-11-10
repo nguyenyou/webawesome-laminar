@@ -1,10 +1,11 @@
 ---
-title: QrCode
+title: QR Code
+description: Generates a QR code and renders it using the Canvas API.
 ---
 
-## Basic
+QR codes are useful for providing small pieces of information to users who can quickly scan them with a smartphone. Most smartphones have built-in QR code scanners, so simply pointing the camera at a QR code will decode it and allow the user to visit a website, dial a phone number, read a message, etc.
 
-```scala preview
+```scala preview h-[220px]
 val qrValue = Var("https://shoelace.style/")
 
 div(
@@ -26,11 +27,13 @@ div(
 )
 ```
 
-## Colors
+## Examples
+
+### Colors
 
 Use the `fill` and `background` attributes to modify the QR code's colors. You should always ensure good contrast for optimal compatibility with QR code scanners.
 
-```scala preview
+```scala preview h-[140px]
 QrCode(
   _.value      := "https://shoelace.style/",
   _.fill       := "deeppink",
@@ -38,33 +41,33 @@ QrCode(
 )()
 ```
 
-## Size
+### Size
 
 Use the `size` attribute to change the size of the QR code.
 
-```scala preview
+```scala preview h-[80px]
 QrCode(
   _.value := "https://shoelace.style/",
   _.size  := 64.0
 )()
 ```
 
-## Radius
+### Radius
 
 Create a rounded effect with the `radius` attribute.
 
-```scala preview
+```scala preview h-[140px]
 QrCode(
   _.value  := "https://shoelace.style/",
   _.radius := 0.5
 )()
 ```
 
-## Error Correction
+### Error Correction
 
-QR codes can be rendered with various levels of error correction that can be set using the `error-correction` attribute. This example generates four codes with the same value using different error correction levels.
+QR codes can be rendered with various levels of [error correction](https://www.qrcode.com/en/about/error_correction.html) that can be set using the `error-correction` attribute. This example generates four codes with the same value using different error correction levels.
 
-```scala examples vertical
+```scala examples h-[140px]
 QrCode(
   _.value           := "https://shoelace.style/",
   _.errorCorrection := "L"

@@ -1,10 +1,11 @@
 ---
 title: Mutation Observer
+description: The Mutation Observer component offers a thin, declarative interface to the MutationObserver API.
 ---
 
-## Basic
+The mutation observer will report changes to the content it wraps through the `wa-mutation` event. When emitted, a collection of [MutationRecord](https://developer.mozilla.org/en-US/docs/Web/API/MutationRecord) objects will be attached to `event.detail` that contains information about how it changed.
 
-```scala preview
+```scala preview h-[140px]
 val variants  = List[ThemeVariant]("brand", "success", "neutral", "warning", "danger")
 val clicksVar = Var(0)
 
@@ -29,11 +30,17 @@ div(
 )
 ```
 
-## Child List
+<Callout>
+When you create a mutation observer, you must indicate what changes it should respond to by including at least one of `attr`, `child-list`, or `char-data`. If you don't specify at least one of these attributes, no mutation events will be emitted.
+</Callout>
+
+## Examples
+
+### Child List
 
 Use the `child-list` attribute to watch for new child elements that are added or removed.
 
-```scala preview
+```scala preview h-[140px]
 val buttonCountVar = Var(0)
 
 div(

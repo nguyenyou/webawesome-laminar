@@ -1,40 +1,41 @@
 ---
-title: ProgressBar
+title: Progress Bar
+description: Progress bars are used to show the status of an ongoing operation.
 ---
 
-## Basic
-
-```scala preview
+```scala preview h-[60px]
 ProgressBar(_.value := 40)()
 ```
 
-## Labels
+## Examples
+
+### Labels
 
 Use the `label` attribute to label the progress bar and tell assistive devices how to announce it.
 
-```scala preview
+```scala preview h-[60px]
 ProgressBar(
   _.value := 50,
   _.label := "Upload progress"
 )()
 ```
 
-## Custom Height
+### Custom Height
 
-Use the `height` CSS property to set the progress bar's height.
+Use the `--track-height` custom property to set the progress bar's height.
 
-```scala preview
+```scala preview h-[60px]
 ProgressBar(
   _.value := 50,
   _.style := "--track-height: 6px;"
 )()
 ```
 
-## Showing Values
+### Showing Values
 
 Use the default slot to show a value.
 
-```scala preview
+```scala preview h-[100px]
 val progressValue = Var(50.0)
 
 div(
@@ -66,11 +67,11 @@ div(
 )
 ```
 
-## Indeterminate
+### Indeterminate
 
 The `indeterminate` attribute can be used to inform the user that the operation is pending, but its status cannot currently be determined. In this state, `value` is ignored and the label, if present, will not be shown.
 
-```scala preview
+```scala preview h-[60px]
 ProgressBar(_.indeterminate := true)()
 ```
 

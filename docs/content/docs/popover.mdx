@@ -1,10 +1,11 @@
 ---
 title: Popover
+description: Popovers display interactive content when their anchor element is clicked.
 ---
 
-## Basic
+Popovers display interactive content when their anchor element is clicked. Unlike [tooltips](/docs/components/tooltip), popovers can contain links, buttons, and form controls. They appear without an overlay and will close when you click outside or press [[Escape]]. Only one popover can be open at a time.
 
-```scala example
+```scala example h-[300px] start
 Popover(
   _.forId := "popover__overview"
 )(
@@ -23,11 +24,13 @@ Button(
 )("Show popover")
 ```
 
-## Assigning an Anchor
+## Examples
+
+### Assigning an Anchor
 
 Use `<wa-button>` or `<button>` elements as popover anchors. Connect the popover to its anchor by setting the `for` attribute to match the anchor's `id`.
 
-```scala example
+```scala example h-[300px] start
 cls("flex flex-col items-start gap-4"),
 div(
   Popover(
@@ -52,13 +55,17 @@ div(
 )
 ```
 
-## Opening and Closing
+<Callout type="warning">
+Make sure the anchor element exists in the DOM before the popover connects. If it doesn't exist, the popover won't attach and you'll see a console warning.
+</Callout>
+
+### Opening and Closing
 
 Popovers show when you click their anchor element. You can also control them programmatically by setting the `open` property to `true` or `false`.
 
 Use `_.close.popover` on any button inside a popover to close it automatically.
 
-```scala example
+```scala example h-[300px] start
 Popover(
   _.forId := "popover__opening"
 )(
@@ -76,11 +83,11 @@ Button(
 )("Show popover")
 ```
 
-## Placement
+### Placement
 
 Use the `placement` attribute to set where the popover appears relative to its anchor. The popover will automatically reposition if there isn't enough space in the preferred location. The default placement is `top`.
 
-```scala example
+```scala example h-[300px] start
 cls("flex gap-4 items-center"),
 div(
   Button(
@@ -120,11 +127,11 @@ div(
 )
 ```
 
-## Distance
+### Distance
 
 Use the `distance` attribute to control how far the popover appears from its anchor.
 
-```scala example
+```scala example h-[300px] start
 cls("flex gap-4 items-center"),
 div(
   Button(
@@ -146,11 +153,11 @@ div(
 )
 ```
 
-## Arrow Size
+### Arrow Size
 
-Use the `--arrow-size` custom property to change the size of the popover's arrow. Set it to `0` to remove the arrow entirely.
+Use the `--arrow-size` custom property to change the size of the popover's arrow. To remove it, use the `without-arrow` attribute.
 
-```scala example
+```scala example h-[300px] start
 cls("flex gap-4 items-center"),
 div(
   Button(
@@ -172,11 +179,11 @@ div(
 )
 ```
 
-## Setting a Maximum Width
+### Setting a Maximum Width
 
 Use the `--max-width` custom property to control the maximum width of the popover.
 
-```scala example
+```scala example h-[400px] start
 Button(
   _.id := "popover__max-width"
 )("Toggle me"),
@@ -188,11 +195,11 @@ Popover(
 )
 ```
 
-## Setting Focus
+### Setting Focus
 
-Use the `autofocus` global attribute to move focus to a specific form control when the popover opens.
+Use the [`autofocus`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autofocus) global attribute to move focus to a specific form control when the popover opens.
 
-```scala example
+```scala example h-[300px] start
 Popover(
   _.forId := "popover__autofocus"
 )(

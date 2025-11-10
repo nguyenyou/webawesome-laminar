@@ -1,51 +1,52 @@
 ---
-title: ProgressRing
+title: Progress Ring
+description: Progress rings are used to show the progress of a determinate operation in a circular fashion.
 ---
 
-## Basic
-
-```scala preview
+```scala preview h-[160px]
 ProgressRing(_.value := 25)()
 ```
 
-## Size
+## Examples
+
+### Size
 
 Use the `--size` custom property to set the diameter of the progress ring.
 
-```scala preview
+```scala preview h-[220px]
 ProgressRing(
   _.value := 50,
   _.style := "--size: 200px;"
 )()
 ```
 
-## Track and Indicator Width
+### Track and Indicator Width
 
 Use the `--track-width` and `--indicator-width` custom properties to set the width of the progress ring's track and indicator.
 
-```scala preview
+```scala preview h-[160px]
 ProgressRing(
   _.value := 50,
   _.style := "--track-width: 6px; --indicator-width: 12px;"
 )()
 ```
 
-## Colors
+### Colors
 
 To change the color, use the `--track-color` and `--indicator-color` custom properties.
 
-```scala preview
+```scala preview h-[160px]
 ProgressRing(
   _.value := 50,
   _.style := "--track-color: pink; --indicator-color: deeppink;"
 )()
 ```
 
-## Labels
+### Labels
 
 Use the default slot to show a label inside the progress ring.
 
-```scala preview
+```scala preview h-[220px]
 val progressValue = Var(50.0)
 
 div(
