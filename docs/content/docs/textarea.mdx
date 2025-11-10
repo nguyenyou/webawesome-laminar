@@ -1,108 +1,113 @@
 ---
 title: Textarea
+description: Textareas collect data from the user and allow multiple lines of text.
 ---
 
-## Basic
-
-```scala preview
+```scala preview h-[160px]
 Textarea(_.label := "Type something', will ya")()
 ```
 
-## Labels
+<Callout>
+This component works with standard `<form>` elements. Please refer to the section on [form controls](/docs/form-controls) to learn more about form submission and client-side validation.
+</Callout>
+
+## Examples
+
+### Labels
 
 Use the `label` attribute to give the textarea an accessible label. For labels that contain HTML, use the `label` slot instead.
 
-```scala preview
+```scala preview h-[160px]
 Textarea(_.label := "Comments")()
 ```
 
-## Hint
+### Hint
 
 Add descriptive hint to a textarea with the `hint` attribute. For hints that contain HTML, use the `hint` slot instead.
 
-```scala preview
+```scala preview h-[160px]
 Textarea(_.label := "Feedback", _.hint := "Please tell us what you think.")()
 ```
 
-## Rows
+### Rows
 
 Use the `rows` attribute to change the number of text rows that get shown.
 
-```scala preview
+```scala preview h-[80px]
 Textarea(_.rows := 2)()
 ```
 
-## Placeholders
+### Placeholders
 
 Use the `placeholder` attribute to add a placeholder.
 
-```scala preview
+```scala preview h-[120px]
 Textarea(_.placeholder := "Type something")()
 ```
 
-## Appearance
+### Appearance
 
 Use the `appearance` attribute to change the textarea's visual appearance.
 
-```scala preview
+```scala preview h-[120px]
 Textarea(_.placeholder := "Type something", _.appearance := "filled")()
 ```
 
-## Disabled
+### Disabled
 
 Use the `disabled` attribute to disable a textarea.
 
-```scala preview
+```scala preview h-[120px]
 Textarea(_.placeholder := "Textarea", _.disabled := true)()
 ```
 
-## Value
+### Value
 
 Use the `value` attribute to set an initial value.
 
-```scala preview
+```scala preview h-[120px]
 Textarea(_.value := "Write something awesome!")()
 ```
 
-## Sizes
+### Sizes
 
 Use the `size` attribute to change a textarea's size.
 
-```scala examples vertical
+```scala examples vertical h-[360px]
 Textarea(_.placeholder := "Small", _.size.small)()
 Textarea(_.placeholder := "Medium", _.size.medium)()
 Textarea(_.placeholder := "Large", _.size.large)()
 ```
 
-## Prevent Resizing
+### Prevent Resizing
 
 By default, textareas can be resized vertically by the user. To prevent resizing, set the `resize` attribute to `none`.
 
-```scala preview
+```scala preview h-[120px]
 Textarea(_.resize.none)()
 ```
 
-## Expand with Content
+### Expand with Content
 
 Textareas will automatically resize to expand to fit their content when `resize` is set to `auto`.
 
-```scala preview
+```scala preview h-[120px]
 Textarea(_.resize.auto)()
 ```
 
-## Resize horizontal
+### Resize horizontal
 
 Textareas can be made to resize horizontally when `resize` is set to `"horizontal"`
 
-```scala preview
+```scala preview h-[120px]
 Textarea(_.resize.horizontal)()
 ```
 
-## Resize both
+### Resize both
 
 Textareas can be made to resize both vertically and horizontally when `resize` is set to `"both"`
 
-```scala preview
+```scala preview h-[120px]
 Textarea(_.resize.both)()
 ```
 

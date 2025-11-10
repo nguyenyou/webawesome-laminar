@@ -1,10 +1,11 @@
 ---
 title: Tooltip
+description: Tooltips display additional information based on a specific action.
 ---
 
-## Basic
+A tooltip's target is based on the `for` attribute which points to an element id.
 
-```scala example
+```scala example h-[140px] center
 Tooltip(
   _.forId := "tooltip-trigger"
 )("This is a tooltip"),
@@ -13,11 +14,13 @@ Button(
 )("Hover Me")
 ```
 
-## Placement
+## Examples
+
+### Placement
 
 Use the `placement` attribute to set the preferred placement of the tooltip.
 
-```css forId="tooltip-placement-example"
+```css forId="tooltip-placement-example" 
 .tooltip-placement-example {
   width: 250px;
   margin: 1rem;
@@ -40,7 +43,7 @@ Use the `placement` attribute to set the preferred placement of the tooltip.
 }
 ```
 
-```scala example id="tooltip-placement-example"
+```scala example id="tooltip-placement-example" h-[400px] center
 div(
   cls("tooltip-placement-example"),
   div(
@@ -85,11 +88,11 @@ Tooltip(_.forId := "tooltip-bottom", _.placement.bottom)("bottom"),
 Tooltip(_.forId := "tooltip-bottom-end", _.placement.bottomEnd)("bottom-end")
 ```
 
-## Click Trigger
+### Click Trigger
 
 Set the `trigger` attribute to `click` to toggle the tooltip on click instead of hover.
 
-```scala example
+```scala example h-[140px] center
 Tooltip(
   _.forId   := "toggle-button",
   _.trigger := "click"
@@ -97,11 +100,11 @@ Tooltip(
 Button(_.id := "toggle-button")("Hover Me")
 ```
 
-## Manual Trigger
+### Manual Trigger
 
 Tooltips can be controller programmatically by setting the `trigger` attribute to `manual`. Use the `open` attribute to control when the tooltip is shown.
 
-```scala preview
+```scala preview h-[140px]
 val openVar = Var(false)
 div(
   Button()(
@@ -120,26 +123,34 @@ div(
 )
 ```
 
-## Removing Arrows
+### Removing Arrows
 
-You can control the size of tooltip arrows by overriding the `--wa-tooltip-arrow-size` design token. To remove them, set the value to `0` as shown below.
+You can control the size of tooltip arrows by overriding the `--wa-tooltip-arrow-size` design token. To remove the arrow, use the `without-arrow` attribute.
 
-```scala example
+```scala example h-[140px]
 Tooltip(
   _.forId := "no-arrow",
-  _.style := "--wa-tooltip-arrow-size: 0;"
+  _.withoutArrow := true
 )("This is a tooltip with no arrow"),
 Button(_.id := "no-arrow")("No Arrow")
 ```
 
-## HTML in Tooltips
+To override it globally, set it in a root block in your stylesheet after the Web Awesome stylesheet is loaded.
+
+```css
+:root {
+  --wa-tooltip-arrow-size: 0;
+}
+```
+
+### HTML in Tooltips
 
 Use the default slot to create tooltips with HTML content. Tooltips are designed only for text and presentational elements. Avoid placing interactive content, such as buttons, links, and form controls, in a tooltip.
 
-```scala example
+```scala example h-[200px]
 Tooltip(
   _.forId := "rich-tooltip",
-  _.style := "--wa-tooltip-arrow-size: 0;"
+  _.withoutArrow := true
 )(
   div(
     "I'm not ",
@@ -152,11 +163,11 @@ Tooltip(
 Button(_.id := "rich-tooltip")("Hover me")
 ```
 
-## Setting a Maximum Width
+### Setting a Maximum Width
 
 Use the `--max-width` custom property to change the width the tooltip can grow to before wrapping occurs.
 
-```scala example
+```scala example h-[200px] start
 Tooltip(
   _.forId := "wrapping-tooltip",
   _.style := "--max-width: 80px;"

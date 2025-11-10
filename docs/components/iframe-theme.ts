@@ -132,12 +132,19 @@ export const createSrcDoc = ({
     align-items: ${align === "start" ? "start" : "center"};
     ${justify === "center" ? "justify-content: center;" : ""}
   }
+  .container {
+    flex-grow: 1;
+    ${justify === "center" ? `
+      display: grid;
+      place-items: center;
+    ` : ""}
+  }
 </style>
 ${css ? `<style>${css}</style>` : ""}
 
 </head>
 <body class="${padding || 'p-2'} transition-colors duration-400">
- <div style="flex-grow: 1;" id="${exampleId}"></div>
+ <div class="container" id="${exampleId}"></div>
  
  <script type="module">
   ${code || ""}

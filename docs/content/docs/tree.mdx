@@ -1,10 +1,9 @@
 ---
 title: Tree
+description: Trees allow you to display a hierarchical list of selectable tree items. Items with children can be expanded and collapsed as desired by the user.
 ---
 
-## Basic
-
-```scala preview
+```scala preview h-[200px] start
 Tree(_.selection.multiple)(
   TreeItem()(
     "Parent Node",
@@ -18,9 +17,9 @@ Tree(_.selection.multiple)(
 )
 ```
 
-## Basic Tree
+### Basic Tree 
 
-```scala preview
+```scala preview h-[400px] start
 Tree()(
   TreeItem()(
     "Deciduous",
@@ -48,7 +47,9 @@ Tree()(
 )
 ```
 
-## Selection Modes
+## Examples
+
+### Selection Modes
 
 The `selection` attribute lets you change the selection behavior of the tree.
 
@@ -56,7 +57,7 @@ The `selection` attribute lets you change the selection behavior of the tree.
 - Use `multiple` to allow the selection of multiple items.
 - Use `leaf` to only allow leaf nodes to be selected.
 
-```scala preview
+```scala preview h-[400px] start
 val selectionMode = Var(TreeSelection.single.value)
 
 div(
@@ -95,11 +96,11 @@ div(
 )
 ```
 
-## Showing Indent Guides
+### Showing Indent Guides
 
 Indent guides can be drawn by setting `--indent-guide-width`. You can also change the color, offset, and style, using `--indent-guide-color`, `--indent-guide-style`, and `--indent-guide-offset`, respectively.
 
-```scala preview
+```scala preview h-[400px] start
 Tree(_.style := "--indent-guide-width: 1px")(
   TreeItem(_.expanded := true)(
     "Deciduous",
@@ -127,7 +128,7 @@ Tree(_.style := "--indent-guide-width: 1px")(
 )
 ```
 
-## Customizing the Expand and Collapse Icons
+### Customizing the Expand and Collapse Icons
 
 Use the `expand-icon` and `collapse-icon` slots to change the expand and collapse icons, respectively. To disable the animation, override the `rotate` property on the `expand-button` part as shown below.
 
@@ -138,7 +139,7 @@ Use the `expand-icon` and `collapse-icon` slots to change the expand and collaps
 }
 ```
 
-```scala preview id="custom-icons"
+```scala preview id="custom-icons" h-[400px] start
 Tree(
   _.slots.expandIcon(Icon(_.name := "square-plus", _.variant := "solid")()),
   _.slots.collapseIcon(Icon(_.name := "square-minus", _.variant := "solid")())
@@ -170,11 +171,11 @@ Tree(
 )
 ```
 
-## With Icons
+### With Icons
 
 Decorative icons can be used before labels to provide hints for each node.
 
-```scala preview
+```scala preview h-[400px] start
 Tree()(
   TreeItem(_.expanded := true)(
     Icon(_.name := "folder", _.variant := "regular")(),
