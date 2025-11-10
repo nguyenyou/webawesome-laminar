@@ -4,7 +4,7 @@ title: Callout
 
 ## Basic
 
-```scala preview
+```scala preview h-[68px] p-0
 Callout(
   _.slots.icon(Icon(_.name := "circle-info")())
 )(
@@ -16,7 +16,7 @@ Callout(
 
 Use the `variant` attribute to set the callout's semantic variant.
 
-```scala examples vertical
+```scala examples vertical h-[430px]
 Callout(
   _.variant.brand,
   _.slots.icon(Icon(_.name := "circle-info")())
@@ -63,7 +63,7 @@ Callout(
 
 Use the `appearance` attribute to change the callout's visual appearance (the default is `outlined filled`).
 
-```scala examples vertical
+```scala examples vertical  h-[340px]
 Callout(
   _.variant.brand,
   _.appearance.accent,
@@ -115,7 +115,7 @@ Callout(
 
 Use the `size` attribute to change a callout's size.
 
-```scala examples vertical
+```scala examples vertical h-[220px]
 Callout(
   _.size.large,
   _.slots.icon(Icon(_.name := "circle-info")())
@@ -140,7 +140,7 @@ Callout(
 
 Icons are optional. Simply omit the `icon` slot if you don't want them.
 
-```scala preview
+```scala preview h-[72px] p-0
 Callout(_.variant.brand)(
   "Nothing fancy here, just a simple callout."
 )

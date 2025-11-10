@@ -123,6 +123,10 @@ export const createSrcDoc = ({
   html, body {
     margin: 0;
   }
+  body {
+    display: flex;
+    align-items: center;
+  }
 </style>
 ${css ? `<style>${css}</style>` : ""}
 

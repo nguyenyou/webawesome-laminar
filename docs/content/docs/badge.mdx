@@ -1,14 +1,15 @@
 ---
 title: Badge
+description: Badges are used to draw attention and display statuses or counts.
 ---
-
-## Basic
 
 ```scala preview h-[40px]
 Badge()("Badge")
 ```
 
-## Variants
+## Examples
+
+### Variants
 
 Set the `variant` attribute to change the badge's variant.
 
@@ -20,7 +21,7 @@ Badge(_.variant.warning)("Warning")
 Badge(_.variant.danger)("Danger")
 ```
 
-## Appearance
+### Appearance
 
 Use the `appearance` attribute to change the badge's visual appearance.
 
@@ -51,7 +52,7 @@ Badge(_.appearance.filled, _.variant.danger)("Filled")
 Badge(_.appearance.outlined, _.variant.danger)("Outlined")
 ```
 
-## Size
+### Size
 
 Badges are sized relative to the current font size. You can set `font-size` on any badge (or an ancestor element) to change it.
 
@@ -88,7 +89,7 @@ Badge(
 )
 ```
 
-## Pill Badges
+### Pill Badges
 
 Use the `pill` attribute to give badges rounded edges.
 
@@ -100,7 +101,7 @@ Badge(_.variant.warning, _.pill := true)("Warning")
 Badge(_.variant.danger, _.pill := true)("Danger")
 ```
 
-## Drawing Attention
+### Drawing Attention
 
 Use the `attention` attribute to draw attention to the badge with a subtle animation. Supported effects are `bounce`, `pulse` and `none`.
 
@@ -118,7 +119,7 @@ Badge(_.variant.warning, _.attention.bounce, _.pill := true)("1")
 Badge(_.variant.danger, _.attention.bounce, _.pill := true)("1")
 ```
 
-## With Button
+### With Buttons
 
 One of the most common use cases for badges is attaching them to buttons. To make this easier, badges will be automatically positioned at the top-right when they're a child of a button.
 
