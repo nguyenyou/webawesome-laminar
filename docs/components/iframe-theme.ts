@@ -125,11 +125,7 @@ export const createSrcDoc = ({
   }
 </style>
 ${css ? `<style>${css}</style>` : ""}
-<style type="text/tailwindcss">
-@layer theme, base, components, utilities;
-@import "tailwindcss/theme.css" layer(theme);
-@import "tailwindcss/utilities.css" layer(utilities);
-</style>
+
 </head>
 <body class="${padding || 'p-2'} transition-colors duration-400">
  <div id="${exampleId}"></div>

@@ -104,7 +104,16 @@ export const Preview = ({
             if (!doc) return;
             const script = doc.createElement("script");
             script.src = "https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4";
-            doc.body.appendChild(script);
+            doc.head.appendChild(script);
+
+            const styleTag: HTMLStyleElement = doc.createElement("style");
+            styleTag.setAttribute("type", "text/tailwindcss");
+            styleTag.textContent = `
+              @layer theme, base, components, utilities;
+              @import "tailwindcss/theme.css" layer(theme);
+              @import "tailwindcss/utilities.css" layer(utilities);
+            `
+            doc.head.appendChild(styleTag);
             
             // Apply initial theme
             applyInitialTheme(doc, theme);
