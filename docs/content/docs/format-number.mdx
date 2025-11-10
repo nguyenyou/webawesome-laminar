@@ -1,10 +1,11 @@
 ---
 title: Format Number
+description: Formats a number using the specified locale and options.
 ---
 
-## Basic
+Localization is handled by the browser's [`Intl.NumberFormat` API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat). No language packs are required.
 
-```scala preview
+```scala preview h-[180px]
 val valueVar = Var("1000")
 
 div(
@@ -21,11 +22,13 @@ div(
 )
 ```
 
-## Percentages
+## Examples
+
+### Percentages
 
 To get the value as a percent, set the `type` attribute to `percent`.
 
-```scala examples vertical
+```scala examples vertical h-[200px]
 FormatNumber(_.`type`.percent, _.value := 0)()
 FormatNumber(_.`type`.percent, _.value := 0.25)()
 FormatNumber(_.`type`.percent, _.value := 0.50)()
@@ -33,11 +36,11 @@ FormatNumber(_.`type`.percent, _.value := 0.75)()
 FormatNumber(_.`type`.percent, _.value := 1)()
 ```
 
-## Currency
+### Currency
 
-To format a number as a monetary value, set the `type` attribute to `currency` and set the `currency` attribute to the desired ISO 4217 currency code.
+To format a number as a monetary value, set the `type` attribute to `currency` and set the `currency` attribute to the desired ISO 4217 currency code. You should also specify `lang` to ensure the the number is formatted correctly for the target locale.
 
-```scala examples vertical
+```scala examples vertical h-[200px]
 div("USD: ", FormatNumber(_.`type`.currency, _.currency := "USD", _.value := 2000)())
 div("GBP: ", FormatNumber(_.`type`.currency, _.currency := "GBP", _.value := 2000)())
 div("EUR: ", FormatNumber(_.`type`.currency, _.currency := "EUR", _.value := 2000)())
@@ -45,11 +48,11 @@ div("JPY: ", FormatNumber(_.`type`.currency, _.currency := "JPY", _.value := 200
 div("CNY: ", FormatNumber(_.`type`.currency, _.currency := "CNY", _.value := 2000)())
 ```
 
-## Fraction Digits
+### Fraction Digits
 
 Use `minimum-fraction-digits` and `maximum-fraction-digits` to control decimal precision.
 
-```scala examples vertical
+```scala examples vertical h-[180px]
 div("Default: ", FormatNumber(_.value := 3.14159)())
 div("Min 2 digits: ", FormatNumber(_.value := 3.14159, _.minimumFractionDigits := 2.0)())
 div("Max 2 digits: ", FormatNumber(_.value := 3.14159, _.maximumFractionDigits := 2.0)())
@@ -59,11 +62,11 @@ div(
 )
 ```
 
-## Grouping Separators
+### Grouping Separators
 
 Use the `without-grouping` attribute to turn off grouping separators.
 
-```scala examples vertical
+```scala examples vertical h-[100px]
 div("With grouping: ", FormatNumber(_.value := 1000000)())
 div("Without grouping: ", FormatNumber(_.value := 1000000, _.withoutGrouping := true)())
 ```

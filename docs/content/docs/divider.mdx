@@ -1,38 +1,39 @@
 ---
 title: Divider
+description: Dividers are used to visually separate or group elements.
 ---
 
-## Basic
-
-```scala preview
+```scala preview h-[80px]
 Divider()()
 ```
 
-## Width
+## Examples
+
+### Width
 
 Use the `--width` custom property to change the width of the divider.
 
-```scala preview
+```scala preview h-[80px]
 Divider(
   _.style := "--width: 4px;" 
 )()
 ```
 
-## Color
+### Color
 
 Use the `--color` custom property to change the color of the divider.
 
-```scala preview
+```scala preview h-[80px]
 Divider(
   _.style := "--color: tomato;" 
 )()
 ```
 
-## Spacing
+### Spacing
 
 Use the `--spacing` custom property to change the amount of space between the divider and it's neighboring elements.
 
-```scala preview
+```scala preview h-[160px]
 div(
   textAlign.center,
   "Above",
@@ -43,11 +44,11 @@ div(
 )
 ```
 
-## Orientation
+### Orientation
 
 The default orientation for dividers is `horizontal`. Set `orientation` attribute to `vertical` to draw a vertical divider. The divider will span the full height of its container.
 
-```scala preview
+```scala preview h-[80px]
 div(
   display.flex,
   alignItems.center,
@@ -63,11 +64,11 @@ div(
 )
 ```
 
-## Menu Dividers
+### Dropdown Dividers
 
-Use dividers in menus to visually group menu items.
+Use dividers in [dropdowns](/docs/components/dropdown) to visually group dropdown items.
 
-```scala preview
+```scala preview h-[300px] start
 Dropdown(
   _.slots.trigger(
     Button(

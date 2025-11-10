@@ -1,22 +1,31 @@
 ---
 title: Icon
+description: Icons are symbols that can be used to represent various options within an application.
 ---
 
-## Basic
+Web Awesome comes bundled with over 2,000 free icons courtesy of [Font Awesome](https://fontawesome.com/). These icons are part of the `default` icon library. Font Awesome Pro users can unlock additional icon families. Or, if you prefer, you can register your own [custom icon library](#icon-library).
 
-```scala preview
+```scala preview h-[40px]
 Icon(
   _.name := "star"
 )()
 ```
 
-## Families & Variants
+<Callout>
+Not sure which icon to use? [Find the perfect icon over at Font Awesome!](https://fontawesome.com/search?o=r&m=free&f=brands%2Cclassic)
+</Callout>
+
+## Examples
+
+### Families & Variants
 
 The default icon library is Font Awesome Free, which comes with two icon families: `classic` and `brands`. Use the `family` attribute to set the icon family.
 
-Many Font Awesome Pro icon families have variants such as `thin`, `light`, `regular`, and `solid`. Font Awesome Pro users can [provide their kit code](/docs/#using-font-awesome-kit-codes) to unlock additional families, including `sharp`, `duotone`, and `sharp-duotone`. For these icon families, use the `variant` attribute to set the variant.
+Many Font Awesome Pro icon families have variants such as `thin`, `light`, `regular`, and `solid`. Font Awesome Pro users can [provide their kit code](/docs/#using-font-awesome-kit-codes) to unlock additional premium icon families, including `sharp`, `duotone`, `sharp-duotone`, and additional Pro+ icon packs.
 
-```scala examples
+For supportive icon families, use the `variant` attribute to set the variant.
+
+```scala examples h-[40px]
 Icon(
   _.name := "eyedropper"
 )()
@@ -34,11 +43,39 @@ Icon(
 )()
 ```
 
-## Colors
+### Labels
+
+For non-decorative icons, use the `label` attribute to announce it to assistive devices.
+
+```scala preview h-[40px]
+Icon(
+  _.name  := "star",
+  _.label := "Add to favorites"
+)()
+```
+
+### Sizing
+
+Icons are sized relative to the current font size. To change their size, set the `font-size` property on the icon itself or on a parent element as shown below.
+
+```scala preview h-[60px]
+div(
+  fontSize := "32px",
+  cls("flex gap-2"),
+  Icon(_.name := "bell")(),
+  Icon(_.name := "heart")(),
+  Icon(_.name := "image")(),
+  Icon(_.name := "microphone")(),
+  Icon(_.name := "search")(),
+  Icon(_.name := "star")()
+)
+```
+
+### Colors
 
 Icons inherit their color from the current text color. Thus, you can set the `color` property on the `<wa-icon>` element or an ancestor to change the color.
 
-```scala examples vertical
+```scala examples vertical h-[160px]
 div(
   color := "#4a90e2",
   cls("flex gap-2 mb-2"),
@@ -73,39 +110,11 @@ div(
 )
 ```
 
-## Sizing
-
-Icons are sized relative to the current font size. To change their size, set the `font-size` property on the icon itself or on a parent element as shown below.
-
-```scala preview
-div(
-  fontSize := "32px",
-  cls("flex gap-2"),
-  Icon(_.name := "bell")(),
-  Icon(_.name := "heart")(),
-  Icon(_.name := "image")(),
-  Icon(_.name := "microphone")(),
-  Icon(_.name := "search")(),
-  Icon(_.name := "star")()
-)
-```
-
-## Labels
-
-For non-decorative icons, use the `label` attribute to announce it to assistive devices.
-
-```scala preview
-Icon(
-  _.name  := "star",
-  _.label := "Add to favorites"
-)()
-```
-
-## Custom Icons
+### Custom Icons
 
 Custom icons can be loaded individually with the `src` attribute. Only SVGs on a local or CORS-enabled endpoint are supported. If you're using more than one custom icon, it might make sense to register a [custom icon library](#icon-libraries).
 
-```scala preview
+```scala preview h-[120px]
 Icon(
   _.src   := "https://shoelace.style/assets/images/shoe.svg",
   _.style := "font-size: 4rem;"

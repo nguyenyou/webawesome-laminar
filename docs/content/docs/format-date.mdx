@@ -1,19 +1,28 @@
 ---
 title: Format Date
+description: Formats a date/time using the specified locale and options.
 ---
 
-## Basic
+Localization is handled by the browser's [`Intl.DateTimeFormat` API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat). No language packs are required.
 
-```scala example
+```scala example h-[120px]
 p("Web Awesome 2 release date 🎉"),
 FormatDate(_.date := "2020-07-15T09:17:00-04:00")()
 ```
 
-## Date & Time Formatting
+The `date` attribute determines the date/time to use when formatting. It must be a string that [`Date.parse()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse) can interpret or a [`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) object set via JavaScript. If omitted, the current date/time will be assumed.
+
+<Callout>
+When using strings, avoid ambiguous dates such as `03/04/2020` which can be interpreted as March 4 or April 3 depending on the user's browser and locale. Instead, always use a valid [ISO 8601 date time string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse#Date_Time_String_Format) to ensure the date will be parsed properly by all clients.
+</Callout>
+
+## Examples
+
+### Date & Time Formatting
 
 Formatting options are based on those found in the [`Intl.DateTimeFormat` API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat). When formatting options are provided, the date/time will be formatted according to those values. When no formatting options are provided, a localized, numeric date will be displayed instead.
 
-```scala examples vertical
+```scala examples vertical h-[240px]
 div("Human-readable date: ", FormatDate(_.month.long, _.day.numeric, _.year.numeric)())
 div("Time: ", FormatDate(_.hour.numeric, _.minute.numeric)())
 div("Weekday: ", FormatDate(_.weekday.long)())
@@ -22,20 +31,20 @@ div("Year: ", FormatDate(_.year.numeric)())
 div("No formatting options: ", FormatDate()())
 ```
 
-## Hour Formatting
+### Hour Formatting
 
 By default, the browser will determine whether to use 12-hour or 24-hour time. To force one or the other, set the `hour-format` attribute to `12` or `24`.
 
-```scala examples vertical
+```scala examples vertical h-[80px]
 div("12-hour: ", FormatDate(_.hour.numeric, _.minute.numeric, _.hourFormat := "12")())
 div("24-hour: ", FormatDate(_.hour.numeric, _.minute.numeric, _.hourFormat := "24")())
 ```
 
-## Time Zone
+### Time Zone
 
 Use the `time-zone` attribute to express the time in a specific time zone.
 
-```scala examples vertical
+```scala examples vertical h-[120px]
 div("UTC: ", FormatDate(_.hour.numeric, _.minute.numeric, _.timeZone := "UTC")())
 div(
   "Pacific: ",

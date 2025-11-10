@@ -1,10 +1,9 @@
 ---
 title: Format Bytes
+description: Formats a number as a human readable bytes value.
 ---
 
-## Basic
-
-```scala preview
+```scala preview h-[160px]
 val valueVar = Var("1000")
 
 div(
@@ -20,33 +19,35 @@ div(
 )
 ```
 
-## Formatting Bytes
+## Examples
+
+### Formatting Bytes
 
 Set the `value` attribute to a number to get the value in bytes.
 
-```scala examples
+```scala examples vertical h-[160px]
 FormatBytes(_.value := 12)()
 FormatBytes(_.value := 1200)()
 FormatBytes(_.value := 1200000)()
 FormatBytes(_.value := 1200000000)()
 ```
 
-## Formatting Bits
+### Formatting Bits
 
 To get the value in bits, set the `unit` attribute to `bit`.
 
-```scala examples
+```scala examples vertical h-[160px]
 FormatBytes(_.value := 12, _.unit.bit)()
 FormatBytes(_.value := 1200, _.unit.bit)()
 FormatBytes(_.value := 1200000, _.unit.bit)()
 FormatBytes(_.value := 1200000000, _.unit.bit)()
 ```
 
-## Display Format
+### Display Format
 
 Use the `display` attribute to control how the result is displayed. Valid values are "long", "short", and "narrow".
 
-```scala examples
+```scala examples vertical h-[140px]
 FormatBytes(_.value := 1200000, _.display.long)()
 FormatBytes(_.value := 1200000, _.display.short)()
 FormatBytes(_.value := 1200000, _.display.narrow)()
