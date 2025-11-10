@@ -8,6 +8,7 @@ import {
   useIframeThemeSync,
   applyInitialTheme,
   createSrcDoc,
+  convertPaddingToStyle,
 } from "./iframe-theme";
 import { Spinner } from "./spinner";
 
@@ -79,6 +80,7 @@ export const Preview = ({
   }, [code, compiledSjsPath]);
 
   const displayCode = exampleCode || "";
+  const paddingStyle = convertPaddingToStyle(padding);
 
   // Sync theme updates to iframe
   useIframeThemeSync(ref, theme);
@@ -140,12 +142,12 @@ export const Preview = ({
         ></Frame>
       ) : null}
       {/* DynamicCodeBlock always shows */}
-      <div className={padding}>
+      <div style={paddingStyle}>
         <DynamicCodeBlock code={displayCode} lang="scala" />
       </div>
       {/* Show CSS code block if showCss is provided */}
       {showCss && (
-        <div className={padding}>
+        <div style={paddingStyle}>
           <DynamicCodeBlock code={showCss} lang="css" />
         </div>
       )}

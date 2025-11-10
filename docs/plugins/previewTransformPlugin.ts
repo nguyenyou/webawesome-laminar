@@ -51,9 +51,9 @@ const parseHeightFromMeta = (meta: string | null | undefined): string | undefine
 /**
  * Parse Tailwind padding class from code block meta string
  * Looks for Tailwind padding classes (p-, px-, py-, pt-, pb-, pl-, pr-)
+ * Only matches numeric values (e.g., p-4, px-4, py-2), not arbitrary values like p-[20px]
  * e.g., "preview p-4" -> "p-4"
  * e.g., "preview px-4 py-2" -> "px-4" (returns first match)
- * e.g., "preview p-[20px]" -> "p-[20px]"
  * Returns undefined if padding class is not found or meta is null/undefined
  */
 const parsePaddingFromMeta = (meta: string | null | undefined): string | undefined => {
@@ -61,9 +61,10 @@ const parsePaddingFromMeta = (meta: string | null | undefined): string | undefin
     return undefined;
   }
   
-  // Match Tailwind padding class pattern (p, px, py, pt, pb, pl, or pr followed by - and any non-whitespace characters)
-  // This matches classes like p-4, px-4, py-2, pt-8, pb-4, pl-6, pr-6, p-[20px], etc.
-  const paddingMatch = meta.match(/\b(p|px|py|pt|pb|pl|pr)-[^\s]+/);
+  // Match Tailwind padding class pattern with numeric values only (p, px, py, pt, pb, pl, or pr followed by - and digits)
+  // This matches classes like p-4, px-4, py-2, pt-8, pb-4, pl-6, pr-6
+  // Excludes arbitrary values like p-[20px]
+  const paddingMatch = meta.match(/\b(p|px|py|pt|pb|pl|pr)-\d+/);
   return paddingMatch ? paddingMatch[0] : undefined;
 };
 

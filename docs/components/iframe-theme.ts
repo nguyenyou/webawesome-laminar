@@ -23,6 +23,78 @@ export const getForegroundColor = (): string => {
   return value || '';
 };
 
+// Convert Tailwind padding class to React style object
+// Multiplies the number by 4px (e.g., p-3 → { padding: '12px' })
+export const convertPaddingToStyle = (padding: string | undefined): React.CSSProperties => {
+  if (!padding) {
+    return { padding: '8px' }; // Default to p-2 (8px)
+  }
+
+  // Match numeric padding classes: p-3, px-4, py-2, pt-8, pb-4, pl-6, pr-6
+  const match = padding.match(/^(p|px|py|pt|pb|pl|pr)-(\d+)$/);
+  if (!match) {
+    return { padding: '8px' }; // Default to p-2 if invalid
+  }
+
+  const [, type, value] = match;
+  const pixels = `${parseInt(value, 10) * 4}px`;
+
+  switch (type) {
+    case 'p':
+      return { padding: pixels };
+    case 'px':
+      return { paddingLeft: pixels, paddingRight: pixels };
+    case 'py':
+      return { paddingTop: pixels, paddingBottom: pixels };
+    case 'pt':
+      return { paddingTop: pixels };
+    case 'pb':
+      return { paddingBottom: pixels };
+    case 'pl':
+      return { paddingLeft: pixels };
+    case 'pr':
+      return { paddingRight: pixels };
+    default:
+      return { padding: '8px' }; // Default to p-2
+  }
+};
+
+// Convert Tailwind padding class to CSS pixel values
+// Multiplies the number by 4px (e.g., p-3 → padding: 12px)
+export const convertPaddingToCSS = (padding: string | undefined): string => {
+  if (!padding) {
+    return 'padding: 8px'; // Default to p-2 (8px)
+  }
+
+  // Match numeric padding classes: p-3, px-4, py-2, pt-8, pb-4, pl-6, pr-6
+  const match = padding.match(/^(p|px|py|pt|pb|pl|pr)-(\d+)$/);
+  if (!match) {
+    return 'padding: 8px'; // Default to p-2 if invalid
+  }
+
+  const [, type, value] = match;
+  const pixels = parseInt(value, 10) * 4;
+
+  switch (type) {
+    case 'p':
+      return `padding: ${pixels}px`;
+    case 'px':
+      return `padding-left: ${pixels}px; padding-right: ${pixels}px`;
+    case 'py':
+      return `padding-top: ${pixels}px; padding-bottom: ${pixels}px`;
+    case 'pt':
+      return `padding-top: ${pixels}px`;
+    case 'pb':
+      return `padding-bottom: ${pixels}px`;
+    case 'pl':
+      return `padding-left: ${pixels}px`;
+    case 'pr':
+      return `padding-right: ${pixels}px`;
+    default:
+      return 'padding: 8px'; // Default to p-2
+  }
+};
+
 // Resolve theme from 'system' to 'dark' or 'light'
 const resolveTheme = (theme: string | undefined): 'dark' | 'light' => {
   if (theme === 'system' || !theme) {
@@ -131,6 +203,7 @@ export const createSrcDoc = ({
     display: flex;
     align-items: ${align === "start" ? "start" : "center"};
     ${justify === "center" ? "justify-content: center;" : ""}
+    ${convertPaddingToCSS(padding || 'p-2')};
   }
   .container {
     flex-grow: 1;
@@ -143,7 +216,7 @@ export const createSrcDoc = ({
 ${css ? `<style>${css}</style>` : ""}
 
 </head>
-<body class="${padding || 'p-2'} transition-colors duration-400">
+<body class="transition-colors duration-400">
  <div class="container" id="${exampleId}"></div>
  
  <script type="module">
