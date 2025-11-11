@@ -4,6 +4,7 @@ import {
   frontmatterSchema,
   metaSchema,
 } from 'fumadocs-mdx/config';
+import { remarkMdxFiles } from 'fumadocs-core/mdx-plugins';
 import { millModulePlugin } from './plugins/millModulePlugin';
 import { previewTransformPlugin } from './plugins/previewTransformPlugin';
 
@@ -24,6 +25,6 @@ export const docs = defineDocs({
 
 export default defineConfig({
   mdxOptions: {
-    remarkPlugins: [millModulePlugin, previewTransformPlugin],
+    remarkPlugins: [millModulePlugin, previewTransformPlugin, remarkMdxFiles],
   },
 });
