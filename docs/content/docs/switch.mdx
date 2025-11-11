@@ -3,7 +3,7 @@ title: Switch
 description: Switches allow the user to toggle an option on or off.
 ---
 
-```scala preview h-[60px]
+```scala preview h-[200px]
 val checked = Var(true)
 Switch(
   _.checked <-- checked,
@@ -21,7 +21,7 @@ This component works with standard `<form>` elements. Please refer to the sectio
 
 Use the `checked` attribute to activate the switch.
 
-```scala preview h-[60px]
+```scala preview h-[200px]
 Switch(_.checked := true)("Switch")
 ```
 
@@ -29,7 +29,7 @@ Switch(_.checked := true)("Switch")
 
 Use the `disabled` attribute to disable the switch.
 
-```scala preview h-[60px]
+```scala preview h-[200px]
 Switch(_.disabled := true)("Switch")
 ```
 
@@ -37,7 +37,7 @@ Switch(_.disabled := true)("Switch")
 
 Use the `size` attribute to change a switch's size.
 
-```scala examples vertical h-[120px]
+```scala examples vertical h-[200px]
 Switch(_.size.small)("Switch")
 Switch(_.size.medium)("Switch")
 Switch(_.size.large)("Switch")
@@ -47,7 +47,7 @@ Switch(_.size.large)("Switch")
 
 Add descriptive hint to a switch with the `hint` attribute. For hints that contain HTML, use the `hint` slot instead.
 
-```scala preview h-[80px]
+```scala preview h-[200px]
 Switch(_.hint := "What should the user know about the switch?")("Switch")
 ```
 
@@ -55,7 +55,7 @@ Switch(_.hint := "What should the user know about the switch?")("Switch")
 
 Use the available custom properties to change how the switch is styled.
 
-```scala preview h-[80px]
+```scala preview h-[200px]
 Switch(
   _.style := "--width: 80px; --height: 40px; --thumb-size: 36px;"
 )("Really big")

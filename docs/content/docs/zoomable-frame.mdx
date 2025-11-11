@@ -3,7 +3,7 @@ title: Zoomable Frame
 description: Zoomable frames render iframe content with zoom and interaction controls.
 ---
 
-```scala preview h-[400px]
+```scala preview h-[600px] stretch
 ZoomableFrame(
   _.src  := "https://webawesome.com/",
   _.zoom := 0.5
@@ -17,7 +17,7 @@ ZoomableFrame(
 Use the `src` attribute to embed external websites or resources. The URL must be accessible, and cross-origin restrictions may apply due to the Same-Origin Policy, potentially limiting access to the iframe's content.
 
 
-```scala preview h-[400px]
+```scala preview h-[600px] stretch
 ZoomableFrame(_.src := "https://example.com/")()
 ```
 
@@ -25,7 +25,7 @@ ZoomableFrame(_.src := "https://example.com/")()
 
 The zoomable frame fills 100% width by default with a 16:9 aspect ratio. Customize this using the `aspect-ratio` CSS property.
 
-```scala preview h-[400px]
+```scala preview h-[600px] stretch
 ZoomableFrame(_.src := "https://example.com/")(
   styleAttr := "aspect-ratio: 4/3;"
 )
@@ -35,7 +35,7 @@ ZoomableFrame(_.src := "https://example.com/")(
 
 Use the `srcdoc` attribute or property to display custom HTML content directly within the iframe, perfect for rendering inline content without external resources.
 
-```scala preview h-[400px]
+```scala preview h-[600px] stretch
 ZoomableFrame(
   _.srcdoc := "<html><body><h1>Hello, World!</h1><p>This is inline content.</p></body></html>"
 )()
@@ -45,7 +45,7 @@ ZoomableFrame(
 
 Set the `zoom` attribute to control the frame's zoom level. Use `1` for 100%, `2` for 200%, `0.5` for 50%, and so on. Define specific zoom increments with the `zoom-levels` attribute using space-separated percentages and decimal values.
 
-```scala preview h-[400px]
+```scala preview h-[600px] stretch
 ZoomableFrame(
   _.src        := "https://webawesome.com/",
   _.zoom       := 0.5,
@@ -57,7 +57,7 @@ ZoomableFrame(
 
 Add the `without-controls` attribute to hide the zoom control interface from the frame.
 
-```scala preview h-[400px]
+```scala preview h-[600px] stretch
 ZoomableFrame(
   _.src             := "https://webawesome.com/",
   _.withoutControls := true,
@@ -69,7 +69,7 @@ ZoomableFrame(
 
 Apply the `without-interaction` attribute to make the frame non-interactive. Note that this prevents keyboard navigation into the frame, which may impact accessibility for some users.
 
-```scala preview h-[400px]
+```scala preview h-[600px] stretch
 ZoomableFrame(
   _.src                := "https://webawesome.com/",
   _.zoom               := 0.5,

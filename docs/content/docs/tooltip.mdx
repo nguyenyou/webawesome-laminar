@@ -5,7 +5,7 @@ description: Tooltips display additional information based on a specific action.
 
 A tooltip's target is based on the `for` attribute which points to an element id.
 
-```scala example h-[140px]
+```scala example h-[300px]
 Tooltip(
   _.forId := "tooltip-trigger"
 )("This is a tooltip"),
@@ -92,7 +92,7 @@ Tooltip(_.forId := "tooltip-bottom-end", _.placement.bottomEnd)("bottom-end")
 
 Set the `trigger` attribute to `click` to toggle the tooltip on click instead of hover.
 
-```scala example h-[140px]
+```scala example h-[300px]
 Tooltip(
   _.forId   := "toggle-button",
   _.trigger := "click"
@@ -104,7 +104,7 @@ Button(_.id := "toggle-button")("Hover Me")
 
 Tooltips can be controller programmatically by setting the `trigger` attribute to `manual`. Use the `open` attribute to control when the tooltip is shown.
 
-```scala preview h-[140px]
+```scala preview h-[300px]
 val openVar = Var(false)
 div(
   Button()(
@@ -127,7 +127,7 @@ div(
 
 You can control the size of tooltip arrows by overriding the `--wa-tooltip-arrow-size` design token. To remove the arrow, use the `without-arrow` attribute.
 
-```scala example h-[140px]
+```scala example h-[300px]
 Tooltip(
   _.forId := "no-arrow",
   _.withoutArrow := true
@@ -147,7 +147,7 @@ To override it globally, set it in a root block in your stylesheet after the Web
 
 Use the default slot to create tooltips with HTML content. Tooltips are designed only for text and presentational elements. Avoid placing interactive content, such as buttons, links, and form controls, in a tooltip.
 
-```scala example h-[200px]
+```scala example h-[300px]
 Tooltip(
   _.forId := "rich-tooltip",
   _.withoutArrow := true
@@ -167,7 +167,7 @@ Button(_.id := "rich-tooltip")("Hover me")
 
 Use the `--max-width` custom property to change the width the tooltip can grow to before wrapping occurs.
 
-```scala example h-[200px] start
+```scala example h-[300px]
 Tooltip(
   _.forId := "wrapping-tooltip",
   _.style := "--max-width: 80px;"

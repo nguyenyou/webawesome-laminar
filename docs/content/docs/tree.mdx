@@ -3,7 +3,7 @@ title: Tree
 description: Trees allow you to display a hierarchical list of selectable tree items. Items with children can be expanded and collapsed as desired by the user.
 ---
 
-```scala preview h-[200px] start
+```scala preview h-[400px] stretch
 Tree(_.selection.multiple)(
   TreeItem()(
     "Parent Node",
@@ -19,7 +19,7 @@ Tree(_.selection.multiple)(
 
 ### Basic Tree 
 
-```scala preview h-[400px] start
+```scala preview h-[600px] stretch
 Tree()(
   TreeItem()(
     "Deciduous",
@@ -57,7 +57,7 @@ The `selection` attribute lets you change the selection behavior of the tree.
 - Use `multiple` to allow the selection of multiple items.
 - Use `leaf` to only allow leaf nodes to be selected.
 
-```scala preview h-[400px] start
+```scala preview h-[600px] stretch
 val selectionMode = Var(TreeSelection.single.value)
 
 div(
@@ -100,7 +100,7 @@ div(
 
 Indent guides can be drawn by setting `--indent-guide-width`. You can also change the color, offset, and style, using `--indent-guide-color`, `--indent-guide-style`, and `--indent-guide-offset`, respectively.
 
-```scala preview h-[400px] start
+```scala preview h-[600px] stretch
 Tree(_.style := "--indent-guide-width: 1px")(
   TreeItem(_.expanded := true)(
     "Deciduous",
@@ -139,7 +139,7 @@ Use the `expand-icon` and `collapse-icon` slots to change the expand and collaps
 }
 ```
 
-```scala preview id="custom-icons" h-[400px] start
+```scala preview id="custom-icons" h-[600px] stretch
 Tree(
   _.slots.expandIcon(Icon(_.name := "square-plus", _.variant := "solid")()),
   _.slots.collapseIcon(Icon(_.name := "square-minus", _.variant := "solid")())
@@ -175,7 +175,7 @@ Tree(
 
 Decorative icons can be used before labels to provide hints for each node.
 
-```scala preview h-[400px] start
+```scala preview h-[600px] stretch
 Tree()(
   TreeItem(_.expanded := true)(
     Icon(_.name := "folder", _.variant := "regular")(),

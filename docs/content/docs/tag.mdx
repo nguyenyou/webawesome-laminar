@@ -3,7 +3,7 @@ title: Tag
 description: Tags are used as labels to organize things or to indicate a selection.
 ---
 
-```scala examples h-[48px]
+```scala examples h-[200px]
 Tag(_.variant.brand)("Brand")
 Tag(_.variant.success)("Success")
 Tag(_.variant.neutral)("Neutral")
@@ -18,7 +18,7 @@ Tag(_.variant.danger)("Danger")
 Use the `size` attribute to change a tag's visual appearance.
 The default appearance is `filled-outlined`.
 
-```scala examples h-[220px]
+```scala examples h-[400px]
 Tag(_.variant.brand, _.appearance.accent)("Accent")
 Tag(_.variant.brand, _.appearance.filledOutlined)("Filled + Outlined")
 Tag(_.variant.brand, _.appearance.filled)("Filled")
@@ -49,7 +49,7 @@ Tag(_.variant.danger, _.appearance.outlined)("Outlined")
 
 Use the `size` attribute to change a tag's size.
 
-```scala examples h-[60px]
+```scala examples h-[200px]
 Tag(_.size.small)("Small")
 Tag(_.size.medium)("Medium")
 Tag(_.size.large)("Large")
@@ -59,7 +59,7 @@ Tag(_.size.large)("Large")
 
 Use the `pill` attribute to give tabs rounded edges.
 
-```scala examples h-[60px]
+```scala examples h-[200px]
 Tag(_.size.small, _.pill := true)("Small")
 Tag(_.size.medium, _.pill := true)("Medium")
 Tag(_.size.large, _.pill := true)("Large")
@@ -69,7 +69,7 @@ Tag(_.size.large, _.pill := true)("Large")
 
 Use the `with-remove` attribute to add a remove button to the tag.
 
-```scala examples h-[60px]
+```scala examples h-[200px]
 Tag(_.size.small, _.withRemove := true)("Small")
 Tag(_.size.medium, _.withRemove := true)("Medium")
 Tag(_.size.large, _.withRemove := true)("Large")

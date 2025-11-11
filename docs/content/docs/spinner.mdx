@@ -3,7 +3,7 @@ title: Spinner
 description: Spinners are used to show the progress of an indeterminate operation.
 ---
 
-```scala preview h-[40px]
+```scala preview h-[200px]
 Spinner()()
 ```
 
@@ -13,7 +13,7 @@ Spinner()()
 
 Spinners are sized based on the current font size. To change their size, set the `font-size` property on the spinner itself or on a parent element as shown below.
 
-```scala examples h-[100px]
+```scala examples h-[200px]
 Spinner()()
 Spinner(
   _.style := "font-size: 2rem;"
@@ -27,7 +27,7 @@ Spinner(
 
 The width of the spinner's track can be changed by setting the `--track-width` custom property.
 
-```scala preview h-[100px]
+```scala preview h-[200px]
 Spinner(
   _.style := "font-size: 50px; --track-width: 10px;"
 )()
@@ -37,7 +37,7 @@ Spinner(
 
 The spinner's colors can be changed by setting the `--indicator-color` and `--track-color` custom properties.
 
-```scala preview h-[100px]
+```scala preview h-[200px]
 Spinner(
   _.style := "font-size: 3rem; --indicator-color: deeppink; --track-color: pink;"
 )()
