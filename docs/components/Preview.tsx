@@ -1,7 +1,5 @@
 "use client";
 import { Frame } from "@ark-ui/react/frame";
-import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock";
-import { Tabs, Tab } from "fumadocs-ui/components/tabs";
 import { useRef, useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import {
@@ -11,6 +9,7 @@ import {
   convertPaddingToStyle,
 } from "./iframe-theme";
 import { Spinner } from "./spinner";
+import { DynamicCodeBlock } from "./dynamic-codeblock";
 
 export const Preview = ({
   code,
@@ -19,10 +18,9 @@ export const Preview = ({
   exampleId = "example1",
   height,
   css,
-  padding = "p-2",
+  padding = "p-0",
   showCss,
   align,
-  justify,
 }: {
   code?: string;
   compiledSjsPath?: string;
@@ -33,7 +31,6 @@ export const Preview = ({
   padding?: string;
   showCss?: string;
   align?: string;
-  justify?: string;
 }) => {
   const h = height ?? "h-(--height)";
   const ref = useRef<HTMLIFrameElement>(null);
@@ -93,12 +90,11 @@ export const Preview = ({
         css,
         padding,
         align,
-        justify,
       })
     : null;
 
   return (
-    <div className="border p-4 rounded-xl flex flex-col gap-2">
+    <div className="rounded-xl flex flex-col border overflow-hidden">
       {/* Frame component area - shows loading/error or actual Frame */}
       {isLoading ? (
         <div
@@ -118,7 +114,7 @@ export const Preview = ({
         <Frame
           ref={ref}
           title="Preview"
-          className={`outline-none rounded-xl bg-fd-background w-full ${h}`}
+          className={`outline-none bg-fd-background w-full ${h}`}
           srcDoc={srcDoc}
           onMount={() => {
             const doc = ref.current?.contentDocument;

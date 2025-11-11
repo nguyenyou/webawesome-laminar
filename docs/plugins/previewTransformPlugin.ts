@@ -325,7 +325,6 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
       const padding = parsePaddingFromMeta(node.meta);
       const previewId = parseIdFromMeta(node.meta);
       const align = parseAlignFromMeta(node.meta);
-      const justify = parseJustifyFromMeta(node.meta);
       
       // Look up matching CSS content if id is specified
       const cssData = previewId ? cssByForId.get(previewId) : undefined;
@@ -375,15 +374,6 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
           type: "mdxJsxAttribute",
           name: "align",
           value: align,
-        });
-      }
-
-      // Add justify attribute if justify value is found
-      if (justify) {
-        attributes.push({
-          type: "mdxJsxAttribute",
-          name: "justify",
-          value: justify,
         });
       }
 

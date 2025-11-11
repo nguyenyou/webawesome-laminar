@@ -180,14 +180,12 @@ export const createSrcDoc = ({
   css,
   padding,
   align,
-  justify,
 }: {
   exampleId: string;
   code: string;
   css?: string;
   padding?: string;
   align?: string;
-  justify?: string;
 }): string => {
   return `<html>
 <head>
@@ -202,15 +200,13 @@ export const createSrcDoc = ({
   body {
     display: flex;
     align-items: ${align === "start" ? "start" : "center"};
-    ${justify === "center" ? "justify-content: center;" : ""}
     ${convertPaddingToCSS(padding || 'p-2')};
+    justify-content: center;
   }
   .container {
     flex-grow: 1;
-    ${justify === "center" ? `
-      display: grid;
-      place-items: center;
-    ` : ""}
+    display: grid;
+    place-items: center;
   }
 </style>
 ${css ? `<style>${css}</style>` : ""}

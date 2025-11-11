@@ -5,7 +5,7 @@ description: Tooltips display additional information based on a specific action.
 
 A tooltip's target is based on the `for` attribute which points to an element id.
 
-```scala example h-[140px] center
+```scala example h-[140px]
 Tooltip(
   _.forId := "tooltip-trigger"
 )("This is a tooltip"),
@@ -43,7 +43,7 @@ Use the `placement` attribute to set the preferred placement of the tooltip.
 }
 ```
 
-```scala example id="tooltip-placement-example" h-[400px] center
+```scala example id="tooltip-placement-example" h-[400px]
 div(
   cls("tooltip-placement-example"),
   div(
@@ -92,7 +92,7 @@ Tooltip(_.forId := "tooltip-bottom-end", _.placement.bottomEnd)("bottom-end")
 
 Set the `trigger` attribute to `click` to toggle the tooltip on click instead of hover.
 
-```scala example h-[140px] center
+```scala example h-[140px]
 Tooltip(
   _.forId   := "toggle-button",
   _.trigger := "click"
