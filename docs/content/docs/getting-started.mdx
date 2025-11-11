@@ -1,0 +1,126 @@
+---
+title: Getting Started
+description: A step-by-step guide to get started with the library.
+---
+
+## Install Scala CLI
+```sh
+brew install Virtuslab/scala-cli/scala-cli
+```
+
+Other installation methods: https://scala-cli.virtuslab.org/install
+
+## Install Bun
+```sh
+curl -fsSL https://bun.sh/install | bash
+```
+
+Other installation methods: https://bun.sh/install
+
+## Create a new project
+
+```sh
+mkdir myapp && cd myapp
+```
+
+## Install WebAwesome
+
+```sh
+bun add @awesome.me/webawesome
+```
+
+To this point, your project should look like this:
+
+```sh
+myapp/
+└── package.json
+```
+
+```json title="package.json"
+{
+  "dependencies": {
+    "@awesome.me/webawesome": "3.0.0"
+  }
+}
+```
+
+## Copy these two files
+
+### main.scala
+
+```scala title="main.scala"
+//> using scala 3.7.3
+//> using platform scala-js
+
+//> using dep "org.scala-js::scalajs-dom::2.8.1"
+//> using dep "com.raquo::laminar::17.2.1"
+//> using dep "io.github.nguyenyou::webawesome-laminar::3.0.0"
+
+//> using jsModuleKind es
+
+import org.scalajs.dom
+
+import com.raquo.laminar.api.L.*
+import io.github.nguyenyou.webawesome.laminar.*
+import scala.scalajs.js
+import scala.scalajs.js.annotation.JSImport
+
+@JSImport("@awesome.me/webawesome/dist/styles/webawesome.css", JSImport.Namespace)
+@js.native object Stylesheet extends js.Object
+val _ = Stylesheet
+
+@main
+def run(): Unit = {
+  val container = dom.document.getElementById("app")
+  render(container, Button()("WebAwesome"))
+}
+```
+
+### index.html
+
+```html title="index.html"
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
+```
+
+To this point, your project should look like this:
+
+```sh
+myapp/
+├── main.scala
+├── index.html
+└── package.json
+```
+
+## Compile scalajs to javascript
+
+```sh
+scala-cli --power package main.scala -f -o main.js
+```
+
+After compilation, your project should look like this:
+
+```sh
+myapp/
+├── main.scala
+├── main.js
+├── index.html
+└── package.json
+```
+
+## Run the application
+
+```sh
+bun index.html
+```
+
+Open http://localhost:3000 to see the application.
