@@ -3,7 +3,7 @@ title: Copy Button
 description: Copies data to the clipboard when the user clicks the button.
 ---
 
-```scala preview h-[100px] start
+```scala preview h-[140px]
 CopyButton(
   _.value := "Web Awesome rocks!"
 )()
@@ -19,7 +19,7 @@ Copy buttons use the browser's [`clipboard.writeText()`](https://developer.mozil
 
 Copy Buttons display feedback in a tooltip. You can customize the labels using the `copy-label`, `success-label`, and `error-label` attributes.
 
-```scala preview h-[100px] start
+```scala preview h-[140px]
 CopyButton(
   _.value        := "Custom labels are easy",
   _.copyLabel    := "Click to copy",
@@ -32,7 +32,7 @@ CopyButton(
 
 Use the `copy-icon`, `success-icon`, and `error-icon` slots to customize the icons that get displayed for each state. You can use [`<wa-icon>`](/docs/components/icon) or your own images.
 
-```scala preview h-[100px] start
+```scala preview h-[140px]
 CopyButton(
   _.value := "Copied from a custom button",
   _.slots.copyIcon(Icon(_.name := "clipboard", _.variant := "regular")()),
@@ -85,7 +85,7 @@ A copy error will occur if the value is an empty string, if the `from` attribute
 
 This example demonstrates what happens when a copy error occurs. You can customize the error label and icon using the `error-label` attribute and the `error-icon` slot, respectively.
 
-```scala preview h-[100px] start
+```scala preview h-[140px]
 CopyButton(_.from := "i-do-not-exist")()
 ```
 
@@ -93,7 +93,7 @@ CopyButton(_.from := "i-do-not-exist")()
 
 Copy buttons can be disabled by adding the `disabled` attribute.
 
-```scala preview h-[100px] start
+```scala preview h-[140px]
 CopyButton(
   _.value    := "You can't copy me",
   _.disabled := true
@@ -104,7 +104,7 @@ CopyButton(
 
 A success indicator is briefly shown after copying. You can customize the length of time the indicator is shown using the `feedback-duration` attribute.
 
-```scala preview h-[100px] start
+```scala preview h-[140px]
 CopyButton(
   _.value            := "Web Awesome rocks!",
   _.feedbackDuration := 250
@@ -145,7 +145,7 @@ You can customize the button to your liking with CSS.
 }
 ```
 
-```scala preview id="custom-styles" h-[100px] start
+```scala preview id="custom-styles" h-[140px]
 CopyButton(
   _.value := "I'm so stylish",
   _.slots.copyIcon(Icon(_.name := "clipboard")()),
