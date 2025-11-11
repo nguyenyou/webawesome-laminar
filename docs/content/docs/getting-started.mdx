@@ -3,21 +3,44 @@ title: Getting Started
 description: A step-by-step guide to get started with the library.
 ---
 
-## Install Scala CLI
+This guide will walk you through creating a simple application using WebAwesome components with Laminar. By the end, you'll have a working web application that displays a WebAwesome button component.
+
+This guide demonstrates one setup approach using [Scala CLI](https://scala-cli.virtuslab.org/) and [Bun](https://bun.sh/). You can adapt these steps to use your preferred build tools (Mill or sbt) and package managers (npm, yarn, or pnpm).
+
+## Prerequisites
+
+This guide uses the following tools, but alternatives are available:
+
+### Build Tool
+
+This guide uses **Scala CLI** to compile Scala code to JavaScript. Install it using Homebrew:
+
 ```sh
 brew install Virtuslab/scala-cli/scala-cli
 ```
 
-Other installation methods: https://scala-cli.virtuslab.org/install
+For other installation methods, visit: https://scala-cli.virtuslab.org/install
 
-## Install Bun
+> **Alternative build tools:** If you prefer using Mill or sbt, you can adapt the dependency declarations to your build tool's syntax. The core dependencies you'll need are:
+> - `org.scala-js::scalajs-dom::2.8.1`
+> - `com.raquo::laminar::17.2.1`
+> - `io.github.nguyenyou::webawesome-laminar::3.0.0`
+
+### Package Manager and Development Server
+
+This guide uses **Bun** for package management and serving the application. Install it with:
+
 ```sh
 curl -fsSL https://bun.sh/install | bash
 ```
 
-Other installation methods: https://bun.sh/install
+For other installation methods, visit: https://bun.sh/install
 
-## Create a new project
+> **Alternatives:** You can use npm, yarn, or pnpm for package management, and Vite or any other static file server for development. Adapt the commands accordingly.
+
+## Create Your Project
+
+Start by creating a new directory for your project:
 
 ```sh
 mkdir myapp && cd myapp
@@ -25,16 +48,24 @@ mkdir myapp && cd myapp
 
 ## Install WebAwesome
 
+Install the WebAwesome library, which provides the web components we'll use. This example uses Bun, but you can use npm, yarn, or pnpm:
+
 ```sh
 bun add @awesome.me/webawesome
 ```
 
-To this point, your project should look like this:
+If using npm: `npm install @awesome.me/webawesome`  
+If using yarn: `yarn add @awesome.me/webawesome`  
+If using pnpm: `pnpm add @awesome.me/webawesome`
+
+Your project structure should now look like this:
 
 ```sh
 myapp/
 └── package.json
 ```
+
+The `package.json` file should contain:
 
 ```json title="package.json"
 {
@@ -44,9 +75,13 @@ myapp/
 }
 ```
 
-## Copy these two files
+## Create Application Files
+
+Now let's create the two files needed for your application:
 
 ### main.scala
+
+This is your main Scala application file. It sets up the Scala.js environment, imports necessary dependencies, and renders a WebAwesome button component:
 
 ```scala title="main.scala"
 //> using scala 3.7.3
@@ -76,7 +111,14 @@ def run(): Unit = {
 }
 ```
 
+**Key parts explained:**
+- The `//> using` directives are Scala CLI syntax that configure Scala.js and include the necessary dependencies. If using Mill or sbt, declare these dependencies in your build file instead.
+- The `@JSImport` annotation imports the WebAwesome CSS stylesheet
+- The `run()` function finds the container element and renders a `Button` component using Laminar
+
 ### index.html
+
+This HTML file serves as the entry point for your application:
 
 ```html title="index.html"
 <!DOCTYPE html>
@@ -92,7 +134,9 @@ def run(): Unit = {
 </html>
 ```
 
-To this point, your project should look like this:
+The `<div id="app">` is where your Laminar application will mount, and the script tag loads the compiled JavaScript.
+
+Your project structure should now look like this:
 
 ```sh
 myapp/
@@ -101,13 +145,19 @@ myapp/
 └── package.json
 ```
 
-## Compile scalajs to javascript
+## Compile Scala.js to JavaScript
+
+Compile your Scala code to JavaScript. This example uses Scala CLI:
 
 ```sh
 scala-cli --power package main.scala -f -o main.js
 ```
 
-After compilation, your project should look like this:
+This command compiles your Scala source code into JavaScript that can run in the browser. The `-f` flag creates a single file bundle, and `-o main.js` specifies the output filename.
+
+> **Using Mill or sbt:** Configure your build tool to compile Scala.js and output to `main.js` (or adjust the script path in `index.html` to match your output).
+
+After compilation, your project structure will include the generated JavaScript file:
 
 ```sh
 myapp/
@@ -117,10 +167,23 @@ myapp/
 └── package.json
 ```
 
-## Run the application
+## Run the Application
+
+Start a local development server. This example uses Bun:
 
 ```sh
 bun index.html
 ```
 
-Open http://localhost:3000 to see the application.
+This will start a server and automatically open your browser. Navigate to http://localhost:3000 to see your application running with the WebAwesome button component.
+
+> **Alternative servers:** You can use Vite (`vite`), Python's HTTP server (`python -m http.server`), or any other static file server. Adjust the port number if your server uses a different port.
+
+## What's Next?
+
+Now that you have a working application, here are some next steps:
+
+- Explore the [component documentation](/docs) to see all available WebAwesome components
+- Check out the [Button component](/docs/button) to learn about its various options and features
+- Try adding more components to your application
+- Customize components using attributes and styling options
