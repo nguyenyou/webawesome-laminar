@@ -180,12 +180,14 @@ export const createSrcDoc = ({
   css,
   padding,
   align,
+  stretch,
 }: {
   exampleId: string;
   code: string;
   css?: string;
   padding?: string;
   align?: string;
+  stretch?: boolean;
 }): string => {
   return `<html>
 <head>
@@ -206,7 +208,7 @@ export const createSrcDoc = ({
   .container {
     flex-grow: 1;
     display: grid;
-    place-items: center;
+    place-items: ${stretch ? "stretch" : "center"};
   }
 </style>
 ${css ? `<style>${css}</style>` : ""}

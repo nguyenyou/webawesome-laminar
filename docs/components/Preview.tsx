@@ -21,6 +21,7 @@ export const Preview = ({
   padding = "p-0",
   showCss,
   align,
+  stretch,
 }: {
   code?: string;
   compiledSjsPath?: string;
@@ -31,6 +32,7 @@ export const Preview = ({
   padding?: string;
   showCss?: string;
   align?: string;
+  stretch?: boolean | string;
 }) => {
   const h = height ?? "h-(--height)";
   const ref = useRef<HTMLIFrameElement>(null);
@@ -82,6 +84,9 @@ export const Preview = ({
   // Sync theme updates to iframe
   useIframeThemeSync(ref, theme);
 
+  // Convert stretch prop to boolean (MDX passes string "true", but React can also pass boolean)
+  const stretchBoolean = stretch === true || stretch === "true";
+
   // Create srcDoc only when code is available
   const srcDoc = fetchedCode
     ? createSrcDoc({
@@ -90,6 +95,7 @@ export const Preview = ({
         css,
         padding,
         align,
+        stretch: stretchBoolean,
       })
     : null;
 

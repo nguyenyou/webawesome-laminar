@@ -3,7 +3,7 @@ title: Slider
 description: Ranges allow the user to select a single value within a given range using a slider.
 ---
 
-```scala preview h-[140px]
+```scala preview h-[200px] stretch
 val valueVar = Var(3.0)
 
 Slider(
@@ -31,7 +31,7 @@ This component works with standard `<form>` elements. Please refer to the sectio
 
 Use the `label` attribute to give the slider an accessible label. For labels that contain HTML, use the `label` slot instead.
 
-```scala preview h-[100px] p-4
+```scala preview h-[200px] stretch
 Slider(
   _.label := "Volumn",
   _.min   := 0,
@@ -43,7 +43,7 @@ Slider(
 
 Add descriptive hint to a slider with the `hint` attribute. For hints that contain HTML, use the `hint` slot instead.
 
-```scala preview h-[120px]
+```scala preview h-[200px] stretch
 Slider(
   _.label := "Volumn",
   _.hint  := "Controls the volume of the current song.",
@@ -57,7 +57,7 @@ Slider(
 
 Use the `with-tooltip` attribute to display a tooltip with the current value when the slider is focused or being dragged.
 
-```scala preview h-[120px]
+```scala preview h-[200px] stretch
 Slider(
   _.label       := "Quality",
   _.name        := "quality",
@@ -89,7 +89,7 @@ Slider(
 
 Use the `with-markers` attribute to display visual indicators at each step increment. This works best with sliders that have a smaller range of values.
 
-```scala preview h-[120px]
+```scala preview h-[200px] stretch
 Slider(
   _.label       := "Size",
   _.name        := "size",
@@ -104,7 +104,7 @@ Slider(
 
 Use the `reference` slot to add contextual labels below the slider. References are automatically spaced using `space-between`, making them easy to align with the start, center, and end positions.
 
-```scala preview h-[140px]
+```scala preview h-[200px] stretch
 Slider(
   _.label       := "Speed",
   _.name        := "speed",
@@ -127,7 +127,7 @@ If you want to show a reference next to a specific marker, you can add `position
 
 Set the `orientation` attribute to `vertical` to create a vertical slider. Vertical sliders automatically center themselves and fill the available vertical space.
 
-```scala preview h-[240px]
+```scala preview h-[240px] stretch
 div(
   cls("flex gap-4"),
   Slider(
@@ -158,7 +158,7 @@ div(
 
 Control the slider's size using the `size` attribute. Valid options include `small`, `medium`, and `large`.
 
-```scala examples vertical h-[240px]
+```scala examples vertical h-[240px] stretch
 Slider(
   _.label := "Small",
   _.size.small,
@@ -180,7 +180,7 @@ Slider(
 
 By default, the filled indicator extends from the minimum value to the current position. Use the `indicator-offset` attribute to change the starting point of this visual indicator.
 
-```scala preview h-[140px]
+```scala preview h-[200px] stretch
 Slider(
   _.label           := "User Friendliness",
   _.hint            := "Did you find our product easy to use?",
@@ -201,7 +201,7 @@ Slider(
 
 Use the `disabled` attribute to disable a slider.
 
-```scala preview h-[100px]
+```scala preview h-[200px] stretch
 Slider(
   _.label    := "Disabled",
   _.value    := "50",
@@ -213,7 +213,7 @@ Slider(
 
 Mark a slider as required using the `required` attribute. Users must interact with required sliders before the form can be submitted.
 
-```scala preview h-[100px] p-3
+```scala preview h-[200px] stretch
 Slider(
   _.label    := "Required slider",
   _.min      := 0,

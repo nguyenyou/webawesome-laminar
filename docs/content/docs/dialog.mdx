@@ -3,7 +3,7 @@ title: Dialog
 description: 'Dialogs, sometimes called "modals", appear above the page and require the user''s immediate attention.'
 ---
 
-```scala preview h-[400px] start
+```scala preview h-[400px]
 val openEvent = EventBus[Boolean]()
 div(
   Dialog(
@@ -29,7 +29,7 @@ div(
 
 Headers are enabled by default. To render a dialog without a header, add the `without-header` attribute.
 
-```scala preview h-[400px] start
+```scala preview h-[400px]
 val openEvent = EventBus[Boolean]()
 div(
   Dialog(
@@ -54,7 +54,7 @@ div(
 
 Footers can be used to display titles and more. Use the `footer` slot to add a footer to the dialog.
 
-```scala preview h-[400px] start
+```scala preview h-[400px]
 val openEvent = EventBus[Boolean]()
 div(
   Dialog(
@@ -78,7 +78,7 @@ div(
 
 You can open and close dialogs with JavaScript by toggling the `open` attribute, but you can also do it declaratively. Add the `data-dialog="open id"` to any button on the page, where `id` is the ID of the dialog you want to open.
 
-```scala example h-[400px] start
+```scala example h-[400px]
 Dialog(
   _.id    := "dialog-opening", 
   _.label := "Dialog"
@@ -90,7 +90,7 @@ Button(
 
 Similarly, you can add `_.close.dialog` to a button _inside_ of a dialog to tell it to close.
 
-```scala example h-[400px] start
+```scala example h-[400px]
 Dialog(
   _.id    := "dialog-dismiss", 
   _.label := "Dialog",
@@ -110,7 +110,7 @@ Button(
 
 Just use the `--width` custom property to set the dialog's width.
 
-```scala example h-[400px] start
+```scala example h-[400px]
 Dialog(
     _.id    := "dialog-custom-width",
     _.label := "Dialog",
@@ -133,7 +133,7 @@ Button(
 
 By design, a dialog's height will never exceed that of the viewport. As such, dialogs will not scroll with the page ensuring the header and footer are always accessible to the user.
 
-```scala example h-[500px] start
+```scala example h-[500px]
 Dialog(
   _.id    := "dialog-scrolling",
   _.label := "Dialog",
@@ -162,7 +162,7 @@ Button(
 
 The header shows a functional close button by default. You can use the `header-actions` slot to add additional [buttons](/docs/components/button) if needed.
 
-```scala example h-[500px] start
+```scala example h-[500px]
 Dialog(
   _.id    := "dialog-header-actions",
   _.label := "Dialog",
@@ -197,7 +197,7 @@ Button(
 
 If you want the dialog to close when the user clicks on the overlay, add the `light-dismiss` attribute.
 
-```scala example h-[400px] start
+```scala example h-[400px]
 Dialog(
   _.id           := "dialog-light-dismiss",
   _.label        := "Dialog",
@@ -222,7 +222,7 @@ To keep the dialog open in such cases, you can cancel the `wa-hide` event. When 
 
 You can use `event.detail.source` to determine which element triggered the request to close. This example prevents the dialog from closing when the overlay is clicked, but allows the close button or [[Escape]] to dismiss it.
 
-```scala preview h-[400px] start
+```scala preview h-[400px]
 val closeDialogButton = Button(
   _.variant.brand,
   _.close.dialog
@@ -251,7 +251,7 @@ div(
 
 To give focus to a specific element when the dialog opens, use the `autofocus` attribute.
 
-```scala example h-[400px] start
+```scala example h-[400px]
 Dialog(
   _.id    := "dialog-focus",
   _.label := "Dialog",

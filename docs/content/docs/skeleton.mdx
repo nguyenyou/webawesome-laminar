@@ -41,7 +41,7 @@ Skeletons try not to be opinionated, as there are endless possibilities for desi
 }
 ```
 
-```scala preview id="skeleton-overview" h-[220px]
+```scala preview id="skeleton-overview" h-[240px] stretch
 div(
   cls := "skeleton-overview",
   div(
@@ -61,7 +61,7 @@ div(
 
 There are two built-in effects, `sheen` and `pulse`. Effects are intentionally subtle, as they can be distracting when used extensively. The default is `none`, which displays a static, non-animated skeleton.
 
-```scala examples vertical h-[140px]
+```scala examples vertical h-[160px] stretch
 Skeleton(_.effect.none)(height.px(16))
 Skeleton(_.effect.sheen)(height.px(16))
 Skeleton(_.effect.pulse)(height.px(16))
@@ -89,7 +89,7 @@ Use multiple skeletons and some clever styles to simulate paragraphs.
 }
 ```
 
-```scala preview id="skeleton-paragraphs" h-[160px]
+```scala preview id="skeleton-paragraphs" h-[160px] stretch
 div(
   cls := "skeleton-paragraphs",
   Skeleton()(height.px(16)),
@@ -120,7 +120,7 @@ Set a matching width and height to make a circle, square, or rounded avatar skel
 }
 ```
 
-```scala preview id="skeleton-avatars" h-[80px]
+```scala preview id="skeleton-avatars" h-[100px] stretch
 div(
   cls := "skeleton-avatars",
   Skeleton()(height.px(48), width.px(48)),
@@ -181,7 +181,7 @@ Set a `border-radius` on the `indicator` part to make circles, squares, and rect
 }
 ```
 
-```scala preview id="skeleton-shapes" h-[80px]
+```scala preview id="skeleton-shapes" h-[100px] stretch
 div(
   cls := "skeleton-shapes",
   Skeleton()(cls := "square", height.px(48), width.px(48)),
@@ -196,7 +196,7 @@ div(
 
 Set the `--color` and `--sheen-color` custom properties to adjust the skeleton's color.
 
-```scala preview h-[80px]
+```scala preview h-[100px] stretch
 Skeleton(
   _.effect.sheen
 )(

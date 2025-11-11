@@ -3,7 +3,7 @@ title: Details
 description: Details show a brief summary and expand to show additional content.
 ---
 
-```scala preview h-[150px]
+```scala preview h-[200px] stretch
 Details(
   _.summary := "Toggle Details"
 )(
@@ -17,7 +17,7 @@ Details(
 
 Use the `disabled` attribute to prevent the details from expanding.
 
-```scala preview h-[150px] start
+```scala preview h-[200px] stretch
 Details(
   _.summary  := "Disabled",
   _.disabled := true
@@ -30,7 +30,7 @@ Details(
 
 Use the `expand-icon` and `collapse-icon` slots to change the expand and collapse icons, respectively. To disable the animation, override the `rotate` property on the `icon` part as shown below.
 
-```scala preview h-[150px] start
+```scala preview h-[200px] stretch
 Details(
   _.summary := "Toggle Me",
   _.slots.expandIcon(Icon(_.name := "square-plus", _.variant := "regular")()),
@@ -44,7 +44,7 @@ Details(
 
 The default position for the expand and collapse icons is at the end of the summary. Set the `icon-placement` attribute to `start` to place the icon at the start of the summary.
 
-```scala examples vertical h-[320px] start
+```scala examples vertical h-[400px] stretch
 Details(
   _.summary := "Start",
   _.iconPlacement.start
@@ -64,7 +64,7 @@ Details(
 To use HTML in the summary, use the `summary` slot.
 Links and other interactive elements will still retain their behavior:
 
-```scala preview h-[150px] start
+```scala preview h-[200px] stretch
 Details(
   _.slots.summary(
     span(
@@ -82,7 +82,7 @@ Details(
 
 The details component, including its `icon-placement`, automatically adapts to right-to-left languages:
 
-```scala preview h-[150px] start
+```scala preview h-[200px] stretch
 Details(
   _.summary := "تبديلني"
 )(
@@ -96,7 +96,7 @@ Details(
 
 Use the `appearance` attribute to change the element's visual appearance.
 
-```scala examples vertical start h-[400px]
+```scala examples vertical stretch h-[700px]
 Details(
   _.summary := "Outlined (default)"
 )(
@@ -126,7 +126,7 @@ Details(
 
 Use the `name` attribute to create accordion-like behavior where only one details element with the same name can be open at a time. This matches the behavior of native `<details>` elements.
 
-```scala examples vertical start h-[320px]
+```scala examples vertical stretch h-[400px]
 Details(
   _.name    := "group-1",
   _.summary := "Section 1",

@@ -156,6 +156,23 @@ const parseJustifyFromMeta = (meta: string | null | undefined): string | undefin
 };
 
 /**
+ * Parse stretch attribute from code block meta string
+ * Checks if "stretch" keyword is present in meta
+ * e.g., 'scala preview stretch' -> true
+ * e.g., "scala preview stretch h-150" -> true
+ * e.g., "scala preview" -> false
+ * Returns true if found, false otherwise
+ */
+const parseStretchFromMeta = (meta: string | null | undefined): boolean => {
+  if (!meta) {
+    return false;
+  }
+  
+  // Match standalone "stretch" keyword (not part of another word)
+  return /\bstretch\b/.test(meta);
+};
+
+/**
  * Get the docs directory where build output is located
  * Tries multiple strategies to find the docs directory:
  * 1. Check if build output directory exists in current directory (if we're in docs/)
@@ -325,6 +342,7 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
       const padding = parsePaddingFromMeta(node.meta);
       const previewId = parseIdFromMeta(node.meta);
       const align = parseAlignFromMeta(node.meta);
+      const stretch = parseStretchFromMeta(node.meta);
       
       // Look up matching CSS content if id is specified
       const cssData = previewId ? cssByForId.get(previewId) : undefined;
@@ -374,6 +392,15 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
           type: "mdxJsxAttribute",
           name: "align",
           value: align,
+        });
+      }
+
+      // Add stretch attribute if stretch is found
+      if (stretch) {
+        attributes.push({
+          type: "mdxJsxAttribute",
+          name: "stretch",
+          value: "true",
         });
       }
 

@@ -22,7 +22,7 @@ description: Scrollers create an accessible container while providing visual cue
 }
 ```
 
-```scala preview h-[300px]
+```scala preview h-[300px] stretch
 Scroller()(
   idAttr := "scroller__overview",
   table(
@@ -78,7 +78,7 @@ Scroller()(
 
 The scroller component automatically provides a scrollable container for any content that exceeds the available space. Simply add your content as children of the `<wa-scroller>` element, and it will handle the rest.
 
-```scala preview h-[340px]
+```scala preview h-[340px] stretch
 Scroller()(
   div(
     width.px    := 1200,
@@ -119,7 +119,7 @@ Scroller()(
 
 Set the `orientation` attribute to `vertical` and provide a height to create a vertical scroller.
 
-```scala preview h-[200px]
+```scala preview h-[200px] stretch
 Scroller(
   _.orientation.vertical
 )(
@@ -140,7 +140,7 @@ Scroller(
 
 Use the `without-shadow` attribute to remove the fading shadow effect at the edges of the scroller, which typically indicates more content is available.
 
-```scala preview h-[300px]
+```scala preview h-[300px] stretch
 Scroller(
   _.withoutShadow := true
 )(
@@ -163,7 +163,7 @@ Scroller(
 
 Use the `without-scrollbar` attribute to hide the scrollbar while maintaining scroll functionality. This creates a cleaner visual appearance but may reduce usability on content that needs a clear scrolling indicator.
 
-```scala preview h-[300px]
+```scala preview h-[300px] stretch  
 Scroller(
   _.withoutScrollbar := true
 )(
