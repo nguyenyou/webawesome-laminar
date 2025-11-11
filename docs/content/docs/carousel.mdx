@@ -3,7 +3,7 @@ title: Carousel
 description: Carousels display an arbitrary number of content slides along a horizontal or vertical axis.
 ---
 
-```scala preview h-[436px]
+```scala preview h-[600px]
 Carousel(
   _.pagination    := true,
   _.navigation    := true,
@@ -49,7 +49,7 @@ Carousel(
 
 Use the `pagination` attribute to show the total number of slides and the current slide as a set of interactive dots.
 
-```scala preview h-[482px]
+```scala preview h-[600px]
 Carousel(_.pagination := true)(
   CarouselItem()(
     img(
@@ -88,7 +88,7 @@ Carousel(_.pagination := true)(
 
 Use the `navigation` attribute to show previous and next buttons.
 
-```scala preview h-[482px]
+```scala preview h-[600px]
 Carousel(_.navigation := true)(
   CarouselItem()(
     img(
@@ -127,7 +127,7 @@ Carousel(_.navigation := true)(
 
 By default, the carousel will not advanced beyond the first and last slides. You can change this behavior and force the carousel to "wrap" with the `loop` attribute.
 
-```scala preview h-[482px]
+```scala preview h-[600px]
 Carousel(
   _.loop       := true,
   _.navigation := true,
@@ -170,7 +170,7 @@ Carousel(
 
 The carousel will automatically advance when the `autoplay` attribute is used. To change how long a slide is shown before advancing, set `autoplay-interval` to the desired number of milliseconds. For best results, use the `loop` attribute when autoplay is enabled. Note that autoplay will pause while the user interacts with the carousel.
 
-```scala preview h-[500px]
+```scala preview h-[600px]
 Carousel(
   _.autoplay   := true,
   _.loop       := true,
@@ -215,7 +215,7 @@ The carousel uses [scroll snap](https://developer.mozilla.org/en-US/docs/Web/CSS
 
 This example is best demonstrated using a mouse. Try clicking and dragging the slide to move it. Then toggle the switch and try again.
 
-```scala preview h-[540px]
+```scala preview h-[600px]
 val mouseDragging = Var(false)
 
 div(
@@ -266,7 +266,7 @@ div(
 
 The `slides-per-page` attribute makes it possible to display multiple slides at a time. You can also use the `slides-per-move` attribute to advance more than once slide at a time, if desired.
 
-```scala preview h-[200px]
+```scala preview h-[340px]
 Carousel(
   _.navigation    := true,
   _.pagination    := true,
@@ -317,7 +317,7 @@ Setting the `orientation` attribute to `vertical` will render the carousel in a 
 }
 ```
 
-```scala preview id="vertical-carousel" h-[440px]
+```scala preview id="vertical-carousel" h-[600px]
 Carousel(
   _.pagination := true,
   _.orientation.vertical
@@ -361,7 +361,7 @@ Carousel(
 
 Use the `--aspect-ratio` custom property to customize the size of the carousel's viewport from the default value of 16/9.
 
-```scala preview h-[520px]
+```scala preview h-[600px]
 Carousel(
   _.navigation := true,
   _.pagination := true,
@@ -404,7 +404,7 @@ Carousel(
 
 Use the `--scroll-hint` custom property to add inline padding in horizontal carousels and block padding in vertical carousels. This will make the closest slides slightly visible, hinting that there are more items in the carousel.
 
-```scala preview h-[520px]
+```scala preview h-[600px]
 Carousel(
   _.pagination := true,
   _.style      := "--scroll-hint: 10%;"
@@ -486,7 +486,7 @@ The carousel has a robust API that makes it possible to extend and customize. Th
 }
 ```
 
-```scala preview id="carousel-thumbnails" h-[520px]
+```scala preview id="carousel-thumbnails" h-[600px]
 type Item = (imgSrc: String, description: String, thumbnailAlt: String)
 
 val activeSlide = Var(0.0)

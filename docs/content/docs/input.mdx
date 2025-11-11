@@ -3,7 +3,7 @@ title: Input
 description: Inputs collect data from the user.
 ---
 
-```scala preview h-[100px] stretch
+```scala preview h-[200px] stretch
 val valueVar = Var("Enter something...")
 Input(
   _.value <-- valueVar,
@@ -21,7 +21,7 @@ This component works with standard `<form>` elements. Please refer to the sectio
 
 Use the `label` attribute to give the input an accessible label. For labels that contain HTML, use the `label` slot instead.
 
-```scala preview h-[120px] stretch
+```scala preview h-[200px] stretch
 Input(
   _.label := "What is your name?"
 )()
@@ -31,7 +31,7 @@ Input(
 
 Add descriptive hint to an input with the `hint` attribute. For hints that contain HTML, use the `hint` slot instead.
 
-```scala preview h-[140px] stretch
+```scala preview h-[200px] stretch
 Input(
   _.label := "Nickname",
   _.hint  := "What would you like people to call you?"
@@ -42,7 +42,7 @@ Input(
 
 Use the `placeholder` attribute to add a placeholder.
 
-```scala preview h-[100px] stretch
+```scala preview h-[200px] stretch
 Input(
   _.placeholder := "Type something"
 )()
@@ -52,7 +52,7 @@ Input(
 
 Add the `with-clear` attribute to add a clear button when the input has content.
 
-```scala preview h-[100px] stretch
+```scala preview h-[200px] stretch
 Input(
   _.placeholder := "Clearable",
   _.withClear   := true
@@ -63,7 +63,7 @@ Input(
 
 Add the `password-toggle` attribute to add a toggle button that will show the password when activated.
 
-```scala preview h-[100px] stretch
+```scala preview h-[200px] stretch
 Input(
   _.typ            := "password",
   _.placeholder    := "Password Toggle",
@@ -75,7 +75,7 @@ Input(
 
 Use the `appearance` attribute to change the input's visual appearance.
 
-```scala preview h-[100px] stretch
+```scala preview h-[200px] stretch
 Input(
   _.placeholder := "Type something",
   _.appearance.filled
@@ -86,7 +86,7 @@ Input(
 
 Use the `disabled` attribute to disable an input.
 
-```scala preview h-[100px] stretch
+```scala preview h-[200px] stretch
 Input(
   _.placeholder := "Disabled"
 )(
@@ -117,7 +117,7 @@ Input(
 
 Use the `pill` attribute to give inputs rounded edges.
 
-```scala examples vertical h-[200px] stretch
+```scala examples vertical h-[340px] stretch
 Input(
   _.placeholder := "Small",
   _.size.small,
@@ -139,7 +139,7 @@ Input(
 
 The `type` attribute controls the type of input the browser renders.
 
-```scala examples vertical h-[200px] stretch
+```scala examples vertical h-[340px] stretch
 Input(
   _.typ.email,
   _.placeholder := "Email"
@@ -158,7 +158,7 @@ Input(
 
 Use the `start` and `end` slots to add presentational elements like `<wa-icon>` within the input.
 
-```scala examples vertical h-[200px] stretch
+```scala examples vertical h-[340px] stretch
 Input(
   _.placeholder := "Small",
   _.size.small,
@@ -210,7 +210,7 @@ Use [CSS parts](#css-parts) to customize the way form controls are drawn. This e
 }
 ```
 
-```scala example id="label-on-left" h-[380px] stretch
+```scala example id="label-on-left" h-[520px] stretch
 cls := "label-on-left",
 Input(
   _.label := "Name",

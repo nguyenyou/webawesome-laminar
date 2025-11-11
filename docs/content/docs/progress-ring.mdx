@@ -3,7 +3,7 @@ title: Progress Ring
 description: Progress rings are used to show the progress of a determinate operation in a circular fashion.
 ---
 
-```scala preview h-[180px]
+```scala preview h-[240px]
 ProgressRing(_.value := 25)()
 ```
 
@@ -24,7 +24,7 @@ ProgressRing(
 
 Use the `--track-width` and `--indicator-width` custom properties to set the width of the progress ring's track and indicator.
 
-```scala preview h-[180px]
+```scala preview h-[240px]
 ProgressRing(
   _.value := 50,
   _.style := "--track-width: 6px; --indicator-width: 12px;"
@@ -35,7 +35,7 @@ ProgressRing(
 
 To change the color, use the `--track-color` and `--indicator-color` custom properties.
 
-```scala preview h-[180px]
+```scala preview h-[240px]
 ProgressRing(
   _.value := 50,
   _.style := "--track-color: pink; --indicator-color: deeppink;"
@@ -46,7 +46,7 @@ ProgressRing(
 
 Use the default slot to show a label inside the progress ring.
 
-```scala preview h-[240px]
+```scala preview h-[340px]
 val progressValue = Var(50.0)
 
 div(

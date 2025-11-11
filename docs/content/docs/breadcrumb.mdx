@@ -5,7 +5,7 @@ description: Breadcrumbs provide a group of links so users can easily navigate a
 
 Breadcrumbs are usually placed before a page's main content with the current page shown last to indicate the user's position in the navigation.
 
-```scala preview h-[66px]
+```scala preview h-[200px]
 Breadcrumb()(
   BreadcrumbItem()("Catalog"),
   BreadcrumbItem()("Clothing"),
@@ -22,7 +22,7 @@ By default, breadcrumb items are rendered as buttons so you can use them to navi
 
 For websites, you'll probably want to use links instead. You can make any breadcrumb item a link by applying an `href` attribute to it. Now, when the user activates it, they'll be taken to the corresponding page — no event listeners required.
 
-```scala preview h-[66px]
+```scala preview h-[200px]
 Breadcrumb()(
   BreadcrumbItem(_.href := "https://example.com/home")("Homepage"),
   BreadcrumbItem(_.href := "https://example.com/home/services")("Our Services"),
@@ -35,7 +35,7 @@ Breadcrumb()(
 
 Use the `start` and `end` slots to add presentational elements like `<wa-icon>` next to any breadcrumb item.
 
-```scala preview h-[66px]
+```scala preview h-[200px]
 Breadcrumb()(
   BreadcrumbItem(
     _.slots.start(Icon(_.name := "house")())
@@ -51,7 +51,7 @@ Breadcrumb()(
 
 Use the `separator` slot to change the separator that goes between breadcrumb items. Icons work well, but you can also use text or an image.
 
-```scala examples vertical h-[148px]
+```scala examples vertical h-[200px]
 Breadcrumb(
   _.slots.separator(Icon(_.name := "angles-right", _.variant := "solid")()) 
 )(

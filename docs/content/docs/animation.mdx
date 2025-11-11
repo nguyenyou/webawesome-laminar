@@ -15,7 +15,7 @@ To animate an element, wrap it in `<wa-animation>` and set an animation `name`. 
 }
 ```
 
-```scala example id="animation-overview" h-[200px]
+```scala example id="animation-overview" h-[300px]
 cls("animation-overview"),
 Animation(
   _.name     := "bounce",
@@ -74,7 +74,7 @@ This example demonstrates all of the baked-in animations and easings. Animations
 }
 ```
 
-```scala preview id="animations-easings" h-[500px]
+```scala preview id="animations-easings" h-[600px]
 val animationNames = WebAwesome.getAnimationNames()
 val easingNames    = WebAwesome.getEasingNames()
 
@@ -134,7 +134,7 @@ Use an [Intersection Observer](https://developer.mozilla.org/en-US/docs/Web/API/
 }
 ```
 
-```scala preview id="animation-scroll" h-[180px]
+```scala preview id="animation-scroll" h-[300px]
 import org.scalajs.dom.IntersectionObserver
 
 val box = div(cls("box"))

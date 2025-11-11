@@ -73,7 +73,7 @@ Slider(
 
 Use the `min` and `max` attributes to define the slider's range, and the `step` attribute to control the increment between values.
 
-```scala preview h-[120px]
+```scala preview h-[200px] stretch
 Slider(
   _.label       := "Between zero and one",
   _.hint        := "Controls the volume of the current song.",
@@ -127,7 +127,7 @@ If you want to show a reference next to a specific marker, you can add `position
 
 Set the `orientation` attribute to `vertical` to create a vertical slider. Vertical sliders automatically center themselves and fill the available vertical space.
 
-```scala preview h-[240px] stretch
+```scala preview h-[340px] stretch
 div(
   cls("flex gap-4"),
   Slider(
@@ -158,7 +158,7 @@ div(
 
 Control the slider's size using the `size` attribute. Valid options include `small`, `medium`, and `large`.
 
-```scala examples vertical h-[240px] stretch
+```scala examples vertical h-[340px] stretch
 Slider(
   _.label := "Small",
   _.size.small,
