@@ -139,23 +139,6 @@ const parseAlignFromMeta = (meta: string | null | undefined): string | undefined
 };
 
 /**
- * Parse justify attribute from code block meta string
- * Checks if "center" keyword is present in meta
- * e.g., 'scala preview center' -> "center"
- * e.g., "scala preview center h-150" -> "center"
- * e.g., "scala preview" -> undefined
- * Returns "center" if found, undefined otherwise
- */
-const parseJustifyFromMeta = (meta: string | null | undefined): string | undefined => {
-  if (!meta) {
-    return undefined;
-  }
-  
-  // Match standalone "center" keyword (not part of another word)
-  return /\bcenter\b/.test(meta) ? "center" : undefined;
-};
-
-/**
  * Parse stretch attribute from code block meta string
  * Checks if "stretch" keyword is present in meta
  * e.g., 'scala preview stretch' -> true

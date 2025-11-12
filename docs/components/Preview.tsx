@@ -166,12 +166,12 @@ export const Preview = ({
         </div>
       ) : null}
       {/* DynamicCodeBlock always shows */}
-      <div style={paddingStyle}>
+      <div>
         <DynamicCodeBlock code={displayCode} lang="scala" />
       </div>
       {/* Show CSS code block if showCss is provided */}
       {showCss && (
-        <div style={paddingStyle}>
+        <div>
           <DynamicCodeBlock code={showCss} lang="css" />
         </div>
       )}
