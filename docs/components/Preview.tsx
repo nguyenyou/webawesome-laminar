@@ -122,12 +122,12 @@ export const Preview = ({
           </span>
         </div>
       ) : srcDoc ? (
-        <div className={`w-full rounded-lg border ${h}`}>
+        <div className={`w-full ${h} bg-fd-secondary`}>
           <ResizablePanelGroup
             direction="horizontal"
             className={`w-full h-full`}
           >
-            <ResizablePanel defaultSize={99}>
+            <ResizablePanel defaultSize={100}>
               <div className="flex h-full items-center justify-center">
                 <Frame
                   ref={ref}
@@ -159,7 +159,7 @@ export const Preview = ({
               </div>
             </ResizablePanel>
             <ResizableHandle withHandle />
-            <ResizablePanel defaultSize={1}>
+            <ResizablePanel defaultSize={0}>
               <div className="flex h-full items-center justify-center p-6"></div>
             </ResizablePanel>
           </ResizablePanelGroup>
