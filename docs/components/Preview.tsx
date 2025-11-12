@@ -23,7 +23,7 @@ export const Preview = ({
   exampleId = "example1",
   height,
   css,
-  padding = "p-0",
+  padding = "p-2",
   showCss,
   align,
   stretch,
