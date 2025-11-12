@@ -238,9 +238,6 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
       return;
     }
 
-    // Get docs directory where build output is located
-    const docsDir = getDocsDir(file);
-
     // Use the same workspace root logic as millModulePlugin for consistency
     // This ensures we extract path segments the same way
     const workspaceRoot = file.cwd || process.cwd();
