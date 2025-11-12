@@ -10,6 +10,11 @@ import {
 } from "./iframe-theme";
 import { Spinner } from "./spinner";
 import { DynamicCodeBlock } from "./dynamic-codeblock";
+import {
+  ResizablePanelGroup,
+  ResizablePanel,
+  ResizableHandle,
+} from "./ui/resizable";
 
 export const Preview = ({
   code,
@@ -117,31 +122,48 @@ export const Preview = ({
           </span>
         </div>
       ) : srcDoc ? (
-        <Frame
-          ref={ref}
-          title="Preview"
-          className={`outline-none bg-fd-background w-full ${h}`}
-          srcDoc={srcDoc}
-          onMount={() => {
-            const doc = ref.current?.contentDocument;
-            if (!doc) return;
-            const script = doc.createElement("script");
-            script.src = "https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4";
-            doc.head.appendChild(script);
+        <div className={`w-full rounded-lg border ${h}`}>
+          <ResizablePanelGroup
+            direction="horizontal"
+            className={`w-full h-full`}
+          >
+            <ResizablePanel defaultSize={99}>
+              <div className="flex h-full items-center justify-center">
+                <Frame
+                  ref={ref}
+                  title="Preview"
+                  className={`outline-none bg-fd-background w-full ${h}`}
+                  srcDoc={srcDoc}
+                  onMount={() => {
+                    const doc = ref.current?.contentDocument;
+                    if (!doc) return;
+                    const script = doc.createElement("script");
+                    script.src =
+                      "https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4";
+                    doc.head.appendChild(script);
 
-            const styleTag: HTMLStyleElement = doc.createElement("style");
-            styleTag.setAttribute("type", "text/tailwindcss");
-            styleTag.textContent = `
-              @layer theme, base, components, utilities;
-              @import "tailwindcss/theme.css" layer(theme);
-              @import "tailwindcss/utilities.css" layer(utilities);
-            `;
-            doc.head.appendChild(styleTag);
+                    const styleTag: HTMLStyleElement =
+                      doc.createElement("style");
+                    styleTag.setAttribute("type", "text/tailwindcss");
+                    styleTag.textContent = `
+            @layer theme, base, components, utilities;
+            @import "tailwindcss/theme.css" layer(theme);
+            @import "tailwindcss/utilities.css" layer(utilities);
+          `;
+                    doc.head.appendChild(styleTag);
 
-            // Apply initial theme
-            applyInitialTheme(doc, theme);
-          }}
-        ></Frame>
+                    // Apply initial theme
+                    applyInitialTheme(doc, theme);
+                  }}
+                ></Frame>
+              </div>
+            </ResizablePanel>
+            <ResizableHandle withHandle />
+            <ResizablePanel defaultSize={1}>
+              <div className="flex h-full items-center justify-center p-6"></div>
+            </ResizablePanel>
+          </ResizablePanelGroup>
+        </div>
       ) : null}
       {/* DynamicCodeBlock always shows */}
       <div style={paddingStyle}>
