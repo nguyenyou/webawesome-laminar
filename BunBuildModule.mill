@@ -1,0 +1,105 @@
+package build
+
+import mill.*, scalalib.*, scalajslib.*
+import mill.scalajslib.api.*
+import mill.api.BuildCtx
+
+/**
+ * Extension trait for ScalaJSModule that adds bun build functionality.
+ * 
+ * Mix this trait into your ScalaJSModule to add a `bunBuild` task that:
+ * 1. Runs fullLinkJS to generate optimized JavaScript
+ * 2. Extracts the output JS file path
+ * 3. Runs bun build on that file with --outfile
+ * 4. Outputs to docs/public/examples/{fullModulePath}.js by default
+ */
+trait BunBuildModule extends ScalaJSModule {
+
+  /**
+   * Output file path relative to the workspace root (where build.mill is located).
+   * Default: docs/public/examples/{fullModulePath}.js
+   * 
+   * Override this to customize the output location.
+   * Example: override def bunBuildOutputFile = Task { BuildCtx.workspaceRoot / "dist" / s"${moduleSegments.render}.js" }
+   */
+  def bunBuildOutputFile: T[os.Path] = Task {
+    // Get the full module path (e.g., "docs.examples.laminar.components.tag")
+    val fullModulePath = moduleSegments.render
+    BuildCtx.workspaceRoot / "docs" / "public" / "examples" / s"$fullModulePath.js"
+  }
+
+  /**
+   * Additional arguments to pass to bun build.
+   * Default: includes --minify flag
+   */
+  def bunBuildArgs: T[Seq[String]] = Task { Seq("--minify") }
+
+  /**
+   * Runs fullLinkJS, then builds the output with bun.
+   * Returns a PathRef to the bun build output file.
+   * 
+   * The output file defaults to docs/public/examples/{fullModulePath}.js.
+   * Override bunBuildOutputFile to customize the location.
+   */
+  def bunBuild: T[PathRef] = Task {
+    // Run fullLinkJS to get the compiled JavaScript
+    val report: Report = fullLinkJS()
+
+    // Silently skip if there are no public modules
+    report.publicModules.headOption match {
+      case None =>
+        // No modules to build, return the dest directory as a placeholder
+        PathRef(report.dest.path)
+      
+      case Some(firstModule) =>
+        val jsFile = report.dest.path / firstModule.jsFileName
+
+        // Defensive check: ensure the JS file exists
+        if (!os.exists(jsFile)) {
+          // File doesn't exist, return the dest directory as a placeholder
+          PathRef(report.dest.path)
+        } else {
+          // Get output file path (relative to workspace root by default)
+          val outputFile = bunBuildOutputFile()
+
+          // Ensure output directory exists and run bun build
+          // Use BuildCtx.withFilesystemCheckerDisabled to allow writing/reading outside Task.dest
+          BuildCtx.withFilesystemCheckerDisabled {
+            // Ensure the parent directory exists
+            os.makeDir.all(outputFile / os.up)
+
+            // Run bun build with --outfile
+            val bunArgs = Seq(
+              "bun",
+              "build",
+              jsFile.toString,
+              "--outfile",
+              outputFile.toString
+            ) ++ bunBuildArgs()
+            
+            val buildResult = os.proc(bunArgs).call(
+              stdout = os.Inherit,
+              stderr = os.Inherit,
+              check = false
+            )
+
+            // Check if bun build succeeded
+            if (buildResult.exitCode != 0) {
+              // Build failed, return the dest directory as a placeholder
+              PathRef(report.dest.path)
+            } else {
+              // Defensive check: ensure the output file was created
+              if (!os.exists(outputFile)) {
+                // Output file not created, return the dest directory as a placeholder
+                PathRef(report.dest.path)
+              } else {
+                // Return PathRef to the output file
+                // PathRef reads the file, so it must be inside the disabled checker block
+                PathRef(outputFile)
+              }
+            }
+          }
+        }
+    }
+  }
+}

@@ -65,10 +65,6 @@ object Deps {
   val sourcecode = Seq(
     mvn"com.lihaoyi::sourcecode::${Versions.sourcecode}"
   )
-
-  val webawesome = Seq(
-    mvn"io.github.nguyenyou::webawesome-laminar::0.3.0"
-  )
 }
 
 
@@ -101,7 +97,7 @@ object `webawesome-laminar` extends WebModule, SonatypeCentralPublishModule {
 }
 
 
-trait ExampleModule extends WebModule {
+trait ExampleModule extends WebModule, build.BunBuildModule {
   def moduleDeps = Seq(
     build.doc,
     `webawesome-laminar`

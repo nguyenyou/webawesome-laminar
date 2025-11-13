@@ -229,10 +229,11 @@ export const previewTransformPlugin: Plugin<[PreviewTransformPluginOptions?], Ro
     const docsFilePath = normalizePath(relative(workspaceRoot, filePath));
     
     // Extract hierarchical path segments and convert to camelCase format
-    // This matches the format used by millModulePlugin's getExampleBuildsPath
+    // This matches the format used by moduleSegments.render in build.mill
+    // Format: docs.examples.{category}.{component} (dot-separated, camelCase)
     const pathSegments = extractHierarchicalPathSegments(docsFilePath);
     const camelCaseSegments = pathSegments.map(toCamelCase);
-    const prefix = camelCaseSegments.join("_");
+    const prefix = `docs.examples.${camelCaseSegments.join(".")}`;
 
     // Single pass: Collect CSS blocks with forId meta attribute and Scala preview nodes
     // Map CSS content by forId value for later matching with Preview components
