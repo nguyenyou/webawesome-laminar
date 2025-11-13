@@ -3,6 +3,8 @@ package build
 import mill.*, scalalib.*, scalajslib.*
 import mill.scalajslib.api.*
 import mill.api.BuildCtx
+import java.util.zip.GZIPOutputStream
+import java.io.{FileInputStream, FileOutputStream, BufferedInputStream, BufferedOutputStream}
 
 /**
  * Extension trait for ScalaJSModule that adds bun build functionality.
@@ -93,6 +95,30 @@ trait BunBuildModule extends ScalaJSModule {
                 // Output file not created, return the dest directory as a placeholder
                 PathRef(report.dest.path)
               } else {
+                // Create gzipped version of the output file
+                val gzipFile = outputFile / os.up / s"${outputFile.last}.gz"
+                try {
+                  val inputStream = new BufferedInputStream(new FileInputStream(outputFile.toIO))
+                  val outputStream = new BufferedOutputStream(
+                    new GZIPOutputStream(new FileOutputStream(gzipFile.toIO))
+                  )
+                  try {
+                    val buffer = new Array[Byte](8192)
+                    var bytesRead = 0
+                    while ({ bytesRead = inputStream.read(buffer); bytesRead } != -1) {
+                      outputStream.write(buffer, 0, bytesRead)
+                    }
+                  } finally {
+                    inputStream.close()
+                    outputStream.close()
+                  }
+                } catch {
+                  case e: Exception =>
+                    // If gzip compression fails, log but don't fail the build
+                    // The .js file is still available as fallback
+                    println(s"Warning: Failed to create gzip file: ${e.getMessage}")
+                }
+                
                 // Return PathRef to the output file
                 // PathRef reads the file, so it must be inside the disabled checker block
                 PathRef(outputFile)

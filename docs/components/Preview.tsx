@@ -61,6 +61,43 @@ export const Preview = ({
         try {
           setIsLoading(true);
           setError(null);
+          
+          // Check if browser supports DecompressionStream API
+          const supportsGzip = typeof DecompressionStream !== "undefined";
+          
+          if (supportsGzip) {
+            // Try to fetch gzipped version first
+            try {
+              const gzipResponse = await fetch(`/examples/${compiledSjsPath}.js.gz`);
+              if (gzipResponse.ok) {
+                // Decompress the gzipped response
+                const stream = gzipResponse.body;
+                if (stream) {
+                  const decompressionStream = new DecompressionStream("gzip");
+                  const decompressedStream = stream.pipeThrough(decompressionStream);
+                  const reader = decompressedStream.getReader();
+                  const decoder = new TextDecoder();
+                  let codeContent = "";
+                  
+                  while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+                    codeContent += decoder.decode(value, { stream: true });
+                  }
+                  
+                  // Decode any remaining bytes
+                  codeContent += decoder.decode();
+                  setFetchedCode(codeContent);
+                  return;
+                }
+              }
+            } catch (gzipErr) {
+              // If gzip fetch/decompression fails, fall through to regular .js file
+              console.debug("Gzip fetch failed, falling back to regular .js:", gzipErr);
+            }
+          }
+          
+          // Fallback to regular .js file
           const response = await fetch(`/examples/${compiledSjsPath}.js`);
           if (!response.ok) {
             throw new Error(`Failed to fetch example: ${response.statusText}`);
