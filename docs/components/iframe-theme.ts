@@ -212,7 +212,7 @@ export const createSrcDoc = ({
     background-image: radial-gradient(circle, var(--bg-dot-color) 1px, transparent 1px);
     background-size: 16px 16px;
   }
-  .container {
+  .example-container {
     width: 100%;
     height: 100%;
     display: grid;
@@ -224,7 +224,7 @@ ${css ? `<style>${css}</style>` : ""}
 
 </head>
 <body>
- <div class="container" id="${exampleId}"></div>
+ <div class="example-container" id="${exampleId}"></div>
  
  <script type="module">
   ${code || ""}
