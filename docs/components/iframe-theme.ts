@@ -196,25 +196,34 @@ export const createSrcDoc = ({
 <link href="//cdn.jsdelivr.net/npm/@awesome.me/webawesome@3.0.0/dist-cdn/styles/themes/default.min.css" rel="stylesheet" />
 <base target=_blank>
 <style>
+  :root {
+    --colors-gray-700: #2d3748;
+    --colors-gray-200: #e2e8f0;
+    --bg-dot-color: var(--colors-gray-200);
+  }
+  .wa-dark {
+    --bg-dot-color: var(--colors-gray-700);
+  }
   html, body {
     margin: 0;
+    transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
   }
   body {
-    display: flex;
-    align-items: ${align === "start" ? "start" : "center"};
-    ${convertPaddingToCSS(padding || 'p-2')};
-    justify-content: center;
+    background-image: radial-gradient(circle, var(--bg-dot-color) 1px, transparent 1px);
+    background-size: 16px 16px;
   }
   .container {
-    flex-grow: 1;
+    width: 100%;
+    height: 100%;
     display: grid;
     place-items: ${stretch ? "stretch" : "center"};
+    ${convertPaddingToCSS(padding || 'p-2')};
   }
 </style>
 ${css ? `<style>${css}</style>` : ""}
 
 </head>
-<body class="transition-colors duration-400">
+<body>
  <div class="container" id="${exampleId}"></div>
  
  <script type="module">
