@@ -217,6 +217,8 @@ export const createSrcDoc = ({
     height: 100%;
     display: grid;
     place-items: ${stretch ? "stretch" : "center"};
+    padding-left: 8px;
+    padding-right: 8px;
   }
 </style>
 ${css ? `<style>${css}</style>` : ""}
