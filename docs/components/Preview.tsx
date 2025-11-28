@@ -144,32 +144,24 @@ export const Preview = ({
   return (
     <div className="rounded-xl flex flex-col border overflow-hidden">
       {/* Frame component area - shows loading/error or actual Frame */}
-      {isLoading ? (
-        <div
-          className={`outline-none rounded-xl bg-fd-background w-full ${h} flex items-center justify-center`}
+      <div className={`w-full ${h} bg-fd-secondary`}>
+        <ResizablePanelGroup
+          direction="horizontal"
+          className={`w-full h-full`}
         >
-          <Spinner />
-        </div>
-      ) : error || !fetchedCode ? (
-        <div
-          className={`outline-none rounded-xl bg-fd-background w-full ${h} flex items-center justify-center`}
-        >
-          <span className="text-red-500">
-            Error: {error || "Failed to load example"}
-          </span>
-        </div>
-      ) : srcDoc ? (
-        <div className={`w-full ${h} bg-fd-secondary`}>
-          <ResizablePanelGroup
-            direction="horizontal"
-            className={`w-full h-full`}
-          >
-            <ResizablePanel defaultSize={100}>
-              <div className="flex h-full items-center justify-center">
+          <ResizablePanel defaultSize={100}>
+            <div className="flex h-full items-center justify-center">
+              {isLoading ? (
+                <Spinner />
+              ) : error || !fetchedCode ? (
+                <span className="text-red-500">
+                  Error: {error || "Failed to load example"}
+                </span>
+              ) : srcDoc ? (
                 <Frame
                   ref={ref}
                   title="Preview"
-                  className={`outline-none bg-fd-background w-full ${h}`}
+                  className={`outline-none bg-fd-background w-full h-full`}
                   srcDoc={srcDoc}
                   onMount={() => {
                     const doc = ref.current?.contentDocument;
@@ -193,15 +185,15 @@ export const Preview = ({
                     applyInitialTheme(doc, theme);
                   }}
                 ></Frame>
-              </div>
-            </ResizablePanel>
-            <ResizableHandle withHandle />
-            <ResizablePanel defaultSize={0}>
-              <div className="flex h-full items-center justify-center p-6"></div>
-            </ResizablePanel>
-          </ResizablePanelGroup>
-        </div>
-      ) : null}
+              ) : null}
+            </div>
+          </ResizablePanel>
+          <ResizableHandle withHandle />
+          <ResizablePanel defaultSize={0}>
+            <div className="flex h-full items-center justify-center p-6"></div>
+          </ResizablePanel>
+        </ResizablePanelGroup>
+      </div>
       {/* DynamicCodeBlock always shows */}
       <div>
         <DynamicCodeBlock code={displayCode} lang="scala" />

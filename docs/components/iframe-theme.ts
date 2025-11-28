@@ -217,7 +217,6 @@ export const createSrcDoc = ({
     height: 100%;
     display: grid;
     place-items: ${stretch ? "stretch" : "center"};
-    ${convertPaddingToCSS(padding || 'p-2')};
   }
 </style>
 ${css ? `<style>${css}</style>` : ""}
