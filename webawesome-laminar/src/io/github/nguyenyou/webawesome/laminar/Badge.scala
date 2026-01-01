@@ -32,7 +32,7 @@ object Badge extends WebComponent("wa-badge") {
   lazy val variant: CommonKeys.ThemeVariant.type = CommonKeys.ThemeVariant
 
   /** The badge's visual appearance. Valid values: "accent", "filled", "outlined", "filled-outlined". */
-  lazy val appearance: CommonKeys.ExtendedAppearance.type = CommonKeys.ExtendedAppearance
+  lazy val appearance: CommonKeys.ExtendedAppearance1.type = CommonKeys.ExtendedAppearance1
 
   /** Draws a pill-style badge with rounded edges. */
   lazy val pill: HtmlAttr[Boolean] = boolAttr("pill")
@@ -81,7 +81,7 @@ object Badge extends WebComponent("wa-badge") {
     var variant: ThemeVariant
 
     /** The badge's visual appearance. Valid values: "accent", "filled", "outlined", "filled-outlined". */
-    var appearance: ExtendedAppearance
+    var appearance: ExtendedAppearance1
 
     /** Draws a pill-style badge with rounded edges. */
     var pill: Boolean

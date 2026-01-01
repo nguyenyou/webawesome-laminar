@@ -47,7 +47,7 @@ object Button extends WebComponent("wa-button") {
   lazy val variant: CommonKeys.ThemeVariant.type = CommonKeys.ThemeVariant
 
   /** The button's visual appearance. Valid values: "accent", "filled", "outlined", "filled-outlined", "plain". */
-  lazy val appearance: CommonKeys.ExtendedAppearance1.type = CommonKeys.ExtendedAppearance1
+  lazy val appearance: CommonKeys.ExtendedAppearance.type = CommonKeys.ExtendedAppearance
 
   /** The button's size. Valid values: "small", "medium", "large". */
   lazy val size: CommonKeys.ComponentSize.type = CommonKeys.ComponentSize
@@ -97,11 +97,6 @@ object Button extends WebComponent("wa-button") {
 
   /** Tells the browser to download the linked file as this filename. Only used when `href` is present. */
   lazy val download: HtmlAttr[String] = stringAttr("download")
-
-  /** The "form owner" to associate the button with. If omitted, the closest containing form will be used instead. The
-    * value of this attribute must be an id of a form in the same document or shadow root as the button.
-    */
-  lazy val form: HtmlAttr[String] = stringAttr("form")
 
   /** Used to override the form owner's `action` attribute. */
   lazy val formAction: HtmlAttr[String] = stringAttr("formaction")
@@ -179,7 +174,7 @@ object Button extends WebComponent("wa-button") {
     var variant: ThemeVariant
 
     /** The button's visual appearance. Valid values: "accent", "filled", "outlined", "filled-outlined", "plain". */
-    var appearance: ExtendedAppearance1
+    var appearance: ExtendedAppearance
 
     /** The button's size. Valid values: "small", "medium", "large". */
     var size: ComponentSize
@@ -225,11 +220,6 @@ object Button extends WebComponent("wa-button") {
 
     /** Tells the browser to download the linked file as this filename. Only used when `href` is present. */
     var download: String
-
-    /** The "form owner" to associate the button with. If omitted, the closest containing form will be used instead. The
-      * value of this attribute must be an id of a form in the same document or shadow root as the button.
-      */
-    var form: String
 
     /** Used to override the form owner's `action` attribute. */
     var formAction: String

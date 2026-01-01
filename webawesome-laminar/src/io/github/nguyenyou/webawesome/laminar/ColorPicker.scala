@@ -103,12 +103,6 @@ object ColorPicker extends WebComponent("wa-color-picker") {
     */
   lazy val swatches: HtmlAttr[String] = stringAttr("swatches")
 
-  /** By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
-    * to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
-    * the same document or shadow root for this to work.
-    */
-  lazy val form: HtmlAttr[String] = stringAttr("form")
-
   /** Makes the color picker a required field. */
   lazy val required: HtmlAttr[Boolean] = boolAttr("required")
 
@@ -287,12 +281,6 @@ object ColorPicker extends WebComponent("wa-color-picker") {
       * JavaScript.
       */
     var swatches: String | js.Array[String]
-
-    /** By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
-      * to place the form control outside of a form and associate it with the form that has this `id`. The form must be
-      * in the same document or shadow root for this to work.
-      */
-    var form: String
 
     /** Makes the color picker a required field. */
     var required: Boolean

@@ -81,11 +81,6 @@ object Slider extends WebComponent("wa-slider") {
   /** The starting value from which to draw the slider's fill, which is based on its current value. */
   lazy val indicatorOffset: HtmlAttr[Double] = doubleAttr("indicator-offset")
 
-  /** The form to associate this control with. If omitted, the closest containing `<form>` will be used. The value of
-    * this attribute must be an ID of a form in the same document or shadow root.
-    */
-  lazy val form: HtmlAttr[String] = stringAttr("form")
-
   /** The minimum value allowed. */
   lazy val min: HtmlAttr[Double] = doubleAttr("min")
 
@@ -244,11 +239,6 @@ object Slider extends WebComponent("wa-slider") {
 
     /** The starting value from which to draw the slider's fill, which is based on its current value. */
     var indicatorOffset: Double
-
-    /** The form to associate this control with. If omitted, the closest containing `<form>` will be used. The value of
-      * this attribute must be an ID of a form in the same document or shadow root.
-      */
-    var form: String
 
     /** The minimum value allowed. */
     var min: Double

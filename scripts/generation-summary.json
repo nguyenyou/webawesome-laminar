@@ -1,6 +1,6 @@
 {
   "totalComponents": 57,
-  "totalAttributes": 407,
+  "totalAttributes": 397,
   "totalEvents": 138,
   "totalSlots": 110,
   "components": [
@@ -33,6 +33,13 @@
       "slots": 1
     },
     {
+      "name": "Button",
+      "tagName": "wa-button",
+      "attributes": 20,
+      "events": 4,
+      "slots": 3
+    },
+    {
       "name": "BreadcrumbItem",
       "tagName": "wa-breadcrumb-item",
       "attributes": 3,
@@ -40,25 +47,18 @@
       "slots": 4
     },
     {
+      "name": "ButtonGroup",
+      "tagName": "wa-button-group",
+      "attributes": 2,
+      "events": 0,
+      "slots": 1
+    },
+    {
       "name": "Breadcrumb",
       "tagName": "wa-breadcrumb",
       "attributes": 1,
       "events": 0,
       "slots": 2
-    },
-    {
-      "name": "Button",
-      "tagName": "wa-button",
-      "attributes": 21,
-      "events": 4,
-      "slots": 3
-    },
-    {
-      "name": "ButtonGroup",
-      "tagName": "wa-button-group",
-      "attributes": 3,
-      "events": 0,
-      "slots": 1
     },
     {
       "name": "Callout",
@@ -91,14 +91,14 @@
     {
       "name": "Checkbox",
       "tagName": "wa-checkbox",
-      "attributes": 10,
+      "attributes": 9,
       "events": 5,
       "slots": 2
     },
     {
       "name": "ColorPicker",
       "tagName": "wa-color-picker",
-      "attributes": 16,
+      "attributes": 15,
       "events": 10,
       "slots": 2
     },
@@ -196,7 +196,7 @@
     {
       "name": "Input",
       "tagName": "wa-input",
-      "attributes": 31,
+      "attributes": 30,
       "events": 7,
       "slots": 7
     },
@@ -243,13 +243,6 @@
       "slots": 1
     },
     {
-      "name": "ProgressRing",
-      "tagName": "wa-progress-ring",
-      "attributes": 2,
-      "events": 0,
-      "slots": 1
-    },
-    {
       "name": "QrCode",
       "tagName": "wa-qr-code",
       "attributes": 7,
@@ -259,7 +252,7 @@
     {
       "name": "Radio",
       "tagName": "wa-radio",
-      "attributes": 5,
+      "attributes": 4,
       "events": 2,
       "slots": 1
     },
@@ -292,6 +285,13 @@
       "slots": 1
     },
     {
+      "name": "ProgressRing",
+      "tagName": "wa-progress-ring",
+      "attributes": 2,
+      "events": 0,
+      "slots": 1
+    },
+    {
       "name": "Scroller",
       "tagName": "wa-scroller",
       "attributes": 3,
@@ -301,7 +301,7 @@
     {
       "name": "Select",
       "tagName": "wa-select",
-      "attributes": 18,
+      "attributes": 17,
       "events": 11,
       "slots": 7
     },
@@ -315,7 +315,7 @@
     {
       "name": "Slider",
       "tagName": "wa-slider",
-      "attributes": 22,
+      "attributes": 21,
       "events": 5,
       "slots": 3
     },
@@ -336,7 +336,7 @@
     {
       "name": "Switch",
       "tagName": "wa-switch",
-      "attributes": 10,
+      "attributes": 9,
       "events": 5,
       "slots": 2
     },
@@ -369,18 +369,18 @@
       "slots": 1
     },
     {
-      "name": "Textarea",
-      "tagName": "wa-textarea",
-      "attributes": 25,
-      "events": 5,
-      "slots": 2
-    },
-    {
       "name": "Tooltip",
       "tagName": "wa-tooltip",
       "attributes": 10,
       "events": 5,
       "slots": 1
+    },
+    {
+      "name": "Textarea",
+      "tagName": "wa-textarea",
+      "attributes": 24,
+      "events": 5,
+      "slots": 2
     },
     {
       "name": "Tree",

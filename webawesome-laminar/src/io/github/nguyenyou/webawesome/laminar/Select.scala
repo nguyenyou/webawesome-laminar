@@ -115,12 +115,6 @@ object Select extends WebComponent("wa-select"), CustomSelect {
   /** Used for SSR purposes when hint is slotted in. Will show the hint on first render. */
   lazy val withHint: HtmlAttr[Boolean] = boolAttr("with-hint")
 
-  /** By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
-    * to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
-    * the same document or shadow root for this to work.
-    */
-  lazy val form: HtmlAttr[String] = stringAttr("form")
-
   /** The select's required attribute. */
   lazy val required: HtmlAttr[Boolean] = boolAttr("required")
 
@@ -283,12 +277,6 @@ object Select extends WebComponent("wa-select"), CustomSelect {
 
     /** Used for SSR purposes when hint is slotted in. Will show the hint on first render. */
     var withHint: Boolean
-
-    /** By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
-      * to place the form control outside of a form and associate it with the form that has this `id`. The form must be
-      * in the same document or shadow root for this to work.
-      */
-    var form: String
 
     /** The select's required attribute. */
     var required: Boolean

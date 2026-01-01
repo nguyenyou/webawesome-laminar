@@ -10,11 +10,11 @@ object SharedTypes {
   /** Used by 8 components for "orientation" attribute. Components: WaButtonGroup, WaCard, WaCarousel, ... */
   type Orientation = "horizontal" | "vertical"
 
-  /** Used by 5 components for "variant" attribute. Components: WaBadge, WaButton, WaButtonGroup, ... */
-  type ThemeVariant = "brand" | "danger" | "neutral" | "success" | "warning"
-
   /** Used by 5 components for "year" attribute. Components: WaFormatDate, WaFormatDate, WaFormatDate, ... */
   type DateYearFormat = "2-digit" | "numeric"
+
+  /** Used by 4 components for "variant" attribute. Components: WaBadge, WaButton, WaCallout, ... */
+  type ThemeVariant = "brand" | "danger" | "neutral" | "success" | "warning"
 
   /** Used by 4 components for "placement" attribute. Components: WaDropdown, WaPopover, WaPopup, ... */
   type Placement = "bottom" | "bottom-end" | "bottom-start" | "left" | "left-end" | "left-start" | "right" |
@@ -23,6 +23,9 @@ object SharedTypes {
   /** Used by 4 components for "display" attribute. Components: WaFormatBytes, WaFormatDate, WaFormatDate, ... */
   type DisplayFormat = "long" | "narrow" | "short"
 
+  /** Used by 3 components for "appearance" attribute. Components: WaButton, WaCallout, WaCard */
+  type ExtendedAppearance = "accent" | "filled" | "filled-outlined" | "outlined" | "plain"
+
   /** Used by 3 components for "appearance" attribute. Components: WaInput, WaSelect, WaTextarea */
   type Appearance = "filled" | "filled-outlined" | "outlined"
 
@@ -30,10 +33,7 @@ object SharedTypes {
   type LoadingStrategy = "eager" | "lazy"
 
   /** Used by 2 components for "appearance" attribute. Components: WaBadge, WaTag */
-  type ExtendedAppearance = "accent" | "filled" | "filled-outlined" | "outlined"
-
-  /** Used by 2 components for "appearance" attribute. Components: WaButton, WaCallout */
-  type ExtendedAppearance1 = "accent" | "filled" | "filled-outlined" | "outlined" | "plain"
+  type ExtendedAppearance1 = "accent" | "filled" | "filled-outlined" | "outlined"
 
   /** Used by 2 components for "tooltip-placement" attribute. Components: WaCopyButton, WaSlider */
   type TooltipPlacement = "bottom" | "left" | "right" | "top"
@@ -67,9 +67,6 @@ object SharedTypes {
 
   /** Used by WaButton for "formmethod" attribute. Components: WaButton */
   type ButtonFormmethod = "get" | "post"
-
-  /** Used by WaCard for "appearance" attribute. Components: WaCard */
-  type CardExtendedAppearance = "accent" | "filled" | "outlined" | "plain"
 
   /** Used by WaColorPicker for "format" attribute. Components: WaColorPicker */
   type ColorPickerFormat = "hex" | "hsl" | "hsv" | "rgb"

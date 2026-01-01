@@ -81,11 +81,6 @@ object Checkbox extends WebComponent("wa-checkbox") {
     }
   }
 
-  /** By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
-  to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
-  the same document or shadow root for this to work. */
-  lazy val form: HtmlAttr[String] = stringAttr("form")
-
   /** Makes the checkbox a required field. */
   lazy val required: HtmlAttr[Boolean] = boolAttr("required")
 
@@ -164,11 +159,6 @@ object Checkbox extends WebComponent("wa-checkbox") {
 
     /** The default value of the form control. Primarily used for resetting the form control. */
     var checked: Boolean
-
-    /** By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
-    to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
-    the same document or shadow root for this to work. */
-    var form: String
 
     /** Makes the checkbox a required field. */
     var required: Boolean
