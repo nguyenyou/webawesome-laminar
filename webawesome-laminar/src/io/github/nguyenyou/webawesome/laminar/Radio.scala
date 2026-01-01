@@ -36,9 +36,6 @@ object Radio extends WebComponent("wa-radio") {
 
   // -- Attributes --
 
-  /** The string pointing to a form's id. */
-  lazy val form: HtmlAttr[String] = stringAttr("form")
-
   /** The radio's value. When selected, the radio group will receive this value. */
   lazy val value: HtmlAttr[String] = stringAttr("value")
 
@@ -96,9 +93,6 @@ object Radio extends WebComponent("wa-radio") {
   @js.native
   trait WaRadioComponent extends js.Object {
     this: dom.HTMLElement =>
-
-    /** The string pointing to a form's id. */
-    var form: String
 
     /** The radio's value. When selected, the radio group will receive this value. */
     var value: String

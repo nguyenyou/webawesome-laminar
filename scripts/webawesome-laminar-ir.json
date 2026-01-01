@@ -4,7 +4,7 @@
     "schemaVersion": "1.0.0",
     "modulesCount": 64
   },
-  "generated": "2025-11-09T07:17:20.381Z",
+  "generated": "2026-01-01T09:45:09.710Z",
   "components": [
     {
       "name": "WaAnimatedImage",
@@ -434,127 +434,6 @@
       "dependencies": []
     },
     {
-      "name": "WaBreadcrumbItem",
-      "tagName": "wa-breadcrumb-item",
-      "packagePath": "io.github.nguyenyou.webawesome.laminar.BreadcrumbItem",
-      "description": "Breadcrumb Items are used inside breadcrumbs to represent different links.",
-      "documentation": "https://webawesome.com/docs/components/breadcrumb-item",
-      "since": "2.0",
-      "attributes": [
-        {
-          "name": "href",
-          "fieldName": "href",
-          "type": "string | undefined",
-          "description": "Optional URL to direct the user to when the breadcrumb item is activated. When set, a link will be rendered\ninternally. When unset, a button will be rendered instead."
-        },
-        {
-          "name": "target",
-          "fieldName": "target",
-          "type": "'_blank' | '_parent' | '_self' | '_top' | undefined",
-          "description": "Tells the browser where to open the link. Only used when `href` is set."
-        },
-        {
-          "name": "rel",
-          "fieldName": "rel",
-          "type": "String",
-          "description": "The `rel` attribute to use on the link. Only used when `href` is set.",
-          "default": "'noreferrer noopener'"
-        }
-      ],
-      "events": [],
-      "slots": [
-        {
-          "name": "",
-          "description": "The breadcrumb item's label."
-        },
-        {
-          "name": "start",
-          "description": "An element, such as `<wa-icon>`, placed before the label."
-        },
-        {
-          "name": "end",
-          "description": "An element, such as `<wa-icon>`, placed after the label."
-        },
-        {
-          "name": "separator",
-          "description": "The separator to use for the breadcrumb item. This will only change the separator for this item. If you want to change it for all items in the group, set the separator on `<wa-breadcrumb>` instead."
-        }
-      ],
-      "cssProperties": [],
-      "cssParts": [
-        {
-          "name": "label",
-          "description": "The breadcrumb item's label."
-        },
-        {
-          "name": "start",
-          "description": "The container that wraps the `start` slot."
-        },
-        {
-          "name": "end",
-          "description": "The container that wraps the `end` slot."
-        },
-        {
-          "name": "separator",
-          "description": "The container that wraps the separator."
-        }
-      ],
-      "methods": [
-        {
-          "name": "hrefChanged",
-          "parameters": [],
-          "returnType": "Unit",
-          "public": true
-        },
-        {
-          "name": "handleSlotChange",
-          "parameters": [],
-          "returnType": "Unit",
-          "public": true
-        }
-      ],
-      "dependencies": []
-    },
-    {
-      "name": "WaBreadcrumb",
-      "tagName": "wa-breadcrumb",
-      "packagePath": "io.github.nguyenyou.webawesome.laminar.Breadcrumb",
-      "description": "Breadcrumbs provide a group of links so users can easily navigate a website's hierarchy.",
-      "documentation": "https://webawesome.com/docs/components/breadcrumb",
-      "since": "2.0",
-      "attributes": [
-        {
-          "name": "label",
-          "fieldName": "label",
-          "type": "String",
-          "description": "The label to use for the breadcrumb control. This will not be shown on the screen, but it will be announced by\nscreen readers and other assistive devices to provide more context for users.",
-          "default": "''"
-        }
-      ],
-      "events": [],
-      "slots": [
-        {
-          "name": "",
-          "description": "One or more breadcrumb items to display."
-        },
-        {
-          "name": "separator",
-          "description": "The separator to use between breadcrumb items. Works best with `<wa-icon>`."
-        }
-      ],
-      "cssProperties": [],
-      "cssParts": [
-        {
-          "name": "base",
-          "description": "The component's base wrapper."
-        }
-      ],
-      "methods": [],
-      "dependencies": [
-        "wa-icon"
-      ]
-    },
-    {
       "name": "WaButton",
       "tagName": "wa-button",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Button",
@@ -698,14 +577,6 @@
           "fieldName": "download",
           "type": "string | undefined",
           "description": "Tells the browser to download the linked file as this filename. Only used when `href` is present."
-        },
-        {
-          "name": "form",
-          "fieldName": "form",
-          "type": "string | null",
-          "description": "The \"form owner\" to associate the button with. If omitted, the closest containing form will be used instead. The\nvalue of this attribute must be an id of a form in the same document or shadow root as the button.",
-          "default": "null",
-          "reflects": true
         },
         {
           "name": "formaction",
@@ -863,6 +734,88 @@
       ]
     },
     {
+      "name": "WaBreadcrumbItem",
+      "tagName": "wa-breadcrumb-item",
+      "packagePath": "io.github.nguyenyou.webawesome.laminar.BreadcrumbItem",
+      "description": "Breadcrumb Items are used inside breadcrumbs to represent different links.",
+      "documentation": "https://webawesome.com/docs/components/breadcrumb-item",
+      "since": "2.0",
+      "attributes": [
+        {
+          "name": "href",
+          "fieldName": "href",
+          "type": "string | undefined",
+          "description": "Optional URL to direct the user to when the breadcrumb item is activated. When set, a link will be rendered\ninternally. When unset, a button will be rendered instead."
+        },
+        {
+          "name": "target",
+          "fieldName": "target",
+          "type": "'_blank' | '_parent' | '_self' | '_top' | undefined",
+          "description": "Tells the browser where to open the link. Only used when `href` is set."
+        },
+        {
+          "name": "rel",
+          "fieldName": "rel",
+          "type": "String",
+          "description": "The `rel` attribute to use on the link. Only used when `href` is set.",
+          "default": "'noreferrer noopener'"
+        }
+      ],
+      "events": [],
+      "slots": [
+        {
+          "name": "",
+          "description": "The breadcrumb item's label."
+        },
+        {
+          "name": "start",
+          "description": "An element, such as `<wa-icon>`, placed before the label."
+        },
+        {
+          "name": "end",
+          "description": "An element, such as `<wa-icon>`, placed after the label."
+        },
+        {
+          "name": "separator",
+          "description": "The separator to use for the breadcrumb item. This will only change the separator for this item. If you want to change it for all items in the group, set the separator on `<wa-breadcrumb>` instead."
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "label",
+          "description": "The breadcrumb item's label."
+        },
+        {
+          "name": "start",
+          "description": "The container that wraps the `start` slot."
+        },
+        {
+          "name": "end",
+          "description": "The container that wraps the `end` slot."
+        },
+        {
+          "name": "separator",
+          "description": "The container that wraps the separator."
+        }
+      ],
+      "methods": [
+        {
+          "name": "hrefChanged",
+          "parameters": [],
+          "returnType": "Unit",
+          "public": true
+        },
+        {
+          "name": "handleSlotChange",
+          "parameters": [],
+          "returnType": "Unit",
+          "public": true
+        }
+      ],
+      "dependencies": []
+    },
+    {
       "name": "WaButtonGroup",
       "tagName": "wa-button-group",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.ButtonGroup",
@@ -888,21 +841,6 @@
           "description": "The button group's orientation.",
           "default": "'horizontal'",
           "reflects": true
-        },
-        {
-          "name": "variant",
-          "fieldName": "variant",
-          "type": "String",
-          "unionValues": [
-            "neutral",
-            "brand",
-            "success",
-            "warning",
-            "danger"
-          ],
-          "description": "The button group's theme variant. Defaults to `neutral` if not within another element with a variant.",
-          "default": "'neutral'",
-          "reflects": true
         }
       ],
       "events": [],
@@ -921,6 +859,45 @@
       ],
       "methods": [],
       "dependencies": []
+    },
+    {
+      "name": "WaBreadcrumb",
+      "tagName": "wa-breadcrumb",
+      "packagePath": "io.github.nguyenyou.webawesome.laminar.Breadcrumb",
+      "description": "Breadcrumbs provide a group of links so users can easily navigate a website's hierarchy.",
+      "documentation": "https://webawesome.com/docs/components/breadcrumb",
+      "since": "2.0",
+      "attributes": [
+        {
+          "name": "label",
+          "fieldName": "label",
+          "type": "String",
+          "description": "The label to use for the breadcrumb control. This will not be shown on the screen, but it will be announced by\nscreen readers and other assistive devices to provide more context for users.",
+          "default": "''"
+        }
+      ],
+      "events": [],
+      "slots": [
+        {
+          "name": "",
+          "description": "One or more breadcrumb items to display."
+        },
+        {
+          "name": "separator",
+          "description": "The separator to use between breadcrumb items. Works best with `<wa-icon>`."
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "base",
+          "description": "The component's base wrapper."
+        }
+      ],
+      "methods": [],
+      "dependencies": [
+        "wa-icon"
+      ]
     },
     {
       "name": "WaCallout",
@@ -1014,6 +991,7 @@
             "accent",
             "filled",
             "outlined",
+            "filled-outlined",
             "plain"
           ],
           "description": "The card's visual appearance.",
@@ -1452,14 +1430,6 @@
           "reflects": true
         },
         {
-          "name": "form",
-          "fieldName": "form",
-          "type": "null",
-          "description": "By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you\nto place the form control outside of a form and associate it with the form that has this `id`. The form must be in\nthe same document or shadow root for this to work.",
-          "default": "null",
-          "reflects": true
-        },
-        {
           "name": "required",
           "fieldName": "required",
           "type": "Boolean",
@@ -1735,14 +1705,6 @@
           "type": "String | js.Array[String]",
           "description": "One or more predefined color swatches to display as presets in the color picker. Can include any format the color\npicker can parse, including HEX(A), RGB(A), HSL(A), HSV(A), and CSS color names. Each color must be separated by a\nsemicolon (`;`). Alternatively, you can pass an array of color values to this property using JavaScript.",
           "default": "''"
-        },
-        {
-          "name": "form",
-          "fieldName": "form",
-          "type": "null",
-          "description": "By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you\nto place the form control outside of a form and associate it with the form that has this `id`. The form must be in\nthe same document or shadow root for this to work.",
-          "default": "null",
-          "reflects": true
         },
         {
           "name": "required",
@@ -3770,14 +3732,6 @@
           "default": "false"
         },
         {
-          "name": "form",
-          "fieldName": "form",
-          "type": "null",
-          "description": "By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you\nto place the form control outside of a form and associate it with the form that has this `id`. The form must be in\nthe same document or shadow root for this to work.",
-          "default": "null",
-          "reflects": true
-        },
-        {
           "name": "required",
           "fieldName": "required",
           "type": "Boolean",
@@ -4908,76 +4862,6 @@
       "dependencies": []
     },
     {
-      "name": "WaProgressRing",
-      "tagName": "wa-progress-ring",
-      "packagePath": "io.github.nguyenyou.webawesome.laminar.ProgressRing",
-      "description": "Progress rings are used to show the progress of a determinate operation in a circular fashion.",
-      "documentation": "https://webawesome.com/docs/components/progress-ring",
-      "since": "2.0",
-      "attributes": [
-        {
-          "name": "value",
-          "fieldName": "value",
-          "type": "Double",
-          "description": "The current progress as a percentage, 0 to 100.",
-          "default": "0",
-          "reflects": true
-        },
-        {
-          "name": "label",
-          "fieldName": "label",
-          "type": "String",
-          "description": "A custom label for assistive devices.",
-          "default": "''"
-        }
-      ],
-      "events": [],
-      "slots": [
-        {
-          "name": "",
-          "description": "A label to show inside the ring."
-        }
-      ],
-      "cssProperties": [
-        {
-          "name": "--size",
-          "description": "The diameter of the progress ring (cannot be a percentage)."
-        },
-        {
-          "name": "--track-width",
-          "description": "The width of the track."
-        },
-        {
-          "name": "--track-color",
-          "description": "The color of the track."
-        },
-        {
-          "name": "--indicator-width",
-          "description": "The width of the indicator. Defaults to the track width."
-        },
-        {
-          "name": "--indicator-color",
-          "description": "The color of the indicator."
-        },
-        {
-          "name": "--indicator-transition-duration",
-          "description": "The duration of the indicator's transition when the value changes."
-        }
-      ],
-      "cssParts": [
-        {
-          "name": "base",
-          "description": "The component's base wrapper."
-        },
-        {
-          "name": "label",
-          "description": "The progress ring label."
-        }
-      ],
-      "methods": [],
-      "dependencies": []
-    },
-    {
       "name": "WaQrCode",
       "tagName": "wa-qr-code",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.QrCode",
@@ -5068,14 +4952,6 @@
       "documentation": "https://webawesome.com/docs/components/radio",
       "since": "2.0",
       "attributes": [
-        {
-          "name": "form",
-          "fieldName": "form",
-          "type": "string | null",
-          "description": "The string pointing to a form's id.",
-          "default": "null",
-          "reflects": true
-        },
         {
           "name": "value",
           "fieldName": "value",
@@ -5600,6 +5476,76 @@
       "dependencies": []
     },
     {
+      "name": "WaProgressRing",
+      "tagName": "wa-progress-ring",
+      "packagePath": "io.github.nguyenyou.webawesome.laminar.ProgressRing",
+      "description": "Progress rings are used to show the progress of a determinate operation in a circular fashion.",
+      "documentation": "https://webawesome.com/docs/components/progress-ring",
+      "since": "2.0",
+      "attributes": [
+        {
+          "name": "value",
+          "fieldName": "value",
+          "type": "Double",
+          "description": "The current progress as a percentage, 0 to 100.",
+          "default": "0",
+          "reflects": true
+        },
+        {
+          "name": "label",
+          "fieldName": "label",
+          "type": "String",
+          "description": "A custom label for assistive devices.",
+          "default": "''"
+        }
+      ],
+      "events": [],
+      "slots": [
+        {
+          "name": "",
+          "description": "A label to show inside the ring."
+        }
+      ],
+      "cssProperties": [
+        {
+          "name": "--size",
+          "description": "The diameter of the progress ring (cannot be a percentage)."
+        },
+        {
+          "name": "--track-width",
+          "description": "The width of the track."
+        },
+        {
+          "name": "--track-color",
+          "description": "The color of the track."
+        },
+        {
+          "name": "--indicator-width",
+          "description": "The width of the indicator. Defaults to the track width."
+        },
+        {
+          "name": "--indicator-color",
+          "description": "The color of the indicator."
+        },
+        {
+          "name": "--indicator-transition-duration",
+          "description": "The duration of the indicator's transition when the value changes."
+        }
+      ],
+      "cssParts": [
+        {
+          "name": "base",
+          "description": "The component's base wrapper."
+        },
+        {
+          "name": "label",
+          "description": "The progress ring label."
+        }
+      ],
+      "methods": [],
+      "dependencies": []
+    },
+    {
       "name": "WaScroller",
       "tagName": "wa-scroller",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Scroller",
@@ -5677,7 +5623,8 @@
           "fieldName": "name",
           "type": "String",
           "description": "The name of the select, submitted as a name/value pair with form data.",
-          "default": "''"
+          "default": "''",
+          "reflects": true
         },
         {
           "name": "value",
@@ -5802,14 +5749,6 @@
           "type": "Boolean",
           "description": "Used for SSR purposes when hint is slotted in. Will show the hint on first render.",
           "default": "false"
-        },
-        {
-          "name": "form",
-          "fieldName": "form",
-          "type": "null",
-          "description": "By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you\nto place the form control outside of a form and associate it with the form that has this `id`. The form must be in\nthe same document or shadow root for this to work.",
-          "default": "null",
-          "reflects": true
         },
         {
           "name": "required",
@@ -6223,14 +6162,6 @@
           "fieldName": "indicatorOffset",
           "type": "Double",
           "description": "The starting value from which to draw the slider's fill, which is based on its current value."
-        },
-        {
-          "name": "form",
-          "fieldName": "form",
-          "type": "null",
-          "description": "The form to associate this control with. If omitted, the closest containing `<form>` will be used. The value of\nthis attribute must be an ID of a form in the same document or shadow root.",
-          "default": "null",
-          "reflects": true
         },
         {
           "name": "min",
@@ -6712,14 +6643,6 @@
           "fieldName": "defaultChecked",
           "type": "Boolean",
           "description": "The default value of the form control. Primarily used for resetting the form control.",
-          "reflects": true
-        },
-        {
-          "name": "form",
-          "fieldName": "form",
-          "type": "null",
-          "description": "By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you\nto place the form control outside of a form and associate it with the form that has this `id`. The form must be in\nthe same document or shadow root for this to work.",
-          "default": "null",
           "reflects": true
         },
         {
@@ -7260,6 +7183,204 @@
       ]
     },
     {
+      "name": "WaTooltip",
+      "tagName": "wa-tooltip",
+      "packagePath": "io.github.nguyenyou.webawesome.laminar.Tooltip",
+      "description": "Tooltips display additional information based on a specific action.",
+      "documentation": "https://webawesome.com/docs/components/tooltip",
+      "since": "2.0",
+      "attributes": [
+        {
+          "name": "placement",
+          "fieldName": "placement",
+          "type": "String",
+          "unionValues": [
+            "top",
+            "top-start",
+            "top-end",
+            "right",
+            "right-start",
+            "right-end",
+            "bottom",
+            "bottom-start",
+            "bottom-end",
+            "left",
+            "left-start",
+            "left-end"
+          ],
+          "description": "The preferred placement of the tooltip. Note that the actual placement may vary as needed to keep the tooltip\ninside of the viewport.",
+          "default": "'top'"
+        },
+        {
+          "name": "disabled",
+          "fieldName": "disabled",
+          "type": "Boolean",
+          "description": "Disables the tooltip so it won't show when triggered.",
+          "default": "false",
+          "reflects": true
+        },
+        {
+          "name": "distance",
+          "fieldName": "distance",
+          "type": "Double",
+          "description": "The distance in pixels from which to offset the tooltip away from its target.",
+          "default": "8"
+        },
+        {
+          "name": "open",
+          "fieldName": "open",
+          "type": "Boolean",
+          "description": "Indicates whether or not the tooltip is open. You can use this in lieu of the show/hide methods.",
+          "default": "false",
+          "reflects": true
+        },
+        {
+          "name": "skidding",
+          "fieldName": "skidding",
+          "type": "Double",
+          "description": "The distance in pixels from which to offset the tooltip along its target.",
+          "default": "0"
+        },
+        {
+          "name": "show-delay",
+          "fieldName": "showDelay",
+          "type": "Double",
+          "description": "The amount of time to wait before showing the tooltip when the user mouses in.",
+          "default": "150"
+        },
+        {
+          "name": "hide-delay",
+          "fieldName": "hideDelay",
+          "type": "Double",
+          "description": "The amount of time to wait before hiding the tooltip when the user mouses out..",
+          "default": "0"
+        },
+        {
+          "name": "trigger",
+          "fieldName": "trigger",
+          "type": "String",
+          "description": "Controls how the tooltip is activated. Possible options include `click`, `hover`, `focus`, and `manual`. Multiple\noptions can be passed by separating them with a space. When manual is used, the tooltip must be activated\nprogrammatically.",
+          "default": "'hover focus'"
+        },
+        {
+          "name": "without-arrow",
+          "fieldName": "withoutArrow",
+          "type": "Boolean",
+          "description": "Removes the arrow from the tooltip.",
+          "default": "false",
+          "reflects": true
+        },
+        {
+          "name": "for",
+          "fieldName": "for",
+          "type": "string | null",
+          "default": "null"
+        }
+      ],
+      "events": [
+        {
+          "eventType": "WaAfterShowEvent"
+        },
+        {
+          "name": "wa-show",
+          "eventType": "WaShowEvent",
+          "description": "Emitted when the tooltip begins to show.",
+          "reactName": "onWaShow"
+        },
+        {
+          "name": "wa-after-show",
+          "eventType": "WaAfterShowEvent",
+          "description": "Emitted after the tooltip has shown and all animations are complete.",
+          "reactName": "onWaAfterShow"
+        },
+        {
+          "name": "wa-hide",
+          "eventType": "WaHideEvent",
+          "description": "Emitted when the tooltip begins to hide.",
+          "reactName": "onWaHide"
+        },
+        {
+          "name": "wa-after-hide",
+          "eventType": "WaAfterHideEvent",
+          "description": "Emitted after the tooltip has hidden and all animations are complete.",
+          "reactName": "onWaAfterHide"
+        }
+      ],
+      "slots": [
+        {
+          "name": "",
+          "description": "The tooltip's default slot where any content should live. Interactive content should be avoided."
+        }
+      ],
+      "cssProperties": [
+        {
+          "name": "--max-width",
+          "description": "The maximum width of the tooltip before its content will wrap."
+        }
+      ],
+      "cssParts": [
+        {
+          "name": "base",
+          "description": "The component's base wrapper, an `<wa-popup>` element."
+        },
+        {
+          "name": "base__popup",
+          "description": "The popup's exported `popup` part. Use this to target the tooltip's popup container."
+        },
+        {
+          "name": "base__arrow",
+          "description": "The popup's exported `arrow` part. Use this to target the tooltip's arrow."
+        },
+        {
+          "name": "body",
+          "description": "The tooltip's body where its content is rendered."
+        }
+      ],
+      "methods": [
+        {
+          "name": "handleOpenChange",
+          "parameters": [],
+          "returnType": "Unit",
+          "public": true
+        },
+        {
+          "name": "handleForChange",
+          "parameters": [],
+          "returnType": "Unit",
+          "public": true
+        },
+        {
+          "name": "handleOptionsChange",
+          "parameters": [],
+          "returnType": "Unit",
+          "public": true
+        },
+        {
+          "name": "handleDisabledChange",
+          "parameters": [],
+          "returnType": "Unit",
+          "public": true
+        },
+        {
+          "name": "show",
+          "description": "Shows the tooltip.",
+          "parameters": [],
+          "returnType": "Unit",
+          "public": true
+        },
+        {
+          "name": "hide",
+          "description": "Hides the tooltip",
+          "parameters": [],
+          "returnType": "Unit",
+          "public": true
+        }
+      ],
+      "dependencies": [
+        "wa-popup"
+      ]
+    },
+    {
       "name": "WaTextarea",
       "tagName": "wa-textarea",
       "packagePath": "io.github.nguyenyou.webawesome.laminar.Textarea",
@@ -7370,14 +7491,6 @@
           "type": "Boolean",
           "description": "Makes the textarea readonly.",
           "default": "false",
-          "reflects": true
-        },
-        {
-          "name": "form",
-          "fieldName": "form",
-          "type": "null",
-          "description": "By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you\nto place the form control outside of a form and associate it with the form that has this `id`. The form must be in\nthe same document or shadow root for this to work.",
-          "default": "null",
           "reflects": true
         },
         {
@@ -7657,204 +7770,6 @@
         }
       ],
       "dependencies": []
-    },
-    {
-      "name": "WaTooltip",
-      "tagName": "wa-tooltip",
-      "packagePath": "io.github.nguyenyou.webawesome.laminar.Tooltip",
-      "description": "Tooltips display additional information based on a specific action.",
-      "documentation": "https://webawesome.com/docs/components/tooltip",
-      "since": "2.0",
-      "attributes": [
-        {
-          "name": "placement",
-          "fieldName": "placement",
-          "type": "String",
-          "unionValues": [
-            "top",
-            "top-start",
-            "top-end",
-            "right",
-            "right-start",
-            "right-end",
-            "bottom",
-            "bottom-start",
-            "bottom-end",
-            "left",
-            "left-start",
-            "left-end"
-          ],
-          "description": "The preferred placement of the tooltip. Note that the actual placement may vary as needed to keep the tooltip\ninside of the viewport.",
-          "default": "'top'"
-        },
-        {
-          "name": "disabled",
-          "fieldName": "disabled",
-          "type": "Boolean",
-          "description": "Disables the tooltip so it won't show when triggered.",
-          "default": "false",
-          "reflects": true
-        },
-        {
-          "name": "distance",
-          "fieldName": "distance",
-          "type": "Double",
-          "description": "The distance in pixels from which to offset the tooltip away from its target.",
-          "default": "8"
-        },
-        {
-          "name": "open",
-          "fieldName": "open",
-          "type": "Boolean",
-          "description": "Indicates whether or not the tooltip is open. You can use this in lieu of the show/hide methods.",
-          "default": "false",
-          "reflects": true
-        },
-        {
-          "name": "skidding",
-          "fieldName": "skidding",
-          "type": "Double",
-          "description": "The distance in pixels from which to offset the tooltip along its target.",
-          "default": "0"
-        },
-        {
-          "name": "show-delay",
-          "fieldName": "showDelay",
-          "type": "Double",
-          "description": "The amount of time to wait before showing the tooltip when the user mouses in.",
-          "default": "150"
-        },
-        {
-          "name": "hide-delay",
-          "fieldName": "hideDelay",
-          "type": "Double",
-          "description": "The amount of time to wait before hiding the tooltip when the user mouses out..",
-          "default": "0"
-        },
-        {
-          "name": "trigger",
-          "fieldName": "trigger",
-          "type": "String",
-          "description": "Controls how the tooltip is activated. Possible options include `click`, `hover`, `focus`, and `manual`. Multiple\noptions can be passed by separating them with a space. When manual is used, the tooltip must be activated\nprogrammatically.",
-          "default": "'hover focus'"
-        },
-        {
-          "name": "without-arrow",
-          "fieldName": "withoutArrow",
-          "type": "Boolean",
-          "description": "Removes the arrow from the tooltip.",
-          "default": "false",
-          "reflects": true
-        },
-        {
-          "name": "for",
-          "fieldName": "for",
-          "type": "string | null",
-          "default": "null"
-        }
-      ],
-      "events": [
-        {
-          "eventType": "WaAfterShowEvent"
-        },
-        {
-          "name": "wa-show",
-          "eventType": "WaShowEvent",
-          "description": "Emitted when the tooltip begins to show.",
-          "reactName": "onWaShow"
-        },
-        {
-          "name": "wa-after-show",
-          "eventType": "WaAfterShowEvent",
-          "description": "Emitted after the tooltip has shown and all animations are complete.",
-          "reactName": "onWaAfterShow"
-        },
-        {
-          "name": "wa-hide",
-          "eventType": "WaHideEvent",
-          "description": "Emitted when the tooltip begins to hide.",
-          "reactName": "onWaHide"
-        },
-        {
-          "name": "wa-after-hide",
-          "eventType": "WaAfterHideEvent",
-          "description": "Emitted after the tooltip has hidden and all animations are complete.",
-          "reactName": "onWaAfterHide"
-        }
-      ],
-      "slots": [
-        {
-          "name": "",
-          "description": "The tooltip's default slot where any content should live. Interactive content should be avoided."
-        }
-      ],
-      "cssProperties": [
-        {
-          "name": "--max-width",
-          "description": "The maximum width of the tooltip before its content will wrap."
-        }
-      ],
-      "cssParts": [
-        {
-          "name": "base",
-          "description": "The component's base wrapper, an `<wa-popup>` element."
-        },
-        {
-          "name": "base__popup",
-          "description": "The popup's exported `popup` part. Use this to target the tooltip's popup container."
-        },
-        {
-          "name": "base__arrow",
-          "description": "The popup's exported `arrow` part. Use this to target the tooltip's arrow."
-        },
-        {
-          "name": "body",
-          "description": "The tooltip's body where its content is rendered."
-        }
-      ],
-      "methods": [
-        {
-          "name": "handleOpenChange",
-          "parameters": [],
-          "returnType": "Unit",
-          "public": true
-        },
-        {
-          "name": "handleForChange",
-          "parameters": [],
-          "returnType": "Unit",
-          "public": true
-        },
-        {
-          "name": "handleOptionsChange",
-          "parameters": [],
-          "returnType": "Unit",
-          "public": true
-        },
-        {
-          "name": "handleDisabledChange",
-          "parameters": [],
-          "returnType": "Unit",
-          "public": true
-        },
-        {
-          "name": "show",
-          "description": "Shows the tooltip.",
-          "parameters": [],
-          "returnType": "Unit",
-          "public": true
-        },
-        {
-          "name": "hide",
-          "description": "Hides the tooltip",
-          "parameters": [],
-          "returnType": "Unit",
-          "public": true
-        }
-      ],
-      "dependencies": [
-        "wa-popup"
-      ]
     },
     {
       "name": "WaTree",
@@ -8351,7 +8266,7 @@
   ],
   "summary": {
     "totalComponents": 57,
-    "totalAttributes": 407,
+    "totalAttributes": 397,
     "totalEvents": 138,
     "totalSlots": 110,
     "totalCSSProperties": 97,

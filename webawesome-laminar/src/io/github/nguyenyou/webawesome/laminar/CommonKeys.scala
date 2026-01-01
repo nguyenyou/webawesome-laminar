@@ -26,6 +26,14 @@ object CommonKeys extends CommonTypes {
     lazy val vertical: HtmlAttrSetter[Orientation] = Orientation("vertical")
   }
 
+  /** year attribute - DateYearFormat */
+  object DateYearFormat extends HtmlAttr[DateYearFormat]("year", UnionAsStringCodec[DateYearFormat]) {
+
+    lazy val `2-digit`: HtmlAttrSetter[DateYearFormat] = DateYearFormat("2-digit")
+
+    lazy val numeric: HtmlAttrSetter[DateYearFormat] = DateYearFormat("numeric")
+  }
+
   /** variant attribute - ThemeVariant */
   object ThemeVariant extends HtmlAttr[ThemeVariant]("variant", UnionAsStringCodec[ThemeVariant]) {
 
@@ -38,14 +46,6 @@ object CommonKeys extends CommonTypes {
     lazy val success: HtmlAttrSetter[ThemeVariant] = ThemeVariant("success")
 
     lazy val warning: HtmlAttrSetter[ThemeVariant] = ThemeVariant("warning")
-  }
-
-  /** year attribute - DateYearFormat */
-  object DateYearFormat extends HtmlAttr[DateYearFormat]("year", UnionAsStringCodec[DateYearFormat]) {
-
-    lazy val `2-digit`: HtmlAttrSetter[DateYearFormat] = DateYearFormat("2-digit")
-
-    lazy val numeric: HtmlAttrSetter[DateYearFormat] = DateYearFormat("numeric")
   }
 
   /** placement attribute - Placement */
@@ -86,6 +86,20 @@ object CommonKeys extends CommonTypes {
     lazy val short: HtmlAttrSetter[DisplayFormat] = DisplayFormat("short")
   }
 
+  /** appearance attribute - ExtendedAppearance */
+  object ExtendedAppearance extends HtmlAttr[ExtendedAppearance]("appearance", UnionAsStringCodec[ExtendedAppearance]) {
+
+    lazy val accent: HtmlAttrSetter[ExtendedAppearance] = ExtendedAppearance("accent")
+
+    lazy val filled: HtmlAttrSetter[ExtendedAppearance] = ExtendedAppearance("filled")
+
+    lazy val filledOutlined: HtmlAttrSetter[ExtendedAppearance] = ExtendedAppearance("filled-outlined")
+
+    lazy val outlined: HtmlAttrSetter[ExtendedAppearance] = ExtendedAppearance("outlined")
+
+    lazy val plain: HtmlAttrSetter[ExtendedAppearance] = ExtendedAppearance("plain")
+  }
+
   /** appearance attribute - Appearance */
   object Appearance extends HtmlAttr[Appearance]("appearance", UnionAsStringCodec[Appearance]) {
 
@@ -104,18 +118,6 @@ object CommonKeys extends CommonTypes {
     lazy val `lazy`: HtmlAttrSetter[LoadingStrategy] = LoadingStrategy("lazy")
   }
 
-  /** appearance attribute - ExtendedAppearance */
-  object ExtendedAppearance extends HtmlAttr[ExtendedAppearance]("appearance", UnionAsStringCodec[ExtendedAppearance]) {
-
-    lazy val accent: HtmlAttrSetter[ExtendedAppearance] = ExtendedAppearance("accent")
-
-    lazy val filled: HtmlAttrSetter[ExtendedAppearance] = ExtendedAppearance("filled")
-
-    lazy val filledOutlined: HtmlAttrSetter[ExtendedAppearance] = ExtendedAppearance("filled-outlined")
-
-    lazy val outlined: HtmlAttrSetter[ExtendedAppearance] = ExtendedAppearance("outlined")
-  }
-
   /** appearance attribute - ExtendedAppearance1 */
   object ExtendedAppearance1
       extends HtmlAttr[ExtendedAppearance1]("appearance", UnionAsStringCodec[ExtendedAppearance1]) {
@@ -127,8 +129,6 @@ object CommonKeys extends CommonTypes {
     lazy val filledOutlined: HtmlAttrSetter[ExtendedAppearance1] = ExtendedAppearance1("filled-outlined")
 
     lazy val outlined: HtmlAttrSetter[ExtendedAppearance1] = ExtendedAppearance1("outlined")
-
-    lazy val plain: HtmlAttrSetter[ExtendedAppearance1] = ExtendedAppearance1("plain")
   }
 
   /** tooltip-placement attribute - TooltipPlacement */
@@ -270,19 +270,6 @@ object CommonKeys extends CommonTypes {
     lazy val get: HtmlAttrSetter[ButtonFormmethod] = ButtonFormmethod("get")
 
     lazy val post: HtmlAttrSetter[ButtonFormmethod] = ButtonFormmethod("post")
-  }
-
-  /** appearance attribute - CardExtendedAppearance */
-  object CardExtendedAppearance
-      extends HtmlAttr[CardExtendedAppearance]("appearance", UnionAsStringCodec[CardExtendedAppearance]) {
-
-    lazy val accent: HtmlAttrSetter[CardExtendedAppearance] = CardExtendedAppearance("accent")
-
-    lazy val filled: HtmlAttrSetter[CardExtendedAppearance] = CardExtendedAppearance("filled")
-
-    lazy val outlined: HtmlAttrSetter[CardExtendedAppearance] = CardExtendedAppearance("outlined")
-
-    lazy val plain: HtmlAttrSetter[CardExtendedAppearance] = CardExtendedAppearance("plain")
   }
 
   /** format attribute - ColorPickerFormat */

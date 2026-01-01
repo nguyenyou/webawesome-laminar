@@ -34,11 +34,6 @@ object ButtonGroup extends WebComponent("wa-button-group") {
   /** The button group's orientation. Valid values: "horizontal", "vertical". */
   lazy val orientation: CommonKeys.Orientation.type = CommonKeys.Orientation
 
-  /** The button group's theme variant. Defaults to `neutral` if not within another element with a variant. Valid
-    * values: "neutral", "brand", "success", "warning", "danger".
-    */
-  lazy val variant: CommonKeys.ThemeVariant.type = CommonKeys.ThemeVariant
-
   // -- Slots --
 
   object slots {
@@ -73,11 +68,6 @@ object ButtonGroup extends WebComponent("wa-button-group") {
 
     /** The button group's orientation. Valid values: "horizontal", "vertical". */
     var orientation: Orientation
-
-    /** The button group's theme variant. Defaults to `neutral` if not within another element with a variant. Valid
-      * values: "neutral", "brand", "success", "warning", "danger".
-      */
-    var variant: ThemeVariant
 
   }
 }

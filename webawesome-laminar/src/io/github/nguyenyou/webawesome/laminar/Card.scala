@@ -26,8 +26,8 @@ object Card extends WebComponent("wa-card") {
 
   // -- Attributes --
 
-  /** The card's visual appearance. Valid values: "accent", "filled", "outlined", "plain". */
-  lazy val appearance: CommonKeys.CardExtendedAppearance.type = CommonKeys.CardExtendedAppearance
+  /** The card's visual appearance. Valid values: "accent", "filled", "outlined", "filled-outlined", "plain". */
+  lazy val appearance: CommonKeys.ExtendedAppearance.type = CommonKeys.ExtendedAppearance
 
   /** Renders the card with a header. Only needed for SSR, otherwise is automatically added. */
   lazy val withHeader: HtmlAttr[Boolean] = boolAttr("with-header")
@@ -104,8 +104,8 @@ object Card extends WebComponent("wa-card") {
   trait WaCardComponent extends js.Object {
     this: dom.HTMLElement =>
 
-    /** The card's visual appearance. Valid values: "accent", "filled", "outlined", "plain". */
-    var appearance: CardExtendedAppearance
+    /** The card's visual appearance. Valid values: "accent", "filled", "outlined", "filled-outlined", "plain". */
+    var appearance: ExtendedAppearance
 
     /** Renders the card with a header. Only needed for SSR, otherwise is automatically added. */
     var withHeader: Boolean

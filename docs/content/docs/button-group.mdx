@@ -13,39 +13,12 @@ ButtonGroup(_.label := "Alignment")(
 
 ## Examples
 
-### Vertical Button Groups
-
-Set the `orientation` attribute to `vertical` to make a vertical button group.
-
-```scala preview h-[340px]
-ButtonGroup(_.orientation.vertical, _.label := "Options")(
-  maxWidth.px(120),
-  Button(
-    _.slots.start(Icon(_.name := "plus")())
-  )("New"),
-  Button(
-    _.slots.start(Icon(_.name := "folder-open")())
-  )("Open"),
-  Button(
-    _.slots.start(Icon(_.name := "save")())
-  )("Save"),
-  Button(
-    _.slots.start(Icon(_.name := "print")())
-  )("Print")
-)
-```
-
 ### Theme Buttons
 
 Theme buttons are supported through the button group's `variant` attribute.
 
 ```scala examples vertical h-[420px]
-ButtonGroup(_.label := "Alignment", _.variant.brand)(
-  Button()("Left"),
-  Button()("Center"),
-  Button()("Right")
-)
-ButtonGroup(_.label := "Alignment", _.variant.success)(
+ButtonGroup(_.label := "Alignment")(
   Button()("Left"),
   Button()("Center"),
   Button()("Right")
@@ -55,12 +28,17 @@ ButtonGroup(_.label := "Alignment")(
   Button()("Center"),
   Button()("Right")
 )
-ButtonGroup(_.label := "Alignment", _.variant.warning)(
+ButtonGroup(_.label := "Alignment")(
   Button()("Left"),
   Button()("Center"),
   Button()("Right")
 )
-ButtonGroup(_.label := "Alignment", _.variant.danger)(
+ButtonGroup(_.label := "Alignment")(
+  Button()("Left"),
+  Button()("Center"),
+  Button()("Right")
+)
+ButtonGroup(_.label := "Alignment")(
   Button()("Left"),
   Button()("Center"),
   Button()("Right")
@@ -70,7 +48,7 @@ ButtonGroup(_.label := "Alignment", _.variant.danger)(
 You can still use the buttons' own `variant` attribute to override the inherited variant.
 
 ```scala preview h-[200px]
-ButtonGroup(_.label := "Alignment", _.variant.brand)(
+ButtonGroup(_.label := "Alignment")(
   Button()("Left"),
   Button()("Center"),
   Button(_.variant.neutral)("Right")

@@ -46,25 +46,6 @@
       ]
     },
     {
-      "name": "ThemeVariant",
-      "signature": "brand|danger|neutral|success|warning",
-      "values": [
-        "brand",
-        "danger",
-        "neutral",
-        "success",
-        "warning"
-      ],
-      "frequency": 5,
-      "components": [
-        "WaBadge",
-        "WaButton",
-        "WaButtonGroup",
-        "WaCallout",
-        "WaTag"
-      ]
-    },
-    {
       "name": "DateYearFormat",
       "signature": "2-digit|numeric",
       "values": [
@@ -78,6 +59,24 @@
         "WaFormatDate",
         "WaFormatDate",
         "WaFormatDate"
+      ]
+    },
+    {
+      "name": "ThemeVariant",
+      "signature": "brand|danger|neutral|success|warning",
+      "values": [
+        "brand",
+        "danger",
+        "neutral",
+        "success",
+        "warning"
+      ],
+      "frequency": 4,
+      "components": [
+        "WaBadge",
+        "WaButton",
+        "WaCallout",
+        "WaTag"
       ]
     },
     {
@@ -122,6 +121,23 @@
       ]
     },
     {
+      "name": "ExtendedAppearance",
+      "signature": "accent|filled|filled-outlined|outlined|plain",
+      "values": [
+        "accent",
+        "filled",
+        "filled-outlined",
+        "outlined",
+        "plain"
+      ],
+      "frequency": 3,
+      "components": [
+        "WaButton",
+        "WaCallout",
+        "WaCard"
+      ]
+    },
+    {
       "name": "Appearance",
       "signature": "filled|filled-outlined|outlined",
       "values": [
@@ -150,7 +166,7 @@
       ]
     },
     {
-      "name": "ExtendedAppearance",
+      "name": "ExtendedAppearance1",
       "signature": "accent|filled|filled-outlined|outlined",
       "values": [
         "accent",
@@ -162,22 +178,6 @@
       "components": [
         "WaBadge",
         "WaTag"
-      ]
-    },
-    {
-      "name": "ExtendedAppearance1",
-      "signature": "accent|filled|filled-outlined|outlined|plain",
-      "values": [
-        "accent",
-        "filled",
-        "filled-outlined",
-        "outlined",
-        "plain"
-      ],
-      "frequency": 2,
-      "components": [
-        "WaButton",
-        "WaCallout"
       ]
     },
     {
@@ -340,20 +340,6 @@
       "frequency": 1,
       "components": [
         "WaButton"
-      ]
-    },
-    {
-      "name": "CardExtendedAppearance",
-      "signature": "accent|filled|outlined|plain",
-      "values": [
-        "accent",
-        "filled",
-        "outlined",
-        "plain"
-      ],
-      "frequency": 1,
-      "components": [
-        "WaCard"
       ]
     },
     {
