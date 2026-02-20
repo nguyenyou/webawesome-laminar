@@ -36,6 +36,12 @@ object FormatBytes extends WebComponent("wa-format-bytes") {
     */
   lazy val display: CommonKeys.DisplayFormat.type = CommonKeys.DisplayFormat
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Element type --
 
   @js.native
@@ -52,6 +58,12 @@ object FormatBytes extends WebComponent("wa-format-bytes") {
       * "narrow".
       */
     var display: DisplayFormat
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
   }
 }

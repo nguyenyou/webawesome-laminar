@@ -36,6 +36,12 @@ object Scroller extends WebComponent("wa-scroller") {
   /** Removes the shadows. */
   lazy val withoutShadow: HtmlAttr[Boolean] = boolAttr("without-shadow")
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Slots --
 
   object slots {
@@ -84,6 +90,12 @@ object Scroller extends WebComponent("wa-scroller") {
 
     /** Removes the shadows. */
     var withoutShadow: Boolean
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
   }
 }

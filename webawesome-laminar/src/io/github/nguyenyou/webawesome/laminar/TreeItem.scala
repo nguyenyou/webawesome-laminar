@@ -62,6 +62,12 @@ object TreeItem extends WebComponent("wa-tree-item") {
   /** Enables lazy loading behavior. */
   lazy val `lazy`: HtmlAttr[Boolean] = boolAttr("lazy")
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Slots --
 
   object slots {
@@ -156,6 +162,12 @@ object TreeItem extends WebComponent("wa-tree-item") {
 
     /** Enables lazy loading behavior. */
     var `lazy`: Boolean
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
     def isTreeItem(node: js.Any): js.Any = js.native
 

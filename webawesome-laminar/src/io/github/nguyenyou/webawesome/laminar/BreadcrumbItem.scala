@@ -36,6 +36,12 @@ object BreadcrumbItem extends WebComponent("wa-breadcrumb-item") {
   /** The `rel` attribute to use on the link. Only used when `href` is set. */
   lazy val rel: HtmlAttr[String] = stringAttr("rel")
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Slots --
 
   object slots {
@@ -91,6 +97,12 @@ object BreadcrumbItem extends WebComponent("wa-breadcrumb-item") {
 
     /** The `rel` attribute to use on the link. Only used when `href` is set. */
     var rel: String
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
     def hrefChanged(): js.Any = js.native
 

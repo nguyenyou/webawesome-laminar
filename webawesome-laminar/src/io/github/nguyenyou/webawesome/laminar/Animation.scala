@@ -81,6 +81,12 @@ object Animation extends WebComponent("wa-animation") {
     */
   lazy val playbackRate: HtmlAttr[Double] = doubleAttr("playback-rate")
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Slots --
 
   object slots {
@@ -140,6 +146,12 @@ object Animation extends WebComponent("wa-animation") {
       * animation. This value can be changed without causing the animation to restart.
       */
     var playbackRate: Double
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
     def handleAnimationChange(): js.Any = js.native
 

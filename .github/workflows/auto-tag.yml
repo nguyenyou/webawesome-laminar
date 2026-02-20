@@ -1,0 +1,22 @@
+name: Auto Tag on Merge
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+
+jobs:
+  create-tag:
+    if: github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'feat/')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extract version from branch name
+        id: version
+        run: echo "version=${GITHUB_HEAD_REF#feat/}" >> $GITHUB_OUTPUT
+      - name: Create and push tag
+        run: |
+          git tag ${{ steps.version.outputs.version }}
+          git push origin ${{ steps.version.outputs.version }}

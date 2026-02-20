@@ -61,6 +61,12 @@ object SplitPanel extends WebComponent("wa-split-panel") {
   /** How close the divider must be to a snap point until snapping occurs. */
   lazy val snapThreshold: HtmlAttr[Double] = doubleAttr("snap-threshold")
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Slots --
 
   object slots {
@@ -149,6 +155,12 @@ object SplitPanel extends WebComponent("wa-split-panel") {
 
     /** How close the divider must be to a snap point until snapping occurs. */
     var snapThreshold: Double
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
     def handlePositionChange(): js.Any = js.native
 

@@ -632,7 +632,7 @@ async function generateComponent(component: ComponentIR): Promise<string> {
                         }
 
                         // Generate lazy object checked with special implementation
-                        writer.write(`lazy object checked`).block(() => {
+                        writer.write(`object checked`).block(() => {
                             writer.write(`def :=(value: Boolean) =`).block(() => {
                                 writer.writeLine("Seq(");
                                 writer.writeLine("  L.defaultChecked := value,");
@@ -728,9 +728,6 @@ async function generateComponent(component: ComponentIR): Promise<string> {
                 }
                 if (component.tagName === "wa-input") {
                     writer.writeLine("// -- Custom Attributes --");
-                    writer.writeLine(
-                        'lazy val name: HtmlAttr[String] = stringAttr("name")'
-                    );
                     writer.blankLine();
                 }
             }

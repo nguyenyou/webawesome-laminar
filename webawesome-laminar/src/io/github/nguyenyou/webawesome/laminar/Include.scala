@@ -48,6 +48,12 @@ object Include extends WebComponent("wa-include") {
     */
   lazy val allowScripts: HtmlAttr[Boolean] = boolAttr("allow-scripts")
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Element type --
 
   @js.native
@@ -66,6 +72,12 @@ object Include extends WebComponent("wa-include") {
       * as code and can result in XSS attacks.
       */
     var allowScripts: Boolean
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
     def handleSrcChange(): js.Any = js.native
 

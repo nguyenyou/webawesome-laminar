@@ -32,6 +32,12 @@ object Tab extends WebComponent("wa-tab") {
   /** Disables the tab and prevents selection. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Slots --
 
   object slots {
@@ -62,6 +68,12 @@ object Tab extends WebComponent("wa-tab") {
 
     /** Disables the tab and prevents selection. */
     var disabled: Boolean
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
     def handleActiveChange(): js.Any = js.native
 

@@ -65,6 +65,12 @@ object Popover extends WebComponent("wa-popover") {
   /** Removes the arrow from the popover. */
   lazy val withoutArrow: HtmlAttr[Boolean] = boolAttr("without-arrow")
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Slots --
 
   object slots {
@@ -143,6 +149,12 @@ object Popover extends WebComponent("wa-popover") {
 
     /** Removes the arrow from the popover. */
     var withoutArrow: Boolean
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
     def handleOpenChange(): js.Any = js.native
 

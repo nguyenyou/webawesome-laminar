@@ -59,8 +59,8 @@ object RadioGroup extends WebComponent("wa-radio-group") {
   /** The default value of the form control. Primarily used for resetting the form control. */
   lazy val defaultValue: HtmlAttr[String] = stringAttr("value")
 
-  /** The radio group's size. This size will be applied to all child radios and radio buttons, except when explicitly
-    * overridden. Valid values: "small", "medium", "large".
+  /** The radio group's size. When present, this size will be applied to all `<wa-radio>` items inside. Valid values:
+    * "small", "medium", "large".
     */
   lazy val size: CommonKeys.ComponentSize.type = CommonKeys.ComponentSize
 
@@ -72,6 +72,14 @@ object RadioGroup extends WebComponent("wa-radio-group") {
 
   /** Used for SSR. if true, will show slotted hint on initial render. */
   lazy val withHint: HtmlAttr[Boolean] = boolAttr("with-hint")
+
+  lazy val customError: HtmlAttr[String] = stringAttr("custom-error")
+
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
 
   // -- Slots --
 
@@ -138,8 +146,8 @@ object RadioGroup extends WebComponent("wa-radio-group") {
     /** The default value of the form control. Primarily used for resetting the form control. */
     var defaultValue: String
 
-    /** The radio group's size. This size will be applied to all child radios and radio buttons, except when explicitly
-      * overridden. Valid values: "small", "medium", "large".
+    /** The radio group's size. When present, this size will be applied to all `<wa-radio>` items inside. Valid values:
+      * "small", "medium", "large".
       */
     var size: ComponentSize
 
@@ -152,10 +160,48 @@ object RadioGroup extends WebComponent("wa-radio-group") {
     /** Used for SSR. if true, will show slotted hint on initial render. */
     var withHint: Boolean
 
+    var customError: String
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
+
     def formResetCallback(args: js.Any): js.Any = js.native
 
     /** Sets focus on the radio group. */
     def focus(options: js.UndefOr[js.Any]): js.Any = js.native
+
+    def getForm(): js.Any = js.native
+
+    def checkValidity(): js.Any = js.native
+
+    def reportValidity(): js.Any = js.native
+
+    def setValidity(args: js.Any): js.Any = js.native
+
+    def setCustomStates(): js.Any = js.native
+
+    /** Do not use this when creating a "Validator". This is intended for end users of components. We track manually
+      * defined custom errors so we don't clear them on accident in our validators.
+      */
+    def setCustomValidity(message: String): js.Any = js.native
+
+    def formDisabledCallback(isDisabled: Boolean): js.Any = js.native
+
+    /** Called when the browser is trying to restore element’s state to state in which case reason is "restore", or when
+      * the browser is trying to fulfill autofill on behalf of user in which case reason is "autocomplete". In the case
+      * of "restore", state is a string, File, or FormData object previously set as the second argument to setFormValue.
+      */
+    def formStateRestoreCallback(state: js.Any, reason: String): js.Any = js.native
+
+    def setValue(args: js.Any): js.Any = js.native
+
+    /** Reset validity is a way of removing manual custom errors and native validation. */
+    def resetValidity(): js.Any = js.native
+
+    def updateValidity(): js.Any = js.native
 
   }
 }

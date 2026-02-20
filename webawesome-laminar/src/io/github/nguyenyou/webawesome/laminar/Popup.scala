@@ -141,6 +141,12 @@ object Popup extends WebComponent("wa-popup") {
     */
   lazy val hoverBridge: HtmlAttr[Boolean] = boolAttr("hover-bridge")
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Slots --
 
   object slots {
@@ -314,6 +320,12 @@ object Popup extends WebComponent("wa-popup") {
       * is active.
       */
     var hoverBridge: Boolean
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
     /** Forces the popup to recalculate and reposition itself. */
     def reposition(): js.Any = js.native

@@ -62,6 +62,12 @@ object Details extends WebComponent("wa-details") {
   /** The location of the expand/collapse icon. Valid values: "start", "end". */
   lazy val iconPlacement: CommonKeys.DetailsIconPlacement.type = CommonKeys.DetailsIconPlacement
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Slots --
 
   object slots {
@@ -145,6 +151,12 @@ object Details extends WebComponent("wa-details") {
 
     /** The location of the expand/collapse icon. Valid values: "start", "end". */
     var iconPlacement: DetailsIconPlacement
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
     def handleOpenChange(): js.Any = js.native
 

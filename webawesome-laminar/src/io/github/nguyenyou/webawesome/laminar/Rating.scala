@@ -67,6 +67,12 @@ object Rating extends WebComponent("wa-rating") {
   /** The component's size. Valid values: "small", "medium", "large". */
   lazy val size: CommonKeys.ComponentSize.type = CommonKeys.ComponentSize
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- CSS Vars --
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
@@ -127,6 +133,12 @@ object Rating extends WebComponent("wa-rating") {
 
     /** The component's size. Valid values: "small", "medium", "large". */
     var size: ComponentSize
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
     def handleHoverValueChange(): js.Any = js.native
 

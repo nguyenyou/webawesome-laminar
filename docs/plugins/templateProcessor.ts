@@ -240,7 +240,7 @@ export const applyTemplate = (ctx: TemplateContext): string => {
   import scala.scalajs.js
 
   val container = dom.document.querySelector("#${exampleId}")
-  if (container != null) {
+  if (Option(container).isDefined) {
     render(container, {
 ${indentCode(exampleCode, 6)}
     })
@@ -268,7 +268,7 @@ export const applyExampleTemplate = (ctx: TemplateContext): string => {
   import scala.scalajs.js
 
   val container = dom.document.querySelector("#${exampleId}")
-  if (container != null) {
+  if (Option(container).isDefined) {
     render(container, {
       div(
 ${indentCode(exampleCode, 8)}
@@ -330,7 +330,7 @@ ${indentCode(exampleGroupsArgs, 2)}
   import scala.scalajs.js
 
   val container = dom.document.querySelector("#${exampleId}")
-  if (container != null) {
+  if (Option(container).isDefined) {
     render(container, {
 ${indentCode(exampleGroupsCall, 6)}
     })

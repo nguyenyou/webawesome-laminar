@@ -31,6 +31,12 @@ object ProgressRing extends WebComponent("wa-progress-ring") {
   /** A custom label for assistive devices. */
   lazy val label: HtmlAttr[String] = stringAttr("label")
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Slots --
 
   object slots {
@@ -76,6 +82,12 @@ object ProgressRing extends WebComponent("wa-progress-ring") {
     /** The progress ring label. */
     lazy val label: String = "label"
 
+    /** The progress ring's track. */
+    lazy val track: String = "track"
+
+    /** The progress ring's indicator. */
+    lazy val indicator: String = "indicator"
+
   }
 
   // -- Element type --
@@ -89,6 +101,12 @@ object ProgressRing extends WebComponent("wa-progress-ring") {
 
     /** A custom label for assistive devices. */
     var label: String
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
   }
 }

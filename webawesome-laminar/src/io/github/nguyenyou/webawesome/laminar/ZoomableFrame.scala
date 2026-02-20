@@ -67,6 +67,12 @@ object ZoomableFrame extends WebComponent("wa-zoomable-frame") {
   /** Disables interaction when present. */
   lazy val withoutInteraction: HtmlAttr[Boolean] = boolAttr("without-interaction")
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Slots --
 
   object slots {
@@ -135,6 +141,12 @@ object ZoomableFrame extends WebComponent("wa-zoomable-frame") {
 
     /** Disables interaction when present. */
     var withoutInteraction: Boolean
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
     /** Zooms in to the next available zoom level. */
     def zoomIn(): js.Any = js.native

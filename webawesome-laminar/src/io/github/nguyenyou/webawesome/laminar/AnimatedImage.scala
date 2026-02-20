@@ -44,6 +44,12 @@ object AnimatedImage extends WebComponent("wa-animated-image") {
   /** Plays the animation. When this attribute is remove, the animation will pause. */
   lazy val play: HtmlAttr[Boolean] = boolAttr("play")
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Slots --
 
   object slots {
@@ -93,6 +99,12 @@ object AnimatedImage extends WebComponent("wa-animated-image") {
 
     /** Plays the animation. When this attribute is remove, the animation will pause. */
     var play: Boolean
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
     def handlePlayChange(): js.Any = js.native
 

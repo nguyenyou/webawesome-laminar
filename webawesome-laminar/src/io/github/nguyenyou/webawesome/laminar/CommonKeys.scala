@@ -48,6 +48,16 @@ object CommonKeys extends CommonTypes {
     lazy val warning: HtmlAttrSetter[ThemeVariant] = ThemeVariant("warning")
   }
 
+  /** appearance attribute - Appearance */
+  object Appearance extends HtmlAttr[Appearance]("appearance", UnionAsStringCodec[Appearance]) {
+
+    lazy val filled: HtmlAttrSetter[Appearance] = Appearance("filled")
+
+    lazy val filledOutlined: HtmlAttrSetter[Appearance] = Appearance("filled-outlined")
+
+    lazy val outlined: HtmlAttrSetter[Appearance] = Appearance("outlined")
+  }
+
   /** placement attribute - Placement */
   object Placement extends HtmlAttr[Placement]("placement", UnionAsStringCodec[Placement]) {
 
@@ -100,14 +110,22 @@ object CommonKeys extends CommonTypes {
     lazy val plain: HtmlAttrSetter[ExtendedAppearance] = ExtendedAppearance("plain")
   }
 
-  /** appearance attribute - Appearance */
-  object Appearance extends HtmlAttr[Appearance]("appearance", UnionAsStringCodec[Appearance]) {
+  /** enterkeyhint attribute - Enterkeyhint */
+  object Enterkeyhint extends HtmlAttr[Enterkeyhint]("enterkeyhint", UnionAsStringCodec[Enterkeyhint]) {
 
-    lazy val filled: HtmlAttrSetter[Appearance] = Appearance("filled")
+    lazy val done: HtmlAttrSetter[Enterkeyhint] = Enterkeyhint("done")
 
-    lazy val filledOutlined: HtmlAttrSetter[Appearance] = Appearance("filled-outlined")
+    lazy val enter: HtmlAttrSetter[Enterkeyhint] = Enterkeyhint("enter")
 
-    lazy val outlined: HtmlAttrSetter[Appearance] = Appearance("outlined")
+    lazy val go: HtmlAttrSetter[Enterkeyhint] = Enterkeyhint("go")
+
+    lazy val next: HtmlAttrSetter[Enterkeyhint] = Enterkeyhint("next")
+
+    lazy val previous: HtmlAttrSetter[Enterkeyhint] = Enterkeyhint("previous")
+
+    lazy val search: HtmlAttrSetter[Enterkeyhint] = Enterkeyhint("search")
+
+    lazy val send: HtmlAttrSetter[Enterkeyhint] = Enterkeyhint("send")
   }
 
   /** loading attribute - LoadingStrategy */
@@ -129,6 +147,42 @@ object CommonKeys extends CommonTypes {
     lazy val filledOutlined: HtmlAttrSetter[ExtendedAppearance1] = ExtendedAppearance1("filled-outlined")
 
     lazy val outlined: HtmlAttrSetter[ExtendedAppearance1] = ExtendedAppearance1("outlined")
+  }
+
+  /** autocapitalize attribute - Autocapitalize */
+  object Autocapitalize extends HtmlAttr[Autocapitalize]("autocapitalize", UnionAsStringCodec[Autocapitalize]) {
+
+    lazy val characters: HtmlAttrSetter[Autocapitalize] = Autocapitalize("characters")
+
+    lazy val none: HtmlAttrSetter[Autocapitalize] = Autocapitalize("none")
+
+    lazy val off: HtmlAttrSetter[Autocapitalize] = Autocapitalize("off")
+
+    lazy val on: HtmlAttrSetter[Autocapitalize] = Autocapitalize("on")
+
+    lazy val sentences: HtmlAttrSetter[Autocapitalize] = Autocapitalize("sentences")
+
+    lazy val words: HtmlAttrSetter[Autocapitalize] = Autocapitalize("words")
+  }
+
+  /** inputmode attribute - Inputmode */
+  object Inputmode extends HtmlAttr[Inputmode]("inputmode", UnionAsStringCodec[Inputmode]) {
+
+    lazy val decimal: HtmlAttrSetter[Inputmode] = Inputmode("decimal")
+
+    lazy val email: HtmlAttrSetter[Inputmode] = Inputmode("email")
+
+    lazy val none: HtmlAttrSetter[Inputmode] = Inputmode("none")
+
+    lazy val numeric: HtmlAttrSetter[Inputmode] = Inputmode("numeric")
+
+    lazy val search: HtmlAttrSetter[Inputmode] = Inputmode("search")
+
+    lazy val tel: HtmlAttrSetter[Inputmode] = Inputmode("tel")
+
+    lazy val text: HtmlAttrSetter[Inputmode] = Inputmode("text")
+
+    lazy val url: HtmlAttrSetter[Inputmode] = Inputmode("url")
   }
 
   /** tooltip-placement attribute - TooltipPlacement */
@@ -154,80 +208,6 @@ object CommonKeys extends CommonTypes {
     lazy val start: HtmlAttrSetter[ComponentPlacement] = ComponentPlacement("start")
 
     lazy val top: HtmlAttrSetter[ComponentPlacement] = ComponentPlacement("top")
-  }
-
-  /** autocapitalize attribute - Autocapitalize */
-  object Autocapitalize extends HtmlAttr[Autocapitalize]("autocapitalize", UnionAsStringCodec[Autocapitalize]) {
-
-    lazy val characters: HtmlAttrSetter[Autocapitalize] = Autocapitalize("characters")
-
-    lazy val none: HtmlAttrSetter[Autocapitalize] = Autocapitalize("none")
-
-    lazy val off: HtmlAttrSetter[Autocapitalize] = Autocapitalize("off")
-
-    lazy val on: HtmlAttrSetter[Autocapitalize] = Autocapitalize("on")
-
-    lazy val sentences: HtmlAttrSetter[Autocapitalize] = Autocapitalize("sentences")
-
-    lazy val words: HtmlAttrSetter[Autocapitalize] = Autocapitalize("words")
-  }
-
-  /** enterkeyhint attribute - Enterkeyhint */
-  object Enterkeyhint extends HtmlAttr[Enterkeyhint]("enterkeyhint", UnionAsStringCodec[Enterkeyhint]) {
-
-    lazy val done: HtmlAttrSetter[Enterkeyhint] = Enterkeyhint("done")
-
-    lazy val enter: HtmlAttrSetter[Enterkeyhint] = Enterkeyhint("enter")
-
-    lazy val go: HtmlAttrSetter[Enterkeyhint] = Enterkeyhint("go")
-
-    lazy val next: HtmlAttrSetter[Enterkeyhint] = Enterkeyhint("next")
-
-    lazy val previous: HtmlAttrSetter[Enterkeyhint] = Enterkeyhint("previous")
-
-    lazy val search: HtmlAttrSetter[Enterkeyhint] = Enterkeyhint("search")
-
-    lazy val send: HtmlAttrSetter[Enterkeyhint] = Enterkeyhint("send")
-  }
-
-  /** inputmode attribute - Inputmode */
-  object Inputmode extends HtmlAttr[Inputmode]("inputmode", UnionAsStringCodec[Inputmode]) {
-
-    lazy val decimal: HtmlAttrSetter[Inputmode] = Inputmode("decimal")
-
-    lazy val email: HtmlAttrSetter[Inputmode] = Inputmode("email")
-
-    lazy val none: HtmlAttrSetter[Inputmode] = Inputmode("none")
-
-    lazy val numeric: HtmlAttrSetter[Inputmode] = Inputmode("numeric")
-
-    lazy val search: HtmlAttrSetter[Inputmode] = Inputmode("search")
-
-    lazy val tel: HtmlAttrSetter[Inputmode] = Inputmode("tel")
-
-    lazy val text: HtmlAttrSetter[Inputmode] = Inputmode("text")
-
-    lazy val url: HtmlAttrSetter[Inputmode] = Inputmode("url")
-  }
-
-  /** shape attribute - AvatarShape */
-  object AvatarShape extends HtmlAttr[AvatarShape]("shape", UnionAsStringCodec[AvatarShape]) {
-
-    lazy val circle: HtmlAttrSetter[AvatarShape] = AvatarShape("circle")
-
-    lazy val rounded: HtmlAttrSetter[AvatarShape] = AvatarShape("rounded")
-
-    lazy val square: HtmlAttrSetter[AvatarShape] = AvatarShape("square")
-  }
-
-  /** attention attribute - BadgeAttention */
-  object BadgeAttention extends HtmlAttr[BadgeAttention]("attention", UnionAsStringCodec[BadgeAttention]) {
-
-    lazy val bounce: HtmlAttrSetter[BadgeAttention] = BadgeAttention("bounce")
-
-    lazy val none: HtmlAttrSetter[BadgeAttention] = BadgeAttention("none")
-
-    lazy val pulse: HtmlAttrSetter[BadgeAttention] = BadgeAttention("pulse")
   }
 
   /** type attribute - ButtonButtonType */
@@ -270,6 +250,111 @@ object CommonKeys extends CommonTypes {
     lazy val get: HtmlAttrSetter[ButtonFormmethod] = ButtonFormmethod("get")
 
     lazy val post: HtmlAttrSetter[ButtonFormmethod] = ButtonFormmethod("post")
+  }
+
+  /** shape attribute - AvatarShape */
+  object AvatarShape extends HtmlAttr[AvatarShape]("shape", UnionAsStringCodec[AvatarShape]) {
+
+    lazy val circle: HtmlAttrSetter[AvatarShape] = AvatarShape("circle")
+
+    lazy val rounded: HtmlAttrSetter[AvatarShape] = AvatarShape("rounded")
+
+    lazy val square: HtmlAttrSetter[AvatarShape] = AvatarShape("square")
+  }
+
+  /** attention attribute - BadgeAttention */
+  object BadgeAttention extends HtmlAttr[BadgeAttention]("attention", UnionAsStringCodec[BadgeAttention]) {
+
+    lazy val bounce: HtmlAttrSetter[BadgeAttention] = BadgeAttention("bounce")
+
+    lazy val none: HtmlAttrSetter[BadgeAttention] = BadgeAttention("none")
+
+    lazy val pulse: HtmlAttrSetter[BadgeAttention] = BadgeAttention("pulse")
+  }
+
+  /** type attribute - InputInputType */
+  object InputInputType extends HtmlAttr[InputInputType]("type", UnionAsStringCodec[InputInputType]) {
+
+    lazy val date: HtmlAttrSetter[InputInputType] = InputInputType("date")
+
+    lazy val datetimeLocal: HtmlAttrSetter[InputInputType] = InputInputType("datetime-local")
+
+    lazy val email: HtmlAttrSetter[InputInputType] = InputInputType("email")
+
+    lazy val number: HtmlAttrSetter[InputInputType] = InputInputType("number")
+
+    lazy val password: HtmlAttrSetter[InputInputType] = InputInputType("password")
+
+    lazy val search: HtmlAttrSetter[InputInputType] = InputInputType("search")
+
+    lazy val tel: HtmlAttrSetter[InputInputType] = InputInputType("tel")
+
+    lazy val text: HtmlAttrSetter[InputInputType] = InputInputType("text")
+
+    lazy val time: HtmlAttrSetter[InputInputType] = InputInputType("time")
+
+    lazy val url: HtmlAttrSetter[InputInputType] = InputInputType("url")
+  }
+
+  /** autocorrect attribute - InputAutocorrect */
+  object InputAutocorrect extends HtmlAttr[InputAutocorrect]("autocorrect", UnionAsStringCodec[InputAutocorrect]) {
+
+    lazy val off: HtmlAttrSetter[InputAutocorrect] = InputAutocorrect("off")
+
+    lazy val on: HtmlAttrSetter[InputAutocorrect] = InputAutocorrect("on")
+  }
+
+  /** boundary attribute - PopupBoundary */
+  object PopupBoundary extends HtmlAttr[PopupBoundary]("boundary", UnionAsStringCodec[PopupBoundary]) {
+
+    lazy val scroll: HtmlAttrSetter[PopupBoundary] = PopupBoundary("scroll")
+
+    lazy val viewport: HtmlAttrSetter[PopupBoundary] = PopupBoundary("viewport")
+  }
+
+  /** arrow-placement attribute - PopupArrowPlacement */
+  object PopupArrowPlacement
+      extends HtmlAttr[PopupArrowPlacement]("arrow-placement", UnionAsStringCodec[PopupArrowPlacement]) {
+
+    lazy val anchor: HtmlAttrSetter[PopupArrowPlacement] = PopupArrowPlacement("anchor")
+
+    lazy val center: HtmlAttrSetter[PopupArrowPlacement] = PopupArrowPlacement("center")
+
+    lazy val end: HtmlAttrSetter[PopupArrowPlacement] = PopupArrowPlacement("end")
+
+    lazy val start: HtmlAttrSetter[PopupArrowPlacement] = PopupArrowPlacement("start")
+  }
+
+  /** flip-fallback-strategy attribute - PopupFlipFallbackStrategy */
+  object PopupFlipFallbackStrategy
+      extends HtmlAttr[PopupFlipFallbackStrategy](
+        "flip-fallback-strategy",
+        UnionAsStringCodec[PopupFlipFallbackStrategy]
+      ) {
+
+    lazy val bestFit: HtmlAttrSetter[PopupFlipFallbackStrategy] = PopupFlipFallbackStrategy("best-fit")
+
+    lazy val initial: HtmlAttrSetter[PopupFlipFallbackStrategy] = PopupFlipFallbackStrategy("initial")
+  }
+
+  /** auto-size attribute - PopupAutoSize */
+  object PopupAutoSize extends HtmlAttr[PopupAutoSize]("auto-size", UnionAsStringCodec[PopupAutoSize]) {
+
+    lazy val both: HtmlAttrSetter[PopupAutoSize] = PopupAutoSize("both")
+
+    lazy val horizontal: HtmlAttrSetter[PopupAutoSize] = PopupAutoSize("horizontal")
+
+    lazy val vertical: HtmlAttrSetter[PopupAutoSize] = PopupAutoSize("vertical")
+  }
+
+  /** sync attribute - PopupSync */
+  object PopupSync extends HtmlAttr[PopupSync]("sync", UnionAsStringCodec[PopupSync]) {
+
+    lazy val both: HtmlAttrSetter[PopupSync] = PopupSync("both")
+
+    lazy val height: HtmlAttrSetter[PopupSync] = PopupSync("height")
+
+    lazy val width: HtmlAttrSetter[PopupSync] = PopupSync("width")
   }
 
   /** format attribute - ColorPickerFormat */
@@ -402,89 +487,12 @@ object CommonKeys extends CommonTypes {
     lazy val sameOrigin: HtmlAttrSetter[IncludeMode] = IncludeMode("same-origin")
   }
 
-  /** type attribute - InputInputType */
-  object InputInputType extends HtmlAttr[InputInputType]("type", UnionAsStringCodec[InputInputType]) {
+  /** placement attribute - SelectPlacement */
+  object SelectPlacement extends HtmlAttr[SelectPlacement]("placement", UnionAsStringCodec[SelectPlacement]) {
 
-    lazy val date: HtmlAttrSetter[InputInputType] = InputInputType("date")
+    lazy val bottom: HtmlAttrSetter[SelectPlacement] = SelectPlacement("bottom")
 
-    lazy val datetimeLocal: HtmlAttrSetter[InputInputType] = InputInputType("datetime-local")
-
-    lazy val email: HtmlAttrSetter[InputInputType] = InputInputType("email")
-
-    lazy val number: HtmlAttrSetter[InputInputType] = InputInputType("number")
-
-    lazy val password: HtmlAttrSetter[InputInputType] = InputInputType("password")
-
-    lazy val search: HtmlAttrSetter[InputInputType] = InputInputType("search")
-
-    lazy val tel: HtmlAttrSetter[InputInputType] = InputInputType("tel")
-
-    lazy val text: HtmlAttrSetter[InputInputType] = InputInputType("text")
-
-    lazy val time: HtmlAttrSetter[InputInputType] = InputInputType("time")
-
-    lazy val url: HtmlAttrSetter[InputInputType] = InputInputType("url")
-  }
-
-  /** autocorrect attribute - InputAutocorrect */
-  object InputAutocorrect extends HtmlAttr[InputAutocorrect]("autocorrect", UnionAsStringCodec[InputAutocorrect]) {
-
-    lazy val off: HtmlAttrSetter[InputAutocorrect] = InputAutocorrect("off")
-
-    lazy val on: HtmlAttrSetter[InputAutocorrect] = InputAutocorrect("on")
-  }
-
-  /** boundary attribute - PopupBoundary */
-  object PopupBoundary extends HtmlAttr[PopupBoundary]("boundary", UnionAsStringCodec[PopupBoundary]) {
-
-    lazy val scroll: HtmlAttrSetter[PopupBoundary] = PopupBoundary("scroll")
-
-    lazy val viewport: HtmlAttrSetter[PopupBoundary] = PopupBoundary("viewport")
-  }
-
-  /** arrow-placement attribute - PopupArrowPlacement */
-  object PopupArrowPlacement
-      extends HtmlAttr[PopupArrowPlacement]("arrow-placement", UnionAsStringCodec[PopupArrowPlacement]) {
-
-    lazy val anchor: HtmlAttrSetter[PopupArrowPlacement] = PopupArrowPlacement("anchor")
-
-    lazy val center: HtmlAttrSetter[PopupArrowPlacement] = PopupArrowPlacement("center")
-
-    lazy val end: HtmlAttrSetter[PopupArrowPlacement] = PopupArrowPlacement("end")
-
-    lazy val start: HtmlAttrSetter[PopupArrowPlacement] = PopupArrowPlacement("start")
-  }
-
-  /** flip-fallback-strategy attribute - PopupFlipFallbackStrategy */
-  object PopupFlipFallbackStrategy
-      extends HtmlAttr[PopupFlipFallbackStrategy](
-        "flip-fallback-strategy",
-        UnionAsStringCodec[PopupFlipFallbackStrategy]
-      ) {
-
-    lazy val bestFit: HtmlAttrSetter[PopupFlipFallbackStrategy] = PopupFlipFallbackStrategy("best-fit")
-
-    lazy val initial: HtmlAttrSetter[PopupFlipFallbackStrategy] = PopupFlipFallbackStrategy("initial")
-  }
-
-  /** auto-size attribute - PopupAutoSize */
-  object PopupAutoSize extends HtmlAttr[PopupAutoSize]("auto-size", UnionAsStringCodec[PopupAutoSize]) {
-
-    lazy val both: HtmlAttrSetter[PopupAutoSize] = PopupAutoSize("both")
-
-    lazy val horizontal: HtmlAttrSetter[PopupAutoSize] = PopupAutoSize("horizontal")
-
-    lazy val vertical: HtmlAttrSetter[PopupAutoSize] = PopupAutoSize("vertical")
-  }
-
-  /** sync attribute - PopupSync */
-  object PopupSync extends HtmlAttr[PopupSync]("sync", UnionAsStringCodec[PopupSync]) {
-
-    lazy val both: HtmlAttrSetter[PopupSync] = PopupSync("both")
-
-    lazy val height: HtmlAttrSetter[PopupSync] = PopupSync("height")
-
-    lazy val width: HtmlAttrSetter[PopupSync] = PopupSync("width")
+    lazy val top: HtmlAttrSetter[SelectPlacement] = SelectPlacement("top")
   }
 
   /** error-correction attribute - QrCodeErrorCorrection */
@@ -514,14 +522,6 @@ object CommonKeys extends CommonTypes {
     lazy val always: HtmlAttrSetter[RelativeTimeNumeric] = RelativeTimeNumeric("always")
 
     lazy val auto: HtmlAttrSetter[RelativeTimeNumeric] = RelativeTimeNumeric("auto")
-  }
-
-  /** placement attribute - SelectPlacement */
-  object SelectPlacement extends HtmlAttr[SelectPlacement]("placement", UnionAsStringCodec[SelectPlacement]) {
-
-    lazy val bottom: HtmlAttrSetter[SelectPlacement] = SelectPlacement("bottom")
-
-    lazy val top: HtmlAttrSetter[SelectPlacement] = SelectPlacement("top")
   }
 
   /** effect attribute - SkeletonEffect */
@@ -564,5 +564,14 @@ object CommonKeys extends CommonTypes {
     lazy val multiple: HtmlAttrSetter[TreeSelection] = TreeSelection("multiple")
 
     lazy val single: HtmlAttrSetter[TreeSelection] = TreeSelection("single")
+  }
+
+  /** inputmode attribute - NumberInputInputmode */
+  object NumberInputInputmode
+      extends HtmlAttr[NumberInputInputmode]("inputmode", UnionAsStringCodec[NumberInputInputmode]) {
+
+    lazy val decimal: HtmlAttrSetter[NumberInputInputmode] = NumberInputInputmode("decimal")
+
+    lazy val numeric: HtmlAttrSetter[NumberInputInputmode] = NumberInputInputmode("numeric")
   }
 }

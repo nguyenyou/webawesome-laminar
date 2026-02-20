@@ -1,4 +1,6 @@
 package io.github.nguyenyou.webawesome.laminar
+
+import com.raquo.laminar.keys.HtmlAttr
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -19,6 +21,14 @@ object Spinner extends WebComponent("wa-spinner") {
   type Self = Spinner.type
 
   type Ref = WaSpinnerComponent & dom.HTMLElement
+
+  // -- Attributes --
+
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
 
   // -- CSS Vars --
 
@@ -54,6 +64,12 @@ object Spinner extends WebComponent("wa-spinner") {
   @js.native
   trait WaSpinnerComponent extends js.Object {
     this: dom.HTMLElement =>
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
   }
 }

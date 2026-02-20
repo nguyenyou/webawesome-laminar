@@ -59,6 +59,12 @@ object FormatNumber extends WebComponent("wa-format-number") {
   /** The maximum number of significant digits to use,. Possible values are 1-21. */
   lazy val maximumSignificantDigits: HtmlAttr[Double] = doubleAttr("maximum-significant-digits")
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Element type --
 
   @js.native
@@ -94,6 +100,12 @@ object FormatNumber extends WebComponent("wa-format-number") {
 
     /** The maximum number of significant digits to use,. Possible values are 1-21. */
     var maximumSignificantDigits: Double
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
   }
 }

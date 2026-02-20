@@ -34,6 +34,12 @@ object ProgressBar extends WebComponent("wa-progress-bar") {
   /** A custom label for assistive devices. */
   lazy val label: HtmlAttr[String] = stringAttr("label")
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Slots --
 
   object slots {
@@ -92,6 +98,12 @@ object ProgressBar extends WebComponent("wa-progress-bar") {
 
     /** A custom label for assistive devices. */
     var label: String
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
   }
 }

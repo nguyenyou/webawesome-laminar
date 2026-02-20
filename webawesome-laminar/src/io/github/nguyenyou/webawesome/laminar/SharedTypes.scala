@@ -4,7 +4,7 @@ package io.github.nguyenyou.webawesome.laminar
   */
 object SharedTypes {
 
-  /** Used by 14 components for "size" attribute. Components: WaButton, WaCallout, WaCheckbox, ... */
+  /** Used by 15 components for "size" attribute. Components: WaCheckbox, WaButton, WaCallout, ... */
   type ComponentSize = "large" | "medium" | "small"
 
   /** Used by 8 components for "orientation" attribute. Components: WaButtonGroup, WaCard, WaCarousel, ... */
@@ -13,10 +13,13 @@ object SharedTypes {
   /** Used by 5 components for "year" attribute. Components: WaFormatDate, WaFormatDate, WaFormatDate, ... */
   type DateYearFormat = "2-digit" | "numeric"
 
-  /** Used by 4 components for "variant" attribute. Components: WaBadge, WaButton, WaCallout, ... */
+  /** Used by 4 components for "variant" attribute. Components: WaButton, WaBadge, WaCallout, ... */
   type ThemeVariant = "brand" | "danger" | "neutral" | "success" | "warning"
 
-  /** Used by 4 components for "placement" attribute. Components: WaDropdown, WaPopover, WaPopup, ... */
+  /** Used by 4 components for "appearance" attribute. Components: WaInput, WaSelect, WaTextarea, ... */
+  type Appearance = "filled" | "filled-outlined" | "outlined"
+
+  /** Used by 4 components for "placement" attribute. Components: WaPopup, WaTooltip, WaDropdown, ... */
   type Placement = "bottom" | "bottom-end" | "bottom-start" | "left" | "left-end" | "left-start" | "right" |
     "right-end" | "right-start" | "top" | "top-end" | "top-start"
 
@@ -26,8 +29,8 @@ object SharedTypes {
   /** Used by 3 components for "appearance" attribute. Components: WaButton, WaCallout, WaCard */
   type ExtendedAppearance = "accent" | "filled" | "filled-outlined" | "outlined" | "plain"
 
-  /** Used by 3 components for "appearance" attribute. Components: WaInput, WaSelect, WaTextarea */
-  type Appearance = "filled" | "filled-outlined" | "outlined"
+  /** Used by 3 components for "enterkeyhint" attribute. Components: WaInput, WaTextarea, WaNumberInput */
+  type Enterkeyhint = "done" | "enter" | "go" | "next" | "previous" | "search" | "send"
 
   /** Used by 2 components for "loading" attribute. Components: WaAvatar, WaZoomableFrame */
   type LoadingStrategy = "eager" | "lazy"
@@ -35,26 +38,17 @@ object SharedTypes {
   /** Used by 2 components for "appearance" attribute. Components: WaBadge, WaTag */
   type ExtendedAppearance1 = "accent" | "filled" | "filled-outlined" | "outlined"
 
+  /** Used by 2 components for "autocapitalize" attribute. Components: WaInput, WaTextarea */
+  type Autocapitalize = "characters" | "none" | "off" | "on" | "sentences" | "words"
+
+  /** Used by 2 components for "inputmode" attribute. Components: WaInput, WaTextarea */
+  type Inputmode = "decimal" | "email" | "none" | "numeric" | "search" | "tel" | "text" | "url"
+
   /** Used by 2 components for "tooltip-placement" attribute. Components: WaCopyButton, WaSlider */
   type TooltipPlacement = "bottom" | "left" | "right" | "top"
 
   /** Used by 2 components for "placement" attribute. Components: WaDrawer, WaTabGroup */
   type ComponentPlacement = "bottom" | "end" | "start" | "top"
-
-  /** Used by 2 components for "autocapitalize" attribute. Components: WaInput, WaTextarea */
-  type Autocapitalize = "characters" | "none" | "off" | "on" | "sentences" | "words"
-
-  /** Used by 2 components for "enterkeyhint" attribute. Components: WaInput, WaTextarea */
-  type Enterkeyhint = "done" | "enter" | "go" | "next" | "previous" | "search" | "send"
-
-  /** Used by 2 components for "inputmode" attribute. Components: WaInput, WaTextarea */
-  type Inputmode = "decimal" | "email" | "none" | "numeric" | "search" | "tel" | "text" | "url"
-
-  /** Used by WaAvatar for "shape" attribute. Components: WaAvatar */
-  type AvatarShape = "circle" | "rounded" | "square"
-
-  /** Used by WaBadge for "attention" attribute. Components: WaBadge */
-  type BadgeAttention = "bounce" | "none" | "pulse"
 
   /** Used by WaButton for "type" attribute. Components: WaButton */
   type ButtonButtonType = "button" | "reset" | "submit"
@@ -67,6 +61,34 @@ object SharedTypes {
 
   /** Used by WaButton for "formmethod" attribute. Components: WaButton */
   type ButtonFormmethod = "get" | "post"
+
+  /** Used by WaAvatar for "shape" attribute. Components: WaAvatar */
+  type AvatarShape = "circle" | "rounded" | "square"
+
+  /** Used by WaBadge for "attention" attribute. Components: WaBadge */
+  type BadgeAttention = "bounce" | "none" | "pulse"
+
+  /** Used by WaInput for "type" attribute. Components: WaInput */
+  type InputInputType = "date" | "datetime-local" | "email" | "number" | "password" | "search" | "tel" | "text" |
+    "time" | "url"
+
+  /** Used by WaInput for "autocorrect" attribute. Components: WaInput */
+  type InputAutocorrect = "off" | "on"
+
+  /** Used by WaPopup for "boundary" attribute. Components: WaPopup */
+  type PopupBoundary = "scroll" | "viewport"
+
+  /** Used by WaPopup for "arrow-placement" attribute. Components: WaPopup */
+  type PopupArrowPlacement = "anchor" | "center" | "end" | "start"
+
+  /** Used by WaPopup for "flip-fallback-strategy" attribute. Components: WaPopup */
+  type PopupFlipFallbackStrategy = "best-fit" | "initial"
+
+  /** Used by WaPopup for "auto-size" attribute. Components: WaPopup */
+  type PopupAutoSize = "both" | "horizontal" | "vertical"
+
+  /** Used by WaPopup for "sync" attribute. Components: WaPopup */
+  type PopupSync = "both" | "height" | "width"
 
   /** Used by WaColorPicker for "format" attribute. Components: WaColorPicker */
   type ColorPickerFormat = "hex" | "hsl" | "hsv" | "rgb"
@@ -104,27 +126,8 @@ object SharedTypes {
   /** Used by WaInclude for "mode" attribute. Components: WaInclude */
   type IncludeMode = "cors" | "no-cors" | "same-origin"
 
-  /** Used by WaInput for "type" attribute. Components: WaInput */
-  type InputInputType = "date" | "datetime-local" | "email" | "number" | "password" | "search" | "tel" | "text" |
-    "time" | "url"
-
-  /** Used by WaInput for "autocorrect" attribute. Components: WaInput */
-  type InputAutocorrect = "off" | "on"
-
-  /** Used by WaPopup for "boundary" attribute. Components: WaPopup */
-  type PopupBoundary = "scroll" | "viewport"
-
-  /** Used by WaPopup for "arrow-placement" attribute. Components: WaPopup */
-  type PopupArrowPlacement = "anchor" | "center" | "end" | "start"
-
-  /** Used by WaPopup for "flip-fallback-strategy" attribute. Components: WaPopup */
-  type PopupFlipFallbackStrategy = "best-fit" | "initial"
-
-  /** Used by WaPopup for "auto-size" attribute. Components: WaPopup */
-  type PopupAutoSize = "both" | "horizontal" | "vertical"
-
-  /** Used by WaPopup for "sync" attribute. Components: WaPopup */
-  type PopupSync = "both" | "height" | "width"
+  /** Used by WaSelect for "placement" attribute. Components: WaSelect */
+  type SelectPlacement = "bottom" | "top"
 
   /** Used by WaQrCode for "error-correction" attribute. Components: WaQrCode */
   type QrCodeErrorCorrection = "H" | "L" | "M" | "Q"
@@ -134,9 +137,6 @@ object SharedTypes {
 
   /** Used by WaRelativeTime for "numeric" attribute. Components: WaRelativeTime */
   type RelativeTimeNumeric = "always" | "auto"
-
-  /** Used by WaSelect for "placement" attribute. Components: WaSelect */
-  type SelectPlacement = "bottom" | "top"
 
   /** Used by WaSkeleton for "effect" attribute. Components: WaSkeleton */
   type SkeletonEffect = "none" | "pulse" | "sheen"
@@ -149,5 +149,8 @@ object SharedTypes {
 
   /** Used by WaTree for "selection" attribute. Components: WaTree */
   type TreeSelection = "leaf" | "multiple" | "single"
+
+  /** Used by WaNumberInput for "inputmode" attribute. Components: WaNumberInput */
+  type NumberInputInputmode = "decimal" | "numeric"
 
 }

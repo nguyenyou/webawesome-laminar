@@ -63,6 +63,12 @@ object Drawer extends WebComponent("wa-drawer") {
   /** When enabled, the drawer will be closed when the user clicks outside of it. */
   lazy val lightDismiss: HtmlAttr[Boolean] = boolAttr("light-dismiss")
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Slots --
 
   object slots {
@@ -155,6 +161,12 @@ object Drawer extends WebComponent("wa-drawer") {
 
     /** When enabled, the drawer will be closed when the user clicks outside of it. */
     var lightDismiss: Boolean
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
     def handleOpenChange(): js.Any = js.native
 
