@@ -6,11 +6,12 @@ on:
     branches: [main]
 
 jobs:
-  create-tag:
+  create-tag-and-release:
     if: github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'feat/')
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      actions: write
     steps:
       - uses: actions/checkout@v4
       - name: Extract version from branch name
@@ -20,3 +21,7 @@ jobs:
         run: |
           git tag ${{ steps.version.outputs.version }}
           git push origin ${{ steps.version.outputs.version }}
+      - name: Trigger release workflow
+        run: gh workflow run release.yml --ref ${{ steps.version.outputs.version }}
+        env:
+          GH_TOKEN: ${{ github.token }}
