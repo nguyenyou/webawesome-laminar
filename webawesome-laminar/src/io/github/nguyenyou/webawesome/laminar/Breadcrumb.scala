@@ -30,6 +30,12 @@ object Breadcrumb extends WebComponent("wa-breadcrumb") {
     */
   lazy val label: HtmlAttr[String] = stringAttr("label")
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Slots --
 
   object slots {
@@ -64,6 +70,12 @@ object Breadcrumb extends WebComponent("wa-breadcrumb") {
       * screen readers and other assistive devices to provide more context for users.
       */
     var label: String
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
   }
 }

@@ -51,6 +51,12 @@ object TabGroup extends WebComponent("wa-tab-group") {
   /** Disables the scroll arrows that appear when tabs overflow. */
   lazy val withoutScrollControls: HtmlAttr[Boolean] = boolAttr("without-scroll-controls")
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Slots --
 
   object slots {
@@ -134,6 +140,12 @@ object TabGroup extends WebComponent("wa-tab-group") {
 
     /** Disables the scroll arrows that appear when tabs overflow. */
     var withoutScrollControls: Boolean
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
     def updateActiveTab(): js.Any = js.native
 

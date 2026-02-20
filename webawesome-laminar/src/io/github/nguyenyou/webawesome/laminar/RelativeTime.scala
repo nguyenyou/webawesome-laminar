@@ -43,6 +43,12 @@ object RelativeTime extends WebComponent("wa-relative-time") {
   /** Keep the displayed value up to date as time passes. */
   lazy val sync: HtmlAttr[Boolean] = boolAttr("sync")
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Element type --
 
   @js.native
@@ -66,6 +72,12 @@ object RelativeTime extends WebComponent("wa-relative-time") {
 
     /** Keep the displayed value up to date as time passes. */
     var sync: Boolean
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
   }
 }

@@ -52,6 +52,12 @@ object IntersectionObserver extends WebComponent("wa-intersection-observer") {
   /** Deactivates the intersection observer functionality. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Slots --
 
   object slots {
@@ -88,6 +94,12 @@ object IntersectionObserver extends WebComponent("wa-intersection-observer") {
 
     /** Deactivates the intersection observer functionality. */
     var disabled: Boolean
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
     def handleDisabledChange(): js.Any = js.native
 

@@ -40,6 +40,12 @@ object Badge extends WebComponent("wa-badge") {
   /** Adds an animation to draw attention to the badge. Valid values: "none", "pulse", "bounce". */
   lazy val attention: CommonKeys.BadgeAttention.type = CommonKeys.BadgeAttention
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Slots --
 
   object slots {
@@ -88,6 +94,12 @@ object Badge extends WebComponent("wa-badge") {
 
     /** Adds an animation to draw attention to the badge. Valid values: "none", "pulse", "bounce". */
     var attention: BadgeAttention
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
   }
 }

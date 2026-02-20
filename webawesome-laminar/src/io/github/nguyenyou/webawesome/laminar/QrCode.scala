@@ -49,6 +49,12 @@ object QrCode extends WebComponent("wa-qr-code") {
     */
   lazy val errorCorrection: CommonKeys.QrCodeErrorCorrection.type = CommonKeys.QrCodeErrorCorrection
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- CSS Parts --
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
@@ -87,6 +93,12 @@ object QrCode extends WebComponent("wa-qr-code") {
       * values: "L", "M", "Q", "H".
       */
     var errorCorrection: QrCodeErrorCorrection
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
     def generate(): js.Any = js.native
 

@@ -41,6 +41,12 @@ object Card extends WebComponent("wa-card") {
   /** Renders the card's orientation * Valid values: "horizontal", "vertical". */
   lazy val orientation: CommonKeys.Orientation.type = CommonKeys.Orientation
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Slots --
 
   object slots {
@@ -118,6 +124,12 @@ object Card extends WebComponent("wa-card") {
 
     /** Renders the card's orientation * Valid values: "horizontal", "vertical". */
     var orientation: Orientation
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
   }
 }

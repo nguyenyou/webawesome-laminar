@@ -64,6 +64,12 @@ object CopyButton extends WebComponent("wa-copy-button") {
   /** The preferred placement of the tooltip. Valid values: "top", "right", "bottom", "left". */
   lazy val tooltipPlacement: CommonKeys.TooltipPlacement.type = CommonKeys.TooltipPlacement
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Slots --
 
   object slots {
@@ -143,6 +149,12 @@ object CopyButton extends WebComponent("wa-copy-button") {
 
     /** The preferred placement of the tooltip. Valid values: "top", "right", "bottom", "left". */
     var tooltipPlacement: TooltipPlacement
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
   }
 }

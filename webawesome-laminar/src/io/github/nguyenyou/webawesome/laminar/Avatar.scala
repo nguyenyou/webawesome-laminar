@@ -50,6 +50,12 @@ object Avatar extends WebComponent("wa-avatar") {
   /** The shape of the avatar. Valid values: "circle", "square", "rounded". */
   lazy val shape: CommonKeys.AvatarShape.type = CommonKeys.AvatarShape
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Slots --
 
   object slots {
@@ -105,6 +111,12 @@ object Avatar extends WebComponent("wa-avatar") {
 
     /** The shape of the avatar. Valid values: "circle", "square", "rounded". */
     var shape: AvatarShape
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
     def handleImageChange(): js.Any = js.native
 

@@ -64,6 +64,12 @@ object Dropdown extends WebComponent("wa-dropdown") {
   /** The offset of the dropdown menu along its trigger. */
   lazy val skidding: HtmlAttr[Double] = doubleAttr("skidding")
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Slots --
 
   object slots {
@@ -127,6 +133,12 @@ object Dropdown extends WebComponent("wa-dropdown") {
 
     /** The offset of the dropdown menu along its trigger. */
     var skidding: Double
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
   }
 }

@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@ark-ui/react": "5.27.1",
-    "@awesome.me/webawesome": "3.1.0",
+    "@awesome.me/webawesome": "3.2.1",
     "@orama/orama": "3.1.16",
     "class-variance-authority": "^0.7.1",
     "fumadocs-core": "16.0.8",

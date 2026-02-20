@@ -1,4 +1,6 @@
 package io.github.nguyenyou.webawesome.laminar
+
+import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.nodes.Slot
 import org.scalajs.dom
 
@@ -18,6 +20,14 @@ object CarouselItem extends WebComponent("wa-carousel-item") {
   type Self = CarouselItem.type
 
   type Ref = WaCarouselItemComponent & dom.HTMLElement
+
+  // -- Attributes --
+
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
 
   // -- Slots --
 
@@ -43,6 +53,12 @@ object CarouselItem extends WebComponent("wa-carousel-item") {
   @js.native
   trait WaCarouselItemComponent extends js.Object {
     this: dom.HTMLElement =>
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
   }
 }

@@ -60,6 +60,12 @@ object DropdownItem extends WebComponent("wa-dropdown-item") {
   /** Whether the submenu is currently open. */
   lazy val submenuOpen: HtmlAttr[Boolean] = boolAttr("submenuOpen")
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Slots --
 
   object slots {
@@ -128,6 +134,12 @@ object DropdownItem extends WebComponent("wa-dropdown-item") {
 
     /** Whether the submenu is currently open. */
     var submenuOpen: Boolean
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
     /** Opens the submenu. */
     def openSubmenu(): js.Any = js.native

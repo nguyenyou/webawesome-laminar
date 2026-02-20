@@ -36,6 +36,12 @@ object ResizeObserver extends WebComponent("wa-resize-observer") {
   /** Disables the observer. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Slots --
 
   object slots {
@@ -55,6 +61,12 @@ object ResizeObserver extends WebComponent("wa-resize-observer") {
 
     /** Disables the observer. */
     var disabled: Boolean
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
     def handleDisabledChange(): js.Any = js.native
 

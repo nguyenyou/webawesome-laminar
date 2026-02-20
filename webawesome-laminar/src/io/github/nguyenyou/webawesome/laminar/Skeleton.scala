@@ -1,4 +1,6 @@
 package io.github.nguyenyou.webawesome.laminar
+
+import com.raquo.laminar.keys.HtmlAttr
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import org.scalajs.dom
 
@@ -25,6 +27,12 @@ object Skeleton extends WebComponent("wa-skeleton") {
 
   /** Determines which effect the skeleton will use. Valid values: "pulse", "sheen", "none". */
   lazy val effect: CommonKeys.SkeletonEffect.type = CommonKeys.SkeletonEffect
+
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
 
   // -- CSS Vars --
 
@@ -57,6 +65,12 @@ object Skeleton extends WebComponent("wa-skeleton") {
 
     /** Determines which effect the skeleton will use. Valid values: "pulse", "sheen", "none". */
     var effect: SkeletonEffect
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
   }
 }

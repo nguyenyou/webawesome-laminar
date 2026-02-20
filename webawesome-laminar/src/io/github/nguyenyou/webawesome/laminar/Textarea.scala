@@ -125,6 +125,14 @@ object Textarea extends WebComponent("wa-textarea") {
   /** Used for SSR. If you're slotting in a `hint` element, make sure to set this to `true`. */
   lazy val withHint: HtmlAttr[Boolean] = boolAttr("with-hint")
 
+  lazy val customError: HtmlAttr[String] = stringAttr("custom-error")
+
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Slots --
 
   object slots {
@@ -245,6 +253,14 @@ object Textarea extends WebComponent("wa-textarea") {
     /** Used for SSR. If you're slotting in a `hint` element, make sure to set this to `true`. */
     var withHint: Boolean
 
+    var customError: String
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
+
     def handleRowsChange(): js.Any = js.native
 
     def handleValueChange(): js.Any = js.native
@@ -273,6 +289,36 @@ object Textarea extends WebComponent("wa-textarea") {
     ): js.Any = js.native
 
     def formResetCallback(): js.Any = js.native
+
+    def getForm(): js.Any = js.native
+
+    def checkValidity(): js.Any = js.native
+
+    def reportValidity(): js.Any = js.native
+
+    def setValidity(args: js.Any): js.Any = js.native
+
+    def setCustomStates(): js.Any = js.native
+
+    /** Do not use this when creating a "Validator". This is intended for end users of components. We track manually
+      * defined custom errors so we don't clear them on accident in our validators.
+      */
+    def setCustomValidity(message: String): js.Any = js.native
+
+    def formDisabledCallback(isDisabled: Boolean): js.Any = js.native
+
+    /** Called when the browser is trying to restore element’s state to state in which case reason is "restore", or when
+      * the browser is trying to fulfill autofill on behalf of user in which case reason is "autocomplete". In the case
+      * of "restore", state is a string, File, or FormData object previously set as the second argument to setFormValue.
+      */
+    def formStateRestoreCallback(state: js.Any, reason: String): js.Any = js.native
+
+    def setValue(args: js.Any): js.Any = js.native
+
+    /** Reset validity is a way of removing manual custom errors and native validation. */
+    def resetValidity(): js.Any = js.native
+
+    def updateValidity(): js.Any = js.native
 
   }
 }

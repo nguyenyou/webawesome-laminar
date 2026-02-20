@@ -63,7 +63,7 @@ object Tooltip extends WebComponent("wa-tooltip") {
   /** The amount of time to wait before showing the tooltip when the user mouses in. */
   lazy val showDelay: HtmlAttr[Double] = doubleAttr("show-delay")
 
-  /** The amount of time to wait before hiding the tooltip when the user mouses out.. */
+  /** The amount of time to wait before hiding the tooltip when the user mouses out. */
   lazy val hideDelay: HtmlAttr[Double] = doubleAttr("hide-delay")
 
   /** Controls how the tooltip is activated. Possible options include `click`, `hover`, `focus`, and `manual`. Multiple
@@ -78,6 +78,12 @@ object Tooltip extends WebComponent("wa-tooltip") {
   lazy val `for`: HtmlAttr[String] = stringAttr("for")
 
   lazy val forId: HtmlAttr[String] = `for`
+
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
 
   // -- Slots --
 
@@ -146,7 +152,7 @@ object Tooltip extends WebComponent("wa-tooltip") {
     /** The amount of time to wait before showing the tooltip when the user mouses in. */
     var showDelay: Double
 
-    /** The amount of time to wait before hiding the tooltip when the user mouses out.. */
+    /** The amount of time to wait before hiding the tooltip when the user mouses out. */
     var hideDelay: Double
 
     /** Controls how the tooltip is activated. Possible options include `click`, `hover`, `focus`, and `manual`.
@@ -159,6 +165,12 @@ object Tooltip extends WebComponent("wa-tooltip") {
     var withoutArrow: Boolean
 
     var `for`: String
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
     def handleOpenChange(): js.Any = js.native
 

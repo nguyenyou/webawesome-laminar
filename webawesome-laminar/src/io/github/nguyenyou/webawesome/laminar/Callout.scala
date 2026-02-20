@@ -1,4 +1,6 @@
 package io.github.nguyenyou.webawesome.laminar
+
+import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.nodes.Slot
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import org.scalajs.dom
@@ -34,6 +36,12 @@ object Callout extends WebComponent("wa-callout") {
 
   /** The callout's size. Valid values: "small", "medium", "large". */
   lazy val size: CommonKeys.ComponentSize.type = CommonKeys.ComponentSize
+
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
 
   // -- Slots --
 
@@ -76,6 +84,12 @@ object Callout extends WebComponent("wa-callout") {
 
     /** The callout's size. Valid values: "small", "medium", "large". */
     var size: ComponentSize
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
   }
 }

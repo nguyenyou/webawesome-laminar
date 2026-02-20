@@ -35,6 +35,12 @@ object Comparison extends WebComponent("wa-comparison") {
   /** The position of the divider as a percentage. */
   lazy val position: HtmlAttr[Double] = doubleAttr("position")
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Slots --
 
   object slots {
@@ -93,6 +99,12 @@ object Comparison extends WebComponent("wa-comparison") {
 
     /** The position of the divider as a percentage. */
     var position: Double
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
     def handlePositionChange(): js.Any = js.native
 

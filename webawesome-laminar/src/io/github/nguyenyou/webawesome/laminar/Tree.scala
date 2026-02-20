@@ -1,6 +1,7 @@
 package io.github.nguyenyou.webawesome.laminar
 
 import com.raquo.laminar.keys.EventProp
+import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.nodes.Slot
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import io.github.nguyenyou.webawesome.laminar.events.*
@@ -40,6 +41,12 @@ object Tree extends WebComponent("wa-tree") {
     * Valid values: "single", "multiple", "leaf".
     */
   lazy val selection: CommonKeys.TreeSelection.type = CommonKeys.TreeSelection
+
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
 
   // -- Slots --
 
@@ -101,6 +108,12 @@ object Tree extends WebComponent("wa-tree") {
       * Valid values: "single", "multiple", "leaf".
       */
     var selection: TreeSelection
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
     def handleMouseDown(event: js.Any): js.Any = js.native
 

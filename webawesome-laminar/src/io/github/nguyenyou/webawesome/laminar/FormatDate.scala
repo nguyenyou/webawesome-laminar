@@ -65,6 +65,12 @@ object FormatDate extends WebComponent("wa-format-date") {
   /** The format for displaying the hour. Valid values: "auto", "12", "24". */
   lazy val hourFormat: CommonKeys.FormatDateHourFormat.type = CommonKeys.FormatDateHourFormat
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Element type --
 
   @js.native
@@ -110,6 +116,12 @@ object FormatDate extends WebComponent("wa-format-date") {
 
     /** The format for displaying the hour. Valid values: "auto", "12", "24". */
     var hourFormat: FormatDateHourFormat
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
   }
 }

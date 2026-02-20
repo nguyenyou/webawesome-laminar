@@ -50,6 +50,12 @@ object Tag extends WebComponent("wa-tag") {
   /** Makes the tag removable and shows a remove button. */
   lazy val withRemove: HtmlAttr[Boolean] = boolAttr("with-remove")
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Slots --
 
   object slots {
@@ -100,6 +106,12 @@ object Tag extends WebComponent("wa-tag") {
 
     /** Makes the tag removable and shows a remove button. */
     var withRemove: Boolean
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
   }
 }

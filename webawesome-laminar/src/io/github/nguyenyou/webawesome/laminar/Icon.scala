@@ -69,10 +69,96 @@ object Icon extends WebComponent("wa-icon") {
   /** The name of a registered custom icon library. */
   lazy val library: HtmlAttr[String] = stringAttr("library")
 
+  /** Sets the rotation degree of the icon */
+  lazy val rotate: HtmlAttr[Double] = doubleAttr("rotate")
+
+  /** Sets the flip direction of the icon along the 'x' (horizontal), 'y' (vertical), or 'both' axes. */
+  lazy val flip: HtmlAttr[String] = stringAttr("flip")
+
+  /** Sets the animation for the icon */
+  lazy val animation: HtmlAttr[String] = stringAttr("animation")
+
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- CSS Vars --
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssVars {
+
+    /** Sets when the animation will start. Default: 0 */
+    lazy val animationDelay: String = "--animation-delay"
+
+    /** Defines whether or not the animation should play in reverse on alternate cycles. Default: normal */
+    lazy val animationDirection: String = "--animation-direction"
+
+    /** Defines the length of time that an animation takes to complete one cycle. Default: 1s */
+    lazy val animationDuration: String = "--animation-duration"
+
+    /** Defines the number of times an animation cycle is played. Default: infinite */
+    lazy val animationIterationCount: String = "--animation-iteration-count"
+
+    /** Describes how the animation will progress over one cycle of its duration. */
+    lazy val animationTiming: String = "--animation-timing"
+
+    /** Set lowest opacity value an icon with `beat-fade` animation will fade to and from. */
+    lazy val beatFadeOpacity: String = "--beat-fade-opacity"
+
+    /** Set max value that an icon with `beat-fade` animation will scale. */
+    lazy val beatFadeScale: String = "--beat-fade-scale"
+
+    /** Set max value that an icon with `beat` animation will scale. */
+    lazy val beatScale: String = "--beat-scale"
+
+    /** Set the max height an icon with `bounce` animation will jump to when bouncing. */
+    lazy val bounceHeight: String = "--bounce-height"
+
+    /** Set the icon’s horizontal distortion (“squish”) at the top of the jump. */
+    lazy val bounceJumpScaleX: String = "--bounce-jump-scale-x"
+
+    /** Set the icon’s vertical distortion (“squish”) at the top of the jump. */
+    lazy val bounceJumpScaleY: String = "--bounce-jump-scale-y"
+
+    /** Set the icon’s horizontal distortion (“squish”) when landing after the jump. */
+    lazy val bounceLandScaleX: String = "--bounce-land-scale-x"
+
+    /** Set the icon’s vertical distortion (“squish”) when landing after the jump. */
+    lazy val bounceLandScaleY: String = "--bounce-land-scale-y"
+
+    /** Set the amount of rebound an icon with `bounce` animation has when landing after the jump. */
+    lazy val bounceRebound: String = "--bounce-rebound"
+
+    /** Set the icon’s horizontal distortion (“squish”) when starting to bounce. */
+    lazy val bounceStartScaleX: String = "--bounce-start-scale-x"
+
+    /** Set the icon’s vertical distortion (“squish”) when starting to bounce. */
+    lazy val bounceStartScaleY: String = "--bounce-start-scale-y"
+
+    /** Set lowest opacity value an icon with `fade` animation will fade to and from. */
+    lazy val fadeOpacity: String = "--fade-opacity"
+
+    /** Set rotation angle of flip for an icon with `flip` animation. A positive angle denotes a clockwise rotation, a
+      * negative angle a counter-clockwise one.
+      */
+    lazy val flipAngle: String = "--flip-angle"
+
+    /** Set x-coordinate of the vector denoting the axis of rotation (between 0 and 1) for an icon with `flip`
+      * animation.
+      */
+    lazy val flipX: String = "--flip-x"
+
+    /** Set y-coordinate of the vector denoting the axis of rotation (between 0 and 1) for an icon with `flip`
+      * animation.
+      */
+    lazy val flipY: String = "--flip-y"
+
+    /** Set z-coordinate of the vector denoting the axis of rotation (between 0 and 1) for an icon with `flip`
+      * animation.
+      */
+    lazy val flipZ: String = "--flip-z"
 
     /** Sets a duotone icon's primary color. Default: currentColor */
     lazy val primaryColor: String = "--primary-color"
@@ -142,6 +228,21 @@ object Icon extends WebComponent("wa-icon") {
 
     /** The name of a registered custom icon library. */
     var library: String
+
+    /** Sets the rotation degree of the icon */
+    var rotate: Double
+
+    /** Sets the flip direction of the icon along the 'x' (horizontal), 'y' (vertical), or 'both' axes. */
+    var flip: js.Any
+
+    /** Sets the animation for the icon */
+    var animation: js.Any
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
     def handleLabelChange(): js.Any = js.native
 

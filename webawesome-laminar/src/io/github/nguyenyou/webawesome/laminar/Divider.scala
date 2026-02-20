@@ -1,4 +1,6 @@
 package io.github.nguyenyou.webawesome.laminar
+
+import com.raquo.laminar.keys.HtmlAttr
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import org.scalajs.dom
 
@@ -26,6 +28,12 @@ object Divider extends WebComponent("wa-divider") {
   /** Sets the divider's orientation. Valid values: "horizontal", "vertical". */
   lazy val orientation: CommonKeys.Orientation.type = CommonKeys.Orientation
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- CSS Vars --
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
@@ -50,6 +58,12 @@ object Divider extends WebComponent("wa-divider") {
 
     /** Sets the divider's orientation. Valid values: "horizontal", "vertical". */
     var orientation: Orientation
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
     def handleVerticalChange(): js.Any = js.native
 

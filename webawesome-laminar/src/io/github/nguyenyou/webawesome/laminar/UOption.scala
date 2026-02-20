@@ -42,6 +42,12 @@ object UOption extends WebComponent("wa-option") {
     */
   lazy val label: HtmlAttr[String] = stringAttr("label")
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Slots --
 
   object slots {
@@ -98,6 +104,12 @@ object UOption extends WebComponent("wa-option") {
       * involving complex content.
       */
     var label: String
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
   }
 }

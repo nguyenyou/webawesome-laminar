@@ -64,6 +64,12 @@ object Carousel extends WebComponent("wa-carousel") {
   /** When set, it is possible to scroll through the slides by dragging them with the mouse. */
   lazy val mouseDragging: HtmlAttr[Boolean] = boolAttr("mouse-dragging")
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Slots --
 
   object slots {
@@ -171,6 +177,12 @@ object Carousel extends WebComponent("wa-carousel") {
 
     /** When set, it is possible to scroll through the slides by dragging them with the mouse. */
     var mouseDragging: Boolean
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
     def initializeSlides(): js.Any = js.native
 

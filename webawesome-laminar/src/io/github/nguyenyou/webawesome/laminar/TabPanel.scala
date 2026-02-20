@@ -31,6 +31,12 @@ object TabPanel extends WebComponent("wa-tab-panel") {
   /** When true, the tab panel will be shown. */
   lazy val active: HtmlAttr[Boolean] = boolAttr("active")
 
+  lazy val dir: HtmlAttr[String] = stringAttr("dir")
+
+  lazy val lang: HtmlAttr[String] = stringAttr("lang")
+
+  lazy val didSSR: HtmlAttr[String] = stringAttr("did-ssr")
+
   // -- Slots --
 
   object slots {
@@ -71,6 +77,12 @@ object TabPanel extends WebComponent("wa-tab-panel") {
 
     /** When true, the tab panel will be shown. */
     var active: Boolean
+
+    var dir: String
+
+    var lang: String
+
+    var didSSR: String
 
     def handleActiveChange(): js.Any = js.native
 
