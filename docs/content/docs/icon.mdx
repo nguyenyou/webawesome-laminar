@@ -17,6 +17,27 @@ Not sure which icon to use? [Find the perfect icon over at Font Awesome!](https:
 
 ## Examples
 
+### Canvas
+
+Use `canvas` to control the space reserved for an icon: `fixed`, `auto`, `square`, or `roomy`. Prefer `canvas.auto` over the deprecated `autoWidth` attribute.
+
+```scala examples h-[160px]
+Icon(_.name := "house", _.canvas.fixed)(fontSize.px(32))
+Icon(_.name := "house", _.canvas.auto)(fontSize.px(32))
+Icon(_.name := "house", _.canvas.square)(fontSize.px(32))
+Icon(_.name := "house", _.canvas.roomy)(fontSize.px(32))
+```
+
+### Animation Presets
+
+Use `animation` for presets such as `spin-snap-8`, `float`, and `jello`. Customize the timing with the icon's CSS properties. The component respects reduced-motion preferences.
+
+```scala examples h-[180px]
+Icon(_.name := "gear", _.animation.spinSnap8)(fontSize.px(32))
+Icon(_.name := "cloud", _.animation.float)(fontSize.px(32))
+Icon(_.name := "bell", _.animation.jello)(fontSize.px(32))
+```
+
 ### Families & Variants
 
 The default icon library is Font Awesome Free, which comes with two icon families: `classic` and `brands`. Use the `family` attribute to set the icon family.

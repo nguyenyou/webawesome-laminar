@@ -56,6 +56,7 @@ The `selection` attribute lets you change the selection behavior of the tree.
 - Use `single` to allow the selection of a single item (default).
 - Use `multiple` to allow the selection of multiple items.
 - Use `leaf` to only allow leaf nodes to be selected.
+- Use `leaf-multiple` to select multiple leaf nodes while parent items only expand and collapse.
 
 ```scala preview h-[600px] stretch
 val selectionMode = Var(TreeSelection.single.value)
@@ -69,7 +70,8 @@ div(
   )(
     UOption(_.value := TreeSelection.single.value)("Single"),
     UOption(_.value := TreeSelection.multiple.value)("Multiple"),
-    UOption(_.value := TreeSelection.leaf.value)("Leaf")
+    UOption(_.value := TreeSelection.leaf.value)("Leaf"),
+    UOption(_.value := TreeSelection.leafMultiple.value)("Multiple leaves")
   ),
   Tree(_.selection <-- selectionMode)(
     inContext { ctx =>
@@ -93,6 +95,29 @@ div(
     TreeItem()("Item 2"),
     TreeItem()("Item 3")
   )
+)
+```
+
+### Selecting Multiple Leaves
+
+Use `selection.leafMultiple` when only the final items in a hierarchy should be selectable. Parent items toggle expansion instead of joining the selection.
+
+```scala preview h-[300px] stretch
+val selectedCountVar = Var(0)
+
+div(
+  Tree(
+    _.selection.leafMultiple,
+    _.onSelectionChange.map(_.detail.selection.length) --> selectedCountVar
+  )(
+    TreeItem(_.expanded := true)(
+      "Documents",
+      TreeItem()("Notes"),
+      TreeItem()("Report")
+    ),
+    TreeItem()("Readme")
+  ),
+  p("Selected leaves: ", text <-- selectedCountVar.signal.map(_.toString))
 )
 ```
 

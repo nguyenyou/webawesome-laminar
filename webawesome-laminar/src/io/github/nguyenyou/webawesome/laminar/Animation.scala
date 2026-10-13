@@ -12,7 +12,7 @@ import scala.scalajs.js.annotation.JSImport
 // This file is generated at compile-time by WebAwesome generator
 
 /** Animate elements declaratively with nearly 100 baked-in presets, or roll your own with custom keyframes. Powered by
-  * the [Web Animations API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API).
+  * the Web Animations API.
   *
   * [[https://webawesome.com/docs/components/animation WebAwesome docs]]
   */
@@ -153,17 +153,17 @@ object Animation extends WebComponent("wa-animation") {
 
     var didSSR: String
 
-    def handleAnimationChange(): js.Any = js.native
+    def handleAnimationChange(): Unit = js.native
 
-    def handlePlayChange(): js.Any = js.native
+    def handlePlayChange(): Boolean = js.native
 
-    def handlePlaybackRateChange(): js.Any = js.native
+    def handlePlaybackRateChange(): Unit = js.native
 
     /** Clears all keyframe effects caused by this animation and aborts its playback. */
-    def cancel(): js.Any = js.native
+    def cancel(): Unit = js.native
 
     /** Sets the playback time to the end of the animation corresponding to the current playback direction. */
-    def finish(): js.Any = js.native
+    def finish(): Unit = js.native
 
   }
 }

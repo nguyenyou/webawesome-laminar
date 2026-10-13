@@ -10,7 +10,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Callouts are used to display important messages inline.
+/** Callouts display important messages inline with surrounding content. Use them to highlight tips, warnings, errors,
+  * or other information users should not miss.
   *
   * [[https://webawesome.com/docs/components/callout WebAwesome docs]]
   */
@@ -34,7 +35,7 @@ object Callout extends WebComponent("wa-callout") {
   /** The callout's visual appearance. Valid values: "accent", "filled", "outlined", "plain", "filled-outlined". */
   lazy val appearance: CommonKeys.ExtendedAppearance.type = CommonKeys.ExtendedAppearance
 
-  /** The callout's size. Valid values: "small", "medium", "large". */
+  /** The callout's size. Valid values: "xs", "s", "m", "l", "xl", "small", "medium", "large". */
   lazy val size: CommonKeys.ComponentSize.type = CommonKeys.ComponentSize
 
   lazy val dir: HtmlAttr[String] = stringAttr("dir")
@@ -82,7 +83,7 @@ object Callout extends WebComponent("wa-callout") {
     /** The callout's visual appearance. Valid values: "accent", "filled", "outlined", "plain", "filled-outlined". */
     var appearance: ExtendedAppearance
 
-    /** The callout's size. Valid values: "small", "medium", "large". */
+    /** The callout's size. Valid values: "xs", "s", "m", "l", "xl", "small", "medium", "large". */
     var size: ComponentSize
 
     var dir: String
@@ -90,6 +91,8 @@ object Callout extends WebComponent("wa-callout") {
     var lang: String
 
     var didSSR: String
+
+    def handleSizeChange(): Unit = js.native
 
   }
 }

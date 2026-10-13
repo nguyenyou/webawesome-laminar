@@ -1,0 +1,62 @@
+---
+title: Time Input
+description: Time inputs collect a time through a segmented field and popup picker.
+---
+
+Type into the hour and minute segments or open the popup picker. The display follows the user's locale, while the form value uses 24-hour time.
+
+```scala preview h-[420px]
+TimeInput(
+  _.label := "Meeting time",
+  _.hint := "Choose a time that works for you.",
+  _.name := "meeting",
+  _.defaultValue := "14:30"
+)()
+```
+
+## Examples
+
+### Hour Format
+
+Use `hourFormat` to choose 12-hour or 24-hour display. `auto`, the default, follows the locale. A 12-hour display still submits a 24-hour value.
+
+```scala examples vertical h-[460px]
+TimeInput(_.label := "12-hour display", _.hourFormat := "12", _.defaultValue := "14:30")()
+TimeInput(_.label := "24-hour display", _.hourFormat := "24", _.defaultValue := "14:30")()
+```
+
+### Seconds and Steps
+
+`step` is measured in seconds. The default is 60. A step below 60 shows a seconds segment; `"any"` permits unrestricted stepping.
+
+```scala preview h-[420px]
+TimeInput(_.label := "Precise time", _.step := "1", _.defaultValue := "14:30:15")()
+```
+
+### Limits and Convenience Buttons
+
+Use `min` and `max` for a time range. `withNow` provides a shortcut to the current time, and `withClear` adds a clear button.
+
+```scala preview h-[420px]
+TimeInput(
+  _.label := "Office hours",
+  _.hint := "Choose a time between 09:00 and 17:00.",
+  _.min := "09:00",
+  _.max := "17:00",
+  _.withNow := true,
+  _.withClear := true
+)()
+```
+
+### Reading Changes
+
+Use `onInput` for changes while editing or `onChange` for committed changes. Whole-minute values use `HH:mm`; values with seconds use `HH:mm:ss`.
+
+```scala preview h-[460px]
+val timeVar = Var("")
+
+div(
+  TimeInput(_.label := "Start time", _.onInput.mapToValue --> timeVar)(),
+  p("24-hour value: ", text <-- timeVar.signal)
+)
+```

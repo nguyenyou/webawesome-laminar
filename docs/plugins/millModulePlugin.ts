@@ -11,7 +11,7 @@ import {
   extractTemplateType,
   hasTemplateMeta,
 } from "./previewUtils";
-import { applyTemplateByType, toCamelCase } from "./templateProcessor";
+import { applyTemplateByType, exampleImports, toCamelCase } from "./templateProcessor";
 
 /**
  * Convert an array of path segments to camelCase and join them with "/"
@@ -126,15 +126,19 @@ const generateConsolidatedModule = (
   const packageSegments = pathSegments.map(toCamelCase);
   const packageName = `examples.${packageSegments.join(".")}`;
   
-  // Collect all method definitions (imports are kept inside each method body)
+  // Collect all method definitions and keep imports at the module's top level.
   const methodDefinitions: string[] = [];
   const methodNames: string[] = [];
+  const imports = new Set(exampleImports);
   
   for (const example of examples) {
     const templateContext: TemplateContext = {
       prefix: hierarchicalPath,
       counter: example.counter,
-      exampleCode: example.scalaCode,
+      exampleCode: example.scalaCode.replace(/^import .+$/gm, (statement) => {
+        imports.add(statement);
+        return "";
+      }),
       vertical: example.vertical,
     };
     const methodSource = applyTemplateByType(example.templateType, templateContext);
@@ -156,6 +160,8 @@ ${mainMethodCalls}
   
   // Combine into single Main.scala
   const scalaSource = `package ${packageName}
+
+${[...imports].join('\n')}
 
 ${mainMethod}
 
@@ -223,6 +229,7 @@ export const millModulePlugin: Plugin<[MillModulePluginOptions?], Root> = () => 
         generateConsolidatedModule(pathSegments, examples, workspaceRoot);
       } catch (error) {
         console.error(`Failed to generate consolidated module:`, error);
+        throw error;
       }
     }
   };

@@ -12,7 +12,7 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Tooltips display additional information based on a specific action.
+/** Tooltips display brief contextual information when the user hovers, focuses, or taps a target element.
   *
   * [[https://webawesome.com/docs/components/tooltip WebAwesome docs]]
   */
@@ -111,8 +111,11 @@ object Tooltip extends WebComponent("wa-tooltip") {
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
 
-    /** The component's base wrapper, an `<wa-popup>` element. */
+    /** Deprecated. Use the `tooltip` part instead. */
     lazy val base: String = "base"
+
+    /** The component's outer wrapper. */
+    lazy val tooltip: String = "tooltip"
 
     /** The popup's exported `popup` part. Use this to target the tooltip's popup container. */
     lazy val base__popup: String = "base__popup"
@@ -172,19 +175,19 @@ object Tooltip extends WebComponent("wa-tooltip") {
 
     var didSSR: String
 
-    def handleOpenChange(): js.Any = js.native
+    def handleOpenChange(): js.Promise[js.Any] = js.native
 
-    def handleForChange(): js.Any = js.native
+    def handleForChange(): Unit = js.native
 
-    def handleOptionsChange(): js.Any = js.native
+    def handleOptionsChange(): js.Promise[js.Any] = js.native
 
-    def handleDisabledChange(): js.Any = js.native
+    def handleDisabledChange(): Unit = js.native
 
     /** Shows the tooltip. */
-    def show(): js.Any = js.native
+    def show(): js.Promise[js.Any] = js.native
 
     /** Hides the tooltip */
-    def hide(): js.Any = js.native
+    def hide(): js.Promise[js.Any] = js.native
 
   }
 }

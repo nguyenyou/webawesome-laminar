@@ -10,7 +10,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Cards can be used to group related subjects in a container.
+/** Cards group related content and actions inside a bordered container. Use them to present products, articles, user
+  * profiles, or any self-contained unit of information.
   *
   * [[https://webawesome.com/docs/components/card WebAwesome docs]]
   */
@@ -29,14 +30,30 @@ object Card extends WebComponent("wa-card") {
   /** The card's visual appearance. Valid values: "accent", "filled", "outlined", "filled-outlined", "plain". */
   lazy val appearance: CommonKeys.ExtendedAppearance.type = CommonKeys.ExtendedAppearance
 
-  /** Renders the card with a header. Only needed for SSR, otherwise is automatically added. */
+  /** Only required for SSR. Set to `true` if you're slotting in a `header` element so the server-rendered markup
+    * includes the header before the component hydrates on the client.
+    */
   lazy val withHeader: HtmlAttr[Boolean] = boolAttr("with-header")
 
-  /** Renders the card with an image. Only needed for SSR, otherwise is automatically added. */
+  /** Only required for SSR. Set to `true` if you're slotting in a `media` element so the server-rendered markup
+    * includes the media before the component hydrates on the client.
+    */
   lazy val withMedia: HtmlAttr[Boolean] = boolAttr("with-media")
 
-  /** Renders the card with a footer. Only needed for SSR, otherwise is automatically added. */
+  /** Only required for SSR. Set to `true` if you're slotting in a `footer` element so the server-rendered markup
+    * includes the footer before the component hydrates on the client.
+    */
   lazy val withFooter: HtmlAttr[Boolean] = boolAttr("with-footer")
+
+  /** Only required for SSR. Set to `true` if you're slotting in a `header-actions` element so the server-rendered
+    * markup includes the media before the component hydrates on the client.
+    */
+  lazy val withHeaderActions: HtmlAttr[Boolean] = boolAttr("with-header-actions")
+
+  /** Only required for SSR. Set to `true` if you're slotting in a `footer-actions` element so the server-rendered
+    * markup includes the media before the component hydrates on the client.
+    */
+  lazy val withFooterActions: HtmlAttr[Boolean] = boolAttr("with-footer-actions")
 
   /** Renders the card's orientation * Valid values: "horizontal", "vertical". */
   lazy val orientation: CommonKeys.Orientation.type = CommonKeys.Orientation
@@ -102,6 +119,9 @@ object Card extends WebComponent("wa-card") {
     /** The container that wraps the card's footer. */
     lazy val footer: String = "footer"
 
+    /** The container that wraps the card's actions. */
+    lazy val actions: String = "actions"
+
   }
 
   // -- Element type --
@@ -113,14 +133,30 @@ object Card extends WebComponent("wa-card") {
     /** The card's visual appearance. Valid values: "accent", "filled", "outlined", "filled-outlined", "plain". */
     var appearance: ExtendedAppearance
 
-    /** Renders the card with a header. Only needed for SSR, otherwise is automatically added. */
+    /** Only required for SSR. Set to `true` if you're slotting in a `header` element so the server-rendered markup
+      * includes the header before the component hydrates on the client.
+      */
     var withHeader: Boolean
 
-    /** Renders the card with an image. Only needed for SSR, otherwise is automatically added. */
+    /** Only required for SSR. Set to `true` if you're slotting in a `media` element so the server-rendered markup
+      * includes the media before the component hydrates on the client.
+      */
     var withMedia: Boolean
 
-    /** Renders the card with a footer. Only needed for SSR, otherwise is automatically added. */
+    /** Only required for SSR. Set to `true` if you're slotting in a `footer` element so the server-rendered markup
+      * includes the footer before the component hydrates on the client.
+      */
     var withFooter: Boolean
+
+    /** Only required for SSR. Set to `true` if you're slotting in a `header-actions` element so the server-rendered
+      * markup includes the media before the component hydrates on the client.
+      */
+    var withHeaderActions: Boolean
+
+    /** Only required for SSR. Set to `true` if you're slotting in a `footer-actions` element so the server-rendered
+      * markup includes the media before the component hydrates on the client.
+      */
+    var withFooterActions: Boolean
 
     /** Renders the card's orientation * Valid values: "horizontal", "vertical". */
     var orientation: Orientation

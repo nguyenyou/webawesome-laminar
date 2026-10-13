@@ -13,6 +13,18 @@ Button(
 
 ## Examples
 
+### Extended Sizes
+
+Sized components support `xs`, `s`, `m`, `l`, and `xl`. These replace the older `small`, `medium`, and `large` names, which remain supported in Web Awesome 3.x.
+
+```scala examples h-[160px]
+Button(_.size.xs)("Extra small")
+Button(_.size.s)("Small")
+Button(_.size.m)("Medium")
+Button(_.size.l)("Large")
+Button(_.size.xl)("Extra large")
+```
+
 ### Variants
 
 Use the `variant` attribute to set the button's semantic variant.

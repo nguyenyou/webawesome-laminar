@@ -343,6 +343,7 @@ async function saveSharedTypesMapping() {
   const mapping = {
     sharedTypes: sharedTypes.map(st => ({
       name: st.name,
+      attributeName: unionTypeMap.get(st.signature)!.attributeName,
       signature: st.signature,
       values: st.values,
       frequency: st.frequency,
@@ -360,4 +361,4 @@ export { SharedType, sharedTypes };
 // Run the extraction when called directly
 if (import.meta.url === `file://${process.argv[1]}`) {
   extractSharedTypes().catch(console.error);
-} 
+}

@@ -13,6 +13,19 @@ This component works with standard `<form>` elements. Please refer to the sectio
 
 ## Examples
 
+### Character Count
+
+Use `withCount` to show the current character count. Add `maxlength` to display a limit and prevent users from entering more characters.
+
+```scala preview h-[240px] stretch
+Textarea(
+  _.label := "Short description",
+  _.hint := "Keep it to 120 characters.",
+  _.withCount := true,
+  _.maxlength := 120
+)()
+```
+
 ### Labels
 
 Use the `label` attribute to give the textarea an accessible label. For labels that contain HTML, use the `label` slot instead.

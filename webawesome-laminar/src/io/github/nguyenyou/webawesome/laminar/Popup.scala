@@ -12,7 +12,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Popup is a utility that lets you declaratively anchor "popup" containers to another element.
+/** Popups declaratively anchor one element to another and keep them positioned together as the page scrolls or resizes.
+  * Primarily a low-level building block for popovers, dropdowns, and tooltips.
   *
   * [[https://webawesome.com/docs/components/popup WebAwesome docs]]
   */
@@ -169,6 +170,11 @@ object Popup extends WebComponent("wa-popup") {
     /** The size of the arrow. Note that an arrow won't be shown unless the `arrow` attribute is used. Default: 6px */
     lazy val arrowSize: String = "--arrow-size"
 
+    /** The width of any custom border applied to the popup. This is used to reposition the arrow to overlap to the
+      * inside edge of the popup border.
+      */
+    lazy val popupBorderWidth: String = "--popup-border-width"
+
     /** The color of the arrow. Default: black */
     lazy val arrowColor: String = "--arrow-color"
 
@@ -182,10 +188,10 @@ object Popup extends WebComponent("wa-popup") {
       */
     lazy val autoSizeAvailableHeight: String = "--auto-size-available-height"
 
-    /** The show duration to use when applying built-in animation classes. Default: 100ms */
+    /** The show duration to use when applying built-in animation classes. Default: var(--wa-transition-fast) */
     lazy val showDuration: String = "--show-duration"
 
-    /** The hide duration to use when applying built-in animation classes. Default: 100ms */
+    /** The hide duration to use when applying built-in animation classes. Default: var(--wa-transition-fast) */
     lazy val hideDuration: String = "--hide-duration"
 
   }
@@ -328,7 +334,7 @@ object Popup extends WebComponent("wa-popup") {
     var didSSR: String
 
     /** Forces the popup to recalculate and reposition itself. */
-    def reposition(): js.Any = js.native
+    def reposition(): Unit = js.native
 
   }
 }

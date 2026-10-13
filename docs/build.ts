@@ -46,9 +46,9 @@ function discoverModules(workspaceRoot: string, docsDir: string): ModuleEntry[] 
       const mainJsPath = path.join(dirPath, 'fullLinkJS.dest', 'main.js');
       if (existsSync(mainJsPath)) {
         // This is a module directory
-        // Derive output path: docs/{BUILD_OUTPUT_DIR}/{category}_{component}.js
+        // Match the docs.examples.<module> URL requested by previewTransformPlugin.
         const camelCaseSegments = pathSegments.map(segment => segment); // Already camelCase from directory names
-        const flattenedPrefix = camelCaseSegments.join('_');
+        const flattenedPrefix = `docs.examples.${camelCaseSegments.join('.')}`;
         const outputPath = path.join(
           docsDir,
           BUILD_OUTPUT_DIR,
@@ -204,8 +204,7 @@ async function main() {
   const modules = discoverModules(workspaceRoot, docsDir);
 
   if (modules.length === 0) {
-    console.log('No modules found to build. Run mill build first to generate module outputs.');
-    return;
+    throw new Error('No example modules found. Run bun run compile to generate and link the examples first.');
   }
 
   // Select bundler based on environment variable
@@ -239,6 +238,7 @@ async function main() {
     // Build all modules in parallel
     const buildPromises = modules.map(async (module, index) => {
       await bundler(module.entrypoint, module.outputPath);
+      await Bun.write(`${module.outputPath}.gz`, Bun.gzipSync(await Bun.file(module.outputPath).arrayBuffer()));
       
       // Update and log progress (increment happens atomically in single-threaded JS)
       completedCount++;
@@ -260,8 +260,11 @@ async function main() {
     console.log(`Bundled ${fileCount} modules in ${durationStr}`);
   } catch (error) {
     console.error('Error building modules:', error);
-    return;
+    throw error;
   }
 }
 
-main().catch(console.error);
+main().catch(error => {
+  console.error(error);
+  process.exitCode = 1;
+});

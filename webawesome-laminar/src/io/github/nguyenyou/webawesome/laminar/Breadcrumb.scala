@@ -9,7 +9,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Breadcrumbs provide a group of links so users can easily navigate a website's hierarchy.
+/** Breadcrumbs display a trail of links that show users where they are in a site's hierarchy. They help users
+  * understand the current location and navigate back to parent pages.
   *
   * [[https://webawesome.com/docs/components/breadcrumb WebAwesome docs]]
   */
@@ -55,8 +56,11 @@ object Breadcrumb extends WebComponent("wa-breadcrumb") {
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
 
-    /** The component's base wrapper. */
+    /** Deprecated. Use the `breadcrumb` part instead. */
     lazy val base: String = "base"
+
+    /** The component's outer wrapper. */
+    lazy val breadcrumb: String = "breadcrumb"
 
   }
 

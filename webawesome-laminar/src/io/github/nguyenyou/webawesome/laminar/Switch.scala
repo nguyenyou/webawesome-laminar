@@ -14,7 +14,7 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Switches allow the user to toggle an option on or off.
+/** Switches toggle a single setting on or off and apply the change immediately, without requiring a form submission.
   *
   * [[https://webawesome.com/docs/components/switch WebAwesome docs]]
   */
@@ -55,7 +55,7 @@ object Switch extends WebComponent("wa-switch") {
   /** The value of the switch, submitted as a name/value pair with form data. */
   lazy val value: HtmlAttr[String] = stringAttr("value")
 
-  /** The switch's size. Valid values: "small", "medium", "large". */
+  /** The switch's size. Valid values: "xs", "s", "m", "l", "xl", "small", "medium", "large". */
   lazy val size: CommonKeys.ComponentSize.type = CommonKeys.ComponentSize
 
   /** Disables the switch. */
@@ -83,8 +83,8 @@ object Switch extends WebComponent("wa-switch") {
   /** The switch's hint. If you need to display HTML, use the `hint` slot instead. */
   lazy val hint: HtmlAttr[String] = stringAttr("hint")
 
-  /** Used for SSR. If you slot in hint, make sure to add `with-hint` to your component to get it to properly render
-    * with SSR.
+  /** Only required for SSR. Set to `true` if you're slotting in a `hint` element so the server-rendered markup includes
+    * the hint before the component hydrates on the client.
     */
   lazy val withHint: HtmlAttr[Boolean] = boolAttr("with-hint")
 
@@ -129,8 +129,11 @@ object Switch extends WebComponent("wa-switch") {
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
 
-    /** The component's base wrapper. */
+    /** Deprecated. Use the `switch` part instead. */
     lazy val base: String = "base"
+
+    /** The component's outer wrapper. */
+    lazy val switch: String = "switch"
 
     /** The control that houses the switch's thumb. */
     lazy val control: String = "control"
@@ -160,7 +163,7 @@ object Switch extends WebComponent("wa-switch") {
     /** The value of the switch, submitted as a name/value pair with form data. */
     var value: String
 
-    /** The switch's size. Valid values: "small", "medium", "large". */
+    /** The switch's size. Valid values: "xs", "s", "m", "l", "xl", "small", "medium", "large". */
     var size: ComponentSize
 
     /** Disables the switch. */
@@ -175,8 +178,8 @@ object Switch extends WebComponent("wa-switch") {
     /** The switch's hint. If you need to display HTML, use the `hint` slot instead. */
     var hint: String
 
-    /** Used for SSR. If you slot in hint, make sure to add `with-hint` to your component to get it to properly render
-      * with SSR.
+    /** Only required for SSR. Set to `true` if you're slotting in a `hint` element so the server-rendered markup
+      * includes the hint before the component hydrates on the client.
       */
     var withHint: Boolean
 
@@ -188,54 +191,54 @@ object Switch extends WebComponent("wa-switch") {
 
     var didSSR: String
 
-    def handleValueOrCheckedChange(): js.Any = js.native
+    def handleSizeChange(): Unit = js.native
 
-    def handleDefaultCheckedChange(): js.Any = js.native
+    def handleValueOrCheckedChange(): Unit = js.native
 
-    def handleStateChange(): js.Any = js.native
+    def handleStateChange(): Unit = js.native
 
-    def handleDisabledChange(): js.Any = js.native
+    def handleDisabledChange(): Unit = js.native
 
     /** Simulates a click on the switch. */
-    def click(): js.Any = js.native
+    def click(): Unit = js.native
 
     /** Sets focus on the switch. */
-    def focus(options: js.UndefOr[js.Any]): js.Any = js.native
+    def focus(options: js.UndefOr[js.Any] = js.undefined): Unit = js.native
 
     /** Removes focus from the switch. */
-    def blur(): js.Any = js.native
+    def blur(): Unit = js.native
 
-    def setValue(value: js.Any, stateValue: js.UndefOr[js.Any]): Unit = js.native
+    def setValue(value: js.Any, stateValue: js.UndefOr[js.Any] = js.undefined): Unit = js.native
 
     def formResetCallback(): Unit = js.native
 
-    def getForm(): js.Any = js.native
+    def getForm(): dom.html.Form | Null = js.native
 
-    def checkValidity(): js.Any = js.native
+    def checkValidity(): Boolean = js.native
 
-    def reportValidity(): js.Any = js.native
+    def reportValidity(): Boolean = js.native
 
-    def setValidity(args: js.Any): js.Any = js.native
+    def setValidity(args: js.Any): Unit = js.native
 
-    def setCustomStates(): js.Any = js.native
+    def setCustomStates(): Unit = js.native
 
     /** Do not use this when creating a "Validator". This is intended for end users of components. We track manually
       * defined custom errors so we don't clear them on accident in our validators.
       */
-    def setCustomValidity(message: String): js.Any = js.native
+    def setCustomValidity(message: String): Unit = js.native
 
-    def formDisabledCallback(isDisabled: Boolean): js.Any = js.native
+    def formDisabledCallback(isDisabled: Boolean): Unit = js.native
 
     /** Called when the browser is trying to restore element’s state to state in which case reason is "restore", or when
       * the browser is trying to fulfill autofill on behalf of user in which case reason is "autocomplete". In the case
       * of "restore", state is a string, File, or FormData object previously set as the second argument to setFormValue.
       */
-    def formStateRestoreCallback(state: js.Any, reason: String): js.Any = js.native
+    def formStateRestoreCallback(state: js.Any, reason: String): Unit = js.native
 
     /** Reset validity is a way of removing manual custom errors and native validation. */
-    def resetValidity(): js.Any = js.native
+    def resetValidity(): Unit = js.native
 
-    def updateValidity(): js.Any = js.native
+    def updateValidity(): Unit = js.native
 
   }
 }

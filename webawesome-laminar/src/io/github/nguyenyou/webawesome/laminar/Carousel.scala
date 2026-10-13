@@ -12,7 +12,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Carousels display an arbitrary number of content slides along a horizontal or vertical axis.
+/** Carousels display a series of content slides along a horizontal or vertical axis, one or more at a time. Users can
+  * navigate between slides with controls, pagination, or autoplay.
   */
 object Carousel extends WebComponent("wa-carousel") {
 
@@ -110,8 +111,11 @@ object Carousel extends WebComponent("wa-carousel") {
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
 
-    /** The carousel's internal wrapper. */
+    /** Deprecated. Use the `carousel` part instead. */
     lazy val base: String = "base"
+
+    /** The component's outer wrapper. */
+    lazy val carousel: String = "carousel"
 
     /** The scroll container that wraps the slides. */
     lazy val scrollContainer: String = "scroll-container"
@@ -184,22 +188,28 @@ object Carousel extends WebComponent("wa-carousel") {
 
     var didSSR: String
 
-    def initializeSlides(): js.Any = js.native
+    def initializeSlides(): Unit = js.native
 
-    def handleSlideChange(): js.Any = js.native
+    def handleSlideChange(): Unit = js.native
 
-    def updateSlidesSnap(): js.Any = js.native
+    def updateSlidesSnap(): Unit = js.native
 
-    def handleAutoplayChange(): js.Any = js.native
+    def handleAutoplayChange(): Unit = js.native
 
     /** Move the carousel backward by `slides-per-move` slides. */
-    def previous(behavior: String): js.Any = js.native
+    def previous(behavior: String): Unit = js.native
 
     /** Move the carousel forward by `slides-per-move` slides. */
-    def next(behavior: String): js.Any = js.native
+    def next(behavior: String): Unit = js.native
+
+    /** Adds a carousel item as the last real slide. */
+    def addSlide(slide: js.Any): Unit = js.native
+
+    /** Removes the real slide at the specified index. */
+    def removeSlide(index: Double): Unit = js.native
 
     /** Scrolls the carousel to the slide specified by `index`. */
-    def goToSlide(index: Double, behavior: String): js.Any = js.native
+    def goToSlide(index: Double, behavior: String): Unit = js.native
 
   }
 }

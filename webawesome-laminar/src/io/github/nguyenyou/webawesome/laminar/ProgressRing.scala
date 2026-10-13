@@ -9,7 +9,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Progress rings are used to show the progress of a determinate operation in a circular fashion.
+/** Progress rings show how far along a determinate operation is using a circular indicator. Use them as a compact
+  * alternative to progress bars when horizontal space is limited.
   *
   * [[https://webawesome.com/docs/components/progress-ring WebAwesome docs]]
   */
@@ -76,8 +77,11 @@ object ProgressRing extends WebComponent("wa-progress-ring") {
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
 
-    /** The component's base wrapper. */
+    /** Deprecated. Use the `progress-ring` part instead. */
     lazy val base: String = "base"
+
+    /** The component's outer wrapper. */
+    lazy val progressRing: String = "progress-ring"
 
     /** The progress ring label. */
     lazy val label: String = "label"

@@ -9,7 +9,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Outputs a localized time phrase relative to the current date and time.
+/** Relative times display a date as a localized phrase relative to now, such as "3 hours ago" or "in 2 days". The
+  * phrase updates automatically as time passes and respects the user's locale.
   *
   * [[https://webawesome.com/docs/components/relative-time WebAwesome docs]]
   */
@@ -33,7 +34,7 @@ object RelativeTime extends WebComponent("wa-relative-time") {
   lazy val date: HtmlAttr[String] = stringAttr("date")
 
   /** The formatting style to use. Valid values: "long", "short", "narrow". */
-  lazy val format: CommonKeys.DisplayFormat.type = CommonKeys.DisplayFormat
+  lazy val format: HtmlAttr[DisplayFormat] = unionAttr("format")
 
   /** When `auto`, values such as "yesterday" and "tomorrow" will be shown when possible. When `always`, values such as
     * "1 day ago" and "in 1 day" will be shown. Valid values: "always", "auto".

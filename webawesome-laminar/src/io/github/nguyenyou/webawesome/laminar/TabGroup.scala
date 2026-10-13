@@ -12,7 +12,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Tab groups organize content into a container that shows one section at a time.
+/** Tab groups organize related content into a single container that displays one panel at a time, with tabs for
+  * switching between them.
   *
   * [[https://webawesome.com/docs/components/tab-group WebAwesome docs]]
   */
@@ -94,8 +95,11 @@ object TabGroup extends WebComponent("wa-tab-group") {
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
 
-    /** The component's base wrapper. */
+    /** Deprecated. Use the `tab-group` part instead. */
     lazy val base: String = "base"
+
+    /** The component's outer wrapper. */
+    lazy val tabGroup: String = "tab-group"
 
     /** The tab group's navigation container where tabs are slotted in. */
     lazy val nav: String = "nav"
@@ -147,9 +151,9 @@ object TabGroup extends WebComponent("wa-tab-group") {
 
     var didSSR: String
 
-    def updateActiveTab(): js.Any = js.native
+    def updateActiveTab(): Unit = js.native
 
-    def updateScrollControls(): js.Any = js.native
+    def updateScrollControls(): Unit = js.native
 
   }
 }

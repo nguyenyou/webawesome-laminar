@@ -10,7 +10,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Badges are used to draw attention and display statuses or counts.
+/** Badges draw attention to adjacent content by displaying a status, count, or label. Use them to highlight
+  * notifications, categorize items, or flag new activity.
   *
   * [[https://webawesome.com/docs/components/badge WebAwesome docs]]
   */
@@ -38,7 +39,7 @@ object Badge extends WebComponent("wa-badge") {
   lazy val pill: HtmlAttr[Boolean] = boolAttr("pill")
 
   /** Adds an animation to draw attention to the badge. Valid values: "none", "pulse", "bounce". */
-  lazy val attention: CommonKeys.BadgeAttention.type = CommonKeys.BadgeAttention
+  lazy val attention: CommonKeys.Attention.type = CommonKeys.Attention
 
   lazy val dir: HtmlAttr[String] = stringAttr("dir")
 
@@ -52,6 +53,12 @@ object Badge extends WebComponent("wa-badge") {
 
     /** The badge's content. Note: You can just say `_ => element` instead of `_.slots.default(element)` */
     lazy val default: Slot = Slot("")
+
+    /** An element, such as `<wa-icon>`, placed before the label. */
+    lazy val start: Slot = Slot("start")
+
+    /** An element, such as `<wa-icon>`, placed after the label. */
+    lazy val end: Slot = Slot("end")
 
   }
 
@@ -70,8 +77,17 @@ object Badge extends WebComponent("wa-badge") {
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
 
-    /** The component's base wrapper. */
+    /** Deprecated. Use the `badge` part instead. */
     lazy val base: String = "base"
+
+    /** The component's outer wrapper. */
+    lazy val badge: String = "badge"
+
+    /** The container that wraps the `start` slot. */
+    lazy val start: String = "start"
+
+    /** The container that wraps the `end` slot. */
+    lazy val end: String = "end"
 
   }
 
@@ -93,7 +109,7 @@ object Badge extends WebComponent("wa-badge") {
     var pill: Boolean
 
     /** Adds an animation to draw attention to the badge. Valid values: "none", "pulse", "bounce". */
-    var attention: BadgeAttention
+    var attention: Attention
 
     var dir: String
 

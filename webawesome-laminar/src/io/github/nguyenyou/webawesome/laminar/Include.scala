@@ -11,7 +11,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Includes give you the power to embed external HTML files into the page.
+/** Fetches an external HTML file and embeds its contents inline on the page. Useful for reusing shared markup like
+  * headers, footers, and partials across multiple pages.
   *
   * [[https://webawesome.com/docs/components/include WebAwesome docs]]
   */
@@ -35,8 +36,11 @@ object Include extends WebComponent("wa-include") {
 
   // -- Attributes --
 
-  /** The location of the HTML file to include. Be sure you trust the content you are including as it will be executed
-    * as code and can result in XSS attacks.
+  /** The location of the content to include. This can be a URL to an HTML file, a same-page reference to an element's
+    * id (e.g. `#my-id`), or a URL with a fragment that targets an element's id within the fetched file (e.g.
+    * `/partials.html#my-id`). When targeting an element by id, its content is cloned. If the target is a `<template>`,
+    * its child nodes are cloned. Be sure you trust the content you are including as it will be executed as code and can
+    * result in XSS attacks.
     */
   lazy val src: HtmlAttr[String] = stringAttr("src")
 
@@ -60,7 +64,10 @@ object Include extends WebComponent("wa-include") {
   trait WaIncludeComponent extends js.Object {
     this: dom.HTMLElement =>
 
-    /** The location of the HTML file to include. Be sure you trust the content you are including as it will be executed
+    /** The location of the content to include. This can be a URL to an HTML file, a same-page reference to an element's
+      * id (e.g. `#my-id`), or a URL with a fragment that targets an element's id within the fetched file (e.g.
+      * `/partials.html#my-id`). When targeting an element by id, its content is cloned. If the target is a
+      * `<template>`, its child nodes are cloned. Be sure you trust the content you are including as it will be executed
       * as code and can result in XSS attacks.
       */
     var src: String
@@ -79,7 +86,7 @@ object Include extends WebComponent("wa-include") {
 
     var didSSR: String
 
-    def handleSrcChange(): js.Any = js.native
+    def handleSrcChange(): js.Promise[js.Any] = js.native
 
   }
 }

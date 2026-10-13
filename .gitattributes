@@ -1,1 +1,3 @@
 *.mill linguist-language=Scala
+# Minified bundles contain whitespace inside JavaScript template literals.
+docs/public/examples/*.js -whitespace

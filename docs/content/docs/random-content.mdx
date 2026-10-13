@@ -1,0 +1,60 @@
+---
+title: Random Content
+description: Random content selects which of its children to display.
+---
+
+`RandomContent` shows one child by default. It selects from its direct children, making it useful for rotating tips, quotes, or featured content.
+
+```scala preview h-[160px]
+RandomContent()(
+  p("Tip: use a clear label for every form control."),
+  p("Tip: keep related options together."),
+  p("Tip: give users useful feedback after an action.")
+)
+```
+
+## Examples
+
+### Selection Modes
+
+`unique`, the default, avoids repeating an item until the pool is exhausted. `random` allows repeats. `sequence` follows the child order.
+
+```scala preview h-[220px]
+val tips = RandomContent(_.mode.sequence)(
+  p("First tip"),
+  p("Second tip"),
+  p("Third tip")
+)
+
+div(
+  tips,
+  Button()("Next tip", onClick --> { _ => tips.ref.randomize(); () })
+)
+```
+
+### Multiple Items
+
+Use `items` to display more than one child at a time.
+
+```scala preview h-[180px]
+RandomContent(_.items := 2)(
+  p("Design"),
+  p("Development"),
+  p("Testing"),
+  p("Documentation")
+)
+```
+
+### Autoplay and Animation
+
+Enable `autoplay` to advance automatically. `autoplayInterval` is measured in milliseconds, and `animation` controls the entrance effect. Reduced-motion preferences suppress the animation.
+
+```scala preview h-[160px]
+RandomContent(_.autoplay := true, _.autoplayInterval := 3000, _.animation.fade)(
+  p("A little progress every day."),
+  p("Simple code is easier to understand."),
+  p("Make the next step clear.")
+)
+```
+
+`onContentChange` fires when the selection changes, including on first render. Its `detail.items` contains the displayed elements.

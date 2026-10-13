@@ -13,7 +13,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Selects allow you to choose items from a menu of predefined options.
+/** Selects let users choose one or more values from a dropdown list of predefined options. Use them in forms when a
+  * fixed set of choices needs to fit in limited space.
   *
   * [[https://webawesome.com/docs/components/select WebAwesome docs]]
   */
@@ -67,7 +68,7 @@ object Select extends WebComponent("wa-select"), CustomSelect {
   /** The select's value. This will be a string for single select or an array for multi-select. */
   lazy val value: HtmlAttr[String] = stringAttr("value")
 
-  /** The select's size. Valid values: "small", "medium", "large". */
+  /** The select's size. Valid values: "xs", "s", "m", "l", "xl", "small", "medium", "large". */
   lazy val size: CommonKeys.ComponentSize.type = CommonKeys.ComponentSize
 
   /** Placeholder text to show as a hint when the select is empty. */
@@ -109,10 +110,14 @@ object Select extends WebComponent("wa-select"), CustomSelect {
   /** The select's hint. If you need to display HTML, use the `hint` slot instead. */
   lazy val hint: HtmlAttr[String] = stringAttr("hint")
 
-  /** Used for SSR purposes when a label is slotted in. Will show the label on first render. */
+  /** Only required for SSR. Set to `true` if you're slotting in a `label` element so the server-rendered markup
+    * includes the label before the component hydrates on the client.
+    */
   lazy val withLabel: HtmlAttr[Boolean] = boolAttr("with-label")
 
-  /** Used for SSR purposes when hint is slotted in. Will show the hint on first render. */
+  /** Only required for SSR. Set to `true` if you're slotting in a `hint` element so the server-rendered markup includes
+    * the hint before the component hydrates on the client.
+    */
   lazy val withHint: HtmlAttr[Boolean] = boolAttr("with-hint")
 
   /** The select's required attribute. */
@@ -160,10 +165,10 @@ object Select extends WebComponent("wa-select"), CustomSelect {
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssVars {
 
-    /** The duration of the show animation. Default: 100ms */
+    /** The duration of the show animation. Default: var(--wa-transition-fast) */
     lazy val showDuration: String = "--show-duration"
 
-    /** The duration of the hide animation. Default: 100ms */
+    /** The duration of the hide animation. Default: var(--wa-transition-fast) */
     lazy val hideDuration: String = "--hide-duration"
 
     /** When using `multiple`, the max size of tags before their content is truncated. Default: 10ch */
@@ -179,8 +184,11 @@ object Select extends WebComponent("wa-select"), CustomSelect {
     /** The form control that wraps the label, input, and hint. */
     lazy val formControl: String = "form-control"
 
-    /** The label's wrapper. */
+    /** The label. */
     lazy val formControlLabel: String = "form-control-label"
+
+    /** Deprecated. Use the `form-control-label` part instead. */
+    lazy val label: String = "label"
 
     /** The select's wrapper. */
     lazy val formControlInput: String = "form-control-input"
@@ -238,7 +246,7 @@ object Select extends WebComponent("wa-select"), CustomSelect {
     /** The select's value. This will be a string for single select or an array for multi-select. */
     var value: String | js.Array[String]
 
-    /** The select's size. Valid values: "small", "medium", "large". */
+    /** The select's size. Valid values: "xs", "s", "m", "l", "xl", "small", "medium", "large". */
     var size: ComponentSize
 
     /** Placeholder text to show as a hint when the select is empty. */
@@ -280,10 +288,14 @@ object Select extends WebComponent("wa-select"), CustomSelect {
     /** The select's hint. If you need to display HTML, use the `hint` slot instead. */
     var hint: String
 
-    /** Used for SSR purposes when a label is slotted in. Will show the label on first render. */
+    /** Only required for SSR. Set to `true` if you're slotting in a `label` element so the server-rendered markup
+      * includes the label before the component hydrates on the client.
+      */
     var withLabel: Boolean
 
-    /** Used for SSR purposes when hint is slotted in. Will show the hint on first render. */
+    /** Only required for SSR. Set to `true` if you're slotting in a `hint` element so the server-rendered markup
+      * includes the hint before the component hydrates on the client.
+      */
     var withHint: Boolean
 
     /** The select's required attribute. */
@@ -297,59 +309,61 @@ object Select extends WebComponent("wa-select"), CustomSelect {
 
     var didSSR: String
 
-    def handleDefaultSlotChange(): js.Any = js.native
+    def handleSizeChange(): Unit = js.native
 
-    def selectionChanged(): js.Any = js.native
+    def handleDefaultSlotChange(): Unit = js.native
 
-    def handleDisabledChange(): js.Any = js.native
+    def selectionChanged(): Unit = js.native
 
-    def handleValueChange(): js.Any = js.native
+    def handleDisabledChange(): Unit = js.native
 
-    def handleOpenChange(): js.Any = js.native
+    def handleValueChange(): Unit = js.native
+
+    def handleOpenChange(): js.Promise[js.Any] = js.native
 
     /** Shows the listbox. */
-    def show(): js.Any = js.native
+    def show(): js.Promise[js.Any] = js.native
 
     /** Hides the listbox. */
-    def hide(): js.Any = js.native
+    def hide(): js.Promise[js.Any] = js.native
 
     /** Sets focus on the control. */
-    def focus(options: js.UndefOr[js.Any]): js.Any = js.native
+    def focus(options: js.UndefOr[js.Any] = js.undefined): Unit = js.native
 
     /** Removes focus from the control. */
-    def blur(): js.Any = js.native
+    def blur(): Unit = js.native
 
-    def formResetCallback(): js.Any = js.native
+    def formResetCallback(): Unit = js.native
 
-    def getForm(): js.Any = js.native
+    def getForm(): dom.html.Form | Null = js.native
 
-    def checkValidity(): js.Any = js.native
+    def checkValidity(): Boolean = js.native
 
-    def reportValidity(): js.Any = js.native
+    def reportValidity(): Boolean = js.native
 
-    def setValidity(args: js.Any): js.Any = js.native
+    def setValidity(args: js.Any): Unit = js.native
 
-    def setCustomStates(): js.Any = js.native
+    def setCustomStates(): Unit = js.native
 
     /** Do not use this when creating a "Validator". This is intended for end users of components. We track manually
       * defined custom errors so we don't clear them on accident in our validators.
       */
-    def setCustomValidity(message: String): js.Any = js.native
+    def setCustomValidity(message: String): Unit = js.native
 
-    def formDisabledCallback(isDisabled: Boolean): js.Any = js.native
+    def formDisabledCallback(isDisabled: Boolean): Unit = js.native
 
     /** Called when the browser is trying to restore element’s state to state in which case reason is "restore", or when
       * the browser is trying to fulfill autofill on behalf of user in which case reason is "autocomplete". In the case
       * of "restore", state is a string, File, or FormData object previously set as the second argument to setFormValue.
       */
-    def formStateRestoreCallback(state: js.Any, reason: String): js.Any = js.native
+    def formStateRestoreCallback(state: js.Any, reason: String): Unit = js.native
 
-    def setValue(args: js.Any): js.Any = js.native
+    def setValue(args: js.Any): Unit = js.native
 
     /** Reset validity is a way of removing manual custom errors and native validation. */
-    def resetValidity(): js.Any = js.native
+    def resetValidity(): Unit = js.native
 
-    def updateValidity(): js.Any = js.native
+    def updateValidity(): Unit = js.native
 
   }
 }

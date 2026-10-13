@@ -12,7 +12,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Buttons represent actions that are available to the user.
+/** Buttons represent actions the user can take, such as submitting a form, opening a dialog, or navigating to another
+  * page.
   *
   * [[https://webawesome.com/docs/components/button WebAwesome docs]]
   */
@@ -49,11 +50,21 @@ object Button extends WebComponent("wa-button") {
   /** The button's visual appearance. Valid values: "accent", "filled", "outlined", "filled-outlined", "plain". */
   lazy val appearance: CommonKeys.ExtendedAppearance.type = CommonKeys.ExtendedAppearance
 
-  /** The button's size. Valid values: "small", "medium", "large". */
+  /** The button's size. Valid values: "xs", "s", "m", "l", "xl", "small", "medium", "large". */
   lazy val size: CommonKeys.ComponentSize.type = CommonKeys.ComponentSize
 
   /** Draws the button with a caret. Used to indicate that the button triggers a dropdown menu or similar behavior. */
   lazy val withCaret: HtmlAttr[Boolean] = boolAttr("with-caret")
+
+  /** Only required for SSR. Set to `true` if you're slotting in a `start` element so the server-rendered markup
+    * includes the start slot before the component hydrates on the client.
+    */
+  lazy val withStart: HtmlAttr[Boolean] = boolAttr("with-start")
+
+  /** Only required for SSR. Set to `true` if you're slotting in an `end` element so the server-rendered markup includes
+    * the end slot before the component hydrates on the client.
+    */
+  lazy val withEnd: HtmlAttr[Boolean] = boolAttr("with-end")
 
   /** Disables the button. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
@@ -90,7 +101,7 @@ object Button extends WebComponent("wa-button") {
   /** Tells the browser where to open the link. Only used when `href` is present. Valid values: "_blank", "_parent",
     * "_self", "_top".
     */
-  lazy val target: CommonKeys.ButtonLinkTarget.type = CommonKeys.ButtonLinkTarget
+  lazy val target: CommonKeys.LinkTarget.type = CommonKeys.LinkTarget
 
   /** When using `href`, this attribute will map to the underlying link's `rel` attribute. */
   lazy val rel: HtmlAttr[String] = stringAttr("rel")
@@ -148,8 +159,11 @@ object Button extends WebComponent("wa-button") {
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
 
-    /** The component's base wrapper. */
+    /** Deprecated. Use the `button` part instead. */
     lazy val base: String = "base"
+
+    /** The component's outer wrapper. */
+    lazy val button: String = "button"
 
     /** The container that wraps the `start` slot. */
     lazy val start: String = "start"
@@ -184,11 +198,21 @@ object Button extends WebComponent("wa-button") {
     /** The button's visual appearance. Valid values: "accent", "filled", "outlined", "filled-outlined", "plain". */
     var appearance: ExtendedAppearance
 
-    /** The button's size. Valid values: "small", "medium", "large". */
+    /** The button's size. Valid values: "xs", "s", "m", "l", "xl", "small", "medium", "large". */
     var size: ComponentSize
 
     /** Draws the button with a caret. Used to indicate that the button triggers a dropdown menu or similar behavior. */
     var withCaret: Boolean
+
+    /** Only required for SSR. Set to `true` if you're slotting in a `start` element so the server-rendered markup
+      * includes the start slot before the component hydrates on the client.
+      */
+    var withStart: Boolean
+
+    /** Only required for SSR. Set to `true` if you're slotting in an `end` element so the server-rendered markup
+      * includes the end slot before the component hydrates on the client.
+      */
+    var withEnd: Boolean
 
     /** Disables the button. */
     var disabled: Boolean
@@ -221,7 +245,7 @@ object Button extends WebComponent("wa-button") {
     /** Tells the browser where to open the link. Only used when `href` is present. Valid values: "_blank", "_parent",
       * "_self", "_top".
       */
-    var target: ButtonLinkTarget
+    var target: LinkTarget
 
     /** When using `href`, this attribute will map to the underlying link's `rel` attribute. */
     var rel: String
@@ -254,48 +278,54 @@ object Button extends WebComponent("wa-button") {
 
     var didSSR: String
 
-    def handleDisabledChange(): js.Any = js.native
+    def handleSizeChange(): Unit = js.native
 
-    def setValue(_args: js.Any): js.Any = js.native
+    def handleDisabledChange(): Unit = js.native
+
+    def handleHrefChange(): Unit = js.native
+
+    def handleLoadingChange(): Unit = js.native
+
+    def setValue(_args: js.Any): Unit = js.native
 
     /** Simulates a click on the button. */
-    def click(): js.Any = js.native
+    def click(): Unit = js.native
 
     /** Sets focus on the button. */
-    def focus(options: js.UndefOr[js.Any]): js.Any = js.native
+    def focus(options: js.UndefOr[js.Any] = js.undefined): Unit = js.native
 
     /** Removes focus from the button. */
-    def blur(): js.Any = js.native
+    def blur(): Unit = js.native
 
-    def getForm(): js.Any = js.native
+    def getForm(): dom.html.Form | Null = js.native
 
-    def checkValidity(): js.Any = js.native
+    def checkValidity(): Boolean = js.native
 
-    def reportValidity(): js.Any = js.native
+    def reportValidity(): Boolean = js.native
 
-    def setValidity(args: js.Any): js.Any = js.native
+    def setValidity(args: js.Any): Unit = js.native
 
-    def setCustomStates(): js.Any = js.native
+    def setCustomStates(): Unit = js.native
 
     /** Do not use this when creating a "Validator". This is intended for end users of components. We track manually
       * defined custom errors so we don't clear them on accident in our validators.
       */
-    def setCustomValidity(message: String): js.Any = js.native
+    def setCustomValidity(message: String): Unit = js.native
 
-    def formResetCallback(): js.Any = js.native
+    def formResetCallback(): Unit = js.native
 
-    def formDisabledCallback(isDisabled: Boolean): js.Any = js.native
+    def formDisabledCallback(isDisabled: Boolean): Unit = js.native
 
     /** Called when the browser is trying to restore element’s state to state in which case reason is "restore", or when
       * the browser is trying to fulfill autofill on behalf of user in which case reason is "autocomplete". In the case
       * of "restore", state is a string, File, or FormData object previously set as the second argument to setFormValue.
       */
-    def formStateRestoreCallback(state: js.Any, reason: String): js.Any = js.native
+    def formStateRestoreCallback(state: js.Any, reason: String): Unit = js.native
 
     /** Reset validity is a way of removing manual custom errors and native validation. */
-    def resetValidity(): js.Any = js.native
+    def resetValidity(): Unit = js.native
 
-    def updateValidity(): js.Any = js.native
+    def updateValidity(): Unit = js.native
 
   }
 }

@@ -9,7 +9,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Options define the selectable items within a select component.
+/** Options represent the individual choices inside a select or similar form control. Each option holds a value and the
+  * label shown to the user.
   *
   * [[https://webawesome.com/docs/components/option WebAwesome docs]]
   */
@@ -63,6 +64,16 @@ object UOption extends WebComponent("wa-option") {
 
   }
 
+  // -- CSS Vars --
+
+  /** For documentation only. You need to style these from a CSS stylesheet. */
+  object cssVars {
+
+    /** The text color of the current (highlighted) option, paired with `--wa-form-control-activated-color`. */
+    lazy val currentTextColor: String = "--current-text-color"
+
+  }
+
   // -- CSS Parts --
 
   /** For documentation only. You need to style these from a CSS stylesheet. */
@@ -110,6 +121,8 @@ object UOption extends WebComponent("wa-option") {
     var lang: String
 
     var didSSR: String
+
+    def syncDefaultSelected(): Unit = js.native
 
   }
 }

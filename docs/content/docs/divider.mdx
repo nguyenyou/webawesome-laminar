@@ -9,6 +9,18 @@ Divider()()
 
 ## Examples
 
+### Labels
+
+Put content in the default slot to add a label. `labelPlacement` positions the label at the start, center, or end. Use `--label-spacing` and `--label-offset` to adjust its spacing.
+
+```scala preview h-[240px] stretch
+div(
+  Divider(_.labelPlacement.start)("Start"),
+  Divider()("Or continue with"),
+  Divider(_.labelPlacement.end)("End")
+)
+```
+
 ### Width
 
 Use the `--width` custom property to change the width of the divider.

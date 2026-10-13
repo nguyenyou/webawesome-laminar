@@ -12,7 +12,7 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Zoomable frames render iframe content with zoom and interaction controls.
+/** Zoomable frames embed iframe content with built-in controls for zooming, panning, and managing interaction.
   *
   * [[https://webawesome.com/docs/components/zoomable-frame WebAwesome docs]]
   */
@@ -28,7 +28,7 @@ object ZoomableFrame extends WebComponent("wa-zoomable-frame") {
 
   // -- Events --
 
-  /** Emitted when the internal iframe when it finishes loading. */
+  /** Emitted from the internal iframe when it finishes loading. */
   lazy val onLoad: EventProp[CustomEvent[Ref]] = eventProp("load")
 
   /** Emitted from the internal iframe when it fails to load. */
@@ -42,17 +42,33 @@ object ZoomableFrame extends WebComponent("wa-zoomable-frame") {
   /** Inline HTML to display. */
   lazy val srcdoc: HtmlAttr[String] = stringAttr("srcdoc")
 
+  /** A [Permissions Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Permissions_Policy) that controls which
+    * features the embedded content can use, e.g. `clipboard-write; fullscreen`. The browser reads this when the frame
+    * loads, so changing it afterwards has no effect until the frame navigates again.
+    */
+  lazy val allow: HtmlAttr[String] = stringAttr("allow")
+
   /** Allows fullscreen mode. */
   lazy val allowfullscreen: HtmlAttr[Boolean] = boolAttr("allowfullscreen")
 
   /** Controls iframe loading behavior. Valid values: "eager", "lazy". */
   lazy val loading: CommonKeys.LoadingStrategy.type = CommonKeys.LoadingStrategy
 
+  /** The name of the frame, which lets it be targeted by links and forms using the same name. */
+  lazy val name: HtmlAttr[String] = stringAttr("name")
+
   /** Controls referrer information. */
   lazy val referrerpolicy: HtmlAttr[String] = stringAttr("referrerpolicy")
 
-  /** Security restrictions for the iframe. */
+  /** Security restrictions for the iframe. The browser reads this when the frame loads, so changing it afterwards has
+    * no effect until the frame navigates again.
+    */
   lazy val sandbox: HtmlAttr[String] = stringAttr("sandbox")
+
+  /** An accessible name for the frame. Screen readers announce it when moving between frames, so set one that describes
+    * the frame's content.
+    */
+  lazy val label: HtmlAttr[String] = stringAttr("label")
 
   /** The current zoom of the frame, e.g. 0 = 0% and 1 = 100%. */
   lazy val zoom: HtmlAttr[Double] = doubleAttr("zoom")
@@ -66,6 +82,10 @@ object ZoomableFrame extends WebComponent("wa-zoomable-frame") {
 
   /** Disables interaction when present. */
   lazy val withoutInteraction: HtmlAttr[Boolean] = boolAttr("without-interaction")
+
+  /** Enables automatic theme syncing (light/dark mode and theme selector classes) from the host document to the iframe.
+    */
+  lazy val withThemeSync: HtmlAttr[Boolean] = boolAttr("with-theme-sync")
 
   lazy val dir: HtmlAttr[String] = stringAttr("dir")
 
@@ -116,17 +136,33 @@ object ZoomableFrame extends WebComponent("wa-zoomable-frame") {
     /** Inline HTML to display. */
     var srcdoc: String
 
+    /** A [Permissions Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Permissions_Policy) that controls which
+      * features the embedded content can use, e.g. `clipboard-write; fullscreen`. The browser reads this when the frame
+      * loads, so changing it afterwards has no effect until the frame navigates again.
+      */
+    var allow: String
+
     /** Allows fullscreen mode. */
     var allowfullscreen: Boolean
 
     /** Controls iframe loading behavior. Valid values: "eager", "lazy". */
     var loading: LoadingStrategy
 
+    /** The name of the frame, which lets it be targeted by links and forms using the same name. */
+    var name: String
+
     /** Controls referrer information. */
     var referrerpolicy: String
 
-    /** Security restrictions for the iframe. */
+    /** Security restrictions for the iframe. The browser reads this when the frame loads, so changing it afterwards has
+      * no effect until the frame navigates again.
+      */
     var sandbox: String
+
+    /** An accessible name for the frame. Screen readers announce it when moving between frames, so set one that
+      * describes the frame's content.
+      */
+    var label: String
 
     /** The current zoom of the frame, e.g. 0 = 0% and 1 = 100%. */
     var zoom: Double
@@ -142,6 +178,11 @@ object ZoomableFrame extends WebComponent("wa-zoomable-frame") {
     /** Disables interaction when present. */
     var withoutInteraction: Boolean
 
+    /** Enables automatic theme syncing (light/dark mode and theme selector classes) from the host document to the
+      * iframe.
+      */
+    var withThemeSync: Boolean
+
     var dir: String
 
     var lang: String
@@ -149,10 +190,10 @@ object ZoomableFrame extends WebComponent("wa-zoomable-frame") {
     var didSSR: String
 
     /** Zooms in to the next available zoom level. */
-    def zoomIn(): js.Any = js.native
+    def zoomIn(): Unit = js.native
 
     /** Zooms out to the previous available zoom level. */
-    def zoomOut(): js.Any = js.native
+    def zoomOut(): Unit = js.native
 
   }
 }

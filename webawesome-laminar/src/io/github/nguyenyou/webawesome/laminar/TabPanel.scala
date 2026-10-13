@@ -9,7 +9,7 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Tab panels are used inside [tab groups](/docs/components/tab-group) to display tabbed content.
+/** Tab panels hold the content shown for a single tab inside a tab group.
   *
   * [[https://webawesome.com/docs/components/tab-panel WebAwesome docs]]
   */
@@ -30,6 +30,8 @@ object TabPanel extends WebComponent("wa-tab-panel") {
 
   /** When true, the tab panel will be shown. */
   lazy val active: HtmlAttr[Boolean] = boolAttr("active")
+
+  lazy val role: HtmlAttr[String] = stringAttr("role")
 
   lazy val dir: HtmlAttr[String] = stringAttr("dir")
 
@@ -61,7 +63,7 @@ object TabPanel extends WebComponent("wa-tab-panel") {
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
 
-    /** The component's base wrapper. */
+    /** Deprecated. Style the host element instead. */
     lazy val base: String = "base"
 
   }
@@ -78,13 +80,15 @@ object TabPanel extends WebComponent("wa-tab-panel") {
     /** When true, the tab panel will be shown. */
     var active: Boolean
 
+    var role: String
+
     var dir: String
 
     var lang: String
 
     var didSSR: String
 
-    def handleActiveChange(): js.Any = js.native
+    def handleActiveChange(): Unit = js.native
 
   }
 }

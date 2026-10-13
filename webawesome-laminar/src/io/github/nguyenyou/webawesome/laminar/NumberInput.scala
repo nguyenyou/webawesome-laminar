@@ -12,7 +12,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Number inputs allow users to enter and edit numeric values with optional stepper buttons.
+/** Number inputs let users enter and edit numeric values, with optional stepper buttons for incrementing and
+  * decrementing. Use them for quantities, measurements, and other numeric form fields.
   *
   * [[https://webawesome.com/docs/components/number-input WebAwesome docs]]
   */
@@ -40,6 +41,11 @@ object NumberInput extends WebComponent("wa-number-input") {
   /** Emitted when the control gains focus. */
   lazy val onFocus: EventProp[CustomEvent[Ref]] = eventProp("focus")
 
+  /** Emitted before the value changes. Can be cancelled with `event.preventDefault()` to prevent the value from
+    * changing.
+    */
+  lazy val onBeforeinput: EventProp[CustomEvent[Ref]] = eventProp("beforeinput")
+
   /** Emitted when the form control has been checked for validity and its constraints aren't satisfied. */
   lazy val onInvalid: EventProp[CustomEvent[Ref]] = eventProp("wa-invalid")
 
@@ -50,7 +56,7 @@ object NumberInput extends WebComponent("wa-number-input") {
   /** The default value of the form control. Primarily used for resetting the form control. */
   lazy val defaultValue: HtmlAttr[String] = stringAttr("value")
 
-  /** The input's size. Valid values: "small", "medium", "large". */
+  /** The input's size. Valid values: "xs", "s", "m", "l", "xl", "small", "medium", "large". */
   lazy val size: CommonKeys.ComponentSize.type = CommonKeys.ComponentSize
 
   /** The input's visual appearance. Valid values: "filled", "outlined", "filled-outlined". */
@@ -106,10 +112,14 @@ object NumberInput extends WebComponent("wa-number-input") {
     */
   lazy val inputmode: CommonKeys.NumberInputInputmode.type = CommonKeys.NumberInputInputmode
 
-  /** Used for SSR. Will determine if the SSRed component will have the label slot rendered on initial paint. */
+  /** Only required for SSR. Set to `true` if you're slotting in a `label` element so the server-rendered markup
+    * includes the label before the component hydrates on the client.
+    */
   lazy val withLabel: HtmlAttr[Boolean] = boolAttr("with-label")
 
-  /** Used for SSR. Will determine if the SSRed component will have the hint slot rendered on initial paint. */
+  /** Only required for SSR. Set to `true` if you're slotting in a `hint` element so the server-rendered markup includes
+    * the hint before the component hydrates on the client.
+    */
   lazy val withHint: HtmlAttr[Boolean] = boolAttr("with-hint")
 
   /** The name of the input, submitted as a name/value pair with form data. */
@@ -155,17 +165,20 @@ object NumberInput extends WebComponent("wa-number-input") {
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
 
-    /** The label element. */
-    lazy val label: String = "label"
-
-    /** Alias for the label element. */
+    /** The label. */
     lazy val formControlLabel: String = "form-control-label"
+
+    /** Deprecated. Use the `form-control-label` part instead. */
+    lazy val label: String = "label"
 
     /** The hint element. */
     lazy val hint: String = "hint"
 
-    /** The wrapper containing the input and steppers. */
+    /** Deprecated. Use the `number-input` part instead. */
     lazy val base: String = "base"
+
+    /** The component's outer wrapper. */
+    lazy val numberInput: String = "number-input"
 
     /** The internal `<input>` control. */
     lazy val input: String = "input"
@@ -198,7 +211,7 @@ object NumberInput extends WebComponent("wa-number-input") {
     /** The default value of the form control. Primarily used for resetting the form control. */
     var defaultValue: String
 
-    /** The input's size. Valid values: "small", "medium", "large". */
+    /** The input's size. Valid values: "xs", "s", "m", "l", "xl", "small", "medium", "large". */
     var size: ComponentSize
 
     /** The input's visual appearance. Valid values: "filled", "outlined", "filled-outlined". */
@@ -231,7 +244,7 @@ object NumberInput extends WebComponent("wa-number-input") {
     /** Specifies the granularity that the value must adhere to, or the special value `any` which means no stepping is
       * implied, allowing any numeric value.
       */
-    var step: Double
+    var step: Double | "any"
 
     /** Hides the increment/decrement stepper buttons. */
     var withoutSteppers: Boolean
@@ -254,10 +267,14 @@ object NumberInput extends WebComponent("wa-number-input") {
       */
     var inputmode: NumberInputInputmode
 
-    /** Used for SSR. Will determine if the SSRed component will have the label slot rendered on initial paint. */
+    /** Only required for SSR. Set to `true` if you're slotting in a `label` element so the server-rendered markup
+      * includes the label before the component hydrates on the client.
+      */
     var withLabel: Boolean
 
-    /** Used for SSR. Will determine if the SSRed component will have the hint slot rendered on initial paint. */
+    /** Only required for SSR. Set to `true` if you're slotting in a `hint` element so the server-rendered markup
+      * includes the hint before the component hydrates on the client.
+      */
     var withHint: Boolean
 
     /** The name of the input, submitted as a name/value pair with form data. */
@@ -274,54 +291,56 @@ object NumberInput extends WebComponent("wa-number-input") {
 
     var didSSR: String
 
-    def handleStepChange(): js.Any = js.native
+    def handleSizeChange(): Unit = js.native
+
+    def handleStepChange(): Unit = js.native
 
     /** Sets focus on the input. */
-    def focus(options: js.UndefOr[js.Any]): js.Any = js.native
+    def focus(options: js.UndefOr[js.Any] = js.undefined): Unit = js.native
 
     /** Removes focus from the input. */
-    def blur(): js.Any = js.native
+    def blur(): Unit = js.native
 
     /** Selects all the text in the input. */
-    def select(): js.Any = js.native
+    def select(): Unit = js.native
 
     /** Increments the value by the step amount. */
-    def stepUp(): js.Any = js.native
+    def stepUp(): Unit = js.native
 
     /** Decrements the value by the step amount. */
-    def stepDown(): js.Any = js.native
+    def stepDown(): Unit = js.native
 
-    def formResetCallback(): js.Any = js.native
+    def formResetCallback(): Unit = js.native
 
-    def getForm(): js.Any = js.native
+    def getForm(): dom.html.Form | Null = js.native
 
-    def checkValidity(): js.Any = js.native
+    def checkValidity(): Boolean = js.native
 
-    def reportValidity(): js.Any = js.native
+    def reportValidity(): Boolean = js.native
 
-    def setValidity(args: js.Any): js.Any = js.native
+    def setValidity(args: js.Any): Unit = js.native
 
-    def setCustomStates(): js.Any = js.native
+    def setCustomStates(): Unit = js.native
 
     /** Do not use this when creating a "Validator". This is intended for end users of components. We track manually
       * defined custom errors so we don't clear them on accident in our validators.
       */
-    def setCustomValidity(message: String): js.Any = js.native
+    def setCustomValidity(message: String): Unit = js.native
 
-    def formDisabledCallback(isDisabled: Boolean): js.Any = js.native
+    def formDisabledCallback(isDisabled: Boolean): Unit = js.native
 
     /** Called when the browser is trying to restore element’s state to state in which case reason is "restore", or when
       * the browser is trying to fulfill autofill on behalf of user in which case reason is "autocomplete". In the case
       * of "restore", state is a string, File, or FormData object previously set as the second argument to setFormValue.
       */
-    def formStateRestoreCallback(state: js.Any, reason: String): js.Any = js.native
+    def formStateRestoreCallback(state: js.Any, reason: String): Unit = js.native
 
-    def setValue(args: js.Any): js.Any = js.native
+    def setValue(args: js.Any): Unit = js.native
 
     /** Reset validity is a way of removing manual custom errors and native validation. */
-    def resetValidity(): js.Any = js.native
+    def resetValidity(): Unit = js.native
 
-    def updateValidity(): js.Any = js.native
+    def updateValidity(): Unit = js.native
 
   }
 }

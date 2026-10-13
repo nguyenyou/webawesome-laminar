@@ -12,9 +12,9 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Ranges allow the user to select a single value within a given range using a slider.
+/** Sliders let users choose a numeric value within a defined range by dragging a thumb along a track.
   *
-  * [[https://webawesome.com/docs/components/range WebAwesome docs]]
+  * [[https://webawesome.com/docs/components/slider WebAwesome docs]]
   */
 object Slider extends WebComponent("wa-slider") {
 
@@ -75,7 +75,7 @@ object Slider extends WebComponent("wa-slider") {
   /** The orientation of the slider. Valid values: "horizontal", "vertical". */
   lazy val orientation: CommonKeys.Orientation.type = CommonKeys.Orientation
 
-  /** The slider's size. Valid values: "small", "medium", "large". */
+  /** The slider's size. Valid values: "xs", "s", "m", "l", "xl", "small", "medium", "large". */
   lazy val size: CommonKeys.ComponentSize.type = CommonKeys.ComponentSize
 
   /** The starting value from which to draw the slider's fill, which is based on its current value. */
@@ -89,9 +89,6 @@ object Slider extends WebComponent("wa-slider") {
 
   /** The granularity the value must adhere to when incrementing and decrementing. */
   lazy val step: HtmlAttr[Double] = doubleAttr("step")
-
-  /** Makes the slider a required field. */
-  lazy val required: HtmlAttr[Boolean] = boolAttr("required")
 
   /** Tells the browser to focus the slider when the page loads or a dialog is shown. */
   lazy val autofocus: HtmlAttr[Boolean] = boolAttr("autofocus")
@@ -108,6 +105,16 @@ object Slider extends WebComponent("wa-slider") {
 
   /** Draws a tooltip above the thumb when the control has focus or is dragged. */
   lazy val withTooltip: HtmlAttr[Boolean] = boolAttr("with-tooltip")
+
+  /** Only required for SSR. Set to `true` if you're slotting in a `label` element so the server-rendered markup
+    * includes the label before the component hydrates on the client.
+    */
+  lazy val withLabel: HtmlAttr[Boolean] = boolAttr("with-label")
+
+  /** Only required for SSR. Set to `true` if you're slotting in a `hint` element so the server-rendered markup includes
+    * the hint before the component hydrates on the client.
+    */
+  lazy val withHint: HtmlAttr[Boolean] = boolAttr("with-hint")
 
   lazy val customError: HtmlAttr[String] = stringAttr("custom-error")
 
@@ -198,8 +205,8 @@ object Slider extends WebComponent("wa-slider") {
     /** The tooltip's `tooltip` part. */
     lazy val tooltip__tooltip: String = "tooltip__tooltip"
 
-    /** The tooltip's `content` part. */
-    lazy val tooltip__content: String = "tooltip__content"
+    /** The tooltip's `body` part. */
+    lazy val tooltip__body: String = "tooltip__body"
 
     /** The tooltip's `arrow` part. */
     lazy val tooltip__arrow: String = "tooltip__arrow"
@@ -242,7 +249,7 @@ object Slider extends WebComponent("wa-slider") {
     /** The orientation of the slider. Valid values: "horizontal", "vertical". */
     var orientation: Orientation
 
-    /** The slider's size. Valid values: "small", "medium", "large". */
+    /** The slider's size. Valid values: "xs", "s", "m", "l", "xl", "small", "medium", "large". */
     var size: ComponentSize
 
     /** The starting value from which to draw the slider's fill, which is based on its current value. */
@@ -256,9 +263,6 @@ object Slider extends WebComponent("wa-slider") {
 
     /** The granularity the value must adhere to when incrementing and decrementing. */
     var step: Double
-
-    /** Makes the slider a required field. */
-    var required: Boolean
 
     /** Tells the browser to focus the slider when the page loads or a dialog is shown. */
     var autofocus: Boolean
@@ -276,6 +280,16 @@ object Slider extends WebComponent("wa-slider") {
     /** Draws a tooltip above the thumb when the control has focus or is dragged. */
     var withTooltip: Boolean
 
+    /** Only required for SSR. Set to `true` if you're slotting in a `label` element so the server-rendered markup
+      * includes the label before the component hydrates on the client.
+      */
+    var withLabel: Boolean
+
+    /** Only required for SSR. Set to `true` if you're slotting in a `hint` element so the server-rendered markup
+      * includes the hint before the component hydrates on the client.
+      */
+    var withHint: Boolean
+
     var customError: String
 
     var dir: String
@@ -286,53 +300,55 @@ object Slider extends WebComponent("wa-slider") {
 
     var value: Double
 
+    def handleSizeChange(): Unit = js.native
+
     /** Sets focus to the slider. */
-    def focus(): js.Any = js.native
+    def focus(): Unit = js.native
 
     /** Removes focus from the slider. */
-    def blur(): js.Any = js.native
+    def blur(): Unit = js.native
 
     /** Decreases the slider's value by `step`. This is a programmatic change, so `input` and `change` events will not
       * be emitted when this is called.
       */
-    def stepDown(): js.Any = js.native
+    def stepDown(): Unit = js.native
 
     /** Increases the slider's value by `step`. This is a programmatic change, so `input` and `change` events will not
       * be emitted when this is called.
       */
-    def stepUp(): js.Any = js.native
+    def stepUp(): Unit = js.native
 
-    def getForm(): js.Any = js.native
+    def getForm(): dom.html.Form | Null = js.native
 
-    def checkValidity(): js.Any = js.native
+    def checkValidity(): Boolean = js.native
 
-    def reportValidity(): js.Any = js.native
+    def reportValidity(): Boolean = js.native
 
-    def setValidity(args: js.Any): js.Any = js.native
+    def setValidity(args: js.Any): Unit = js.native
 
-    def setCustomStates(): js.Any = js.native
+    def setCustomStates(): Unit = js.native
 
     /** Do not use this when creating a "Validator". This is intended for end users of components. We track manually
       * defined custom errors so we don't clear them on accident in our validators.
       */
-    def setCustomValidity(message: String): js.Any = js.native
+    def setCustomValidity(message: String): Unit = js.native
 
-    def formResetCallback(): js.Any = js.native
+    def formResetCallback(): Unit = js.native
 
-    def formDisabledCallback(isDisabled: Boolean): js.Any = js.native
+    def formDisabledCallback(isDisabled: Boolean): Unit = js.native
 
     /** Called when the browser is trying to restore element’s state to state in which case reason is "restore", or when
       * the browser is trying to fulfill autofill on behalf of user in which case reason is "autocomplete". In the case
       * of "restore", state is a string, File, or FormData object previously set as the second argument to setFormValue.
       */
-    def formStateRestoreCallback(state: js.Any, reason: String): js.Any = js.native
+    def formStateRestoreCallback(state: js.Any, reason: String): Unit = js.native
 
-    def setValue(args: js.Any): js.Any = js.native
+    def setValue(args: js.Any): Unit = js.native
 
     /** Reset validity is a way of removing manual custom errors and native validation. */
-    def resetValidity(): js.Any = js.native
+    def resetValidity(): Unit = js.native
 
-    def updateValidity(): js.Any = js.native
+    def updateValidity(): Unit = js.native
 
   }
 }

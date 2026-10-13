@@ -12,7 +12,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Radio groups are used to group multiple [radios](/docs/components/radio) so they function as a single form control.
+/** Radio groups wrap a set of radios so they function as a single form control with one shared value. They handle
+  * keyboard navigation, labeling, and validation for the group as a whole.
   *
   * [[https://webawesome.com/docs/components/radio-group WebAwesome docs]]
   */
@@ -60,17 +61,21 @@ object RadioGroup extends WebComponent("wa-radio-group") {
   lazy val defaultValue: HtmlAttr[String] = stringAttr("value")
 
   /** The radio group's size. When present, this size will be applied to all `<wa-radio>` items inside. Valid values:
-    * "small", "medium", "large".
+    * "xs", "s", "m", "l", "xl", "small", "medium", "large".
     */
   lazy val size: CommonKeys.ComponentSize.type = CommonKeys.ComponentSize
 
   /** Ensures a child radio is checked before allowing the containing form to submit. */
   lazy val required: HtmlAttr[Boolean] = boolAttr("required")
 
-  /** Used for SSR. if true, will show slotted label on initial render. */
+  /** Only required for SSR. Set to `true` if you're slotting in a `label` element so the server-rendered markup
+    * includes the label before the component hydrates on the client.
+    */
   lazy val withLabel: HtmlAttr[Boolean] = boolAttr("with-label")
 
-  /** Used for SSR. if true, will show slotted hint on initial render. */
+  /** Only required for SSR. Set to `true` if you're slotting in a `hint` element so the server-rendered markup includes
+    * the hint before the component hydrates on the client.
+    */
   lazy val withHint: HtmlAttr[Boolean] = boolAttr("with-hint")
 
   lazy val customError: HtmlAttr[String] = stringAttr("custom-error")
@@ -106,14 +111,11 @@ object RadioGroup extends WebComponent("wa-radio-group") {
     /** The form control that wraps the label, input, and hint. */
     lazy val formControl: String = "form-control"
 
-    /** The label's wrapper. */
+    /** The label. */
     lazy val formControlLabel: String = "form-control-label"
 
-    /** The input's wrapper. */
+    /** The element that wraps the grouped radios, styled as a flex container by default. */
     lazy val formControlInput: String = "form-control-input"
-
-    /** The wrapper than surrounds radio items, styled as a flex container by default. */
-    lazy val radios: String = "radios"
 
     /** The hint's wrapper. */
     lazy val hint: String = "hint"
@@ -147,17 +149,21 @@ object RadioGroup extends WebComponent("wa-radio-group") {
     var defaultValue: String
 
     /** The radio group's size. When present, this size will be applied to all `<wa-radio>` items inside. Valid values:
-      * "small", "medium", "large".
+      * "xs", "s", "m", "l", "xl", "small", "medium", "large".
       */
     var size: ComponentSize
 
     /** Ensures a child radio is checked before allowing the containing form to submit. */
     var required: Boolean
 
-    /** Used for SSR. if true, will show slotted label on initial render. */
+    /** Only required for SSR. Set to `true` if you're slotting in a `label` element so the server-rendered markup
+      * includes the label before the component hydrates on the client.
+      */
     var withLabel: Boolean
 
-    /** Used for SSR. if true, will show slotted hint on initial render. */
+    /** Only required for SSR. Set to `true` if you're slotting in a `hint` element so the server-rendered markup
+      * includes the hint before the component hydrates on the client.
+      */
     var withHint: Boolean
 
     var customError: String
@@ -168,40 +174,42 @@ object RadioGroup extends WebComponent("wa-radio-group") {
 
     var didSSR: String
 
-    def formResetCallback(args: js.Any): js.Any = js.native
+    def handleSizeChange(): Unit = js.native
+
+    def formResetCallback(args: js.Any): Unit = js.native
 
     /** Sets focus on the radio group. */
-    def focus(options: js.UndefOr[js.Any]): js.Any = js.native
+    def focus(options: js.UndefOr[js.Any] = js.undefined): Unit = js.native
 
-    def getForm(): js.Any = js.native
+    def getForm(): dom.html.Form | Null = js.native
 
-    def checkValidity(): js.Any = js.native
+    def checkValidity(): Boolean = js.native
 
-    def reportValidity(): js.Any = js.native
+    def reportValidity(): Boolean = js.native
 
-    def setValidity(args: js.Any): js.Any = js.native
+    def setValidity(args: js.Any): Unit = js.native
 
-    def setCustomStates(): js.Any = js.native
+    def setCustomStates(): Unit = js.native
 
     /** Do not use this when creating a "Validator". This is intended for end users of components. We track manually
       * defined custom errors so we don't clear them on accident in our validators.
       */
-    def setCustomValidity(message: String): js.Any = js.native
+    def setCustomValidity(message: String): Unit = js.native
 
-    def formDisabledCallback(isDisabled: Boolean): js.Any = js.native
+    def formDisabledCallback(isDisabled: Boolean): Unit = js.native
 
     /** Called when the browser is trying to restore element’s state to state in which case reason is "restore", or when
       * the browser is trying to fulfill autofill on behalf of user in which case reason is "autocomplete". In the case
       * of "restore", state is a string, File, or FormData object previously set as the second argument to setFormValue.
       */
-    def formStateRestoreCallback(state: js.Any, reason: String): js.Any = js.native
+    def formStateRestoreCallback(state: js.Any, reason: String): Unit = js.native
 
-    def setValue(args: js.Any): js.Any = js.native
+    def setValue(args: js.Any): Unit = js.native
 
     /** Reset validity is a way of removing manual custom errors and native validation. */
-    def resetValidity(): js.Any = js.native
+    def resetValidity(): Unit = js.native
 
-    def updateValidity(): js.Any = js.native
+    def updateValidity(): Unit = js.native
 
   }
 }

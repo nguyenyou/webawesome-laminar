@@ -12,7 +12,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Represents an individual item within a dropdown menu, supporting standard items, checkboxes, and submenus.
+/** Dropdown items represent selectable entries within a dropdown menu, including standard actions, checkable items, and
+  * submenu triggers.
   *
   * [[https://webawesome.com/docs/components/dropdown-item WebAwesome docs]]
   */
@@ -59,6 +60,22 @@ object DropdownItem extends WebComponent("wa-dropdown-item") {
 
   /** Whether the submenu is currently open. */
   lazy val submenuOpen: HtmlAttr[Boolean] = boolAttr("submenuOpen")
+
+  /** When set, selecting the item will navigate to this URL. The item remains a menu item for assistive devices, so
+    * make sure the label describes where the link goes. Ignored when the item has a submenu.
+    */
+  lazy val href: HtmlAttr[String] = stringAttr("href")
+
+  /** Tells the browser where to open the link. Only used when `href` is present. Valid values: "_blank", "_parent",
+    * "_self", "_top".
+    */
+  lazy val target: CommonKeys.LinkTarget.type = CommonKeys.LinkTarget
+
+  /** When using `href`, this attribute will map to the underlying link's `rel` attribute. */
+  lazy val rel: HtmlAttr[String] = stringAttr("rel")
+
+  /** Tells the browser to download the linked file as this filename. Only used when `href` is present. */
+  lazy val download: HtmlAttr[String] = stringAttr("download")
 
   lazy val dir: HtmlAttr[String] = stringAttr("dir")
 
@@ -135,17 +152,35 @@ object DropdownItem extends WebComponent("wa-dropdown-item") {
     /** Whether the submenu is currently open. */
     var submenuOpen: Boolean
 
+    /** When set, selecting the item will navigate to this URL. The item remains a menu item for assistive devices, so
+      * make sure the label describes where the link goes. Ignored when the item has a submenu.
+      */
+    var href: String
+
+    /** Tells the browser where to open the link. Only used when `href` is present. Valid values: "_blank", "_parent",
+      * "_self", "_top".
+      */
+    var target: LinkTarget
+
+    /** When using `href`, this attribute will map to the underlying link's `rel` attribute. */
+    var rel: String
+
+    /** Tells the browser to download the linked file as this filename. Only used when `href` is present. */
+    var download: String
+
     var dir: String
 
     var lang: String
 
     var didSSR: String
 
+    def handleSizeChange(): Unit = js.native
+
     /** Opens the submenu. */
-    def openSubmenu(): js.Any = js.native
+    def openSubmenu(): js.Promise[js.Any] = js.native
 
     /** Closes the submenu. */
-    def closeSubmenu(): js.Any = js.native
+    def closeSubmenu(): js.Promise[js.Any] = js.native
 
   }
 }

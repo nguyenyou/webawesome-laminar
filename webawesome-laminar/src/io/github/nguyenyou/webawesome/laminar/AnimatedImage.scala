@@ -11,7 +11,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** A component for displaying animated GIFs and WEBPs that play and pause on interaction.
+/** Animated images display GIFs and WEBPs with controls to play and pause them on demand. Use them when you want motion
+  * but need to give users control over when it plays.
   *
   * [[https://webawesome.com/docs/components/animated-image WebAwesome docs]]
   */
@@ -106,9 +107,9 @@ object AnimatedImage extends WebComponent("wa-animated-image") {
 
     var didSSR: String
 
-    def handlePlayChange(): js.Any = js.native
+    def handlePlayChange(): Unit = js.native
 
-    def handleSrcChange(): js.Any = js.native
+    def handleSrcChange(): Unit = js.native
 
   }
 }

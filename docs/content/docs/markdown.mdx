@@ -1,0 +1,68 @@
+---
+title: Markdown
+description: Markdown renders Markdown text as HTML in the browser.
+---
+
+Place a `script` with `type="text/markdown"` directly inside `Markdown`. The script keeps the browser from interpreting the source text as HTML before the component renders it.
+
+```scala preview h-[240px] stretch
+Markdown()(
+  scriptTag(
+    typ := "text/markdown",
+    """|## Getting started
+|
+|Write **bold**, *italic*, and `inline code`.
+|
+|- Install the package
+|- Import the component
+|- Render your content
+|""".stripMargin
+  )
+)
+```
+
+<Callout>
+Markdown is experimental and renders on the client. Only render trusted or sanitized content; the component does not sanitize Markdown or embedded HTML.
+</Callout>
+
+## Examples
+
+### Tables and Task Lists
+
+The renderer supports GitHub Flavored Markdown, including tables, task lists, and strikethrough.
+
+```scala preview h-[300px] stretch
+Markdown()(
+  scriptTag(
+    typ := "text/markdown",
+    """|| Feature | Status |
+|| --- | --- |
+|| Tables | Ready |
+|| Task lists | Ready |
+|
+|- [x] Add documentation
+|- [ ] Publish the update
+|
+|~~Old text~~ Updated text
+|""".stripMargin
+  )
+)
+```
+
+### Indentation
+
+Shared leading indentation is removed before parsing. Extra indentation within the content remains meaningful. Use `tabSize` to control the width of leading tabs.
+
+```scala preview h-[220px] stretch
+Markdown(_.tabSize := 2)(
+  scriptTag(
+    typ := "text/markdown",
+    """|    ## Indented source
+|
+|    This paragraph renders normally.
+|
+|        This line renders as a code block.
+|""".stripMargin
+  )
+)
+```

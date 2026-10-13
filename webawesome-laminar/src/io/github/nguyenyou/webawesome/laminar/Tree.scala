@@ -12,8 +12,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Trees allow you to display a hierarchical list of selectable [tree items](/docs/components/tree-item). Items with
-  * children can be expanded and collapsed as desired by the user.
+/** Trees allow you to display a hierarchical list of selectable tree items. Items with children can be expanded and
+  * collapsed as desired by the user.
   *
   * [[https://webawesome.com/docs/components/tree WebAwesome docs]]
   */
@@ -38,9 +38,14 @@ object Tree extends WebComponent("wa-tree") {
 
   /** The selection behavior of the tree. Single selection allows only one node to be selected at a time. Multiple
     * displays checkboxes and allows more than one node to be selected. Leaf allows only leaf nodes to be selected.
-    * Valid values: "single", "multiple", "leaf".
+    * Leaf-multiple allows multiple leaf nodes to be selected while parent nodes only expand and collapse. Valid values:
+    * "single", "multiple", "leaf", "leaf-multiple".
     */
   lazy val selection: CommonKeys.TreeSelection.type = CommonKeys.TreeSelection
+
+  lazy val tabIndex: HtmlAttr[Double] = doubleAttr("tabindex")
+
+  lazy val role: HtmlAttr[String] = stringAttr("role")
 
   lazy val dir: HtmlAttr[String] = stringAttr("dir")
 
@@ -92,8 +97,11 @@ object Tree extends WebComponent("wa-tree") {
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
 
-    /** The component's base wrapper. */
+    /** Deprecated. Use the `tree` part instead. */
     lazy val base: String = "base"
+
+    /** The component's outer wrapper. */
+    lazy val tree: String = "tree"
 
   }
 
@@ -105,9 +113,14 @@ object Tree extends WebComponent("wa-tree") {
 
     /** The selection behavior of the tree. Single selection allows only one node to be selected at a time. Multiple
       * displays checkboxes and allows more than one node to be selected. Leaf allows only leaf nodes to be selected.
-      * Valid values: "single", "multiple", "leaf".
+      * Leaf-multiple allows multiple leaf nodes to be selected while parent nodes only expand and collapse. Valid
+      * values: "single", "multiple", "leaf", "leaf-multiple".
       */
     var selection: TreeSelection
+
+    var tabIndex: Double
+
+    var role: String
 
     var dir: String
 
@@ -115,9 +128,9 @@ object Tree extends WebComponent("wa-tree") {
 
     var didSSR: String
 
-    def handleMouseDown(event: js.Any): js.Any = js.native
+    def handleMouseDown(event: js.Any): Unit = js.native
 
-    def handleSelectionChange(): js.Any = js.native
+    def handleSelectionChange(): js.Promise[js.Any] = js.native
 
   }
 }

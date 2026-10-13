@@ -9,7 +9,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Formats a date/time using the specified locale and options.
+/** Formats a date or time for display using the specified locale and options. Powered by the Intl.DateTimeFormat API
+  * for consistent, localized output.
   *
   * [[https://webawesome.com/docs/components/format-date WebAwesome docs]]
   */
@@ -33,10 +34,10 @@ object FormatDate extends WebComponent("wa-format-date") {
   lazy val date: HtmlAttr[String] = stringAttr("date")
 
   /** The format for displaying the weekday. Valid values: "narrow", "short", "long". */
-  lazy val weekday: CommonKeys.DisplayFormat.type = CommonKeys.DisplayFormat
+  lazy val weekday: HtmlAttr[DisplayFormat] = unionAttr("weekday")
 
   /** The format for displaying the era. Valid values: "narrow", "short", "long". */
-  lazy val era: CommonKeys.DisplayFormat.type = CommonKeys.DisplayFormat
+  lazy val era: HtmlAttr[DisplayFormat] = unionAttr("era")
 
   /** The format for displaying the year. Valid values: "numeric", "2-digit". */
   lazy val year: CommonKeys.DateYearFormat.type = CommonKeys.DateYearFormat
@@ -45,16 +46,16 @@ object FormatDate extends WebComponent("wa-format-date") {
   lazy val month: CommonKeys.FormatDateDateMonthFormat.type = CommonKeys.FormatDateDateMonthFormat
 
   /** The format for displaying the day. Valid values: "numeric", "2-digit". */
-  lazy val day: CommonKeys.DateYearFormat.type = CommonKeys.DateYearFormat
+  lazy val day: HtmlAttr[DateYearFormat] = unionAttr("day")
 
   /** The format for displaying the hour. Valid values: "numeric", "2-digit". */
-  lazy val hour: CommonKeys.DateYearFormat.type = CommonKeys.DateYearFormat
+  lazy val hour: HtmlAttr[DateYearFormat] = unionAttr("hour")
 
   /** The format for displaying the minute. Valid values: "numeric", "2-digit". */
-  lazy val minute: CommonKeys.DateYearFormat.type = CommonKeys.DateYearFormat
+  lazy val minute: HtmlAttr[DateYearFormat] = unionAttr("minute")
 
   /** The format for displaying the second. Valid values: "numeric", "2-digit". */
-  lazy val second: CommonKeys.DateYearFormat.type = CommonKeys.DateYearFormat
+  lazy val second: HtmlAttr[DateYearFormat] = unionAttr("second")
 
   /** The format for displaying the time. Valid values: "short", "long". */
   lazy val timeZoneName: CommonKeys.FormatDateTimeZoneName.type = CommonKeys.FormatDateTimeZoneName
@@ -63,7 +64,7 @@ object FormatDate extends WebComponent("wa-format-date") {
   lazy val timeZone: HtmlAttr[String] = stringAttr("time-zone")
 
   /** The format for displaying the hour. Valid values: "auto", "12", "24". */
-  lazy val hourFormat: CommonKeys.FormatDateHourFormat.type = CommonKeys.FormatDateHourFormat
+  lazy val hourFormat: CommonKeys.HourFormat.type = CommonKeys.HourFormat
 
   lazy val dir: HtmlAttr[String] = stringAttr("dir")
 
@@ -115,7 +116,7 @@ object FormatDate extends WebComponent("wa-format-date") {
     var timeZone: String
 
     /** The format for displaying the hour. Valid values: "auto", "12", "24". */
-    var hourFormat: FormatDateHourFormat
+    var hourFormat: HourFormat
 
     var dir: String
 

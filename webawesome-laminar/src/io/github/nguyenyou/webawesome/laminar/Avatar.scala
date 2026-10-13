@@ -12,7 +12,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Avatars are used to represent a person or object.
+/** Avatars represent a person or object with an image, initials, or icon. Use them in lists, comments, and profiles to
+  * give users visual context at a glance.
   *
   * [[https://webawesome.com/docs/components/avatar WebAwesome docs]]
   */
@@ -118,7 +119,7 @@ object Avatar extends WebComponent("wa-avatar") {
 
     var didSSR: String
 
-    def handleImageChange(): js.Any = js.native
+    def handleImageChange(): Unit = js.native
 
   }
 }

@@ -1,0 +1,81 @@
+---
+title: Accordion
+description: Accordions organize related content into expandable sections.
+---
+
+Place `AccordionItem` components inside `Accordion`. Each item has a label and a body that can be expanded with a click or the keyboard.
+
+```scala preview h-[320px] stretch
+Accordion()(
+  AccordionItem(_.label := "Shipping", _.expanded := true)(
+    "Orders ship within two business days."
+  ),
+  AccordionItem(_.label := "Returns")(
+    "You can return unused items within 30 days."
+  ),
+  AccordionItem(_.label := "Support")(
+    "Contact us if you need help with your order."
+  )
+)
+```
+
+## Examples
+
+### Expansion Modes
+
+The default `multiple` mode allows several items to stay open. Use `single` to keep one item open, or `single-collapsible` to allow at most one open item while still letting users close it.
+
+```scala preview h-[240px] stretch
+Accordion(_.mode.singleCollapsible)(
+  AccordionItem(_.label := "First section", _.expanded := true)("First section content."),
+  AccordionItem(_.label := "Second section")("Second section content.")
+)
+```
+
+### Appearance and Icon Placement
+
+Use `appearance` to change the panel style and `iconPlacement` to move the expand icon. Set `headingLevel` to match the surrounding document's heading hierarchy.
+
+```scala preview h-[240px] stretch
+Accordion(_.appearance.filled, _.iconPlacement.start, _.headingLevel := "2")(
+  AccordionItem(_.label := "Account settings")("Manage your profile and preferences."),
+  AccordionItem(_.label := "Privacy settings")("Choose what information to share.")
+)
+```
+
+### Custom Labels and Disabled Items
+
+Use the `label` slot when a label needs HTML. Disable individual items to prevent changes to their expanded state.
+
+```scala preview h-[240px] stretch
+Accordion()(
+  AccordionItem(_.slots.label(strong("Important information")))(
+    "This section has a custom label."
+  ),
+  AccordionItem(_.label := "Unavailable", _.disabled := true)(
+    "This section cannot be toggled."
+  )
+)
+```
+
+### Expanding and Collapsing All Items
+
+Use the accordion's `expandAll()` and `collapseAll()` methods to control its items. `expandAll()` only applies in `multiple` mode.
+
+```scala preview h-[320px] stretch
+val accordion = Accordion()(
+  AccordionItem(_.label := "Overview")("A short overview."),
+  AccordionItem(_.label := "Details")("More detailed information.")
+)
+
+div(
+  Examples(
+    Button()("Expand all", onClick --> { _ => accordion.ref.expandAll() }),
+    Button()("Collapse all", onClick --> { _ => accordion.ref.collapseAll() })
+  ),
+  br(),
+  accordion
+)
+```
+
+`onExpand` and `onCollapse` fire before an item changes and can be canceled with `preventDefault()`. `onAfterExpand` and `onAfterCollapse` fire after the animation completes.

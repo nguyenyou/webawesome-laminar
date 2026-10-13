@@ -12,7 +12,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Copies text data to the clipboard when the user clicks the trigger.
+/** Copy buttons copy text to the clipboard when the user activates them. They provide built-in success and error
+  * feedback so users know the copy worked.
   *
   * [[https://webawesome.com/docs/components/copy WebAwesome docs]]
   */
@@ -49,7 +50,7 @@ object CopyButton extends WebComponent("wa-copy-button") {
   /** Disables the copy button. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
 
-  /** A custom label to show in the tooltip. */
+  /** A custom label to use as the accessible name and tooltip text in the default copy state. */
   lazy val copyLabel: HtmlAttr[String] = stringAttr("copy-label")
 
   /** A custom label to show in the tooltip after copying. */
@@ -64,6 +65,13 @@ object CopyButton extends WebComponent("wa-copy-button") {
   /** The preferred placement of the tooltip. Valid values: "top", "right", "bottom", "left". */
   lazy val tooltipPlacement: CommonKeys.TooltipPlacement.type = CommonKeys.TooltipPlacement
 
+  /** Controls the built-in tooltip. `full` (default) shows the tooltip on hover and focus and during copy feedback.
+    * `copy` keeps the tooltip silent on hover/focus and only shows it briefly to confirm a successful or failed copy.
+    * `none` disables the tooltip entirely. Applies to both the default and custom triggers. Valid values: "full",
+    * "copy", "none".
+    */
+  lazy val tooltip: CommonKeys.CopyButtonTooltip.type = CommonKeys.CopyButtonTooltip
+
   lazy val dir: HtmlAttr[String] = stringAttr("dir")
 
   lazy val lang: HtmlAttr[String] = stringAttr("lang")
@@ -73,6 +81,12 @@ object CopyButton extends WebComponent("wa-copy-button") {
   // -- Slots --
 
   object slots {
+
+    /** The trigger element. By default, a copy icon button is rendered so this is optional. If desired, you can slot in
+      * a custom element such as `<wa-button>` or `<button>`. Note: You can just say `_ => element` instead of
+      * `_.slots.default(element)`
+      */
+    lazy val default: Slot = Slot("")
 
     /** The icon to show in the default copy state. Works best with `<wa-icon>`. */
     lazy val copyIcon: Slot = Slot("copy-icon")
@@ -102,17 +116,8 @@ object CopyButton extends WebComponent("wa-copy-button") {
     /** The container that holds the error icon. */
     lazy val errorIcon: String = "error-icon"
 
-    /** The tooltip's exported `base` part. */
-    lazy val tooltip__base: String = "tooltip__base"
-
-    /** The tooltip's exported `popup` part. */
-    lazy val tooltip__base__popup: String = "tooltip__base__popup"
-
-    /** The tooltip's exported `arrow` part. */
-    lazy val tooltip__base__arrow: String = "tooltip__base__arrow"
-
-    /** The tooltip's exported `body` part. */
-    lazy val tooltip__body: String = "tooltip__body"
+    /** The internal `<wa-tooltip>` element. */
+    lazy val feedback: String = "feedback"
 
   }
 
@@ -135,7 +140,7 @@ object CopyButton extends WebComponent("wa-copy-button") {
     /** Disables the copy button. */
     var disabled: Boolean
 
-    /** A custom label to show in the tooltip. */
+    /** A custom label to use as the accessible name and tooltip text in the default copy state. */
     var copyLabel: String
 
     /** A custom label to show in the tooltip after copying. */
@@ -150,11 +155,26 @@ object CopyButton extends WebComponent("wa-copy-button") {
     /** The preferred placement of the tooltip. Valid values: "top", "right", "bottom", "left". */
     var tooltipPlacement: TooltipPlacement
 
+    /** Controls the built-in tooltip. `full` (default) shows the tooltip on hover and focus and during copy feedback.
+      * `copy` keeps the tooltip silent on hover/focus and only shows it briefly to confirm a successful or failed copy.
+      * `none` disables the tooltip entirely. Applies to both the default and custom triggers. Valid values: "full",
+      * "copy", "none".
+      */
+    var tooltip: CopyButtonTooltip
+
     var dir: String
 
     var lang: String
 
     var didSSR: String
+
+    def handleStatusChange(): Unit = js.native
+
+    def handleLabelChange(): Unit = js.native
+
+    def handleTooltipOptionsChange(): Unit = js.native
+
+    def handleTooltipModeChange(oldValue: js.UndefOr[String] = js.undefined): Unit = js.native
 
   }
 }

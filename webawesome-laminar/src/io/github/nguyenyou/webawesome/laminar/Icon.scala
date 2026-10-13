@@ -2,6 +2,7 @@ package io.github.nguyenyou.webawesome.laminar
 
 import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import io.github.nguyenyou.webawesome.laminar.events.*
 import org.scalajs.dom
 
@@ -10,7 +11,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Icons are symbols that can be used to represent various options within an application.
+/** Icons are scalable vector symbols that represent actions, content, or status throughout your application. They
+  * support Font Awesome and custom icon libraries with animation presets.
   *
   * [[https://webawesome.com/docs/components/icon WebAwesome docs]]
   */
@@ -50,6 +52,13 @@ object Icon extends WebComponent("wa-icon") {
     */
   lazy val variant: HtmlAttr[String] = stringAttr("variant")
 
+  /** Sets the icon canvas — the box the icon is centered within. Unset renders as `fixed` (1.25em × 1em); `auto` hugs
+    * the icon's width; `square` is 1.25em × 1.25em; `roomy` is 1.5em × 1.5em. Mirrors Font Awesome's `fa-fixed-width`,
+    * `fa-width-auto`, `fa-canvas-square`, and `fa-canvas-roomy`. Scales with `font-size`. Valid values: "fixed",
+    * "auto", "square", "roomy".
+    */
+  lazy val canvas: CommonKeys.IconCanvas.type = CommonKeys.IconCanvas
+
   /** Sets the width of the icon to match the cropped SVG viewBox. This operates like the Font `fa-width-auto` class. */
   lazy val autoWidth: HtmlAttr[Boolean] = boolAttr("auto-width")
 
@@ -72,11 +81,16 @@ object Icon extends WebComponent("wa-icon") {
   /** Sets the rotation degree of the icon */
   lazy val rotate: HtmlAttr[Double] = doubleAttr("rotate")
 
-  /** Sets the flip direction of the icon along the 'x' (horizontal), 'y' (vertical), or 'both' axes. */
-  lazy val flip: HtmlAttr[String] = stringAttr("flip")
+  /** Sets the flip direction of the icon along the 'x' (horizontal), 'y' (vertical), or 'both' axes. Valid values: "x",
+    * "y", "both".
+    */
+  lazy val flip: CommonKeys.IconFlip.type = CommonKeys.IconFlip
 
-  /** Sets the animation for the icon */
-  lazy val animation: HtmlAttr[String] = stringAttr("animation")
+  /** Sets the animation for the icon Valid values: "beat", "fade", "beat-fade", "bounce", "flip", "flip-360", "shake",
+    * "spin", "spin-pulse", "spin-reverse", "spin-snap", "spin-snap-4", "spin-snap-8", "buzz", "wag", "float", "swing",
+    * "jello".
+    */
+  lazy val animation: CommonKeys.IconAnimation.type = CommonKeys.IconAnimation
 
   lazy val dir: HtmlAttr[String] = stringAttr("dir")
 
@@ -110,7 +124,9 @@ object Icon extends WebComponent("wa-icon") {
     /** Set max value that an icon with `beat-fade` animation will scale. */
     lazy val beatFadeScale: String = "--beat-fade-scale"
 
-    /** Set max value that an icon with `beat` animation will scale. */
+    /** Set the scale multiplier for an icon with `beat` animation. This multiplies the animation's 1.25× base pulse, so
+      * the default `1.25` peaks at ~1.56× and `2` roughly doubles the pulse.
+      */
     lazy val beatScale: String = "--beat-scale"
 
     /** Set the max height an icon with `bounce` animation will jump to when bouncing. */
@@ -140,25 +156,70 @@ object Icon extends WebComponent("wa-icon") {
     /** Set lowest opacity value an icon with `fade` animation will fade to and from. */
     lazy val fadeOpacity: String = "--fade-opacity"
 
-    /** Set rotation angle of flip for an icon with `flip` animation. A positive angle denotes a clockwise rotation, a
-      * negative angle a counter-clockwise one.
+    /** Set rotation angle of flip for an icon with `flip` or `flip-360` animation. A positive angle denotes a clockwise
+      * rotation, a negative angle a counter-clockwise one.
       */
     lazy val flipAngle: String = "--flip-angle"
 
-    /** Set x-coordinate of the vector denoting the axis of rotation (between 0 and 1) for an icon with `flip`
-      * animation.
+    /** Set x-coordinate of the vector denoting the axis of rotation (between 0 and 1) for an icon with `flip` or
+      * `flip-360` animation.
       */
     lazy val flipX: String = "--flip-x"
 
-    /** Set y-coordinate of the vector denoting the axis of rotation (between 0 and 1) for an icon with `flip`
-      * animation.
+    /** Set y-coordinate of the vector denoting the axis of rotation (between 0 and 1) for an icon with `flip` or
+      * `flip-360` animation.
       */
     lazy val flipY: String = "--flip-y"
 
-    /** Set z-coordinate of the vector denoting the axis of rotation (between 0 and 1) for an icon with `flip`
-      * animation.
+    /** Set z-coordinate of the vector denoting the axis of rotation (between 0 and 1) for an icon with `flip` or
+      * `flip-360` animation.
       */
     lazy val flipZ: String = "--flip-z"
+
+    /** Set the scale of the wind-up before an icon with `flip` or `flip-360` animation rotates. */
+    lazy val flipAnticipationScale: String = "--flip-anticipation-scale"
+
+    /** Set how far past the final angle an icon with `flip` or `flip-360` animation rotates before settling. */
+    lazy val flipOvershoot: String = "--flip-overshoot"
+
+    /** Set the downward squash distance before an icon with `bounce` animation jumps. */
+    lazy val bounceAnticipation: String = "--bounce-anticipation"
+
+    /** Set the horizontal travel of an icon with `buzz` animation. */
+    lazy val buzzDistance: String = "--buzz-distance"
+
+    /** Set the peak rotation of an icon with `wag` animation. */
+    lazy val wagAngle: String = "--wag-angle"
+
+    /** Set the peak rotation of an icon with `swing` animation. */
+    lazy val swingAngle: String = "--swing-angle"
+
+    /** Set the horizontal stretch of an icon with `jello` animation. */
+    lazy val jelloScaleX: String = "--jello-scale-x"
+
+    /** Set the vertical stretch of an icon with `jello` animation. */
+    lazy val jelloScaleY: String = "--jello-scale-y"
+
+    /** Set the rise height of an icon with `float` animation. */
+    lazy val floatHeight: String = "--float-height"
+
+    /** Set the horizontal drift of an icon with `float` animation. */
+    lazy val floatDrift: String = "--float-drift"
+
+    /** Set the rotation of an icon with `float` animation. */
+    lazy val floatTilt: String = "--float-tilt"
+
+    /** Set the horizontal squash of an icon with `float` animation at rest. */
+    lazy val floatSquashX: String = "--float-squash-x"
+
+    /** Set the vertical squash of an icon with `float` animation at rest. */
+    lazy val floatSquashY: String = "--float-squash-y"
+
+    /** Set the horizontal stretch of an icon with `float` animation at its peak. */
+    lazy val floatStretchX: String = "--float-stretch-x"
+
+    /** Set the vertical stretch of an icon with `float` animation at its peak. */
+    lazy val floatStretchY: String = "--float-stretch-y"
 
     /** Sets a duotone icon's primary color. Default: currentColor */
     lazy val primaryColor: String = "--primary-color"
@@ -209,6 +270,13 @@ object Icon extends WebComponent("wa-icon") {
       */
     var variant: String
 
+    /** Sets the icon canvas — the box the icon is centered within. Unset renders as `fixed` (1.25em × 1em); `auto` hugs
+      * the icon's width; `square` is 1.25em × 1.25em; `roomy` is 1.5em × 1.5em. Mirrors Font Awesome's
+      * `fa-fixed-width`, `fa-width-auto`, `fa-canvas-square`, and `fa-canvas-roomy`. Scales with `font-size`. Valid
+      * values: "fixed", "auto", "square", "roomy".
+      */
+    var canvas: IconCanvas
+
     /** Sets the width of the icon to match the cropped SVG viewBox. This operates like the Font `fa-width-auto` class.
       */
     var autoWidth: Boolean
@@ -232,11 +300,16 @@ object Icon extends WebComponent("wa-icon") {
     /** Sets the rotation degree of the icon */
     var rotate: Double
 
-    /** Sets the flip direction of the icon along the 'x' (horizontal), 'y' (vertical), or 'both' axes. */
-    var flip: js.Any
+    /** Sets the flip direction of the icon along the 'x' (horizontal), 'y' (vertical), or 'both' axes. Valid values:
+      * "x", "y", "both".
+      */
+    var flip: IconFlip
 
-    /** Sets the animation for the icon */
-    var animation: js.Any
+    /** Sets the animation for the icon Valid values: "beat", "fade", "beat-fade", "bounce", "flip", "flip-360",
+      * "shake", "spin", "spin-pulse", "spin-reverse", "spin-snap", "spin-snap-4", "spin-snap-8", "buzz", "wag",
+      * "float", "swing", "jello".
+      */
+    var animation: IconAnimation
 
     var dir: String
 
@@ -244,9 +317,9 @@ object Icon extends WebComponent("wa-icon") {
 
     var didSSR: String
 
-    def handleLabelChange(): js.Any = js.native
+    def handleLabelChange(): Unit = js.native
 
-    def setIcon(): js.Any = js.native
+    def setIcon(): js.Promise[js.Any] = js.native
 
   }
 }

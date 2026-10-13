@@ -11,8 +11,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** The Mutation Observer component offers a thin, declarative interface to the [`MutationObserver
-  * API`](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver).
+/** Mutation observers watch for changes to an element's DOM tree and emit an event when they occur. Provides a thin,
+  * declarative interface to the browser's MutationObserver API.
   *
   * [[https://webawesome.com/docs/components/mutation-observer WebAwesome docs]]
   */
@@ -101,9 +101,9 @@ object MutationObserver extends WebComponent("wa-mutation-observer") {
 
     var didSSR: String
 
-    def handleDisabledChange(): js.Any = js.native
+    def handleDisabledChange(): Unit = js.native
 
-    def handleChange(): js.Any = js.native
+    def handleChange(): Unit = js.native
 
   }
 }

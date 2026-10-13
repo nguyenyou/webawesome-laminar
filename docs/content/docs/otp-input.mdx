@@ -1,0 +1,62 @@
+---
+title: OTP Input
+description: OTP inputs collect fixed-length verification codes and PINs.
+---
+
+`OtpInput` uses one input to support typing, pasting, and browser autofill while displaying a separate segment for each character.
+
+```scala preview h-[200px]
+OtpInput(
+  _.label := "Verification code",
+  _.hint := "Enter the six-digit code from your email.",
+  _.name := "code"
+)()
+```
+
+## Examples
+
+### Length and Masking
+
+Use `length` to change the number of segments. Add `mask` to hide entered characters.
+
+```scala preview h-[180px]
+OtpInput(_.label := "Card PIN", _.length := 4, _.mask := true)()
+```
+
+### Character Types and Case
+
+The default type is numeric. Use `alpha` or `alphanumeric` to accept letters, and `case` to normalize them.
+
+```scala preview h-[200px]
+OtpInput(
+  _.label := "Invite code",
+  _.`type`.alphanumeric,
+  _.`case`.upper,
+  _.defaultValue := "ABC123"
+)()
+```
+
+### Grouped Segments
+
+Use `#` for each segment in `format`; other characters become visual separators. The format determines the length, so a separate `length` is unnecessary.
+
+```scala preview h-[200px]
+OtpInput(_.label := "Backup code", _.format := "###-###", _.`type`.alphanumeric)()
+```
+
+### Completion
+
+`onComplete` fires when every segment is filled. It is cancelable: use `preventDefault()` to stop `autosubmit` for that completion.
+
+```scala preview h-[240px]
+val completeVar = Var("Enter all six digits.")
+
+div(
+  OtpInput(
+    _.label := "Verification code",
+    _.onInput.mapToValue.filter(_.length < 6).mapTo("Enter all six digits.") --> completeVar,
+    _.onComplete.mapTo("Code complete.") --> completeVar
+  )(),
+  p(text <-- completeVar.signal)
+)
+```

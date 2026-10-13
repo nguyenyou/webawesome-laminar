@@ -13,6 +13,28 @@ This component works with standard `<form>` elements.
 
 ## Examples
 
+### Labeled Swatches
+
+Use `swatchesProp` to provide an array of colors with labels. Labels help users of screen readers identify each preset. Object arrays must be assigned as a JavaScript property; the `swatches` attribute still accepts a semicolon-separated string.
+
+```scala preview h-[700px]
+val swatches = js.Array(
+  js.Dynamic.literal(color = "#2563eb", label = "Ocean blue").asInstanceOf[ColorPicker.Swatch],
+  js.Dynamic.literal(color = "#16a34a", label = "Forest green").asInstanceOf[ColorPicker.Swatch],
+  js.Dynamic.literal(color = "#dc2626", label = "Brick red").asInstanceOf[ColorPicker.Swatch]
+)
+
+ColorPicker(_.label := "Accent color", _.swatchesProp := swatches)()
+```
+
+### Popup Placement
+
+Use `placement` to choose the preferred location of the popup. The popup can shift or flip to stay within the viewport.
+
+```scala preview h-[700px]
+ColorPicker(_.label := "Color", _.placement.bottomStart)()
+```
+
 ### Initial Value
 
 Use the `value` attribute to set an initial value for the color picker.

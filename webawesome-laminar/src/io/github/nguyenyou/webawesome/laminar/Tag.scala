@@ -12,7 +12,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Tags are used as labels to organize things or to indicate a selection.
+/** Tags label, categorize, or represent selections with a compact visual marker. Use them for status indicators,
+  * filters, or removable chips.
   *
   * [[https://webawesome.com/docs/components/tag WebAwesome docs]]
   */
@@ -41,7 +42,7 @@ object Tag extends WebComponent("wa-tag") {
   /** The tag's visual appearance. Valid values: "accent", "filled", "outlined", "filled-outlined". */
   lazy val appearance: CommonKeys.ExtendedAppearance1.type = CommonKeys.ExtendedAppearance1
 
-  /** The tag's size. Valid values: "small", "medium", "large". */
+  /** The tag's size. Valid values: "xs", "s", "m", "l", "xl", "small", "medium", "large". */
   lazy val size: CommonKeys.ComponentSize.type = CommonKeys.ComponentSize
 
   /** Draws a pill-style tag with rounded edges. */
@@ -70,7 +71,7 @@ object Tag extends WebComponent("wa-tag") {
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
 
-    /** The component's base wrapper. */
+    /** Deprecated. Style the host element instead. */
     lazy val base: String = "base"
 
     /** The tag's content. */
@@ -98,7 +99,7 @@ object Tag extends WebComponent("wa-tag") {
     /** The tag's visual appearance. Valid values: "accent", "filled", "outlined", "filled-outlined". */
     var appearance: ExtendedAppearance1
 
-    /** The tag's size. Valid values: "small", "medium", "large". */
+    /** The tag's size. Valid values: "xs", "s", "m", "l", "xl", "small", "medium", "large". */
     var size: ComponentSize
 
     /** Draws a pill-style tag with rounded edges. */
@@ -112,6 +113,8 @@ object Tag extends WebComponent("wa-tag") {
     var lang: String
 
     var didSSR: String
+
+    def handleSizeChange(): Unit = js.native
 
   }
 }

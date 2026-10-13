@@ -10,7 +10,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Button groups can be used to group related buttons into sections.
+/** Button groups combine related buttons into a single visual unit. Use them for toolbars, segmented controls, or any
+  * set of actions that belong together.
   *
   * [[https://webawesome.com/docs/components/button-group WebAwesome docs]]
   */
@@ -56,7 +57,7 @@ object ButtonGroup extends WebComponent("wa-button-group") {
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
 
-    /** The component's base wrapper. */
+    /** Deprecated. Style the host element instead. */
     lazy val base: String = "base"
 
   }

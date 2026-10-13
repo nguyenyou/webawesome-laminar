@@ -306,7 +306,7 @@ async function main() {
     console.log(`
 WebAwesome Laminar Generator
 
-Usage: npm run generate [options]
+Usage: bun run generate [options]
 
 Options:
   --force, -f          Force regeneration even if no changes detected
@@ -315,10 +315,10 @@ Options:
   --help, -h           Show this help message
 
 Examples:
-  npm run generate                    # Normal generation
-  npm run generate --force            # Force regeneration
-  npm run generate --verbose          # Verbose output
-  npm run generate --validate         # With validation
+  bun run generate                    # Normal generation
+  bun run generate --force            # Force regeneration
+  bun run generate --verbose          # Verbose output
+  bun run generate --validate         # With validation
 
 Note: The generator uses the WebAwesome version specified in package.json.
 Update package.json to use a different version.

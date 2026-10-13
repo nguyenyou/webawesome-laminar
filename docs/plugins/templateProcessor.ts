@@ -1,5 +1,17 @@
 import type { TemplateContext, TemplateType } from "./previewUtils";
 
+export const exampleImports = [
+  "import org.scalajs.dom",
+  "import com.raquo.laminar.api.L.*",
+  "import doc.*",
+  "import doc.facades.*",
+  "import org.scalajs.dom.window",
+  "import io.github.nguyenyou.webawesome.laminar.*",
+  "import io.github.nguyenyou.webawesome.laminar.SharedTypes.*",
+  "import io.github.nguyenyou.webawesome.laminar.CommonKeys.TreeSelection",
+  "import scala.scalajs.js"
+];
+
 /**
  * Convert hyphenated string to camelCase
  * e.g., "zoomable-frame" -> "zoomableFrame"
@@ -229,15 +241,6 @@ export const applyTemplate = (ctx: TemplateContext): string => {
   const exampleId = `example${ctx.counter}`;
   
   return `def ${exampleId}() = {
-  import org.scalajs.dom
-  import com.raquo.laminar.api.L.*
-  import doc.*
-  import doc.facades.*
-  import org.scalajs.dom.window
-  import io.github.nguyenyou.webawesome.laminar.*
-  import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
-  import io.github.nguyenyou.webawesome.laminar.CommonKeys.TreeSelection
-  import scala.scalajs.js
 
   val container = dom.document.querySelector("#${exampleId}")
   if (Option(container).isDefined) {
@@ -257,15 +260,6 @@ export const applyExampleTemplate = (ctx: TemplateContext): string => {
   const exampleId = `example${ctx.counter}`;
   
   return `def ${exampleId}() = {
-  import org.scalajs.dom
-  import com.raquo.laminar.api.L.*
-  import doc.*
-  import doc.facades.*
-  import org.scalajs.dom.window
-  import io.github.nguyenyou.webawesome.laminar.*
-  import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
-  import io.github.nguyenyou.webawesome.laminar.CommonKeys.TreeSelection
-  import scala.scalajs.js
 
   val container = dom.document.querySelector("#${exampleId}")
   if (Option(container).isDefined) {
@@ -323,11 +317,6 @@ ${indentCode(exampleGroupsArgs, 2)}
 )`;
   
   return `def ${exampleId}() = {
-  import org.scalajs.dom
-  import com.raquo.laminar.api.L.*
-  import doc.*
-  import io.github.nguyenyou.webawesome.laminar.*
-  import scala.scalajs.js
 
   val container = dom.document.querySelector("#${exampleId}")
   if (Option(container).isDefined) {

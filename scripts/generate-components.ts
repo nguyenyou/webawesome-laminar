@@ -188,6 +188,13 @@ function mapTypeScriptToScala(tsType: string): string {
         Boolean: "Boolean"
     };
 
+    // Method types have already been mapped by the IR generator.
+    if (tsType === "Unit" || tsType.startsWith("dom.") || tsType === "TreeItem.Ref" ||
+        tsType === "js.Promise[js.Any]" || tsType === "js.Any") return tsType;
+    if (tsType.startsWith("js.Array[") && tsType.endsWith("]")) {
+        return `js.Array[${mapTypeScriptToScala(tsType.slice(9, -1))}]`;
+    }
+
     // Handle union types with null/undefined - simplify to js.Any
     if (
         tsType.includes(" | ") &&
@@ -264,6 +271,10 @@ function getJSFacadeType(irType: string, unionValues?: string[]): string {
 
     // Map IR types to proper Scala.js facade types
     switch (irType) {
+        case "String | js.Array[String] | js.Array[ColorPicker.Swatch]":
+        case "String | js.Function1[Double, String]":
+        case 'Double | "any"':
+            return irType;
         case "String":
             return "String";
         case "Boolean":
@@ -321,7 +332,7 @@ function getCommonKeyName(
         (st: any) => st.signature === signature
     );
 
-    if (!sharedType) return null;
+    if (!sharedType || sharedType.attributeName !== attributeName) return null;
 
     // Return the shared type name as the CommonKeys object name
     // e.g., ComponentSize, ThemeVariant, ButtonButtonType, etc.
@@ -601,6 +612,12 @@ async function generateComponent(component: ComponentIR): Promise<string> {
                             "WaSelectionChangeEvent",
                             "WaTabHideEvent",
                             "WaTabShowEvent",
+                            "WaBeforePageChangeEvent",
+                            "WaPageChangeEvent",
+                            "WaBeforeStepChangeEvent",
+                            "WaStepChangeEvent",
+                            "WaContentChangeEvent",
+                            "WaCreateEvent",
                         ];
                         if (supportedEvents.includes(event.eventType || "")) {
                             writer.writeLine(
@@ -697,6 +714,13 @@ async function generateComponent(component: ComponentIR): Promise<string> {
                     }
 
                     writer.blankLine();
+
+                    // Complex values must be assigned as properties, not serialized HTML attributes.
+                    if (attr.type === "String | js.Array[String] | js.Array[ColorPicker.Swatch]" ||
+                        attr.type === "String | js.Function1[Double, String]") {
+                        writer.writeLine(`lazy val ${attrName}Prop: HtmlProp[${attr.type}, ?] = asIsProp("${displayName}")`);
+                        writer.blankLine();
+                    }
 
                     // Add common aliases for 'type' attribute
                     if (attr.name === "type") {
@@ -807,6 +831,14 @@ async function generateComponent(component: ComponentIR): Promise<string> {
             }
 
             // Element type (JS facade)
+            if (component.tagName === "wa-color-picker") {
+                writer.write("@js.native trait Swatch extends js.Object").block(() => {
+                    writer.writeLine("var color: String");
+                    writer.writeLine("var label: String");
+                });
+                writer.blankLine();
+            }
+
             writer.writeLine("// -- Element type --");
             writer.blankLine();
             writer
@@ -891,7 +923,7 @@ async function generateComponent(component: ComponentIR): Promise<string> {
                                 }
 
                                 if (optionalSuffix === " = js.undefined") {
-                                    return `${paramName}: js.UndefOr[${paramType}]`;
+                                    return `${paramName}: js.UndefOr[${paramType}] = js.undefined`;
                                 }
                                 return `${paramName}: ${paramType}${optionalSuffix}`;
                             })
@@ -944,6 +976,7 @@ export async function generateAllComponents(): Promise<{
             generatedCount++;
         } catch (error) {
             console.error(`✗ Failed to generate ${component.name}:`, error);
+            throw error;
         }
     }
 

@@ -11,7 +11,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** A tree item serves as a hierarchical node that lives inside a [tree](/docs/components/tree).
+/** Tree items represent a single hierarchical node inside a tree, and can contain nested items that expand and
+  * collapse.
   *
   * [[https://webawesome.com/docs/components/tree-item WebAwesome docs]]
   */
@@ -62,6 +63,10 @@ object TreeItem extends WebComponent("wa-tree-item") {
   /** Enables lazy loading behavior. */
   lazy val `lazy`: HtmlAttr[Boolean] = boolAttr("lazy")
 
+  lazy val tabIndex: HtmlAttr[Double] = doubleAttr("tabindex")
+
+  lazy val role: HtmlAttr[String] = stringAttr("role")
+
   lazy val dir: HtmlAttr[String] = stringAttr("dir")
 
   lazy val lang: HtmlAttr[String] = stringAttr("lang")
@@ -88,10 +93,10 @@ object TreeItem extends WebComponent("wa-tree-item") {
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssVars {
 
-    /** The animation duration when expanding tree items. Default: 200ms */
+    /** The animation duration when expanding tree items. Default: var(--wa-transition-normal) */
     lazy val showDuration: String = "--show-duration"
 
-    /** The animation duration when collapsing tree items. Default: 200ms */
+    /** The animation duration when collapsing tree items. Default: var(--wa-transition-normal) */
     lazy val hideDuration: String = "--hide-duration"
 
   }
@@ -101,8 +106,11 @@ object TreeItem extends WebComponent("wa-tree-item") {
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
 
-    /** The component's base wrapper. */
+    /** Deprecated. Use the `tree-item` part instead. */
     lazy val base: String = "base"
+
+    /** The component's outer wrapper. */
+    lazy val treeItem: String = "tree-item"
 
     /** The tree item's container. This element wraps everything except slotted tree item children. */
     lazy val item: String = "item"
@@ -163,32 +171,36 @@ object TreeItem extends WebComponent("wa-tree-item") {
     /** Enables lazy loading behavior. */
     var `lazy`: Boolean
 
+    var tabIndex: Double
+
+    var role: String
+
     var dir: String
 
     var lang: String
 
     var didSSR: String
 
-    def isTreeItem(node: js.Any): js.Any = js.native
+    def isTreeItem(node: js.Any): Boolean = js.native
 
-    def handleLoadingChange(): js.Any = js.native
+    def handleLoadingChange(): Unit = js.native
 
-    def handleDisabledChange(): js.Any = js.native
+    def handleDisabledChange(): Unit = js.native
 
-    def handleExpandedState(): js.Any = js.native
+    def handleExpandedState(): Unit = js.native
 
-    def handleIndeterminateStateChange(): js.Any = js.native
+    def handleIndeterminateStateChange(): Unit = js.native
 
-    def handleSelectedChange(): js.Any = js.native
+    def handleSelectedChange(): Unit = js.native
 
-    def handleExpandedChange(): js.Any = js.native
+    def handleExpandedChange(): Unit = js.native
 
-    def handleExpandAnimation(): js.Any = js.native
+    def handleExpandAnimation(): Unit = js.native
 
-    def handleLazyChange(): js.Any = js.native
+    def handleLazyChange(): Unit = js.native
 
     /** Gets all the nested tree items in this node. */
-    def getChildrenItems(options: js.Object): js.Any = js.native
+    def getChildrenItems(options: js.Object): js.Array[TreeItem.Ref] = js.native
 
   }
 }

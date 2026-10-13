@@ -1,64 +1,63 @@
-name: GitHub Pages
+name: GitHub Pages Redirect
 
 on:
   workflow_dispatch:
-  
+
+permissions:
+  contents: read
+
 concurrency:
-  group: "pages"
+  group: pages
   cancel-in-progress: false
 
 jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: read
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-            node-version: 23
-      - run: |
-          corepack enable
-          yarn install
-
       - name: Setup Pages
-        id: setup_pages
-        uses: actions/configure-pages@v5
-
-      - uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '24'
-
-      - name: Build ScalaJS
-        run: ./mill doc.fullLinkJS
-
-      - name: Build Vite
-        run: yarn build
-        env:
-          PAGES_BASE_PATH: ${{ steps.setup_pages.outputs.base_path }}
-      
+        uses: actions/configure-pages@v6.0.0
+      - name: Build redirect to the documentation site
+        run: |
+          mkdir -p pages
+          cat > pages/index.html <<'HTML'
+          <!doctype html>
+          <html lang="en">
+            <head>
+              <meta charset="utf-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1">
+              <meta http-equiv="refresh" content="0; url=https://webawesome-laminar.vercel.app/">
+              <link rel="canonical" href="https://webawesome-laminar.vercel.app/">
+              <title>Documentation has moved</title>
+            </head>
+            <body>
+              <p><a href="https://webawesome-laminar.vercel.app/">Open the documentation</a></p>
+            </body>
+          </html>
+          HTML
+          cp pages/index.html pages/404.html
+          touch pages/.nojekyll
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5.0.0
         with:
-          path: './dist'
+          path: pages
   # Deploy job
   deploy:
-    # Add a dependency to the build job
     needs: build
-
-    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment.
     permissions:
-      pages: write      # to deploy to Pages
-      id-token: write   # to verify the deployment originates from an appropriate source
-
-    # Deploy to the github-pages environment
+      pages: write
+      id-token: write
+    # Deploy to the github-pages environment.
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
-    # Specify runner + deployment step
-    runs-on: ubuntu-latest
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy redirect to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5.0.1

@@ -1,0 +1,55 @@
+---
+title: Checkbox Group
+description: Checkbox groups give related checkboxes and switches a shared label and hint.
+---
+
+Each checkbox remains an independent form control with its own name, value, and validation. `CheckboxGroup` provides the shared label and accessible grouping.
+
+```scala preview h-[240px]
+CheckboxGroup(_.label := "Interests", _.hint := "Choose as many as you like.")(
+  Checkbox(_.name := "interests", _.value := "design")("Design"),
+  Checkbox(_.name := "interests", _.value := "development")("Development"),
+  Checkbox(_.name := "interests", _.value := "writing")("Writing")
+)
+```
+
+## Examples
+
+### Orientation
+
+Groups stack vertically by default. Use `orientation.horizontal` to arrange the items in a row.
+
+```scala preview h-[160px]
+CheckboxGroup(_.label := "Days", _.orientation.horizontal)(
+  Checkbox(_.name := "monday")("Monday"),
+  Checkbox(_.name := "wednesday")("Wednesday"),
+  Checkbox(_.name := "friday")("Friday")
+)
+```
+
+### Size
+
+The group's `size` applies to its checkboxes and switches, overriding sizes set on individual items.
+
+```scala preview h-[200px]
+CheckboxGroup(_.label := "Notifications", _.size.l)(
+  Switch(_.name := "email")("Email"),
+  Switch(_.name := "push")("Push notifications")
+)
+```
+
+### Custom Labels and Disabled Items
+
+Use the `label` and `hint` slots for HTML content. To disable an option, set `disabled` on the individual checkbox; the group has no disabled attribute.
+
+```scala preview h-[240px]
+CheckboxGroup(
+  _.slots.label(strong("Available features")),
+  _.slots.hint(span("Some features require an upgraded plan."))
+)(
+  Checkbox(_.name := "search")("Search"),
+  Checkbox(_.name := "export", _.disabled := true)("Export")
+)
+```
+
+The group's `required` attribute adds a visual indicator to its label. It does not require a selection; apply validation to the individual controls or your form.

@@ -1,14 +1,14 @@
 {
   "version": "1.0.0",
-  "generated": "2026-02-20T04:07:43.302Z",
+  "generated": "2026-10-13T22:05:40.845Z",
   "source": {
-    "version": "3.2.1",
+    "version": "3.14.0",
     "path": "/Users/tunguyen/Documents/GitHub/webawesome-laminar/node_modules/@awesome.me/webawesome/dist/custom-elements.json",
-    "checksum": "1352377-3e8d40a8"
+    "checksum": "2154798-4d017d32"
   },
   "components": {
-    "total": 58,
-    "generated": 58,
+    "total": 72,
+    "generated": 72,
     "errors": []
   }
 }

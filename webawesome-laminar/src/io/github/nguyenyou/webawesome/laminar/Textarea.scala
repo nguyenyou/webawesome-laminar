@@ -12,7 +12,7 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Textareas collect data from the user and allow multiple lines of text.
+/** Textareas collect multi-line text input from the user, with optional resizing and character counting.
   *
   * [[https://webawesome.com/docs/components/textarea WebAwesome docs]]
   */
@@ -53,7 +53,7 @@ object Textarea extends WebComponent("wa-textarea") {
   /** The default value of the form control. Primarily used for resetting the form control. */
   lazy val defaultValue: HtmlAttr[String] = stringAttr("value")
 
-  /** The textarea's size. Valid values: "small", "medium", "large". */
+  /** The textarea's size. Valid values: "xs", "s", "m", "l", "xl", "small", "medium", "large". */
   lazy val size: CommonKeys.ComponentSize.type = CommonKeys.ComponentSize
 
   /** The textarea's visual appearance. Valid values: "filled", "outlined", "filled-outlined". */
@@ -94,8 +94,10 @@ object Textarea extends WebComponent("wa-textarea") {
     */
   lazy val autocapitalize: CommonKeys.Autocapitalize.type = CommonKeys.Autocapitalize
 
-  /** Indicates whether the browser's autocorrect feature is on or off. */
-  lazy val autocorrect: HtmlAttr[String] = stringAttr("autocorrect")
+  /** Indicates whether the browser's autocorrect feature is on or off. When set as an attribute, use `"off"` or `"on"`.
+    * When set as a property, use `true` or `false`.
+    */
+  lazy val autocorrect: HtmlAttr[Boolean] = boolAttr("autocorrect")
 
   /** Specifies what permission the browser has to provide assistance in filling out form field values. Refer to [this
     * page on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) for available values.
@@ -119,11 +121,18 @@ object Textarea extends WebComponent("wa-textarea") {
     */
   lazy val inputmode: CommonKeys.Inputmode.type = CommonKeys.Inputmode
 
-  /** Used for SSR. If you're slotting in a `label` element, make sure to set this to `true`. */
+  /** Only required for SSR. Set to `true` if you're slotting in a `label` element so the server-rendered markup
+    * includes the label before the component hydrates on the client.
+    */
   lazy val withLabel: HtmlAttr[Boolean] = boolAttr("with-label")
 
-  /** Used for SSR. If you're slotting in a `hint` element, make sure to set this to `true`. */
+  /** Only required for SSR. Set to `true` if you're slotting in a `hint` element so the server-rendered markup includes
+    * the hint before the component hydrates on the client.
+    */
   lazy val withHint: HtmlAttr[Boolean] = boolAttr("with-hint")
+
+  /** Shows a character count below the textarea. When `maxlength` is set, shows remaining characters instead. */
+  lazy val withCount: HtmlAttr[Boolean] = boolAttr("with-count")
 
   lazy val customError: HtmlAttr[String] = stringAttr("custom-error")
 
@@ -150,11 +159,11 @@ object Textarea extends WebComponent("wa-textarea") {
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
 
-    /** The label */
-    lazy val label: String = "label"
+    /** The label. */
+    lazy val formControlLabel: String = "form-control-label"
 
-    /** The input's wrapper. */
-    lazy val formControlInput: String = "form-control-input"
+    /** Deprecated. Use the `form-control-label` part instead. */
+    lazy val label: String = "label"
 
     /** The hint's wrapper. */
     lazy val hint: String = "hint"
@@ -162,8 +171,17 @@ object Textarea extends WebComponent("wa-textarea") {
     /** The internal `<textarea>` control. */
     lazy val textarea: String = "textarea"
 
-    /** The wrapper around the `<textarea>` control. */
+    /** Deprecated. Use the `textarea-wrapper` part instead. */
     lazy val base: String = "base"
+
+    /** The component's outer wrapper. */
+    lazy val textareaWrapper: String = "textarea-wrapper"
+
+    /** The invisible sizer that grows the control to fit its content when `resize` is `auto`. */
+    lazy val textareaAdjuster: String = "textarea-adjuster"
+
+    /** The character count element, rendered when the `with-count` attribute is present. */
+    lazy val count: String = "count"
 
   }
 
@@ -181,7 +199,7 @@ object Textarea extends WebComponent("wa-textarea") {
     /** The default value of the form control. Primarily used for resetting the form control. */
     var defaultValue: String
 
-    /** The textarea's size. Valid values: "small", "medium", "large". */
+    /** The textarea's size. Valid values: "xs", "s", "m", "l", "xl", "small", "medium", "large". */
     var size: ComponentSize
 
     /** The textarea's visual appearance. Valid values: "filled", "outlined", "filled-outlined". */
@@ -222,8 +240,10 @@ object Textarea extends WebComponent("wa-textarea") {
       */
     var autocapitalize: Autocapitalize
 
-    /** Indicates whether the browser's autocorrect feature is on or off. */
-    var autocorrect: String
+    /** Indicates whether the browser's autocorrect feature is on or off. When set as an attribute, use `"off"` or
+      * `"on"`. When set as a property, use `true` or `false`.
+      */
+    var autocorrect: Boolean
 
     /** Specifies what permission the browser has to provide assistance in filling out form field values. Refer to [this
       * page on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) for available values.
@@ -247,11 +267,18 @@ object Textarea extends WebComponent("wa-textarea") {
       */
     var inputmode: Inputmode
 
-    /** Used for SSR. If you're slotting in a `label` element, make sure to set this to `true`. */
+    /** Only required for SSR. Set to `true` if you're slotting in a `label` element so the server-rendered markup
+      * includes the label before the component hydrates on the client.
+      */
     var withLabel: Boolean
 
-    /** Used for SSR. If you're slotting in a `hint` element, make sure to set this to `true`. */
+    /** Only required for SSR. Set to `true` if you're slotting in a `hint` element so the server-rendered markup
+      * includes the hint before the component hydrates on the client.
+      */
     var withHint: Boolean
+
+    /** Shows a character count below the textarea. When `maxlength` is set, shows remaining characters instead. */
+    var withCount: Boolean
 
     var customError: String
 
@@ -261,64 +288,66 @@ object Textarea extends WebComponent("wa-textarea") {
 
     var didSSR: String
 
-    def handleRowsChange(): js.Any = js.native
+    def handleSizeChange(): Unit = js.native
 
-    def handleValueChange(): js.Any = js.native
+    def handleRowsChange(): Unit = js.native
+
+    def handleValueChange(): js.Promise[js.Any] = js.native
 
     /** Sets focus on the textarea. */
-    def focus(options: js.UndefOr[js.Any]): js.Any = js.native
+    def focus(options: js.UndefOr[js.Any] = js.undefined): Unit = js.native
 
     /** Removes focus from the textarea. */
-    def blur(): js.Any = js.native
+    def blur(): Unit = js.native
 
     /** Selects all the text in the textarea. */
-    def select(): js.Any = js.native
+    def select(): Unit = js.native
 
     /** Gets or sets the textarea's scroll position. */
     def scrollPosition(position: js.Object = js.Object()): js.Any = js.native
 
     /** Sets the start and end positions of the text selection (0-based). */
-    def setSelectionRange(selectionStart: Double, selectionEnd: Double, selectionDirection: String): js.Any = js.native
+    def setSelectionRange(selectionStart: Double, selectionEnd: Double, selectionDirection: String): Unit = js.native
 
     /** Replaces a range of text with a new string. */
     def setRangeText(
         replacement: String,
-        start: js.UndefOr[Double],
-        end: js.UndefOr[Double],
+        start: js.UndefOr[Double] = js.undefined,
+        end: js.UndefOr[Double] = js.undefined,
         selectMode: String
-    ): js.Any = js.native
+    ): Unit = js.native
 
-    def formResetCallback(): js.Any = js.native
+    def formResetCallback(): Unit = js.native
 
-    def getForm(): js.Any = js.native
+    def getForm(): dom.html.Form | Null = js.native
 
-    def checkValidity(): js.Any = js.native
+    def checkValidity(): Boolean = js.native
 
-    def reportValidity(): js.Any = js.native
+    def reportValidity(): Boolean = js.native
 
-    def setValidity(args: js.Any): js.Any = js.native
+    def setValidity(args: js.Any): Unit = js.native
 
-    def setCustomStates(): js.Any = js.native
+    def setCustomStates(): Unit = js.native
 
     /** Do not use this when creating a "Validator". This is intended for end users of components. We track manually
       * defined custom errors so we don't clear them on accident in our validators.
       */
-    def setCustomValidity(message: String): js.Any = js.native
+    def setCustomValidity(message: String): Unit = js.native
 
-    def formDisabledCallback(isDisabled: Boolean): js.Any = js.native
+    def formDisabledCallback(isDisabled: Boolean): Unit = js.native
 
     /** Called when the browser is trying to restore element’s state to state in which case reason is "restore", or when
       * the browser is trying to fulfill autofill on behalf of user in which case reason is "autocomplete". In the case
       * of "restore", state is a string, File, or FormData object previously set as the second argument to setFormValue.
       */
-    def formStateRestoreCallback(state: js.Any, reason: String): js.Any = js.native
+    def formStateRestoreCallback(state: js.Any, reason: String): Unit = js.native
 
-    def setValue(args: js.Any): js.Any = js.native
+    def setValue(args: js.Any): Unit = js.native
 
     /** Reset validity is a way of removing manual custom errors and native validation. */
-    def resetValidity(): js.Any = js.native
+    def resetValidity(): Unit = js.native
 
-    def updateValidity(): js.Any = js.native
+    def updateValidity(): Unit = js.native
 
   }
 }

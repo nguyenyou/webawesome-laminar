@@ -1,6 +1,8 @@
 // Import from node_modules to use the version specified in package.json
 import manifest from '../node_modules/@awesome.me/webawesome/dist/custom-elements.json' with { type: "json" };
-import { writeFile, CONSTANTS, SKIP_COMPONENTS } from './utils.js';
+import { readFile, writeFile, paths, CONSTANTS, SKIP_COMPONENTS } from './utils.js';
+import path from 'node:path';
+import ts from 'typescript';
 
 console.log('Processing manifest with', manifest.modules.length, 'modules');
 
@@ -114,6 +116,9 @@ function mapTypeScriptToScala(tsType: string, unionValues?: string[]): string {
     'Function': '() => Unit',
     'undefined': 'js.UndefOr[String]',
     'HTMLElement': 'dom.HTMLElement',
+    'HTMLFormElement | null': 'dom.html.Form | Null',
+    'Element': 'dom.Element',
+    'WaTreeItem': 'TreeItem.Ref',
     'HTMLImageElement': 'dom.html.Image',
     'HTMLButtonElement': 'dom.html.Button',
     'HTMLLinkElement': 'dom.html.Anchor',
@@ -122,7 +127,10 @@ function mapTypeScriptToScala(tsType: string, unionValues?: string[]): string {
     'Keyframe[]': 'js.Array[js.Object]',
     'CSSNumberish': 'js.Any',
     'PlaybackDirection': 'String',
-    'FillMode': 'String'
+    'FillMode': 'String',
+    'string | string[] | WaColorPickerSwatch[]': 'String | js.Array[String] | js.Array[ColorPicker.Swatch]',
+    'string | ((page: number) => string)': 'String | js.Function1[Double, String]',
+    "number | 'any'": 'Double | "any"'
   };
 
   // Handle union types like 'small' | 'medium' | 'large'
@@ -133,6 +141,8 @@ function mapTypeScriptToScala(tsType: string, unionValues?: string[]): string {
 
   // First normalize the type by removing extra whitespace and newlines
   const normalizedType = tsType.replace(/\s+/g, ' ').trim();
+
+  if (typeMap[normalizedType]) return typeMap[normalizedType];
 
   // Check if it's a union type (contains | operator)
   if (normalizedType.includes(' | ') || normalizedType.startsWith('| ')) {
@@ -181,7 +191,7 @@ function generatePackagePath(tagName: string): string {
   return `${CONSTANTS.packageName}.${className}`;
 }
 
-function parseAttributes(declaration: any): AttributeIR[] {
+function parseAttributes(declaration: any, typeAliases: Map<string, string>): AttributeIR[] {
   if (!declaration.attributes) return [];
 
   return declaration.attributes.map((attr: any): AttributeIR => {
@@ -213,12 +223,16 @@ function parseAttributes(declaration: any): AttributeIR[] {
       typeText = 'String';
     }
 
-    const unionValues = extractUnionValues(typeText);
+    // The manifest preserves named aliases; resolve literal unions from the shipped declarations.
+    typeText = typeText.replace(/\b[A-Za-z_$][\w$]*\b/g, (name: string) => typeAliases.get(name) ?? name);
+    const nonNullableType = typeText.split('|').map((part: string) => part.trim())
+      .filter((part: string) => part !== 'null' && part !== 'undefined').join(' | ');
+    const unionValues = extractUnionValues(nonNullableType);
 
     return {
       name: attr.name,
       fieldName: attr.fieldName,
-      type: mapTypeScriptToScala(typeText, unionValues),
+      type: mapTypeScriptToScala(unionValues ? nonNullableType : typeText, unionValues),
       unionValues: unionValues,
       description: attr.description,
       default: attr.default,
@@ -268,7 +282,7 @@ function parseCSSParts(declaration: any): CSSPartIR[] {
   }));
 }
 
-function parseMethods(declaration: any): MethodIR[] {
+function parseMethods(declaration: any, methodReturnTypes: Map<string, string>): MethodIR[] {
   if (!declaration.members) return [];
   
   return declaration.members
@@ -282,12 +296,12 @@ function parseMethods(declaration: any): MethodIR[] {
         optional: param.optional,
         description: param.description
       })) || [],
-      returnType: method.return?.type?.text ? mapTypeScriptToScala(method.return.type.text) : 'Unit',
+      returnType: mapTypeScriptToScala(methodReturnTypes.get(method.name) ?? method.return?.type?.text ?? 'js.Any'),
       public: true
     }));
 }
 
-function parseComponent(module: Module): ComponentIR | null {
+async function parseComponent(module: Module): Promise<ComponentIR | null> {
   // Find the main component declaration (class with customElement: true)
   const componentDeclaration = module.declarations.find(
     (decl: any) => decl.kind === 'class' && decl.customElement
@@ -300,6 +314,39 @@ function parseComponent(module: Module): ComponentIR | null {
   
   // Skip components in the skip list
   if (SKIP_COMPONENTS.has(tagName)) return null;
+
+  const declarationPath = path.join(path.dirname(paths.customElementsJson), module.path.replace(/\.js$/, '.d.ts'));
+  const declarationSource = await readFile(declarationPath);
+  const sourceFile = ts.createSourceFile(declarationPath, declarationSource, ts.ScriptTarget.Latest, true);
+  const typeAliases = new Map<string, string>();
+  for (const statement of sourceFile.statements) {
+    if (ts.isTypeAliasDeclaration(statement) && ts.isUnionTypeNode(statement.type) &&
+        statement.type.types.every(type => ts.isLiteralTypeNode(type) && ts.isStringLiteral(type.literal))) {
+      typeAliases.set(statement.name.text, statement.type.getText(sourceFile));
+    }
+  }
+
+  // Inferred return types are missing (or reported as void) in the manifest.
+  // Read inherited declarations first, then let the component's overrides win.
+  const methodReturnTypes = new Map<string, string>();
+  const inheritedModules = new Set<string>((componentDeclaration.members ?? [])
+    .map((member: any) => member.inheritedFrom?.module).filter(Boolean));
+  const methodSources = [];
+  for (const inheritedModule of inheritedModules) {
+    const inheritedPath = path.join(path.dirname(paths.customElementsJson), inheritedModule.replace(/\.js$/, '.d.ts'));
+    methodSources.push(ts.createSourceFile(inheritedPath, await readFile(inheritedPath), ts.ScriptTarget.Latest, true));
+  }
+  methodSources.push(sourceFile);
+  for (const methodSource of methodSources) {
+    for (const statement of methodSource.statements) {
+      if (!ts.isClassDeclaration(statement)) continue;
+      for (const member of statement.members) {
+        if (ts.isMethodDeclaration(member) && member.type) {
+          methodReturnTypes.set(member.name.getText(methodSource), member.type.getText(methodSource));
+        }
+      }
+    }
+  }
   
   return {
     name: componentDeclaration.name,
@@ -309,12 +356,12 @@ function parseComponent(module: Module): ComponentIR | null {
     documentation: componentDeclaration.documentation,
     since: componentDeclaration.since,
     
-    attributes: parseAttributes(componentDeclaration),
+    attributes: parseAttributes(componentDeclaration, typeAliases),
     events: parseEvents(componentDeclaration),
     slots: parseSlots(componentDeclaration),
     cssProperties: parseCSSProperties(componentDeclaration),
     cssParts: parseCSSParts(componentDeclaration),
-    methods: parseMethods(componentDeclaration),
+    methods: parseMethods(componentDeclaration, methodReturnTypes),
     
     dependencies: componentDeclaration.dependencies || []
   };
@@ -323,7 +370,7 @@ function parseComponent(module: Module): ComponentIR | null {
 async function processModule(module: Module): Promise<ComponentIR | null> {
   console.log('Processing module:', module.path);
   
-  const component = parseComponent(module);
+  const component = await parseComponent(module);
   if (component) {
     console.log(`  -> Found component: ${component.name} (${component.tagName})`);
     console.log(`     Attributes: ${component.attributes.length}`);

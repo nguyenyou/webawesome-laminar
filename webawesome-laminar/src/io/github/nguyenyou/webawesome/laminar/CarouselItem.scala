@@ -9,7 +9,7 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** A carousel item represent a slide within a carousel.
+/** Carousel items represent individual slides within a carousel.
   */
 object CarouselItem extends WebComponent("wa-carousel-item") {
 

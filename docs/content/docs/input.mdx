@@ -17,6 +17,14 @@ This component works with standard `<form>` elements. Please refer to the sectio
 
 ## Examples
 
+### Autocorrection
+
+`autocorrect` is a Boolean attribute. Enable it to allow text correction on keyboards and browsers that support it.
+
+```scala preview h-[180px] stretch
+Input(_.label := "Message", _.autocorrect := true)()
+```
+
 ### Labels
 
 Use the `label` attribute to give the input an accessible label. For labels that contain HTML, use the `label` slot instead.

@@ -29,6 +29,22 @@ div(
 
 ## Examples
 
+### Center Images
+
+Use `image` to place an image in the center of a QR code. `imageCoverage`, `imagePadding`, and `imageBackground` control its size and surrounding space. Keep the image small and test the result with a QR scanner.
+
+```scala preview h-[300px]
+QrCode(
+  _.value := "https://webawesome.com/",
+  _.label := "Visit Web Awesome",
+  _.errorCorrection.h,
+  _.image := "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%232563eb'/%3E%3C/svg%3E",
+  _.imageCoverage := "0.15",
+  _.imagePadding := "4",
+  _.imageBackground := "white"
+)()
+```
+
 ### Colors
 
 Use the `fill` and `background` attributes to modify the QR code's colors. You should always ensure good contrast for optimal compatibility with QR code scanners.

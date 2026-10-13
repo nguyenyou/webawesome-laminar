@@ -12,7 +12,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Split panels display two adjacent panels, allowing the user to reposition them.
+/** Split panels display two adjacent panels separated by a draggable divider, letting users resize each side to suit
+  * their workflow.
   *
   * [[https://webawesome.com/docs/components/split-panel WebAwesome docs]]
   */
@@ -49,9 +50,9 @@ object SplitPanel extends WebComponent("wa-split-panel") {
 
   /** If no primary panel is designated, both panels will resize proportionally when the host element is resized. If a
     * primary panel is designated, it will maintain its size and the other panel will grow or shrink as needed when the
-    * host element is resized.
+    * host element is resized. Valid values: "start", "end".
     */
-  lazy val primary: HtmlAttr[String] = stringAttr("primary")
+  lazy val primary: HtmlAttr[IconPlacement] = unionAttr("primary")
 
   /** One or more space-separated values at which the divider should snap. Values can be in pixels or percentages, e.g.
     * `"100px 50%"`.
@@ -144,9 +145,9 @@ object SplitPanel extends WebComponent("wa-split-panel") {
 
     /** If no primary panel is designated, both panels will resize proportionally when the host element is resized. If a
       * primary panel is designated, it will maintain its size and the other panel will grow or shrink as needed when
-      * the host element is resized.
+      * the host element is resized. Valid values: "start", "end".
       */
-    var primary: js.Any
+    var primary: IconPlacement
 
     /** One or more space-separated values at which the divider should snap. Values can be in pixels or percentages,
       * e.g. `"100px 50%"`.
@@ -162,11 +163,11 @@ object SplitPanel extends WebComponent("wa-split-panel") {
 
     var didSSR: String
 
-    def handlePositionChange(): js.Any = js.native
+    def handlePositionChange(): Unit = js.native
 
-    def handlePositionInPixelsChange(): js.Any = js.native
+    def handlePositionInPixelsChange(): Unit = js.native
 
-    def handleVerticalChange(): js.Any = js.native
+    def handleVerticalChange(): Unit = js.native
 
   }
 }

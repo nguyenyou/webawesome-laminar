@@ -12,7 +12,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Drawers slide in from a container to expose additional options and information.
+/** Drawers slide in from the edge of a container to expose additional options and information without navigating away.
+  * Useful for navigation menus, filters, and secondary content.
   *
   * [[https://webawesome.com/docs/components/drawer WebAwesome docs]]
   */
@@ -50,7 +51,8 @@ object Drawer extends WebComponent("wa-drawer") {
   lazy val open: HtmlAttr[Boolean] = boolAttr("open")
 
   /** The drawer's label as displayed in the header. You should always include a relevant label, as it is required for
-    * proper accessibility. If you need to display HTML, use the `label` slot instead.
+    * proper accessibility. If you need to display HTML, use the `label` slot instead. When `without-header` is set,
+    * only the attribute provides the drawer's accessible name.
     */
   lazy val label: HtmlAttr[String] = stringAttr("label")
 
@@ -62,6 +64,16 @@ object Drawer extends WebComponent("wa-drawer") {
 
   /** When enabled, the drawer will be closed when the user clicks outside of it. */
   lazy val lightDismiss: HtmlAttr[Boolean] = boolAttr("light-dismiss")
+
+  /** Only required for SSR. Set to `true` if you're slotting in a `footer` element so the server-rendered markup
+    * includes the footer before the component hydrates on the client.
+    */
+  lazy val withFooter: HtmlAttr[Boolean] = boolAttr("with-footer")
+
+  /** Only required for SSR. Set to `true` if you're slotting in a `label` element so the server-rendered markup names
+    * the drawer before the component hydrates on the client.
+    */
+  lazy val withLabel: HtmlAttr[Boolean] = boolAttr("with-label")
 
   lazy val dir: HtmlAttr[String] = stringAttr("dir")
 
@@ -100,10 +112,13 @@ object Drawer extends WebComponent("wa-drawer") {
       */
     lazy val size: String = "--size"
 
-    /** The animation duration when showing the drawer. Default: 200ms */
+    /** A filter to apply to the backdrop behind the drawer. Default: none */
+    lazy val backdropFilter: String = "--backdrop-filter"
+
+    /** The animation duration when showing the drawer. Default: var(--wa-transition-normal) */
     lazy val showDuration: String = "--show-duration"
 
-    /** The animation duration when hiding the drawer. Default: 200ms */
+    /** The animation duration when hiding the drawer. Default: var(--wa-transition-normal) */
     lazy val hideDuration: String = "--hide-duration"
 
   }
@@ -149,7 +164,8 @@ object Drawer extends WebComponent("wa-drawer") {
     var open: Boolean
 
     /** The drawer's label as displayed in the header. You should always include a relevant label, as it is required for
-      * proper accessibility. If you need to display HTML, use the `label` slot instead.
+      * proper accessibility. If you need to display HTML, use the `label` slot instead. When `without-header` is set,
+      * only the attribute provides the drawer's accessible name.
       */
     var label: String
 
@@ -162,13 +178,23 @@ object Drawer extends WebComponent("wa-drawer") {
     /** When enabled, the drawer will be closed when the user clicks outside of it. */
     var lightDismiss: Boolean
 
+    /** Only required for SSR. Set to `true` if you're slotting in a `footer` element so the server-rendered markup
+      * includes the footer before the component hydrates on the client.
+      */
+    var withFooter: Boolean
+
+    /** Only required for SSR. Set to `true` if you're slotting in a `label` element so the server-rendered markup names
+      * the drawer before the component hydrates on the client.
+      */
+    var withLabel: Boolean
+
     var dir: String
 
     var lang: String
 
     var didSSR: String
 
-    def handleOpenChange(): js.Any = js.native
+    def handleOpenChange(): Unit = js.native
 
   }
 }

@@ -1,0 +1,75 @@
+---
+title: Tag Input
+description: Tag inputs collect short values as removable tags.
+---
+
+Type a value and press Enter or a delimiter to create a tag. The default delimiter is a comma. Tags can be removed with their remove button or the keyboard.
+
+```scala preview h-[220px] stretch
+TagInput(
+  _.label := "Topics",
+  _.hint := "Press Enter or type a comma after each topic.",
+  _.placeholder := "Add a topic",
+  _.name := "topics"
+)()
+```
+
+<Callout>
+Tag Input is experimental. Its API can change in a minor release.
+</Callout>
+
+## Examples
+
+### Initial Values and Clearing
+
+Use `defaultValue` for a delimiter-separated initial value and `withClear` for a button that removes every tag. The live JavaScript `value` property is an array of strings.
+
+```scala preview h-[200px] stretch
+TagInput(_.label := "Skills", _.defaultValue := "Scala, TypeScript, CSS", _.withClear := true)()
+```
+
+### Delimiters
+
+Each character in `delimiter` can finish a tag. Use an empty string to require Enter. Pasted delimiter-separated text is split into tags too.
+
+```scala preview h-[200px] stretch
+TagInput(_.label := "Recipients", _.delimiter := ",;", _.placeholder := "Enter a name")()
+```
+
+### Tag Limits
+
+Set `maxTags` to limit the number of tags. `minTags` and `required` participate in form validation. Duplicate tags are rejected unless `allowDuplicates` is enabled.
+
+```scala preview h-[220px] stretch
+TagInput(
+  _.label := "Favorite colors",
+  _.hint := "Choose one to three colors.",
+  _.defaultValue := "Blue, Green",
+  _.minTags := 1,
+  _.maxTags := 3,
+  _.required := true
+)()
+```
+
+### Validating New Tags
+
+`onCreate` fires before typed text becomes a tag. Read `detail.inputValue` and call `preventDefault()` to reject it. `onChange` fires after a tag is added, removed, or cleared.
+
+```scala preview h-[260px] stretch
+val feedbackVar = Var("Try adding a tag longer than 12 characters.")
+
+div(
+  TagInput(
+    _.label := "Short tags",
+    _.onCreate --> { event =>
+      if (event.detail.inputValue.length > 12) {
+        event.preventDefault()
+        feedbackVar.set("Keep each tag to 12 characters or fewer.")
+      } else {
+        feedbackVar.set("Tag accepted.")
+      }
+    }
+  )(),
+  p(text <-- feedbackVar.signal)
+)
+```

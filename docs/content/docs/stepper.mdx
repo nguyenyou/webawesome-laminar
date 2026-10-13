@@ -1,0 +1,81 @@
+---
+title: Stepper
+description: Steppers show progress through a sequence of named steps.
+---
+
+Place `Step` components inside `Stepper`. Give each step a unique `name` and set the stepper's `active` attribute to the current name. The stepper displays progress; keep each step's form or page content in your application.
+
+```scala preview h-[180px] stretch
+Stepper(_.active := "shipping", _.label := "Checkout progress")(
+  Step(_.name := "cart", _.completed := true)("Cart"),
+  Step(_.name := "shipping")("Shipping"),
+  Step(_.name := "payment")("Payment")
+)
+```
+
+<Callout>
+Stepper and Step are experimental components. Their APIs can change in a minor release.
+</Callout>
+
+## Examples
+
+### Clickable Steps
+
+Use `clickable` to let users select steps with a click or the keyboard. Disable individual steps when they are unavailable.
+
+```scala preview h-[180px] stretch
+Stepper(_.active := "profile", _.clickable := true)(
+  Step(_.name := "profile")("Profile"),
+  Step(_.name := "preferences")("Preferences"),
+  Step(_.name := "review", _.disabled := true)("Review")
+)
+```
+
+### Linear Progress
+
+In `linear` mode, users cannot advance past incomplete steps. The application must set `completed`; the stepper never marks a step complete automatically.
+
+```scala preview h-[180px] stretch
+Stepper(_.active := "details", _.linear := true, _.clickable := true)(
+  Step(_.name := "account", _.completed := true)("Account"),
+  Step(_.name := "details")("Details"),
+  Step(_.name := "confirm")("Confirm")
+)
+```
+
+### Vertical Steps and Descriptions
+
+Use `orientation.vertical` for a stacked layout, or `orientation.auto` to adapt to the available width. The `description` slot adds supporting text to each step.
+
+```scala preview h-[340px] stretch
+Stepper(_.active := "review", _.orientation.vertical)(
+  Step(_.name := "draft", _.completed := true, _.slots.description(span("Write your first draft.")))("Draft"),
+  Step(_.name := "review", _.slots.description(span("Check the details.")))("Review"),
+  Step(_.name := "publish", _.slots.description(span("Share the finished work.")))("Publish")
+)
+```
+
+### Navigation and Events
+
+Call `next()`, `previous()`, or `goTo(name)` to request a step change. `onBeforeStepChange` can cancel the change; `onStepChange` reports the active and previous names and elements.
+
+```scala preview h-[280px] stretch
+val activeVar = Var("cart")
+val stepper = Stepper(
+  _.active := "cart",
+  _.onStepChange.map(_.detail.name) --> activeVar
+)(
+  Step(_.name := "cart")("Cart"),
+  Step(_.name := "shipping")("Shipping"),
+  Step(_.name := "payment")("Payment")
+)
+
+div(
+  stepper,
+  p("Current step: ", text <-- activeVar.signal),
+  Examples(
+    Button()("Back", onClick --> { _ => stepper.ref.previous() }),
+    Button()("Next", onClick --> { _ => stepper.ref.next() })
+  )
+)
+```

@@ -15,6 +15,16 @@ Copy buttons use the browser's [`clipboard.writeText()`](https://developer.mozil
 
 ## Examples
 
+### Custom Trigger and Tooltip
+
+Place a button in the default slot to provide your own trigger. Use `tooltip` to show all feedback (`full`), only the copy label (`copy`), or no tooltip (`none`).
+
+```scala preview h-[160px]
+CopyButton(_.value := "Copied from a custom trigger", _.tooltip.none)(
+  Button(_.appearance.filled)("Copy text")
+)
+```
+
 ### Custom Labels
 
 Copy Buttons display feedback in a tooltip. You can customize the labels using the `copy-label`, `success-label`, and `error-label` attributes.

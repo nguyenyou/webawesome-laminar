@@ -21,14 +21,14 @@ Laminar bindings for the WebAwesome web component library. Published to Maven Ce
 ./mill __.fix
 
 # Build docs site examples (links JS + bundles for docs)
-./mill __.fullLinkJS && bun docs/build.ts
+bun run compile
 
 # Code generation from WebAwesome metadata
-npm run generate          # generate + fmt + fix
-npm run generate:force    # force regeneration
+bun run generate          # generate + fmt + fix
+bun run generate:force    # force regeneration
 
 # Run docs dev server (Next.js)
-npm run dev
+bun run dev
 ```
 
 ## Search Exclusions
@@ -84,5 +84,5 @@ Next.js app in `docs/` using Fumadocs for MDX. Component docs are in `docs/conte
 - Scala 3.7.2 (dev) / 3.3.6 (published library)
 - Scala.js 1.19.0
 - Laminar 17.2.1
-- WebAwesome 3.2.1
+- WebAwesome 3.14.0
 - Mill (see `.mill-version`)

@@ -12,6 +12,19 @@ ZoomableFrame(
 
 ## Examples
 
+### Frame Label and Theme Sync
+
+Set `label` to give the internal iframe an accessible title. Use `name` to name it as a navigation target, and `allow` to configure its permissions policy. `withThemeSync` forwards theme and palette changes to accessible same-origin frame content.
+
+```scala preview h-[360px] stretch
+ZoomableFrame(
+  _.label := "Theme preview",
+  _.name := "theme-preview",
+  _.withThemeSync := true,
+  _.srcdoc := "<html><body style='font-family: sans-serif'><h1>Theme preview</h1><p>This frame receives theme changes from its parent.</p></body></html>"
+)()
+```
+
 ### Loading external content
 
 Use the `src` attribute to embed external websites or resources. The URL must be accessible, and cross-origin restrictions may apply due to the Same-Origin Policy, potentially limiting access to the iframe's content.

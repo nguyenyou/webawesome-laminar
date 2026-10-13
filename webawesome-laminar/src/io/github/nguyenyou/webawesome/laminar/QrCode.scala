@@ -9,8 +9,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Generates a [QR code](https://www.qrcode.com/) and renders it using the [Canvas
-  * API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API).
+/** QR codes encode a URL or other short text into a scannable image, rendered client-side using the Canvas API. Use
+  * them to share links, contact info, or Wi-Fi credentials that visitors can scan with a phone.
   *
   * [[https://webawesome.com/docs/components/qr-code WebAwesome docs]]
   */
@@ -49,6 +49,14 @@ object QrCode extends WebComponent("wa-qr-code") {
     */
   lazy val errorCorrection: CommonKeys.QrCodeErrorCorrection.type = CommonKeys.QrCodeErrorCorrection
 
+  lazy val image: HtmlAttr[String] = stringAttr("image")
+
+  lazy val imageBackground: HtmlAttr[String] = stringAttr("image-background")
+
+  lazy val imageCoverage: HtmlAttr[String] = stringAttr("image-coverage")
+
+  lazy val imagePadding: HtmlAttr[String] = stringAttr("image-padding")
+
   lazy val dir: HtmlAttr[String] = stringAttr("dir")
 
   lazy val lang: HtmlAttr[String] = stringAttr("lang")
@@ -60,8 +68,11 @@ object QrCode extends WebComponent("wa-qr-code") {
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
 
-    /** The component's base wrapper. */
+    /** Deprecated. Use the `qr-code` part instead. */
     lazy val base: String = "base"
+
+    /** The component's outer wrapper. */
+    lazy val qrCode: String = "qr-code"
 
   }
 
@@ -94,13 +105,21 @@ object QrCode extends WebComponent("wa-qr-code") {
       */
     var errorCorrection: QrCodeErrorCorrection
 
+    var image: String
+
+    var imageBackground: String
+
+    var imageCoverage: Double
+
+    var imagePadding: Double
+
     var dir: String
 
     var lang: String
 
     var didSSR: String
 
-    def generate(): js.Any = js.native
+    def generate(): Unit = js.native
 
   }
 }

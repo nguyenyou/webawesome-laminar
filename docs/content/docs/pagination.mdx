@@ -1,0 +1,60 @@
+---
+title: Pagination
+description: Pagination lets users move between pages of a longer list.
+---
+
+Set `total` to the number of items and `pageSize` to the number shown on each page. Page numbers start at 1. Pagination provides the controls; your application loads or displays the selected page's content.
+
+```scala preview h-[160px]
+Pagination(_.total := 100, _.pageSize := 10, _.label := "Search results")()
+```
+
+## Examples
+
+### Reading Page Changes
+
+`onPageChange` exposes the new page number and page size in `event.detail`. Cancel `onBeforePageChange` with `preventDefault()` to keep the current page.
+
+```scala preview h-[220px]
+val pageVar = Var(1.0)
+
+div(
+  Pagination(
+    _.total := 100,
+    _.pageSize := 10,
+    _.onPageChange.map(_.detail.page) --> pageVar
+  )(),
+  p("Current page: ", text <-- pageVar.signal.map(_.toInt.toString))
+)
+```
+
+### Compact Format and Summary
+
+Use `format.compact` when space is limited. `withSummary` shows an item range, and `withEdges` adds first and last page buttons.
+
+```scala preview h-[180px]
+Pagination(
+  _.total := 250,
+  _.pageSize := 25,
+  _.page := 3,
+  _.format.compact,
+  _.withSummary := true,
+  _.withEdges := true
+)()
+```
+
+### Page Links
+
+Use `hrefTemplate` to render links instead of buttons. The `{page}` placeholder is replaced with the page number.
+
+```scala preview h-[160px]
+Pagination(_.total := 50, _.pageSize := 10, _.hrefTemplate := "?page={page}")()
+```
+
+For dynamic URLs, use `hrefTemplateProp` to assign a JavaScript function. Functions must be assigned as properties, not HTML attributes.
+
+```scala preview h-[160px]
+val pageUrl: js.Function1[Double, String] = (page: Double) => s"?page=${page.toInt}&sort=name"
+
+Pagination(_.total := 50, _.pageSize := 10, _.hrefTemplateProp := pageUrl)()
+```

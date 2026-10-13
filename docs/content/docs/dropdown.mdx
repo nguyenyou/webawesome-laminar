@@ -46,6 +46,21 @@ Dropdown(
 
 ## Examples
 
+### Link Items
+
+Use `href` on a `DropdownItem` to navigate when it is selected. Link items also support `target`, `rel`, and `download`. Items containing a submenu ignore `href`.
+
+```scala preview h-[400px]
+Dropdown(_.slots.trigger(Button(_.withCaret := true)("Resources")))(
+  DropdownItem(_.href := "https://webawesome.com/docs")("Web Awesome docs"),
+  DropdownItem(
+    _.href := "https://webawesome.com/",
+    _.target.blank,
+    _.rel := "noopener noreferrer"
+  )("Open Web Awesome in a new tab")
+)
+```
+
 ### Getting the Selected Item
 
 When an item is selected, the `wa-select` event will be emitted by the dropdown. You can inspect `event.detail.item` to get a reference to the selected item. If you've provided a value for each [dropdown item](/docs/components/dropdown-item), it will be available in `event.detail.item.value`.

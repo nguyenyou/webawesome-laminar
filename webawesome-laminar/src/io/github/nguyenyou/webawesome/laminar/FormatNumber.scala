@@ -9,7 +9,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Formats a number using the specified locale and options.
+/** Formats a number for display using the specified locale and options, including currency, percent, and unit styles.
+  * Powered by the Intl.NumberFormat API.
   *
   * [[https://webawesome.com/docs/components/format-number WebAwesome docs]]
   */

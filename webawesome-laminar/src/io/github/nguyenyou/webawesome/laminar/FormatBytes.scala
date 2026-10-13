@@ -9,7 +9,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Formats a number as a human readable bytes value.
+/** Formats a number of bytes as a human-readable string with the appropriate unit, such as kB, MB, or GB. Supports both
+  * byte and bit units with configurable locale.
   *
   * [[https://webawesome.com/docs/components/format-bytes WebAwesome docs]]
   */

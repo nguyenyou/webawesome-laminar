@@ -11,7 +11,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Tracks immediate child elements and fires events as they move in and out of view.
+/** Tracks immediate child elements and fires events as they move in and out of view. Useful for lazy loading,
+  * scroll-triggered animations, and viewport-aware interactions.
   *
   * [[https://webawesome.com/docs/components/intersection-observer WebAwesome docs]]
   */
@@ -101,9 +102,9 @@ object IntersectionObserver extends WebComponent("wa-intersection-observer") {
 
     var didSSR: String
 
-    def handleDisabledChange(): js.Any = js.native
+    def handleDisabledChange(): Unit = js.native
 
-    def handleOptionsChange(): js.Any = js.native
+    def handleOptionsChange(): Unit = js.native
 
   }
 }

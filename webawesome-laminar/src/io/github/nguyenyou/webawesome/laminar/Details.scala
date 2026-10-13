@@ -12,7 +12,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Details show a brief summary and expand to show additional content.
+/** Details display a brief summary and expand to reveal additional content. Use them to progressively disclose
+  * information, group related FAQs, or hide advanced options.
   *
   * [[https://webawesome.com/docs/components/details WebAwesome docs]]
   */
@@ -57,10 +58,10 @@ object Details extends WebComponent("wa-details") {
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
 
   /** The element's visual appearance. Valid values: "filled", "outlined", "filled-outlined", "plain". */
-  lazy val appearance: CommonKeys.DetailsAppearance.type = CommonKeys.DetailsAppearance
+  lazy val appearance: CommonKeys.Appearance1.type = CommonKeys.Appearance1
 
   /** The location of the expand/collapse icon. Valid values: "start", "end". */
-  lazy val iconPlacement: CommonKeys.DetailsIconPlacement.type = CommonKeys.DetailsIconPlacement
+  lazy val iconPlacement: CommonKeys.IconPlacement.type = CommonKeys.IconPlacement
 
   lazy val dir: HtmlAttr[String] = stringAttr("dir")
 
@@ -94,10 +95,10 @@ object Details extends WebComponent("wa-details") {
     /** The amount of space around and between the details' content. Expects a single value. */
     lazy val spacing: String = "--spacing"
 
-    /** The show duration to use when applying built-in animation classes. Default: 200ms */
+    /** The show duration to use when applying built-in animation classes. Default: var(--wa-transition-normal) */
     lazy val showDuration: String = "--show-duration"
 
-    /** The hide duration to use when applying built-in animation classes. Default: 200ms */
+    /** The hide duration to use when applying built-in animation classes. Default: var(--wa-transition-normal) */
     lazy val hideDuration: String = "--hide-duration"
 
   }
@@ -107,10 +108,13 @@ object Details extends WebComponent("wa-details") {
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
 
-    /** The inner `<details>` element used to render the component. Styles you apply to the component are automatically
-      * applied to this part, so you usually don't need to deal with it unless you need to set the `display` property.
-      */
+    /** Deprecated. Use the `details` part instead. */
     lazy val base: String = "base"
+
+    /** The component's outer wrapper. Styles you apply to the component are automatically applied to this part, so you
+      * usually don't need to deal with it unless you need to set the `display` property.
+      */
+    lazy val details: String = "details"
 
     /** The header that wraps both the summary and the expand/collapse icon. */
     lazy val header: String = "header"
@@ -147,10 +151,10 @@ object Details extends WebComponent("wa-details") {
     var disabled: Boolean
 
     /** The element's visual appearance. Valid values: "filled", "outlined", "filled-outlined", "plain". */
-    var appearance: DetailsAppearance
+    var appearance: Appearance1
 
     /** The location of the expand/collapse icon. Valid values: "start", "end". */
-    var iconPlacement: DetailsIconPlacement
+    var iconPlacement: IconPlacement
 
     var dir: String
 
@@ -158,13 +162,13 @@ object Details extends WebComponent("wa-details") {
 
     var didSSR: String
 
-    def handleOpenChange(): js.Any = js.native
+    def handleOpenChange(): js.Promise[js.Any] = js.native
 
     /** Shows the details. */
-    def show(): js.Any = js.native
+    def show(): js.Promise[js.Any] = js.native
 
     /** Hides the details */
-    def hide(): js.Any = js.native
+    def hide(): js.Promise[js.Any] = js.native
 
   }
 }

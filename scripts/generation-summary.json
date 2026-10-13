@@ -1,22 +1,22 @@
 {
-  "totalComponents": 58,
-  "totalAttributes": 610,
-  "totalEvents": 143,
-  "totalSlots": 116,
+  "totalComponents": 72,
+  "totalAttributes": 827,
+  "totalEvents": 163,
+  "totalSlots": 155,
   "components": [
     {
       "name": "Icon",
       "tagName": "wa-icon",
-      "attributes": 14,
-      "events": 3,
+      "attributes": 15,
+      "events": 2,
       "slots": 0
     },
     {
-      "name": "Checkbox",
-      "tagName": "wa-checkbox",
-      "attributes": 13,
-      "events": 5,
-      "slots": 2
+      "name": "AccordionItem",
+      "tagName": "wa-accordion-item",
+      "attributes": 6,
+      "events": 0,
+      "slots": 3
     },
     {
       "name": "Spinner",
@@ -26,10 +26,24 @@
       "slots": 0
     },
     {
+      "name": "Step",
+      "tagName": "wa-step",
+      "attributes": 12,
+      "events": 0,
+      "slots": 3
+    },
+    {
+      "name": "Checkbox",
+      "tagName": "wa-checkbox",
+      "attributes": 13,
+      "events": 5,
+      "slots": 2
+    },
+    {
       "name": "TreeItem",
       "tagName": "wa-tree-item",
-      "attributes": 7,
-      "events": 7,
+      "attributes": 9,
+      "events": 6,
       "slots": 3
     },
     {
@@ -40,31 +54,31 @@
       "slots": 1
     },
     {
-      "name": "Button",
-      "tagName": "wa-button",
-      "attributes": 24,
+      "name": "Accordion",
+      "tagName": "wa-accordion",
+      "attributes": 7,
       "events": 4,
-      "slots": 3
+      "slots": 1
     },
     {
       "name": "AnimatedImage",
       "tagName": "wa-animated-image",
       "attributes": 6,
-      "events": 3,
+      "events": 2,
       "slots": 2
     },
     {
       "name": "Animation",
       "tagName": "wa-animation",
       "attributes": 14,
-      "events": 4,
+      "events": 3,
       "slots": 1
     },
     {
       "name": "Avatar",
       "tagName": "wa-avatar",
       "attributes": 8,
-      "events": 2,
+      "events": 1,
       "slots": 1
     },
     {
@@ -72,7 +86,7 @@
       "tagName": "wa-badge",
       "attributes": 7,
       "events": 0,
-      "slots": 1
+      "slots": 3
     },
     {
       "name": "BreadcrumbItem",
@@ -87,6 +101,13 @@
       "attributes": 4,
       "events": 0,
       "slots": 2
+    },
+    {
+      "name": "Button",
+      "tagName": "wa-button",
+      "attributes": 26,
+      "events": 3,
+      "slots": 3
     },
     {
       "name": "ButtonGroup",
@@ -105,7 +126,7 @@
     {
       "name": "Card",
       "tagName": "wa-card",
-      "attributes": 8,
+      "attributes": 10,
       "events": 0,
       "slots": 7
     },
@@ -113,28 +134,35 @@
       "name": "Carousel",
       "tagName": "wa-carousel",
       "attributes": 14,
-      "events": 2,
+      "events": 1,
+      "slots": 3
+    },
+    {
+      "name": "CheckboxGroup",
+      "tagName": "wa-checkbox-group",
+      "attributes": 10,
+      "events": 0,
       "slots": 3
     },
     {
       "name": "Input",
       "tagName": "wa-input",
       "attributes": 36,
-      "events": 7,
+      "events": 6,
       "slots": 7
     },
     {
       "name": "Popup",
       "tagName": "wa-popup",
       "attributes": 25,
-      "events": 2,
+      "events": 1,
       "slots": 2
     },
     {
       "name": "ColorPicker",
       "tagName": "wa-color-picker",
-      "attributes": 19,
-      "events": 10,
+      "attributes": 20,
+      "events": 9,
       "slots": 2
     },
     {
@@ -148,48 +176,48 @@
       "name": "Tooltip",
       "tagName": "wa-tooltip",
       "attributes": 13,
-      "events": 5,
+      "events": 4,
       "slots": 1
     },
     {
       "name": "CopyButton",
       "tagName": "wa-copy-button",
-      "attributes": 11,
-      "events": 3,
-      "slots": 3
+      "attributes": 12,
+      "events": 2,
+      "slots": 4
     },
     {
       "name": "Details",
       "tagName": "wa-details",
       "attributes": 9,
-      "events": 5,
+      "events": 4,
       "slots": 4
     },
     {
       "name": "Dialog",
       "tagName": "wa-dialog",
-      "attributes": 7,
-      "events": 5,
+      "attributes": 9,
+      "events": 4,
       "slots": 4
     },
     {
       "name": "Divider",
       "tagName": "wa-divider",
-      "attributes": 4,
+      "attributes": 6,
       "events": 0,
-      "slots": 0
+      "slots": 1
     },
     {
       "name": "Drawer",
       "tagName": "wa-drawer",
-      "attributes": 8,
-      "events": 5,
+      "attributes": 10,
+      "events": 4,
       "slots": 4
     },
     {
       "name": "DropdownItem",
       "tagName": "wa-dropdown-item",
-      "attributes": 9,
+      "attributes": 13,
       "events": 2,
       "slots": 4
     },
@@ -197,7 +225,7 @@
       "name": "Dropdown",
       "tagName": "wa-dropdown",
       "attributes": 8,
-      "events": 6,
+      "events": 5,
       "slots": 2
     },
     {
@@ -225,7 +253,7 @@
       "name": "Include",
       "tagName": "wa-include",
       "attributes": 6,
-      "events": 3,
+      "events": 2,
       "slots": 0
     },
     {
@@ -236,6 +264,20 @@
       "slots": 1
     },
     {
+      "name": "KnownDate",
+      "tagName": "wa-known-date",
+      "attributes": 20,
+      "events": 5,
+      "slots": 2
+    },
+    {
+      "name": "Markdown",
+      "tagName": "wa-markdown",
+      "attributes": 4,
+      "events": 0,
+      "slots": 0
+    },
+    {
       "name": "MutationObserver",
       "tagName": "wa-mutation-observer",
       "attributes": 9,
@@ -243,17 +285,24 @@
       "slots": 1
     },
     {
+      "name": "NumberInput",
+      "tagName": "wa-number-input",
+      "attributes": 26,
+      "events": 6,
+      "slots": 6
+    },
+    {
       "name": "Tag",
       "tagName": "wa-tag",
       "attributes": 8,
-      "events": 2,
+      "events": 1,
       "slots": 1
     },
     {
       "name": "Select",
       "tagName": "wa-select",
       "attributes": 21,
-      "events": 11,
+      "events": 10,
       "slots": 7
     },
     {
@@ -264,10 +313,24 @@
       "slots": 3
     },
     {
+      "name": "OtpInput",
+      "tagName": "wa-otp-input",
+      "attributes": 22,
+      "events": 7,
+      "slots": 2
+    },
+    {
+      "name": "Pagination",
+      "tagName": "wa-pagination",
+      "attributes": 17,
+      "events": 2,
+      "slots": 4
+    },
+    {
       "name": "Popover",
       "tagName": "wa-popover",
       "attributes": 9,
-      "events": 5,
+      "events": 4,
       "slots": 1
     },
     {
@@ -287,7 +350,7 @@
     {
       "name": "QrCode",
       "tagName": "wa-qr-code",
-      "attributes": 10,
+      "attributes": 14,
       "events": 0,
       "slots": 0
     },
@@ -306,9 +369,16 @@
       "slots": 3
     },
     {
+      "name": "RandomContent",
+      "tagName": "wa-random-content",
+      "attributes": 8,
+      "events": 1,
+      "slots": 1
+    },
+    {
       "name": "Rating",
       "tagName": "wa-rating",
-      "attributes": 11,
+      "attributes": 16,
       "events": 3,
       "slots": 0
     },
@@ -323,7 +393,7 @@
       "name": "ResizeObserver",
       "tagName": "wa-resize-observer",
       "attributes": 4,
-      "events": 2,
+      "events": 1,
       "slots": 1
     },
     {
@@ -343,7 +413,7 @@
     {
       "name": "Slider",
       "tagName": "wa-slider",
-      "attributes": 25,
+      "attributes": 26,
       "events": 5,
       "slots": 3
     },
@@ -351,8 +421,15 @@
       "name": "SplitPanel",
       "tagName": "wa-split-panel",
       "attributes": 10,
-      "events": 2,
+      "events": 1,
       "slots": 3
+    },
+    {
+      "name": "Stepper",
+      "tagName": "wa-stepper",
+      "attributes": 8,
+      "events": 3,
+      "slots": 1
     },
     {
       "name": "Switch",
@@ -362,16 +439,16 @@
       "slots": 2
     },
     {
-      "name": "Tab",
-      "tagName": "wa-tab",
-      "attributes": 5,
+      "name": "TabPanel",
+      "tagName": "wa-tab-panel",
+      "attributes": 6,
       "events": 0,
       "slots": 1
     },
     {
-      "name": "TabPanel",
-      "tagName": "wa-tab-panel",
-      "attributes": 5,
+      "name": "Tab",
+      "tagName": "wa-tab",
+      "attributes": 6,
       "events": 0,
       "slots": 1
     },
@@ -379,36 +456,57 @@
       "name": "TabGroup",
       "tagName": "wa-tab-group",
       "attributes": 7,
-      "events": 3,
+      "events": 2,
       "slots": 2
+    },
+    {
+      "name": "TagInput",
+      "tagName": "wa-tag-input",
+      "attributes": 28,
+      "events": 7,
+      "slots": 5
     },
     {
       "name": "Textarea",
       "tagName": "wa-textarea",
-      "attributes": 28,
+      "attributes": 29,
       "events": 5,
       "slots": 2
     },
     {
+      "name": "TimeInput",
+      "tagName": "wa-time-input",
+      "attributes": 26,
+      "events": 10,
+      "slots": 7
+    },
+    {
+      "name": "ToastItem",
+      "tagName": "wa-toast-item",
+      "attributes": 7,
+      "events": 4,
+      "slots": 2
+    },
+    {
+      "name": "Toast",
+      "tagName": "wa-toast",
+      "attributes": 4,
+      "events": 0,
+      "slots": 1
+    },
+    {
       "name": "Tree",
       "tagName": "wa-tree",
-      "attributes": 4,
-      "events": 2,
+      "attributes": 6,
+      "events": 1,
       "slots": 3
     },
     {
       "name": "ZoomableFrame",
       "tagName": "wa-zoomable-frame",
-      "attributes": 13,
+      "attributes": 17,
       "events": 2,
       "slots": 2
-    },
-    {
-      "name": "NumberInput",
-      "tagName": "wa-number-input",
-      "attributes": 26,
-      "events": 5,
-      "slots": 6
     }
   ]
 }

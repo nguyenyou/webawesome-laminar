@@ -1,0 +1,63 @@
+---
+title: Known Date
+description: Known dates collect a date through separate day, month, and year fields.
+---
+
+Use `KnownDate` for dates people already know, such as birthdays or issue dates. Field order follows the locale, while the form value uses `YYYY-MM-DD`.
+
+```scala preview h-[200px]
+KnownDate(
+  _.label := "Date of birth",
+  _.hint := "Enter the day, month, and year.",
+  _.name := "birthday"
+)()
+```
+
+## Examples
+
+### Initial Value
+
+Use `defaultValue` to pre-fill the fields and set the value restored by a form reset. Supply an ISO date, regardless of the displayed field order.
+
+```scala preview h-[180px]
+KnownDate(_.label := "Issue date", _.defaultValue := "2025-04-15")()
+```
+
+### Locale
+
+Set `locale` to choose the field order and localized labels explicitly.
+
+```scala examples vertical h-[320px]
+KnownDate(_.label := "US date order", _.locale := "en-US", _.defaultValue := "1990-04-15")()
+KnownDate(_.label := "UK date order", _.locale := "en-GB", _.defaultValue := "1990-04-15")()
+```
+
+### Minimum and Maximum Dates
+
+`min` and `max` accept ISO dates. Add `required` when the form needs a complete date. Partial and invalid dates have an empty form value.
+
+```scala preview h-[200px]
+KnownDate(
+  _.label := "Issue date",
+  _.hint := "Choose a date in 2025.",
+  _.min := "2025-01-01",
+  _.max := "2025-12-31",
+  _.required := true
+)()
+```
+
+### Reading Changes
+
+`onInput` fires while the user edits the fields. `onChange` fires when the committed ISO date changes.
+
+```scala preview h-[240px]
+val dateVar = Var("")
+
+div(
+  KnownDate(
+    _.label := "Choose a date",
+    _.onInput.mapToValue --> dateVar
+  )(),
+  p("ISO value: ", text <-- dateVar.signal)
+)
+```

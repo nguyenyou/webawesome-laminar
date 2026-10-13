@@ -12,7 +12,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Popovers display contextual content and interactive elements in a floating panel.
+/** Popovers display contextual content and interactive elements in a floating panel anchored to a trigger. Use them for
+  * rich tooltips, menus, or any content that appears on demand without navigating away.
   *
   * [[https://webawesome.com/docs/components/popover WebAwesome docs]]
   */
@@ -93,10 +94,10 @@ object Popover extends WebComponent("wa-popover") {
     /** The maximum width of the popover's body content. Default: 25rem */
     lazy val maxWidth: String = "--max-width"
 
-    /** The speed of the show animation. Default: 100ms */
+    /** The speed of the show animation. Default: var(--wa-transition-fast) */
     lazy val showDuration: String = "--show-duration"
 
-    /** The speed of the hide animation. Default: 100ms */
+    /** The speed of the hide animation. Default: var(--wa-transition-fast) */
     lazy val hideDuration: String = "--hide-duration"
 
   }
@@ -156,17 +157,17 @@ object Popover extends WebComponent("wa-popover") {
 
     var didSSR: String
 
-    def handleOpenChange(): js.Any = js.native
+    def handleOpenChange(): js.Promise[js.Any] = js.native
 
-    def handleForChange(): js.Any = js.native
+    def handleForChange(): Unit = js.native
 
-    def handleOptionsChange(): js.Any = js.native
+    def handleOptionsChange(): js.Promise[js.Any] = js.native
 
     /** Shows the popover. */
-    def show(): js.Any = js.native
+    def show(): js.Promise[js.Any] = js.native
 
     /** Hides the popover. */
-    def hide(): js.Any = js.native
+    def hide(): js.Promise[js.Any] = js.native
 
   }
 }

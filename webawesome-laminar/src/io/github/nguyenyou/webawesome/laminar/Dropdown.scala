@@ -12,8 +12,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Dropdowns display a list of options that can be triggered by a button or other element. They support keyboard
-  * navigation, submenus, and various customization options.
+/** Dropdowns display a list of options triggered by a button or other element. They support keyboard navigation,
+  * submenus, and checkable items for building menus and context actions.
   *
   * [[https://webawesome.com/docs/components/dropdown WebAwesome docs]]
   */
@@ -49,7 +49,7 @@ object Dropdown extends WebComponent("wa-dropdown") {
   /** Opens or closes the dropdown. */
   lazy val open: HtmlAttr[Boolean] = boolAttr("open")
 
-  /** The dropdown's size. Valid values: "small", "medium", "large". */
+  /** The dropdown's size. Valid values: "xs", "s", "m", "l", "xl", "small", "medium", "large". */
   lazy val size: CommonKeys.ComponentSize.type = CommonKeys.ComponentSize
 
   /** The placement of the dropdown menu in reference to the trigger. The menu will shift to a more optimal location if
@@ -102,7 +102,7 @@ object Dropdown extends WebComponent("wa-dropdown") {
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
 
-    /** The component's host element. */
+    /** Deprecated. Style the host element instead. */
     lazy val base: String = "base"
 
     /** The dropdown menu container. */
@@ -119,7 +119,7 @@ object Dropdown extends WebComponent("wa-dropdown") {
     /** Opens or closes the dropdown. */
     var open: Boolean
 
-    /** The dropdown's size. Valid values: "small", "medium", "large". */
+    /** The dropdown's size. Valid values: "xs", "s", "m", "l", "xl", "small", "medium", "large". */
     var size: ComponentSize
 
     /** The placement of the dropdown menu in reference to the trigger. The menu will shift to a more optimal location
@@ -139,6 +139,8 @@ object Dropdown extends WebComponent("wa-dropdown") {
     var lang: String
 
     var didSSR: String
+
+    def handleSizeChange(): Unit = js.native
 
   }
 }

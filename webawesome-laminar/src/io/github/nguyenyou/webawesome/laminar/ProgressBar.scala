@@ -9,7 +9,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Progress bars are used to show the status of an ongoing operation.
+/** Progress bars show how far along an ongoing operation is as a horizontal fill. Use them for file uploads, multi-step
+  * flows, or any task with measurable progress.
   *
   * [[https://webawesome.com/docs/components/progress-bar WebAwesome docs]]
   */
@@ -56,7 +57,7 @@ object ProgressBar extends WebComponent("wa-progress-bar") {
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssVars {
 
-    /** The color of the track. Default: 1rem */
+    /** The height of the track. Default: 1rem */
     lazy val trackHeight: String = "--track-height"
 
     /** The color of the track. Default: var(--wa-color-neutral-fill-normal) */
@@ -72,8 +73,11 @@ object ProgressBar extends WebComponent("wa-progress-bar") {
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
 
-    /** The component's base wrapper. */
+    /** Deprecated. Use the `progress-bar` part instead. */
     lazy val base: String = "base"
+
+    /** The component's outer wrapper. */
+    lazy val progressBar: String = "progress-bar"
 
     /** The progress bar's indicator. */
     lazy val indicator: String = "indicator"

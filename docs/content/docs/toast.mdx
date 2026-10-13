@@ -1,0 +1,79 @@
+---
+title: Toast
+description: Toasts display brief notifications above the page content.
+---
+
+Place a `Toast` in your application and call its `create()` method to show a notification. Toasts render in the browser's top layer. Most applications only need one toast container.
+
+```scala preview h-[320px]
+val toast = Toast()()
+
+div(
+  Button()("Show notification", onClick --> { _ =>
+    toast.ref.create("Your changes have been saved.")
+    ()
+  }),
+  toast
+)
+```
+
+## Examples
+
+### Variant and Icon
+
+Pass an options object to `create()` to choose a variant and icon. The message is plain text by default.
+
+```scala preview h-[320px]
+val toast = Toast()()
+
+div(
+  Button(_.variant.success)("Show success", onClick --> { _ =>
+    toast.ref.create("Upload complete.", js.Dynamic.literal(variant = "success", icon = "check"))
+    ()
+  }),
+  toast
+)
+```
+
+### Placement and Duration
+
+Set `placement` on the container. The `duration` option is measured in milliseconds and defaults to 5000. Set it to 0 to keep a notification visible until dismissed.
+
+```scala preview h-[320px]
+val toast = Toast(_.placement.bottomCenter)()
+
+div(
+  Button()("Show persistent notification", onClick --> { _ =>
+    toast.ref.create("Dismiss this message when you are ready.", js.Dynamic.literal(duration = 0))
+    ()
+  }),
+  toast
+)
+```
+
+### Custom Toast Items
+
+Use `ToastItem` children when the notification needs custom content. Add the item after a user action, and let its built-in dismiss button remove it.
+
+```scala preview h-[320px]
+val showVar = Var(false)
+
+div(
+  Button()("Show custom notification", onClick.mapTo(true) --> showVar),
+  Toast()(
+    child.maybe <-- showVar.signal.map { show =>
+      if (show) {
+        Some(ToastItem(
+          _.variant.brand,
+          _.duration := 0,
+          _.onAfterHide.mapTo(false) --> showVar
+        )(strong("Update ready"), " — restart when convenient."))
+      } else {
+        None
+      }
+    }
+  )
+)
+```
+
+Keep important information available elsewhere on the page too. A temporary notification should not be the only place users can find an error or required action.

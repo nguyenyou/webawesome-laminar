@@ -9,8 +9,7 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Tabs are used inside [tab groups](/docs/components/tab-group) to represent and activate [tab
-  * panels](/docs/components/tab-panel).
+/** Tabs label and activate an individual panel inside a tab group.
   *
   * [[https://webawesome.com/docs/components/tab WebAwesome docs]]
   */
@@ -32,6 +31,8 @@ object Tab extends WebComponent("wa-tab") {
   /** Disables the tab and prevents selection. */
   lazy val disabled: HtmlAttr[Boolean] = boolAttr("disabled")
 
+  lazy val role: HtmlAttr[String] = stringAttr("role")
+
   lazy val dir: HtmlAttr[String] = stringAttr("dir")
 
   lazy val lang: HtmlAttr[String] = stringAttr("lang")
@@ -52,8 +53,11 @@ object Tab extends WebComponent("wa-tab") {
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
 
-    /** The component's base wrapper. */
+    /** Deprecated. Use the `tab` part instead. */
     lazy val base: String = "base"
+
+    /** The component's outer wrapper. */
+    lazy val tab: String = "tab"
 
   }
 
@@ -69,15 +73,17 @@ object Tab extends WebComponent("wa-tab") {
     /** Disables the tab and prevents selection. */
     var disabled: Boolean
 
+    var role: String
+
     var dir: String
 
     var lang: String
 
     var didSSR: String
 
-    def handleActiveChange(): js.Any = js.native
+    def handleActiveChange(): Unit = js.native
 
-    def handleDisabledChange(): js.Any = js.native
+    def handleDisabledChange(): Unit = js.native
 
   }
 }

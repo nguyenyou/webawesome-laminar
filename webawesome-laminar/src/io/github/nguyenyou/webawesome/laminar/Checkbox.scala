@@ -14,7 +14,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Checkboxes allow the user to toggle an option on or off.
+/** Checkboxes let users toggle an option on or off, or select multiple items from a list. They also support an
+  * indeterminate state for partial selections in groups.
   *
   * [[https://webawesome.com/docs/components/checkbox WebAwesome docs]]
   */
@@ -49,13 +50,10 @@ object Checkbox extends WebComponent("wa-checkbox") {
 
   lazy val title: HtmlAttr[String] = stringAttr("title")
 
-  /** The name of the checkbox, submitted as a name/value pair with form data. */
-  lazy val name: HtmlAttr[String] = stringAttr("name")
-
   /** The value of the checkbox, submitted as a name/value pair with form data. */
   lazy val value: HtmlAttr[String] = stringAttr("value")
 
-  /** The checkbox's size. Valid values: "small", "medium", "large". */
+  /** The checkbox's size. Valid values: "xs", "s", "m", "l", "xl", "small", "medium", "large". */
   lazy val size: CommonKeys.ComponentSize.type = CommonKeys.ComponentSize
 
   /** Disables the checkbox. */
@@ -87,6 +85,9 @@ object Checkbox extends WebComponent("wa-checkbox") {
 
   /** The checkbox's hint. If you need to display HTML, use the `hint` slot instead. */
   lazy val hint: HtmlAttr[String] = stringAttr("hint")
+
+  /** The name of the input, submitted as a name/value pair with form data. */
+  lazy val name: HtmlAttr[String] = stringAttr("name")
 
   lazy val customError: HtmlAttr[String] = stringAttr("custom-error")
 
@@ -126,8 +127,11 @@ object Checkbox extends WebComponent("wa-checkbox") {
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
 
-    /** The component's label . */
+    /** Deprecated. Use the `checkbox` part instead. */
     lazy val base: String = "base"
+
+    /** The component's outer wrapper. */
+    lazy val checkbox: String = "checkbox"
 
     /** The square container that wraps the checkbox's checked state. */
     lazy val control: String = "control"
@@ -154,13 +158,10 @@ object Checkbox extends WebComponent("wa-checkbox") {
 
     var title: String
 
-    /** The name of the checkbox, submitted as a name/value pair with form data. */
-    var name: String
-
     /** The value of the checkbox, submitted as a name/value pair with form data. */
     var value: String
 
-    /** The checkbox's size. Valid values: "small", "medium", "large". */
+    /** The checkbox's size. Valid values: "xs", "s", "m", "l", "xl", "small", "medium", "large". */
     var size: ComponentSize
 
     /** Disables the checkbox. */
@@ -180,6 +181,9 @@ object Checkbox extends WebComponent("wa-checkbox") {
     /** The checkbox's hint. If you need to display HTML, use the `hint` slot instead. */
     var hint: String
 
+    /** The name of the input, submitted as a name/value pair with form data. */
+    var name: String
+
     var customError: String
 
     var dir: String
@@ -188,54 +192,56 @@ object Checkbox extends WebComponent("wa-checkbox") {
 
     var didSSR: String
 
-    def handleDefaultCheckedChange(): js.Any = js.native
+    def handleSizeChange(): Unit = js.native
 
-    def handleValueOrCheckedChange(): js.Any = js.native
+    def handleDefaultCheckedChange(): Unit = js.native
 
-    def handleStateChange(): js.Any = js.native
+    def handleValueOrCheckedChange(): Unit = js.native
 
-    def handleDisabledChange(): js.Any = js.native
+    def handleStateChange(): Unit = js.native
 
-    def formResetCallback(): js.Any = js.native
+    def handleDisabledChange(): Unit = js.native
+
+    def formResetCallback(): Unit = js.native
 
     /** Simulates a click on the checkbox. */
-    def click(): js.Any = js.native
+    def click(): Unit = js.native
 
     /** Sets focus on the checkbox. */
-    def focus(options: js.UndefOr[js.Any]): js.Any = js.native
+    def focus(options: js.UndefOr[js.Any] = js.undefined): Unit = js.native
 
     /** Removes focus from the checkbox. */
-    def blur(): js.Any = js.native
+    def blur(): Unit = js.native
 
-    def getForm(): js.Any = js.native
+    def getForm(): dom.html.Form | Null = js.native
 
-    def checkValidity(): js.Any = js.native
+    def checkValidity(): Boolean = js.native
 
-    def reportValidity(): js.Any = js.native
+    def reportValidity(): Boolean = js.native
 
-    def setValidity(args: js.Any): js.Any = js.native
+    def setValidity(args: js.Any): Unit = js.native
 
-    def setCustomStates(): js.Any = js.native
+    def setCustomStates(): Unit = js.native
 
     /** Do not use this when creating a "Validator". This is intended for end users of components. We track manually
       * defined custom errors so we don't clear them on accident in our validators.
       */
-    def setCustomValidity(message: String): js.Any = js.native
+    def setCustomValidity(message: String): Unit = js.native
 
-    def formDisabledCallback(isDisabled: Boolean): js.Any = js.native
+    def formDisabledCallback(isDisabled: Boolean): Unit = js.native
 
     /** Called when the browser is trying to restore element’s state to state in which case reason is "restore", or when
       * the browser is trying to fulfill autofill on behalf of user in which case reason is "autocomplete". In the case
       * of "restore", state is a string, File, or FormData object previously set as the second argument to setFormValue.
       */
-    def formStateRestoreCallback(state: js.Any, reason: String): js.Any = js.native
+    def formStateRestoreCallback(state: js.Any, reason: String): Unit = js.native
 
-    def setValue(args: js.Any): js.Any = js.native
+    def setValue(args: js.Any): Unit = js.native
 
     /** Reset validity is a way of removing manual custom errors and native validation. */
-    def resetValidity(): js.Any = js.native
+    def resetValidity(): Unit = js.native
 
-    def updateValidity(): js.Any = js.native
+    def updateValidity(): Unit = js.native
 
   }
 }

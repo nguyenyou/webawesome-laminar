@@ -1,43 +1,62 @@
 name: Vercel Deployment
 
-env:
-  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-  NODE_OPTIONS: --max_old_space_size=4096
-
 on:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 concurrency:
-  group: "vercel-deploy"
-  cancel-in-progress: true
+  group: vercel-deploy
+  cancel-in-progress: false
 
 jobs:
   deploy-to-vercel:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      NODE_OPTIONS: --max-old-space-size=4096
     steps:
-      - uses: actions/checkout@v4
-      
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-java@v6.0.1
         with:
-          node-version: 23
-          
-      - name: Setup Node.js environment
-        run: |
-          corepack enable
-          yarn install
-          
-      - uses: actions/setup-java@v4
+          distribution: temurin
+          java-version: '25'
+      - uses: actions/setup-node@v7.1.0
         with:
-          distribution: 'temurin'
-          java-version: '21'
-          
-      - name: Build ScalaJS
-        run: ./mill doc.fullLinkJS
-          
-      - name: Install and use Vercel CLI
-        run: yarn dlx vercel@latest pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-      - name: Build Project Artifacts
-        run: yarn dlx vercel@latest build --prod --token=${{ secrets.VERCEL_TOKEN }}
-      - name: Deploy Project Artifacts to Vercel
-        run: yarn dlx vercel@latest deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+          node-version: '24'
+      - uses: oven-sh/setup-bun@v2.2.0
+        with:
+          bun-version: '1.4.3'
+      - name: Cache Mill and Coursier downloads
+        uses: actions/cache@v6.1.0
+        with:
+          path: |
+            ~/.cache/mill/download
+            ~/.cache/coursier
+          key: ${{ runner.os }}-mill-${{ hashFiles('.mill-version', '**/*.mill') }}
+          restore-keys: ${{ runner.os }}-mill-
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+      - name: Test generated bindings
+        run: bun test scripts/generate.test.ts
+      - name: Generate documentation examples
+        run: bun run generate:docs
+      - name: Compile and link all Scala.js modules
+        run: ./mill --no-server __.fullLinkJS
+      - name: Bundle documentation previews
+        run: bun docs/build.ts
+      - name: Pull Vercel production configuration
+        run: bunx --bun vercel@64.0.1 pull --yes --environment=production --token="$VERCEL_TOKEN"
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      - name: Build Vercel artifacts
+        run: bunx --bun vercel@64.0.1 build --prod --token="$VERCEL_TOKEN"
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      - name: Deploy Vercel artifacts
+        run: bunx --bun vercel@64.0.1 deploy --prebuilt --prod --token="$VERCEL_TOKEN"
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}

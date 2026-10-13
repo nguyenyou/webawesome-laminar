@@ -2,6 +2,7 @@ package io.github.nguyenyou.webawesome.laminar
 
 import com.raquo.laminar.keys.HtmlAttr
 import com.raquo.laminar.nodes.Slot
+import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import org.scalajs.dom
 
 import scala.scalajs.js
@@ -9,7 +10,7 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Breadcrumb Items are used inside breadcrumbs to represent different links.
+/** Breadcrumb items represent individual links inside a breadcrumb, typically one per level of the site hierarchy.
   *
   * [[https://webawesome.com/docs/components/breadcrumb-item WebAwesome docs]]
   */
@@ -30,8 +31,10 @@ object BreadcrumbItem extends WebComponent("wa-breadcrumb-item") {
     */
   lazy val href: HtmlAttr[String] = stringAttr("href")
 
-  /** Tells the browser where to open the link. Only used when `href` is set. */
-  lazy val target: HtmlAttr[String] = stringAttr("target")
+  /** Tells the browser where to open the link. Only used when `href` is set. Valid values: "_blank", "_parent",
+    * "_self", "_top".
+    */
+  lazy val target: CommonKeys.LinkTarget.type = CommonKeys.LinkTarget
 
   /** The `rel` attribute to use on the link. Only used when `href` is set. */
   lazy val rel: HtmlAttr[String] = stringAttr("rel")
@@ -92,8 +95,10 @@ object BreadcrumbItem extends WebComponent("wa-breadcrumb-item") {
       */
     var href: String
 
-    /** Tells the browser where to open the link. Only used when `href` is set. */
-    var target: js.Any
+    /** Tells the browser where to open the link. Only used when `href` is set. Valid values: "_blank", "_parent",
+      * "_self", "_top".
+      */
+    var target: LinkTarget
 
     /** The `rel` attribute to use on the link. Only used when `href` is set. */
     var rel: String
@@ -104,9 +109,9 @@ object BreadcrumbItem extends WebComponent("wa-breadcrumb-item") {
 
     var didSSR: String
 
-    def hrefChanged(): js.Any = js.native
+    def hrefChanged(): Unit = js.native
 
-    def handleSlotChange(): js.Any = js.native
+    def handleSlotChange(): Unit = js.native
 
   }
 }

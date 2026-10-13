@@ -11,7 +11,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Compare visual differences between similar content with a sliding panel.
+/** Comparisons show the visual differences between two pieces of similar content using a draggable divider. Use them
+  * for before/after images, design revisions, or side-by-side previews.
   *
   * [[https://webawesome.com/docs/components/comparison WebAwesome docs]]
   */
@@ -74,8 +75,11 @@ object Comparison extends WebComponent("wa-comparison") {
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
 
-    /** The container that wraps the before and after content. */
+    /** Deprecated. Use the `comparison` part instead. */
     lazy val base: String = "base"
+
+    /** The component's outer wrapper. */
+    lazy val comparison: String = "comparison"
 
     /** The container that wraps the before content. */
     lazy val before: String = "before"
@@ -106,7 +110,7 @@ object Comparison extends WebComponent("wa-comparison") {
 
     var didSSR: String
 
-    def handlePositionChange(): js.Any = js.native
+    def handlePositionChange(): Unit = js.native
 
   }
 }

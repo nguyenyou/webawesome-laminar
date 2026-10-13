@@ -2,6 +2,7 @@ package io.github.nguyenyou.webawesome.laminar
 
 import com.raquo.laminar.keys.EventProp
 import com.raquo.laminar.keys.HtmlAttr
+import com.raquo.laminar.keys.HtmlProp
 import com.raquo.laminar.nodes.Slot
 import io.github.nguyenyou.webawesome.laminar.SharedTypes.*
 import io.github.nguyenyou.webawesome.laminar.events.*
@@ -12,7 +13,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Color pickers allow the user to select a color.
+/** Color pickers let users choose a color from a visual palette or by entering a value. They support HEX, RGB, HSL, and
+  * HSV formats with optional alpha channel and swatch presets.
   *
   * [[https://webawesome.com/docs/components/color-picker WebAwesome docs]]
   */
@@ -56,8 +58,14 @@ object ColorPicker extends WebComponent("wa-color-picker") {
   /** The default value of the form control. Primarily used for resetting the form control. */
   lazy val defaultValue: HtmlAttr[String] = stringAttr("value")
 
+  /** Only required for SSR. Set to `true` if you're slotting in a `label` element so the server-rendered markup
+    * includes the label before the component hydrates on the client.
+    */
   lazy val withLabel: HtmlAttr[Boolean] = boolAttr("with-label")
 
+  /** Only required for SSR. Set to `true` if you're slotting in a `hint` element so the server-rendered markup includes
+    * the hint before the component hydrates on the client.
+    */
   lazy val withHint: HtmlAttr[Boolean] = boolAttr("with-hint")
 
   /** The color picker's label. This will not be displayed, but it will be announced by assistive devices. If you need
@@ -74,8 +82,16 @@ object ColorPicker extends WebComponent("wa-color-picker") {
     */
   lazy val format: CommonKeys.ColorPickerFormat.type = CommonKeys.ColorPickerFormat
 
-  /** Determines the size of the color picker's trigger Valid values: "small", "medium", "large". */
+  /** Determines the size of the color picker's trigger Valid values: "xs", "s", "m", "l", "xl", "small", "medium",
+    * "large".
+    */
   lazy val size: CommonKeys.ComponentSize.type = CommonKeys.ComponentSize
+
+  /** The preferred placement of the color picker's popup. Note that the actual placement will vary as configured to
+    * keep the panel inside of the viewport. Valid values: "top", "top-start", "top-end", "bottom", "bottom-start",
+    * "bottom-end", "right", "right-start", "right-end", "left", "left-start", "left-end".
+    */
+  lazy val placement: CommonKeys.Placement.type = CommonKeys.Placement
 
   /** Removes the button that lets users toggle between format. */
   lazy val withoutFormatToggle: HtmlAttr[Boolean] = boolAttr("without-format-toggle")
@@ -99,9 +115,13 @@ object ColorPicker extends WebComponent("wa-color-picker") {
 
   /** One or more predefined color swatches to display as presets in the color picker. Can include any format the color
     * picker can parse, including HEX(A), RGB(A), HSL(A), HSV(A), and CSS color names. Each color must be separated by a
-    * semicolon (`;`). Alternatively, you can pass an array of color values to this property using JavaScript.
+    * semicolon (`;`). Alternatively, you can pass an array of color values or an array of `{ color, label }` objects to
+    * this property using JavaScript. When using objects with labels, the label will be used for the swatch's accessible
+    * name instead of the raw color value.
     */
   lazy val swatches: HtmlAttr[String] = stringAttr("swatches")
+
+  lazy val swatchesProp: HtmlProp[String | js.Array[String] | js.Array[ColorPicker.Swatch], ?] = asIsProp("swatches")
 
   /** Makes the color picker a required field. */
   lazy val required: HtmlAttr[Boolean] = boolAttr("required")
@@ -153,11 +173,29 @@ object ColorPicker extends WebComponent("wa-color-picker") {
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
 
-    /** The component's base wrapper. */
+    /** Deprecated. Use the `color-picker` part instead. */
     lazy val base: String = "base"
+
+    /** The dropdown panel that holds the grid, sliders, and swatches. */
+    lazy val colorPicker: String = "color-picker"
 
     /** The color picker's dropdown trigger. */
     lazy val trigger: String = "trigger"
+
+    /** The container that wraps the color picker's trigger. */
+    lazy val triggerContainer: String = "trigger-container"
+
+    /** The form control that wraps the label, input, and hint. */
+    lazy val formControl: String = "form-control"
+
+    /** The label. */
+    lazy val formControlLabel: String = "form-control-label"
+
+    /** The color picker's trigger button. */
+    lazy val formControlInput: String = "form-control-input"
+
+    /** The hint's wrapper. */
+    lazy val hint: String = "hint"
 
     /** The container that holds the swatches. */
     lazy val swatches: String = "swatches"
@@ -233,6 +271,12 @@ object ColorPicker extends WebComponent("wa-color-picker") {
 
   }
 
+  @js.native
+  trait Swatch extends js.Object {
+    var color: String
+    var label: String
+  }
+
   // -- Element type --
 
   @js.native
@@ -242,8 +286,14 @@ object ColorPicker extends WebComponent("wa-color-picker") {
     /** The default value of the form control. Primarily used for resetting the form control. */
     var defaultValue: String
 
+    /** Only required for SSR. Set to `true` if you're slotting in a `label` element so the server-rendered markup
+      * includes the label before the component hydrates on the client.
+      */
     var withLabel: Boolean
 
+    /** Only required for SSR. Set to `true` if you're slotting in a `hint` element so the server-rendered markup
+      * includes the hint before the component hydrates on the client.
+      */
     var withHint: Boolean
 
     /** The color picker's label. This will not be displayed, but it will be announced by assistive devices. If you need
@@ -260,8 +310,16 @@ object ColorPicker extends WebComponent("wa-color-picker") {
       */
     var format: ColorPickerFormat
 
-    /** Determines the size of the color picker's trigger Valid values: "small", "medium", "large". */
+    /** Determines the size of the color picker's trigger Valid values: "xs", "s", "m", "l", "xl", "small", "medium",
+      * "large".
+      */
     var size: ComponentSize
+
+    /** The preferred placement of the color picker's popup. Note that the actual placement will vary as configured to
+      * keep the panel inside of the viewport. Valid values: "top", "top-start", "top-end", "bottom", "bottom-start",
+      * "bottom-end", "right", "right-start", "right-end", "left", "left-start", "left-end".
+      */
+    var placement: Placement
 
     /** Removes the button that lets users toggle between format. */
     var withoutFormatToggle: Boolean
@@ -285,10 +343,11 @@ object ColorPicker extends WebComponent("wa-color-picker") {
 
     /** One or more predefined color swatches to display as presets in the color picker. Can include any format the
       * color picker can parse, including HEX(A), RGB(A), HSL(A), HSV(A), and CSS color names. Each color must be
-      * separated by a semicolon (`;`). Alternatively, you can pass an array of color values to this property using
-      * JavaScript.
+      * separated by a semicolon (`;`). Alternatively, you can pass an array of color values or an array of `{ color,
+      * label }` objects to this property using JavaScript. When using objects with labels, the label will be used for
+      * the swatch's accessible name instead of the raw color value.
       */
-    var swatches: String | js.Array[String]
+    var swatches: String | js.Array[String] | js.Array[ColorPicker.Swatch]
 
     /** Makes the color picker a required field. */
     var required: Boolean
@@ -301,76 +360,78 @@ object ColorPicker extends WebComponent("wa-color-picker") {
 
     var didSSR: String
 
+    def handleSizeChange(): Unit = js.native
+
     /** Generates a hex string from HSV values. Hue must be 0-360. All other arguments must be 0-100. */
-    def getHexString(hue: Double, saturation: Double, brightness: Double, alpha: js.Any): js.Any = js.native
+    def getHexString(hue: Double, saturation: Double, brightness: Double, alpha: js.Any): String = js.native
 
-    def handleFormatChange(): js.Any = js.native
+    def handleFormatChange(): Unit = js.native
 
-    def handleOpacityChange(): js.Any = js.native
+    def handleOpacityChange(): Unit = js.native
 
-    def handleValueChange(oldValue: js.Any, newValue: String): js.Any = js.native
+    def handleValueChange(oldValue: js.Any, newValue: String): Unit = js.native
 
     /** Sets focus on the color picker. */
-    def focus(options: js.UndefOr[js.Any]): js.Any = js.native
+    def focus(options: js.UndefOr[js.Any] = js.undefined): Unit = js.native
 
     /** Removes focus from the color picker. */
-    def blur(): js.Any = js.native
+    def blur(): Unit = js.native
 
     /** Returns the current value as a string in the specified format. */
-    def getFormattedValue(format: String): js.Any = js.native
+    def getFormattedValue(format: String): String = js.native
 
     /** Checks for validity and shows the browser's validation message if the control is invalid. */
-    def reportValidity(): js.Any = js.native
+    def reportValidity(): Boolean = js.native
 
-    def formResetCallback(): js.Any = js.native
+    def formResetCallback(): Unit = js.native
 
-    def handleTriggerClick(): js.Any = js.native
+    def handleTriggerClick(): Unit = js.native
 
-    def handleTriggerKeyDown(event: js.Any): js.Any = js.native
+    def handleTriggerKeyDown(event: js.Any): js.Promise[js.Any] = js.native
 
-    def handleTriggerKeyUp(event: js.Any): js.Any = js.native
+    def handleTriggerKeyUp(event: js.Any): Unit = js.native
 
-    def updateAccessibleTrigger(): js.Any = js.native
+    def updateAccessibleTrigger(): Unit = js.native
 
     /** Shows the color picker panel. */
-    def show(): js.Any = js.native
+    def show(): js.Promise[js.Any] = js.native
 
     /** Hides the color picker panel */
-    def hide(): js.Any = js.native
+    def hide(): js.Promise[js.Any] = js.native
 
-    def addOpenListeners(): js.Any = js.native
+    def addOpenListeners(): Unit = js.native
 
-    def removeOpenListeners(): js.Any = js.native
+    def removeOpenListeners(): Unit = js.native
 
-    def handleOpenChange(): js.Any = js.native
+    def handleOpenChange(): js.Promise[js.Any] = js.native
 
-    def getForm(): js.Any = js.native
+    def getForm(): dom.html.Form | Null = js.native
 
-    def checkValidity(): js.Any = js.native
+    def checkValidity(): Boolean = js.native
 
-    def setValidity(args: js.Any): js.Any = js.native
+    def setValidity(args: js.Any): Unit = js.native
 
-    def setCustomStates(): js.Any = js.native
+    def setCustomStates(): Unit = js.native
 
     /** Do not use this when creating a "Validator". This is intended for end users of components. We track manually
       * defined custom errors so we don't clear them on accident in our validators.
       */
-    def setCustomValidity(message: String): js.Any = js.native
+    def setCustomValidity(message: String): Unit = js.native
 
-    def formDisabledCallback(isDisabled: Boolean): js.Any = js.native
+    def formDisabledCallback(isDisabled: Boolean): Unit = js.native
 
     /** Called when the browser is trying to restore element’s state to state in which case reason is "restore", or when
       * the browser is trying to fulfill autofill on behalf of user in which case reason is "autocomplete". In the case
       * of "restore", state is a string, File, or FormData object previously set as the second argument to setFormValue.
       */
-    def formStateRestoreCallback(state: js.Any, reason: String): js.Any = js.native
+    def formStateRestoreCallback(state: js.Any, reason: String): Unit = js.native
 
-    def setValue(args: js.Any): js.Any = js.native
+    def setValue(args: js.Any): Unit = js.native
 
     /** Reset validity is a way of removing manual custom errors and native validation. */
-    def resetValidity(): js.Any = js.native
+    def resetValidity(): Unit = js.native
 
-    def updateValidity(): js.Any = js.native
+    def updateValidity(): Unit = js.native
 
   }
 }

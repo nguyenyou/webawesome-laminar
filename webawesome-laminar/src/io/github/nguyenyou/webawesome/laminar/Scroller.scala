@@ -10,8 +10,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Scrollers create an accessible container while providing visual cues that help users identify and navigate through
-  * content that scrolls.
+/** Scrollers wrap overflowing content in an accessible container with visual cues that help users recognize and
+  * navigate scrollable regions.
   *
   * [[https://webawesome.com/docs/components/scroller WebAwesome docs]]
   */
@@ -73,6 +73,12 @@ object Scroller extends WebComponent("wa-scroller") {
 
     /** The container that wraps the slotted content. */
     lazy val content: String = "content"
+
+    /** The scroll shadow shown at the start edge when more content is available, unless `without-shadow` is set. */
+    lazy val startShadow: String = "start-shadow"
+
+    /** The scroll shadow shown at the end edge when more content is available, unless `without-shadow` is set. */
+    lazy val endShadow: String = "end-shadow"
 
   }
 

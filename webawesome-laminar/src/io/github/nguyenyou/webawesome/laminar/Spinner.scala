@@ -8,7 +8,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Spinners are used to show the progress of an indeterminate operation.
+/** Spinners indicate that an operation is in progress when the duration is unknown. Use them for loading states where a
+  * determinate progress bar isn't practical.
   *
   * [[https://webawesome.com/docs/components/spinner WebAwesome docs]]
   */
@@ -54,8 +55,11 @@ object Spinner extends WebComponent("wa-spinner") {
   /** For documentation only. You need to style these from a CSS stylesheet. */
   object cssParts {
 
-    /** The component's base wrapper. */
+    /** Deprecated. Use the `spinner` part instead. */
     lazy val base: String = "base"
+
+    /** The component's outer wrapper. */
+    lazy val spinner: String = "spinner"
 
   }
 

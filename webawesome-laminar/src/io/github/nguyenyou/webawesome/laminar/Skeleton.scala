@@ -9,7 +9,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Skeletons are used to provide a visual representation of where content will eventually be drawn.
+/** Skeletons show placeholder shapes where content will appear once it finishes loading, reducing perceived wait time
+  * and preventing layout shift.
   *
   * [[https://webawesome.com/docs/components/skeleton WebAwesome docs]]
   */

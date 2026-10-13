@@ -11,8 +11,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** The Resize Observer component offers a thin, declarative interface to the [`ResizeObserver
-  * API`](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver).
+/** Resize observers watch their slotted elements for size changes and emit an event when they occur. Provides a thin,
+  * declarative interface to the browser's ResizeObserver API.
   *
   * [[https://webawesome.com/docs/components/resize-observer WebAwesome docs]]
   */
@@ -68,7 +68,7 @@ object ResizeObserver extends WebComponent("wa-resize-observer") {
 
     var didSSR: String
 
-    def handleDisabledChange(): js.Any = js.native
+    def handleDisabledChange(): Unit = js.native
 
   }
 }

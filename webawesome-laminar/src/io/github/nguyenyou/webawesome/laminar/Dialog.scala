@@ -11,7 +11,8 @@ import scala.scalajs.js.annotation.JSImport
 
 // This file is generated at compile-time by WebAwesome generator
 
-/** Dialogs, sometimes called "modals", appear above the page and require the user's immediate attention.
+/** Dialogs appear above the page and require the user's immediate attention. Use them for confirmations, forms, or
+  * focused tasks that interrupt the main flow.
   *
   * [[https://webawesome.com/docs/components/dialog WebAwesome docs]]
   */
@@ -49,7 +50,8 @@ object Dialog extends WebComponent("wa-dialog") {
   lazy val open: HtmlAttr[Boolean] = boolAttr("open")
 
   /** The dialog's label as displayed in the header. You should always include a relevant label, as it is required for
-    * proper accessibility. If you need to display HTML, use the `label` slot instead.
+    * proper accessibility. If you need to display HTML, use the `label` slot instead. When `without-header` is set,
+    * only the attribute provides the dialog's accessible name.
     */
   lazy val label: HtmlAttr[String] = stringAttr("label")
 
@@ -58,6 +60,16 @@ object Dialog extends WebComponent("wa-dialog") {
 
   /** When enabled, the dialog will be closed when the user clicks outside of it. */
   lazy val lightDismiss: HtmlAttr[Boolean] = boolAttr("light-dismiss")
+
+  /** Only required for SSR. Set to `true` if you're slotting in a `footer` element so the server-rendered markup
+    * includes the footer before the component hydrates on the client.
+    */
+  lazy val withFooter: HtmlAttr[Boolean] = boolAttr("with-footer")
+
+  /** Only required for SSR. Set to `true` if you're slotting in a `label` element so the server-rendered markup names
+    * the dialog before the component hydrates on the client.
+    */
+  lazy val withLabel: HtmlAttr[Boolean] = boolAttr("with-label")
 
   lazy val dir: HtmlAttr[String] = stringAttr("dir")
 
@@ -94,10 +106,13 @@ object Dialog extends WebComponent("wa-dialog") {
     /** The preferred width of the dialog. Note that the dialog will shrink to accommodate smaller screens. */
     lazy val width: String = "--width"
 
-    /** The animation duration when showing the dialog. Default: 200ms */
+    /** A filter to apply to the backdrop behind the dialog. Default: none */
+    lazy val backdropFilter: String = "--backdrop-filter"
+
+    /** The animation duration when showing the dialog. Default: var(--wa-transition-normal) */
     lazy val showDuration: String = "--show-duration"
 
-    /** The animation duration when hiding the dialog. Default: 200ms */
+    /** The animation duration when hiding the dialog. Default: var(--wa-transition-normal) */
     lazy val hideDuration: String = "--hide-duration"
 
   }
@@ -143,7 +158,8 @@ object Dialog extends WebComponent("wa-dialog") {
     var open: Boolean
 
     /** The dialog's label as displayed in the header. You should always include a relevant label, as it is required for
-      * proper accessibility. If you need to display HTML, use the `label` slot instead.
+      * proper accessibility. If you need to display HTML, use the `label` slot instead. When `without-header` is set,
+      * only the attribute provides the dialog's accessible name.
       */
     var label: String
 
@@ -153,13 +169,23 @@ object Dialog extends WebComponent("wa-dialog") {
     /** When enabled, the dialog will be closed when the user clicks outside of it. */
     var lightDismiss: Boolean
 
+    /** Only required for SSR. Set to `true` if you're slotting in a `footer` element so the server-rendered markup
+      * includes the footer before the component hydrates on the client.
+      */
+    var withFooter: Boolean
+
+    /** Only required for SSR. Set to `true` if you're slotting in a `label` element so the server-rendered markup names
+      * the dialog before the component hydrates on the client.
+      */
+    var withLabel: Boolean
+
     var dir: String
 
     var lang: String
 
     var didSSR: String
 
-    def handleOpenChange(): js.Any = js.native
+    def handleOpenChange(): Unit = js.native
 
   }
 }

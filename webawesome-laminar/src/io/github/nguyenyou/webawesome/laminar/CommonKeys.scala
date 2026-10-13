@@ -11,11 +11,21 @@ object CommonKeys extends CommonTypes {
   /** size attribute - ComponentSize */
   object ComponentSize extends HtmlAttr[ComponentSize]("size", UnionAsStringCodec[ComponentSize]) {
 
+    lazy val l: HtmlAttrSetter[ComponentSize] = ComponentSize("l")
+
     lazy val large: HtmlAttrSetter[ComponentSize] = ComponentSize("large")
+
+    lazy val m: HtmlAttrSetter[ComponentSize] = ComponentSize("m")
 
     lazy val medium: HtmlAttrSetter[ComponentSize] = ComponentSize("medium")
 
+    lazy val s: HtmlAttrSetter[ComponentSize] = ComponentSize("s")
+
     lazy val small: HtmlAttrSetter[ComponentSize] = ComponentSize("small")
+
+    lazy val xl: HtmlAttrSetter[ComponentSize] = ComponentSize("xl")
+
+    lazy val xs: HtmlAttrSetter[ComponentSize] = ComponentSize("xs")
   }
 
   /** orientation attribute - Orientation */
@@ -26,12 +36,14 @@ object CommonKeys extends CommonTypes {
     lazy val vertical: HtmlAttrSetter[Orientation] = Orientation("vertical")
   }
 
-  /** year attribute - DateYearFormat */
-  object DateYearFormat extends HtmlAttr[DateYearFormat]("year", UnionAsStringCodec[DateYearFormat]) {
+  /** appearance attribute - Appearance */
+  object Appearance extends HtmlAttr[Appearance]("appearance", UnionAsStringCodec[Appearance]) {
 
-    lazy val `2-digit`: HtmlAttrSetter[DateYearFormat] = DateYearFormat("2-digit")
+    lazy val filled: HtmlAttrSetter[Appearance] = Appearance("filled")
 
-    lazy val numeric: HtmlAttrSetter[DateYearFormat] = DateYearFormat("numeric")
+    lazy val filledOutlined: HtmlAttrSetter[Appearance] = Appearance("filled-outlined")
+
+    lazy val outlined: HtmlAttrSetter[Appearance] = Appearance("outlined")
   }
 
   /** variant attribute - ThemeVariant */
@@ -46,16 +58,6 @@ object CommonKeys extends CommonTypes {
     lazy val success: HtmlAttrSetter[ThemeVariant] = ThemeVariant("success")
 
     lazy val warning: HtmlAttrSetter[ThemeVariant] = ThemeVariant("warning")
-  }
-
-  /** appearance attribute - Appearance */
-  object Appearance extends HtmlAttr[Appearance]("appearance", UnionAsStringCodec[Appearance]) {
-
-    lazy val filled: HtmlAttrSetter[Appearance] = Appearance("filled")
-
-    lazy val filledOutlined: HtmlAttrSetter[Appearance] = Appearance("filled-outlined")
-
-    lazy val outlined: HtmlAttrSetter[Appearance] = Appearance("outlined")
   }
 
   /** placement attribute - Placement */
@@ -86,28 +88,12 @@ object CommonKeys extends CommonTypes {
     lazy val topStart: HtmlAttrSetter[Placement] = Placement("top-start")
   }
 
-  /** display attribute - DisplayFormat */
-  object DisplayFormat extends HtmlAttr[DisplayFormat]("display", UnionAsStringCodec[DisplayFormat]) {
+  /** year attribute - DateYearFormat */
+  object DateYearFormat extends HtmlAttr[DateYearFormat]("year", UnionAsStringCodec[DateYearFormat]) {
 
-    lazy val long: HtmlAttrSetter[DisplayFormat] = DisplayFormat("long")
+    lazy val `2-digit`: HtmlAttrSetter[DateYearFormat] = DateYearFormat("2-digit")
 
-    lazy val narrow: HtmlAttrSetter[DisplayFormat] = DisplayFormat("narrow")
-
-    lazy val short: HtmlAttrSetter[DisplayFormat] = DisplayFormat("short")
-  }
-
-  /** appearance attribute - ExtendedAppearance */
-  object ExtendedAppearance extends HtmlAttr[ExtendedAppearance]("appearance", UnionAsStringCodec[ExtendedAppearance]) {
-
-    lazy val accent: HtmlAttrSetter[ExtendedAppearance] = ExtendedAppearance("accent")
-
-    lazy val filled: HtmlAttrSetter[ExtendedAppearance] = ExtendedAppearance("filled")
-
-    lazy val filledOutlined: HtmlAttrSetter[ExtendedAppearance] = ExtendedAppearance("filled-outlined")
-
-    lazy val outlined: HtmlAttrSetter[ExtendedAppearance] = ExtendedAppearance("outlined")
-
-    lazy val plain: HtmlAttrSetter[ExtendedAppearance] = ExtendedAppearance("plain")
+    lazy val numeric: HtmlAttrSetter[DateYearFormat] = DateYearFormat("numeric")
   }
 
   /** enterkeyhint attribute - Enterkeyhint */
@@ -128,25 +114,48 @@ object CommonKeys extends CommonTypes {
     lazy val send: HtmlAttrSetter[Enterkeyhint] = Enterkeyhint("send")
   }
 
-  /** loading attribute - LoadingStrategy */
-  object LoadingStrategy extends HtmlAttr[LoadingStrategy]("loading", UnionAsStringCodec[LoadingStrategy]) {
+  /** display attribute - DisplayFormat */
+  object DisplayFormat extends HtmlAttr[DisplayFormat]("display", UnionAsStringCodec[DisplayFormat]) {
 
-    lazy val eager: HtmlAttrSetter[LoadingStrategy] = LoadingStrategy("eager")
+    lazy val long: HtmlAttrSetter[DisplayFormat] = DisplayFormat("long")
 
-    lazy val `lazy`: HtmlAttrSetter[LoadingStrategy] = LoadingStrategy("lazy")
+    lazy val narrow: HtmlAttrSetter[DisplayFormat] = DisplayFormat("narrow")
+
+    lazy val short: HtmlAttrSetter[DisplayFormat] = DisplayFormat("short")
   }
 
-  /** appearance attribute - ExtendedAppearance1 */
-  object ExtendedAppearance1
-      extends HtmlAttr[ExtendedAppearance1]("appearance", UnionAsStringCodec[ExtendedAppearance1]) {
+  /** icon-placement attribute - IconPlacement */
+  object IconPlacement extends HtmlAttr[IconPlacement]("icon-placement", UnionAsStringCodec[IconPlacement]) {
 
-    lazy val accent: HtmlAttrSetter[ExtendedAppearance1] = ExtendedAppearance1("accent")
+    lazy val end: HtmlAttrSetter[IconPlacement] = IconPlacement("end")
 
-    lazy val filled: HtmlAttrSetter[ExtendedAppearance1] = ExtendedAppearance1("filled")
+    lazy val start: HtmlAttrSetter[IconPlacement] = IconPlacement("start")
+  }
 
-    lazy val filledOutlined: HtmlAttrSetter[ExtendedAppearance1] = ExtendedAppearance1("filled-outlined")
+  /** target attribute - LinkTarget */
+  object LinkTarget extends HtmlAttr[LinkTarget]("target", UnionAsStringCodec[LinkTarget]) {
 
-    lazy val outlined: HtmlAttrSetter[ExtendedAppearance1] = ExtendedAppearance1("outlined")
+    lazy val blank: HtmlAttrSetter[LinkTarget] = LinkTarget("_blank")
+
+    lazy val parent: HtmlAttrSetter[LinkTarget] = LinkTarget("_parent")
+
+    lazy val self: HtmlAttrSetter[LinkTarget] = LinkTarget("_self")
+
+    lazy val top: HtmlAttrSetter[LinkTarget] = LinkTarget("_top")
+  }
+
+  /** appearance attribute - ExtendedAppearance */
+  object ExtendedAppearance extends HtmlAttr[ExtendedAppearance]("appearance", UnionAsStringCodec[ExtendedAppearance]) {
+
+    lazy val accent: HtmlAttrSetter[ExtendedAppearance] = ExtendedAppearance("accent")
+
+    lazy val filled: HtmlAttrSetter[ExtendedAppearance] = ExtendedAppearance("filled")
+
+    lazy val filledOutlined: HtmlAttrSetter[ExtendedAppearance] = ExtendedAppearance("filled-outlined")
+
+    lazy val outlined: HtmlAttrSetter[ExtendedAppearance] = ExtendedAppearance("outlined")
+
+    lazy val plain: HtmlAttrSetter[ExtendedAppearance] = ExtendedAppearance("plain")
   }
 
   /** autocapitalize attribute - Autocapitalize */
@@ -185,6 +194,49 @@ object CommonKeys extends CommonTypes {
     lazy val url: HtmlAttrSetter[Inputmode] = Inputmode("url")
   }
 
+  /** attention attribute - Attention */
+  object Attention extends HtmlAttr[Attention]("attention", UnionAsStringCodec[Attention]) {
+
+    lazy val bounce: HtmlAttrSetter[Attention] = Attention("bounce")
+
+    lazy val none: HtmlAttrSetter[Attention] = Attention("none")
+
+    lazy val pulse: HtmlAttrSetter[Attention] = Attention("pulse")
+  }
+
+  /** appearance attribute - Appearance1 */
+  object Appearance1 extends HtmlAttr[Appearance1]("appearance", UnionAsStringCodec[Appearance1]) {
+
+    lazy val filled: HtmlAttrSetter[Appearance1] = Appearance1("filled")
+
+    lazy val filledOutlined: HtmlAttrSetter[Appearance1] = Appearance1("filled-outlined")
+
+    lazy val outlined: HtmlAttrSetter[Appearance1] = Appearance1("outlined")
+
+    lazy val plain: HtmlAttrSetter[Appearance1] = Appearance1("plain")
+  }
+
+  /** loading attribute - LoadingStrategy */
+  object LoadingStrategy extends HtmlAttr[LoadingStrategy]("loading", UnionAsStringCodec[LoadingStrategy]) {
+
+    lazy val eager: HtmlAttrSetter[LoadingStrategy] = LoadingStrategy("eager")
+
+    lazy val `lazy`: HtmlAttrSetter[LoadingStrategy] = LoadingStrategy("lazy")
+  }
+
+  /** appearance attribute - ExtendedAppearance1 */
+  object ExtendedAppearance1
+      extends HtmlAttr[ExtendedAppearance1]("appearance", UnionAsStringCodec[ExtendedAppearance1]) {
+
+    lazy val accent: HtmlAttrSetter[ExtendedAppearance1] = ExtendedAppearance1("accent")
+
+    lazy val filled: HtmlAttrSetter[ExtendedAppearance1] = ExtendedAppearance1("filled")
+
+    lazy val filledOutlined: HtmlAttrSetter[ExtendedAppearance1] = ExtendedAppearance1("filled-outlined")
+
+    lazy val outlined: HtmlAttrSetter[ExtendedAppearance1] = ExtendedAppearance1("outlined")
+  }
+
   /** tooltip-placement attribute - TooltipPlacement */
   object TooltipPlacement
       extends HtmlAttr[TooltipPlacement]("tooltip-placement", UnionAsStringCodec[TooltipPlacement]) {
@@ -210,6 +262,98 @@ object CommonKeys extends CommonTypes {
     lazy val top: HtmlAttrSetter[ComponentPlacement] = ComponentPlacement("top")
   }
 
+  /** hour-format attribute - HourFormat */
+  object HourFormat extends HtmlAttr[HourFormat]("hour-format", UnionAsStringCodec[HourFormat]) {
+
+    lazy val `12`: HtmlAttrSetter[HourFormat] = HourFormat("12")
+
+    lazy val `24`: HtmlAttrSetter[HourFormat] = HourFormat("24")
+
+    lazy val auto: HtmlAttrSetter[HourFormat] = HourFormat("auto")
+  }
+
+  /** canvas attribute - IconCanvas */
+  object IconCanvas extends HtmlAttr[IconCanvas]("canvas", UnionAsStringCodec[IconCanvas]) {
+
+    lazy val auto: HtmlAttrSetter[IconCanvas] = IconCanvas("auto")
+
+    lazy val fixed: HtmlAttrSetter[IconCanvas] = IconCanvas("fixed")
+
+    lazy val roomy: HtmlAttrSetter[IconCanvas] = IconCanvas("roomy")
+
+    lazy val square: HtmlAttrSetter[IconCanvas] = IconCanvas("square")
+  }
+
+  /** flip attribute - IconFlip */
+  object IconFlip extends HtmlAttr[IconFlip]("flip", UnionAsStringCodec[IconFlip]) {
+
+    lazy val both: HtmlAttrSetter[IconFlip] = IconFlip("both")
+
+    lazy val x: HtmlAttrSetter[IconFlip] = IconFlip("x")
+
+    lazy val y: HtmlAttrSetter[IconFlip] = IconFlip("y")
+  }
+
+  /** animation attribute - IconAnimation */
+  object IconAnimation extends HtmlAttr[IconAnimation]("animation", UnionAsStringCodec[IconAnimation]) {
+
+    lazy val beat: HtmlAttrSetter[IconAnimation] = IconAnimation("beat")
+
+    lazy val beatFade: HtmlAttrSetter[IconAnimation] = IconAnimation("beat-fade")
+
+    lazy val bounce: HtmlAttrSetter[IconAnimation] = IconAnimation("bounce")
+
+    lazy val buzz: HtmlAttrSetter[IconAnimation] = IconAnimation("buzz")
+
+    lazy val fade: HtmlAttrSetter[IconAnimation] = IconAnimation("fade")
+
+    lazy val flip: HtmlAttrSetter[IconAnimation] = IconAnimation("flip")
+
+    lazy val flip360: HtmlAttrSetter[IconAnimation] = IconAnimation("flip-360")
+
+    lazy val float: HtmlAttrSetter[IconAnimation] = IconAnimation("float")
+
+    lazy val jello: HtmlAttrSetter[IconAnimation] = IconAnimation("jello")
+
+    lazy val shake: HtmlAttrSetter[IconAnimation] = IconAnimation("shake")
+
+    lazy val spin: HtmlAttrSetter[IconAnimation] = IconAnimation("spin")
+
+    lazy val spinPulse: HtmlAttrSetter[IconAnimation] = IconAnimation("spin-pulse")
+
+    lazy val spinReverse: HtmlAttrSetter[IconAnimation] = IconAnimation("spin-reverse")
+
+    lazy val spinSnap: HtmlAttrSetter[IconAnimation] = IconAnimation("spin-snap")
+
+    lazy val spinSnap4: HtmlAttrSetter[IconAnimation] = IconAnimation("spin-snap-4")
+
+    lazy val spinSnap8: HtmlAttrSetter[IconAnimation] = IconAnimation("spin-snap-8")
+
+    lazy val swing: HtmlAttrSetter[IconAnimation] = IconAnimation("swing")
+
+    lazy val wag: HtmlAttrSetter[IconAnimation] = IconAnimation("wag")
+  }
+
+  /** mode attribute - AccordionMode */
+  object AccordionMode extends HtmlAttr[AccordionMode]("mode", UnionAsStringCodec[AccordionMode]) {
+
+    lazy val multiple: HtmlAttrSetter[AccordionMode] = AccordionMode("multiple")
+
+    lazy val single: HtmlAttrSetter[AccordionMode] = AccordionMode("single")
+
+    lazy val singleCollapsible: HtmlAttrSetter[AccordionMode] = AccordionMode("single-collapsible")
+  }
+
+  /** shape attribute - AvatarShape */
+  object AvatarShape extends HtmlAttr[AvatarShape]("shape", UnionAsStringCodec[AvatarShape]) {
+
+    lazy val circle: HtmlAttrSetter[AvatarShape] = AvatarShape("circle")
+
+    lazy val rounded: HtmlAttrSetter[AvatarShape] = AvatarShape("rounded")
+
+    lazy val square: HtmlAttrSetter[AvatarShape] = AvatarShape("square")
+  }
+
   /** type attribute - ButtonButtonType */
   object ButtonButtonType extends HtmlAttr[ButtonButtonType]("type", UnionAsStringCodec[ButtonButtonType]) {
 
@@ -218,18 +362,6 @@ object CommonKeys extends CommonTypes {
     lazy val reset: HtmlAttrSetter[ButtonButtonType] = ButtonButtonType("reset")
 
     lazy val submit: HtmlAttrSetter[ButtonButtonType] = ButtonButtonType("submit")
-  }
-
-  /** target attribute - ButtonLinkTarget */
-  object ButtonLinkTarget extends HtmlAttr[ButtonLinkTarget]("target", UnionAsStringCodec[ButtonLinkTarget]) {
-
-    lazy val blank: HtmlAttrSetter[ButtonLinkTarget] = ButtonLinkTarget("_blank")
-
-    lazy val parent: HtmlAttrSetter[ButtonLinkTarget] = ButtonLinkTarget("_parent")
-
-    lazy val self: HtmlAttrSetter[ButtonLinkTarget] = ButtonLinkTarget("_self")
-
-    lazy val top: HtmlAttrSetter[ButtonLinkTarget] = ButtonLinkTarget("_top")
   }
 
   /** formenctype attribute - ButtonFormenctype */
@@ -250,26 +382,6 @@ object CommonKeys extends CommonTypes {
     lazy val get: HtmlAttrSetter[ButtonFormmethod] = ButtonFormmethod("get")
 
     lazy val post: HtmlAttrSetter[ButtonFormmethod] = ButtonFormmethod("post")
-  }
-
-  /** shape attribute - AvatarShape */
-  object AvatarShape extends HtmlAttr[AvatarShape]("shape", UnionAsStringCodec[AvatarShape]) {
-
-    lazy val circle: HtmlAttrSetter[AvatarShape] = AvatarShape("circle")
-
-    lazy val rounded: HtmlAttrSetter[AvatarShape] = AvatarShape("rounded")
-
-    lazy val square: HtmlAttrSetter[AvatarShape] = AvatarShape("square")
-  }
-
-  /** attention attribute - BadgeAttention */
-  object BadgeAttention extends HtmlAttr[BadgeAttention]("attention", UnionAsStringCodec[BadgeAttention]) {
-
-    lazy val bounce: HtmlAttrSetter[BadgeAttention] = BadgeAttention("bounce")
-
-    lazy val none: HtmlAttrSetter[BadgeAttention] = BadgeAttention("none")
-
-    lazy val pulse: HtmlAttrSetter[BadgeAttention] = BadgeAttention("pulse")
   }
 
   /** type attribute - InputInputType */
@@ -294,14 +406,6 @@ object CommonKeys extends CommonTypes {
     lazy val time: HtmlAttrSetter[InputInputType] = InputInputType("time")
 
     lazy val url: HtmlAttrSetter[InputInputType] = InputInputType("url")
-  }
-
-  /** autocorrect attribute - InputAutocorrect */
-  object InputAutocorrect extends HtmlAttr[InputAutocorrect]("autocorrect", UnionAsStringCodec[InputAutocorrect]) {
-
-    lazy val off: HtmlAttrSetter[InputAutocorrect] = InputAutocorrect("off")
-
-    lazy val on: HtmlAttrSetter[InputAutocorrect] = InputAutocorrect("on")
   }
 
   /** boundary attribute - PopupBoundary */
@@ -369,25 +473,25 @@ object CommonKeys extends CommonTypes {
     lazy val rgb: HtmlAttrSetter[ColorPickerFormat] = ColorPickerFormat("rgb")
   }
 
-  /** appearance attribute - DetailsAppearance */
-  object DetailsAppearance extends HtmlAttr[DetailsAppearance]("appearance", UnionAsStringCodec[DetailsAppearance]) {
+  /** tooltip attribute - CopyButtonTooltip */
+  object CopyButtonTooltip extends HtmlAttr[CopyButtonTooltip]("tooltip", UnionAsStringCodec[CopyButtonTooltip]) {
 
-    lazy val filled: HtmlAttrSetter[DetailsAppearance] = DetailsAppearance("filled")
+    lazy val copy: HtmlAttrSetter[CopyButtonTooltip] = CopyButtonTooltip("copy")
 
-    lazy val filledOutlined: HtmlAttrSetter[DetailsAppearance] = DetailsAppearance("filled-outlined")
+    lazy val full: HtmlAttrSetter[CopyButtonTooltip] = CopyButtonTooltip("full")
 
-    lazy val outlined: HtmlAttrSetter[DetailsAppearance] = DetailsAppearance("outlined")
-
-    lazy val plain: HtmlAttrSetter[DetailsAppearance] = DetailsAppearance("plain")
+    lazy val none: HtmlAttrSetter[CopyButtonTooltip] = CopyButtonTooltip("none")
   }
 
-  /** icon-placement attribute - DetailsIconPlacement */
-  object DetailsIconPlacement
-      extends HtmlAttr[DetailsIconPlacement]("icon-placement", UnionAsStringCodec[DetailsIconPlacement]) {
+  /** label-placement attribute - DividerLabelPlacement */
+  object DividerLabelPlacement
+      extends HtmlAttr[DividerLabelPlacement]("label-placement", UnionAsStringCodec[DividerLabelPlacement]) {
 
-    lazy val end: HtmlAttrSetter[DetailsIconPlacement] = DetailsIconPlacement("end")
+    lazy val center: HtmlAttrSetter[DividerLabelPlacement] = DividerLabelPlacement("center")
 
-    lazy val start: HtmlAttrSetter[DetailsIconPlacement] = DetailsIconPlacement("start")
+    lazy val end: HtmlAttrSetter[DividerLabelPlacement] = DividerLabelPlacement("end")
+
+    lazy val start: HtmlAttrSetter[DividerLabelPlacement] = DividerLabelPlacement("start")
   }
 
   /** variant attribute - DropdownItemVariant */
@@ -439,17 +543,6 @@ object CommonKeys extends CommonTypes {
     lazy val short: HtmlAttrSetter[FormatDateTimeZoneName] = FormatDateTimeZoneName("short")
   }
 
-  /** hour-format attribute - FormatDateHourFormat */
-  object FormatDateHourFormat
-      extends HtmlAttr[FormatDateHourFormat]("hour-format", UnionAsStringCodec[FormatDateHourFormat]) {
-
-    lazy val `12`: HtmlAttrSetter[FormatDateHourFormat] = FormatDateHourFormat("12")
-
-    lazy val `24`: HtmlAttrSetter[FormatDateHourFormat] = FormatDateHourFormat("24")
-
-    lazy val auto: HtmlAttrSetter[FormatDateHourFormat] = FormatDateHourFormat("auto")
-  }
-
   /** type attribute - FormatNumberElementType */
   object FormatNumberElementType
       extends HtmlAttr[FormatNumberElementType]("type", UnionAsStringCodec[FormatNumberElementType]) {
@@ -487,12 +580,72 @@ object CommonKeys extends CommonTypes {
     lazy val sameOrigin: HtmlAttrSetter[IncludeMode] = IncludeMode("same-origin")
   }
 
+  /** inputmode attribute - NumberInputInputmode */
+  object NumberInputInputmode
+      extends HtmlAttr[NumberInputInputmode]("inputmode", UnionAsStringCodec[NumberInputInputmode]) {
+
+    lazy val decimal: HtmlAttrSetter[NumberInputInputmode] = NumberInputInputmode("decimal")
+
+    lazy val numeric: HtmlAttrSetter[NumberInputInputmode] = NumberInputInputmode("numeric")
+  }
+
   /** placement attribute - SelectPlacement */
   object SelectPlacement extends HtmlAttr[SelectPlacement]("placement", UnionAsStringCodec[SelectPlacement]) {
 
     lazy val bottom: HtmlAttrSetter[SelectPlacement] = SelectPlacement("bottom")
 
     lazy val top: HtmlAttrSetter[SelectPlacement] = SelectPlacement("top")
+  }
+
+  /** appearance attribute - OtpInputAppearance */
+  object OtpInputAppearance extends HtmlAttr[OtpInputAppearance]("appearance", UnionAsStringCodec[OtpInputAppearance]) {
+
+    lazy val contained: HtmlAttrSetter[OtpInputAppearance] = OtpInputAppearance("contained")
+
+    lazy val filled: HtmlAttrSetter[OtpInputAppearance] = OtpInputAppearance("filled")
+
+    lazy val filledOutlined: HtmlAttrSetter[OtpInputAppearance] = OtpInputAppearance("filled-outlined")
+
+    lazy val outlined: HtmlAttrSetter[OtpInputAppearance] = OtpInputAppearance("outlined")
+  }
+
+  /** type attribute - OtpInputElementType */
+  object OtpInputElementType extends HtmlAttr[OtpInputElementType]("type", UnionAsStringCodec[OtpInputElementType]) {
+
+    lazy val alpha: HtmlAttrSetter[OtpInputElementType] = OtpInputElementType("alpha")
+
+    lazy val alphanumeric: HtmlAttrSetter[OtpInputElementType] = OtpInputElementType("alphanumeric")
+
+    lazy val numeric: HtmlAttrSetter[OtpInputElementType] = OtpInputElementType("numeric")
+  }
+
+  /** case attribute - OtpInputCase */
+  object OtpInputCase extends HtmlAttr[OtpInputCase]("case", UnionAsStringCodec[OtpInputCase]) {
+
+    lazy val lower: HtmlAttrSetter[OtpInputCase] = OtpInputCase("lower")
+
+    lazy val preserve: HtmlAttrSetter[OtpInputCase] = OtpInputCase("preserve")
+
+    lazy val upper: HtmlAttrSetter[OtpInputCase] = OtpInputCase("upper")
+  }
+
+  /** format attribute - PaginationFormat */
+  object PaginationFormat extends HtmlAttr[PaginationFormat]("format", UnionAsStringCodec[PaginationFormat]) {
+
+    lazy val compact: HtmlAttrSetter[PaginationFormat] = PaginationFormat("compact")
+
+    lazy val standard: HtmlAttrSetter[PaginationFormat] = PaginationFormat("standard")
+  }
+
+  /** appearance attribute - PaginationAppearance */
+  object PaginationAppearance
+      extends HtmlAttr[PaginationAppearance]("appearance", UnionAsStringCodec[PaginationAppearance]) {
+
+    lazy val filled: HtmlAttrSetter[PaginationAppearance] = PaginationAppearance("filled")
+
+    lazy val outlined: HtmlAttrSetter[PaginationAppearance] = PaginationAppearance("outlined")
+
+    lazy val plain: HtmlAttrSetter[PaginationAppearance] = PaginationAppearance("plain")
   }
 
   /** error-correction attribute - QrCodeErrorCorrection */
@@ -516,6 +669,33 @@ object CommonKeys extends CommonTypes {
     lazy val default: HtmlAttrSetter[RadioAppearance] = RadioAppearance("default")
   }
 
+  /** mode attribute - RandomContentMode */
+  object RandomContentMode extends HtmlAttr[RandomContentMode]("mode", UnionAsStringCodec[RandomContentMode]) {
+
+    lazy val random: HtmlAttrSetter[RandomContentMode] = RandomContentMode("random")
+
+    lazy val sequence: HtmlAttrSetter[RandomContentMode] = RandomContentMode("sequence")
+
+    lazy val unique: HtmlAttrSetter[RandomContentMode] = RandomContentMode("unique")
+  }
+
+  /** animation attribute - RandomContentAnimation */
+  object RandomContentAnimation
+      extends HtmlAttr[RandomContentAnimation]("animation", UnionAsStringCodec[RandomContentAnimation]) {
+
+    lazy val fade: HtmlAttrSetter[RandomContentAnimation] = RandomContentAnimation("fade")
+
+    lazy val fadeDown: HtmlAttrSetter[RandomContentAnimation] = RandomContentAnimation("fade-down")
+
+    lazy val fadeLeft: HtmlAttrSetter[RandomContentAnimation] = RandomContentAnimation("fade-left")
+
+    lazy val fadeRight: HtmlAttrSetter[RandomContentAnimation] = RandomContentAnimation("fade-right")
+
+    lazy val fadeUp: HtmlAttrSetter[RandomContentAnimation] = RandomContentAnimation("fade-up")
+
+    lazy val none: HtmlAttrSetter[RandomContentAnimation] = RandomContentAnimation("none")
+  }
+
   /** numeric attribute - RelativeTimeNumeric */
   object RelativeTimeNumeric extends HtmlAttr[RelativeTimeNumeric]("numeric", UnionAsStringCodec[RelativeTimeNumeric]) {
 
@@ -532,6 +712,17 @@ object CommonKeys extends CommonTypes {
     lazy val pulse: HtmlAttrSetter[SkeletonEffect] = SkeletonEffect("pulse")
 
     lazy val sheen: HtmlAttrSetter[SkeletonEffect] = SkeletonEffect("sheen")
+  }
+
+  /** orientation attribute - StepperOrientation */
+  object StepperOrientation
+      extends HtmlAttr[StepperOrientation]("orientation", UnionAsStringCodec[StepperOrientation]) {
+
+    lazy val auto: HtmlAttrSetter[StepperOrientation] = StepperOrientation("auto")
+
+    lazy val horizontal: HtmlAttrSetter[StepperOrientation] = StepperOrientation("horizontal")
+
+    lazy val vertical: HtmlAttrSetter[StepperOrientation] = StepperOrientation("vertical")
   }
 
   /** activation attribute - TabGroupActivation */
@@ -556,22 +747,47 @@ object CommonKeys extends CommonTypes {
     lazy val vertical: HtmlAttrSetter[TextareaResize] = TextareaResize("vertical")
   }
 
+  /** placement attribute - TimeInputPlacement */
+  object TimeInputPlacement extends HtmlAttr[TimeInputPlacement]("placement", UnionAsStringCodec[TimeInputPlacement]) {
+
+    lazy val bottom: HtmlAttrSetter[TimeInputPlacement] = TimeInputPlacement("bottom")
+
+    lazy val bottomEnd: HtmlAttrSetter[TimeInputPlacement] = TimeInputPlacement("bottom-end")
+
+    lazy val bottomStart: HtmlAttrSetter[TimeInputPlacement] = TimeInputPlacement("bottom-start")
+
+    lazy val top: HtmlAttrSetter[TimeInputPlacement] = TimeInputPlacement("top")
+
+    lazy val topEnd: HtmlAttrSetter[TimeInputPlacement] = TimeInputPlacement("top-end")
+
+    lazy val topStart: HtmlAttrSetter[TimeInputPlacement] = TimeInputPlacement("top-start")
+  }
+
+  /** placement attribute - ToastPlacement */
+  object ToastPlacement extends HtmlAttr[ToastPlacement]("placement", UnionAsStringCodec[ToastPlacement]) {
+
+    lazy val bottomCenter: HtmlAttrSetter[ToastPlacement] = ToastPlacement("bottom-center")
+
+    lazy val bottomEnd: HtmlAttrSetter[ToastPlacement] = ToastPlacement("bottom-end")
+
+    lazy val bottomStart: HtmlAttrSetter[ToastPlacement] = ToastPlacement("bottom-start")
+
+    lazy val topCenter: HtmlAttrSetter[ToastPlacement] = ToastPlacement("top-center")
+
+    lazy val topEnd: HtmlAttrSetter[ToastPlacement] = ToastPlacement("top-end")
+
+    lazy val topStart: HtmlAttrSetter[ToastPlacement] = ToastPlacement("top-start")
+  }
+
   /** selection attribute - TreeSelection */
   object TreeSelection extends HtmlAttr[TreeSelection]("selection", UnionAsStringCodec[TreeSelection]) {
 
     lazy val leaf: HtmlAttrSetter[TreeSelection] = TreeSelection("leaf")
 
+    lazy val leafMultiple: HtmlAttrSetter[TreeSelection] = TreeSelection("leaf-multiple")
+
     lazy val multiple: HtmlAttrSetter[TreeSelection] = TreeSelection("multiple")
 
     lazy val single: HtmlAttrSetter[TreeSelection] = TreeSelection("single")
-  }
-
-  /** inputmode attribute - NumberInputInputmode */
-  object NumberInputInputmode
-      extends HtmlAttr[NumberInputInputmode]("inputmode", UnionAsStringCodec[NumberInputInputmode]) {
-
-    lazy val decimal: HtmlAttrSetter[NumberInputInputmode] = NumberInputInputmode("decimal")
-
-    lazy val numeric: HtmlAttrSetter[NumberInputInputmode] = NumberInputInputmode("numeric")
   }
 }
