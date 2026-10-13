@@ -207,6 +207,7 @@ export const createSrcDoc = ({
   }
   html, body {
     margin: 0;
+    height: 100%;
     transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
   }
   body {
