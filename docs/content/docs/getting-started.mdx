@@ -11,6 +11,8 @@ This guide demonstrates one setup approach using [Scala CLI](https://scala-cli.v
 
 This guide uses the following tools, but alternatives are available:
 
+WebAwesome Laminar **3.14.1** requires **Scala 3.9 or newer** and **Scala.js 1.22.0 or newer**. The Web Awesome JavaScript package remains at **3.14.0**.
+
 ### Build Tool
 
 This guide uses **Scala CLI** to compile Scala code to JavaScript. Install it using Homebrew:
@@ -24,7 +26,7 @@ For other installation methods, visit: https://scala-cli.virtuslab.org/install
 > **Alternative build tools:** If you prefer using Mill or sbt, you can adapt the dependency declarations to your build tool's syntax. The core dependencies you'll need are:
 > - `org.scala-js::scalajs-dom::2.8.1`
 > - `com.raquo::laminar::17.2.1`
-> - `io.github.nguyenyou::webawesome-laminar::3.14.0`
+> - `io.github.nguyenyou::webawesome-laminar::3.14.1`
 
 ### Package Manager and Development Server
 
@@ -53,22 +55,22 @@ Install the WebAwesome library, which provides the web components we'll use. Thi
 <Tabs items={['bun', 'npm', 'pnpm', 'yarn']}>
   <Tab value="bun">
     ```sh
-    bun add @awesome.me/webawesome
+    bun add @awesome.me/webawesome@3.14.0
     ```
   </Tab>
   <Tab value="npm">
     ```sh
-    npm install @awesome.me/webawesome
+    npm install @awesome.me/webawesome@3.14.0
     ```
   </Tab>
   <Tab value="pnpm">
     ```sh
-    pnpm install @awesome.me/webawesome
+    pnpm install @awesome.me/webawesome@3.14.0
     ```
   </Tab>
   <Tab value="yarn">
     ```sh
-    yarn add @awesome.me/webawesome
+    yarn add @awesome.me/webawesome@3.14.0
     ```
   </Tab>
 </Tabs>
@@ -99,12 +101,13 @@ Now let's create the two files needed for your application:
 This is your main Scala application file. It sets up the Scala.js environment, imports necessary dependencies, and renders a WebAwesome button component:
 
 ```scala title="main.scala"
-//> using scala 3.7.3
+//> using scala 3.9.0
 //> using platform scala-js
+//> using jsVersion 1.22.0
 
 //> using dep "org.scala-js::scalajs-dom::2.8.1"
 //> using dep "com.raquo::laminar::17.2.1"
-//> using dep "io.github.nguyenyou::webawesome-laminar::3.14.0"
+//> using dep "io.github.nguyenyou::webawesome-laminar::3.14.1"
 
 //> using jsModuleKind es
 
@@ -168,7 +171,7 @@ Compile your Scala code to JavaScript. This example uses Scala CLI:
 scala-cli --power package main.scala -f -o main.js
 ```
 
-This command compiles your Scala source code into JavaScript that can run in the browser. The `-f` flag creates a single file bundle, and `-o main.js` specifies the output filename.
+This command compiles your Scala source code into JavaScript that can run in the browser. The `-f` flag overwrites an existing output file, and `-o main.js` specifies the output filename.
 
 > **Using Mill or sbt:** Configure your build tool to compile Scala.js and output to `main.js` (or adjust the script path in `index.html` to match your output).
 
