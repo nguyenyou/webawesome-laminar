@@ -2,7 +2,7 @@
 import manifest from '../node_modules/@awesome.me/webawesome/dist/custom-elements.json' with { type: "json" };
 import { readFile, writeFile, paths, CONSTANTS, SKIP_COMPONENTS } from './utils.js';
 import path from 'node:path';
-import ts from 'typescript';
+import ts from '@typescript/typescript6';
 
 console.log('Processing manifest with', manifest.modules.length, 'modules');
 

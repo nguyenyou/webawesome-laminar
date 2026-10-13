@@ -146,10 +146,10 @@ export const Preview = ({
       {/* Frame component area - shows loading/error or actual Frame */}
       <div className={`w-full ${h} bg-fd-secondary`}>
         <ResizablePanelGroup
-          direction="horizontal"
+          orientation="horizontal"
           className={`w-full h-full`}
         >
-          <ResizablePanel defaultSize={100}>
+          <ResizablePanel defaultSize="100%">
             <div className="flex h-full items-center justify-center">
               {isLoading ? (
                 <Spinner />
@@ -189,7 +189,7 @@ export const Preview = ({
             </div>
           </ResizablePanel>
           <ResizableHandle withHandle />
-          <ResizablePanel defaultSize={0}>
+          <ResizablePanel defaultSize="0%" minSize="0%">
             <div className="flex h-full items-center justify-center p-6"></div>
           </ResizablePanel>
         </ResizablePanelGroup>

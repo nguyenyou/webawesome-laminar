@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "npm run dev:scala && concurrently -c \"auto\" \"npm run dev:js\" \"npm run dev:scala:watch\"",
+    "dev": "bun run dev:scala && concurrently -c \"auto\" \"bun run dev:js\" \"bun run dev:scala:watch\"",
     "dev:js": "vite",
     "dev:scala": "./mill myapp.fastLinkJS",
     "dev:scala:watch": "./mill -w myapp.fastLinkJS",
@@ -12,8 +12,8 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "concurrently": "9.2.0",
-    "vite": "7.0.4"
+    "concurrently": "10.0.6",
+    "vite": "8.3.4"
   },
   "dependencies": {
     "@awesome.me/webawesome": "3.14.0"

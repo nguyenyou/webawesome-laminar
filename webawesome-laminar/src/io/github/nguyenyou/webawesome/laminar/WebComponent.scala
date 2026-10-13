@@ -38,7 +38,11 @@ abstract class WebComponent(tagName: String) extends CommonTypes { this: Self =>
   private type LaminarMod   = Modifier[Element]
 
   // Note: this is overridden for components that have controlled inputs – see `tagWithControlledInputs`
-  protected lazy val tag: CustomHtmlTag[Ref] = new CustomHtmlTag(tagName)
+  protected lazy val tag: CustomHtmlTag[Ref] = CustomHtmlTag[Ref](
+    tagName,
+    allowedInputControllerConfigIndices = _ => js.undefined,
+    allowableInputControllerConfigs = js.undefined
+  )
 
   protected def tagWithControlledInput[Ref <: dom.html.Element, A, Ev <: dom.Event](
       prop: HtmlProp[A, ?],

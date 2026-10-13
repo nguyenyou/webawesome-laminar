@@ -54,3 +54,12 @@ jobs:
       - name: Build documentation site
         working-directory: docs
         run: bun --bun run build
+      - name: Install quickstart dependencies
+        working-directory: quickstart
+        run: bun install --frozen-lockfile
+      - name: Compile and link quickstart
+        working-directory: quickstart
+        run: ./mill --no-server myapp.fullLinkJS
+      - name: Build quickstart
+        working-directory: quickstart
+        run: bun run build

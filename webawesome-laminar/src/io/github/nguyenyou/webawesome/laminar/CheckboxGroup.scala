@@ -68,8 +68,8 @@ object CheckboxGroup extends WebComponent("wa-checkbox-group") {
 
   object slots {
 
-    /** The default slot where `<wa-checkbox>` or `<wa-switch>` elements are placed. Note: You can just say `_ =>
-      * element` instead of `_.slots.default(element)`
+    /** The default slot where `<wa-checkbox>` or `<wa-switch>` elements are placed. Note: You can just say
+      * `_ => element` instead of `_.slots.default(element)`
       */
     lazy val default: Slot = Slot("")
 

@@ -3,13 +3,13 @@
 ## Install dependencies
 
 ```bash
-$ npm install
+$ bun install
 ```
 
 ## Start dev server
 
 ```bash
-$ npm run dev
+$ bun run dev
 ```
 
 Open: http://localhost:5173

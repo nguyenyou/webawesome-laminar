@@ -7,6 +7,7 @@ import {
   type ReactNode,
   type RefObject,
   useContext,
+  useImperativeHandle,
   useMemo,
   useRef,
 } from 'react';
@@ -19,7 +20,6 @@ import {
   TabsList,
   TabsTrigger,
 } from 'fumadocs-ui/components/tabs.unstyled';
-import { mergeRefs } from 'fumadocs-ui/utils/merge-refs';
 
 export interface CodeBlockProps extends ComponentProps<'figure'> {
   /**
@@ -197,10 +197,11 @@ function CopyButton({
 export function CodeBlockTabs({ ref, ...props }: ComponentProps<typeof Tabs>) {
   const containerRef = useRef<HTMLDivElement>(null);
   const nested = useContext(TabsContext) !== null;
+  useImperativeHandle(ref, () => containerRef.current!);
 
   return (
     <Tabs
-      ref={mergeRefs(containerRef, ref)}
+      ref={containerRef}
       {...props}
       className={cn(
         'bg-fd-card rounded-xl border',

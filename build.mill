@@ -1,4 +1,4 @@
-//| mvnDeps: ["com.goyeau::mill-scalafix::0.6.0"]
+//| mvnDeps: ["com.goyeau::mill-scalafix::0.6.2"]
 
 package build
 
@@ -10,15 +10,15 @@ import mill.util.VcsVersion
 import com.goyeau.mill.scalafix.ScalafixModule
 
 object Versions {
-    val scalalatest = "3.7.2"
-    val scalalts = "3.3.6"
+    val scalalatest = "3.10.0"
+    val scalalts = "3.9.0"
     val scalaversion = scalalatest
-    val sjs = "1.19.0"
+    val sjs = "1.22.0"
     val laminar = "17.2.1"
-    val waypoint = "10.0.0-M1"
-    val borer = "1.16.1"
+    val waypoint = "10.0.0-M7"
+    val borer = "1.18.0"
     val scalajsdom = "2.8.1"
-    val sourcecode = "0.4.3-M5"
+    val sourcecode = "0.4.4"
 }
 
 object Constants {

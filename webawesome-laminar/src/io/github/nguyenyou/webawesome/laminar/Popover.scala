@@ -76,8 +76,8 @@ object Popover extends WebComponent("wa-popover") {
 
   object slots {
 
-    /** The popover's content. Interactive elements such as buttons and links are supported. Note: You can just say `_
-      * \=> element` instead of `_.slots.default(element)`
+    /** The popover's content. Interactive elements such as buttons and links are supported. Note: You can just say
+      * `_ => element` instead of `_.slots.default(element)`
       */
     lazy val default: Slot = Slot("")
 

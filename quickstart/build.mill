@@ -3,8 +3,8 @@
 import mill.*, scalalib.*, scalajslib.*, scalajslib.api.*
 
 object myapp extends ScalaJSModule {
-  def scalaVersion = "3.3.6"
-  def scalaJSVersion = "1.19.0"
+  def scalaVersion = "3.10.0"
+  def scalaJSVersion = "1.22.0"
 
   def moduleKind = ModuleKind.ESModule
   def moduleSplitStyle = ModuleSplitStyle.FewestModules
@@ -16,6 +16,6 @@ object myapp extends ScalaJSModule {
   def mvnDeps = Seq(
     mvn"org.scala-js::scalajs-dom::2.8.1",
     mvn"com.raquo::laminar::17.2.1",
-    mvn"io.github.nguyenyou::webawesome-laminar::3.0.0",
+    mvn"io.github.nguyenyou::webawesome-laminar::3.14.0",
   )
 }

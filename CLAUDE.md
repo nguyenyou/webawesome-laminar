@@ -70,7 +70,7 @@ Button(_.variant.success, _.size.large)(cls := "my-btn", onClick --> handler)
 
 ### Mill Modules
 
-- `webawesome-laminar` — the published library (Scala 3.3.6 for LTS compat)
+- `webawesome-laminar` — the published library (Scala 3.9.0 for LTS compat)
 - `doc` — documentation examples
 - `BunBuildModule` — custom Mill trait that runs `fullLinkJS` then `bun build` for bundling examples
 - Example modules extend `ExampleModule` (WebModule + BunBuildModule)
@@ -81,8 +81,8 @@ Next.js app in `docs/` using Fumadocs for MDX. Component docs are in `docs/conte
 
 ## Key Versions
 
-- Scala 3.7.2 (dev) / 3.3.6 (published library)
-- Scala.js 1.19.0
+- Scala 3.10.0 (dev) / 3.9.0 (published library)
+- Scala.js 1.22.0
 - Laminar 17.2.1
 - WebAwesome 3.14.0
 - Mill (see `.mill-version`)

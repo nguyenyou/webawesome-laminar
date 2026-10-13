@@ -49,14 +49,14 @@ jobs:
       - name: Bundle documentation previews
         run: bun docs/build.ts
       - name: Pull Vercel production configuration
-        run: bunx --bun vercel@64.0.1 pull --yes --environment=production --token="$VERCEL_TOKEN"
+        run: bunx --bun vercel@64.0.2 pull --yes --environment=production --token="$VERCEL_TOKEN"
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
       - name: Build Vercel artifacts
-        run: bunx --bun vercel@64.0.1 build --prod --token="$VERCEL_TOKEN"
+        run: bunx --bun vercel@64.0.2 build --prod --token="$VERCEL_TOKEN"
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
       - name: Deploy Vercel artifacts
-        run: bunx --bun vercel@64.0.1 deploy --prebuilt --prod --token="$VERCEL_TOKEN"
+        run: bunx --bun vercel@64.0.2 deploy --prebuilt --prod --token="$VERCEL_TOKEN"
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}

@@ -62,8 +62,8 @@ object TabGroup extends WebComponent("wa-tab-group") {
 
   object slots {
 
-    /** Used for grouping tab panels in the tab group. Must be `<wa-tab-panel>` elements. Note: You can just say `_ =>
-      * element` instead of `_.slots.default(element)`
+    /** Used for grouping tab panels in the tab group. Must be `<wa-tab-panel>` elements. Note: You can just say
+      * `_ => element` instead of `_.slots.default(element)`
       */
     lazy val default: Slot = Slot("")
 

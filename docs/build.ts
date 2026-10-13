@@ -156,7 +156,7 @@ async function buildWithRolldown(entrypoint: string, outputPath: string): Promis
       file: outputPath,
       format: 'esm',
       minify: true,
-      inlineDynamicImports: true, // Required when using output.file with dynamic imports
+      codeSplitting: false, // Required when using output.file with dynamic imports
     },
   });
 }

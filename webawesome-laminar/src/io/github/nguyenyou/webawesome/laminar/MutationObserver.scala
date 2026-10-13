@@ -33,8 +33,8 @@ object MutationObserver extends WebComponent("wa-mutation-observer") {
 
   // -- Attributes --
 
-  /** Watches for changes to attributes. To watch only specific attributes, separate them by a space, e.g. `attr="class
-    * id title"`. To watch all attributes, use `*`.
+  /** Watches for changes to attributes. To watch only specific attributes, separate them by a space, e.g.
+    * `attr="class id title"`. To watch all attributes, use `*`.
     */
   lazy val attr: HtmlAttr[String] = stringAttr("attr")
 
